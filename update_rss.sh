@@ -10,6 +10,7 @@ mkdir -p channels
 curl -s https://mags.acm.org/communications/rss -o channels/cacm_feed.xml
 curl -s https://techcrunch.com/feed/ -o channels/techcrunch.xml
 curl -s https://techcrunch.com/category/startups/feed/ -o channels/techcrunch_startups.xml
+curl -k -s https://www.jiqizhixin.com/rss -o channels/jiqizhixin.xml
 
 # Git operations
 git add .
