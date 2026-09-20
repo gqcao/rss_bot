@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sun, 20 Sep 2026 22:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 23:00:00 GMT</lastBuildDate>
     <item>
       <title>SoL-Pi: Recursively Scaling Auto-Research Loops for Efficient Agent Harness</title>
       <link>https://arxiv.org/abs/2609.20519</link>
@@ -45,17 +45,57 @@ Code: https://github.com/zhengkid/dream-rsi</description>
       <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>RSIAgent: Autonomous Exploration for Recursive Self-improvement in New Environments</title>
-      <link>https://arxiv.org/abs/2609.15364</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.15364</guid>
-      <description>Digital agents must often adapt to new environments whose interfaces, tools, and failure modes are not fully captured by pretrained models. We introduce RSIAgent, a training-free multi-agent framework for recursive self-improvement through autonomous memory construction. RSIAgent coordinates curriculum, actor, and verifier agents to continually explore the environment, validate outcomes, and retain environment-specific knowledge, including reusable causal relationships between actions, conditions, and consequences. It further adopts a broad-then-deep exploration strategy, combining parallel broad recursive self-exploration for discovering diverse environment structures with focused deep self-exploration for uncovering hard cases, hidden constraints, boundary conditions, and previously unknown causal dependencies. The resulting memory is frozen and can be directly reused for downstream tasks without updating model parameters. Experiments on OSWorld-v2 and Agent's Last Exam show that RSIAgent substantially improves strong open-source models, enabling Kimi-K3 and GLM-5.3 to outperform frontier closed-source models including GPT-6.
+      <title>Agora: Git as Shared Memory for Collective AutoResearch</title>
+      <link>https://arxiv.org/abs/2609.18094</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.18094</guid>
+      <description>Autonomous research loops such as AutoResearch show that one coding agent can improve a training setup unattended. Run several of them and each session starts from scratch, so more agents tend to mean more duplicated search rather than more discovery. Agora is a shared memory for such agents: research is recorded as an append-only directed acyclic graph (DAG) stored in Git, so that every claim is a commit anyone can check out and rerun. Each result, insight, hypothesis, verification, and report is an immutable commit whose parent edges say what it builds on; a derived index exposes the frontier, the neglected branches, and the verification status of each claim, and a diversity-aware selection rule keeps the community from collapsing onto one leader. We describe the system and report its first sustained use: a run of nearly 12 days in which 13 language-model workers, with no assigned tasks and no central planner, worked on a weight-transfer problem. Given 141 pretrained donor models and a frozen 119.6M-parameter attention-SSM hybrid whose dimensions match no donor, the workers had to initialize the target without training data or gradient updates. They published 1,703 contributions and drove the evaluator from 3.39 to 1.899 bits per byte, closing 62% of the gap to a trained GPT-2 124M. The winning recipe compresses donor next-token statistics into the target's embedding and output head, then adds a short-range context signal through sparse edits to attention, feed-forward, and state-space blocks. Its 145-commit ancestry spans 15 accounts, and 165 independent reproductions were posted, none of which failed. We describe the single mid-run human intervention that pulled the community out of a monoculture, what the trace does and does not establish, and the controlled comparison that would settle whether shared research state improves discovery per unit of compute.
 
-Authors: Sibo Zhu, Shicheng Fan, Xinyue Wang, Wenyi Wu, Kun Zhou, Biwei Huang
+Authors: YiFan Zhang, Yunheng Zou, Shaokun Zhang, Jian Hu, Hao Zhang, Binfeng Xu, Jan Kautz, Yi Dong
 
-Tasks: Agents, Coding Agents, Computer Use Agents, Reinforcement Learning
+Tasks: Coding Agents
 
-Code: https://github.com/AetherLabsAI/RSIAgent</description>
-      <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/yifanzhang-pro/agora</description>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Other Half of the Memory Wall: Serving 35B MoEs from SSD with Trained Routing Prediction</title>
+      <link>https://arxiv.org/abs/2609.18063</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.18063</guid>
+      <description>Mixture-of-experts (MoE) inference on consumer hardware is bounded by weight memory: a 35B-class model is 19.5GB at 4-bit, and sparsity shrinks the compute per token, not the bytes that must be held. Naive offloading to SSD does not help on its own, because layer N+1's experts must be chosen before layer N's output exists, so the reads cannot start early enough to hide behind compute. We present Edge0, a streaming MoE inference engine that closes the gap with a prerouter: a per-layer head predicts the next layer's routing one token ahead, and the prediction is consumed as the routing itself, so the staged expert set equals the routed set and nothing is dropped. An unmerged recovery LoRA, trained on the student path, pays back the quality lost to int4 quantization and routing replacement. On a single 24GB machine, Edge0
+  serves a 35B MoE at 20tok/s inside 3GiB of peak active memory, within a few points of its fp16 teacher on average across five public benchmarks. An 8B tier runs on the same framework, and the framework, checkpoints, and adapters are open source.
+
+Authors: Yu Lin, Yiming Wang, Runyuan Cai, Hanze Liu, Xiaodong Zeng
+
+Tasks: Language Modeling
+
+Code: https://github.com/edge0-ai/edge0</description>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI for Games in the Foundation Model Era</title>
+      <link>https://arxiv.org/abs/2609.16679</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.16679</guid>
+      <description>Foundation models, alongside advances in learned game-world models, are reshaping AI across the game lifecycle. Beyond playing games, recent systems model players and game dynamics, support design and development, adapt player-facing experiences at runtime, and evaluate resulting artifacts. Yet these directions have evolved largely separately, obscuring which capabilities transfer across settings and which remain tied to particular games, engines, interfaces, or player populations. We organize the literature into six roles according to the immediate use of AI output: playing and acting; modeling players and games; designing games; building and maintaining games; generating and adapting at runtime; and testing and evaluating games. For each role, we examine what structure is supplied by the game or workflow, what AI learns or produces, which capabilities and artifacts transfer across settings and roles, and what evidence supports the claims. We identify cross-role connections: trajectories train world models, learned environments provide experience for agents, design specifications drive executable implementations, and play or testing feedback guides revision. However, control schemes, rules, engine interfaces, state representations, and player contexts often remain setting-specific, so downstream claims require validation in the target setting. Evaluation is most standardized for bounded game playing and selected learned environments, while persistent state in learned worlds, repeated software revision, validated player modeling, sustained runtime adaptation, and representative automated testing remain less established. The central challenge is to reuse or transfer outputs and capabilities across roles while re-establishing evidence for effectiveness in the game-specific contexts where they are used.
+
+Authors: Meng Luo, Yanlin Li, Hao Li, Hongzhan Lin, Pengfei Zhou, Tianjie Ju, Ran Zhang, Yeying Jin, Mong-Li Lee, Wynne Hsu
+
+Tasks: World Models
+
+Code: https://github.com/Eurekaleo/awesome-ai-for-games</description>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence</title>
+      <link>https://arxiv.org/abs/2609.17488</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.17488</guid>
+      <description>We introduce LimiX-2, a new model in the LimiX family, developed through model and data scaling guided by our previously established scaling laws. LimiX-2 adopts the Contextual Mechanism Networks (CMNs) paradigm and is pretrained with Context-Conditional Masked Modeling (CCMM). CMNs shifts the organizing principle of in-context learning from target-centric prediction to mechanism-oriented joint modeling. Rather than centering the network on the p(y mid x, D_{context}) objective of conventional tabular PFNs, it is designed around learning p(x, y mid D_{context}), a context-dependent representation of the joint structure underlying data generation. Pretraining uses synthetic datasets generated by structural causal models (SCMs) spanning diverse graph structures, functional mechanisms, and observation processes. Evaluations on TabArena, TALENT, and BCCO show that LimiX-2 outperforms current dataset-specific models and tabular foundation models. Beyond predictive performance, the CMN paradigm also promotes causal awareness in LimiX-2: its feature attention encodes direct causal relationships, enabling accurate causal skeleton recovery.
+
+Authors: Xingxuan Zhang, Gang Ren, Hao Yuan, Hao Zou, Hongze Tan, Hui Wang, Jianhao Song, Jiansheng Li, Jiayao Zhang, Jinghan Zhang, Kaifang Li, Lang Mo, Li Mao, Mingchao Hao, Nuo Xu, Rui Ding, ruiji zhang, Shuyang Li, Siyu Mei, Tianyang Zhang, Weiyang Mu, Yancheng Dong, Yongxian Wei, Yuan Xue, Yuanrui Wang, Yue He, Zijia Yang, Ziyun Li, Dongzhe Li, Fuqiang Wang, Jiandong Liu, Jiawei Chen, Jiaxin Du, Kaijie Cheng, Kehan Li, Lei Sun, Linjun Zhou, Ningbo Dai, Qi Wang, Renzhe Xu, Shaoxing Du, Shumeng Yang, Wang Lu, Wenjing Chu, Xiannan Huang, Xiaoyu Lin, Xing Ai, Xinyan Han, Xuanyue Li, Xuanyue Su, Xukun Zhang, Yan Lu, Yaxin Zhang, Yi Qin, Yifei Huang, Yihan Xu, Yongle Lv, Yuanyuan Jiang, Yushan Han, Peng Cui
+
+Tasks: Tabular Learning
+
+Code: https://github.com/limix-ldm-ai/LimiX</description>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Omni-Streaming Thinking</title>
@@ -82,17 +122,17 @@ Code: https://github.com/Gen-Verse/DFM-Plans</description>
       <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence</title>
-      <link>https://arxiv.org/abs/2609.17488</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.17488</guid>
-      <description>We introduce LimiX-2, a new model in the LimiX family, developed through model and data scaling guided by our previously established scaling laws. LimiX-2 adopts the Contextual Mechanism Networks (CMNs) paradigm and is pretrained with Context-Conditional Masked Modeling (CCMM). CMNs shifts the organizing principle of in-context learning from target-centric prediction to mechanism-oriented joint modeling. Rather than centering the network on the p(y mid x, D_{context}) objective of conventional tabular PFNs, it is designed around learning p(x, y mid D_{context}), a context-dependent representation of the joint structure underlying data generation. Pretraining uses synthetic datasets generated by structural causal models (SCMs) spanning diverse graph structures, functional mechanisms, and observation processes. Evaluations on TabArena, TALENT, and BCCO show that LimiX-2 outperforms current dataset-specific models and tabular foundation models. Beyond predictive performance, the CMN paradigm also promotes causal awareness in LimiX-2: its feature attention encodes direct causal relationships, enabling accurate causal skeleton recovery.
+      <title>RSIAgent: Autonomous Exploration for Recursive Self-improvement in New Environments</title>
+      <link>https://arxiv.org/abs/2609.15364</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.15364</guid>
+      <description>Digital agents must often adapt to new environments whose interfaces, tools, and failure modes are not fully captured by pretrained models. We introduce RSIAgent, a training-free multi-agent framework for recursive self-improvement through autonomous memory construction. RSIAgent coordinates curriculum, actor, and verifier agents to continually explore the environment, validate outcomes, and retain environment-specific knowledge, including reusable causal relationships between actions, conditions, and consequences. It further adopts a broad-then-deep exploration strategy, combining parallel broad recursive self-exploration for discovering diverse environment structures with focused deep self-exploration for uncovering hard cases, hidden constraints, boundary conditions, and previously unknown causal dependencies. The resulting memory is frozen and can be directly reused for downstream tasks without updating model parameters. Experiments on OSWorld-v2 and Agent's Last Exam show that RSIAgent substantially improves strong open-source models, enabling Kimi-K3 and GLM-5.3 to outperform frontier closed-source models including GPT-6.
 
-Authors: Xingxuan Zhang, Gang Ren, Hao Yuan, Hao Zou, Hongze Tan, Hui Wang, Jianhao Song, Jiansheng Li, Jiayao Zhang, Jinghan Zhang, Kaifang Li, Lang Mo, Li Mao, Mingchao Hao, Nuo Xu, Rui Ding, ruiji zhang, Shuyang Li, Siyu Mei, Tianyang Zhang, Weiyang Mu, Yancheng Dong, Yongxian Wei, Yuan Xue, Yuanrui Wang, Yue He, Zijia Yang, Ziyun Li, Dongzhe Li, Fuqiang Wang, Jiandong Liu, Jiawei Chen, Jiaxin Du, Kaijie Cheng, Kehan Li, Lei Sun, Linjun Zhou, Ningbo Dai, Qi Wang, Renzhe Xu, Shaoxing Du, Shumeng Yang, Wang Lu, Wenjing Chu, Xiannan Huang, Xiaoyu Lin, Xing Ai, Xinyan Han, Xuanyue Li, Xuanyue Su, Xukun Zhang, Yan Lu, Yaxin Zhang, Yi Qin, Yifei Huang, Yihan Xu, Yongle Lv, Yuanyuan Jiang, Yushan Han, Peng Cui
+Authors: Sibo Zhu, Shicheng Fan, Xinyue Wang, Wenyi Wu, Kun Zhou, Biwei Huang
 
-Tasks: Tabular Learning
+Tasks: Agents, Coding Agents, Computer Use Agents, Reinforcement Learning
 
-Code: https://github.com/limix-ldm-ai/LimiX</description>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/AetherLabsAI/RSIAgent</description>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Emergence World: Adversarial Stress-Testing of Long-Horizon Multi-Agent Systems</title>
@@ -108,70 +148,17 @@ Code: https://github.com/emergenceai/emergence-world</description>
       <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>AI for Games in the Foundation Model Era</title>
-      <link>https://arxiv.org/abs/2609.16679</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.16679</guid>
-      <description>Foundation models, alongside advances in learned game-world models, are reshaping AI across the game lifecycle. Beyond playing games, recent systems model players and game dynamics, support design and development, adapt player-facing experiences at runtime, and evaluate resulting artifacts. Yet these directions have evolved largely separately, obscuring which capabilities transfer across settings and which remain tied to particular games, engines, interfaces, or player populations. We organize the literature into six roles according to the immediate use of AI output: playing and acting; modeling players and games; designing games; building and maintaining games; generating and adapting at runtime; and testing and evaluating games. For each role, we examine what structure is supplied by the game or workflow, what AI learns or produces, which capabilities and artifacts transfer across settings and roles, and what evidence supports the claims. We identify cross-role connections: trajectories train world models, learned environments provide experience for agents, design specifications drive executable implementations, and play or testing feedback guides revision. However, control schemes, rules, engine interfaces, state representations, and player contexts often remain setting-specific, so downstream claims require validation in the target setting. Evaluation is most standardized for bounded game playing and selected learned environments, while persistent state in learned worlds, repeated software revision, validated player modeling, sustained runtime adaptation, and representative automated testing remain less established. The central challenge is to reuse or transfer outputs and capabilities across roles while re-establishing evidence for effectiveness in the game-specific contexts where they are used.
+      <title>Atria Dawn: The Dawn of Agentic Superintelligence</title>
+      <link>https://arxiv.org/abs/2609.15818</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.15818</guid>
+      <description>As AI agents become participants in the development of their successors, they reshape both the production of intelligence and the role of human researchers. We introduce Atria Dawn Preview, a foundation agentic language model designed for scientific research and engineering workflows, with the goal of expanding the frontier of agent productivity in the real world. This model is trained via a Verifiable Experience Pipeline that connects tool-mediated interactions to executable environments and externally verified outcomes. Across 16 benchmarks spanning real-world research, engineering, and digital work, Atria Dawn Preview is competitive with frontier agents and achieves the highest reported score on five of them. Beyond standalone performance, we examine the real research-and-development process behind this model as a case study of human--AI collaboration, analyzing 769 task records from 56 participants together with agent logs. When asked to evaluate completed tasks under comparable conditions, participants rated about one-third of completed AI-assisted tasks as infeasible without AI. More strikingly, agents frequently propose methods and implement revisions, while humans retain most final decisions and guide exploration through judgment and feedback. These observations indicate a shift from task-level execution to project-level partnership, with human effort concentrating on what is worth pursuing and how evidence should guide research. Progress toward more autonomous AI research must therefore advance both the capacity for discovery and the capacity for meaningful human oversight, preserving accountable human authority over the risks and direction of continued development.
 
-Authors: Meng Luo, Yanlin Li, Hao Li, Hongzhan Lin, Pengfei Zhou, Tianjie Ju, Ran Zhang, Yeying Jin, Mong-Li Lee, Wynne Hsu
+Authors: Honglin Guo, Tao Gui, Yicheng Chen, Guanting Dong, Qiming Ge, Yuyang Hu, Zixian Huang, Jiajie Jin, Alexander Lam, Yining Li, Jiahang Lin, Yanjiang Liu, Xinyu Lu, Haijun Lv, Junlin Shang, Qisheng Su, Guoqiang Wang, Rui Wang, Zhecan Wang, Hao Xiang, Xinchen Xie, Shuhao Xing, Xiaoyu Xing, Wanghan Xu, Xinyu Yang, Yajie Yang, Chengfeng Zhao, Haoran Zhao, Ruojun Zhou, Yunhua Zhou, Yicheng Zou, Kun Cai, Qiye Cai, Xinmeng Che, Haodong Chen, Jiabei Chen, Jiahao Chen, Jiayi Chen, Yujia Chen, Lizhi Cui, Youheng Dai, Xin Deng, Yi Dong, Shihan Dou, Chenya Gu, Xu Guo, Ding Han, Feiyang Hao, Haotan He, Jie Hou, Binze Hu, Zijian Hu, Junhao Huang, Huicheng Jiang, Jiazhen Jiang, Shufan Jiang, Jiahao Kuang, Bowen Lai, Bo Li, Jiaqiang Li, Peng Li, Qilong Li, Zhuoqun Li, Jiaxiang Liu, Shuainan Liu, Tong Liu, Yi Liu, Zhonghang Lu, Jianwen Luo, Yanyi Luo, Huijie Lv, Ningsheng Ma, Zerun Ma, Houcheng Min, Chengjun Pan, Qiyuan Peng, Xiaoxuan Peng, Jianmin Qian, Jiantao Qiu, Wanying Ren, Huayu Sha, Jifei Shan, Zixin Shang, Bing Shao, Zhuohui Sheng, Jiayang Shi, Yang Shu, Aierpanjiang Simayi, Sirui Song, Yuxiao Song, Zhe Sun, Zhichao Sun, Wenzhe Tan, Wenhui Tian, Zhongbo Tian, Hanchen Wang, Pengbo Wang, Yiding Wang, Yuhui Wang, Zhiheng Xi, Caijun Xu, Chao Xu, Yongfeng Xu, Xiaolei Yang, Zhixiong Yang, Qian Yao, Shihong Yi, Yuankai Ying, JIA YU, Dingbo Yuan, Hao Yuan, Junjie Yuan, Bo Zhang, Caixian Zhang, Qiuyinzhe Zhang, Jiyuan Zhao, Penghao Zhao, Ying Zhao, Pujun Zheng, Xiaoxue Zhong, Xiaohao Zhou, Xinyu Zhou, Dongsheng Zhu, Guanru Zhu, Yulun Zhu, Yaojie Lu, Tao Ji, Hongyu Lin, Yutao Zhu, Pengfei Cao, Guoxiu He, Xianpei Han, Ben He, Zhicheng Dou, Kang Liu, Qi Zhang, Le Sun, Jun Zhao, Ji-Rong Wen, Xuanjing Huang, Yu-Gang Jiang, BoWen Zhou
 
-Tasks: World Models
+Tasks: Agents, Coding Agents, Computer Use Agents, Deep Research Agents, Reinforcement Learning
 
-Code: https://github.com/Eurekaleo/awesome-ai-for-games</description>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>In-Context Robot Learning with VLM Agents</title>
-      <link>https://arxiv.org/abs/2609.19138</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.19138</guid>
-      <description>Enabling robots to adapt to unfamiliar environments as readily as humans remains a moonshot goal of embodied AI. No finite collection of demonstrations can cover every task and situation a robot will encounter, making the ability to learn from context at deployment essential for generalization. Such in-context learning (ICL), however, remains largely beyond the reach of existing robotic policies. The broad agentic capabilities of commercial vision-language models (VLMs), such as GPT-6 Astra, raise a compelling question: can these models learn from demonstrations, examples, and interaction feedback, then translate that information into executable and verifiable robot behavior from a new initial state without gradient updates or persistent changes to task-specific parameters? We introduce GPT-Policy, a general-agent framework for in-context robot learning. GPT-Policy integrates a context compiler that preserves task-relevant visual transitions, a VLM that proposes robot-tool actions, and a constrained controller that verifies and executes each action and reports its outcome. We evaluate its reliability and limitations through task success and efficiency metrics, matched comparisons across models, and controlled context ablations. In real-robot trials, human video demonstrations improve task completion even without robot action labels, while aligned action references yield further gains on contact-sensitive tasks. These findings position GPT-Policy as a step toward robot adaptation through in-context learning, providing an empirical foundation for translating the general-purpose capabilities of VLMs into physical behavior and clarifying the challenges that must be overcome for reliable deployment.
-
-Authors: Dongzhou Cheng, Taoran Yi, Ye Fang, Xingwu Zhang, Fan Feng, Yixuan Li, Gengxiong Zhuang, Rongze Wang, Shuai Yang, Wei Song, Weizhi Xue, Minyan Wu, Jie Gui, Jiaqi Wang, Tong Wu
-
-Tasks: Robotics
-
-Code: https://github.com/cheng-haha/GPT-Policy</description>
-      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ScienceIDE: Turning World's Scientific Codebase into Agent Learnable Environments</title>
-      <link>https://arxiv.org/abs/2609.19134</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.19134</guid>
-      <description>Scientific code repositories encode decades of human knowledge in executable models, methods, and tools. Yet fragmented toolchains, implicit domain conventions, and specialized correctness criteria make this knowledge difficult to convert into reliable learning experience-a challenge we call the scientific experience bottleneck. We introduce ScienceIDE, infrastructure for turning the world's scientific code into programmable environments for scientific agents. Guided by expert-defined scientific cases and acceptance criteria, agents transform repositories into executable environments that support task generation, execution, and scientific verification. These environments provide a shared foundation for supervised fine-tuning, reinforcement learning, and evaluation. Using verified interaction trajectories, we train PhAI-IDE-72B, PhAI-IDE-9B, and PhAI-IDE-4B. The model family shows gains in held-out scientific-code repair and across selected general-purpose benchmarks in code, reasoning, and knowledge, providing evidence of positive transfer from scientific experience to broader capabilities. ScienceIDE lays the foundation for an integrated workspace for agent learning and scientific practice, making humanity's scientific software a shared substrate for developing scientific intelligence. Code: https://github.com/aitofound/ScienceIDE
-
-Authors: Hejia Geng, Zesen Huang, Haoyang LI, Wenbin Li, Koutian Wu, Zihan Zhou, Yuanbo Pang, Weihao Liu, Zigong Xu, Zhiping Li, Zongzheng Zhang, Chuanfei Dong, Jiankai Sun, Tianzhe Zheng, Fengyu Xie, Yue Ma, Yueheng Shi, Tong Xie, Zonglin Di, Xianrong Liu, Qucheng Gao, Yimin Liu, Jiaming Pan, Sheng Huang, Xiao-Han Ma, Lanqing Yuan, Zhenlin Zhu, Ziang Liu, Ziyang Xu, Junkai Wang, Kangkai Liang, Jiayi Xian, Zehong Zhao, Liuwei Xu, Jingxu Xie, Peijin Zhang, Qiang Gao, Chengyi Xing, Zhe Zhao, Xi WANG, Yaopeng Xing, Xing Meng, Zhenfei Yin, Yingcheng Wu, Ling Yang
-
-Tasks: Agents, Coding Agents, Reinforcement Learning
-
-Code: https://github.com/aitofound/ScienceIDE</description>
-      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Reflect, Revise, Reuse: Training-Free Skill Evolution for GUI Agents</title>
-      <link>https://arxiv.org/abs/2609.17653</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.17653</guid>
-      <description>GUI agents execute long-horizon tasks on dynamic graphical user interfaces, where pop-ups, delayed loads, and relocated widgets routinely invalidate plans fixed before execution. Recent agent-skill frameworks encapsulate reusable procedural knowledge to mitigate this, yet existing skill designs are largely developed without targeting GUI execution dynamics and treat skills as static artifacts produced before deployment rather than living procedural knowledge that improves through it. We argue that what GUI agents need is not better static skills, but skills that can be revised from execution feedback at deployment time, without additional training. We propose EvoSkill-GUI, a training-free framework in which each skill is a structured multi-file package containing retrieval metadata, executable plans, backup localization, failure-recovery rules, accessibility utilities, and failure cases. EvoSkill-GUI operates through a \emph{reflect-revise-reuse} loop: the executor performs instant in-rollout revisions, an isolated critic diagnoses failed trajectories under strict information isolation, and the executor edits specific skill files through a restricted tool interface. Across MobileWorld, AndroidWorld, and OSWorld, three mainstream GUI benchmarks spanning mobile and desktop platforms, EvoSkill-GUI consistently improves multiple base models without any training, with maximum gains of +16.2%, +6.0%, and +10.5% respectively, and evolved skill libraries continue to benefit related tasks rather than being rebuilt from scratch. Our code is available at https://github.com/ZJU-REAL/EvoSkill-GUI.
-
-Authors: Bofan Chen, Boxuan Zhang, Fei Tang, Zhengxi Lu, Yong Du, Tongbo Chen, Weiming Lu, Jun Xiao, Yueting Zhuang, Yongliang Shen
-
-Tasks: Computer Use Agents
-
-Code: https://github.com/ZJU-REAL/EvoSkill-GUI</description>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>The Other Half of the Memory Wall: Serving 35B MoEs from SSD with Trained Routing Prediction</title>
-      <link>https://arxiv.org/abs/2609.18063</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.18063</guid>
-      <description>Mixture-of-experts (MoE) inference on consumer hardware is bounded by weight memory: a 35B-class model is 19.5GB at 4-bit, and sparsity shrinks the compute per token, not the bytes that must be held. Naive offloading to SSD does not help on its own, because layer N+1's experts must be chosen before layer N's output exists, so the reads cannot start early enough to hide behind compute. We present Edge0, a streaming MoE inference engine that closes the gap with a prerouter: a per-layer head predicts the next layer's routing one token ahead, and the prediction is consumed as the routing itself, so the staged expert set equals the routed set and nothing is dropped. An unmerged recovery LoRA, trained on the student path, pays back the quality lost to int4 quantization and routing replacement. On a single 24GB machine, Edge0
-  serves a 35B MoE at 20tok/s inside 3GiB of peak active memory, within a few points of its fp16 teacher on average across five public benchmarks. An 8B tier runs on the same framework, and the framework, checkpoints, and adapters are open source.
-
-Authors: Yu Lin, Yiming Wang, Runyuan Cai, Hanze Liu, Xiaodong Zeng
-
-Tasks: Language Modeling
-
-Code: https://github.com/edge0-ai/edge0</description>
-      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/atria-asi/Atria-Dawn-Preview</description>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation</title>
@@ -185,32 +172,6 @@ Tasks: Video generation
 
 Code: https://github.com/openvdn/vdn-minimax-h3</description>
       <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents</title>
-      <link>https://arxiv.org/abs/2609.17523</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.17523</guid>
-      <description>We introduce and release ScienceBuddy, an interactive scientific research workspace that brings continually improving scientific agents into researchers' everyday workflows. ScienceBuddy supports researchers in carrying out scientific tasks while transforming their requests, feedback, and execution evidence into tasks and evaluation rubrics for continual learning. At its core is recursive-in-recursive self-improvement, a paradigm that couples harness evolution with model reinforcement learning: the inner recursion improves the harness with the model fixed, while the outer recursion trains the model under the improved harness. Harness evolution shapes training experience, and model learning creates new opportunities for harness adaptation. We present case studies of researcher interaction, harness refinement, and model learning, with the benchmark cases spanning four scientific task families. By releasing ScienceBuddy as a research product, we make this paradigm available to the scientific community and take a step toward discovery intelligence: scientific AI that advances through sustained collaboration with researchers and evolves alongside the research it supports. Website: http://science-buddy.io
-
-Authors: Shuhan Xue, Jianyuan Zhong, Ziyuan Nan, Wenbin Li, Zhaochen Yu, Jinchao Ding, Qiang Gao, Pengyu Zhan, Yuntong Zhang, Tian Cheng, Zhenfei Yin, Yingcheng Wu, Ling Yang
-
-Tasks: Deep Research Agents, Reinforcement Learning
-
-Code: https://github.com/Gen-Verse/ScienceBuddy</description>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Atria Dawn: The Dawn of Agentic Superintelligence</title>
-      <link>https://arxiv.org/abs/2609.15818</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.15818</guid>
-      <description>As AI agents become participants in the development of their successors, they reshape both the production of intelligence and the role of human researchers. We introduce Atria Dawn Preview, a foundation agentic language model designed for scientific research and engineering workflows, with the goal of expanding the frontier of agent productivity in the real world. This model is trained via a Verifiable Experience Pipeline that connects tool-mediated interactions to executable environments and externally verified outcomes. Across 16 benchmarks spanning real-world research, engineering, and digital work, Atria Dawn Preview is competitive with frontier agents and achieves the highest reported score on five of them. Beyond standalone performance, we examine the real research-and-development process behind this model as a case study of human--AI collaboration, analyzing 769 task records from 56 participants together with agent logs. When asked to evaluate completed tasks under comparable conditions, participants rated about one-third of completed AI-assisted tasks as infeasible without AI. More strikingly, agents frequently propose methods and implement revisions, while humans retain most final decisions and guide exploration through judgment and feedback. These observations indicate a shift from task-level execution to project-level partnership, with human effort concentrating on what is worth pursuing and how evidence should guide research. Progress toward more autonomous AI research must therefore advance both the capacity for discovery and the capacity for meaningful human oversight, preserving accountable human authority over the risks and direction of continued development.
-
-Authors: Honglin Guo, Tao Gui, Yicheng Chen, Guanting Dong, Qiming Ge, Yuyang Hu, Zixian Huang, Jiajie Jin, Alexander Lam, Yining Li, Jiahang Lin, Yanjiang Liu, Xinyu Lu, Haijun Lv, Junlin Shang, Qisheng Su, Guoqiang Wang, Rui Wang, Zhecan Wang, Hao Xiang, Xinchen Xie, Shuhao Xing, Xiaoyu Xing, Wanghan Xu, Xinyu Yang, Yajie Yang, Chengfeng Zhao, Haoran Zhao, Ruojun Zhou, Yunhua Zhou, Yicheng Zou, Kun Cai, Qiye Cai, Xinmeng Che, Haodong Chen, Jiabei Chen, Jiahao Chen, Jiayi Chen, Yujia Chen, Lizhi Cui, Youheng Dai, Xin Deng, Yi Dong, Shihan Dou, Chenya Gu, Xu Guo, Ding Han, Feiyang Hao, Haotan He, Jie Hou, Binze Hu, Zijian Hu, Junhao Huang, Huicheng Jiang, Jiazhen Jiang, Shufan Jiang, Jiahao Kuang, Bowen Lai, Bo Li, Jiaqiang Li, Peng Li, Qilong Li, Zhuoqun Li, Jiaxiang Liu, Shuainan Liu, Tong Liu, Yi Liu, Zhonghang Lu, Jianwen Luo, Yanyi Luo, Huijie Lv, Ningsheng Ma, Zerun Ma, Houcheng Min, Chengjun Pan, Qiyuan Peng, Xiaoxuan Peng, Jianmin Qian, Jiantao Qiu, Wanying Ren, Huayu Sha, Jifei Shan, Zixin Shang, Bing Shao, Zhuohui Sheng, Jiayang Shi, Yang Shu, Aierpanjiang Simayi, Sirui Song, Yuxiao Song, Zhe Sun, Zhichao Sun, Wenzhe Tan, Wenhui Tian, Zhongbo Tian, Hanchen Wang, Pengbo Wang, Yiding Wang, Yuhui Wang, Zhiheng Xi, Caijun Xu, Chao Xu, Yongfeng Xu, Xiaolei Yang, Zhixiong Yang, Qian Yao, Shihong Yi, Yuankai Ying, JIA YU, Dingbo Yuan, Hao Yuan, Junjie Yuan, Bo Zhang, Caixian Zhang, Qiuyinzhe Zhang, Jiyuan Zhao, Penghao Zhao, Ying Zhao, Pujun Zheng, Xiaoxue Zhong, Xiaohao Zhou, Xinyu Zhou, Dongsheng Zhu, Guanru Zhu, Yulun Zhu, Yaojie Lu, Tao Ji, Hongyu Lin, Yutao Zhu, Pengfei Cao, Guoxiu He, Xianpei Han, Ben He, Zhicheng Dou, Kang Liu, Qi Zhang, Le Sun, Jun Zhao, Ji-Rong Wen, Xuanjing Huang, Yu-Gang Jiang, BoWen Zhou
-
-Tasks: Agents, Coding Agents, Computer Use Agents, Deep Research Agents, Reinforcement Learning
-
-Code: https://github.com/atria-asi/Atria-Dawn-Preview</description>
-      <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>RetireOPD: Self-Retiring On-Policy Distillation for Agentic Reinforcement Learning</title>
@@ -239,6 +200,19 @@ Code: https://github.com/deepseek-ai/deepseek-recipe</description>
       <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>In-Context Robot Learning with VLM Agents</title>
+      <link>https://arxiv.org/abs/2609.19138</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.19138</guid>
+      <description>Enabling robots to adapt to unfamiliar environments as readily as humans remains a moonshot goal of embodied AI. No finite collection of demonstrations can cover every task and situation a robot will encounter, making the ability to learn from context at deployment essential for generalization. Such in-context learning (ICL), however, remains largely beyond the reach of existing robotic policies. The broad agentic capabilities of commercial vision-language models (VLMs), such as GPT-6 Astra, raise a compelling question: can these models learn from demonstrations, examples, and interaction feedback, then translate that information into executable and verifiable robot behavior from a new initial state without gradient updates or persistent changes to task-specific parameters? We introduce GPT-Policy, a general-agent framework for in-context robot learning. GPT-Policy integrates a context compiler that preserves task-relevant visual transitions, a VLM that proposes robot-tool actions, and a constrained controller that verifies and executes each action and reports its outcome. We evaluate its reliability and limitations through task success and efficiency metrics, matched comparisons across models, and controlled context ablations. In real-robot trials, human video demonstrations improve task completion even without robot action labels, while aligned action references yield further gains on contact-sensitive tasks. These findings position GPT-Policy as a step toward robot adaptation through in-context learning, providing an empirical foundation for translating the general-purpose capabilities of VLMs into physical behavior and clarifying the challenges that must be overcome for reliable deployment.
+
+Authors: Dongzhou Cheng, Taoran Yi, Ye Fang, Xingwu Zhang, Fan Feng, Yixuan Li, Gengxiong Zhuang, Rongze Wang, Shuai Yang, Wei Song, Weizhi Xue, Minyan Wu, Jie Gui, Jiaqi Wang, Tong Wu
+
+Tasks: Robotics
+
+Code: https://github.com/cheng-haha/GPT-Policy</description>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</title>
       <link>https://arxiv.org/abs/2609.15863</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2609.15863</guid>
@@ -263,6 +237,32 @@ Tasks: Video generation, World Models
 
 Code: https://github.com/seedleap/zing-world-model</description>
       <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ScienceIDE: Turning World's Scientific Codebase into Agent Learnable Environments</title>
+      <link>https://arxiv.org/abs/2609.19134</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.19134</guid>
+      <description>Scientific code repositories encode decades of human knowledge in executable models, methods, and tools. Yet fragmented toolchains, implicit domain conventions, and specialized correctness criteria make this knowledge difficult to convert into reliable learning experience-a challenge we call the scientific experience bottleneck. We introduce ScienceIDE, infrastructure for turning the world's scientific code into programmable environments for scientific agents. Guided by expert-defined scientific cases and acceptance criteria, agents transform repositories into executable environments that support task generation, execution, and scientific verification. These environments provide a shared foundation for supervised fine-tuning, reinforcement learning, and evaluation. Using verified interaction trajectories, we train PhAI-IDE-72B, PhAI-IDE-9B, and PhAI-IDE-4B. The model family shows gains in held-out scientific-code repair and across selected general-purpose benchmarks in code, reasoning, and knowledge, providing evidence of positive transfer from scientific experience to broader capabilities. ScienceIDE lays the foundation for an integrated workspace for agent learning and scientific practice, making humanity's scientific software a shared substrate for developing scientific intelligence. Code: https://github.com/aitofound/ScienceIDE
+
+Authors: Hejia Geng, Zesen Huang, Haoyang LI, Wenbin Li, Koutian Wu, Zihan Zhou, Yuanbo Pang, Weihao Liu, Zigong Xu, Zhiping Li, Zongzheng Zhang, Chuanfei Dong, Jiankai Sun, Tianzhe Zheng, Fengyu Xie, Yue Ma, Yueheng Shi, Tong Xie, Zonglin Di, Xianrong Liu, Qucheng Gao, Yimin Liu, Jiaming Pan, Sheng Huang, Xiao-Han Ma, Lanqing Yuan, Zhenlin Zhu, Ziang Liu, Ziyang Xu, Junkai Wang, Kangkai Liang, Jiayi Xian, Zehong Zhao, Liuwei Xu, Jingxu Xie, Peijin Zhang, Qiang Gao, Chengyi Xing, Zhe Zhao, Xi WANG, Yaopeng Xing, Xing Meng, Zhenfei Yin, Yingcheng Wu, Ling Yang
+
+Tasks: Agents, Coding Agents, Reinforcement Learning
+
+Code: https://github.com/aitofound/ScienceIDE</description>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JEPA-Anything: Learning Predictive Models across Different Worlds</title>
+      <link>https://arxiv.org/abs/2609.20800</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.20800</guid>
+      <description>World modeling enables intelligence to anticipate consequences, guide interventions, and learn from interaction. Yet predictive models remain domain-specific: can a common learning principle support world modeling across radically different systems? We introduce JEPA-Anything, a domain-agnostic framework based on orthogonal predictive factorization (OPF). Extending joint-embedding predictive architectures, OPF decomposes latent targets into complementary factors, learns them through dedicated pathways, and recombines them within a shared predictive design. We evaluate JEPA-Anything across seven domains: vision, biology, clinical trajectories, control, molecular dynamics, physical fields, and weather. Experiments span representation learning, intervention prediction, out-of-distribution generalization, and long-horizon dynamics, including 10 matched dynamics tasks, forecasting of over 1,000 clinical events, and 100-step molecular rollouts across four systems. Against matched JEPA baselines, JEPA-Anything improves reported metrics on all 10 dynamics tasks and reduces single-intervention prediction error on Interventional Pong by 34.8%. It achieves the lowest one-step and 100-step molecular errors among compared methods in all four systems. Beyond prediction, a factor-nominated biological intervention receives experimental support in cell co-cultures, patient-derived organoids, tumor fragments, and mice; latent orbital modes recover the Keplerian scaling exponent with a fitted slope of -1.4991. These results support a common factorized predictive principle across heterogeneous worlds, connecting world modeling with intervention and experimentally grounded scientific discovery. Code: https://github.com/Gen-Verse/JEPA-Anything
+
+Authors: Taoyong Cui, Zhongyao Wang, Xinyue Xu, Weiyang Liu, Zhaochen Yu, Yuying Zhang, Qiang Gao, Mengyue Yang, Wanli Ouyang, Pheng Ann Heng, Yingcheng Wu, Zhenfei Yin, Ling Yang
+
+Tasks: World Models
+
+Code: https://github.com/Gen-Verse/JEPA-Anything</description>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
