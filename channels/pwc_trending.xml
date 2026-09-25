@@ -4,16 +4,29 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 25 Sep 2026 19:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 20:00:00 GMT</lastBuildDate>
     <item>
-      <title>RRSI: Regularized Recursive Self-Improvement of Agent Harnesses</title>
-      <link>https://arxiv.org/abs/2609.24972</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.24972</guid>
-      <description>An LLM agent's capability is largely magnified by its harness, namely the prompts, control flow, tooling, memory, and context management surrounding the frozen backbone model. Recent methods increasingly automate this process by iteratively proposing and selecting component-wise edits of an agent harness, practically establishing a form of recursive self-improvement (RSI) at the agent-system level. However, such recursive evolution may overfit by memorizing the training tasks, showing large in-distribution gains that shrink or even vanish on out-of-distribution benchmarks. We introduce Regularized Recursive Self-Improvement of Agent Harnesses (RRSI), which incorporates the principles of regularizations into harness self-improvement by constraining the evolution candidate proposal and selection. The proposer operates with a temporally annealed budget, limiting how many edits a candidate can bundle, and it encourages unexplored trajectories based on evolution history. The selector is equipped with a critic and a pruner: the critic screens benchmark-specific proposals, while the pruner, removes changes that are too small, too expensive, or no longer useful. Together these constraints favor reusable agent mechanisms over benchmark-specific ones or even noises. Across eight benchmarks spanning coding, agentic workspace and engineering design tasks, RRSI gains up to 14.1 points on the split it evolves against and up to 4.7 points on the five out-of-distribution benchmarks, while producing a harness that runs on 30% fewer policy tokens than the unregularized evolution. Code is available at https://github.com/google-research/rrsi and project page is https://regularized-rsi.com/.
+      <title>GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</title>
+      <link>https://arxiv.org/abs/2609.24981</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.24981</guid>
+      <description>We present a compact geometry-native latent space as a shared foundation for perception and generation. Visual generators can produce photorealistic frames without preserving a consistent 3D scene. We argue that this is not only a modeling problem but also a representation problem: generators typically evolve appearance-centric latents, while perception models recover geometry in a semantically rich space that encodes cross-view structure. Rather than adding geometry as another output, we reparameterize a geometry foundation model's features into a compact latent space for generation. We realize this shift with the geometry-native autoencoder (GAE), whose latent is jointly decodable to appearance, depth, cameras, and point maps. With this state, a standard conditional flow supports diverse generation tasks. In controlled comparisons that hold the generator and training protocol fixed, replacing the latent with GAE improves both visual quality and independently measured 3D coherence: FVD falls by 12.7% and 23.1% on RealEstate10K and DL3DV, and camera-trajectory error is halved on RealEstate10K. Together, these results show that the latent space is central to geometry-consistent generation and can serve as a shared interface between perception and generation.
 
-Authors: Peng Xia, Rujun Han, Zifeng Wang, Yanfei Chen, Yufan Zhang, Yoonho Lee, Chengsong Huang, Han Yu, Zhongying CuiZhu, Yifei Ming, Huaxiu Yao, Burak Gokturk, Tomas Pfister, Chen-Yu Lee
+Authors: Jiahao Lu, Minghao Yin, Wenbo Hu, Hengyu Liu, Wang Zhao, Sai-Kit Yeung, Ying Shan, Yuan Liu
 
-Code: https://github.com/google-research/rrsi</description>
+Code: https://github.com/TencentARC/GAE-GeometricAutoEncoder</description>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>X-Planner: Event-Structured Task Planning for Embodied Intelligence</title>
+      <link>https://arxiv.org/abs/2609.25187</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.25187</guid>
+      <description>Task planning bridges high-level instructions and executable behavior in long-horizon manipulation, yet modern Vision-Language-Action (VLA) systems often leave this intermediate structure implicit. Existing chain-of-thought (CoT) planners also tend to rely on coarse task-level annotations or serialize long reasoning traces token by token. We present X-Planner, a planning front-end that addresses both the supervision and representation of embodied reasoning. Our planning data combine Ego, UMI, and teleoperation under a hierarchy granularity with source-dependent annotation depth. Takeover-time annotations and human-designed failures supervise ongoing error recognition. On the model side, a shared VLM backbone exposes two event-structured plan forms: a discrete interface that emits interpretable event states and a latent interface that relays continuous CoT states across staggered Transformer depths through Staircase Decoding. A frozen latent-to-text reconstruction objective provides a semantic anchor for the latent representation. Offline two-step planning evaluation places X-Planner second among four evaluated models on both BERTScore-F1 and a judge-based Overall score. In real-robot experiments, respectively, outperforming the evaluated baselines. These results characterize planning-text quality and downstream execution.
+
+Authors: Howard Lu, Shalfun Li, Porter Pan, Cris, Lumen, Cyril, Eric Hu, Lily Li, Maeve Zhang, Robert Wang, KZ Zheng, Viggo Chen, Tim Ding, Regsis Cheng, YJ Xiao, Kian, Hai Lin, Alan Song, Elise Ma, Gody Li, Victor Yao, Yohann Tang, Ingrid Yu, Jason He, James Wang, Ryan Yu, Ping Yang, Chris Pan, Vincent Chen, Roy Gan, Hao Wang, Qian Wang
+
+Tasks: Reasoning, Robotics
+
+Code: https://github.com/X-Square-Robot/Xplanner</description>
       <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -25,56 +38,6 @@ Code: https://github.com/google-research/rrsi</description>
 Authors: Haoran Ye, Yuxing Lu, Haonan Dong, Zhaochen Su, Guojie Song
 
 Code: https://github.com/metaevo-ai/harness-zero</description>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics</title>
-      <link>https://arxiv.org/abs/2609.27308</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.27308</guid>
-      <description>We study coding agents for long-horizon, dexterous robotics and ask whether their solutions can provide scalable supervision for learning general robot policies. To test this, we develop EMBODIEDSWE-BENCH, a simulation benchmark for coding agents spanning contact-rich manipulation, deformable objects, and long-horizon tasks requiring up to half an hour of continuous interaction. We find that frontier coding agents can solve complex long-horizon tasks and transfer prior solutions across both tasks and embodiments. We also design supporting tools that help agents more effectively solve these tasks. However, the resulting solutions require substantial iterative interaction and are typically specialized to individual task instances. We therefore introduce EMBODIEDSWE-GEN, which expands a single solution from coding agent into large diverse trajectories for training a VLA. VLA performance improves with more generated demonstrations, and agent-aided diversification improves generalization to held-out task variations. We also show that a VLA finetuned solely on coding-agent-generated simulation demonstrations completes a long-horizon task on real robot. Together, our framework uses coding agents to solve complex robotics tasks and turn verified solutions into scalable supervision for robot policies.
-
-Authors: Haoxiang You, Zeyu Shen, Yilang Liu, Zhicheng Zheng, Lihan Zha, Kashu Yamazaki, Mingtong Zhang, Suning Huang, Jiankai Sun, Qianzhong Chen, Lucy He, Kaiyuan Liu, Haoran Chang, Katerina Fragkiadaki, Dhruv Shah, Mac Schwager, Peter Henderson, Ian Abraham, Canwen Xu
-
-Tasks: Coding Agents, Robotics
-
-Code: https://github.com/EmbodiedSWE/EmbodiedSWE</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Coding Agents for Generalized Task and Motion Planning Problems</title>
-      <link>https://arxiv.org/abs/2609.30233</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.30233</guid>
-      <description>Task and motion planning (TAMP) problems remain difficult even with full observability and object-centric states because discrete decisions are tightly coupled to geometric, kinematic, and dynamic constraints. Generalized TAMP addresses this difficulty by exploiting regularities across problem instances to reduce planning effort on new instances. However, existing methods require substantial TAMP-specific engineering. We investigate whether coding agents can automate this process by synthesizing programs that generalize across instances. Given a task description and simulator access, each agent chooses how to interact with the environment while developing a program within a fixed synthesis budget. The program is then frozen and evaluated on unseen instances. We evaluate Claude Code (Opus 5) and Codex (GPT-5.6 Sol and GPT-6 Astra) on 28 simulated environments from KinDER and PDDLStream, with object counts beyond those evaluated in the original benchmark. Across all program synthesis methods, we evaluate 980 generated programs on 100 held-out instances each, 98,000 evaluation episodes in total. Overall, we find that coding agents are surprisingly effective at generalized TAMP: all three agent configurations outperform hand-engineered planners, one-shot generation, and an LLM-based generalized planning baseline in mean success (56% to 95% versus 47% for the planners, on the 16 environments where a planner is available). As object counts grow, the agents' programs maintain higher success than the planner, using an order of magnitude less computation per instance on average. Logs show agents using interaction to calibrate physical models, test edge cases, and refine strategies. We release all code, including the full prompts given to the agents. These findings suggest that coding agents are a strong baseline for generalized TAMP.
-
-Authors: Matteo Merler, Bowen Li, Josh Roy, Yichao Liang, Qianwei Wang, Yixuan Huang, Tom Silver
-
-Tasks: Coding Agents
-
-Code: https://github.com/tomsilver/robocode</description>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents</title>
-      <link>https://arxiv.org/abs/2609.23986</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.23986</guid>
-      <description>Agentic memory is becoming essential for long-horizon AI agents, yet many existing systems rely on autoregressive LLMs to control how memories are organized, retrieved, and used, placing expensive generation on the critical path of memory operations. We introduce \method, a new agentic memory architecture inspired by System-One/System-Two cognition. System One captures fast, lightweight decision-making, whereas System Two performs slower, deliberative reasoning. Jev-Mem brings this division of labor to agentic memory through a dedicated System-One control plane, a structured multi-relational memory plane, and a System-Two reasoning plane. The System-One controller governs memory typing and relational organization during construction, and dynamically performs query routing, retrieval-budget allocation, graph traversal, candidate scoring, and adaptive stopping during retrieval. System Two is invoked only for complex reasoning and answer synthesis. This design improves both memory effectiveness and system efficiency: on LoCoMo Jev-Mem achieves an overall LLM-as-a-Judge score of 0.777, an 11.0\% relative improvement over the strongest baseline, while reducing memory construction time to 158\,s, a 6.6times speedup over the fastest competing memory system, and lowering average query latency to 0.93\,s, a 36.7\% reduction.
-
-Authors: Dongming Jiang, Yi Li, Bingzhe Li
-
-Tasks: Agents
-
-Code: https://github.com/libingzheren/Jev-Mem</description>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</title>
-      <link>https://arxiv.org/abs/2609.24981</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.24981</guid>
-      <description>We present a compact geometry-native latent space as a shared foundation for perception and generation. Visual generators can produce photorealistic frames without preserving a consistent 3D scene. We argue that this is not only a modeling problem but also a representation problem: generators typically evolve appearance-centric latents, while perception models recover geometry in a semantically rich space that encodes cross-view structure. Rather than adding geometry as another output, we reparameterize a geometry foundation model's features into a compact latent space for generation. We realize this shift with the geometry-native autoencoder (GAE), whose latent is jointly decodable to appearance, depth, cameras, and point maps. With this state, a standard conditional flow supports diverse generation tasks. In controlled comparisons that hold the generator and training protocol fixed, replacing the latent with GAE improves both visual quality and independently measured 3D coherence: FVD falls by 12.7% and 23.1% on RealEstate10K and DL3DV, and camera-trajectory error is halved on RealEstate10K. Together, these results show that the latent space is central to geometry-consistent generation and can serve as a shared interface between perception and generation.
-
-Authors: Jiahao Lu, Minghao Yin, Wenbo Hu, Hengyu Liu, Wang Zhao, Sai-Kit Yeung, Ying Shan, Yuan Liu
-
-Code: https://github.com/TencentARC/GAE-GeometricAutoEncoder</description>
       <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -102,17 +65,17 @@ Code: https://github.com/2022hpsk/SpeakerMemR1</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>X-Planner: Event-Structured Task Planning for Embodied Intelligence</title>
-      <link>https://arxiv.org/abs/2609.25187</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.25187</guid>
-      <description>Task planning bridges high-level instructions and executable behavior in long-horizon manipulation, yet modern Vision-Language-Action (VLA) systems often leave this intermediate structure implicit. Existing chain-of-thought (CoT) planners also tend to rely on coarse task-level annotations or serialize long reasoning traces token by token. We present X-Planner, a planning front-end that addresses both the supervision and representation of embodied reasoning. Our planning data combine Ego, UMI, and teleoperation under a hierarchy granularity with source-dependent annotation depth. Takeover-time annotations and human-designed failures supervise ongoing error recognition. On the model side, a shared VLM backbone exposes two event-structured plan forms: a discrete interface that emits interpretable event states and a latent interface that relays continuous CoT states across staggered Transformer depths through Staircase Decoding. A frozen latent-to-text reconstruction objective provides a semantic anchor for the latent representation. Offline two-step planning evaluation places X-Planner second among four evaluated models on both BERTScore-F1 and a judge-based Overall score. In real-robot experiments, respectively, outperforming the evaluated baselines. These results characterize planning-text quality and downstream execution.
+      <title>EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics</title>
+      <link>https://arxiv.org/abs/2609.27308</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.27308</guid>
+      <description>We study coding agents for long-horizon, dexterous robotics and ask whether their solutions can provide scalable supervision for learning general robot policies. To test this, we develop EMBODIEDSWE-BENCH, a simulation benchmark for coding agents spanning contact-rich manipulation, deformable objects, and long-horizon tasks requiring up to half an hour of continuous interaction. We find that frontier coding agents can solve complex long-horizon tasks and transfer prior solutions across both tasks and embodiments. We also design supporting tools that help agents more effectively solve these tasks. However, the resulting solutions require substantial iterative interaction and are typically specialized to individual task instances. We therefore introduce EMBODIEDSWE-GEN, which expands a single solution from coding agent into large diverse trajectories for training a VLA. VLA performance improves with more generated demonstrations, and agent-aided diversification improves generalization to held-out task variations. We also show that a VLA finetuned solely on coding-agent-generated simulation demonstrations completes a long-horizon task on real robot. Together, our framework uses coding agents to solve complex robotics tasks and turn verified solutions into scalable supervision for robot policies.
 
-Authors: Howard Lu, Shalfun Li, Porter Pan, Cris, Lumen, Cyril, Eric Hu, Lily Li, Maeve Zhang, Robert Wang, KZ Zheng, Viggo Chen, Tim Ding, Regsis Cheng, YJ Xiao, Kian, Hai Lin, Alan Song, Elise Ma, Gody Li, Victor Yao, Yohann Tang, Ingrid Yu, Jason He, James Wang, Ryan Yu, Ping Yang, Chris Pan, Vincent Chen, Roy Gan, Hao Wang, Qian Wang
+Authors: Haoxiang You, Zeyu Shen, Yilang Liu, Zhicheng Zheng, Lihan Zha, Kashu Yamazaki, Mingtong Zhang, Suning Huang, Jiankai Sun, Qianzhong Chen, Lucy He, Kaiyuan Liu, Haoran Chang, Katerina Fragkiadaki, Dhruv Shah, Mac Schwager, Peter Henderson, Ian Abraham, Canwen Xu
 
-Tasks: Reasoning, Robotics
+Tasks: Coding Agents, Robotics
 
-Code: https://github.com/X-Square-Robot/Xplanner</description>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/EmbodiedSWE/EmbodiedSWE</description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>GameHorizon Suite: Multi-Horizon Data and Evaluation in Gameplay</title>
@@ -125,6 +88,43 @@ Authors: Yiran Wang, Xingyilang Yin, Junfu Pu, Guangzhi Wang, Kaifeng Li, Mingyu
 Tasks: Image Understanding
 
 Code: https://github.com/TencentARC/GameHorizon</description>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Coding Agents for Generalized Task and Motion Planning Problems</title>
+      <link>https://arxiv.org/abs/2609.30233</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.30233</guid>
+      <description>Task and motion planning (TAMP) problems remain difficult even with full observability and object-centric states because discrete decisions are tightly coupled to geometric, kinematic, and dynamic constraints. Generalized TAMP addresses this difficulty by exploiting regularities across problem instances to reduce planning effort on new instances. However, existing methods require substantial TAMP-specific engineering. We investigate whether coding agents can automate this process by synthesizing programs that generalize across instances. Given a task description and simulator access, each agent chooses how to interact with the environment while developing a program within a fixed synthesis budget. The program is then frozen and evaluated on unseen instances. We evaluate Claude Code (Opus 5) and Codex (GPT-5.6 Sol and GPT-6 Astra) on 28 simulated environments from KinDER and PDDLStream, with object counts beyond those evaluated in the original benchmark. Across all program synthesis methods, we evaluate 980 generated programs on 100 held-out instances each, 98,000 evaluation episodes in total. Overall, we find that coding agents are surprisingly effective at generalized TAMP: all three agent configurations outperform hand-engineered planners, one-shot generation, and an LLM-based generalized planning baseline in mean success (56% to 95% versus 47% for the planners, on the 16 environments where a planner is available). As object counts grow, the agents' programs maintain higher success than the planner, using an order of magnitude less computation per instance on average. Logs show agents using interaction to calibrate physical models, test edge cases, and refine strategies. We release all code, including the full prompts given to the agents. These findings suggest that coding agents are a strong baseline for generalized TAMP.
+
+Authors: Matteo Merler, Bowen Li, Josh Roy, Yichao Liang, Qianwei Wang, Yixuan Huang, Tom Silver
+
+Tasks: Coding Agents
+
+Code: https://github.com/tomsilver/robocode</description>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>RRSI: Regularized Recursive Self-Improvement of Agent Harnesses</title>
+      <link>https://arxiv.org/abs/2609.24972</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.24972</guid>
+      <description>An LLM agent's capability is largely magnified by its harness, namely the prompts, control flow, tooling, memory, and context management surrounding the frozen backbone model. Recent methods increasingly automate this process by iteratively proposing and selecting component-wise edits of an agent harness, practically establishing a form of recursive self-improvement (RSI) at the agent-system level. However, such recursive evolution may overfit by memorizing the training tasks, showing large in-distribution gains that shrink or even vanish on out-of-distribution benchmarks. We introduce Regularized Recursive Self-Improvement of Agent Harnesses (RRSI), which incorporates the principles of regularizations into harness self-improvement by constraining the evolution candidate proposal and selection. The proposer operates with a temporally annealed budget, limiting how many edits a candidate can bundle, and it encourages unexplored trajectories based on evolution history. The selector is equipped with a critic and a pruner: the critic screens benchmark-specific proposals, while the pruner, removes changes that are too small, too expensive, or no longer useful. Together these constraints favor reusable agent mechanisms over benchmark-specific ones or even noises. Across eight benchmarks spanning coding, agentic workspace and engineering design tasks, RRSI gains up to 14.1 points on the split it evolves against and up to 4.7 points on the five out-of-distribution benchmarks, while producing a harness that runs on 30% fewer policy tokens than the unregularized evolution. Code is available at https://github.com/google-research/rrsi and project page is https://regularized-rsi.com/.
+
+Authors: Peng Xia, Rujun Han, Zifeng Wang, Yanfei Chen, Yufan Zhang, Yoonho Lee, Chengsong Huang, Han Yu, Zhongying CuiZhu, Yifei Ming, Huaxiu Yao, Burak Gokturk, Tomas Pfister, Chen-Yu Lee
+
+Code: https://github.com/google-research/rrsi</description>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents</title>
+      <link>https://arxiv.org/abs/2609.23986</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.23986</guid>
+      <description>Agentic memory is becoming essential for long-horizon AI agents, yet many existing systems rely on autoregressive LLMs to control how memories are organized, retrieved, and used, placing expensive generation on the critical path of memory operations. We introduce \method, a new agentic memory architecture inspired by System-One/System-Two cognition. System One captures fast, lightweight decision-making, whereas System Two performs slower, deliberative reasoning. Jev-Mem brings this division of labor to agentic memory through a dedicated System-One control plane, a structured multi-relational memory plane, and a System-Two reasoning plane. The System-One controller governs memory typing and relational organization during construction, and dynamically performs query routing, retrieval-budget allocation, graph traversal, candidate scoring, and adaptive stopping during retrieval. System Two is invoked only for complex reasoning and answer synthesis. This design improves both memory effectiveness and system efficiency: on LoCoMo Jev-Mem achieves an overall LLM-as-a-Judge score of 0.777, an 11.0\% relative improvement over the strongest baseline, while reducing memory construction time to 158\,s, a 6.6times speedup over the fastest competing memory system, and lowering average query latency to 0.93\,s, a 36.7\% reduction.
+
+Authors: Dongming Jiang, Yi Li, Bingzhe Li
+
+Tasks: Agents
+
+Code: https://github.com/libingzheren/Jev-Mem</description>
       <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -176,19 +176,6 @@ Tasks: Video generation, World Models
 
 Code: https://github.com/hokindeng/object-permanence</description>
       <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Rate-distortion optimization for full-reference image quality metrics via stochastic Hessian estimates</title>
-      <link>https://arxiv.org/abs/2609.30077</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.30077</guid>
-      <description>Block-based video codecs select coding parameters based on the input by optimizing a rate-distortion trade-off. The conventional distortion choice, the sum of squared errors (SSE), simplifies parameter selection: the SSE is the sum of block-wise SSEs, so rate-distortion optimization (RDO) can treat blocks independently. Alternatively, full-reference image quality assessment (FR-IQA) metrics such as MS-SSIM or LPIPS often align better with the human visual system than SSE, but they cannot be used in-loop: they do not decompose block-wise and typically require the fully decoded image as input. Building on existing results in metric quadratization, we approximate a broad class of FR-IQA metrics by an input-dependent quadratic distortion (IDQD), whose quadratic form matrix is derived from the Hessian of the metric evaluated at the source video. To make the distortion computable block-wise, we propose two approximations of the Hessian matrix: 1) keeping the block-diagonal, and 2) keeping only its diagonal. We propose estimators for both that require only matrix-vector products with the Hessian obtained by automatic differentiation. Across five metrics for Kodak and CLIC in VVC, IDQD-RDO achieves 14.2-36.7 % BD-rate savings under the target metric with no decoder changes and incurs 10-30 % encoding complexity overhead.
-
-Authors: Samuel Fernández-Menduiña, Eduardo Pavez, Antonio Ortega
-
-Tasks: Video Compression
-
-Code: https://github.com/sf219/RDO_IQA_FR</description>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>From Pattern Recognizers to Personalized Companions: A Survey of Large Language Models in Mental Health</title>
@@ -252,6 +239,19 @@ Tasks: Video generation
 
 Code: https://github.com/HaroldChen19/Awesome-AR-Video-Memory</description>
       <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CARE: Experience-Guided Atomic Corrective Execution for Vision-Language-Action Policies</title>
+      <link>https://arxiv.org/abs/2609.24118</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.24118</guid>
+      <description>Vision-Language-Action (VLA) policies achieve strong performance in robotic manipulation but remain brittle once execution deviates from nominal trajectories. We propose CARE (Corrective Atomic Robotic Execution), a framework that improves recovery by learning from failures encountered during execution. Instead of generating corrective data from manually designed or random perturbations, CARE collects failed rollouts, models stage-conditioned post-failure deviations, and uses the resulting empirical distributions to synthesize representative failure states and corrective demonstrations. At inference time, CARE combines stage-wise planning with physically grounded 3D monitoring to trigger atomic adjustments or re-operations while preserving task progress. We further introduce the Failure State Recovery Benchmark (FSR-Bench), which evaluates recovery from intermediate failure states under local deviations and structural anomalies. Experiments across multiple VLA backbones, simulation benchmarks, and real-world dual-arm tasks show consistent improvements, with average task-success gains of 14.5 points in simulation and 15.9 points in the real world. Code, models, and data are available at https://github.com/xiaojunlan/care
+
+Authors: Junlan Xiao, Junwei Jiang, Zaibin Zhang, Yifan Wang, Zhongbo Zhang, Huchuan Lu, Lijun Wang
+
+Tasks: Robotics
+
+Code: https://github.com/xiaojunlan/care</description>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
