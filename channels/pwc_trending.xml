@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sun, 04 Oct 2026 02:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 03:00:00 GMT</lastBuildDate>
     <item>
       <title>LoopVL: Recurrent Visual Intelligence</title>
       <link>https://arxiv.org/abs/2609.38426</link>
@@ -19,6 +19,19 @@ Code: https://github.com/Tier-Flow/LoopVL</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>PanoVLN: Towards Effective Panoramic Vision-and-Language Navigation</title>
+      <link>https://arxiv.org/abs/2609.34759</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.34759</guid>
+      <description>Recent vision-language models (VLMs) have advanced vision-and-language navigation (VLN), enabling models to predict navigation actions from visual observations and language instructions. In this work, we explore VLN with panoramic observations and introduce PanoVLN. The motivation is straightforward: more complete visual context should enable better-informed navigation decisions. For example, a panorama can reveal a passage outside a perspective camera's field of view, allowing the model to identify the intended route without additional exploration. However, we find that simply replacing perspective images with panoramas yields only limited gains. Our diagnosis suggests that fully exploiting wider visibility requires modifications to action prediction, training supervision, and visual representation. First, wider visibility supports longer-horizon action planning. We make the model predict longer action sequences, enabling larger turns and subsequent movement from a single panorama. Specifically, we introduce a confidence-guided execution (CGE) strategy that dynamically determines how many predicted actions to execute before replanning. Second, wider visibility also brings more complex route choices. We therefore construct training routes with frequent branching points and clear instructions to provide targeted supervision for route selection. Third, panoramic navigation requires understanding spatial relationships across viewing directions, beyond recognizing individual landmarks. We combine semantic and geometric features from RGB panoramas to capture both scene content and spatial layout without adding visual tokens. With a 4B backbone and RGB-only input, PanoVLN surpasses the previous SOTA by 11.9% and 8.7% in success rate on R2R-CE and RxR-CE Val-Unseen. Real-world experiments on a quadruped further demonstrate faster navigation with fewer pauses than prior VLN methods.
+
+Authors: Zhen Wang, Changpeng Wang, Zhe Liu, Zhangyang Qi, Yuxiang Lu, Zimo Zeng, Donglian Qi, Xi Chen
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/wangzhen-w/panovln</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction</title>
       <link>https://arxiv.org/abs/2610.01762</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.01762</guid>
@@ -30,6 +43,30 @@ Tasks: Video Understanding
 
 Code: https://github.com/MCG-NJU/OneStreamer</description>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces</title>
+      <link>https://arxiv.org/abs/2609.40362</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.40362</guid>
+      <description>We present Multimodal Flow, a fully continuous generative model of language and vision. Most unified multimodal models either model both language and quantized images as discrete tokens or combine discrete language prediction with continuous image generation. The former introduces a visual quantization bottleneck. The latter requires modality-dependent objectives and sampling procedures. Fully continuous modeling avoids these trade-offs and enables a shared generative process, but remains underexplored for multimodal pretraining. Multimodal Flow introduces a unified continuous architecture that integrates multimodal continuous representations with a shared chunk-causal flow backbone. It organizes text blocks and images as ordered continuous hyperchunks, preserving textual token order and visual spatial structure. The backbone learns a single vector field over these hyperchunks through Flow Matching. Joint attention enables cross-modal interaction, while modality-specific feed-forward networks process each modality. The model predicts multiple target chunks in parallel during training and generates hyperchunks sequentially at inference. We instantiate MF-1 and pretrain it on multimodal data. Across 0.6B, 1.2B, and 1.6B scales, continued pretraining consistently improves multimodal modeling. With only 150B pretraining tokens, MF-1 achieves an average score of 82.8 across GenEval and DPG-Bench and 75.3 across VQAv2, MMBench, and POPE, remaining competitive with unified models trained on substantially more data. Under matched data, optimization, and parameter budgets, Multimodal Flow further outperforms representative hybrid and discrete models. These results establish continuous chunk-based embedding flow modeling as a new fully continuous paradigm for unified multimodal modeling. The related code and model are publicly released at https://github.com/hustvl/Multimodal-Flow.
+
+Authors: Hongyuan Tao, Xinggang Wang, Lianghui Zhu, Yongkang Li, Yunchao Wei, Bin Feng, Shaoyu Chen, Qian Zhang, Chang Huang, Kai Yu
+
+Tasks: Image generation, Language Modeling
+
+Code: https://github.com/hustvl/Multimodal-Flow</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SlideDP: Scaling Host-Resident LLM Fine-Tuning Across Multiple GPUs</title>
+      <link>https://arxiv.org/abs/2609.34162</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.34162</guid>
+      <description>Host-resident layer streaming enables full-parameter LLM fine-tuning beyond GPU memory, but data-parallel ranks compete for shared host resources. Replicated transfers amplify traffic, while strong scaling can expose host work as computation windows shrink. We present SlideDP, a synchronous data-parallel runtime for shared-host multi-GPU systems. It maintains one authoritative host state, decouples communication routes from state layout, and pipelines parameter delivery, gradient aggregation, and CPU updates across ranks and chunks. An analytical step-time model characterizes resource bottlenecks and pipeline exposure; runtime measurements guide communication, chunking, and activation policies under a GPU memory budget. In matched-batch sweeps, SlideDP achieves geometric-mean throughput ratios of 1.46-2.64times over SlideFormer, MegaTrain, and ZeRO-Offload. On four H100s, SlideDP approaches GPU-resident FSDP2 throughput for Qwen3-14B at a smaller batch size. With a larger batch, it processes over 1M tokens per step and exceeds FSDP2's measured peak throughput by 11.2%. Separately, it supports 256K-token sequences for the same model and fine-tunes Qwen2.5-72B on four RTX 4090 GPUs. Project page: https://github.com/RegiaYoung/SlideDP.
+
+Authors: Ruijia Yang, Shiyuan Lin, Yulong Ao, Zhiyu li, Yingli Zhao, Xianduo Li, Yonghua Lin, Zeyi Wen
+
+Code: https://github.com/RegiaYoung/SlideDP</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>RSIGame: Autonomous Agentic Game Development with Recursive Self-improvement</title>
@@ -110,19 +147,6 @@ Code: https://github.com/Miteto-sudo/SAKI</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Learning Meta-Skills for Agent Harness Design in Test-Time AI4AI</title>
-      <link>https://arxiv.org/abs/2609.38143</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.38143</guid>
-      <description>Agent performance depends on both reasoning ability and the environment in which it acts. We study test-time AI-for-AI, asking how a Builder can learn to construct better execution environments for a Target while both models' weights remain fixed. To make the Builder's experience reusable, we introduce Meta-Skill: principles specifying when support is needed and what resources to provide. The Builder learns these principles from Target's execution feedback on the development set, then uses the frozen skill bank to construct harnesses for unseen tasks. Across Harness-Bench and NewtonBench, full-bank meta-skills improve macro-average performance by 8.95 percentage points over no-skill construction, and 12.02 points over direct delivery of the same bank to the Target. These results highlight the value of translating experience into executable support. Gains when the same model serves both roles further suggest a path to system level self-improvement through learning to build better environments.
-
-Authors: Cheng Qian, Kunlun Zhu, Beibin Li, Zhenhailong Wang, Heng Ji
-
-Tasks: Agents
-
-Code: https://github.com/qiancheng-apodex/MetaSkill-AI4AI</description>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>DC-SAE: Deep Compression Semantic Autoencoder for Faster Diffusion Convergence</title>
       <link>https://arxiv.org/abs/2609.39222</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2609.39222</guid>
@@ -134,6 +158,19 @@ Tasks: Image generation
 
 Code: https://github.com/DAGroup-PKU/DCSAE</description>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Learning Meta-Skills for Agent Harness Design in Test-Time AI4AI</title>
+      <link>https://arxiv.org/abs/2609.38143</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.38143</guid>
+      <description>Agent performance depends on both reasoning ability and the environment in which it acts. We study test-time AI-for-AI, asking how a Builder can learn to construct better execution environments for a Target while both models' weights remain fixed. To make the Builder's experience reusable, we introduce Meta-Skill: principles specifying when support is needed and what resources to provide. The Builder learns these principles from Target's execution feedback on the development set, then uses the frozen skill bank to construct harnesses for unseen tasks. Across Harness-Bench and NewtonBench, full-bank meta-skills improve macro-average performance by 8.95 percentage points over no-skill construction, and 12.02 points over direct delivery of the same bank to the Target. These results highlight the value of translating experience into executable support. Gains when the same model serves both roles further suggest a path to system level self-improvement through learning to build better environments.
+
+Authors: Cheng Qian, Kunlun Zhu, Beibin Li, Zhenhailong Wang, Heng Ji
+
+Tasks: Agents
+
+Code: https://github.com/qiancheng-apodex/MetaSkill-AI4AI</description>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Honeycomb: Constant-Size Scene Memory Representation for Video World Models</title>
@@ -214,17 +251,6 @@ Code: https://github.com/amathislab/terra</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SlideDP: Scaling Host-Resident LLM Fine-Tuning Across Multiple GPUs</title>
-      <link>https://arxiv.org/abs/2609.34162</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.34162</guid>
-      <description>Host-resident layer streaming enables full-parameter LLM fine-tuning beyond GPU memory, but data-parallel ranks compete for shared host resources. Replicated transfers amplify traffic, while strong scaling can expose host work as computation windows shrink. We present SlideDP, a synchronous data-parallel runtime for shared-host multi-GPU systems. It maintains one authoritative host state, decouples communication routes from state layout, and pipelines parameter delivery, gradient aggregation, and CPU updates across ranks and chunks. An analytical step-time model characterizes resource bottlenecks and pipeline exposure; runtime measurements guide communication, chunking, and activation policies under a GPU memory budget. In matched-batch sweeps, SlideDP achieves geometric-mean throughput ratios of 1.46-2.64times over SlideFormer, MegaTrain, and ZeRO-Offload. On four H100s, SlideDP approaches GPU-resident FSDP2 throughput for Qwen3-14B at a smaller batch size. With a larger batch, it processes over 1M tokens per step and exceeds FSDP2's measured peak throughput by 11.2%. Separately, it supports 256K-token sequences for the same model and fine-tunes Qwen2.5-72B on four RTX 4090 GPUs. Project page: https://github.com/RegiaYoung/SlideDP.
-
-Authors: Ruijia Yang, Shiyuan Lin, Yulong Ao, Zhiyu li, Yingli Zhao, Xianduo Li, Yonghua Lin, Zeyi Wen
-
-Code: https://github.com/RegiaYoung/SlideDP</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>World Observer: Joint Actor-Observer Generation for Persistent World Modeling</title>
       <link>https://arxiv.org/abs/2610.02162</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.02162</guid>
@@ -235,32 +261,6 @@ Authors: Hyunwook Choi, Dahyun Chung, Hyunsung Kim, Siyoon Jin, Jinhyeok Choi, J
 Tasks: Video generation, World Models
 
 Code: https://github.com/cvlab-kaist/world-observer</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Memorizon: Training World Models Beyond Their Context Window</title>
-      <link>https://arxiv.org/abs/2610.00544</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.00544</guid>
-      <description>Streaming world models should render a place consistently across repeated visits. Directly supervising such revisits requires training samples that capture both visits, often spanning minutes. Yet dense attention over the full span incurs quadratic costs, making long-span supervision expensive. Memorizon breaks this coupling: long spans are needed for supervision, but not for attention, since the two visits can share a forward pass without including every intervening frame. A training sample covers a span of any length but is scored only on its last k chunks. Instead of tokenizing the history before them, each scored chunk retrieves its own top-K latents by camera co-visibility, and the union of these requests forms a shared bank. The bank is bounded by kK, so the sequence stays bounded however long the span; at the shortest span the recipe is exactly conventional training. Adding the bank raises the cost of a step once; beyond that, a longer span costs little, and going from 100 to 400 s adds 12% to the step time. Against a sliding-window baseline, retrieval raises revisit consistency on every split, and a span long enough to reach the first visit of each return adds a further 24% to 30%, at some cost in image quality; beyond that span, more length no longer helps. Filling the bank from another episode lowers revisit correlation by 83%, so the model uses what it retrieves. Project page: https://tingtingliao.github.io/memorizon
-
-Authors: Tingting Liao, Xuezhi Liang, Hao Li, Guangyi Liu
-
-Tasks: World Models
-
-Code: https://github.com/TingtingLiao/memorizon</description>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ActiveSaddler: Automated Curriculum Learning for Agent Harness Optimization</title>
-      <link>https://arxiv.org/abs/2610.00906</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.00906</guid>
-      <description>Automated harness optimization can substantially improve LLM agents by iteratively updating their prompts, tool interfaces, and control logic from execution feedback. However, existing methods primarily optimize how the harness is updated while largely fixing which training scenarios generate the feedback that drives those updates. As the harness evolves, the scenarios most useful for further optimization can change, suggesting that the training curriculum itself should adapt alongside the harness. We formulate this missing dimension of harness optimization as an automated curriculum learning problem and introduce ActiveSaddler. ActiveSaddler models the evolving curriculum as a non-stationary bandit with dynamically instantiated optimization targets. It abstracts recurring failures into reusable failure-pattern arms, estimates the potential learning progress from further targeting each pattern, and adaptively balances revisiting known weaknesses with exploring unseen scenarios for new ones. Optimization outcomes continually update both the set of discovered failure patterns and their priorities, allowing the curriculum to co-evolve with the harness. Experiments on GAIA2 and Terminal-Bench 2.0 show that ActiveSaddler consistently discovers stronger harnesses, improving test Pass@1 by 4.4 and 7.5 percentage points over the same harness optimizer using a scenario order fixed before optimization, respectively. Ablations further show that these gains depend on dynamically constructing optimization targets, estimating their evolving utility, and balancing continued optimization with new failure discovery. Together, these results establish automated curriculum learning as a new crucial optimization dimension for harness optimization.
-
-Authors: Sungho Park, Wonjoong Kim, Jue Zhang, Wook-Shin Han, Pengfei Gao, Chanyoung Park, Yongqiang Yao, Rao Fu, Elsie Nallipogu, Qingwei Lin, Victor Rühle
-
-Tasks: Agents
-
-Code: https://github.com/microsoft/AutoSaddler</description>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
