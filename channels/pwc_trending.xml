@@ -4,18 +4,31 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sun, 04 Oct 2026 16:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 17:00:00 GMT</lastBuildDate>
     <item>
-      <title>Context Language Models</title>
-      <link>https://arxiv.org/abs/2609.37725</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.37725</guid>
-      <description>We introduce Context Language Models (CLMs), language models that natively manage their own context. We implement this by treating the context as a file and allowing the model to make unrestricted updates to this file. This allows the model to learn what is most important to maintain in context, and naturally extends to multi-agent systems where multiple agent contexts coexist as files. Building CLMs zero-shot with existing models outperforms SOTA context management strategies across a variety of tasks: 11.4% higher accuracy with 21.5% fewer FLOPs on BrowseComp-Plus, 5% higher scores with 59% fewer FLOPs on 12-hour EdgeBench, and 65% greater improvement with the same compute on a 24-hour multi-repository agent-swarm task. Moreover, by shifting context management from external harness control to intrinsic model behavior, CLMs naturally enable both in-context and parametric learning of context-management strategies. We show that CLMs can be steered with natural-language instructions evolved through a standard skill-optimization loop, improving held-out accuracy by up to 35.9 points on a context-management task while reducing compute. We also introduce an online reinforcement learning method for CLMs, improving Qwen3.5-9B performance on BrowseComp-Plus by 47.6% while using 12% fewer FLOPs. Finally, we co-design Suffix Cache Reuse for CLM serving, further reducing server-side compute by 35% relative to standard SGLang at matched performance.
+      <title>LoopVL: Recurrent Visual Intelligence</title>
+      <link>https://arxiv.org/abs/2609.38426</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.38426</guid>
+      <description>We introduce LoopVL to study whether Loop Transformers can be effectively extended to vision- language models. LoopVL combines Module-Loop and Model-Loop computation to iteratively update a unified vision-language state through shared modules. We train LoopVL from scratch through language pre-training, multimodal training, and post-training. LoopVL outperforms a range of similarly sized and larger non-recurrent models on multimodal understanding and visual reasoning benchmarks. We also observe Visual Aha Moments in LoopVL, characterized by pronounced shifts in visual attention across loops. LoopVL provides practical evidence for recurrent vision-language modeling and offers an intuitive perspective on how shared parameters can support deeper multimodal computation over continuously evolving visual-language states.
 
-Authors: Rulin Shao, Shannon Zejiang Shen, Junjie Oscar Yin, Yuetai Li, Minheng Wang, Hamish Ivison, Radha Poovendran, Nathan Lambert, Teng Xiao, Mike Lewis, Wen-tau Yih, Luke Zettlemoyer, Pang Wei Koh
+Authors: Zhe Qian, Ziyang Gong, Zhongxing Xu, Hehan Li, Zhonghua Wang, Fei Luo, Mingxuan Wang, Xue Yang, Shiwei Liu, Yanbiao Ma, Junchi Yan, Jungong Han
 
-Tasks: Coding Agents, Deep Research Agents, Reinforcement Learning
+Tasks: Image Understanding, Language Modeling
 
-Code: https://github.com/facebookresearch/context-language-models</description>
+Code: https://github.com/Tier-Flow/LoopVL</description>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation</title>
+      <link>https://arxiv.org/abs/2609.38597</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.38597</guid>
+      <description>Unified Multimodal Models (UMMs) often rely on separate visual representations for understanding and generation, increasing visual context length and complicating integration with established vision-language pretraining pipelines. Recent advances in pixel-space modeling offer an encoder-free alternative, but extending this paradigm from images to videos is non-trivial: video understanding and generation adopt different temporal representations, leaving the design of a unified visual interface an open question. We present PixelUMM, an encoder-free model for unified image and video understanding and generation directly in pixel space. PixelUMM represents images as spatial patches and videos as spatiotemporal tubelets, connecting raw pixels to a shared multimodal backbone through single-layer linear projections. Its Mixture-of-Transformers architecture combines shared attention with task-specific parameters and extends clean-pixel prediction to video generation, jointly supporting autoregressive text prediction and pixel-space flow matching. Experiments show that PixelUMM achieves competitive performance across image and video understanding and generation tasks. We further conduct empirical studies of key design choices, including decoder design and spatial-temporal patch size, providing insights for future pixel-space unified multimodal models.
+
+Authors: Cong Wei, Xuanchi Ren, Bryan Chu, Weiming Ren, Huan Ling, Jiahui Huang, Laura Leal-Taixé, Sanja Fidler, Wenhu Chen, Zian Wang, Jay Zhangjie Wu
+
+Tasks: Image generation, Image Understanding, Video generation, Video Understanding
+
+Code: https://github.com/nv-tlabs/PixelUMM</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -32,6 +45,19 @@ Code: https://github.com/WenyiWU0111/RSIGame</description>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>SAKI: Maximal-Coupling-Routed Teacher Supervision for On-Policy Distillation</title>
+      <link>https://arxiv.org/abs/2609.36601</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.36601</guid>
+      <description>On-policy distillation (OPD) reduces train-test state mismatch by training a student on its own generated trajectories, but weak students may visit teacher-misaligned prefixes where supervision is less representative. We introduce SAKI (Supervision Allocation with KL-constrained Interpolation), which combines a KL-constrained teacher-guided rollout with maximal coupling and reuses realized accept/correction events to route token-level supervision. Accepted positions retain sampled-token reverse-KL supervision, while correction positions receive direct supervision on the teacher's highest-probability token. Under maximal coupling, the correction probability is exactly TV(p_t, q_t), so the same trust-region radius controls rollout deviation and upper-bounds intervention and specialized-supervision frequency. We further implement an engine-resident speculative verifier that preserves the exact-q trajectory distribution and coupling semantics while improving matched-workload rollout throughput by 4.22x. Across seven mathematical reasoning benchmarks, SAKI improves the matched teacher-guided baseline in Mean@8 and Pass@8 for both 1.7B and 0.6B students. Placement controls and fixed-prefix analysis further support correction-triggered routing as a conflict-adaptive supervision signal.
+
+Authors: Miteto Wei, Xiaohan Wang, Zehao Chen, Jiajun Chai, Sichao Liu, Li Wang, Haoyuan Xu, Zhaoyu Hu, Wei Lin, Guojun Yin
+
+Tasks: Mathematics, Reasoning
+
+Code: https://github.com/Miteto-sudo/SAKI</description>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction</title>
       <link>https://arxiv.org/abs/2610.01762</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.01762</guid>
@@ -45,42 +71,55 @@ Code: https://github.com/MCG-NJU/OneStreamer</description>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LoopVL: Recurrent Visual Intelligence</title>
-      <link>https://arxiv.org/abs/2609.38426</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.38426</guid>
-      <description>We introduce LoopVL to study whether Loop Transformers can be effectively extended to vision- language models. LoopVL combines Module-Loop and Model-Loop computation to iteratively update a unified vision-language state through shared modules. We train LoopVL from scratch through language pre-training, multimodal training, and post-training. LoopVL outperforms a range of similarly sized and larger non-recurrent models on multimodal understanding and visual reasoning benchmarks. We also observe Visual Aha Moments in LoopVL, characterized by pronounced shifts in visual attention across loops. LoopVL provides practical evidence for recurrent vision-language modeling and offers an intuitive perspective on how shared parameters can support deeper multimodal computation over continuously evolving visual-language states.
+      <title>Learning Meta-Skills for Agent Harness Design in Test-Time AI4AI</title>
+      <link>https://arxiv.org/abs/2609.38143</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.38143</guid>
+      <description>Agent performance depends on both reasoning ability and the environment in which it acts. We study test-time AI-for-AI, asking how a Builder can learn to construct better execution environments for a Target while both models' weights remain fixed. To make the Builder's experience reusable, we introduce Meta-Skill: principles specifying when support is needed and what resources to provide. The Builder learns these principles from Target's execution feedback on the development set, then uses the frozen skill bank to construct harnesses for unseen tasks. Across Harness-Bench and NewtonBench, full-bank meta-skills improve macro-average performance by 8.95 percentage points over no-skill construction, and 12.02 points over direct delivery of the same bank to the Target. These results highlight the value of translating experience into executable support. Gains when the same model serves both roles further suggest a path to system level self-improvement through learning to build better environments.
 
-Authors: Zhe Qian, Ziyang Gong, Zhongxing Xu, Hehan Li, Zhonghua Wang, Fei Luo, Mingxuan Wang, Xue Yang, Shiwei Liu, Yanbiao Ma, Junchi Yan, Jungong Han
+Authors: Cheng Qian, Kunlun Zhu, Beibin Li, Zhenhailong Wang, Heng Ji
 
-Tasks: Image Understanding, Language Modeling
+Tasks: Agents
 
-Code: https://github.com/Tier-Flow/LoopVL</description>
+Code: https://github.com/qiancheng-apodex/MetaSkill-AI4AI</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Sharpening Tax in Post-Training</title>
-      <link>https://arxiv.org/abs/2610.01509</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.01509</guid>
-      <description>An emerging hypothesis about reinforcement learning (RL) post-training of large language models (LLMs) is that it merely sharpens existing behaviors of a base model, improving single-shot accuracy at the cost of solution coverage. Although this trade-off has been observed in math and coding tasks, it need not extend to agentic tasks, where multi-turn tool use and interaction may require capabilities newly acquired during post-training. Our surprising finding is that pre-trained LLMs, equipped with a light inference harness, can serve as capable agents. Despite far lower accuracy (pass@1), they often surpass their post-trained counterparts in solution coverage (pass@K) given a sufficient test-time budget. We further analyze the underlying mechanism and show that post-training pushes tasks toward two extremes, always solved or never solved, and thereby improves sampling efficiency and consistency at the cost of solution coverage. To measure this cost, we propose Sharpening Tax, a diagnostic metric that quantifies the loss in test-time scalability after post-training. Across 14 base/post-trained model pairs from four families and three agentic benchmarks (42 cases in total), the tax is prevalent in most settings, can be estimated from a few rollouts, and correlates well with other metrics. Finally, we present posterior-tempered group sampling (PTGS), a simple plug-and-play Bayesian sampler that adapts the sampling temperature per prompt to its estimated difficulty. Applied during RL training in two agentic environments, PTGS pays a smaller tax than the fixed-temperature baseline, solving more tasks under repeated sampling while also improving single-shot accuracy.
+      <title>4Director: Controlling Video World Models with Rigid 3D Geometry</title>
+      <link>https://arxiv.org/abs/2610.02160</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.02160</guid>
+      <description>Precise control over camera and object motion is essential for professional video production. Existing methods control objects only coarsely, through image-plane cues that are ambiguous in depth and rotation or through 3D tracks and blobs that lack complete geometry and lose consistency across viewpoint changes. We introduce 4Director, a video world model conditioned on an explicit 4D scene representation: each object is reconstructed once from the input image as a canonical mesh and moved by one prescribed rigid transformation per frame. This representation provides an intuitive 3D control interface and prevents unobserved geometry from being regenerated independently in every frame. We render the controlled scene as a depth video and introduce a Motion Adapter that transforms this geometric scaffold into video while synthesizing view-consistent appearance, illumination, and non-rigid dynamics. For training, we construct RealCOD-Rigid, a new dataset of 20,774 clips annotated with rigid 3D scenes by our automatic pipeline. We further introduce Identity-Gated IoU (IG-IoU), which jointly evaluates adherence to prescribed object motion and preservation of object identity. Experiments demonstrate that 4Director consistently outperforms prior methods in visual quality and in camera and object control.
 
-Authors: Changdae Oh, Qi Zeng, Qi Qi, Andrey Zhmoginov, Deren Lei, Yun He, Hoang Phan, Hangoo Kang, Azalia Mirhoseini, Sharon Li
+Authors: Wei Cao, Hao Zhang, Vikram Voleti, Yuqun Wu, Mallikarjun B R, Shimon Vainer, Mark Boss, Yaoyao Liu
 
-Tasks: Agents, Reinforcement Learning
+Tasks: Video generation, World Models
 
-Code: https://github.com/changdaeoh/sharpening-tax</description>
+Code: https://github.com/VVeiCao/4Director</description>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation</title>
-      <link>https://arxiv.org/abs/2609.38597</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.38597</guid>
-      <description>Unified Multimodal Models (UMMs) often rely on separate visual representations for understanding and generation, increasing visual context length and complicating integration with established vision-language pretraining pipelines. Recent advances in pixel-space modeling offer an encoder-free alternative, but extending this paradigm from images to videos is non-trivial: video understanding and generation adopt different temporal representations, leaving the design of a unified visual interface an open question. We present PixelUMM, an encoder-free model for unified image and video understanding and generation directly in pixel space. PixelUMM represents images as spatial patches and videos as spatiotemporal tubelets, connecting raw pixels to a shared multimodal backbone through single-layer linear projections. Its Mixture-of-Transformers architecture combines shared attention with task-specific parameters and extends clean-pixel prediction to video generation, jointly supporting autoregressive text prediction and pixel-space flow matching. Experiments show that PixelUMM achieves competitive performance across image and video understanding and generation tasks. We further conduct empirical studies of key design choices, including decoder design and spatial-temporal patch size, providing insights for future pixel-space unified multimodal models.
+      <title>Chinese-Jev: Bringing System One Model to Chinese-Language Tasks</title>
+      <link>https://arxiv.org/abs/2609.36965</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.36965</guid>
+      <description>System One models such as Jev offer an efficient alternative to generative language models for tasks that require decisions rather than open-ended responses. However, existing Jev models exhibit limited Chinese-language decision accuracy, restricting their utility in both general and specialized settings. In this paper, we introduce Chinese-Jev, a System One model that addresses this gap through a unified data processing and training pipeline. Our data processing protocol converts heterogeneous Chinese-language annotations into probability targets over candidate options, enabling a shared training formulation across domains and question formats. To enable efficient inference, Chinese-Jev adopts a lightweight encoder-only backbone for text encoding and learns to score candidate answers through decision-oriented training. To address the misalignment between the pre-training distribution and downstream Chinese-language scenarios, we first train the model on a general-purpose corpus of 10 million examples, then fine-tune it separately for the medical, legal, and financial domains. To evaluate decision accuracy and calibration in both general and domain-specific Chinese-language settings, we introduce Chinese-Jev Bench (CJ-Bench). After first-stage pre-training, Chinese-Jev exceeds the accuracy of the closed-source Jev model by 1.24% on general-domain tasks while achieving a 20.3x speedup. Subsequent domain-specific fine-tuning yields a 4.0% accuracy improvement over Jev in medicine and achieves 92% of Jev's average accuracy across specialized domains, with a 17x speedup and an average latency of only 15 ms per example. We further demonstrate on-device deployment of an INT8-quantized model on mobile devices, achieving an inference latency of approximately 1.0 second per decision. The project is available at https://gulucaptain.github.io/Chinese-Jev/.
 
-Authors: Cong Wei, Xuanchi Ren, Bryan Chu, Weiming Ren, Huan Ling, Jiahui Huang, Laura Leal-Taixé, Sanja Fidler, Wenhu Chen, Zian Wang, Jay Zhangjie Wu
+Authors: Zexiao Wang, Zihao Zhang, Xudong Wang, Pan Wang, Ziyi Ye, Haoyu Zhao, Zuxuan Wu, Shuicheng Yan
 
-Tasks: Image generation, Image Understanding, Video generation, Video Understanding
+Tasks: Healthcare &amp; Medical AI, Text classification
 
-Code: https://github.com/nv-tlabs/PixelUMM</description>
+Code: https://github.com/gulucaptain/Chinese-Jev</description>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Context Language Models</title>
+      <link>https://arxiv.org/abs/2609.37725</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.37725</guid>
+      <description>We introduce Context Language Models (CLMs), language models that natively manage their own context. We implement this by treating the context as a file and allowing the model to make unrestricted updates to this file. This allows the model to learn what is most important to maintain in context, and naturally extends to multi-agent systems where multiple agent contexts coexist as files. Building CLMs zero-shot with existing models outperforms SOTA context management strategies across a variety of tasks: 11.4% higher accuracy with 21.5% fewer FLOPs on BrowseComp-Plus, 5% higher scores with 59% fewer FLOPs on 12-hour EdgeBench, and 65% greater improvement with the same compute on a 24-hour multi-repository agent-swarm task. Moreover, by shifting context management from external harness control to intrinsic model behavior, CLMs naturally enable both in-context and parametric learning of context-management strategies. We show that CLMs can be steered with natural-language instructions evolved through a standard skill-optimization loop, improving held-out accuracy by up to 35.9 points on a context-management task while reducing compute. We also introduce an online reinforcement learning method for CLMs, improving Qwen3.5-9B performance on BrowseComp-Plus by 47.6% while using 12% fewer FLOPs. Finally, we co-design Suffix Cache Reuse for CLM serving, further reducing server-side compute by 35% relative to standard SGLang at matched performance.
+
+Authors: Rulin Shao, Shannon Zejiang Shen, Junjie Oscar Yin, Yuetai Li, Minheng Wang, Hamish Ivison, Radha Poovendran, Nathan Lambert, Teng Xiao, Mike Lewis, Wen-tau Yih, Luke Zettlemoyer, Pang Wei Koh
+
+Tasks: Coding Agents, Deep Research Agents, Reinforcement Learning
+
+Code: https://github.com/facebookresearch/context-language-models</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -97,6 +136,19 @@ Code: https://github.com/luoyu100/PoS</description>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Sharpening Tax in Post-Training</title>
+      <link>https://arxiv.org/abs/2610.01509</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.01509</guid>
+      <description>An emerging hypothesis about reinforcement learning (RL) post-training of large language models (LLMs) is that it merely sharpens existing behaviors of a base model, improving single-shot accuracy at the cost of solution coverage. Although this trade-off has been observed in math and coding tasks, it need not extend to agentic tasks, where multi-turn tool use and interaction may require capabilities newly acquired during post-training. Our surprising finding is that pre-trained LLMs, equipped with a light inference harness, can serve as capable agents. Despite far lower accuracy (pass@1), they often surpass their post-trained counterparts in solution coverage (pass@K) given a sufficient test-time budget. We further analyze the underlying mechanism and show that post-training pushes tasks toward two extremes, always solved or never solved, and thereby improves sampling efficiency and consistency at the cost of solution coverage. To measure this cost, we propose Sharpening Tax, a diagnostic metric that quantifies the loss in test-time scalability after post-training. Across 14 base/post-trained model pairs from four families and three agentic benchmarks (42 cases in total), the tax is prevalent in most settings, can be estimated from a few rollouts, and correlates well with other metrics. Finally, we present posterior-tempered group sampling (PTGS), a simple plug-and-play Bayesian sampler that adapts the sampling temperature per prompt to its estimated difficulty. Applied during RL training in two agentic environments, PTGS pays a smaller tax than the fixed-temperature baseline, solving more tasks under repeated sampling while also improving single-shot accuracy.
+
+Authors: Changdae Oh, Qi Zeng, Qi Qi, Andrey Zhmoginov, Deren Lei, Yun He, Hoang Phan, Hangoo Kang, Azalia Mirhoseini, Sharon Li
+
+Tasks: Agents, Reinforcement Learning
+
+Code: https://github.com/changdaeoh/sharpening-tax</description>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>AREX-2: Advancing Self-Improving Agents through Long-Horizon Reflective Tasks</title>
       <link>https://arxiv.org/abs/2609.38288</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2609.38288</guid>
@@ -107,19 +159,6 @@ Authors: Hongjin Qian, Chaofan Li, Kun Luo, Wenqing Wei, Jianlyu Chen, Shuqi Lu,
 Tasks: Agents, Coding Agents, Deep Research Agents
 
 Code: https://github.com/VectorSpaceLab/AREX-2</description>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SAKI: Maximal-Coupling-Routed Teacher Supervision for On-Policy Distillation</title>
-      <link>https://arxiv.org/abs/2609.36601</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2609.36601</guid>
-      <description>On-policy distillation (OPD) reduces train-test state mismatch by training a student on its own generated trajectories, but weak students may visit teacher-misaligned prefixes where supervision is less representative. We introduce SAKI (Supervision Allocation with KL-constrained Interpolation), which combines a KL-constrained teacher-guided rollout with maximal coupling and reuses realized accept/correction events to route token-level supervision. Accepted positions retain sampled-token reverse-KL supervision, while correction positions receive direct supervision on the teacher's highest-probability token. Under maximal coupling, the correction probability is exactly TV(p_t, q_t), so the same trust-region radius controls rollout deviation and upper-bounds intervention and specialized-supervision frequency. We further implement an engine-resident speculative verifier that preserves the exact-q trajectory distribution and coupling semantics while improving matched-workload rollout throughput by 4.22x. Across seven mathematical reasoning benchmarks, SAKI improves the matched teacher-guided baseline in Mean@8 and Pass@8 for both 1.7B and 0.6B students. Placement controls and fixed-prefix analysis further support correction-triggered routing as a conflict-adaptive supervision signal.
-
-Authors: Miteto Wei, Xiaohan Wang, Zehao Chen, Jiajun Chai, Sichao Liu, Li Wang, Haoyuan Xu, Zhaoyu Hu, Wei Lin, Guojun Yin
-
-Tasks: Mathematics, Reasoning
-
-Code: https://github.com/Miteto-sudo/SAKI</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -160,19 +199,6 @@ Code: https://github.com/RegiaYoung/SlideDP</description>
       <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>4Director: Controlling Video World Models with Rigid 3D Geometry</title>
-      <link>https://arxiv.org/abs/2610.02160</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.02160</guid>
-      <description>Precise control over camera and object motion is essential for professional video production. Existing methods control objects only coarsely, through image-plane cues that are ambiguous in depth and rotation or through 3D tracks and blobs that lack complete geometry and lose consistency across viewpoint changes. We introduce 4Director, a video world model conditioned on an explicit 4D scene representation: each object is reconstructed once from the input image as a canonical mesh and moved by one prescribed rigid transformation per frame. This representation provides an intuitive 3D control interface and prevents unobserved geometry from being regenerated independently in every frame. We render the controlled scene as a depth video and introduce a Motion Adapter that transforms this geometric scaffold into video while synthesizing view-consistent appearance, illumination, and non-rigid dynamics. For training, we construct RealCOD-Rigid, a new dataset of 20,774 clips annotated with rigid 3D scenes by our automatic pipeline. We further introduce Identity-Gated IoU (IG-IoU), which jointly evaluates adherence to prescribed object motion and preservation of object identity. Experiments demonstrate that 4Director consistently outperforms prior methods in visual quality and in camera and object control.
-
-Authors: Wei Cao, Hao Zhang, Vikram Voleti, Yuqun Wu, Mallikarjun B R, Shimon Vainer, Mark Boss, Yaoyao Liu
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/VVeiCao/4Director</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens</title>
       <link>https://arxiv.org/abs/2610.01939</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.01939</guid>
@@ -210,32 +236,6 @@ Tasks: Tabular Learning
 
 Code: https://github.com/google-research/tabfm</description>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Memorizon: Training World Models Beyond Their Context Window</title>
-      <link>https://arxiv.org/abs/2610.00544</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.00544</guid>
-      <description>Streaming world models should render a place consistently across repeated visits. Directly supervising such revisits requires training samples that capture both visits, often spanning minutes. Yet dense attention over the full span incurs quadratic costs, making long-span supervision expensive. Memorizon breaks this coupling: long spans are needed for supervision, but not for attention, since the two visits can share a forward pass without including every intervening frame. A training sample covers a span of any length but is scored only on its last k chunks. Instead of tokenizing the history before them, each scored chunk retrieves its own top-K latents by camera co-visibility, and the union of these requests forms a shared bank. The bank is bounded by kK, so the sequence stays bounded however long the span; at the shortest span the recipe is exactly conventional training. Adding the bank raises the cost of a step once; beyond that, a longer span costs little, and going from 100 to 400 s adds 12% to the step time. Against a sliding-window baseline, retrieval raises revisit consistency on every split, and a span long enough to reach the first visit of each return adds a further 24% to 30%, at some cost in image quality; beyond that span, more length no longer helps. Filling the bank from another episode lowers revisit correlation by 83%, so the model uses what it retrieves. Project page: https://tingtingliao.github.io/memorizon
-
-Authors: Tingting Liao, Xuezhi Liang, Hao Li, Guangyi Liu
-
-Tasks: World Models
-
-Code: https://github.com/TingtingLiao/memorizon</description>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>AutoGUIWorld: Image Generators as Visual World Models for GUI Agent</title>
-      <link>https://arxiv.org/abs/2610.01215</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.01215</guid>
-      <description>GUI agents require high-quality interaction trajectories to learn how software environments respond to actions, maintain state, and support multi-step workflows. However, the diversity of available trajectories is constrained by the applications, interface states, and workflows accessible in the underlying environments. Expanding this coverage requires deploying increasingly diverse and complex software, with specialized applications imposing additional installation, configuration, and runtime costs. We introduce AutoGUIWorld, a data generation framework that combines the visual priors of image generators with the task knowledge of a planner to synthesize GUI interaction trajectories without deploying or running the corresponding software environments. AutoGUIWorld samples initial GUI scenes from structured specifications of operating-system context, visual appearance, and interface state, and generates tasks conditioned on those scenes. A planner then specifies atomic actions and their intended visual consequences, while an image generator iteratively edits the current screenshot to produce subsequent observations. Action grounding and transition-level quality filtering yield 79,266 spatially annotated step-level training samples across Ubuntu, Windows, macOS, and Chrome. Fine-tuning Qwen3.5-35B-A3B on AutoGUIWorld trajectories improves the mean task score on OSWorld from 33.0% to 40.8% and the task success rate on ScienceBoard from 14.0% to 32.2%. These results show that generated trajectories improve GUI-agent performance on real desktop and scientific tasks.
-
-Authors: Cheng Yang, Yifan Wu, Yutao Huang, Zhaohua Zhang, Beiduo Chen, Muxi Chen, Chenchen Zhao, Hexuan Deng, Haolin Yang, Geyuan Zhu, Sa Zhu, Jianhuan Zhuo, Qiuyong Xiao, Jianhao Ruan, Yiran Peng, Jiayi Zhang, Tian Ye, Xinlei Yu, Tianwen Jiang, Jihong Zhang, Yuyu Luo
-
-Tasks: Computer Use Agents, World Models
-
-Code: https://github.com/ImYangC7/AutoGUIWorld</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>LongLive-Plug: Once-for-All Distillation for Video Generation</title>
