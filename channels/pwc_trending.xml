@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Tue, 06 Oct 2026 17:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 18:00:00 GMT</lastBuildDate>
     <item>
       <title>4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes</title>
       <link>https://arxiv.org/abs/2610.03715</link>
@@ -17,17 +17,39 @@ Code: https://github.com/4DCodeBench/4DCodeBench</description>
       <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ALoDLM: Adaptively Looped Diffusion Language Models</title>
-      <link>https://arxiv.org/abs/2610.04198</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.04198</guid>
-      <description>Diffusion language models (DLMs) enable fast generation by predicting multiple tokens in parallel, but their practical adoption remains limited by a persistent quality gap relative to comparably sized autoregressive (AR) models. We attribute this gap to a computation-difficulty mismatch: within a partially observed sequence, some unknown tokens are easy to predict, while others require substantially more computation. Existing DLMs nevertheless apply uniform computational depth to all unknown positions at each denoising step. We introduce ALoDLM, which replaces uniform computation with token-adaptive latent recurrence. At each denoising step, ALoDLM iteratively refines latent representations and allocates computation according to token difficulty. Tokens ready to commit are fed back as discrete context, while unresolved tokens retain and further refine their latent states through additional recurrent passes. To learn token prediction and computation allocation jointly, we formulate token-wise computation schedules as latent variables and derive a conditional negative evidence lower bound (NELBO). We train ALoDLM at 1.7B and 8B parameter scales. Across eleven benchmarks, ALoDLM outperforms all evaluated DLMs and the corresponding AR baselines in average benchmark score at both scales. ALoDLM also retains fast parallel decoding, yielding a strong quality-efficiency trade-off among evaluated autoregressive and diffusion models under optimized inference engines.
+      <title>Language Models that Play Chess and Explain Their Moves</title>
+      <link>https://arxiv.org/abs/2610.03695</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.03695</guid>
+      <description>Modern chess engines are silent experts: they play at a superhuman level, but do not offer explanations for their play. On the other hand, language models (LMs) can generate plausible-sounding explanations, but their weak playing strength limits the utility of their explanations. We introduce Queen, a 4B-parameter chess-language model that can explain its moves and plans while playing at the level of a typical Grandmaster. Our novel framework enables domain-specific reasoning through complementary components: an encoder-decoder architecture and an iterative distillation algorithm. This architecture integrates a silent expert chess encoder with an instruction-tuned LM through cross-attention, which we train via a question-answering curriculum to extract chess concepts from the encoder's representations. Building on this domain-adapted model, we iteratively improve its explanations with a natural-language analog of the Bellman update: the model analyzes the positions after its top candidate moves and consolidates them into an explanation of the current position, which is then distilled back into the model. Over seven iterations, our model gains over 900 Elo points (1782 to 2697), substantially surpassing all frontier models on both playing strength and puzzle accuracy, despite containing three orders of magnitude fewer parameters. Furthermore, LM-based evaluations show that our explanations are fluent and approach GPT-5.6-Sol (high) in coherence. The generality of our architecture and training procedure suggests a recipe for applying language models to domains where silent expert encoders are available, like games, robotics, and computer use.
 
-Authors: Liancheng Fang, Zhuowei Li, Youngeun Kim, Tianchen Zhao, Rajat Koner, Jiaye Wu, Linghan Xu, Xuanbai Chen, Xiang Xu, Zheng Zhang, Jakub Zablocki, Nishant Sankaran, Yifan Xing
+Authors: Adithya Bhaskar, Jeffrey Cheng, Danqi Chen
 
-Tasks: Language Modeling
+Code: https://github.com/queen-project/queen</description>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ScholarCatalyst: A Benchmark for Retrieving Papers That Inspire New Research</title>
+      <link>https://arxiv.org/abs/2610.02202</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.02202</guid>
+      <description>What makes great scientists great? Even as AI systems start to make progress on open problems, scientists remain far ahead of them at sensing which prior idea, buried in an ever-growing archive of research, a new problem needs. To study this skill, we draw on researchers who know firsthand which earlier work advanced their completed projects, with papers serving as pointers to the ideas within. Using our automated pipeline that makes author annotation scalable, we build ScholarCatalyst by having 184 lead authors of 207 recent computer science papers label which candidates did or could have advanced their project, each with a detailed rationale. We introduce a retrieval task with author-provided judgments: given an initial research question, retrieve these papers from only the literature available when the project began. Agentic search does no better than embedding retrieval (0.42 vs. 0.48 Recall@20) despite calling that same retriever as a tool. Even an agent built on Claude Fable 5.1, which may have seen the completed papers during training, reaches only 0.51 R@20. These results highlight the need for new training recipes that equip models with expert intuition for searching broad corpora. We envision ScholarCatalyst as a step toward scientific agents that can take a half-formed idea and point to the prior research it needs.
 
-Code: https://github.com/amazon-science/ALoDLM</description>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+Authors: Sohyeon Kim, Yoonho Lee, Bo Liu, Dayoon Ko, Rulin Shao, Seungone Kim, Graham Neubig, Pang Wei Koh, Aakanksha Chowdhery, Akari Asai, Omar Khattab, Yejin Choi, Gunhee Kim, Chelsea Finn
+
+Tasks: Retrieval
+
+Code: https://github.com/stanford-iris-lab/scholarcatalyst</description>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>FrugalEvo: Towards Cost-Aware LLM-Guided Program Evolution</title>
+      <link>https://arxiv.org/abs/2610.03675</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.03675</guid>
+      <description>LLM-guided evolutionary methods, such as AlphaEvolve, have emerged as powerful approaches for challenging computational optimization problems, such as circle packing. However, prior work typically optimizes performance gain over a fixed number of iterations. We argue that practical optimization should maximize gain per unit cost. To this end, we propose FrugalEvo, a cost-aware evolutionary framework where a stronger, higher-cost LLM explores solution strategies, and a cheaper LLM implements them and iteratively refines the resulting code. We also design a cache-efficient evolution process, where our harness and prompts maximize the sharing of prefixes across different evolution steps, to improve cache reuse. To measure solution quality throughout a fixed cost budget, we introduce Budget-Aware Area Under the Curve (BA-AUC), defined as the area under the best-so-far evaluation score curve over cumulative LLM cost, up to the budget. Across 10 mathematical and systems optimization tasks, FrugalEvo matches or surpasses state-of-the-art baselines, including OpenEvolve, ShinkaEvolve, AdaEvolve, and EvoX, in final solution quality and achieves higher BA-AUC on 9 tasks. It also achieves higher average performance than these baselines on 10 algorithmic optimization tasks from ALE-Bench-Lite. Notably, on circle packing, FrugalEvo achieves new state-of-the-art performance with GPT-5.6 Terra and Luna for only 1.68 USD and with GLM-5.3 and its Flash variant for only 0.55 USD, matching or surpassing all baselines, including multi-agent methods such as CORAL and SwarmResearch, which cost approximately 50 USD on average.
+
+Authors: Hui Chen, Xuan Qi, James Xu Zhao, Zhaopeng Feng, Shilong Liu, Kuang Xu, Pang Wei Koh, Bryan Hooi
+
+Code: https://github.com/chchenhui/frugalevo</description>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>SearchJev: A Fast and Calibrated System-1 Model for Search Agents</title>
@@ -54,17 +76,54 @@ Code: https://github.com/WenyiWU0111/RSIGame</description>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ScholarCatalyst: A Benchmark for Retrieving Papers That Inspire New Research</title>
-      <link>https://arxiv.org/abs/2610.02202</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.02202</guid>
-      <description>What makes great scientists great? Even as AI systems start to make progress on open problems, scientists remain far ahead of them at sensing which prior idea, buried in an ever-growing archive of research, a new problem needs. To study this skill, we draw on researchers who know firsthand which earlier work advanced their completed projects, with papers serving as pointers to the ideas within. Using our automated pipeline that makes author annotation scalable, we build ScholarCatalyst by having 184 lead authors of 207 recent computer science papers label which candidates did or could have advanced their project, each with a detailed rationale. We introduce a retrieval task with author-provided judgments: given an initial research question, retrieve these papers from only the literature available when the project began. Agentic search does no better than embedding retrieval (0.42 vs. 0.48 Recall@20) despite calling that same retriever as a tool. Even an agent built on Claude Fable 5.1, which may have seen the completed papers during training, reaches only 0.51 R@20. These results highlight the need for new training recipes that equip models with expert intuition for searching broad corpora. We envision ScholarCatalyst as a step toward scientific agents that can take a half-formed idea and point to the prior research it needs.
+      <title>OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction</title>
+      <link>https://arxiv.org/abs/2610.01762</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.01762</guid>
+      <description>Streaming video LLMs must retain evidence before its relevance to future tasks is known and respond when sufficient evidence becomes available. The challenge is to form reusable factual memory without compromising real-time perception. We introduce OneStreamer, which jointly learns query-independent evidence recording and task response through a shared proactive generation process. Its Proactive Hierarchical Caption Memory (PHCM) produces time-grounded local-detail captions and summaries of completed events. Streaming caption targets supervise the interpretation of observed video prefixes during training. At inference, model-generated records complement a recent visual window, providing reusable factual context without revisiting historical visual features. Proactive State Transition Learning (PSTL) reduces the dominance of repeated waiting states by preserving supervision at all output anchors and selecting representative state-change and state-persistence tokens. We further develop a streaming data synthesis pipeline that aligns output content and timing with available evidence. Combining the resulting streaming captions and QA with cleaned open-source data yields OneStreamer-1M, a broad-coverage streaming video interaction dataset with over one million records spanning diverse tasks. Our 4B model achieves the best results among the compared methods across all eight evaluated streaming video understanding benchmarks. Ablations show that retaining generated captions improves historical QA without degrading real-time perception. PSTL also outperforms dense state supervision while supervising only 27.5% of annotated state tokens. Together, these results support proactive generation as a shared learning interface connecting perception, memory formation, and timely response in streaming video interaction.
 
-Authors: Sohyeon Kim, Yoonho Lee, Bo Liu, Dayoon Ko, Rulin Shao, Seungone Kim, Graham Neubig, Pang Wei Koh, Aakanksha Chowdhery, Akari Asai, Omar Khattab, Yejin Choi, Gunhee Kim, Chelsea Finn
+Authors: Xiangyu Zeng, Yuandong Yang, Zhiqiu Zhang, Yuhan Zhu, Xinhao Li, Qingyi Si, Dingyu Yao, Changlian Ma, Haoran Chen, Xinyu Chen, Yansong Shi, Junhao Zhou, Yifei Li, Jun Zhang, Chuanyu Qin, Chenxu Yang, Xinlei Yu, Kun Ouyang, Yuchen Shao, Qianshan Wei, Changhai Zhou, Jun Gao, Jiaqi Wang, LiMin Wang
 
-Tasks: Retrieval
+Tasks: Video Understanding
 
-Code: https://github.com/stanford-iris-lab/scholarcatalyst</description>
+Code: https://github.com/MCG-NJU/OneStreamer</description>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Empirical Variational Autoencoder</title>
+      <link>https://arxiv.org/abs/2610.06545</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.06545</guid>
+      <description>We present Empirical Variational Autoencoder, a general generative framework for continuous-valued (i.e., non-vector-quantized) sequences. EVA is based on the evidence lower bound of the Variational Autoencoder (VAE) but learns autoregressive latent priors empirically from training data, which can be implemented only by an additional single linear layer on top of VAEs. By replacing the conventional standard-Gaussian constraint with the self-predicted priors, EVA significantly alleviates the latent distribution gap between prior and posterior which is typically observed in conventional VAEs, and leads to high-fidelity ancestral sampling for sequential data generation. Extensive experiments on image and sound synthesis demonstrate that EVA achieves competitive generation quality with autoregressive diffusion baselines despite its much faster inference time.
+
+Authors: Kaede Shiohara
+
+Code: https://github.com/mapooon/EVA</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CoEvoWhen: Policy-Tool Coevolution for Ultra-Long Video Temporal Grounding</title>
+      <link>https://arxiv.org/abs/2609.40048</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2609.40048</guid>
+      <description>Ultra-long video temporal grounding requires balancing long-range evidence search with fine-grained event understanding under a limited visual budget, yet existing agentic methods still rely largely on predefined policies and tool capabilities. Motivated by this, we propose a novel policy-tool coevolution framework that jointly evolves high-level policies and executable media tools from the agentic reasoning trajectories of a VLM, forming a reusable skill without updating model parameters. During evolution, an external skill updater distills transferable task experience in long-video temporal grounding, accordingly refining the orchestration of long-range image-based and fine-grained video-based observations. Alongside these policy updates, the updater employs its coding capabilities to upgrade existing tools or create new ones, adapting the tools to long-video evidence acquisition. Equipped with the evolved skill, the VLM autonomously orchestrates tools under the guidance of the evolved policy, coordinating image and video observations for agentic inference without relying on a separate, stronger planning model. Extensive experiments spanning five benchmarks and three VLMs show that policy-tool coevolution consistently improves temporal grounding accuracy in ultra-long videos while reducing visual token cost at inference, and that the evolved skill yields substantial performance gains on general long-video QA without additional task-specific evolution, demonstrating the effectiveness and generalizability of our framework for long-video understanding.
+
+Authors: Yiduo Jia, Muzhi Zhu, Jinchuan Shi, Hao Zhong, Yuling Xi, Ke Liu, Hao Chen
+
+Tasks: Video Temporal Grounding, Video Understanding
+
+Code: https://github.com/aim-uofa/CoEvoWhen</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ALoDLM: Adaptively Looped Diffusion Language Models</title>
+      <link>https://arxiv.org/abs/2610.04198</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.04198</guid>
+      <description>Diffusion language models (DLMs) enable fast generation by predicting multiple tokens in parallel, but their practical adoption remains limited by a persistent quality gap relative to comparably sized autoregressive (AR) models. We attribute this gap to a computation-difficulty mismatch: within a partially observed sequence, some unknown tokens are easy to predict, while others require substantially more computation. Existing DLMs nevertheless apply uniform computational depth to all unknown positions at each denoising step. We introduce ALoDLM, which replaces uniform computation with token-adaptive latent recurrence. At each denoising step, ALoDLM iteratively refines latent representations and allocates computation according to token difficulty. Tokens ready to commit are fed back as discrete context, while unresolved tokens retain and further refine their latent states through additional recurrent passes. To learn token prediction and computation allocation jointly, we formulate token-wise computation schedules as latent variables and derive a conditional negative evidence lower bound (NELBO). We train ALoDLM at 1.7B and 8B parameter scales. Across eleven benchmarks, ALoDLM outperforms all evaluated DLMs and the corresponding AR baselines in average benchmark score at both scales. ALoDLM also retains fast parallel decoding, yielding a strong quality-efficiency trade-off among evaluated autoregressive and diffusion models under optimized inference engines.
+
+Authors: Liancheng Fang, Zhuowei Li, Youngeun Kim, Tianchen Zhao, Rajat Koner, Jiaye Wu, Linghan Xu, Xuanbai Chen, Xiang Xu, Zheng Zhang, Jakub Zablocki, Nishant Sankaran, Yifan Xing
+
+Tasks: Language Modeling
+
+Code: https://github.com/amazon-science/ALoDLM</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Base Models Can Reason By Taking a Cue From Training Data</title>
@@ -93,19 +152,6 @@ Code: https://github.com/Tencent-Hunyuan/Prism</description>
       <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Representation-Space MMD for Diffusion Language Models</title>
-      <link>https://arxiv.org/abs/2610.06648</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.06648</guid>
-      <description>We introduce a post-training method for diffusion language models (DLMs) that minimizes Maximum Mean Discrepancy (MMD) between generated and reference distributions in the feature space of a frozen pretrained DLM. To estimate MMD, we retain contextual features at individual token positions, obtaining multiple observations per sequence from a single extractor pass. We optimize this objective using policy gradients for discrete models and direct differentiation through generated latents for continuous models. In both cases, computing the loss directly from these features enables efficient post-training without full sampling trajectories or jointly trained auxiliary models. Experiments show lower generative perplexity at comparable entropy on OpenWebText and better accuracy-computation trade-offs on GSM8K. On 16B DMax-LLaDA2.0 models with hybrid masked-uniform diffusion, we increase decoding parallelism with similar or higher accuracy on math and code benchmarks.
-
-Authors: Ilya Drobyshevskiy, Ilia Sudakov, Maksim Semenov, Denis Kuznedelev, Maksim Ignatov, Pavel Temirchev, Nikita Balagansky, Viacheslav Meshchaninov, Nikita Gushchin, Dmitry Baranchuk
-
-Tasks: Language Modeling, Mathematics, Reinforcement Learning
-
-Code: https://github.com/yandex-research/dlm-mmd</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Where-OPD: Spatially Guided On-Policy Self-Distillation of MLLMs with Synthetic Scenes</title>
       <link>https://arxiv.org/abs/2610.02117</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.02117</guid>
@@ -116,19 +162,6 @@ Authors: Sophia Sirko-Galouchenko, Monika Wysoczanska, Andrei Bursuc, Nicolas Th
 Tasks: Document Understanding, Image Understanding, Object Counting
 
 Code: https://github.com/sirkosophia/where-opd</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction</title>
-      <link>https://arxiv.org/abs/2610.01762</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.01762</guid>
-      <description>Streaming video LLMs must retain evidence before its relevance to future tasks is known and respond when sufficient evidence becomes available. The challenge is to form reusable factual memory without compromising real-time perception. We introduce OneStreamer, which jointly learns query-independent evidence recording and task response through a shared proactive generation process. Its Proactive Hierarchical Caption Memory (PHCM) produces time-grounded local-detail captions and summaries of completed events. Streaming caption targets supervise the interpretation of observed video prefixes during training. At inference, model-generated records complement a recent visual window, providing reusable factual context without revisiting historical visual features. Proactive State Transition Learning (PSTL) reduces the dominance of repeated waiting states by preserving supervision at all output anchors and selecting representative state-change and state-persistence tokens. We further develop a streaming data synthesis pipeline that aligns output content and timing with available evidence. Combining the resulting streaming captions and QA with cleaned open-source data yields OneStreamer-1M, a broad-coverage streaming video interaction dataset with over one million records spanning diverse tasks. Our 4B model achieves the best results among the compared methods across all eight evaluated streaming video understanding benchmarks. Ablations show that retaining generated captions improves historical QA without degrading real-time perception. PSTL also outperforms dense state supervision while supervising only 27.5% of annotated state tokens. Together, these results support proactive generation as a shared learning interface connecting perception, memory formation, and timely response in streaming video interaction.
-
-Authors: Xiangyu Zeng, Yuandong Yang, Zhiqiu Zhang, Yuhan Zhu, Xinhao Li, Qingyi Si, Dingyu Yao, Changlian Ma, Haoran Chen, Xinyu Chen, Yansong Shi, Junhao Zhou, Yifei Li, Jun Zhang, Chuanyu Qin, Chenxu Yang, Xinlei Yu, Kun Ouyang, Yuchen Shao, Qianshan Wei, Changhai Zhou, Jun Gao, Jiaqi Wang, LiMin Wang
-
-Tasks: Video Understanding
-
-Code: https://github.com/MCG-NJU/OneStreamer</description>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -158,17 +191,6 @@ Code: https://github.com/microsoft/Webwright</description>
       <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>PaLoRA: Paced Low-Rank Adaptation for Continual Learning</title>
-      <link>https://arxiv.org/abs/2610.04226</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.04226</guid>
-      <description>LoRA-based continual learning methods mitigate catastrophic forgetting through various mechanisms, yet nearly all complement these with small learning rates as a heuristic to restrict gradient scaling magnitude. Such fixed heuristics lack theoretical guidance on how the strength of this restriction should evolve as tasks accumulate. We reveal that even under directional constraints such as nullspace projection, finite-precision updates inevitably leak into the subspace of accumulated prior knowledge along multiple directions. While small learning rates attenuate such leakage, they cannot prevent the accumulated forgetting from intensifying as the effective rank of historical knowledge grows. We show that the optimal magnitude restriction should adaptively increase with this effective rank to balance stability and plasticity, i.e., preservation of previous knowledge and acquisition of new task information. Under an anisotropic leakage model, we derive a pacing law s^*=R/c that characterizes the optimal scaling of gradient steps, i.e., the magnitude restriction itself, where R is the effective rank of past updates. Based on this insight, we propose PaLoRA, which compresses historical knowledge via adaptive SVD truncation, projects gradients onto the nullspace of prior tasks, and applies rank-aware adaptive pacing. Experiments demonstrate consistent improvements over prior methods, with particularly strong performance in long-horizon settings, achieving substantial gains of 4% accuracy on challenging 50-task ImageNet-A and ImageNet-R benchmarks.
-
-Authors: Yuxuan Li, Fanhu Zeng, Hao Tang
-
-Code: https://github.com/liyuxuan-github/PaLoRA</description>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Code2Games: Enabling Coding Agents for Gaming World Generation</title>
       <link>https://arxiv.org/abs/2610.05033</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.05033</guid>
@@ -180,6 +202,17 @@ Tasks: Coding Agents
 
 Code: https://github.com/AIGeeksGroup/Code2Games</description>
       <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PaLoRA: Paced Low-Rank Adaptation for Continual Learning</title>
+      <link>https://arxiv.org/abs/2610.04226</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.04226</guid>
+      <description>LoRA-based continual learning methods mitigate catastrophic forgetting through various mechanisms, yet nearly all complement these with small learning rates as a heuristic to restrict gradient scaling magnitude. Such fixed heuristics lack theoretical guidance on how the strength of this restriction should evolve as tasks accumulate. We reveal that even under directional constraints such as nullspace projection, finite-precision updates inevitably leak into the subspace of accumulated prior knowledge along multiple directions. While small learning rates attenuate such leakage, they cannot prevent the accumulated forgetting from intensifying as the effective rank of historical knowledge grows. We show that the optimal magnitude restriction should adaptively increase with this effective rank to balance stability and plasticity, i.e., preservation of previous knowledge and acquisition of new task information. Under an anisotropic leakage model, we derive a pacing law s^*=R/c that characterizes the optimal scaling of gradient steps, i.e., the magnitude restriction itself, where R is the effective rank of past updates. Based on this insight, we propose PaLoRA, which compresses historical knowledge via adaptive SVD truncation, projects gradients onto the nullspace of prior tasks, and applies rank-aware adaptive pacing. Experiments demonstrate consistent improvements over prior methods, with particularly strong performance in long-horizon settings, achieving substantial gains of 4% accuracy on challenging 50-task ImageNet-A and ImageNet-R benchmarks.
+
+Authors: Yuxuan Li, Fanhu Zeng, Hao Tang
+
+Code: https://github.com/liyuxuan-github/PaLoRA</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States</title>
@@ -195,15 +228,17 @@ Code: https://github.com/luoyu100/PoS</description>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Language Models that Play Chess and Explain Their Moves</title>
-      <link>https://arxiv.org/abs/2610.03695</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.03695</guid>
-      <description>Modern chess engines are silent experts: they play at a superhuman level, but do not offer explanations for their play. On the other hand, language models (LMs) can generate plausible-sounding explanations, but their weak playing strength limits the utility of their explanations. We introduce Queen, a 4B-parameter chess-language model that can explain its moves and plans while playing at the level of a typical Grandmaster. Our novel framework enables domain-specific reasoning through complementary components: an encoder-decoder architecture and an iterative distillation algorithm. This architecture integrates a silent expert chess encoder with an instruction-tuned LM through cross-attention, which we train via a question-answering curriculum to extract chess concepts from the encoder's representations. Building on this domain-adapted model, we iteratively improve its explanations with a natural-language analog of the Bellman update: the model analyzes the positions after its top candidate moves and consolidates them into an explanation of the current position, which is then distilled back into the model. Over seven iterations, our model gains over 900 Elo points (1782 to 2697), substantially surpassing all frontier models on both playing strength and puzzle accuracy, despite containing three orders of magnitude fewer parameters. Furthermore, LM-based evaluations show that our explanations are fluent and approach GPT-5.6-Sol (high) in coherence. The generality of our architecture and training procedure suggests a recipe for applying language models to domains where silent expert encoders are available, like games, robotics, and computer use.
+      <title>Representation-Space MMD for Diffusion Language Models</title>
+      <link>https://arxiv.org/abs/2610.06648</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.06648</guid>
+      <description>We introduce a post-training method for diffusion language models (DLMs) that minimizes Maximum Mean Discrepancy (MMD) between generated and reference distributions in the feature space of a frozen pretrained DLM. To estimate MMD, we retain contextual features at individual token positions, obtaining multiple observations per sequence from a single extractor pass. We optimize this objective using policy gradients for discrete models and direct differentiation through generated latents for continuous models. In both cases, computing the loss directly from these features enables efficient post-training without full sampling trajectories or jointly trained auxiliary models. Experiments show lower generative perplexity at comparable entropy on OpenWebText and better accuracy-computation trade-offs on GSM8K. On 16B DMax-LLaDA2.0 models with hybrid masked-uniform diffusion, we increase decoding parallelism with similar or higher accuracy on math and code benchmarks.
 
-Authors: Adithya Bhaskar, Jeffrey Cheng, Danqi Chen
+Authors: Ilya Drobyshevskiy, Ilia Sudakov, Maksim Semenov, Denis Kuznedelev, Maksim Ignatov, Pavel Temirchev, Nikita Balagansky, Viacheslav Meshchaninov, Nikita Gushchin, Dmitry Baranchuk
 
-Code: https://github.com/queen-project/queen</description>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+Tasks: Language Modeling, Mathematics, Reinforcement Learning
+
+Code: https://github.com/yandex-research/dlm-mmd</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Does Learning Protein Folding Generalize to Broader Reasoning?</title>
@@ -215,43 +250,6 @@ Authors: Yong liu, Zhanpeng Shi, Yizhou Dang, Zhongyue Zhang, Xiaoliang Shi, Zhi
 
 Code: https://github.com/GENTEL-lab/Fold2Reason</description>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Looping Beyond Twice: A Scalable Recipe for Looped Mixture-of-Experts</title>
-      <link>https://arxiv.org/abs/2610.01153</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.01153</guid>
-      <description>Looped Transformers introduce recurrent depth as a new scaling axis for LLMs: by repeatedly applying shared Transformer blocks, they increase effective depth without increasing parameter count. However, the benefits of looping remain unclear for large MoE LLMs under FLOPs-matched comparisons. The main reason is that the gains from additional iterations diminish quickly and can even turn into degradation, so the extra FLOPs spent on looping yield little substantial improvement. Consequently, prior work typically settles on two loops. We identify two main obstacles to scaling looped MoE. First, looping inherits and amplifies the curse of depth: hidden-state variance grows with each iteration as residual updates accumulate, which destabilizes deep recurrence and causes representations to drift. Second, looped MoE suffers from expert selection collapse: routers repeatedly select the same experts across loops, so extra iterations add computation without adding computational diversity. Guided by this diagnosis, we propose LOOM, built on a single principle: each loop should contribute new computation while keeping the recurrent state stable. LOOM stabilizes recurrence by scaling residual updates to bound variance growth and re-injecting the input embedding at every loop, and diversifies it through per-loop routers that engage different experts and a Looping Residual that carries earlier outputs forward. Experiments across 100M-1.7B models show stable scaling to 9-12 loops. Under near-iso-FLOP, the 700M model performs best at 5 loops, reducing perplexity from 18.36 to 16.54 and improving average zero-shot accuracy from 38.84% to 39.53% over the non-looped baseline. Without FLOP matching, the 1.7B model trained on 60B tokens peaks at 9 loops, reducing perplexity from 9.62 to 7.77 and improving average zero-shot accuracy from 42.4% to 47.7%. Code is available https://github.com/hed-ucas/LOOM.
-
-Authors: Di He, Pengxiang Li, Da Chang, Qingyan Meng, Lu Yin, Shiwei Liu
-
-Tasks: Language Modeling
-
-Code: https://github.com/hed-ucas/LOOM</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Memadapter: Counterfactual Adaptation Against Memory-induced Sycophancy</title>
-      <link>https://arxiv.org/abs/2610.05162</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.05162</guid>
-      <description>Long-term memory enables LLM-based agents to retain and reuse information across tasks and sessions, supporting personalization and long-horizon interactions. However, persistent memories can also induce sycophancy, causing agents to over-align with users' historical beliefs even when they are inaccurate, outdated, or inconsistent with objective evidence. Existing mitigation methods assume that memory-induced sycophancy originates from biased or incorrect memories and attempt to reduce this risk by filtering such memories at different stages of the memory pipeline. However, in the real world, objective and correct memories can still induce sycophancy, and the same memory can warrant different influence across different contexts. To this end, we propose MemAdapter, a novel framework that adaptively integrates retrieved memories to support objective and reliable reasoning. Specifically, MemAdapter consists of three components: (i) Counterfactual Induction, which leverages counterfactual reasoning to uncover the potential risk of retrieved memories; (ii) Context-Aware Reflection, which calibrates the inferential influence of each retrieved memory in light of the current task via self-reflection; and (iii) Evidence-Based Reasoning, which grounds the final response in appropriate evidence while preserving the legitimate influence of memory. Extensive experiments on three benchmarks demonstrate that MemAdapter consistently improves memory reliability across diverse scenarios. Our code is available at https://github.com/DEEP-JLU/MemAdapter.
-
-Authors: Ruqing Ning, Haibo Meng, Zhishang Xiang, Zerui Chen, Jinsong Su, Xin WANG, Qinggang Zhang
-
-Code: https://github.com/DEEP-JLU/MemAdapter</description>
-      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>In-Distribution Forcing for Long Video Generation at Test Time</title>
-      <link>https://arxiv.org/abs/2610.03120</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.03120</guid>
-      <description>Modern autoregressive (AR) video diffusion models excel at short-horizon video generation, yet generating long videos remains challenging due to drifting, where colors and textures shift, and motion dynamics decay. Existing works primarily rely on KV conditioning, which selects or modifies cached key-value (KV) entries to mitigate drifting. However, we observe that KV conditioning alone is insufficient as it assumes cached KV entries remain in-distribution. This assumption fails beyond the training horizon: nothing constrains the construction of KV entries during rollout, giving rise to the KV-provenance problem where cached entries themselves become out-of-distribution (OOD). To address this, we propose In-Distribution Forcing (ID-Forcing), a test-time framework that aligns both KV caching and KV conditioning with training configurations. Its key mechanism, self-caching, prevents OOD KV entries at their source. Each chunk is cached without attending to prior KV entry, keeping the rolling window exactly in-distribution. Consequently, ID-Forcing seamlessly extends short-horizon models to minute-scale video generation. Extensive evaluations show that our method remains competitive on standard video generation benchmark while substantially outperforming prior work in mitigating drifting, as validated by both our drift metrics and a user study.
-
-Authors: Jeongwoo Shin, Youngyoon Choi, Sangwoo Jo, Hyunmog Kim, Sungjoon Choi, Joonseok Lee, Jaewoong Choi, Jaemoo Choi
-
-Tasks: Video generation
-
-Code: https://github.com/In-Distribution-Forcing/ID-Forcing</description>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
