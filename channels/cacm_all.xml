@@ -12,7 +12,7 @@
 	<atom:link href="https://cacm.acm.org/feed/" rel="self" type="application/rss+xml" />
 	<link>https://cacm.acm.org</link>
 	<description></description>
-	<lastBuildDate>Tue, 06 Oct 2026 20:46:05 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 07 Oct 2026 16:58:29 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -28,6 +28,101 @@
 	<height>32</height>
 </image> 
 <site xmlns="com-wordpress:feed-additions:1">212686646</site>	<item>
+		<title>How Human Approvals Make AI Agents More Autonomous</title>
+		<link>https://cacm.acm.org/blogcacm/how-human-approvals-make-ai-agents-more-autonomous/</link>
+					<comments>https://cacm.acm.org/blogcacm/how-human-approvals-make-ai-agents-more-autonomous/#respond</comments>
+		
+		<dc:creator><![CDATA[Kate Liapun]]></dc:creator>
+		<pubDate>Wed, 07 Oct 2026 16:58:29 +0000</pubDate>
+				<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
+		<category><![CDATA[Computing Applications]]></category>
+		<category><![CDATA[Computing Profession]]></category>
+		<category><![CDATA[Data and Information]]></category>
+		<guid isPermaLink="false">https://cacm.acm.org/?p=813071</guid>
+
+					<description><![CDATA[<p>It&#8217;s better to have a checkpoint to gauge an agent's path to delivering complete, accurate results than to have a quick outcome that seems legitimate but is peppered with errors someone has to fish out later.</p>]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">The premise of the agentic AI argument was that humans could sit back and let AI handle repetitive tasks that were consuming someone&#8217;s time. This brought in greater efficiency and also allowed a worker to devote time and energies to tasks that required greater critical thinking and creativity. However, during my work as a data engineer at Dwelly—a U.K. proptech scaling through acquisitions—I came across a recurring issue that made me rethink my stance.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">I’d been migrating client data from older estate agencies&#8217; CRMs to that of Dwelly. The source CRM contained two fields, “lettings negotiator” and “property manager.” In the U.K. letting market, the first refers to the person handling the rental process, while the second manages the property after it has been let. These fields existed in our target system as well, and the AI proposed to map them. Since I was privy to conversations with the agency during onboarding, I remembered hearing an explanation that these fields were filled with wrong values since they hadn’t really been in use. With that in mind, I rejected the agent’s proposed mapping and told it to proceed with the rest, which it did correctly.</p>
+
+
+
+<p class="wp-block-paragraph">Although on surface such checkpoints might seem like they are taking away an agent’s autonomy, they do the opposite because one is more comfortable with an outcome they can trust. It’s better to have a checkpoint to gauge what path the agent is on and have complete, accurate results than to have a quick outcome that seems legitimate but is peppered with errors someone has to fish out later.</p>
+
+
+
+<h3 class="wp-block-heading">What Would Have Happened Without the Checkpoint?</h3>
+
+
+
+<p class="wp-block-paragraph">Let’s consider what would happen if I hadn’t intervened. The agent would have proceeded with the mapping and the agency eventually would have discovered that the “lettings negotiator” and “property manager” values were wrong. Someone would then have had to trace the issue back and clean up the consequences of that data elsewhere. Multiply this across an entire migration and one can end up with operationally useless tables. Even worse, if the mistake is not caught those values may be used to make business decisions. So the job of the data engineer would have been doubled: operate the AI agent, trace its decisions, zero in on the mistake, let it run again, then double-check once more. That makes the argument of efficiency truly redundant.</p>
+
+
+
+<p class="wp-block-paragraph">I see this failure play out across different enterprises. An AI agent is tested in isolation and it works superbly. But once it is deployed into real-time operations, it simply becomes too costly to keep up with all the supervision, refinement, and expensive reasoning, as described in a <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/is-that-ai-agent-worth-it-agentic-economics-and-the-modern-operating-model#/">McKinsey survey report</a>. Gartner has <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027">also predicted</a> that more than 40% of agentic AI projects will be canceled by the end of 2027 because of similar issues with rising costs, unclear value, and weak risk controls. The most thorough findings can be found in <a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf">MIT’s Project NANDA</a>, which looked at the state of AI in business and found through surveys that while AI adoption has been high, transformation has been rare because AI tools have not integrated well into existing workflows. I must rebut some of these arguments because working at a proptech, we are in fact <a href="https://www.dwelly.group/blog/ai-operations">using AI to optimize operations</a> and enabling a sector like lettings with tech, which has allowed automation of maintenance and payments that, in turn, improve the operations of an industry notorious for its response time.</p>
+
+
+
+<h3 class="wp-block-heading">Approval Changed What I was Willing to Automate</h3>
+
+
+
+<p class="wp-block-paragraph">Without a checkpoint, I would be reluctant to let the agent delete or update the mappings because the consequences of that would simply be too high. With the approval in place, anytime the agent approached a part that required business judgement, I could step in. I find this to be a more realistic and useful form of autonomy than simply allowing unrestricted action. As a<a href="https://arxiv.org/abs/2604.14723"> recent paper on bounded autonomy</a> makes the case, removing safeguards only creates hallucinated success whereas approval checkpoints create practical, complete results in fewer turns. They did so by creating twenty-five scenario trials spanning seven failure families. The evaluation was small and limited to the authors’ own application, so I would not generalize too far from it, but the results match what I have seen in practice: safeguards can improve the conditions under which an agent operates rather than simply slow it down.</p>
+
+
+
+<h3 class="wp-block-heading">Approval Does Only Half of the Heavy Lifting</h3>
+
+
+
+<p class="wp-block-paragraph">It doesn’t all come down to an operator manually accepting or rejecting changes. The agent must operate through predefined database operations. By giving it a narrow set of tools, it can only lead to predefined outcomes that are considered safe. Therefore, an agent still has to decide from its given tool set and supply relevant values, but it cannot modify a database on its own. Even if an agent makes a bad call in this bounded architecture, it will not be catastrophic. Most agent failures are small actions that look alright  locally but cause problems elsewhere, and this is exactly where narrow tools can help us. In sum, the approval step handles the business judgment, while the tool design handles the technical boundary. I would not trust either one by itself.</p>
+
+
+
+<h3 class="wp-block-heading">The Two Different Failure Modes I was Dealing With</h3>
+
+
+
+<p class="wp-block-paragraph">It’s important to distinguish the type of failure one is facing with agents. The CRM case showed me that not every case has the same cause. For example, in my case the issue was missing context. The agent could not know what the agency had told me because the information was absent from the system. Once I supplied that fact, the agent understood the correction and carried it through. </p>
+
+
+
+<p class="wp-block-paragraph">There are also cases where there is a reasoning-capacity problem. I ran into this problem when I asked the agent to compare several rows of data across ten columns and identify the underlying pattern. It struggled and sometimes could not identify it at all. This is supported by a <a href="https://arxiv.org/abs/2505.21409">RelationalFactQA study</a> on retrieving relational facts from tables which concluded that performance deteriorated as the dimensionality of the requested output increased. On more complex relational outputs, the models evaluated in the study did not exceed roughly 25% factual accuracy. Such failures can only be resolved structurally. Tasks must be narrowed down, decomposed, or followed by an independent verification pass. If a model has exceeded its reasoning capacity, it will not benefit from greater context. </p>
+
+
+
+<p class="wp-block-paragraph">It is important to properly identify the type of failure because the conflation of them leads to bad system design. One could end up over-explaining to an agent that simply does not have the capacity to perform that task. Or one could end up over-engineering verification problems for an agent that just needed more context. In the end, automation is supposed to make operations smoother as long as we recognize what exactly we are working with.</p>
+
+
+
+<h3 class="wp-block-heading">How I Changed My Approach</h3>
+
+
+
+<p class="wp-block-paragraph">As a data engineer, I used to do these mappings manually before there were AI agents. By building this agent, I saved a lot of time from repetitive tasks and could focus on other problems in the migration pipeline. But I have also become more deliberate about how much responsibility I give an agent. For the parts of the workflow where decisions can change due to business context, I always add human approval to them. I use scoped tools instead of giving the agent unfettered system access. I also recognize the type of failure problem I run into before prescribing a solution. Instead of simply pushing forward with expanding an agent&#8217;s scope, my approach is now to assess whether a system can contain the risk of an agent’s doing. This has proven to be a much more useful way for me to benefit from agentic efficiency while also ensuring the safety of the data we work with.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Disclosure</strong>: While this post is entirely written by me, I used AI to look up sources to back my data and challenge my thoughts. I assume the structure might be flagged for being similar to an output generated by an LLM. Also, most of the sources were provided to me by AI, which I then read by myself and incorporated into this post. Some sources I added on my own. </p>
+
+
+
+<figure class="wp-block-image"><img fetchpriority="high" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/10/Kate-Liapun.092426.BLOG-350.jpg" alt="Kate Liapun" class="wp-image-813485" srcset="https://cacm.acm.org/wp-content/uploads/2026/10/Kate-Liapun.092426.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/10/Kate-Liapun.092426.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/10/Kate-Liapun.092426.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
+
+
+
+<p class="wp-block-paragraph"><em><strong>Kate Liapun </strong>is a Data Engineer at Dwelly, a U.K. proptech group scaling through acquisition. At Dwelly, she built the system that migrates client data from legacy estate agency CRMs into the company&#8217;s platform. Her main focus is developing a reusable, AI-powered migration product designed to move customer data at the press of a button.</em></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://cacm.acm.org/blogcacm/how-human-approvals-make-ai-agents-more-autonomous/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">813071</post-id>	</item>
+		<item>
 		<title>What Agentic AI Requires</title>
 		<link>https://cacm.acm.org/blogcacm/what-agentic-ai-requires/</link>
 					<comments>https://cacm.acm.org/blogcacm/what-agentic-ai-requires/#respond</comments>
@@ -507,7 +602,7 @@
 <p><a id="seven"></a>7. EvoUndo. EvoUndo, GitHub repository (2026). <a href="https://github.com/evoundo/evoundo">https://github.com/evoundo/evoundo</a></p>
 
 
-<figure class="wp-block-image"><img fetchpriority="high" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/09/Tanmay-Sah.091726.BLOG-350.jpg" alt="Tanmay Sah" class="wp-image-813329" srcset="https://cacm.acm.org/wp-content/uploads/2026/09/Tanmay-Sah.091726.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/09/Tanmay-Sah.091726.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/09/Tanmay-Sah.091726.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
+<figure class="wp-block-image"><img decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/09/Tanmay-Sah.091726.BLOG-350.jpg" alt="Tanmay Sah" class="wp-image-813329" srcset="https://cacm.acm.org/wp-content/uploads/2026/09/Tanmay-Sah.091726.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/09/Tanmay-Sah.091726.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/09/Tanmay-Sah.091726.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
 
 
 
@@ -515,7 +610,7 @@
 
 
 
-<figure class="wp-block-image"><img decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/09/Dolly-Sah.091726.BLOG-350.jpg" alt="Dolly Sah" class="wp-image-813327" srcset="https://cacm.acm.org/wp-content/uploads/2026/09/Dolly-Sah.091726.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/09/Dolly-Sah.091726.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/09/Dolly-Sah.091726.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
+<figure class="wp-block-image"><img loading="lazy" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/09/Dolly-Sah.091726.BLOG-350.jpg" alt="Dolly Sah" class="wp-image-813327" srcset="https://cacm.acm.org/wp-content/uploads/2026/09/Dolly-Sah.091726.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/09/Dolly-Sah.091726.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/09/Dolly-Sah.091726.BLOG-350.jpg?resize=300,300 300w" sizes="auto, (max-width: 350px) 100vw, 350px" /></figure>
 
 
 
@@ -1087,69 +1182,5 @@
 		
 		
 		<post-id xmlns="com-wordpress:feed-additions:1">812213</post-id>	</item>
-		<item>
-		<title>We DO Know How, but Not the How We Want</title>
-		<link>https://cacm.acm.org/blogcacm/we-do-know-how-but-not-the-how-we-want/</link>
-					<comments>https://cacm.acm.org/blogcacm/we-do-know-how-but-not-the-how-we-want/#respond</comments>
-		
-		<dc:creator><![CDATA[Robin K. Hill]]></dc:creator>
-		<pubDate>Wed, 30 Sep 2026 15:29:45 +0000</pubDate>
-				<category><![CDATA[Architecture and Hardware]]></category>
-		<guid isPermaLink="false">https://cacm.acm.org/?p=810732</guid>
-
-					<description><![CDATA[<p>We know exactly how an LLM works. It's a computer program.</p>]]></description>
-										<content:encoded><![CDATA[
-<p class="wp-block-paragraph">There are so many things about computing that are interesting . . . which we miss while bogged down in AI muck. Among the many misnomers, misstatements, and anthropomorphized mischaracterizations, we find this: We don&#8217;t even know how generative AI works! This misleading wave toward the ineffable appears regularly in the popular press. For a recent occurrence, we read, in an article by Peter Denning: &#8220;[large language models] are &#8216;black boxes,&#8217; meaning we have no idea what is going on inside. When we look inside, we cannot make sense of what we see—a huge neural network with millions of nodes and billions of weighted connections. The network gives no clue why it delivered an output, or how to correct it if an output is in error.&#8221;<sup><a href="#one">1</a></sup> Okay, some of these statements come from venerable experts, and we know what they mean. But others don&#8217;t.</p>
-
-
-
-<p class="wp-block-paragraph">This literal claim of ignorance is absurd. We know exactly how it works. It&#8217;s a computer program. We just don&#8217;t have any readily accessible account in the surface-level terms that we would like. Machine learning just draws a line from input to output. That line does not pass through the set of holistic features, identifiable attributes, and causal relationships we want to use.</p>
-
-
-
-<p class="wp-block-paragraph">We know how payroll computation works: the program multiplies hours times pay rate. We could do that by hand! We know how address search works: the program compares the query to each database entry until it matches, then outputs the address field. But when we see a chatbot producing the word &#8220;delve&#8221; after the phrase &#8220;for greater understanding, we should,&#8221; we go all giddy. Yet we understand these things: Parsing into tokens and probability assignments in real numbers is followed by cycles of matrix multiplication, subtraction, sorting, and more arithmetic, involving incorporation of vast contexts that adjust the magnitude of elements&#8217; effects. Based on the huge corpora sampled, the word &#8216;delve&#8221; follows the given string of tokens with high probability. We could do that by hand! (Given the span of a lifetime, only in theory, which is still significant.) In other words, the achievement in reasoning is quantitative, not qualitative.</p>
-
-
-
-<p class="wp-block-paragraph">When we go to a casino (not that we do), we see the croupier spin the roulette wheel one way and toss the ball the other way, where it goes around and around, until the deflectors slow it down enough so that it settles into a pocket. The only giddiness suffered by the players is based on their bets, winning or losing. No one says, &#8220;We just don&#8217;t know how it works!&#8221; as if that selection of a pocket were some sort of emergent miracle. And we could determine the outcome of the roulette spin to the level of deterministic explanation had we but world enough and time, extensive time, and all the relevant physical formulas at our fingertips. Even without that, we still &#8220;know how it works.&#8221; One might challenge the analogy thus: the roulette wheel does not provide an answer to a question, just a final outcome . . . but that&#8217;s exactly what a chatbot does.</p>
-
-
-
-<p class="wp-block-paragraph">Even plain old statistics produces results that may surprise us, but we don&#8217;t claim ignorance about how statistics works: The mean, median, and mode are the results of counting, sorting, adding, and dividing a whole lot of numbers. Didn&#8217;t we learn this way (without full biological explanation) that smoking causes cancer? We can validate and interpret a statistical result if necessary by following all the (possibly voluminous) calculations that demonstrate it. We understand that plain old statistics also draws a line from input to output without passing through interpretation.</p>
-
-
-
-<p class="wp-block-paragraph">An article in <em>The New York Times Magazine </em>explores worries about this opaque aspect of diagnostic and recommender systems, and describes new approaches to producing explanation and interpretation.<sup><a href="#two">2</a></sup> That is an admirable endeavor, and, importantly, it is an endeavor predicated on knowing exactly how AI models work. Interpretability is a good goal, but it remains a distortion to call the lack of a gloss, in the terms we want, an impenetrable mystery.</p>
-
-
-
-<p class="wp-block-paragraph">The amazing thing is not that LLM application has escaped epistemic bounds, or achieved magic, or something like that, but that our collective discourse is so incredibly well modeled by token prediction based on context. What to make of that? Like the physics underlying the roulette wheel, the juicy part is not the observation, but the science of the phenomenon. We would be better served by investigating that, by seeking the theory that guides the generation of natural language, than marveling at the lack of casual, causal, intentional, interpretation that we want.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>References</strong> </p>
-
-
-
-<p class="wp-block-paragraph"><a id="one"></a>1. Denning, P.J. The Conundrum of LLMs. <em>Communications</em> 69:3 (2026), 31-34.</p>
-
-
-
-<p class="wp-block-paragraph"><a id="two"></a>2. Whang, O. A Mind of Its Own. <em>The New York Times Magazine</em> (April 26, 2026).</p>
-
-
-
-<figure class="wp-block-image"><img loading="lazy" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2024/05/060524.BLOG_.Robin-K-Hill-x350.jpg" alt="Robin K. Hill" class="wp-image-757349" srcset="https://cacm.acm.org/wp-content/uploads/2024/05/060524.BLOG_.Robin-K-Hill-x350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2024/05/060524.BLOG_.Robin-K-Hill-x350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2024/05/060524.BLOG_.Robin-K-Hill-x350.jpg?resize=300,300 300w" sizes="auto, (max-width: 350px) 100vw, 350px" /></figure>
-
-
-
-<p class="wp-block-paragraph"><strong><em>Robin K. Hill is</em></strong><em> a lecturer in the Department of Computer Science, an adjunct in the School of Computing, and an affiliate of the Department of Philosophy and Religious Studies, at the University of Wyoming. She has been a member of ACM since 1978.</em></p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://cacm.acm.org/blogcacm/we-do-know-how-but-not-the-how-we-want/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-		<post-id xmlns="com-wordpress:feed-additions:1">810732</post-id>	</item>
 	</channel>
 </rss>
