@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sun, 11 Oct 2026 03:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 04:00:01 GMT</lastBuildDate>
     <item>
       <title>WorldSonus: Bringing Sound to Worlds</title>
       <link>https://arxiv.org/abs/2610.08760</link>
@@ -30,6 +30,84 @@ Tasks: Agents, Computer Use Agents
 
 Code: https://github.com/nano-muse/nanoMuse</description>
       <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>From Traces to Agentic Worlds: Agentic Language World Models for Interactive Environment Simulation</title>
+      <link>https://arxiv.org/abs/2610.06100</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.06100</guid>
+      <description>Realistic environment replicas are increasingly valuable for training and evaluating LLM agents, yet the original systems may be inaccessible or impractical to reproduce. We explore agentic language world modeling: rather than rebuilding an executable environment, a world model agent serves as the environment for a task agent and supports faithful and stateful simulation. We instantiate this paradigm with Trace2Env, a learning-free framework for settings where the original system is unavailable but historical interaction traces remain accessible. Trace2Env reconstructs these traces into a reusable environment worldbook containing environment schemas, grounded evidence, and induced behavioral knowledge. At runtime, the world model agent actively consults the worldbook together with persistent episodic state to infer each action's observation and lasting state effects. Across nine environments, Trace2Env improves both next-observation fidelity and long-horizon interaction consistency over conventional prompt-based LWMs. In multi-turn interaction, task agent actions generated against Trace2Env remain valid more often when replayed in the real environment, indicating that its simulated dynamics better preserve the consequences of earlier actions across successive turns. These results establish agentic language world modeling as an alternative direction for building realistic environment replicas without reconstructing the original executable system.
+
+Authors: Quanyu Long, Xiao Chen, Jianda Chen, Haozhen Zhang, Qisheng Hu, Jianzhu Bao, Wenya Wang
+
+Tasks: World Models
+
+Code: https://github.com/ruyue0001/trace2env</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AgentGarten: Code Worlds for Evolving Agents</title>
+      <link>https://arxiv.org/abs/2610.12374</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12374</guid>
+      <description>Interactive virtual worlds allow agents to learn through exploration and interaction. What agents can learn is bounded by the environments they practice in, which must be faithful, with consistent state, rules, and dynamics, and realistic, with observations that follow the real-world visual distributions. Achieving both across diverse worlds remains a bottleneck. We introduce AgentGarten, a framework that couples simulators and game engines with a shared neural renderer to build real-time interactive environments. Its simulation backends maintain persistent world state and execute program-defined interaction rules, while the renderer generates visual observations from structured conditions exported through a common interface. To build the neural renderer, we adapt a pretrained video model to geometry conditions, distill it with our proposed Adversarial Forcing, and optimize inference for real-time interaction. Adversarial Forcing makes history prefilling differentiable through exact replay, so that losses on later predictions update how the renderer encodes prior observations, and adds real-data adversarial supervision to improve its visual quality. In AgentGarten, agents perceive the world through visual observations, interact with it in real time, and improve by distilling each round of experience into playbooks that subsequent agents inherit and refine. Our empirical study demonstrates a substantial gain in learning efficiency, with agents learning from just 4 rounds compared with millions for a conventional reinforcement learning counterpart. As new worlds can be written as code and rendered through the same interface, environments can scale in both number and difficulty alongside their agents, a step toward agents that keep evolving through interactive experience.
+
+Authors: Jiawei Chi, Shangchen Miao, Zhiyuan Shi, Kailu Wu, Hanyang Wang, Weiliang Chen, Qiyu Dai, Jinshan Ren, Jun Gao, Mingsheng Long, Yueqi Duan, Jiangran Lyu, Jialong Wu, Fangfu Liu
+
+Tasks: Reinforcement Learning, Video generation, World Models
+
+Code: https://github.com/MirroS-Lab/AgentGarten</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Real Long-Term Memory for AI: A 50-Million-Token Window That Is Faster and Cheaper Than Recompute</title>
+      <link>https://arxiv.org/abs/2610.10845</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.10845</guid>
+      <description>A large language model can only use the text that fits in its context window, and it recomputes its internal key-value (KV) state for a prompt every time the prompt is sent. We test a memory layer, the public package galahad-kv, that saves the KV state of each block of about 16,000 tokens to encrypted local NVMe disk and loads it back later, byte-exact, without recomputing it. We ran it on 50,000,000 tokens of real public text, served through vLLM on one NVIDIA H100, with Gemma 4 12B and Gemma 4 31B. Every block we probed was loaded back from the encrypted store with no recompute (100 of 100, at depths from 0 to 50M tokens) on both models. Loading a block was 2.8x to 4.3x faster than recomputing it and used 8.8x to 12.3x less GPU energy, and GPU memory stayed flat over the whole 50M-token stream. Asked about facts planted millions of tokens earlier, the 12B model gave the right answer 82 times out of 100 and the 31B model 98 times out of 100. Neither model made up an answer. The limits are as follows. This is reuse of stored state, not a wider attention window: one block is loaded at a time, and how well a question is answered depends on the model. Writing the memory is a one-time cost, and the store takes terabytes of local NVMe disk. We describe the test protocol, which is built to resist common ways of gaming long-context benchmarks, and give a single-GPU reproduction that uses public software and a free licence for the package.
+
+Authors: Sietse Schelpe
+
+Tasks: Long Context
+
+Code: https://github.com/corbenicai/galahad</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Beyond Spatio-Temporal Priors: A Generalizable Approach for Dense Correspondence Matching</title>
+      <link>https://arxiv.org/abs/2610.12421</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12421</guid>
+      <description>Dense correspondence matching has historically been bounded by simplifying spatio-temporal priors, such as smooth motion and rigid geometry. While effective for classical tasks, these assumptions break down in image editing and reference-guided generation (IEG), where transformations can preserve visual identity while breaking physical continuity. To establish identity-preserving correspondence across such transformations, we introduce FreeMatching, a generalizable framework combining generative and semantic foundation representations with heterogeneous supervision from classical datasets, tracked videos, and synthetic scenes. Teacher-guided iterative refinement further improves correspondence in IEG without dense correspondence annotations. Experimentally, a single FreeMatching model substantially improves correspondence quality on challenging IEG image pairs while retaining competitive performance on classical benchmarks. Furthermore, we demonstrate its utility as a quantitative metric for evaluating identity preservation, with scores that correlate with human judgment. The code is available at https://github.com/luping-liu/FreeMatching.
+
+Authors: Luping Liu, Bingyi Kang, Yifan Wang, Dong Xu
+
+Tasks: Image editing, Image Matching, Optical Flow
+
+Code: https://github.com/luping-liu/FreeMatching</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Towards Looped Models Done Right, Part II: Rethinking at Fixed Points</title>
+      <link>https://arxiv.org/abs/2610.06833</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.06833</guid>
+      <description>Every recurrence of a looped language model adds cost in training, decoding, prefill, and reinforcement learning (RL). The closer recurrent states get to fixed points, the less the path to them matters. This enables truncated backpropagation in training; terminal key-value (KV) sharing for decoding with almost no loss in accuracy; a distilled student that prefills up to 1.79x faster; and RL updates that compute gradients from saved rollout states, 2x faster than backpropagating through the replayed trajectory. We therefore improve the two components of training that shape these fixed points: the depth prior and input injection. Fixed-depth training breaks KV sharing, and Huginn's broad depth prior supports sharing but dilutes supervision at the target depth more than sharing requires; we learn the prior from prediction feedback, with an entropy term that keeps it broad. Existing injection schemes let the state's component along the input amplify or cancel the injection; we remove this component with orthogonal injection. From 100M to 1.6B parameters, the learned prior and orthogonal injection lower perplexity at every scale relative to Huginn's prior and existing injection schemes, respectively. At 1.6B, the learned prior with a 3x smaller KV cache matches the downstream average of fixed-depth training with the full cache.
+
+Authors: Benhao Huang, Chufan Shi, Junlin Chen, Shicheng Wen, Zhengzhong Liu, Eric Xing, Xuezhe Ma
+
+Tasks: Language Modeling, Reinforcement Learning
+
+Code: https://github.com/ifm-ai/xllm-loop</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SGF+: Decoupling Gradient Flows for Autoregressive Video Generation</title>
+      <link>https://arxiv.org/abs/2610.10429</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.10429</guid>
+      <description>Autoregressive video generation requires denoising the current frames while writing their key-value representations as context for future predictions. However, these two roles typically share parameters, and we find that their gradients exhibit distinct patterns and systematic negative alignment, hindering the joint optimization of visual quality and temporal consistency. We introduce Self Gradient Forcing Plus (SGF+), which assigns separate parameters to context writing and denoising while preserving their interaction through causal attention. Both roles are jointly optimized using the original generation objective without auxiliary losses, with context writing supervised through its contribution to future predictions. This simple change improves visual quality and long-horizon consistency over the evaluated baselines in both framewise and chunkwise generation, without additional video training data or a longer training horizon. Trained on only 5s rollouts, SGF+ supports continuous generation for up to 24 hours without long-video fine-tuning. These results highlight role-specific parameterization as an effective design principle for high-quality autoregressive video generation and native long-horizon extrapolation.
+
+Authors: Zihan Su, Junhao Zhuang, Yaowei Li, Siwen Lu, Haoran Li, Lingen Li, Haoyu Wu, Weiyang Jin, Songchun Zhang, Haoyang Huang, Chun Yuan, Zeyue Xue, Nan Duan
+
+Tasks: Video generation
+
+Code: https://github.com/Zihan-Su/Self_Gradient_Forcing_Plus</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>TokenRouter: Efficient Serving System for Token-Level LLM Routing</title>
@@ -96,19 +174,6 @@ Code: https://github.com/salesforceairesearch/srd</description>
       <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SGF+: Decoupling Gradient Flows for Autoregressive Video Generation</title>
-      <link>https://arxiv.org/abs/2610.10429</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.10429</guid>
-      <description>Autoregressive video generation requires denoising the current frames while writing their key-value representations as context for future predictions. However, these two roles typically share parameters, and we find that their gradients exhibit distinct patterns and systematic negative alignment, hindering the joint optimization of visual quality and temporal consistency. We introduce Self Gradient Forcing Plus (SGF+), which assigns separate parameters to context writing and denoising while preserving their interaction through causal attention. Both roles are jointly optimized using the original generation objective without auxiliary losses, with context writing supervised through its contribution to future predictions. This simple change improves visual quality and long-horizon consistency over the evaluated baselines in both framewise and chunkwise generation, without additional video training data or a longer training horizon. Trained on only 5s rollouts, SGF+ supports continuous generation for up to 24 hours without long-video fine-tuning. These results highlight role-specific parameterization as an effective design principle for high-quality autoregressive video generation and native long-horizon extrapolation.
-
-Authors: Zihan Su, Junhao Zhuang, Yaowei Li, Siwen Lu, Haoran Li, Lingen Li, Haoyu Wu, Weiyang Jin, Songchun Zhang, Haoyang Huang, Chun Yuan, Zeyue Xue, Nan Duan
-
-Tasks: Video generation
-
-Code: https://github.com/Zihan-Su/Self_Gradient_Forcing_Plus</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>SuperNav: An Agentic Navigation System for Any Task in Any Scene</title>
       <link>https://arxiv.org/abs/2610.12126</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.12126</guid>
@@ -146,71 +211,6 @@ Tasks: Question Answering, Reinforcement Learning
 
 Code: https://github.com/yuyaoge/skillforge</description>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Real Long-Term Memory for AI: A 50-Million-Token Window That Is Faster and Cheaper Than Recompute</title>
-      <link>https://arxiv.org/abs/2610.10845</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.10845</guid>
-      <description>A large language model can only use the text that fits in its context window, and it recomputes its internal key-value (KV) state for a prompt every time the prompt is sent. We test a memory layer, the public package galahad-kv, that saves the KV state of each block of about 16,000 tokens to encrypted local NVMe disk and loads it back later, byte-exact, without recomputing it. We ran it on 50,000,000 tokens of real public text, served through vLLM on one NVIDIA H100, with Gemma 4 12B and Gemma 4 31B. Every block we probed was loaded back from the encrypted store with no recompute (100 of 100, at depths from 0 to 50M tokens) on both models. Loading a block was 2.8x to 4.3x faster than recomputing it and used 8.8x to 12.3x less GPU energy, and GPU memory stayed flat over the whole 50M-token stream. Asked about facts planted millions of tokens earlier, the 12B model gave the right answer 82 times out of 100 and the 31B model 98 times out of 100. Neither model made up an answer. The limits are as follows. This is reuse of stored state, not a wider attention window: one block is loaded at a time, and how well a question is answered depends on the model. Writing the memory is a one-time cost, and the store takes terabytes of local NVMe disk. We describe the test protocol, which is built to resist common ways of gaming long-context benchmarks, and give a single-GPU reproduction that uses public software and a free licence for the package.
-
-Authors: Sietse Schelpe
-
-Tasks: Long Context
-
-Code: https://github.com/corbenicai/galahad</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>From Traces to Agentic Worlds: Agentic Language World Models for Interactive Environment Simulation</title>
-      <link>https://arxiv.org/abs/2610.06100</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.06100</guid>
-      <description>Realistic environment replicas are increasingly valuable for training and evaluating LLM agents, yet the original systems may be inaccessible or impractical to reproduce. We explore agentic language world modeling: rather than rebuilding an executable environment, a world model agent serves as the environment for a task agent and supports faithful and stateful simulation. We instantiate this paradigm with Trace2Env, a learning-free framework for settings where the original system is unavailable but historical interaction traces remain accessible. Trace2Env reconstructs these traces into a reusable environment worldbook containing environment schemas, grounded evidence, and induced behavioral knowledge. At runtime, the world model agent actively consults the worldbook together with persistent episodic state to infer each action's observation and lasting state effects. Across nine environments, Trace2Env improves both next-observation fidelity and long-horizon interaction consistency over conventional prompt-based LWMs. In multi-turn interaction, task agent actions generated against Trace2Env remain valid more often when replayed in the real environment, indicating that its simulated dynamics better preserve the consequences of earlier actions across successive turns. These results establish agentic language world modeling as an alternative direction for building realistic environment replicas without reconstructing the original executable system.
-
-Authors: Quanyu Long, Xiao Chen, Jianda Chen, Haozhen Zhang, Qisheng Hu, Jianzhu Bao, Wenya Wang
-
-Tasks: World Models
-
-Code: https://github.com/ruyue0001/trace2env</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MC-Sparse: Deconstructing and Closing the Dense-Sparse Attention Gap in Diffusion Transformers</title>
-      <link>https://arxiv.org/abs/2610.06801</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.06801</guid>
-      <description>Sparse attention is a primary approach to reducing the latency of diffusion transformers in long-sequence generation tasks, such as video and high-resolution 3D asset generation. However, existing methods can degrade generation quality and fidelity at high sparsity levels. Through controlled oracle comparisons, we trace this degradation to three sources: constraints imposed by token grouping, inaccurate interaction selection, and the attention contributions lost when tokens are discarded. Guided by this analysis, we propose Meta-Cached Sparse Attention (MC-Sparse), a training-free framework that selects individual key-value (KV) tokens while organizing similar queries into tile-aligned groups for efficient GPU execution. MC-Sparse caches metadata comprising query groups, KV indices selected using exact attention probabilities, and residuals between dense and sparse attention outputs, and reuses them across subsequent denoising steps. Across video and 3D generation models, MC-Sparse achieves higher fidelity to dense-attention outputs and larger denoising speedups than existing sparse-attention baselines, without visible quality degradation. Relative to dense attention, it delivers a 1.80times denoising speedup on Minimax-H3-Base and a 2.32times speedup on 3D asset generation, both with negligible quality loss.
-
-Authors: Jiarui Chen, Zeqiang Lai, Jiangshan Wang, Ziheng Ouyang, Ye Huang, Xiangyu Yue, Cewu Lu, Chunchao Guo
-
-Tasks: 3D generation, Video generation
-
-Code: https://github.com/dodododddo/mcsparse</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>OneSearch-VL: Unified Multimodal Deep Research Agent for Image and Video</title>
-      <link>https://arxiv.org/abs/2610.12419</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12419</guid>
-      <description>Single-image, multi-image, and video deep research require different visual operations but share a workflow of visual grounding, external retrieval, and fact composition. A key challenge is to preserve the dependencies linking localized visual anchors, entity relations, source-supported facts, and answer-producing operations. We introduce OneSearch-VL, a unified agent centered on the Visually Grounded Evidence Graph (VGEG), which encodes these dependencies as a shared task-level reference for data construction, process supervision, and operation-level evaluation. Our VGEG-based data engine constructs and verifies multi-image and video questions and filters expert trajectories. Using these data, we assemble OneSearch-VL-SFT-110K and OneSearch-VL-RL-10K for SFT and RL, respectively. We further derive the Evidence-aware Visual-Grounded Rubric reward (EVGR) from VGEG annotations to supervise evidence traceability and visual grounding during RL. For fine-grained evaluation, we construct OneSearch-MI-Bench and OneSearch-Video-Bench, organizing questions by the research operations encoded in their VGEGs. Experiments show that OneSearch-VL-8B improves over Qwen3-VL-8B with tool access by 20.2 and 17.6 percentage points on the two new benchmarks, respectively, while also achieving substantial gains across 7 image benchmarks and VideoDR. Project repository: https://github.com/appletea233/OneSearch-VL
-
-Authors: Hongyu Li, Manyuan Zhang, Kaituo Feng, Shu Chen, Dian Zheng, Hao Li, Hao Yu, Zhangquan Chen, Zoey Guo, Ray Zhang, Shaofei Huang, Tianrui Hui, Linjiang Huang, Si Liu
-
-Tasks: Deep Research Agents, Reinforcement Learning, Video Understanding, Visual Grounding
-
-Code: https://github.com/appletea233/OneSearch-VL</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VibeEdit: Image Editing with Canvas Instructions</title>
-      <link>https://arxiv.org/abs/2610.12229</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12229</guid>
-      <description>In text-guided image editing, describing the desired change is often straightforward, but identifying the intended object or region can be cumbersome, especially when several objects look alike. We introduce a new image editing interface that lets users place spatial marks and optional short notes directly on the image. Together, these annotations form a canvas instruction that specifies where to edit and what to change. Our editor, VibeEdit, follows these instructions to perform object addition, removal, replacement, attribute modification, and movement without a separate text prompt. We construct 1.55 million source-target edit pairs with object masks and structured edit descriptions, from which we render canvas instructions during training. We adapt Qwen-Image-Edit with layer-decoupled conditioning that separately encodes source images and canvas instructions for image editing. We train the model with region-weighted supervised fine-tuning, followed by rubric-guided reinforcement learning to improve edit completion, local edit quality, and preservation of unedited regions. We evaluate VibeEdit on an independently constructed, human-curated benchmark of 419 cases emphasizing target selection among similar objects. VibeEdit achieves a VLM rubric score of 79.9 and an outside-region PSNR of 32.8 dB, compared with 67.4 and 24.0 dB for FireRed, the highest-scoring text-instructed baseline in our evaluation.
-
-Authors: Jinjing Zhao, Fangyun Wei, Yitong Wang, Xiuyu Wu, Yunuo Chen, Yang Yue, Sirui Zhang, Wenbo Wang, Hongyang Zhang, Dong Chen, Yan Lu, Chang Xu
-
-Tasks: Image editing, Reinforcement Learning
-
-Code: https://github.com/ZhaoJingjing713/VibeEdit</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Beyond Semantic Similarity: Performance and Costs of Agentic Retrieval for Complex Tasks</title>
