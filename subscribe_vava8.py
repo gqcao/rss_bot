@@ -1,4 +1,5 @@
 import re
+import time
 import requests
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
@@ -28,8 +29,13 @@ def fetch_and_generate_rss():
     jina_url = f"https://r.jina.ai/{url}"
     
     try:
-        response = requests.get(jina_url)
+        # Jina may still be completing its security verification when the
+        # response arrives. Keep the connection open and wait before reading
+        # the body, matching the behavior in fetched_md_to_rss.py.
+        response = requests.get(jina_url, stream=True)
         response.raise_for_status()
+        print("Waiting 2 seconds for the response...")
+        time.sleep(2)
         markdown_content = response.text
     except Exception as e:
         print(f"Error fetching content: {e}")
