@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Mon, 12 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 13:00:00 GMT</lastBuildDate>
     <item>
       <title>RSI-Anything: Unlocking Recursive Self-Improvement with World Models</title>
       <link>https://arxiv.org/abs/2610.13912</link>
@@ -32,6 +32,32 @@ Code: https://github.com/nano-muse/nanoMuse</description>
       <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>DiffusionART: Efficient, Stable and Scalable Reinforcement of Diffusion Models</title>
+      <link>https://arxiv.org/abs/2610.12572</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12572</guid>
+      <description>Online reinforcement learning (RL) fine-tunes diffusion models with black-box rewards, but reverse-process methods such as Flow-GRPO are limited in efficiency by poor credit assignment, while forward-process methods such as DiffusionNFT are efficient yet unstable without carefully tuned exponential-moving-average (EMA) off-policy training. We show that NFT-style objectives contain a hidden forward--reverse consistency force that joint positive--negative training cancels only partially, and that EMA stabilizes training through restoration rather than off-policy rollouts. We introduce DiffusionART (Diffusion Reinforcement with Aggregation-First Reward Tilting), which aggregates each prompt's rewards into a shared reward-improving direction for reverse-process states, removing the consistency force by construction, and adds a trust-region-masked second update for drift-adaptive restoration without EMA tuning. It requires no differentiable reward model, remains effective with fewer samples per prompt, and supports pairwise reward models (DiffusionART-Pairwise). Across image and video generation, DiffusionART trains efficiently and stably without per-task tuning. In particular, on HunyuanVideo-13B with equally weighted visual and motion quality rewards, DiffusionART reaches the late-stage mean reward levels of DiffusionNFT and Flow-GRPO-Fast with 12.02 and 11.72 times fewer GPU hours, respectively, while achieving 28.8% and 53.0% higher mean training rewards.
+
+Authors: Zhenglin Wan, Jiayu Chen, Zhengfeiyang Zhang, Pengfei Zhou, Wangbo Zhao, Fangyuan Kong, Pengfei Wan, Kun Gai, Yang You
+
+Tasks: Image generation, Reinforcement Learning, Video generation
+
+Code: https://github.com/vanzll/DiffusionART</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SGF+: Decoupling Gradient Flows for Autoregressive Video Generation</title>
+      <link>https://arxiv.org/abs/2610.10429</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.10429</guid>
+      <description>Autoregressive video generation requires denoising the current frames while writing their key-value representations as context for future predictions. However, these two roles typically share parameters, and we find that their gradients exhibit distinct patterns and systematic negative alignment, hindering the joint optimization of visual quality and temporal consistency. We introduce Self Gradient Forcing Plus (SGF+), which assigns separate parameters to context writing and denoising while preserving their interaction through causal attention. Both roles are jointly optimized using the original generation objective without auxiliary losses, with context writing supervised through its contribution to future predictions. This simple change improves visual quality and long-horizon consistency over the evaluated baselines in both framewise and chunkwise generation, without additional video training data or a longer training horizon. Trained on only 5s rollouts, SGF+ supports continuous generation for up to 24 hours without long-video fine-tuning. These results highlight role-specific parameterization as an effective design principle for high-quality autoregressive video generation and native long-horizon extrapolation.
+
+Authors: Zihan Su, Junhao Zhuang, Yaowei Li, Siwen Lu, Haoran Li, Lingen Li, Haoyu Wu, Weiyang Jin, Songchun Zhang, Haoyang Huang, Chun Yuan, Zeyue Xue, Nan Duan
+
+Tasks: Video generation
+
+Code: https://github.com/Zihan-Su/Self_Gradient_Forcing_Plus</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark</title>
       <link>https://arxiv.org/abs/2610.13947</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.13947</guid>
@@ -45,17 +71,30 @@ Code: https://github.com/physicalvision/Artisan</description>
       <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</title>
-      <link>https://arxiv.org/abs/2610.11959</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.11959</guid>
-      <description>Reinforcement learning (RL) is the central training paradigm for advancing large foundation models towards self-improvement. This report introduces the MiMo-V2.6 series, an omni-modal family that pushes the frontier of model intelligence by scaling RL compute. Prior to RL, we conduct mid-training on a broad multimodal corpus to provide ample exploration space, and build a solid infrastructure on the pretrained hybrid-SWA architecture to support subsequent scale-up. We scale RL compute along three dimensions: (1) larger batches and higher throughput, with an asynchronous training that consumes 1,568 samples and 2.7-3.7B tokens per step at context lengths of up to 1M; (2) more diverse and complex environments, spanning code, general, visual, and cyber domains under a mixture of agent harnesses; and (3) more grader compute, via groupwise agentic grading that yields more accurate reward signals for long-horizon tasks and steers the model towards shorter, more token-efficient solutions. To keep training stable at scale, we freeze the MoE router and establish a multi-layer defense against reward hacking. We further build infrastructure for mixed-task agentic RL, including a unified trajectory representation, high-concurrency multi-framework rollout, decoupled control and data planes, and training-inference consistency. We open-source the training dynamics, RL environments, and RL framework to facilitate reproduction and further research on scaled RL and model self-improvement.
+      <title>InstantFusion: A Shared Latent Interface for Heterogeneous Image Generators</title>
+      <link>https://arxiv.org/abs/2610.13944</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.13944</guid>
+      <description>Diffusion/flow models have emerged as the de facto paradigms for image generation, giving rise to a diverse family of modern generators with increasingly heterogeneous architectures and representations. Despite their remarkable generation capabilities, the cross-model alignment of latent representations and the consistency of their underlying denoising dynamics remain underexplored. In this work, we uncover an intriguing cross-model compatibility: independently trained generators exhibit similar latent spatial organization, while directly handing off intermediate states between unaligned models can still preserve coarse visual content. Motivated by these observations, we propose InstantFusion, a lightweight shared latent interface that connects the denoising trajectories of heterogeneous image generators. Specifically, to enable flexible cross-model state translation, model-specific Latent AutoEncoders (LAEs) are introduced to project intermediate states from different generators into a shared latent space and decode them into the latent space of a target generator. This shared space is constrained by two complementary objectives: aligning intermediate states derived from the same image at matched noise levels and synchronizing their corresponding local denoising velocities. Once trained, InstantFusion allows denoising to seamlessly transition across frozen generators without requiring a dedicated mapping for every model pair. The versatility of InstantFusion is demonstrated across acceleration, multi-preference composition, cross-architecture on-policy distillation, and cross-model composition, achieving competitive performance across these diverse settings.
 
-Authors: Core Team, Zongming Qiao, Ziyue Hua, Zirui Ou, Zihao Yue, Zihan Jiang, Zhuo Huang, Zhiyang Chen, Zhixian Zheng, Zhipeng Xu, Zhengrui Ma, Yuyang Hu, Yuhang Dong, Yuechen Zhang, Yudong Wang, Yuanxin Liu, Yixin Yang, Yishuo Cai, Yikai Zhao, Yihan Yan, Yifan Zhang, YiFan Song, Xiyu Wei, Xing Zhang, Xin Zhang, Xiaoqian Liu, Xiaodong Ji, Xiangwei Deng, Xueyu Guo, Wenhan Ma, Weimin Xiong, Weikun Wang, Weiji Zhuang, Shuo Liu, Shuhuai Ren, Shuhao Gu, Shimao Chen, Shijie Cao, Shihua Yu, Shicheng Li, Shengjie Zhou, Shaolei Zhang, Rang Li, Qiying Wang, Qingkai Fang, Qianli Chen, Minzheng Wang, LiWen Wang, Linli Yao, Linghao Zhang, Liangyu Cheng, Liang Zhao, Lei LI, Jinhao Dong, Jinyu Xiang, Jianyu Wei, Jiangshan Duo, Huaqiu Liu, Huanjie Fan, Hongyi Guan, Hongshen Xu, Hao Tian, Hanyu Li, Hailin Zhang, Gang Wang, Fuli Luo, Feng Wei, Dong Zhang, Dawei Zhu, Chiheng Lou, Chenhong He, Chenhao He, Chenghua Liu, Bowen Ye, Bowen Shen, Boshen Xu, Bo Yang, Bingquan Xia, Bangjun Xiao, Baixuan Xu, Zhouxiang Mao, Zhiyang Zhang, Zhixiang Xu, Zhenru Lin, Zhengju Tang, Zhaojun Huang, Yuzhe Weng, Yuxing Xiang, Yuxiao Li, Yuheng Yang, Yuhang Wang, Yuchen Liu, Yuanyuan Tian, Yuanliang Dong, Yu Cheng, Yongzhe He, Yongshun Liang, Yong Wang, Yiyan Wang, Yitian Gong, Yijie Zhang, Yanshu Xin, Xun Zhang, Xingjian Zhao, Wenyu Yang, Wenshan Huang, Wenhao Li, Tingwei Huang, Tianyu Yu, Tianyang Lu, Taoyu Yang, Sinan Du, Shutong Tian, Shulin Du, Shengfan Wang, Shanchuan Fang, Qihao Zhang, Qibin Yang, Qian Yu, Qian Tu, Pengrong Xie, Peipei Wang, Peidian Li, Minkun Guo, Mingchen Shao, Luohan Gao, Lijie Wang, Liang Shi, Kaiqi Chen, Kaiming Liu, Kaifei Wang, Kai Yang, Jinlong Xue, Jiechen Zhang, Jiaxuan Liu, Hongxu An, Hao Peng, Hanglong Lü, Guonan Wang, Feiyu Yang, Fanyu Cao, Fangyue Liu, Fan Cui, Cong Wang, Chun Chen, Chenxu Bai, Chengxuan Zhu, Chenghua Wang, Boyi Zeng
+Authors: Xuanlang Dai, Jiazi Bu, Yujie Zhou, Yuhong Liu, Beichen Zhang, Penghui Yang, Ziyu Liu, Yuhang Zang
 
-Tasks: Agents, Omni models, Reinforcement Learning
+Tasks: Image generation
 
-Code: https://github.com/vllm-project/vllm</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/InternLM/InstantFusion</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Learning Representations to Guide Pixel Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2610.12978</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12978</guid>
+      <description>Visual representations are largely developed for understanding, yet what makes them useful for generation remains unclear. We study this question in pixel diffusion transformers and uncover two key insights. First, better representation quality does not necessarily translate into greater generative utility, as externally aligned semantics can be progressively lost during pixel synthesis. Second, architectural separation with specialized pixel decoders mainly redistributes semantic and spatial modeling, without necessarily yielding representations better suited to generation. These insights suggest that a useful generative representation must be both properly formed and actively exploited. Motivated by these insights, we introduce Representation Guidance (RG), which directly forms and exploits internal representations while retaining a plain Transformer architecture. A low-dimensional bottleneck forces generation-relevant information into a compact representation, which is then explicitly used to guide decoder generation by modifying the flow-matching target according to its induced prediction offset. RG learns clearer semantic and spatial structure while scaling efficiently in both parameters and computation. On ImageNet 256x256, RG-L/16 with only 459M parameters outperforms substantially larger pixel diffusion transformers, while RG-XL/16 achieves an FID of 1.55. RG further reaches an FID of 1.74 at 512x512 and extends to text-to-image generation, achieving 0.89 on GenEval and 87.1 on DPG-Bench.
+
+Authors: Zihao Pan, Mengting Chen, Cheng Shi, Taihang Hu, Zhengrong Yue, Zikang Wang, Yuan Wang, Wei Li, Sibei Yang
+
+Tasks: Image generation
+
+Code: https://github.com/Pan-Zihao/Representation-Guidance</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Contextual Correction of Parallel Draftsfor Speculative Decoding</title>
@@ -71,16 +110,55 @@ Code: https://github.com/two-delta/DCOCO</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>DiffusionART: Efficient, Stable and Scalable Reinforcement of Diffusion Models</title>
-      <link>https://arxiv.org/abs/2610.12572</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12572</guid>
-      <description>Online reinforcement learning (RL) fine-tunes diffusion models with black-box rewards, but reverse-process methods such as Flow-GRPO are limited in efficiency by poor credit assignment, while forward-process methods such as DiffusionNFT are efficient yet unstable without carefully tuned exponential-moving-average (EMA) off-policy training. We show that NFT-style objectives contain a hidden forward--reverse consistency force that joint positive--negative training cancels only partially, and that EMA stabilizes training through restoration rather than off-policy rollouts. We introduce DiffusionART (Diffusion Reinforcement with Aggregation-First Reward Tilting), which aggregates each prompt's rewards into a shared reward-improving direction for reverse-process states, removing the consistency force by construction, and adds a trust-region-masked second update for drift-adaptive restoration without EMA tuning. It requires no differentiable reward model, remains effective with fewer samples per prompt, and supports pairwise reward models (DiffusionART-Pairwise). Across image and video generation, DiffusionART trains efficiently and stably without per-task tuning. In particular, on HunyuanVideo-13B with equally weighted visual and motion quality rewards, DiffusionART reaches the late-stage mean reward levels of DiffusionNFT and Flow-GRPO-Fast with 12.02 and 11.72 times fewer GPU hours, respectively, while achieving 28.8% and 53.0% higher mean training rewards.
+      <title>Long-WAM: Scaling the Context of World-Action Models</title>
+      <link>https://arxiv.org/abs/2610.10528</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.10528</guid>
+      <description>Real-time robot control demands enough visual history to infer motion and task progress, but processing that history can delay action. We present Long-WAM, a model-system framework for scaling the context of causal world-action models under real-time control constraints. Our central finding is that access to history is not the same as using it: longer histories pay off far more when the video foundation is pretrained autoregressively (AR). We first learn causal prediction from robot and egocentric videos without action labels, then preserve this history-to-future structure during world-action adaptation. On RoboCasa GR-1, increasing context from 0.0 to 19.2 seconds raises success from 63.3% to 78.7%, whereas a bidirectionally pretrained initialization shows no net gain; robot-domain AR pretraining further raises peak success on GR-1 and LIBERO-Long. Long-WAM also achieves the best results among compared methods on LIBERO-Long, RoboTwin 2.0, and DOMINO. Streaming observation encoding, asynchronous execution, and hardware-specific acceleration enable deployment on RTX 5090, DGX Spark, and Jetson AGX Thor without dropping future prediction; on RTX 5090, each action chunk, including future-video latent prediction, takes 107.4 ms. Real-time deployment on Unitree G1 and YAM supports dynamic and long-horizon manipulation, including 95% success on dynamic cup stacking, where Pi0.5 and Fast-WAM succeed in none of 20 trials. As a memory-informed executor, Long-WAM also complements higher-level planning in composite tasks.
 
-Authors: Zhenglin Wan, Jiayu Chen, Zhengfeiyang Zhang, Pengfei Zhou, Wangbo Zhao, Fangyuan Kong, Pengfei Wan, Kun Gai, Yang You
+Authors: Wei Huang, Bohan Zhang, Chenzhi Liu, Isabella Liu, Shuai Yang, Weian Mao, Luozhou Wang, Yicheng Xiao, Weifeng Lin, Qixin Hu, Bryan Chu, Sifei Liu, Linxi Fan, Xiaojuan Qi, Song Han, Yukang Chen
 
-Tasks: Image generation, Reinforcement Learning, Video generation
+Tasks: Robotics
 
-Code: https://github.com/vanzll/DiffusionART</description>
+Code: https://github.com/NVlabs/LongLive</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>UltraText Bench: A Comprehensive Bilingual Benchmark for Evaluating Visual Text Rendering in Image Generation</title>
+      <link>https://arxiv.org/abs/2610.09823</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.09823</guid>
+      <description>Dense visual text requires image generators to reproduce long strings across multiple regions with correct placement and legibility. As short-string rendering improves, evaluation must test sustained performance across more demanding scenes. We introduce UltraText Bench, a bilingual benchmark for prompt-only generation of dense visual text. It contains 432 prompts spanning 24 real-world scene categories and three difficulty levels, split equally between English and Chinese. Each human-reviewed prompt supplies exact strings for four to twelve text regions, paired with structured references for their content, placement, and visual attributes. We use the Q-Judger vision-language model to assess each image against the complete reference, reporting text fidelity, text clarity, spatial quality, and scene quality. Across 24 model configurations, these dimensions reveal different strengths: Z-Image-Turbo gains 3.81 clarity points over Z-Image-Base while losing 14.76 fidelity points under the reported settings. Performance also varies with workload; Qwen-Image-2512's English composite falls from 86.50 at L1 to 42.86 at L3. Ten participants took part in human evaluation of the automatic scores. Repository: https://github.com/LINs-lab/UltraText_Bench.
+
+Authors: Deyuan Liu, Yihao Hu, Jingxuan Zhang, Xingying Li, Jun Xie, Jiacheng Liu, Jungang Li, Yu Huang, Xuanyi Liu, Yue Ding, Zecheng Wang, Lei Zhao, Mingda Wang, Zhenglin Cheng, Peng Sun, Tao Lin
+
+Tasks: Image generation
+
+Code: https://github.com/lins-lab/ultratext_bench</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>TouchScale: 500 Hours of Human Vision and Touch for Visual-Tactile Learning</title>
+      <link>https://arxiv.org/abs/2610.10288</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.10288</guid>
+      <description>Large-scale egocentric human interaction data is becoming an important source of physical supervision for embodied learning, yet video alone leaves the contact and pressure that characterize physical interaction unrecorded. Recent visual-tactile datasets provide this missing supervision, but their synchronized tactile data remain far smaller in volume than human video. Moreover, the largest resources often merge recordings from different sensors or annotation procedures, which makes the effect of data scale difficult to isolate. We therefore introduce TouchScale, a 500-hour dataset of contact-rich human interaction recorded with a single unified wearable setup. Its approximately 2K predefined task descriptions span everyday activities and structured manipulation, and each recording temporally aligns egocentric RGB-D video with wrist RGB video and dense full-hand bimanual tactile measurements. Compared with prior tactile data, training on the full TouchScale raises zero-shot contact IoU on data from an unseen tactile sensor from 0.134 to 0.383. Pretraining a visual encoder on TouchScale also yields the highest action recognition accuracy on three benchmarks among the compared visual-tactile datasets. Used for visual-tactile mid-training of a robot policy, TouchScale improves the average real-world success rate across four contact-rich manipulation tasks from 22.5% to 57.5%. With the sensor and collection protocol held fixed, both zero-shot tactile prediction and robot success show an overall upward trend as more TouchScale data is used. These results suggest that human visual-tactile data collected at scale with consistent sensing benefits both perception and robot manipulation. We will publicly release TouchScale, including all synchronized visual-tactile recordings and reconstructed object models, to support future research on scalable visual-tactile learning.
+
+Authors: Dayou Li, Hao Wang, Qianqian Yang, Zihao Zhu, Haoquan Fang, Ziyao Zeng, Yan Han, Zihan Wang, Yan Wang, Baoru Huang, Dilin Wang, Kenji Shimada, Yiyue Luo, Manling Li, Teresa Lv, Mustafa Mukadam, Rakesh Ranjan, Ruohan Zhang, Qi He, Changliu Liu, Xu Chen, Marco Pavone, Bangya Liu, Jiachen Li, Masayoshi Tomizuka, Zhiwen Fan
+
+Tasks: Video classification
+
+Code: https://github.com/phai-lab/touchscale</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</title>
+      <link>https://arxiv.org/abs/2610.11959</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.11959</guid>
+      <description>Reinforcement learning (RL) is the central training paradigm for advancing large foundation models towards self-improvement. This report introduces the MiMo-V2.6 series, an omni-modal family that pushes the frontier of model intelligence by scaling RL compute. Prior to RL, we conduct mid-training on a broad multimodal corpus to provide ample exploration space, and build a solid infrastructure on the pretrained hybrid-SWA architecture to support subsequent scale-up. We scale RL compute along three dimensions: (1) larger batches and higher throughput, with an asynchronous training that consumes 1,568 samples and 2.7-3.7B tokens per step at context lengths of up to 1M; (2) more diverse and complex environments, spanning code, general, visual, and cyber domains under a mixture of agent harnesses; and (3) more grader compute, via groupwise agentic grading that yields more accurate reward signals for long-horizon tasks and steers the model towards shorter, more token-efficient solutions. To keep training stable at scale, we freeze the MoE router and establish a multi-layer defense against reward hacking. We further build infrastructure for mixed-task agentic RL, including a unified trajectory representation, high-concurrency multi-framework rollout, decoupled control and data planes, and training-inference consistency. We open-source the training dynamics, RL environments, and RL framework to facilitate reproduction and further research on scaled RL and model self-improvement.
+
+Authors: Core Team, Zongming Qiao, Ziyue Hua, Zirui Ou, Zihao Yue, Zihan Jiang, Zhuo Huang, Zhiyang Chen, Zhixian Zheng, Zhipeng Xu, Zhengrui Ma, Yuyang Hu, Yuhang Dong, Yuechen Zhang, Yudong Wang, Yuanxin Liu, Yixin Yang, Yishuo Cai, Yikai Zhao, Yihan Yan, Yifan Zhang, YiFan Song, Xiyu Wei, Xing Zhang, Xin Zhang, Xiaoqian Liu, Xiaodong Ji, Xiangwei Deng, Xueyu Guo, Wenhan Ma, Weimin Xiong, Weikun Wang, Weiji Zhuang, Shuo Liu, Shuhuai Ren, Shuhao Gu, Shimao Chen, Shijie Cao, Shihua Yu, Shicheng Li, Shengjie Zhou, Shaolei Zhang, Rang Li, Qiying Wang, Qingkai Fang, Qianli Chen, Minzheng Wang, LiWen Wang, Linli Yao, Linghao Zhang, Liangyu Cheng, Liang Zhao, Lei LI, Jinhao Dong, Jinyu Xiang, Jianyu Wei, Jiangshan Duo, Huaqiu Liu, Huanjie Fan, Hongyi Guan, Hongshen Xu, Hao Tian, Hanyu Li, Hailin Zhang, Gang Wang, Fuli Luo, Feng Wei, Dong Zhang, Dawei Zhu, Chiheng Lou, Chenhong He, Chenhao He, Chenghua Liu, Bowen Ye, Bowen Shen, Boshen Xu, Bo Yang, Bingquan Xia, Bangjun Xiao, Baixuan Xu, Zhouxiang Mao, Zhiyang Zhang, Zhixiang Xu, Zhenru Lin, Zhengju Tang, Zhaojun Huang, Yuzhe Weng, Yuxing Xiang, Yuxiao Li, Yuheng Yang, Yuhang Wang, Yuchen Liu, Yuanyuan Tian, Yuanliang Dong, Yu Cheng, Yongzhe He, Yongshun Liang, Yong Wang, Yiyan Wang, Yitian Gong, Yijie Zhang, Yanshu Xin, Xun Zhang, Xingjian Zhao, Wenyu Yang, Wenshan Huang, Wenhao Li, Tingwei Huang, Tianyu Yu, Tianyang Lu, Taoyu Yang, Sinan Du, Shutong Tian, Shulin Du, Shengfan Wang, Shanchuan Fang, Qihao Zhang, Qibin Yang, Qian Yu, Qian Tu, Pengrong Xie, Peipei Wang, Peidian Li, Minkun Guo, Mingchen Shao, Luohan Gao, Lijie Wang, Liang Shi, Kaiqi Chen, Kaiming Liu, Kaifei Wang, Kai Yang, Jinlong Xue, Jiechen Zhang, Jiaxuan Liu, Hongxu An, Hao Peng, Hanglong Lü, Guonan Wang, Feiyu Yang, Fanyu Cao, Fangyue Liu, Fan Cui, Cong Wang, Chun Chen, Chenxu Bai, Chengxuan Zhu, Chenghua Wang, Boyi Zeng
+
+Tasks: Agents, Omni models, Reinforcement Learning
+
+Code: https://github.com/vllm-project/vllm</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -110,19 +188,6 @@ Code: https://github.com/zju3dv/SuperNav</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SGF+: Decoupling Gradient Flows for Autoregressive Video Generation</title>
-      <link>https://arxiv.org/abs/2610.10429</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.10429</guid>
-      <description>Autoregressive video generation requires denoising the current frames while writing their key-value representations as context for future predictions. However, these two roles typically share parameters, and we find that their gradients exhibit distinct patterns and systematic negative alignment, hindering the joint optimization of visual quality and temporal consistency. We introduce Self Gradient Forcing Plus (SGF+), which assigns separate parameters to context writing and denoising while preserving their interaction through causal attention. Both roles are jointly optimized using the original generation objective without auxiliary losses, with context writing supervised through its contribution to future predictions. This simple change improves visual quality and long-horizon consistency over the evaluated baselines in both framewise and chunkwise generation, without additional video training data or a longer training horizon. Trained on only 5s rollouts, SGF+ supports continuous generation for up to 24 hours without long-video fine-tuning. These results highlight role-specific parameterization as an effective design principle for high-quality autoregressive video generation and native long-horizon extrapolation.
-
-Authors: Zihan Su, Junhao Zhuang, Yaowei Li, Siwen Lu, Haoran Li, Lingen Li, Haoyu Wu, Weiyang Jin, Songchun Zhang, Haoyang Huang, Chun Yuan, Zeyue Xue, Nan Duan
-
-Tasks: Video generation
-
-Code: https://github.com/Zihan-Su/Self_Gradient_Forcing_Plus</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Iris-3B: Going Beyond the Latent with Pixel-Space Diffusion Training, Conversion and Fine-Tuning</title>
       <link>https://arxiv.org/abs/2610.09450</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.09450</guid>
@@ -134,6 +199,19 @@ Tasks: Depth estimation, Image generation, Image Restoration, Image super-resolu
 
 Code: https://github.com/speridlabs/iris-3b</description>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SoftwareGym: Scaling Computer-Use Agent Training with Diverse Synthesized Software Environments</title>
+      <link>https://arxiv.org/abs/2610.12611</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12611</guid>
+      <description>Computer-use agents (CUAs) are rapidly improving, yet synthesizing diverse and reliable software environments at scale remains challenging. Native application environments require substantial construction and integration effort, which limits application coverage and increases the risk of application-specific overfitting. Browser-hosted environments provide limited interaction depth and workflow complexity. These limitations motivate SoftwareGym, an automated pipeline for synthesizing GUI software environments with diverse interfaces, executable functionality, and runtime-verified behavior. It generates structurally diverse designs, realizes them as runnable applications, and uses GUI evaluation with iterative repair to ensure functional reliability. Using SoftwareGym, we synthesize 182 applications across twelve categories and achieve a mean GUI task pass rate of 91.5%. We construct SoftwareGym-Bench, a 120-task evaluation suite spanning the same twelve categories, and use trajectories collected from these environments for CUA training. The resulting model improves Pass@3 from 41.39% to 56.97% on the strictly out-of-domain OSWorld benchmark and achieves 40.0% on SoftwareGym-Bench. These results demonstrate the potential of synthesized software environments as scalable and transferable supervision for CUA training.
+
+Authors: Tian Jin, WenHao Wang, Jing Kang, Haoting Shi, Rui Ye, Yijun Lu, Siheng Chen
+
+Tasks: Computer Use Agents
+
+Code: https://github.com/mrkiing-jin/softwaregym</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model</title>
@@ -149,32 +227,6 @@ Code: https://github.com/AviadDahan/SepGen</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Recursive Game Creator: An Agentic Product-Level Experience-Oriented Game Harness</title>
-      <link>https://arxiv.org/abs/2610.08621</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.08621</guid>
-      <description>Recent game design agents have made substantial progress in generating playable games. However, program correctness does not ensure an enjoyable experience for players. We present Recursive Game Creator, an experience-oriented harness to advance agentic game development from rough game prototypes into entertaining games. Recursive Game Creator organizes recursive development around four components: Designer, Builder, Player, and Reviewer. The Designer translates user instructions and Reviewer's feedback into detailed plans. The Builder turns these plans into candidate games. The coding-native Player creates and executes reusable policies through programmatic interfaces to efficiently collect diverse gameplay trajectories, mitigating evaluation bias caused by slow GUI-based collection. The Reviewer uses carefully designed trajectory-based metrics to induce player preferences, integrating with visual evidence and explicit textual preferences to evaluate games against game-specific criteria. Finally, the Reviewer accepts the better version and provides improvement reviews for the next round, closing the recursive loop. Our method achieves state-of-the-art overall performance of 77.89 on GameCraft-Bench. On GameASG-Bench, it achieves a strict task success rate of 53.2%, a 34.1% improvement over the same-model baseline, and the highest mean runtime-check pass rate at 93.4% among compared methods. A user study shows longer playtime and higher ratings. Code is coming soon.
-
-Authors: Jiajun Chen, HaoYu Wu, Mingda Jia, Xihui Liu
-
-Tasks: Agents, Coding Agents
-
-Code: https://github.com/IMBALDY/RecursiveGameCreator</description>
-      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Long-WAM: Scaling the Context of World-Action Models</title>
-      <link>https://arxiv.org/abs/2610.10528</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.10528</guid>
-      <description>Real-time robot control demands enough visual history to infer motion and task progress, but processing that history can delay action. We present Long-WAM, a model-system framework for scaling the context of causal world-action models under real-time control constraints. Our central finding is that access to history is not the same as using it: longer histories pay off far more when the video foundation is pretrained autoregressively (AR). We first learn causal prediction from robot and egocentric videos without action labels, then preserve this history-to-future structure during world-action adaptation. On RoboCasa GR-1, increasing context from 0.0 to 19.2 seconds raises success from 63.3% to 78.7%, whereas a bidirectionally pretrained initialization shows no net gain; robot-domain AR pretraining further raises peak success on GR-1 and LIBERO-Long. Long-WAM also achieves the best results among compared methods on LIBERO-Long, RoboTwin 2.0, and DOMINO. Streaming observation encoding, asynchronous execution, and hardware-specific acceleration enable deployment on RTX 5090, DGX Spark, and Jetson AGX Thor without dropping future prediction; on RTX 5090, each action chunk, including future-video latent prediction, takes 107.4 ms. Real-time deployment on Unitree G1 and YAM supports dynamic and long-horizon manipulation, including 95% success on dynamic cup stacking, where Pi0.5 and Fast-WAM succeed in none of 20 trials. As a memory-informed executor, Long-WAM also complements higher-level planning in composite tasks.
-
-Authors: Wei Huang, Bohan Zhang, Chenzhi Liu, Isabella Liu, Shuai Yang, Weian Mao, Luozhou Wang, Yicheng Xiao, Weifeng Lin, Qixin Hu, Bryan Chu, Sifei Liu, Linxi Fan, Xiaojuan Qi, Song Han, Yukang Chen
-
-Tasks: Robotics
-
-Code: https://github.com/NVlabs/LongLive</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>TokenRouter: Efficient Serving System for Token-Level LLM Routing</title>
       <link>https://arxiv.org/abs/2610.12242</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.12242</guid>
@@ -188,68 +240,16 @@ Code: https://github.com/thu-nics/TokenRouter</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>RoboJEPA: Scaling Robotic Latent World Models</title>
-      <link>https://arxiv.org/abs/2610.10515</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.10515</guid>
-      <description>Latent world models have shown a remarkable ability to predict future states and to plan in the real world. In practice, however, we lack a principled way to estimate how their capabilities scale with model size, data, and compute, an open problem that slows progress in the field. In this work we present RoboJEPA, a world model based on the Joint Embedding Predictive Architecture (JEPA) and trained on a large-scale dataset spanning 12 robotic embodiments. We show that RoboJEPA's imagination error, the error of its latent rollouts, follows a second-order power law in compute, allowing us to predict model quality well beyond the scale at which the law is fit. We further show that downstream robotic planning performance improves predictably with compute, and that imagination error is strongly correlated with it, making it a reliable proxy for real-robot evaluation. Finally, we demonstrate that latent world models can be deployed zero-shot as robotic agents, planning toward a single goal image to solve tasks requiring long-horizon planning on real hardware. We release all model checkpoints together with our training and robot deployment code. To our knowledge, this is the first work to establish scaling laws for multi-embodiment robotic world models trained on real robot data, and RoboJEPA, at 8B parameters, is the largest JEPA predictor model trained to date.
+      <title>Reflex: Visually Grounded Reactive Humanoid Control</title>
+      <link>https://arxiv.org/abs/2610.12772</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12772</guid>
+      <description>Humans effortlessly react to the world; they adeptly return a tennis shot, catch a falling cup, step aside from a passing cart, or pass a box tossed during truck unloading. These everyday actions require anticipating a moving target and reflexively responding with the whole body within about a second. Such visual reactive whole-body control remains challenging for humanoids, which must (1) coordinate whole-body control, (2) react to object dynamics in real time, and (3) ground perception in egocentric vision. We study catching thrown boxes as a representative task that demands all three capabilities; existing systems cover only part of it, relying on end-effectors, motion capture, or marked objects. We present Reflex, a three-stage framework that learns these capabilities stage by stage while connecting them through a compact representation of object dynamics. First, a state-based policy learns whole-body catching with reinforcement learning. Second, the policy learns to infer the dynamics of a moving box from delayed and incomplete observations. Third, an egocentric RGB-D encoder learns to recover this dynamics representation directly from visual observations while keeping the whole-body controller fixed. This decomposition provides each capability with a direct training signal and makes visual learning substantially more scalable. In simulation, Reflex achieves 85.7% catch success from egocentric RGB-D, compared with 87.9% when given privileged box observations. Temporal visual history is critical: removing it reduces success by 35.6 and 39.8 points on centered and laterally offset throws. On a real Unitree G1, Reflex catches human-thrown boxes with 65% and 40% success at 2.5 and 5 m, reaching 76% and 59% of human catchers' success at the same distances.
 
-Authors: Artem Zholus, Nicolas Beltran-Velez, Jianhao Yuan, Sarath Chandar, Tushar Nagarajan, Daniel Severo, Koustuv Sinha, Michal Drozdzal, Adriana Romero Soriano, Jeannette Bohg, Nicolas Ballas, Mahmoud Assran
+Authors: Taoyang Jia, Weikai Huang, Linxin Song, Jared Darlington, Jieyu Zhao, Yue Wang, Jiafei Duan, Zhongzheng Ren, Ranjay Krishna
 
-Tasks: Continuous Control, Robotics, World Models
+Tasks: Continuous Control, Reinforcement Learning, Robotics
 
-Code: https://github.com/facebookresearch/robo_jepa</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WorldGuide: Goal-Directed Video World Model for Procedural Task Execution</title>
-      <link>https://arxiv.org/abs/2610.12459</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12459</guid>
-      <description>Video generators and video-based world models can synthesize plausible visual trajectories, but long-horizon procedural tasks require generation to adapt to what has actually been produced. A model must determine the next action from its generated state, execute that action, and recognize when the task is complete. Open-loop generation cannot adapt to execution outcomes, while existing closed-loop systems often rely on pretrained executors or indirect verification. This leaves a gap between deciding an action and successfully realizing it. We formulate procedural video generation as closed-loop task execution in visual world space and introduce WorldGuide. Given only an initial image and a task goal, WorldGuide predicts an atomic action, generates its corresponding video clip, and uses the generated result to select the next action or terminate. The Planner and Executor are trained on the same step-level procedural demonstrations: the Planner learns to predict the next atomic action or task completion from visual progress, while the Executor is directly trained to realize the predicted actions. Hierarchical visual memory maintains state across long-horizon execution with bounded history token cost. Due to the lack of step-level action-video supervision for joint planner-executor training, we introduce WorldGuide Bench: approximately 59K step-annotated videos across 245 tasks and 27 procedural categories. WorldGuide achieves a 33.33\% Task Success on WorldGuide-Bench, compared with 29.90\% for the strong recent video model MiniMax-H3, even though MiniMax-H3 receives reference action plans, and achieves 47.69\% on VideoCraft-Bench compared with 32.73\% for MiniMax-H3 under goal-only conditioning. These results demonstrate the importance of coupling planning with learned execution for goal-directed procedural video generation.
-
-Authors: Ankan Deria, Komal Kumar, Hisham Cholakkal, Fahad Shahbaz Khan, Salman Khan
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/mbzuai-oryx/WorldGuide</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SkillForge: Co-Evolving Skills and Agents via Dynamic Skill Lifecycles</title>
-      <link>https://arxiv.org/abs/2610.09832</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.09832</guid>
-      <description>Memory-augmented reinforcement learning strengthens LLM agents' ability to solve complex long-horizon tasks. Skills are one such form of memory, pairing instructions with an applicability condition over task types. However, retaining every skill indiscriminately as the policy improves lets obsolete or harmful entries accumulate and mislead the agent. We propose SkillForge, an agentic RL method that compiles and evolves the skill library through a fitness-driven skill lifecycle of trial, active, stable, and retired states, so that the skills and the model co-evolve throughout training. A pre-RL evaluation phase first uses the base model's own rollouts to pre-retire low-fitness skills, yielding a filtered library that then seeds supervised fine-tuning. Reinforcement learning takes over from this checkpoint, and at each iteration selective retirement, stabilization, and LLM-guided mutation continue to forge the skill library alongside policy optimization. Across multiple interactive agent benchmarks, SkillForge achieves the highest aggregate success rate, delivering up to 7.8% relative improvement over the strongest baseline while keeping the skill library compact throughout training. We introduce SkillFurnace, a dataset of 5k+ annotated records bundling retirement-filtered SFT trajectories, evolved skill libraries with fitness annotations, and retirement events with human-annotated failure categories to support research on skill quality and lifecycle management.
-
-Authors: Yuyao Ge, Yiwei Wang, Yuchen He, Baolong Bi, Lingrui Mei, Jiayu Yao, Lizhe Chen, Shenghua Liu
-
-Tasks: Question Answering, Reinforcement Learning
-
-Code: https://github.com/yuyaoge/skillforge</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>LightOnOCR-3: High-Performance OCR and Layout Extraction in One Model</title>
-      <link>https://huggingface.co/blog/lightonai/lightonocr-3</link>
-      <guid isPermaLink="true">https://huggingface.co/blog/lightonai/lightonocr-3</guid>
-      <description>We are releasing LightOnOCR-3 a new family of highly performant lightweight OCR models. Compared to the previous generation, they introduce significant improvements in speed and transcription quality while introducing new visual understanding features. LightOnOCR-3 models are now able to output bounding box coordinates with labels for all document regions, image descriptions as well as extract numerical data in figures or charts. With these new capabilities, the models offer a ready-to-use, easier-to-maintain alternative to complex document understanding pipelines.
-
-Authors: Said Taghadouini, Adrien Cavaillès, Baptiste Aubertin
-
-Tasks: Document Layout Analysis, Document Understanding, Image Understanding, OCR, Visual Grounding
-
-Code: https://github.com/lightonai/lightonocr</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SoftwareGym: Scaling Computer-Use Agent Training with Diverse Synthesized Software Environments</title>
-      <link>https://arxiv.org/abs/2610.12611</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12611</guid>
-      <description>Computer-use agents (CUAs) are rapidly improving, yet synthesizing diverse and reliable software environments at scale remains challenging. Native application environments require substantial construction and integration effort, which limits application coverage and increases the risk of application-specific overfitting. Browser-hosted environments provide limited interaction depth and workflow complexity. These limitations motivate SoftwareGym, an automated pipeline for synthesizing GUI software environments with diverse interfaces, executable functionality, and runtime-verified behavior. It generates structurally diverse designs, realizes them as runnable applications, and uses GUI evaluation with iterative repair to ensure functional reliability. Using SoftwareGym, we synthesize 182 applications across twelve categories and achieve a mean GUI task pass rate of 91.5%. We construct SoftwareGym-Bench, a 120-task evaluation suite spanning the same twelve categories, and use trajectories collected from these environments for CUA training. The resulting model improves Pass@3 from 41.39% to 56.97% on the strictly out-of-domain OSWorld benchmark and achieves 40.0% on SoftwareGym-Bench. These results demonstrate the potential of synthesized software environments as scalable and transferable supervision for CUA training.
-
-Authors: Tian Jin, WenHao Wang, Jing Kang, Haoting Shi, Rui Ye, Yijun Lu, Siheng Chen
-
-Tasks: Computer Use Agents
-
-Code: https://github.com/mrkiing-jin/softwaregym</description>
+Code: https://github.com/ToberJ/reflex</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
