@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Mon, 12 Oct 2026 21:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 22:00:00 GMT</lastBuildDate>
     <item>
       <title>RSI-Anything: Unlocking Recursive Self-Improvement with World Models</title>
       <link>https://arxiv.org/abs/2610.13912</link>
@@ -19,16 +19,16 @@ Code: https://github.com/Gen-Verse/RSI-Anything</description>
       <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>REMORY: Learning Residual Memory for Context Compaction</title>
-      <link>https://arxiv.org/abs/2610.11287</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.11287</guid>
-      <description>Long-horizon agents compact their history to continue within a finite context window, but a textual summary alone may not support every subsequent decision. We introduce REMORY, a neural memory network that supplements the summary with a bounded sequence of soft memory tokens. Given the history and summary, the network learns to generate tokens that help a frozen LLM approximate the continuation it would produce with the full history. The tokens are conditioned on the summary and appended after it, forming an analogue of a residual connection along the sequence dimension. On SummHay, REMORY improves source attribution at nearly unchanged insight coverage and approaches the full-context joint score using only 5.2% of the input positions. Across long-horizon agent benchmarks, Qwen3.8-27B and GLM-5.3-Flash show consistent gains with residual memory. Both models also exhibit substantially fewer repeated tool outputs and tool errors on BrowseComp and Terminal-Bench 2.1.
+      <title>LeWAM: End-to-End World and Action Modeling with JEPAs</title>
+      <link>https://arxiv.org/abs/2610.12818</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12818</guid>
+      <description>Joint-embedding predictive architectures (JEPAs) learn compact latent world models without pixel reconstruction. Existing JEPA pipelines typically train visual representations and action-conditioned dynamics before adding a control policy or solver. We introduce LeWAM, an end-to-end JEPA for control with: (1) a joint training objective over next latent state prediction and action flow matching, and (2) an isotropic Gaussian constraint on the latent state, enabling a single model to support direct policy execution and efficient planning by evaluating sampled actions with its learned latent dynamics. Compared with prior JEPAs in visual planning, LeWAM improves success rate from 28.6% to 89.7% on contact-rich tasks and from 10.9% to 46.2% on long-horizon tasks, and plans 32.3 times faster. On behavior cloning tasks in simulation and physical robots, LeWAM is also competitive with established methods. Interpretability analyses show that LeWAM learns control-relevant representations and action distributions effectively guiding test-time planning and control.
 
-Authors: Hanchen Xia, Baoyou Chen, Yutang Ge, Naihao Deng, Senqiao Yang, Zilong Dong, Weihao Yuan, Siyu Zhu
+Authors: Minghao Fu, Tavis Siebert, Eryk Halicki, Randall Balestriero
 
-Tasks: Agents, Long Context
+Tasks: Robotics, World Models
 
-Code: https://github.com/1ring2rta/Remory</description>
+Code: https://github.com/minghaofu/lewam</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -45,17 +45,82 @@ Code: https://github.com/vllm-project/vllm</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark</title>
-      <link>https://arxiv.org/abs/2610.13947</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.13947</guid>
-      <description>In this paper, we study physically grounded articulated 3D asset generation---moving the goal from reproducing how objects look to capturing how they move and function. Inspired by the literature on procedural and agentic generation, we present Artisan, a system that extends the latest method Articraft by introducing a multi-agent pipeline with physical simulation feedback, enabling comprehensive attributes beyond geometry, appearance, and physically plausible articulation, such as collision-free motion, stability under gravity, and accurate mass and material properties. Furthermore, we construct a unified benchmark spanning four key aspects: spatial fidelity, physical plausibility, downstream task performance, and overall quality. The benchmark encompasses 100 reference assets from ArtVIP and LightWheel, 50 stability prompts, and 50 ABO objects with reference masses, with protocols evaluating various metrics. Through extensive evaluation of more than 10 representative models, Artisan achieves competitive spatial fidelity while attaining the lowest collision rates and highest stability rates among the evaluated methods. Together, our system and benchmark establish insights for advancing 3D generation towards physically plausible, functionally usable assets.
+      <title>Iris-3B: Going Beyond the Latent with Pixel-Space Diffusion Training, Conversion and Fine-Tuning</title>
+      <link>https://arxiv.org/abs/2610.09450</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.09450</guid>
+      <description>Pixel-space diffusion models avoid the lossy VAE of latent models, which suggests an advantage on downstream tasks where fine-grained detail matters. We test this claim along both routes to a pixel-space backbone. We pretrain Iris-3B, a 3B-parameter pixel-space text-to-image transformer, from scratch through a 256to512to1024 curriculum, after first ablating the prediction target and representation alignment at 256^2 to decide what to scale. We also convert a pretrained latent model, FLUX.2 Klein base 4B, to pixel space. We fine-tune both families for monocular depth estimation and for image restoration/super-resolution. We find no significant improvement from using a pixel-space generative prior. Fine-tuned for depth with one matched direct-regression recipe, Iris-3B is level with the latent FLUX.2 Klein and the converted pixel FLUX.2 Klein falls behind it, and on 4times DIV2K restoration neither pixel model beats a latent FLUX.2 Klein fine-tune, the converted one trailing it slightly. We document the recipes, the failure modes and the remaining confounds behind this negative result. Nevertheless, Iris-3B shows that pixel-space pretraining with the pixel-transformer (PiT) head of PixelDiT scales to 3B parameters and to text-to-image quality competitive with latent models, matching Qwen-Image on OneIG under the official evaluators at 1024^2. We release its weights and training code in the hope that they help pave the way for further work on pixel-space generation.
 
-Authors: Xudong Cai, Ruijie Zhu, Haoliang Shang, Ruining Li, Marc Pollefeys, Shangzhe Wu, Andrea Vedaldi, Chuanxia Zheng
+Authors: Hanqiu Li Cai, Chema Garabito
 
-Tasks: 3D generation
+Tasks: Depth estimation, Image generation, Image Restoration, Image super-resolution
 
-Code: https://github.com/physicalvision/Artisan</description>
+Code: https://github.com/speridlabs/iris-3b</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Reflex: Visually Grounded Reactive Humanoid Control</title>
+      <link>https://arxiv.org/abs/2610.12772</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12772</guid>
+      <description>Humans effortlessly react to the world; they adeptly return a tennis shot, catch a falling cup, step aside from a passing cart, or pass a box tossed during truck unloading. These everyday actions require anticipating a moving target and reflexively responding with the whole body within about a second. Such visual reactive whole-body control remains challenging for humanoids, which must (1) coordinate whole-body control, (2) react to object dynamics in real time, and (3) ground perception in egocentric vision. We study catching thrown boxes as a representative task that demands all three capabilities; existing systems cover only part of it, relying on end-effectors, motion capture, or marked objects. We present Reflex, a three-stage framework that learns these capabilities stage by stage while connecting them through a compact representation of object dynamics. First, a state-based policy learns whole-body catching with reinforcement learning. Second, the policy learns to infer the dynamics of a moving box from delayed and incomplete observations. Third, an egocentric RGB-D encoder learns to recover this dynamics representation directly from visual observations while keeping the whole-body controller fixed. This decomposition provides each capability with a direct training signal and makes visual learning substantially more scalable. In simulation, Reflex achieves 85.7% catch success from egocentric RGB-D, compared with 87.9% when given privileged box observations. Temporal visual history is critical: removing it reduces success by 35.6 and 39.8 points on centered and laterally offset throws. On a real Unitree G1, Reflex catches human-thrown boxes with 65% and 40% success at 2.5 and 5 m, reaching 76% and 59% of human catchers' success at the same distances.
+
+Authors: Taoyang Jia, Weikai Huang, Linxin Song, Jared Darlington, Jieyu Zhao, Yue Wang, Jiafei Duan, Zhongzheng Ren, Ranjay Krishna
+
+Tasks: Continuous Control, Reinforcement Learning, Robotics
+
+Code: https://github.com/ToberJ/reflex</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>REMORY: Learning Residual Memory for Context Compaction</title>
+      <link>https://arxiv.org/abs/2610.11287</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.11287</guid>
+      <description>Long-horizon agents compact their history to continue within a finite context window, but a textual summary alone may not support every subsequent decision. We introduce REMORY, a neural memory network that supplements the summary with a bounded sequence of soft memory tokens. Given the history and summary, the network learns to generate tokens that help a frozen LLM approximate the continuation it would produce with the full history. The tokens are conditioned on the summary and appended after it, forming an analogue of a residual connection along the sequence dimension. On SummHay, REMORY improves source attribution at nearly unchanged insight coverage and approaches the full-context joint score using only 5.2% of the input positions. Across long-horizon agent benchmarks, Qwen3.8-27B and GLM-5.3-Flash show consistent gains with residual memory. Both models also exhibit substantially fewer repeated tool outputs and tool errors on BrowseComp and Terminal-Bench 2.1.
+
+Authors: Hanchen Xia, Baoyou Chen, Yutang Ge, Naihao Deng, Senqiao Yang, Zilong Dong, Weihao Yuan, Siyu Zhu
+
+Tasks: Agents, Long Context
+
+Code: https://github.com/1ring2rta/Remory</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>UltraText Bench: A Comprehensive Bilingual Benchmark for Evaluating Visual Text Rendering in Image Generation</title>
+      <link>https://arxiv.org/abs/2610.09823</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.09823</guid>
+      <description>Dense visual text requires image generators to reproduce long strings across multiple regions with correct placement and legibility. As short-string rendering improves, evaluation must test sustained performance across more demanding scenes. We introduce UltraText Bench, a bilingual benchmark for prompt-only generation of dense visual text. It contains 432 prompts spanning 24 real-world scene categories and three difficulty levels, split equally between English and Chinese. Each human-reviewed prompt supplies exact strings for four to twelve text regions, paired with structured references for their content, placement, and visual attributes. We use the Q-Judger vision-language model to assess each image against the complete reference, reporting text fidelity, text clarity, spatial quality, and scene quality. Across 24 model configurations, these dimensions reveal different strengths: Z-Image-Turbo gains 3.81 clarity points over Z-Image-Base while losing 14.76 fidelity points under the reported settings. Performance also varies with workload; Qwen-Image-2512's English composite falls from 86.50 at L1 to 42.86 at L3. Ten participants took part in human evaluation of the automatic scores. Repository: https://github.com/LINs-lab/UltraText_Bench.
+
+Authors: Deyuan Liu, Yihao Hu, Jingxuan Zhang, Xingying Li, Jun Xie, Jiacheng Liu, Jungang Li, Yu Huang, Xuanyi Liu, Yue Ding, Zecheng Wang, Lei Zhao, Mingda Wang, Zhenglin Cheng, Peng Sun, Tao Lin
+
+Tasks: Image generation
+
+Code: https://github.com/lins-lab/ultratext_bench</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Learning Representations to Guide Pixel Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2610.12978</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12978</guid>
+      <description>Visual representations are largely developed for understanding, yet what makes them useful for generation remains unclear. We study this question in pixel diffusion transformers and uncover two key insights. First, better representation quality does not necessarily translate into greater generative utility, as externally aligned semantics can be progressively lost during pixel synthesis. Second, architectural separation with specialized pixel decoders mainly redistributes semantic and spatial modeling, without necessarily yielding representations better suited to generation. These insights suggest that a useful generative representation must be both properly formed and actively exploited. Motivated by these insights, we introduce Representation Guidance (RG), which directly forms and exploits internal representations while retaining a plain Transformer architecture. A low-dimensional bottleneck forces generation-relevant information into a compact representation, which is then explicitly used to guide decoder generation by modifying the flow-matching target according to its induced prediction offset. RG learns clearer semantic and spatial structure while scaling efficiently in both parameters and computation. On ImageNet 256x256, RG-L/16 with only 459M parameters outperforms substantially larger pixel diffusion transformers, while RG-XL/16 achieves an FID of 1.55. RG further reaches an FID of 1.74 at 512x512 and extends to text-to-image generation, achieving 0.89 on GenEval and 87.1 on DPG-Bench.
+
+Authors: Zihao Pan, Mengting Chen, Cheng Shi, Taihang Hu, Zhengrong Yue, Zikang Wang, Yuan Wang, Wei Li, Sibei Yang
+
+Tasks: Image generation
+
+Code: https://github.com/Pan-Zihao/Representation-Guidance</description>
       <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DiffusionART: Efficient, Stable and Scalable Reinforcement of Diffusion Models</title>
+      <link>https://arxiv.org/abs/2610.12572</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12572</guid>
+      <description>Online reinforcement learning (RL) fine-tunes diffusion models with black-box rewards, but reverse-process methods such as Flow-GRPO are limited in efficiency by poor credit assignment, while forward-process methods such as DiffusionNFT are efficient yet unstable without carefully tuned exponential-moving-average (EMA) off-policy training. We show that NFT-style objectives contain a hidden forward--reverse consistency force that joint positive--negative training cancels only partially, and that EMA stabilizes training through restoration rather than off-policy rollouts. We introduce DiffusionART (Diffusion Reinforcement with Aggregation-First Reward Tilting), which aggregates each prompt's rewards into a shared reward-improving direction for reverse-process states, removing the consistency force by construction, and adds a trust-region-masked second update for drift-adaptive restoration without EMA tuning. It requires no differentiable reward model, remains effective with fewer samples per prompt, and supports pairwise reward models (DiffusionART-Pairwise). Across image and video generation, DiffusionART trains efficiently and stably without per-task tuning. In particular, on HunyuanVideo-13B with equally weighted visual and motion quality rewards, DiffusionART reaches the late-stage mean reward levels of DiffusionNFT and Flow-GRPO-Fast with 12.02 and 11.72 times fewer GPU hours, respectively, while achieving 28.8% and 53.0% higher mean training rewards.
+
+Authors: Zhenglin Wan, Jiayu Chen, Zhengfeiyang Zhang, Pengfei Zhou, Wangbo Zhao, Fangyuan Kong, Pengfei Wan, Kun Gai, Yang You
+
+Tasks: Image generation, Reinforcement Learning, Video generation
+
+Code: https://github.com/vanzll/DiffusionART</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>NeMo-DCR: Bit-Exact Delta-Compressed Refit for Scalable Agentic RL at Trillion-Parameter Scale</title>
@@ -72,6 +137,19 @@ Code: https://github.com/nvidia-nemo/rl</description>
       <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark</title>
+      <link>https://arxiv.org/abs/2610.13947</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.13947</guid>
+      <description>In this paper, we study physically grounded articulated 3D asset generation---moving the goal from reproducing how objects look to capturing how they move and function. Inspired by the literature on procedural and agentic generation, we present Artisan, a system that extends the latest method Articraft by introducing a multi-agent pipeline with physical simulation feedback, enabling comprehensive attributes beyond geometry, appearance, and physically plausible articulation, such as collision-free motion, stability under gravity, and accurate mass and material properties. Furthermore, we construct a unified benchmark spanning four key aspects: spatial fidelity, physical plausibility, downstream task performance, and overall quality. The benchmark encompasses 100 reference assets from ArtVIP and LightWheel, 50 stability prompts, and 50 ABO objects with reference masses, with protocols evaluating various metrics. Through extensive evaluation of more than 10 representative models, Artisan achieves competitive spatial fidelity while attaining the lowest collision rates and highest stability rates among the evaluated methods. Together, our system and benchmark establish insights for advancing 3D generation towards physically plausible, functionally usable assets.
+
+Authors: Xudong Cai, Ruijie Zhu, Haoliang Shang, Ruining Li, Marc Pollefeys, Shangzhe Wu, Andrea Vedaldi, Chuanxia Zheng
+
+Tasks: 3D generation
+
+Code: https://github.com/physicalvision/Artisan</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Contextual Correction of Parallel Draftsfor Speculative Decoding</title>
       <link>https://arxiv.org/abs/2610.12570</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.12570</guid>
@@ -83,19 +161,6 @@ Tasks: Language Modeling
 
 Code: https://github.com/two-delta/DCOCO</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Shared Geometry As A Rosetta Stone: Cross-Modal Alignment Without Paired Data</title>
-      <link>https://arxiv.org/abs/2610.09411</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.09411</guid>
-      <description>Multimodal representations enable zero-shot classification and retrieval, but aligning independently trained models usually requires large amounts of paired data. Yet, the Platonic Representation Hypothesis suggests that models trained on different modalities may converge spontaneously toward a shared representation geometry. But then, do we even need paired examples for cross-modal alignment? Remarkably, we show that paired examples are unnecessary for coarse cross-modal alignment. Our simple Wasserstein Procrustes method with a coarse geometric initialization aligns two disjoint embedding sets by estimating a single orthogonal map without seeing any pairs. Across datasets, modalities, and unimodal models, we show that we can consistently align independently trained representations without pairs, and standard geometric alignment metrics accurately predict when this is possible. Nevertheless, we can naturally benefit from paired examples. In the very few-pair regime, our method substantially outperforms existing ones, while staying competitive with pair-based methods with more added examples. Finally, we demonstrate that the resulting alignments can enable text-to-image generation without paired examples. These results show that independently trained models often share enough geometry to establish cross-modal correspondence with little or no paired data.
-
-Authors: Dominik Schnaus, Thomas Dagès, Daniel Cremers, Xi Wang, Phillip Isola
-
-Tasks: Image generation, Image Understanding, Language Modeling
-
-Code: https://github.com/dominik-schnaus/unpaired-rosetta</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>nanoMuse: An Open-Source Personal Agent for Every Device You Own</title>
@@ -111,17 +176,43 @@ Code: https://github.com/nano-muse/nanoMuse</description>
       <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LeWAM: End-to-End World and Action Modeling with JEPAs</title>
-      <link>https://arxiv.org/abs/2610.12818</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12818</guid>
-      <description>Joint-embedding predictive architectures (JEPAs) learn compact latent world models without pixel reconstruction. Existing JEPA pipelines typically train visual representations and action-conditioned dynamics before adding a control policy or solver. We introduce LeWAM, an end-to-end JEPA for control with: (1) a joint training objective over next latent state prediction and action flow matching, and (2) an isotropic Gaussian constraint on the latent state, enabling a single model to support direct policy execution and efficient planning by evaluating sampled actions with its learned latent dynamics. Compared with prior JEPAs in visual planning, LeWAM improves success rate from 28.6% to 89.7% on contact-rich tasks and from 10.9% to 46.2% on long-horizon tasks, and plans 32.3 times faster. On behavior cloning tasks in simulation and physical robots, LeWAM is also competitive with established methods. Interpretability analyses show that LeWAM learns control-relevant representations and action distributions effectively guiding test-time planning and control.
+      <title>DLoop: Looped Speculative Decoding</title>
+      <link>https://arxiv.org/abs/2610.07659</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.07659</guid>
+      <description>Speculative decoding accelerates autoregressive generation in large language models. In each drafting stage, a lightweight draft model proposes tokens that the target model subsequently verifies. With increasingly capable draft models, we find that the target model frequently accepts all tokens produced in a drafting stage. A verification nevertheless follows each drafting stage, resulting in unnecessary target-model forward passes even when drafting could have continued. Adaptive draft length methods decide during decoding how many draft tokens precede a verification, but they raise the speedup only for autoregressive draft models. For a parallel draft model, drafting further requires target-model hidden states for draft tokens that have not been verified. We propose DLoop, a looped form of speculative decoding that adaptively performs multiple drafting stages before verification. DLoop continues drafting while the draft model remains confident and verifies all accumulated draft tokens together. Loop-aware training keeps the draft model reliable in the additional drafting stages by exposing it to its own hidden states for unverified draft tokens. By spending additional draft-model forward passes, DLoop reduces the number of target-model forward passes required for verification. Across diverse speculative decoding methods including EAGLE-3, DFlash, Domino, DSpark, and multi-token prediction modules, DLoop improves the wall-clock speedup by 5 to 41 percent while preserving lossless decoding. Code will be available at https://github.com/naver-ai/DLoop.
 
-Authors: Minghao Fu, Tavis Siebert, Eryk Halicki, Randall Balestriero
+Authors: Geonmo Gu, Byeongho Heo, HeeJae Jun, Yoohoon Kang, Sangmin Lee, Sangdoo Yun, Dongyoon Han
 
-Tasks: Robotics, World Models
+Tasks: Language Modeling
 
-Code: https://github.com/minghaofu/lewam</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/naver-ai/dloop</description>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SanSi: A Looped Typed Decision Model for System 1.5 Thinking</title>
+      <link>https://arxiv.org/abs/2610.07730</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.07730</guid>
+      <description>Typed decision models answer a declared question without generating text: a decision head returns a probability for each of the declared options in a single forward pass. A single pass is fast, intuitive System 1 thinking. We study what lies between one pass and generated reasoning: looping, in which the same layers are recursively applied several times before one typed readout. Each loop lets the model revise its hidden state before it commits to an answer, without generating a token; we call this System 1.5 thinking. We propose SanSi, which turns a pre-trained looped language model into a typed decision model. The option probabilities are read after every loop, and every loop is trained with a proper scoring rule, so that one model serves every budget from one loop to eight in a single run. On 10,027 test decisions from 59 sources, SanSi reaches 72.0% accuracy: 13.5 points above a non-looped model of the same shape trained with the same recipe, 5.3 points above a newer non-looped model of its size, and 1.8 points below one with three times the parameters. On two depth-controlled tasks, loops extend the solvable depth beyond the depths seen in training, where the larger single-pass model fails. Used as the judge for policy optimization with reinforcement learning, without gold answers, SanSi raises the generator's F1 by 7.7 points.
+
+Authors: Shuyu Gan, Young-Jun Lee, Dongyeop Kang
+
+Tasks: Reasoning, Reinforcement Learning
+
+Code: https://github.com/minnesotanlp/Sansi</description>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Shared Geometry As A Rosetta Stone: Cross-Modal Alignment Without Paired Data</title>
+      <link>https://arxiv.org/abs/2610.09411</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.09411</guid>
+      <description>Multimodal representations enable zero-shot classification and retrieval, but aligning independently trained models usually requires large amounts of paired data. Yet, the Platonic Representation Hypothesis suggests that models trained on different modalities may converge spontaneously toward a shared representation geometry. But then, do we even need paired examples for cross-modal alignment? Remarkably, we show that paired examples are unnecessary for coarse cross-modal alignment. Our simple Wasserstein Procrustes method with a coarse geometric initialization aligns two disjoint embedding sets by estimating a single orthogonal map without seeing any pairs. Across datasets, modalities, and unimodal models, we show that we can consistently align independently trained representations without pairs, and standard geometric alignment metrics accurately predict when this is possible. Nevertheless, we can naturally benefit from paired examples. In the very few-pair regime, our method substantially outperforms existing ones, while staying competitive with pair-based methods with more added examples. Finally, we demonstrate that the resulting alignments can enable text-to-image generation without paired examples. These results show that independently trained models often share enough geometry to establish cross-modal correspondence with little or no paired data.
+
+Authors: Dominik Schnaus, Thomas Dagès, Daniel Cremers, Xi Wang, Phillip Isola
+
+Tasks: Image generation, Image Understanding, Language Modeling
+
+Code: https://github.com/dominik-schnaus/unpaired-rosetta</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>OuroWorld: Bringing Any 3D World Alive as Diverse, Endlessly Looping 3D Cinemagraphs</title>
@@ -135,32 +226,6 @@ Tasks: Video generation, World Models
 
 Code: https://github.com/youzhe0305/OuroWorld</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Reflex: Visually Grounded Reactive Humanoid Control</title>
-      <link>https://arxiv.org/abs/2610.12772</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12772</guid>
-      <description>Humans effortlessly react to the world; they adeptly return a tennis shot, catch a falling cup, step aside from a passing cart, or pass a box tossed during truck unloading. These everyday actions require anticipating a moving target and reflexively responding with the whole body within about a second. Such visual reactive whole-body control remains challenging for humanoids, which must (1) coordinate whole-body control, (2) react to object dynamics in real time, and (3) ground perception in egocentric vision. We study catching thrown boxes as a representative task that demands all three capabilities; existing systems cover only part of it, relying on end-effectors, motion capture, or marked objects. We present Reflex, a three-stage framework that learns these capabilities stage by stage while connecting them through a compact representation of object dynamics. First, a state-based policy learns whole-body catching with reinforcement learning. Second, the policy learns to infer the dynamics of a moving box from delayed and incomplete observations. Third, an egocentric RGB-D encoder learns to recover this dynamics representation directly from visual observations while keeping the whole-body controller fixed. This decomposition provides each capability with a direct training signal and makes visual learning substantially more scalable. In simulation, Reflex achieves 85.7% catch success from egocentric RGB-D, compared with 87.9% when given privileged box observations. Temporal visual history is critical: removing it reduces success by 35.6 and 39.8 points on centered and laterally offset throws. On a real Unitree G1, Reflex catches human-thrown boxes with 65% and 40% success at 2.5 and 5 m, reaching 76% and 59% of human catchers' success at the same distances.
-
-Authors: Taoyang Jia, Weikai Huang, Linxin Song, Jared Darlington, Jieyu Zhao, Yue Wang, Jiafei Duan, Zhongzheng Ren, Ranjay Krishna
-
-Tasks: Continuous Control, Reinforcement Learning, Robotics
-
-Code: https://github.com/ToberJ/reflex</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Iris-3B: Going Beyond the Latent with Pixel-Space Diffusion Training, Conversion and Fine-Tuning</title>
-      <link>https://arxiv.org/abs/2610.09450</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.09450</guid>
-      <description>Pixel-space diffusion models avoid the lossy VAE of latent models, which suggests an advantage on downstream tasks where fine-grained detail matters. We test this claim along both routes to a pixel-space backbone. We pretrain Iris-3B, a 3B-parameter pixel-space text-to-image transformer, from scratch through a 256to512to1024 curriculum, after first ablating the prediction target and representation alignment at 256^2 to decide what to scale. We also convert a pretrained latent model, FLUX.2 Klein base 4B, to pixel space. We fine-tune both families for monocular depth estimation and for image restoration/super-resolution. We find no significant improvement from using a pixel-space generative prior. Fine-tuned for depth with one matched direct-regression recipe, Iris-3B is level with the latent FLUX.2 Klein and the converted pixel FLUX.2 Klein falls behind it, and on 4times DIV2K restoration neither pixel model beats a latent FLUX.2 Klein fine-tune, the converted one trailing it slightly. We document the recipes, the failure modes and the remaining confounds behind this negative result. Nevertheless, Iris-3B shows that pixel-space pretraining with the pixel-transformer (PiT) head of PixelDiT scales to 3B parameters and to text-to-image quality competitive with latent models, matching Qwen-Image on OneIG under the official evaluators at 1024^2. We release its weights and training code in the hope that they help pave the way for further work on pixel-space generation.
-
-Authors: Hanqiu Li Cai, Chema Garabito
-
-Tasks: Depth estimation, Image generation, Image Restoration, Image super-resolution
-
-Code: https://github.com/speridlabs/iris-3b</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ThinkDrag: Semantic Drag-Based Image Editing with Visual Reasoning</title>
@@ -189,19 +254,6 @@ Code: https://github.com/Zihan-Su/Self_Gradient_Forcing_Plus</description>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>UltraText Bench: A Comprehensive Bilingual Benchmark for Evaluating Visual Text Rendering in Image Generation</title>
-      <link>https://arxiv.org/abs/2610.09823</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.09823</guid>
-      <description>Dense visual text requires image generators to reproduce long strings across multiple regions with correct placement and legibility. As short-string rendering improves, evaluation must test sustained performance across more demanding scenes. We introduce UltraText Bench, a bilingual benchmark for prompt-only generation of dense visual text. It contains 432 prompts spanning 24 real-world scene categories and three difficulty levels, split equally between English and Chinese. Each human-reviewed prompt supplies exact strings for four to twelve text regions, paired with structured references for their content, placement, and visual attributes. We use the Q-Judger vision-language model to assess each image against the complete reference, reporting text fidelity, text clarity, spatial quality, and scene quality. Across 24 model configurations, these dimensions reveal different strengths: Z-Image-Turbo gains 3.81 clarity points over Z-Image-Base while losing 14.76 fidelity points under the reported settings. Performance also varies with workload; Qwen-Image-2512's English composite falls from 86.50 at L1 to 42.86 at L3. Ten participants took part in human evaluation of the automatic scores. Repository: https://github.com/LINs-lab/UltraText_Bench.
-
-Authors: Deyuan Liu, Yihao Hu, Jingxuan Zhang, Xingying Li, Jun Xie, Jiacheng Liu, Jungang Li, Yu Huang, Xuanyi Liu, Yue Ding, Zecheng Wang, Lei Zhao, Mingda Wang, Zhenglin Cheng, Peng Sun, Tao Lin
-
-Tasks: Image generation
-
-Code: https://github.com/lins-lab/ultratext_bench</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Stateless Language Agents: Scaling Long-Horizon Automated Research</title>
       <link>https://arxiv.org/abs/2610.07625</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.07625</guid>
@@ -213,58 +265,6 @@ Tasks: Coding Agents, Deep Research Agents
 
 Code: https://github.com/Alex-q-z/stateless-language-agents</description>
       <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>A GPU-Parallel Framework for Heterogeneous Multi-Task Reinforcement Learning</title>
-      <link>https://arxiv.org/abs/2606.03335</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2606.03335</guid>
-      <description>GPU-parallel simulation provides abundant robot interaction, but existing benchmarks rarely combine this scale with heterogeneous manipulation tasks and standardized multi-task RL evaluation. We introduce Hebero (Heterogeneous Benchmark for Robot Learning), a GPU-parallel Isaac Lab benchmark that enables efficient joint training and evaluation of a single policy across all 40 heterogeneous tasks. Scaling experiments show that increasing parallel replicas per task improves success under a fixed wall-clock budget. To support learning with sparse rewards and limited demonstrations, we propose Demonstration-Guided Policy Optimization (DGPO), which reuses demonstrations for dense tracking rewards and asymmetric value learning. Its shared stack supports controlled comparisons of learner-specific demonstration interfaces within PPO. Within DGPO framework, we introduce IW-ABC, which uses a lightweight per-task learning progress signal to coordinate adaptive behavior cloning (ABC), relaxing demonstration guidance with task progress, and importance weighting (IW), emphasizing lagging tasks in PPO updates. With 50 demonstrations per task, IW-ABC achieves 90.1% state-input mean success, outperforming the strongest baseline FAMO-ABC by 7.8 percentage points. Its visual counterpart reaches 93.5% mean success. Real-world experiments further demonstrate that a single multi-task policy trained in simulation can successfully perform four tasks on a physical Piper robot. The project page is available at https://hebero-rl.github.io/.
-
-Authors: Rui Zhang, Qiwei Wu, Zhengyu Zhang, Tao Li, Hongyu Zhou, Xiang Li, Yunrong Guo, Junjie Lai, Renjing Xu, Weihua Zhang
-
-Tasks: Offline Reinforcement Learning, Reinforcement Learning, Robotics
-
-Code: https://github.com/hebero-rl/Hebero</description>
-      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>TokenRouter: Efficient Serving System for Token-Level LLM Routing</title>
-      <link>https://arxiv.org/abs/2610.12242</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12242</guid>
-      <description>Large language model (LLM) routing distributes inference work across different models, advancing the cost-quality Pareto frontier of LLM serving. While coarse-grained routing at the session or query level has been widely adopted in production systems, recent algorithmic work shows that fine-grained token-level routing can yield substantial efficiency and quality gains. However, efficiently serving token-level routed inference poses significant challenges to existing systems. Built on single-LLM assumptions, current systems suffer from severe step desynchronization and frequent batch admission delays under token-level routing, and they also impose high implementation complexity on developers. To address these challenges, we design TokenRouter, an efficient and developer-friendly serving system for token-level routed LLM inference. TokenRouter follows the principle of request-centric programming, model-centric execution: developers describe routing logic from the perspective of a single request, while the runtime launches a subserver for each LLM and dispatches requests asynchronously. Each subserver employs a delayed-batching scheduler, whose optimal hyperparameters are derived from a mathematical throughput model of the system. Across diverse routing algorithms, workloads, and model pairs, TokenRouter achieves 2.01-64.15x higher decoding throughput than existing systems, substantially advancing the serving efficiency of token-level LLM routing. Our code is available at https://github.com/thu-nics/TokenRouter.
-
-Authors: Tianyu Fu, Tengxuan Liu, Ruoxi Wang, Yixin Dong, Yi Ge, Yichen You, Yu Wang
-
-Tasks: Language Modeling
-
-Code: https://github.com/thu-nics/TokenRouter</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>AgentGarten: Code Worlds for Evolving Agents</title>
-      <link>https://arxiv.org/abs/2610.12374</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12374</guid>
-      <description>Interactive virtual worlds allow agents to learn through exploration and interaction. What agents can learn is bounded by the environments they practice in, which must be faithful, with consistent state, rules, and dynamics, and realistic, with observations that follow the real-world visual distributions. Achieving both across diverse worlds remains a bottleneck. We introduce AgentGarten, a framework that couples simulators and game engines with a shared neural renderer to build real-time interactive environments. Its simulation backends maintain persistent world state and execute program-defined interaction rules, while the renderer generates visual observations from structured conditions exported through a common interface. To build the neural renderer, we adapt a pretrained video model to geometry conditions, distill it with our proposed Adversarial Forcing, and optimize inference for real-time interaction. Adversarial Forcing makes history prefilling differentiable through exact replay, so that losses on later predictions update how the renderer encodes prior observations, and adds real-data adversarial supervision to improve its visual quality. In AgentGarten, agents perceive the world through visual observations, interact with it in real time, and improve by distilling each round of experience into playbooks that subsequent agents inherit and refine. Our empirical study demonstrates a substantial gain in learning efficiency, with agents learning from just 4 rounds compared with millions for a conventional reinforcement learning counterpart. As new worlds can be written as code and rendered through the same interface, environments can scale in both number and difficulty alongside their agents, a step toward agents that keep evolving through interactive experience.
-
-Authors: Jiawei Chi, Shangchen Miao, Zhiyuan Shi, Kailu Wu, Hanyang Wang, Weiliang Chen, Qiyu Dai, Jinshan Ren, Jun Gao, Mingsheng Long, Yueqi Duan, Jiangran Lyu, Jialong Wu, Fangfu Liu
-
-Tasks: Reinforcement Learning, Video generation, World Models
-
-Code: https://github.com/MirroS-Lab/AgentGarten</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>DiffusionART: Efficient, Stable and Scalable Reinforcement of Diffusion Models</title>
-      <link>https://arxiv.org/abs/2610.12572</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12572</guid>
-      <description>Online reinforcement learning (RL) fine-tunes diffusion models with black-box rewards, but reverse-process methods such as Flow-GRPO are limited in efficiency by poor credit assignment, while forward-process methods such as DiffusionNFT are efficient yet unstable without carefully tuned exponential-moving-average (EMA) off-policy training. We show that NFT-style objectives contain a hidden forward--reverse consistency force that joint positive--negative training cancels only partially, and that EMA stabilizes training through restoration rather than off-policy rollouts. We introduce DiffusionART (Diffusion Reinforcement with Aggregation-First Reward Tilting), which aggregates each prompt's rewards into a shared reward-improving direction for reverse-process states, removing the consistency force by construction, and adds a trust-region-masked second update for drift-adaptive restoration without EMA tuning. It requires no differentiable reward model, remains effective with fewer samples per prompt, and supports pairwise reward models (DiffusionART-Pairwise). Across image and video generation, DiffusionART trains efficiently and stably without per-task tuning. In particular, on HunyuanVideo-13B with equally weighted visual and motion quality rewards, DiffusionART reaches the late-stage mean reward levels of DiffusionNFT and Flow-GRPO-Fast with 12.02 and 11.72 times fewer GPU hours, respectively, while achieving 28.8% and 53.0% higher mean training rewards.
-
-Authors: Zhenglin Wan, Jiayu Chen, Zhengfeiyang Zhang, Pengfei Zhou, Wangbo Zhao, Fangyuan Kong, Pengfei Wan, Kun Gai, Yang You
-
-Tasks: Image generation, Reinforcement Learning, Video generation
-
-Code: https://github.com/vanzll/DiffusionART</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
