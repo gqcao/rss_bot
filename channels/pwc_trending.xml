@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Tue, 13 Oct 2026 20:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 21:00:00 GMT</lastBuildDate>
     <item>
       <title>RSI-Anything: Unlocking Recursive Self-Improvement with World Models</title>
       <link>https://arxiv.org/abs/2610.13912</link>
@@ -17,6 +17,19 @@ Tasks: World Models
 
 Code: https://github.com/Gen-Verse/RSI-Anything</description>
       <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>REMORY: Learning Residual Memory for Context Compaction</title>
+      <link>https://arxiv.org/abs/2610.11287</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.11287</guid>
+      <description>Long-horizon agents compact their history to continue within a finite context window, but a textual summary alone may not support every subsequent decision. We introduce REMORY, a neural memory network that supplements the summary with a bounded sequence of soft memory tokens. Given the history and summary, the network learns to generate tokens that help a frozen LLM approximate the continuation it would produce with the full history. The tokens are conditioned on the summary and appended after it, forming an analogue of a residual connection along the sequence dimension. On SummHay, REMORY improves source attribution at nearly unchanged insight coverage and approaches the full-context joint score using only 5.2% of the input positions. Across long-horizon agent benchmarks, Qwen3.8-27B and GLM-5.3-Flash show consistent gains with residual memory. Both models also exhibit substantially fewer repeated tool outputs and tool errors on BrowseComp and Terminal-Bench 2.1.
+
+Authors: Hanchen Xia, Baoyou Chen, Yutang Ge, Naihao Deng, Senqiao Yang, Zilong Dong, Weihao Yuan, Siyu Zhu
+
+Tasks: Agents, Long Context
+
+Code: https://github.com/1ring2rta/Remory</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</title>
@@ -32,30 +45,17 @@ Code: https://github.com/vllm-project/vllm</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SuperNav: An Agentic Navigation System for Any Task in Any Scene</title>
-      <link>https://arxiv.org/abs/2610.12126</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12126</guid>
-      <description>General-purpose service robots need navigation systems that can handle diverse human requests in unfamiliar environments, combining task generality with scene generality. Some existing methods fine-tune multimodal large language models (MLLMs) to predict navigation actions, making their behavior dependent on the coverage of navigation training data and potentially limiting generalization to new requests and environments. Our key insight is to let the MLLM focus on interpreting requests, understanding scenes, and making decisions while preserving its general-purpose capabilities and delegating motion execution to navigation tools. To realize this idea, we introduce SuperNav, which equips a pretrained MLLM with a specialized agent harness without navigation-specific fine-tuning of the MLLM. Our harness supports these decisions with Navigation Skills, agent-oriented Tools for physical interaction, and task-progress and context management. A unified visual-point interface connects decision-making to motion by allowing the model to specify destinations directly in images and revise its decisions from execution feedback. Together, these components support sustained navigation across different task requirements and environments. SuperNav outperforms four evaluated baselines on instance-level, multi-object, and demand-driven tasks. Category-level evaluation on HM3D and deployment on a real quadruped robot further demonstrate its applicability across environments. Project Page: https://zju3dv.github.io/SuperNav/
+      <title>Shared Geometry As A Rosetta Stone: Cross-Modal Alignment Without Paired Data</title>
+      <link>https://arxiv.org/abs/2610.09411</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.09411</guid>
+      <description>Multimodal representations enable zero-shot classification and retrieval, but aligning independently trained models usually requires large amounts of paired data. Yet, the Platonic Representation Hypothesis suggests that models trained on different modalities may converge spontaneously toward a shared representation geometry. But then, do we even need paired examples for cross-modal alignment? Remarkably, we show that paired examples are unnecessary for coarse cross-modal alignment. Our simple Wasserstein Procrustes method with a coarse geometric initialization aligns two disjoint embedding sets by estimating a single orthogonal map without seeing any pairs. Across datasets, modalities, and unimodal models, we show that we can consistently align independently trained representations without pairs, and standard geometric alignment metrics accurately predict when this is possible. Nevertheless, we can naturally benefit from paired examples. In the very few-pair regime, our method substantially outperforms existing ones, while staying competitive with pair-based methods with more added examples. Finally, we demonstrate that the resulting alignments can enable text-to-image generation without paired examples. These results show that independently trained models often share enough geometry to establish cross-modal correspondence with little or no paired data.
 
-Authors: Jinkai Zhang, Jingyi Xu, Yuanhong Yu, Jiarui Guo, Ruizhen Hu, Hujun Bao, Xiaowei Zhou, Sida Peng
+Authors: Dominik Schnaus, Thomas Dagès, Daniel Cremers, Xi Wang, Phillip Isola
 
-Tasks: Agents, Robotics
+Tasks: Image generation, Image Understanding, Language Modeling
 
-Code: https://github.com/zju3dv/SuperNav</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>LeWAM: End-to-End World and Action Modeling with JEPAs</title>
-      <link>https://arxiv.org/abs/2610.12818</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12818</guid>
-      <description>Joint-embedding predictive architectures (JEPAs) learn compact latent world models without pixel reconstruction. Existing JEPA pipelines typically train visual representations and action-conditioned dynamics before adding a control policy or solver. We introduce LeWAM, an end-to-end JEPA for control with: (1) a joint training objective over next latent state prediction and action flow matching, and (2) an isotropic Gaussian constraint on the latent state, enabling a single model to support direct policy execution and efficient planning by evaluating sampled actions with its learned latent dynamics. Compared with prior JEPAs in visual planning, LeWAM improves success rate from 28.6% to 89.7% on contact-rich tasks and from 10.9% to 46.2% on long-horizon tasks, and plans 32.3 times faster. On behavior cloning tasks in simulation and physical robots, LeWAM is also competitive with established methods. Interpretability analyses show that LeWAM learns control-relevant representations and action distributions effectively guiding test-time planning and control.
-
-Authors: Minghao Fu, Tavis Siebert, Eryk Halicki, Randall Balestriero
-
-Tasks: Robotics, World Models
-
-Code: https://github.com/minghaofu/lewam</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/dominik-schnaus/unpaired-rosetta</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Iris-3B: Going Beyond the Latent with Pixel-Space Diffusion Training, Conversion and Fine-Tuning</title>
@@ -71,16 +71,16 @@ Code: https://github.com/speridlabs/iris-3b</description>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LightOnOCR-3: High-Performance OCR and Layout Extraction in One Model</title>
-      <link>https://huggingface.co/blog/lightonai/lightonocr-3</link>
-      <guid isPermaLink="true">https://huggingface.co/blog/lightonai/lightonocr-3</guid>
-      <description>We are releasing LightOnOCR-3 a new family of highly performant lightweight OCR models. Compared to the previous generation, they introduce significant improvements in speed and transcription quality while introducing new visual understanding features. LightOnOCR-3 models are now able to output bounding box coordinates with labels for all document regions, image descriptions as well as extract numerical data in figures or charts. With these new capabilities, the models offer a ready-to-use, easier-to-maintain alternative to complex document understanding pipelines.
+      <title>LeWAM: End-to-End World and Action Modeling with JEPAs</title>
+      <link>https://arxiv.org/abs/2610.12818</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12818</guid>
+      <description>Joint-embedding predictive architectures (JEPAs) learn compact latent world models without pixel reconstruction. Existing JEPA pipelines typically train visual representations and action-conditioned dynamics before adding a control policy or solver. We introduce LeWAM, an end-to-end JEPA for control with: (1) a joint training objective over next latent state prediction and action flow matching, and (2) an isotropic Gaussian constraint on the latent state, enabling a single model to support direct policy execution and efficient planning by evaluating sampled actions with its learned latent dynamics. Compared with prior JEPAs in visual planning, LeWAM improves success rate from 28.6% to 89.7% on contact-rich tasks and from 10.9% to 46.2% on long-horizon tasks, and plans 32.3 times faster. On behavior cloning tasks in simulation and physical robots, LeWAM is also competitive with established methods. Interpretability analyses show that LeWAM learns control-relevant representations and action distributions effectively guiding test-time planning and control.
 
-Authors: Said Taghadouini, Adrien Cavaillès, Baptiste Aubertin
+Authors: Minghao Fu, Tavis Siebert, Eryk Halicki, Randall Balestriero
 
-Tasks: Document Layout Analysis, Document Understanding, Image Understanding, OCR, Visual Grounding
+Tasks: Robotics, World Models
 
-Code: https://github.com/lightonai/lightonocr</description>
+Code: https://github.com/minghaofu/lewam</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -97,16 +97,55 @@ Code: https://github.com/facebookresearch/robo_jepa</description>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>REMORY: Learning Residual Memory for Context Compaction</title>
-      <link>https://arxiv.org/abs/2610.11287</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.11287</guid>
-      <description>Long-horizon agents compact their history to continue within a finite context window, but a textual summary alone may not support every subsequent decision. We introduce REMORY, a neural memory network that supplements the summary with a bounded sequence of soft memory tokens. Given the history and summary, the network learns to generate tokens that help a frozen LLM approximate the continuation it would produce with the full history. The tokens are conditioned on the summary and appended after it, forming an analogue of a residual connection along the sequence dimension. On SummHay, REMORY improves source attribution at nearly unchanged insight coverage and approaches the full-context joint score using only 5.2% of the input positions. Across long-horizon agent benchmarks, Qwen3.8-27B and GLM-5.3-Flash show consistent gains with residual memory. Both models also exhibit substantially fewer repeated tool outputs and tool errors on BrowseComp and Terminal-Bench 2.1.
+      <title>BrickBench: Evaluating Agentic Brick Design</title>
+      <link>https://arxiv.org/abs/2610.12452</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12452</guid>
+      <description>We propose BrickBench, a benchmark for agentic text-conditioned LEGO-set design. Given a prompt, an agent is tasked with producing an assembly that not only satisfies semantic and design criteria, but that can also be physically built. To do so, it must select parts from a discrete library and reason jointly about local and global constraints. We score validity, alignment, and design across three settings that vary in scale and part availability. We provide BrickAgent, an environment for coding agents to construct, inspect, and validate their designs. We find that leading agents largely satisfy verifiable physical and semantic requirements, but fall short of human designs. We release our benchmark and environment at http://www.brickben.ch
 
-Authors: Hanchen Xia, Baoyou Chen, Yutang Ge, Naihao Deng, Senqiao Yang, Zilong Dong, Weihao Yuan, Siyu Zhu
+Authors: Peter Kulits, Yiqing Xu, R. Kenny Jones, Cordelia Schmid, Jiajun Wu
 
-Tasks: Agents, Long Context
+Tasks: Coding Agents
 
-Code: https://github.com/1ring2rta/Remory</description>
+Code: https://github.com/kulits/BrickAgent</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VIS-Ground: Video Interactive Storytelling with Contextual Grounding</title>
+      <link>https://arxiv.org/abs/2610.09326</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.09326</guid>
+      <description>Video interactive storytelling enables viewers to actively steer how a video unfolds. However, once we allow viewers to intervene during generation, a new challenge arises: The viewer's request can have latent dependencies on both the grounding source and the current rendered video state. These dependencies may not be explicitly stated in any individual input, but emerge only when the source, rendered history, and new viewer intent are considered jointly. Existing interactive video generation systems primarily emphasize following viewer instructions, while source-grounded video generation methods focus on aligning generated content with an external narrative or knowledge source. This leaves a fundamental question underexplored: What context should a generation model ground on during interactive continuation, and how can heterogeneous, unstructured inputs be transformed into such grounding context? In this work, we formulate contextual grounding as the process of transforming heterogeneous input context into an executable constraint model for video generation. To address this challenge, we introduce VIS-Ground, which performs Structured Context Abstraction to recover grounded states and cross-context dependencies, Generation Constraints Induction to project relevant dependencies into candidate-specific constraints, and Constrained Video Generation to enforce these constraints through planning, verification, revision, and rendering. Across three video generation backbones, VIS-Ground consistently achieves the highest overall composite score, reaching an average absolute improvement of 10.3 points over the strongest per-backbone baselines. Detailed analysis further shows gains across both narrative and knowledge grounding, and reveals remaining challenges in dependency extraction, and faithful realization during video rendering.
+
+Authors: Bingxuan Li, Yiwen Song, Xueqing Wu, Yanzhou Pan, Yang Li, Kuang Su, Jingyun Liu, Sebastian Ko, huan zhang, Tong Zhang, Nanyun Peng, Tomas Pfister, Yale Song
+
+Tasks: Video generation
+
+Code: https://github.com/vis-ground/code</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SuperNav: An Agentic Navigation System for Any Task in Any Scene</title>
+      <link>https://arxiv.org/abs/2610.12126</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12126</guid>
+      <description>General-purpose service robots need navigation systems that can handle diverse human requests in unfamiliar environments, combining task generality with scene generality. Some existing methods fine-tune multimodal large language models (MLLMs) to predict navigation actions, making their behavior dependent on the coverage of navigation training data and potentially limiting generalization to new requests and environments. Our key insight is to let the MLLM focus on interpreting requests, understanding scenes, and making decisions while preserving its general-purpose capabilities and delegating motion execution to navigation tools. To realize this idea, we introduce SuperNav, which equips a pretrained MLLM with a specialized agent harness without navigation-specific fine-tuning of the MLLM. Our harness supports these decisions with Navigation Skills, agent-oriented Tools for physical interaction, and task-progress and context management. A unified visual-point interface connects decision-making to motion by allowing the model to specify destinations directly in images and revise its decisions from execution feedback. Together, these components support sustained navigation across different task requirements and environments. SuperNav outperforms four evaluated baselines on instance-level, multi-object, and demand-driven tasks. Category-level evaluation on HM3D and deployment on a real quadruped robot further demonstrate its applicability across environments. Project Page: https://zju3dv.github.io/SuperNav/
+
+Authors: Jinkai Zhang, Jingyi Xu, Yuanhong Yu, Jiarui Guo, Ruizhen Hu, Hujun Bao, Xiaowei Zhou, Sida Peng
+
+Tasks: Agents, Robotics
+
+Code: https://github.com/zju3dv/SuperNav</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LightOnOCR-3: High-Performance OCR and Layout Extraction in One Model</title>
+      <link>https://huggingface.co/blog/lightonai/lightonocr-3</link>
+      <guid isPermaLink="true">https://huggingface.co/blog/lightonai/lightonocr-3</guid>
+      <description>We are releasing LightOnOCR-3 a new family of highly performant lightweight OCR models. Compared to the previous generation, they introduce significant improvements in speed and transcription quality while introducing new visual understanding features. LightOnOCR-3 models are now able to output bounding box coordinates with labels for all document regions, image descriptions as well as extract numerical data in figures or charts. With these new capabilities, the models offer a ready-to-use, easier-to-maintain alternative to complex document understanding pipelines.
+
+Authors: Said Taghadouini, Adrien Cavaillès, Baptiste Aubertin
+
+Tasks: Document Layout Analysis, Document Understanding, Image Understanding, OCR, Visual Grounding
+
+Code: https://github.com/lightonai/lightonocr</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -123,19 +162,6 @@ Code: https://github.com/Zihan-Su/Self_Gradient_Forcing_Plus</description>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Shared Geometry As A Rosetta Stone: Cross-Modal Alignment Without Paired Data</title>
-      <link>https://arxiv.org/abs/2610.09411</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.09411</guid>
-      <description>Multimodal representations enable zero-shot classification and retrieval, but aligning independently trained models usually requires large amounts of paired data. Yet, the Platonic Representation Hypothesis suggests that models trained on different modalities may converge spontaneously toward a shared representation geometry. But then, do we even need paired examples for cross-modal alignment? Remarkably, we show that paired examples are unnecessary for coarse cross-modal alignment. Our simple Wasserstein Procrustes method with a coarse geometric initialization aligns two disjoint embedding sets by estimating a single orthogonal map without seeing any pairs. Across datasets, modalities, and unimodal models, we show that we can consistently align independently trained representations without pairs, and standard geometric alignment metrics accurately predict when this is possible. Nevertheless, we can naturally benefit from paired examples. In the very few-pair regime, our method substantially outperforms existing ones, while staying competitive with pair-based methods with more added examples. Finally, we demonstrate that the resulting alignments can enable text-to-image generation without paired examples. These results show that independently trained models often share enough geometry to establish cross-modal correspondence with little or no paired data.
-
-Authors: Dominik Schnaus, Thomas Dagès, Daniel Cremers, Xi Wang, Phillip Isola
-
-Tasks: Image generation, Image Understanding, Language Modeling
-
-Code: https://github.com/dominik-schnaus/unpaired-rosetta</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Long-WAM: Scaling the Context of World-Action Models</title>
       <link>https://arxiv.org/abs/2610.10528</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.10528</guid>
@@ -147,19 +173,6 @@ Tasks: Robotics
 
 Code: https://github.com/NVlabs/LongLive</description>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Thinking Inertia: LLMs Keep Thinking When Told Not To</title>
-      <link>https://arxiv.org/abs/2610.11765</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.11765</guid>
-      <description>Large Language Models (LLMs) increasingly ship with explicit "thinking modes", yet their counterpart, "no-thinking", has received far less attention. We study LLMs' no-thinking behavior along two axes. a. How to measure no-thinking? Prior work typically defines no-thinking through proxies such as a disabled thinking mode or the absence of long traces. These proxies are unreliable: disabled thinking modes may still emit reasoning, while long traces may contain filler rather than genuine inference. We instead normalize each response into a pre-answer trace and final answer, and evaluate it at three levels: (i) Empty-Thinking Rate for strict answer-only compliance; (ii) instruction-aware Question-Pre-answer Relevance for similarity between the question and pre-answer trace; and (iii) LLM-as-judge Explicit Inference Rate for visible explicit inference. Together, these metrics distinguish answer-only output, relevant but non-inferential text, and explicit inference. b. How does no-thinking vary across tasks and models? We evaluate six prompting interventions on six LLMs across Boolean, multiple-choice, and open-ended questions. We find that explicit no-think controls cannot reliably eliminate visible inference. Models instead exhibit "Thinking Inertia": explicit inference persists even under strict controls and becomes more prevalent as the answer space opens. Accuracy remains stable on Boolean and multiple-choice tasks, whereas open-ended tasks reveal a trade-off between answer-only compliance and task accuracy. Rewriting the same questions across answer spaces shows that supplying candidate answers makes answer-only responses easier to produce. These findings establish no-thinking as a non-trivial capability: stopping explicit reasoning cannot be assumed from model settings or instructions alone and deserves systematic evaluation alongside reasoning ability.
-
-Authors: Dianqiao Lei, Kevin Qinghong Lin, Pan Lu, Philip Torr, James Zou
-
-Tasks: Instruction Following, Reasoning
-
-Code: https://github.com/thinking-inertia/code</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>UltraText Bench: A Comprehensive Bilingual Benchmark for Evaluating Visual Text Rendering in Image Generation</title>
@@ -214,16 +227,16 @@ Code: https://github.com/ZJU-REAL/ViSkill</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Reflex: Visually Grounded Reactive Humanoid Control</title>
-      <link>https://arxiv.org/abs/2610.12772</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12772</guid>
-      <description>Humans effortlessly react to the world; they adeptly return a tennis shot, catch a falling cup, step aside from a passing cart, or pass a box tossed during truck unloading. These everyday actions require anticipating a moving target and reflexively responding with the whole body within about a second. Such visual reactive whole-body control remains challenging for humanoids, which must (1) coordinate whole-body control, (2) react to object dynamics in real time, and (3) ground perception in egocentric vision. We study catching thrown boxes as a representative task that demands all three capabilities; existing systems cover only part of it, relying on end-effectors, motion capture, or marked objects. We present Reflex, a three-stage framework that learns these capabilities stage by stage while connecting them through a compact representation of object dynamics. First, a state-based policy learns whole-body catching with reinforcement learning. Second, the policy learns to infer the dynamics of a moving box from delayed and incomplete observations. Third, an egocentric RGB-D encoder learns to recover this dynamics representation directly from visual observations while keeping the whole-body controller fixed. This decomposition provides each capability with a direct training signal and makes visual learning substantially more scalable. In simulation, Reflex achieves 85.7% catch success from egocentric RGB-D, compared with 87.9% when given privileged box observations. Temporal visual history is critical: removing it reduces success by 35.6 and 39.8 points on centered and laterally offset throws. On a real Unitree G1, Reflex catches human-thrown boxes with 65% and 40% success at 2.5 and 5 m, reaching 76% and 59% of human catchers' success at the same distances.
+      <title>Thinking Inertia: LLMs Keep Thinking When Told Not To</title>
+      <link>https://arxiv.org/abs/2610.11765</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.11765</guid>
+      <description>Large Language Models (LLMs) increasingly ship with explicit "thinking modes", yet their counterpart, "no-thinking", has received far less attention. We study LLMs' no-thinking behavior along two axes. a. How to measure no-thinking? Prior work typically defines no-thinking through proxies such as a disabled thinking mode or the absence of long traces. These proxies are unreliable: disabled thinking modes may still emit reasoning, while long traces may contain filler rather than genuine inference. We instead normalize each response into a pre-answer trace and final answer, and evaluate it at three levels: (i) Empty-Thinking Rate for strict answer-only compliance; (ii) instruction-aware Question-Pre-answer Relevance for similarity between the question and pre-answer trace; and (iii) LLM-as-judge Explicit Inference Rate for visible explicit inference. Together, these metrics distinguish answer-only output, relevant but non-inferential text, and explicit inference. b. How does no-thinking vary across tasks and models? We evaluate six prompting interventions on six LLMs across Boolean, multiple-choice, and open-ended questions. We find that explicit no-think controls cannot reliably eliminate visible inference. Models instead exhibit "Thinking Inertia": explicit inference persists even under strict controls and becomes more prevalent as the answer space opens. Accuracy remains stable on Boolean and multiple-choice tasks, whereas open-ended tasks reveal a trade-off between answer-only compliance and task accuracy. Rewriting the same questions across answer spaces shows that supplying candidate answers makes answer-only responses easier to produce. These findings establish no-thinking as a non-trivial capability: stopping explicit reasoning cannot be assumed from model settings or instructions alone and deserves systematic evaluation alongside reasoning ability.
 
-Authors: Taoyang Jia, Weikai Huang, Linxin Song, Jared Darlington, Jieyu Zhao, Yue Wang, Jiafei Duan, Zhongzheng Ren, Ranjay Krishna
+Authors: Dianqiao Lei, Kevin Qinghong Lin, Pan Lu, Philip Torr, James Zou
 
-Tasks: Continuous Control, Reinforcement Learning, Robotics
+Tasks: Instruction Following, Reasoning
 
-Code: https://github.com/ToberJ/reflex</description>
+Code: https://github.com/thinking-inertia/code</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -240,29 +253,16 @@ Code: https://github.com/appletea233/OneSearch-VL</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>AgentSWE: Can Coding Agents Build the Agent You Actually Want?</title>
-      <link>https://arxiv.org/abs/2610.13361</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.13361</guid>
-      <description>As the production of software passes into the hands of software itself, coding agents are increasingly commissioned to build agents fitted to their users' own workflows. This delegation carries a quiet assumption, that the delivered agent will faithfully serve the requirement it was built for, rather than merely appear to. No existing benchmark tests that assumption. We introduce AgentSWE, a benchmark for agent software engineering spanning three stages of the agent development lifecycle: Creation of a complete agent from a natural-language requirement, Editing of production agent codebases, and Optimization toward a measurable target. Each of its 25 tasks is framed as a commission rather than an exam: the builder iterates against a handful of illustrative cases, while acceptance exercises the frozen submission on held-out cases designed to span the full requirement, grading behavior against requirement-derived rubrics under hard pass/fail gates or, for Optimization, against the source benchmark's own objective. Evaluating a range of coding agents across models and harnesses, we find that none comes close to delivering what a requirement asks for: the gap between what a builder demonstrates and what it delivers is the norm, not the corner case. An accompanying empirical analysis of the failure trajectories identifies recurring failure modes, among them overfitting to the visible cases, hollow runtimes behind code that looks complete, and unsupported claims of completion, each a signal by which coding agents can learn to build the agents they are asked for.
+      <title>Reflex: Visually Grounded Reactive Humanoid Control</title>
+      <link>https://arxiv.org/abs/2610.12772</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12772</guid>
+      <description>Humans effortlessly react to the world; they adeptly return a tennis shot, catch a falling cup, step aside from a passing cart, or pass a box tossed during truck unloading. These everyday actions require anticipating a moving target and reflexively responding with the whole body within about a second. Such visual reactive whole-body control remains challenging for humanoids, which must (1) coordinate whole-body control, (2) react to object dynamics in real time, and (3) ground perception in egocentric vision. We study catching thrown boxes as a representative task that demands all three capabilities; existing systems cover only part of it, relying on end-effectors, motion capture, or marked objects. We present Reflex, a three-stage framework that learns these capabilities stage by stage while connecting them through a compact representation of object dynamics. First, a state-based policy learns whole-body catching with reinforcement learning. Second, the policy learns to infer the dynamics of a moving box from delayed and incomplete observations. Third, an egocentric RGB-D encoder learns to recover this dynamics representation directly from visual observations while keeping the whole-body controller fixed. This decomposition provides each capability with a direct training signal and makes visual learning substantially more scalable. In simulation, Reflex achieves 85.7% catch success from egocentric RGB-D, compared with 87.9% when given privileged box observations. Temporal visual history is critical: removing it reduces success by 35.6 and 39.8 points on centered and laterally offset throws. On a real Unitree G1, Reflex catches human-thrown boxes with 65% and 40% success at 2.5 and 5 m, reaching 76% and 59% of human catchers' success at the same distances.
 
-Authors: Jiahao Wang, Hongjin Qian, Yuyang Hu, Jiajun Zhang, Zheng Liu
+Authors: Taoyang Jia, Weikai Huang, Linxin Song, Jared Darlington, Jieyu Zhao, Yue Wang, Jiafei Duan, Zhongzheng Ren, Ranjay Krishna
 
-Tasks: Coding Agents
+Tasks: Continuous Control, Reinforcement Learning, Robotics
 
-Code: https://github.com/vectorspacelab/agentswe</description>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>AgentGarten: Code Worlds for Evolving Agents</title>
-      <link>https://arxiv.org/abs/2610.12374</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12374</guid>
-      <description>Interactive virtual worlds allow agents to learn through exploration and interaction. What agents can learn is bounded by the environments they practice in, which must be faithful, with consistent state, rules, and dynamics, and realistic, with observations that follow the real-world visual distributions. Achieving both across diverse worlds remains a bottleneck. We introduce AgentGarten, a framework that couples simulators and game engines with a shared neural renderer to build real-time interactive environments. Its simulation backends maintain persistent world state and execute program-defined interaction rules, while the renderer generates visual observations from structured conditions exported through a common interface. To build the neural renderer, we adapt a pretrained video model to geometry conditions, distill it with our proposed Adversarial Forcing, and optimize inference for real-time interaction. Adversarial Forcing makes history prefilling differentiable through exact replay, so that losses on later predictions update how the renderer encodes prior observations, and adds real-data adversarial supervision to improve its visual quality. In AgentGarten, agents perceive the world through visual observations, interact with it in real time, and improve by distilling each round of experience into playbooks that subsequent agents inherit and refine. Our empirical study demonstrates a substantial gain in learning efficiency, with agents learning from just 4 rounds compared with millions for a conventional reinforcement learning counterpart. As new worlds can be written as code and rendered through the same interface, environments can scale in both number and difficulty alongside their agents, a step toward agents that keep evolving through interactive experience.
-
-Authors: Jiawei Chi, Shangchen Miao, Zhiyuan Shi, Kailu Wu, Weiliang Chen, Qiyu Dai, Jinshan Ren, Jun Gao, Mingsheng Long, Yueqi Duan, Jiangran Lyu, Jialong Wu, Fangfu Liu, HanYang Wang
-
-Tasks: Reinforcement Learning, Video generation, World Models
-
-Code: https://github.com/MirroS-Lab/AgentGarten</description>
+Code: https://github.com/ToberJ/reflex</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
