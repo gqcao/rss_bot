@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Wed, 14 Oct 2026 16:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 17:00:00 GMT</lastBuildDate>
     <item>
       <title>MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</title>
       <link>https://arxiv.org/abs/2610.11959</link>
@@ -17,6 +17,32 @@ Tasks: Agents, Omni models, Reinforcement Learning
 
 Code: https://github.com/vllm-project/vllm</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fish Audio Drama 3 Technical Report</title>
+      <link>https://arxiv.org/abs/2610.18010</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.18010</guid>
+      <description>We introduce Fish Audio Drama 3, an open-source speech generation model that turns text into directed performances, built on a 35B-parameter mixture-of-experts backbone that activates 3B parameters per token. It clones voices from multiple references, follows natural-language direction, revises a take when the next turn gives a note, voices multi-character scenes, edits existing speech by infilling, and synthesizes long-form and streaming audio. Multi-turn revision, scene dubbing, editing by infilling, and streaming text input are new in Drama 3, all in one model. Drama 3 pairs the hybrid linear-attention backbone with a new codebook multi-token-prediction audio decoder that predicts the acoustic codebooks of each frame in dedicated layers that attend over the entire sequence. The model is trained with a three-stage pre-training recipe, instruction fine-tuning, and large-batch reinforcement learning whose only reward is a single learned model of human preference. Its inference engine decodes a single stream at 271 frames per second on one H200, against 177 for Fish Audio S2, although Drama 3 has more than seven times as many parameters. The model weights are available on GitHub (https://github.com/fishaudio/fish-speech) and Hugging Face (https://huggingface.co/fishaudio/drama-3), and inference is available through SGLang-Omni (https://github.com/sgl-project/sglang-omni). We highly encourage readers to visit https://fish.audio to direct their own performances.
+
+Authors: Dawei Han, Shidong Li, Shijia Liao, Jiahua Liu, Songting Liu, Qingzheng Wang, Yuxuan Wang, Xin Chen, Yifan Cheng, Tianyu Li, Gangin Park, Xuehao Yang, Chang Zeng, Haoyang Zhang, Ruoyi Zhang, Xiangyu Zhang
+
+Tasks: Audio and Speech Editing, Audio Generation, Reinforcement Learning, Text-to-speech, Voice cloning
+
+Code: https://github.com/fishaudio/fish-speech</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Urbex: Agentic Spatial Grounding for City-Scale 3D Scenes</title>
+      <link>https://arxiv.org/abs/2610.18356</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.18356</guid>
+      <description>City-scale 3D grounding is commonly formulated as candidate ranking, which requires precomputed instance proposals and becomes inefficient in large outdoor scenes. We propose Urbex, an agentic vision-language framework that instead casts grounding as active spatial search. Urbex represents a city-scale 3D scene as an interactive multi-view environment, allowing a VLM agent to query landmarks, zoom into local regions, render oblique views, and commit a grounded bounding box. We optimize this tool-use policy with reinforcement learning on CityRefer, using smooth localization rewards and lightweight shaping rewards for efficient exploration. Experiments show that Urbex achieves the best Hit@1 and IoU on CityRefer, supports candidate-free grounding without ground-truth boxes, and is substantially faster than the strongest city-scale ranking baseline. Zero-shot results on STPLS3D-Refer further indicate improved cross-scene robustness.
+
+Authors: Yu Wang, Rui Dai, Wei Chen, Yi Wang, Bo Dang, Kaikui Liu, Xiangxiang Chu, Yansheng Li
+
+Tasks: Classic Reinforcement Learning, Reinforcement Learning, Visual Grounding
+
+Code: https://github.com/AMAP-ML/Urbex</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>WorldRecon: Generative Multi-View Mesh Reconstruction for Large-Scale 3D World</title>
@@ -32,17 +58,54 @@ Code: https://github.com/kszpxxzmc/WorldRecon</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>AReA: Adaptive Receptive-Field Attention for Efficient High-Resolution Diffusion Transformers</title>
-      <link>https://arxiv.org/abs/2610.17227</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.17227</guid>
-      <description>Generating images beyond the training resolution of Diffusion Transformers (DiTs) remains challenging, as the number of tokens grows rapidly with resolution, full attention becomes expensive, and outputs often suffer from structural distortions and degraded detail. We identify uniform full attention as the common source of both problems. Attending to all tokens at every step causes quadratic cost and exposes the model to more tokens and relative distances beyond the training range, pushing the model out of distribution. We observe that attention's effective receptive field narrows during denoising, from global in early steps that form structure to local in later steps that refine details. We propose AReA, a training-free attention mechanism whose receptive field evolves from coarse to fine, following the denoising progression. In early steps, AReA applies cross-scale coarse attention over downsampled keys and values, capturing global context, while in later steps it applies local attention within progressively shrinking windows. Without additional parameters or training, experiments show that AReA consistently outperforms state-of-the-art training-free baselines across target resolutions and different models, while also being faster and more efficient.
+      <title>LFM2.5-24B-A2B: Built for Fast On-Device Agents</title>
+      <link>https://www.liquid.ai/blog/lfm2-5-24b-a2b</link>
+      <guid isPermaLink="true">https://www.liquid.ai/blog/lfm2-5-24b-a2b</guid>
+      <description>Today, we release LFM2.5-24B-A2B, a 24B-parameter reasoning model with just 2B active parameters, built for fast, private agents on-device. It is the largest and final model in the LFM2.5 family, which now spans two orders of magnitude: from LFM2.5-230M to LFM2.5-24B-A2B. LFM2.5-24B-A2B is competitive with Qwen3.6-35B-A3B, a model with ~50% more total and active parameters, on five of eight agentic and tool-use benchmarks, scoring 48.09 on LiveClaw versus 38.19 and 27.69 on AutomationBench versus 8.72. Because only 2B parameters are active per token, it runs up to 1.7× faster than comparable MoEs on-device, with 184 tokens/s on an Apple M5 Max and up to 21K output tokens/s on a single NVIDIA B300 GPU. The base (LFM2.5-24B-A2B-Base) and post-trained (LFM2.5-24B-A2B) models are open-weight and available today on Hugging Face.
 
-Authors: Javad Rajabi, Koorosh Roohi, David B. Lindell, Babak Taati
+Tasks: Agents, Coding Agents, Instruction Following, Language Modeling, Reasoning, Reinforcement Learning
 
-Tasks: Image generation
+Code: https://github.com/huggingface/transformers</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>REMORY: Learning Residual Memory for Context Compaction</title>
+      <link>https://arxiv.org/abs/2610.11287</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.11287</guid>
+      <description>Long-horizon agents compact their history to continue within a finite context window, but a textual summary alone may not support every subsequent decision. We introduce REMORY, a neural memory network that supplements the summary with a bounded sequence of soft memory tokens. Given the history and summary, the network learns to generate tokens that help a frozen LLM approximate the continuation it would produce with the full history. The tokens are conditioned on the summary and appended after it, forming an analogue of a residual connection along the sequence dimension. On SummHay, REMORY improves source attribution at nearly unchanged insight coverage and approaches the full-context joint score using only 5.2% of the input positions. Across long-horizon agent benchmarks, Qwen3.8-27B and GLM-5.3-Flash show consistent gains with residual memory. Both models also exhibit substantially fewer repeated tool outputs and tool errors on BrowseComp and Terminal-Bench 2.1.
 
-Code: https://github.com/KooroshRH/AReA</description>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+Authors: Hanchen Xia, Baoyou Chen, Yutang Ge, Naihao Deng, Senqiao Yang, Zilong Dong, Weihao Yuan, Siyu Zhu
+
+Tasks: Agents, Long Context
+
+Code: https://github.com/1ring2rta/Remory</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VideoJev: System One Model for Video Understanding and Interaction</title>
+      <link>https://arxiv.org/abs/2610.18615</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.18615</guid>
+      <description>Visual agents must turn video observations into timely decisions to track progress and choose what to do next. Building on the emerging System One paradigm, we introduce VideoJev, a family of models that cast video understanding and interaction as structured decision tasks. We adapt pretrained multimodal large language models (MLLMs) by replacing autoregressive answer decoding with a shared head that scores temporal intervals and textual options against video evidence. These scores yield event spans or answer choices, unifying temporal grounding and multiple-choice video question answering. This combines the semantic flexibility of MLLMs with efficient decisions that agents can use directly. As an interaction unfolds, new goals and intermediate results prompt further queries about the same visual history. VideoJev therefore reuses visual computation through Cached inference for queries as they arrive and Joint inference for multiple queries in a single forward pass. Across three temporal grounding benchmarks, VideoJev-4B and VideoJev-35B-A3B improve mean mIoU over their backbones by 6.7 and 10.8 points, respectively, with measured inference speedups of 2.8-3.1times. On four video QA benchmarks, both achieve performance comparable to their backbones in Thinking mode, with measured inference speedups exceeding 100times. These results offer a unified, reusable decision interface for composing structured visual judgments into complex, open-ended workflows.
+
+Authors: Yuhan Zhu, Xiangyu Zeng, Qingyi Si, Chenxu Yang, Yifei Li, Luozheng Qin, Junhao Zhou, Dingyu Yao, Jun Zhang, Chuanyu Qin, Zhiqiu Zhang, Yuandong Yang, Yuqi Xu, Tianyu Zhang, Hongcheng Guo, Jiaqi Wang, Nan Duan, LiMin Wang
+
+Tasks: Question Answering, Video Temporal Grounding, Video Understanding
+
+Code: https://github.com/MCG-NJU/VideoJev</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DiffusionART: Efficient, Stable and Scalable Reinforcement of Diffusion Models</title>
+      <link>https://arxiv.org/abs/2610.12572</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12572</guid>
+      <description>Online reinforcement learning (RL) fine-tunes diffusion models with black-box rewards, but reverse-process methods such as Flow-GRPO are limited in efficiency by poor credit assignment, while forward-process methods such as DiffusionNFT are efficient yet unstable without carefully tuned exponential-moving-average (EMA) off-policy training. We show that NFT-style objectives contain a hidden forward--reverse consistency force that joint positive--negative training cancels only partially, and that EMA stabilizes training through restoration rather than off-policy rollouts. We introduce DiffusionART (Diffusion Reinforcement with Aggregation-First Reward Tilting), which aggregates each prompt's rewards into a shared reward-improving direction for reverse-process states, removing the consistency force by construction, and adds a trust-region-masked second update for drift-adaptive restoration without EMA tuning. It requires no differentiable reward model, remains effective with fewer samples per prompt, and supports pairwise reward models (DiffusionART-Pairwise). Across image and video generation, DiffusionART trains efficiently and stably without per-task tuning. In particular, on HunyuanVideo-13B with equally weighted visual and motion quality rewards, DiffusionART reaches the late-stage mean reward levels of DiffusionNFT and Flow-GRPO-Fast with 12.02 and 11.72 times fewer GPU hours, respectively, while achieving 28.8% and 53.0% higher mean training rewards.
+
+Authors: Zhenglin Wan, Jiayu Chen, Zhengfeiyang Zhang, Pengfei Zhou, Wangbo Zhao, Fangyuan Kong, Pengfei Wan, Kun Gai, Yang You
+
+Tasks: Image generation, Reinforcement Learning, Video generation
+
+Code: https://github.com/vanzll/DiffusionART</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>RSI-Anything: Unlocking Recursive Self-Improvement with World Models</title>
@@ -84,19 +147,6 @@ Code: https://github.com/sunovivid/correction-training</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Urbex: Agentic Spatial Grounding for City-Scale 3D Scenes</title>
-      <link>https://arxiv.org/abs/2610.18356</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.18356</guid>
-      <description>City-scale 3D grounding is commonly formulated as candidate ranking, which requires precomputed instance proposals and becomes inefficient in large outdoor scenes. We propose Urbex, an agentic vision-language framework that instead casts grounding as active spatial search. Urbex represents a city-scale 3D scene as an interactive multi-view environment, allowing a VLM agent to query landmarks, zoom into local regions, render oblique views, and commit a grounded bounding box. We optimize this tool-use policy with reinforcement learning on CityRefer, using smooth localization rewards and lightweight shaping rewards for efficient exploration. Experiments show that Urbex achieves the best Hit@1 and IoU on CityRefer, supports candidate-free grounding without ground-truth boxes, and is substantially faster than the strongest city-scale ranking baseline. Zero-shot results on STPLS3D-Refer further indicate improved cross-scene robustness.
-
-Authors: Yu Wang, Rui Dai, Wei Chen, Yi Wang, Bo Dang, Kaikui Liu, Xiangxiang Chu, Yansheng Li
-
-Tasks: Classic Reinforcement Learning, Reinforcement Learning, Visual Grounding
-
-Code: https://github.com/AMAP-ML/Urbex</description>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>FlashVSR+: Efficient Video Super-Resolution via Hybrid Attention and Reward-Yield Distribution Matching</title>
       <link>https://arxiv.org/abs/2610.17552</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.17552</guid>
@@ -123,142 +173,94 @@ Code: https://github.com/LiQiiiii/Jeva</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>TPPO: Tracking-Value PPO For Language Model Reasoning</title>
-      <link>https://arxiv.org/abs/2610.16794</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.16794</guid>
-      <description>Proximal Policy Optimization (PPO) is widely used in reinforcement learning with verifiable rewards for language-model reasoning. While value evolution along trajectory characterizes relative token-level credit, yet standard critics often fail to track it under sparse terminal rewards. To model this evolution, we analyze the relation between successive prefix values and show that they admit a Bayesian decomposition with additive updates in log-odds space. We use this additive structure to construct Tracking-Value PPO (\method), a cumulative value parameterization that sums position-wise scalar outputs into value logits. These outputs are learned through terminal-outcome supervision on the reconstructed values. \method improves aggregate mathematical reasoning scores over PPO by 7.0 and 8.4 points on Qwen3-4B-Base and Qwen3-8B-Base, respectively, while improving out-of-distribution generalization. Gains extend to Qwen3-4B, Qwen2.5-Math-1.5B, Qwen3.5-9B and to countdown, and scientific coding tasks. Further analysis shows more accurate tracking of value evolution and more reliable advantage estimates. Our code is publicly available in https://github.com/LINs-lab/TPPO.
+      <title>AutoEnvScaling: Automating the Data Flywheel with Terminal Agents</title>
+      <link>https://arxiv.org/abs/2610.14163</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.14163</guid>
+      <description>Terminal agents solve tasks in software engineering and scientific research by executing commands in a terminal. Training them via reinforcement learning (RL) requires diverse and verifiable environments, but these environments are still mostly designed by human researchers, so their supply grows only as fast as researchers can work. We introduce AutoEnvScaling, which treats environment design as a terminal task and uses agents to automate the data flywheel. A proposer agent builds new RL environments from the rollouts of the solver being trained, and the solver's new rollouts guide the next round. By turning environment generation into a terminal task, AutoEnvScaling increases the valid-environment rate by up to 25 times compared to prompt-only generation, at up to 75% lower cost per valid environment. We show that training Qwen3.5-35B-A3B on AutoEnvScaling environments from GPT-5.6-sol improves its Terminal-Bench 2.1 score by 4.3 points over the matched Tmax baseline. The broader goal of AutoEnvScaling is to enable recursive self-improvement (RSI): by making both environment generation and solving terminal tasks, it lets one model co-evolve in both roles. We show that Qwen3.6-35B-A3B, acting in both roles, gains 12.2 points on Terminal-Bench 2.1 and raises its Terminal-Bench 4.0 score from 1.6 to 3.2. The pipeline also generalizes across agentic domains, generating environments for software engineering, computer use, professional work, and GPU kernel programming. Overall, these results show a path toward agents building their own training environments, reducing human reliance and taking a core step toward RSI.
 
-Authors: Futing Wang, Chenxi Li, Jianhao Yan, Yun Luo, Zhi Wang, Yizhuo Li, Runzhe Zhan, Yu Cheng, Tao Lin
+Authors: Simon Yu, Baolin Peng, Bo Liu, Zhengyan Shi, Zhaoyang Wang, Hao Cheng, Qianhui Wu, Wenlin Yao, Natasha Jaques, Weiyan Shi, Jianfeng Gao
 
-Tasks: Classic Reinforcement Learning, Mathematics, Reasoning, Reinforcement Learning
+Tasks: Coding Agents, Reinforcement Learning
 
-Code: https://github.com/LINs-lab/TPPO</description>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/MSR-Orchard/AutoEnvScaling</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LFM2.5-24B-A2B: Built for Fast On-Device Agents</title>
-      <link>https://www.liquid.ai/blog/lfm2-5-24b-a2b</link>
-      <guid isPermaLink="true">https://www.liquid.ai/blog/lfm2-5-24b-a2b</guid>
-      <description>Today, we release LFM2.5-24B-A2B, a 24B-parameter reasoning model with just 2B active parameters, built for fast, private agents on-device. It is the largest and final model in the LFM2.5 family, which now spans two orders of magnitude: from LFM2.5-230M to LFM2.5-24B-A2B. LFM2.5-24B-A2B is competitive with Qwen3.6-35B-A3B, a model with ~50% more total and active parameters, on five of eight agentic and tool-use benchmarks, scoring 48.09 on LiveClaw versus 38.19 and 27.69 on AutomationBench versus 8.72. Because only 2B parameters are active per token, it runs up to 1.7× faster than comparable MoEs on-device, with 184 tokens/s on an Apple M5 Max and up to 21K output tokens/s on a single NVIDIA B300 GPU. The base (LFM2.5-24B-A2B-Base) and post-trained (LFM2.5-24B-A2B) models are open-weight and available today on Hugging Face.
+      <title>OneSearch-VL: Unified Multimodal Deep Research Agent for Image and Video</title>
+      <link>https://arxiv.org/abs/2610.12419</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12419</guid>
+      <description>Single-image, multi-image, and video deep research require different visual operations but share a workflow of visual grounding, external retrieval, and fact composition. A key challenge is to preserve the dependencies linking localized visual anchors, entity relations, source-supported facts, and answer-producing operations. We introduce OneSearch-VL, a unified agent centered on the Visually Grounded Evidence Graph (VGEG), which encodes these dependencies as a shared task-level reference for data construction, process supervision, and operation-level evaluation. Our VGEG-based data engine constructs and verifies multi-image and video questions and filters expert trajectories. Using these data, we assemble OneSearch-VL-SFT-110K and OneSearch-VL-RL-10K for SFT and RL, respectively. We further derive the Evidence-aware Visual-Grounded Rubric reward (EVGR) from VGEG annotations to supervise evidence traceability and visual grounding during RL. For fine-grained evaluation, we construct OneSearch-MI-Bench and OneSearch-Video-Bench, organizing questions by the research operations encoded in their VGEGs. Experiments show that OneSearch-VL-8B improves over Qwen3-VL-8B with tool access by 20.2 and 17.6 percentage points on the two new benchmarks, respectively, while also achieving substantial gains across 7 image benchmarks and VideoDR. Project repository: https://github.com/appletea233/OneSearch-VL
 
-Tasks: Agents, Coding Agents, Instruction Following, Language Modeling, Reasoning, Reinforcement Learning
+Authors: Hongyu Li, Manyuan Zhang, Kaituo Feng, Shu Chen, Dian Zheng, Hao Li, Hao Yu, Zhangquan Chen, Zoey Guo, Ray Zhang, Shaofei Huang, Tianrui Hui, Linjiang Huang, Si Liu
 
-Code: https://github.com/huggingface/transformers</description>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+Tasks: Deep Research Agents, Reinforcement Learning, Video Understanding, Visual Grounding
+
+Code: https://github.com/appletea233/OneSearch-VL</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>EviScene: Beyond "Is It AI?" for Agentic Image Factuality Assessment</title>
-      <link>https://arxiv.org/abs/2610.14609</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.14609</guid>
-      <description>Determining whether an image is AI-generated does not establish whether the situation it depicts is factually supported. We formulate Image Factuality Assessment: given an image and a generic verification instruction, a system returns a supported or refuted verdict with an evidence-grounded explanation. Without a supplied textual claim, the system must progressively refine factual questions during investigation and align external evidence with the specific situation depicted. We introduce EviLens, an expert-reviewed benchmark of 10,174 supported and refuted images from controlled construction and web collection, covering twelve factual error types and evaluating both verdict accuracy and evidence sufficiency. We develop EviScene, a multimodal ReAct agent that interleaves visual inspection, external retrieval, and evidence analysis, using new findings to refine its questions and revisit relevant image details. We train a compact policy with supervised fine-tuning on reviewed teacher trajectories, followed by privileged on-policy self-distillation applied to verified decisions from the policy's own investigations. On the 1,527-image test set, the trained Qwen3.5-9B agent achieves 79.05% balanced accuracy and a Strict Evidence Sufficiency Rate (SESR) of 52.26%, improving over the same-backbone base agent by 6.71 and 9.37 percentage points, respectively. Its SESR is the highest among the evaluated agents.Code, models, and data will be released at https://github.com/wangzian828/EVISCENE and https://huggingface.co/ZiAnwang/EviScene.
+      <title>AReA: Adaptive Receptive-Field Attention for Efficient High-Resolution Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2610.17227</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.17227</guid>
+      <description>Generating images beyond the training resolution of Diffusion Transformers (DiTs) remains challenging, as the number of tokens grows rapidly with resolution, full attention becomes expensive, and outputs often suffer from structural distortions and degraded detail. We identify uniform full attention as the common source of both problems. Attending to all tokens at every step causes quadratic cost and exposes the model to more tokens and relative distances beyond the training range, pushing the model out of distribution. We observe that attention's effective receptive field narrows during denoising, from global in early steps that form structure to local in later steps that refine details. We propose AReA, a training-free attention mechanism whose receptive field evolves from coarse to fine, following the denoising progression. In early steps, AReA applies cross-scale coarse attention over downsampled keys and values, capturing global context, while in later steps it applies local attention within progressively shrinking windows. Without additional parameters or training, experiments show that AReA consistently outperforms state-of-the-art training-free baselines across target resolutions and different models, while also being faster and more efficient.
 
-Authors: Zian Wang, Ruiqi Liu, Zhengbo Zhang, Yi Han, Jialiang Shen, Ruoxin Chen, Manni Cui, Ximo Zhu, Jin Jiang, Mingzhe Liu, Linhao Wang, Wenhao Wang, Shu Wu
-
-Code: https://github.com/wangzian828/eviscene</description>
-      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>APEX: Asynchronous Prefix Denoising for Extreme Compression</title>
-      <link>https://arxiv.org/abs/2610.12843</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.12843</guid>
-      <description>Fewer latent tokens promise cheaper diffusion. Yet aggressive latent compression creates a reconstruction-generation dilemma: adding channels improves reconstruction but makes generation harder. We introduce APEX, short for Asynchronous Prefix denoising for EXtreme compression, which pairs a hierarchical latent space with asynchronous denoising over channel groups. Our autoencoder orders channel prefixes from structure to detail, while one shared denoiser generates them at staggered local times without adding tokens. On ImageNet-512, APEX outperforms existing methods at every evaluated channel count under 64x and 128x compression. At matched training and guided sampling compute, it also outperforms a 256-token model at every evaluated budget, with larger gains at lower compute. Code is available at https://daviddinkevich.github.io/APEX.
-
-Authors: David Dinkevich, Nisan Chiprut, Yoav HaCohen, Dani Lischinski
+Authors: Javad Rajabi, Koorosh Roohi, David B. Lindell, Babak Taati
 
 Tasks: Image generation
 
-Code: https://github.com/DavidDinkevich/APEX</description>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>JevGPT: Thinking Fast and Slow in Autonomous Research</title>
-      <link>https://arxiv.org/abs/2610.18272</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.18272</guid>
-      <description>Autonomous research agents must acquire and reason over evidence within a limited budget. Yet relevant sources can remain uninspected or unused, leaving a gap between retrieval coverage and the evidence that informs research. The challenge is to align fast local judgments with changing evidence needs and feed their findings back into research decisions. We introduce JevGPT, a dual-system architecture for autonomous research that couples fast evidence processing with deliberative research planning. System Two sets evidence objectives and integrates findings, while System One locates support, assesses relevance, and guides further inspection. Independent source judgments run in parallel; selected original passages inform the next research step. Experiments on fixed-corpus question answering and document ranking show that JevGPT achieves leading task performance, with faster completion and lower cost than comparably effective research agents. Evidence analysis shows broader source inspection and greater coverage of supporting documents in the research loop, highlighting efficient evidence processing as a route to more capable autonomous research.
-
-Authors: Yasheng Sun, Yanning Dai, Yimeng Chen, Nanbo Li, Firas Laakom, Yifan Xu, Piotr Piękos, Mateusz Ostaszewski, Wenyi Wang, Cheng Luo, Yuhui Wang, Jürgen Schmidhuber
-
-Tasks: Deep Research Agents, Question Answering, Text Reranking
-
-Code: https://github.com/sunyasheng/jevgpt</description>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>S-Space: Exploring Spatial Workspace in Multimodal Language Models</title>
-      <link>https://arxiv.org/abs/2610.13527</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.13527</guid>
-      <description>Multimodal language models (MLLMs) exhibit promising spatial reasoning capabilities, yet the internal mechanisms supporting them remain poorly understood. We uncover S-Space, a linear representation subspace in which object-token representations encode continuous coordinates along horizontal, vertical, and distance axes. Although we identify these axes by differentiating spatial-answer scores with respect to object-token activations, S-Space is intrinsic rather than induced by specific data or prompts, remaining readable under non-spatial questions. We show that S-Space functions as an internal spatial workspace of MLLMs. Perception encodes object locations into it, forming spatial representations that can be directly read out to support accurate spatial judgments. Internal reasoning transforms it for changing viewpoints. Verbal responses selectively access it, evidenced by causal interventions that alter spatial judgments while largely preserving non-spatial responses. Case studies further show that S-Space assigns locations to unseen entities and the observer, and connects physical directions with abstract linguistic meanings, suggesting both the capabilities and limitations of large-scale language training. Finally, we use S-Space as a diagnostic tool for spatial reasoning failures. Direction-word readouts reveal systematic coupling between cardinal and image-relative reference frames. More importantly, a perception-computation decomposition exposes a key bottleneck: MLLMs can form capable spatial representations, yet fall short in the spatial transformations required to reason reliably across viewpoint changes.
-
-Authors: Zhiyuan Shi, Xiang Li, Xingzhuo Guo, Shangchen Miao, Weiliang Chen, Qiyu Dai, Jinshan Ren, Jiangran Lyu, Fangfu Liu, Mingsheng Long, Jialong Wu
-
-Tasks: Reasoning
-
-Code: https://github.com/mirros-lab/s-space</description>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Multics: Generative Multi-Player World Model with Hierarchical Communication</title>
-      <link>https://arxiv.org/abs/2610.17201</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.17201</guid>
-      <description>Multi-player interactive world models aim to simulate shared environments from multiple players' perspectives, but achieving robust generation while scaling to more players remains challenging. Existing approaches that rely on fully-connected communication (e.g., Solaris) incur quadratic attention costs as the number of players grows, while centralized approaches (e.g., γ-World) suffer from interference between unrelated events in a shared global representation. To address these challenges, we present Multics, a multi-player video generation framework with hierarchical communication that structures information exchange across player, group, and global levels. This hierarchy introduces group tokens into self-attention as intermediate group-level representations that aggregate locally relevant player information. These tokens connect to global tokens for cross-group communication, while the hierarchical topology limits direct mixing between unrelated local events. Group-token parameters are shared across group slots, allowing the same communication module to accommodate varying numbers of players without introducing new group-specific parameters. We further propose budget-constrained dynamic grouping based on recent camera trajectories, which adaptively groups relevant players while limiting unnecessary communication. Experiments demonstrate that Multics achieves state-of-the-art performance in 4- and 6-player settings, with improved cross-player consistency, player-specific action and camera controllability, and interference robustness. Moreover, Multics generalizes from 4-player training to 6-, 8-, and 10-player inference without retraining, while reducing self-attention computation compared with fully-connected communication.
-
-Authors: Kaiyi Huang, Wangbo Yu, Yukun Huang, Jiwen Yu, Kunhao Liu, Donglin Yang, Wenbo Hu, Ying Shan, Xihui Liu
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/TencentARC/Multics</description>
+Code: https://github.com/KooroshRH/AReA</description>
       <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>What Really Works for Universal Multimodal Embeddings? A Controlled Study of Contrastive Training Strategies</title>
-      <link>https://arxiv.org/abs/2610.15035</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.15035</guid>
-      <description>Contrastive learning has become the standard paradigm for multimodal representation learning, aligning semantically matched pairs while separating mismatched ones in a shared embedding space. Although various contrastive training strategies have been proposed across negative selection, batch construction, and gradient modulation, their actual effectiveness under controlled, reproducible conditions remains poorly understood. This motivates a fundamental question: Do sophisticated contrastive strategies consistently bring meaningful downstream gains in multimodal embedding learning? To address this, we systematically evaluate representative strategies under a unified benchmarking framework on MMEB. Surprisingly, direct evaluations reveal that most existing strategies offer marginal gains over a standard aligned baseline, with several even degrading overall performance. To uncover the underlying failure modes, we introduce an MLLM-as-a-Judge diagnostic framework that dissects top-1 retrieval behaviors into labeled positives, false negatives (unlabeled valid matches), and hard/easy negative errors. Our systematic analysis yields three key insights: (1) Gradient distortion: Upweighting gradients from high-similarity negatives consistently hurts downstream generalization; (2) Distribution illusion: Wider separation between positive and negative similarity distributions does not necessarily translate to better retrieval performance; and (3) Synergistic training: While false-negative mitigation or hard-batch construction yields limited gains in isolation, integrating hard-negative mining, false-negative mitigation, and hard-batch construction achieves optimal performance, delivering an average improvement of 6.0% on MMEB with Qwen2-VL-2B. Overall, our findings demystify popular contrastive strategies and provide actionable recipes for training universal multimodal embedding models.
+      <title>Data-Centric Recursive Self-Improvement for Navigation via Policy-Synchronized Language-Action Dual Bootstrapping</title>
+      <link>https://arxiv.org/abs/2610.15782</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.15782</guid>
+      <description>Vision-language navigation requires agents to follow natural-language instructions to reach target locations, making high-quality language supervision essential. Since human annotation is costly, prior work has explored scalable data synthesis methods. However, existing methods typically either use separate models for navigation and instruction generation or couple the two tasks through task-specific components; most also annotate the full trajectory corpus with a fixed model before updating, which can cause generated supervision to lag behind the evolving policy. Therefore, we introduce RSI-Nav, a data-centric recursive self-improvement framework for navigation via policy-synchronized language-action dual bootstrapping, which unifies vision-language-to-action instruction following and vision-action-to-language instruction generation within a shared model. Specifically, after supervised fine-tuning establishes fundamental capabilities, RSI-Nav progressively processes unlabeled trajectories in small shards. The current model generates instructions for these trajectories, executes them to evaluate goal completion and path efficiency, retains qualified samples, and immediately updates itself before processing the next shard. This shard-wise update keeps newly generated supervision aligned with the evolving policy. We also incorporate spatial understanding data, since stronger spatial reasoning benefits navigation. Extensive experiments show that RSI-Nav reaches 68.6% SR on R2R-CE and 72.4% SR on RxR-CE, while providing stronger instruction-generation utility and modestly improved spatial understanding after recursive evolution.
 
-Authors: Duo Li, Haojun Pan, Zuhao Yang, Xintong Wang, Chengfu Huo, Shijian Lu, Liang Ding
+Authors: Songze Li, Haoming Gu, Ziyang Gong, Zhitong Wang, Gengze Zhou, Zun Wang, Yuhan Zhu, Tianxiang Jiang, Juanzi Li, Qi Wu, Weinan Zhang, Yu Qiao, Wenwei Zhang, Yi Wang
 
-Tasks: Embedding models, Retrieval
+Tasks: Instruction Following
 
-Code: https://github.com/alibaba-multimodal-industrial-ai/UME-Recipes</description>
-      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/OpenGVLab/RSI-Nav</description>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Vela: User Behavior as Supervision Sparks LLM Intelligence</title>
-      <link>https://arxiv.org/abs/2610.14709</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.14709</guid>
-      <description>Large language models are increasingly deployed in applications that act on users' long-term behavior histories, from personal assistants to recommendation and advertising systems. These applications demand the user dimension of LLM intelligence: inferring a person's preferences, intent, and likely future actions from weeks to years of behavior data. Yet current models are trained on static text or synthetic data, neither of which captures how user behavior evolves over time. Real-world behavior records, already available at scale on content platforms and in personal-assistant agents, offer a natural supervisory signal. We propose user behavior as supervision and introduce Vela, a framework that converts real user behavior data into trainable tasks and trajectories. From the anonymized behavior records of 100,000 users, Vela generates 100,000 tasks across 91 real-world task templates; difficulty-based filtering and trajectory acceptance criteria retain approximately 75,000 tasks with selected training trajectories. Fine-tuning Qwen3.6-35B-A3B on these trajectories improves performance over the base model by up to 11.5 points on user-related tasks and by an average of 4 points on general benchmarks. Training on more user behavior data further improves user-related performance, and reinforcement learning after fine-tuning outperforms reinforcement learning from the base model by up to 7.7 points. These gains suggest that real-world user behavior is a scalable source of supervision for both user-centered capabilities and the broader intelligence of LLMs.
+      <title>4LC: 4D Latent Cache for Efficient Conditioning in Dynamic World Modeling</title>
+      <link>https://arxiv.org/abs/2610.17625</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.17625</guid>
+      <description>For video generation in dynamic world modeling, observed static and dynamic content should be efficiently reused to provide conditions for repeated generation at different times and viewpoints. We introduce 4LC, a 4D latent cache with composite visual representations and a flexible spatiotemporal access interface. As a latent cache, 4LC directly reuses visual representations of static and dynamic content to provide generation conditions, avoiding per-request RGB rendering and re-encoding. As a composite cache, 4LC binds visual representations from multiple visual encoders (e.g., VAE, DINO, V-JEPA, VGGT) to shared geometry and motion, allowing the composite representations to describe the dynamic world with rich information. Besides, we design a flexible spatiotemporal interface, which directly reads the cache at independently specified times and viewpoints and combines readouts across observations, providing a common conditioning format for diverse downstream tasks. Building on 4LC, we develop 4LC-Video to address multiple video generation tasks through different configurations of source observations, spatiotemporal requests, and historical reuse, including camera control, temporal control, novel-view synthesis, scene revisits, and long-term generation. Our experiments show more efficient condition acquisition, effective spatiotemporal controllability, and scene consistency across tasks using a single 4LC-Video model without task-specific fine-tuning.
 
-Authors: Yang Xiao, Yusong Sun, HaoYi Wu, Wenyang Hui, Weiqiang Hang, Luqing Wang, Zejian Wang, Zirui Tu, Jingsheng Mao, Shaobo Hu, Yang Luo, Jiale Guo, Jin Zhang, Yudan Liu, Zhaokai Luo, Ren Huan, Yao Hu, Chengyue Jiang, Wenjie Li, Chuan Mu
+Authors: Jianhui Zhang, Zuyao Lin, Pengxin Xu, Jingdong Wang, Xingyu Chen
 
-Tasks: Language Modeling, Recommendation Systems, Reinforcement Learning
+Tasks: Novel View Synthesis, Video generation
 
-Code: https://github.com/allspark-research/vela</description>
-      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fish Audio Drama 3 Technical Report</title>
-      <link>https://arxiv.org/abs/2610.18010</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.18010</guid>
-      <description>We introduce Fish Audio Drama 3, an open-source speech generation model that turns text into directed performances, built on a 35B-parameter mixture-of-experts backbone that activates 3B parameters per token. It clones voices from multiple references, follows natural-language direction, revises a take when the next turn gives a note, voices multi-character scenes, edits existing speech by infilling, and synthesizes long-form and streaming audio. Multi-turn revision, scene dubbing, editing by infilling, and streaming text input are new in Drama 3, all in one model. Drama 3 pairs the hybrid linear-attention backbone with a new codebook multi-token-prediction audio decoder that predicts the acoustic codebooks of each frame in dedicated layers that attend over the entire sequence. The model is trained with a three-stage pre-training recipe, instruction fine-tuning, and large-batch reinforcement learning whose only reward is a single learned model of human preference. Its inference engine decodes a single stream at 271 frames per second on one H200, against 177 for Fish Audio S2, although Drama 3 has more than seven times as many parameters. The model weights are available on GitHub (https://github.com/fishaudio/fish-speech) and Hugging Face (https://huggingface.co/fishaudio/drama-3), and inference is available through SGLang-Omni (https://github.com/sgl-project/sglang-omni). We highly encourage readers to visit https://fish.audio to direct their own performances.
-
-Authors: Dawei Han, Shidong Li, Shijia Liao, Jiahua Liu, Songting Liu, Qingzheng Wang, Yuxuan Wang, Xin Chen, Yifan Cheng, Tianyu Li, Gangin Park, Xuehao Yang, Chang Zeng, Haoyang Zhang, Ruoyi Zhang, Xiangyu Zhang
-
-Tasks: Audio and Speech Editing, Audio Generation, Reinforcement Learning, Text-to-speech, Voice cloning
-
-Code: https://github.com/fishaudio/fish-speech</description>
+Code: https://github.com/ZGCA-HMI-Lab/4LC</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>REMORY: Learning Residual Memory for Context Compaction</title>
-      <link>https://arxiv.org/abs/2610.11287</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.11287</guid>
-      <description>Long-horizon agents compact their history to continue within a finite context window, but a textual summary alone may not support every subsequent decision. We introduce REMORY, a neural memory network that supplements the summary with a bounded sequence of soft memory tokens. Given the history and summary, the network learns to generate tokens that help a frozen LLM approximate the continuation it would produce with the full history. The tokens are conditioned on the summary and appended after it, forming an analogue of a residual connection along the sequence dimension. On SummHay, REMORY improves source attribution at nearly unchanged insight coverage and approaches the full-context joint score using only 5.2% of the input positions. Across long-horizon agent benchmarks, Qwen3.8-27B and GLM-5.3-Flash show consistent gains with residual memory. Both models also exhibit substantially fewer repeated tool outputs and tool errors on BrowseComp and Terminal-Bench 2.1.
+      <title>Open-o3-Video-v2: Seek, Ground, and Reason with Verifiable Spatio-Temporal Evidence</title>
+      <link>https://arxiv.org/abs/2610.17656</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.17656</guid>
+      <description>Reliable video reasoning requires models to produce correct answers and expose supporting visual evidence. Open-o3-Video enables verifiable reasoning by embedding timestamps and object-level bounding boxes into reasoning traces, but is restricted to frames from an initial sparse sampler. We introduce Open-o3-Video-v2, which formulates video reasoning as a unified agentic evidencegrounded process. The model identifies missing information, acquires additional observations, grounds the moments and objects supporting its reasoning, and writes this evidence into the trajectory before continuing or answering. To support this behavior, we construct STGR-v2-CoT135K, including 52K multi-turn agentic grounded reasoning trajectories, and STGR-v2-RL-13K for reinforcement learning. We further propose Clue-Seek GRPO (CS-GRPO), which tracks how tool calls change accumulated evidence, rewards clue coverage and step-wise gains, and penalizes excessive, repetitive, or uninformative retrieval. On V-STaR, Open-o3-Video-v2-4B achieves 40.4% mAM and 56.3% mLGM, outperforming its Qwen3-VL-4B backbone by 8.5% and 12.6%, respectively. It also delivers consistent gains across general video understanding, long-video reasoning, and temporal grounding benchmarks. These results show that active evidence acquisition and verifiable object-level grounding are complementary for reliable video reasoning. The code and models are released at https://msalab-pku.github.io/projects/Open-o3-Video-v2.
 
-Authors: Hanchen Xia, Baoyou Chen, Yutang Ge, Naihao Deng, Senqiao Yang, Zilong Dong, Weihao Yuan, Siyu Zhu
+Authors: Jiahao Meng, Zhongyuan Bao, Yue Tan, Haiquan Wen, Renrui Zhang, Anna Wang, Jason Li, Yanwei Fu, Yunhai Tong, Ming-Hsuan Yang
 
-Tasks: Agents, Long Context
+Tasks: Reasoning, Reinforcement Learning, Video Temporal Grounding, Video Understanding
 
-Code: https://github.com/1ring2rta/Remory</description>
+Code: https://github.com/Multimedia-Semantic-Analytics-Lab/Open-o3-Video-v2</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Contextual Correction of Parallel Draftsfor Speculative Decoding</title>
+      <link>https://arxiv.org/abs/2610.12570</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.12570</guid>
+      <description>Speculative decoding accelerates large language model inference by using a lightweight drafter to propose multiple tokens that are subsequently verified in parallel by the target model. Recent diffusion-based drafters make this paradigm particularly attractive: deep attention-based neural backbones provide strong predictions, while drafting multiple future positions in parallel avoids the sequential cost of autoregressive generation. This parallelism, however, comes at a cost. Tokens within a draft block are predicted without access to the realized identities of preceding draft tokens, removing intra-block dependencies that would naturally be available under autoregressive generation. We introduce DCOCO (DFlash Contextual Corrector), a lightweight mechanism that restores these dependencies while preserving parallel drafting. Rather than committing to each position's top prediction, DCOCO retains multiple candidate tokens and evaluates their contextual compatibility across adjacent draft positions in parallel, enabling contextually informed token selection at low additional cost. Across four verifier backbones and ten benchmarks, DCOCO achieves the highest average throughput in every evaluated configuration, spanning greedy and stochastic decoding with and without extended reasoning, with speedups of up to 6.6x over vanilla decoding. Its advantage persists under concurrent serving: DCOCO outperforms the strongest competing method by 6-23% across 4-32 concurrent requests, while other sequential correctors fall below uncorrected DFlash at these loads. These results demonstrate that recovering intra-block dependencies through parallel contextual scoring delivers consistent acceleration across decoding regimes and serving loads.
+
+Authors: Roy Eisenstadt, Harel Lidar, Tal Gonen, Omer Luxembourg, Itamar Zimerman, Lior Wolf, Eli David, Ilan Naiman
+
+Tasks: Language Modeling
+
+Code: https://github.com/two-delta/DCOCO</description>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
