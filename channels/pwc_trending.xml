@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 16 Oct 2026 13:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 14:00:00 GMT</lastBuildDate>
     <item>
       <title>StartLux-Decision: AutoThink Decision Models with Reinforcement Learning for Calibrated Deliberative Decisions</title>
       <link>https://arxiv.org/abs/2610.17309</link>
@@ -17,6 +17,19 @@ Tasks: Reasoning, Reinforcement Learning
 
 Code: https://github.com/StartLuxLabs/StartLux-Decision</description>
       <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Any Time, Any Space: A World-State-Centric Framework for Agentic Video Generation</title>
+      <link>https://arxiv.org/abs/2610.20571</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.20571</guid>
+      <description>Long-form agentic video generation must turn a screenplay into shots that remain spatially and temporally consistent across nonconsecutive requests. Passing prompts or recent frames between shots does not provide a shared spatial frame for revisiting a scene or a time-indexed record for replaying an earlier event. We present Any Time, Any Space (ATAS), which compiles a screenplay into shot requests with explicit location, camera, and event-time references. Before generation, it retrieves relevant evidence from a scene memory of registered static geometry and an event memory of dynamic observations indexed by scene, event, and time. After generation, ATAS reconstructs and registers the clip. It updates memory only when review and state checks accept the observation, while film delivery remains independent of memory admission. Across four video generators, ATAS improves all reported cross-shot consistency measures and achieves the highest aggregate benchmark score for each backbone. It also outperforms the compared agents and 3D-guided methods on target-image spatial revisit, leads three event-recapture criteria, and receives the highest human ratings on all six criteria. The video results and code are available on our project page: https://lhmd.top/atas/.
+
+Authors: Weijie Wang, Haomin Zhang, Ye Li, Akide Liu, Zeyu Zhang, Haoyu Zhao, Yefei He, Donny Y. Chen, Feng Chen, Bohan Zhuang
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/ziplab/ATAS</description>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Self-Evolving Agent Harness</title>
@@ -43,17 +56,115 @@ Code: https://github.com/xibushu/UniForge3D</description>
       <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Jeva: System One Models from First Principles</title>
-      <link>https://arxiv.org/abs/2610.18773</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.18773</guid>
-      <description>System one models enable direct, low-latency decision-making. Yet recent practice of predicting an answer from serialized text does not, by itself, respect the structure of a decision problem. We argue that current designs underemphasize four important structural requirements. (i) null-aware: Models should distinguish answer absence from uncertainty among candidates; (ii) permutation-invariant: Reordering alternatives should not change the decision; (iii) option-scalable: Growing candidate sets should not require redefining the output space; (iv) cacheable: Request-independent computation over recurring alternatives should be reusable across requests. We introduce Jeva, a decision-native architecture that addresses these requirements jointly. A shared encoder independently represents the request and each option, while a compact decision stack refines only the request state against immutable option memory. Symmetric aggregation yields permutation-equivariant probabilities; shared scoring accommodates variable-size candidate sets. A separate coverage estimate distinguishes answer absence from candidate competition, enabling explicit null outcomes. Request-independent option representations and layer projections support reuse across newly assembled sets. These mechanisms unify Choice, Noul, and Score outputs. Across evaluations, Jeva combines strong typed-decision performance with near-perfect null detection and no decision flips under any tested permutations. It scales to thousands of candidates and substantially reduces latency through cross-request reuse without changing decisions.
+      <title>LFM2.5-24B-A2B: Built for Fast On-Device Agents</title>
+      <link>https://www.liquid.ai/blog/lfm2-5-24b-a2b</link>
+      <guid isPermaLink="true">https://www.liquid.ai/blog/lfm2-5-24b-a2b</guid>
+      <description>Today, we release LFM2.5-24B-A2B, a 24B-parameter reasoning model with just 2B active parameters, built for fast, private agents on-device. It is the largest and final model in the LFM2.5 family, which now spans two orders of magnitude: from LFM2.5-230M to LFM2.5-24B-A2B. LFM2.5-24B-A2B is competitive with Qwen3.6-35B-A3B, a model with ~50% more total and active parameters, on five of eight agentic and tool-use benchmarks, scoring 48.09 on LiveClaw versus 38.19 and 27.69 on AutomationBench versus 8.72. Because only 2B parameters are active per token, it runs up to 1.7× faster than comparable MoEs on-device, with 184 tokens/s on an Apple M5 Max and up to 21K output tokens/s on a single NVIDIA B300 GPU. The base (LFM2.5-24B-A2B-Base) and post-trained (LFM2.5-24B-A2B) models are open-weight and available today on Hugging Face.
 
-Authors: Qi Li, Xinchao Wang
+Tasks: Agents, Coding Agents, Instruction Following, Language Modeling, Reasoning, Reinforcement Learning
 
-Tasks: Retrieval, Text classification
-
-Code: https://github.com/LiQiiiii/Jeva</description>
+Code: https://github.com/huggingface/transformers</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Intern-Decision: Efficient Multimodal Decision Making with Autoregressive Masked Language Modeling</title>
+      <link>https://arxiv.org/abs/2610.22131</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.22131</guid>
+      <description>Interactive agents repeatedly choose among a finite set of actions, labels, or ordinal outcomes. Generating a free-form response for each choice adds latency and complicates the interface between a model and its environment. We present Intern-Decision, a family of 0.8B, 2B, and 4B multimodal decision models that return structured choices and candidate probabilities from text and optional images. Our autoregressive masked language modeling objective places one decision placeholder per field in a complete assistant JSON skeleton. Ground-truth symbols appear only in supervision, while all fields are evaluated in a single causal forward pass using the backbone's native language-model head. The 4B model achieves a 90.02% unweighted average accuracy across seven evaluation suites, compared with 88.74% for Jev v1.13.0. For a fixed 289-token request with three fields on one RTX 4090, mean latency is 44.16 ms for the 4B model and approximately 33--34 ms for the smaller models. On a separate 96-case known-distribution pilot, temperature scaling reduces expected multiclass Brier from 0.628 to 0.550 and expected calibration error from 0.213 to 0.089. A confidence-based handoff study on 111 public Jevbench-Hard items improves accuracy from 82/111 (73.87%) to 97/111 (87.39%) by routing 42 items to Atria-Dawn-Preview. We also describe qualitative game, visual interface, and browser demonstrations. These results support compact decision models as a practical component of larger agent systems.
+
+Authors: Tong Zhu, Zhe Xu, Zefeng He, Yunkai Chai, Xuyang Hu, Dehong Zheng, Yun Luo, Yafu Li, Qi Zhang, Yu Cheng
+
+Tasks: Language Modeling
+
+Code: https://github.com/InternLM/Intern-Decision</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VideoJev: System One Model for Video Understanding and Interaction</title>
+      <link>https://arxiv.org/abs/2610.18615</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.18615</guid>
+      <description>Visual agents must turn video observations into timely decisions to track progress and choose what to do next. Building on the emerging System One paradigm, we introduce VideoJev, a family of models that cast video understanding and interaction as structured decision tasks. We adapt pretrained multimodal large language models (MLLMs) by replacing autoregressive answer decoding with a shared head that scores temporal intervals and textual options against video evidence. These scores yield event spans or answer choices, unifying temporal grounding and multiple-choice video question answering. This combines the semantic flexibility of MLLMs with efficient decisions that agents can use directly. As an interaction unfolds, new goals and intermediate results prompt further queries about the same visual history. VideoJev therefore reuses visual computation through Cached inference for queries as they arrive and Joint inference for multiple queries in a single forward pass. Across three temporal grounding benchmarks, VideoJev-4B and VideoJev-35B-A3B improve mean mIoU over their backbones by 6.7 and 10.8 points, respectively, with measured inference speedups of 2.8-3.1times. On four video QA benchmarks, both achieve performance comparable to their backbones in Thinking mode, with measured inference speedups exceeding 100times. These results offer a unified, reusable decision interface for composing structured visual judgments into complex, open-ended workflows.
+
+Authors: Yuhan Zhu, Xiangyu Zeng, Qingyi Si, Chenxu Yang, Yifei Li, Luozheng Qin, Junhao Zhou, Dingyu Yao, Jun Zhang, Chuanyu Qin, Zhiqiu Zhang, Yuandong Yang, Yuqi Xu, Tianyu Zhang, Hongcheng Guo, Jiaqi Wang, Nan Duan, LiMin Wang
+
+Tasks: Question Answering, Video Question Answering, Video Temporal Grounding, Video Understanding
+
+Code: https://github.com/MCG-NJU/VideoJev</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Data World: Scaling Data Environments from Scratch</title>
+      <link>https://arxiv.org/abs/2610.21656</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.21656</guid>
+      <description>Data agents use code to process heterogeneous files and derive analytical insights. Scaling their training faces costly environment curation, privacy and intellectual-property restrictions, and difficulty verifying open-ended findings without known generative truth. Our core insight is to specify the world behind the files before generating the files themselves. We introduce Data World, a multi-agent engine that synthesizes environments, tasks, and rubrics from explicit mechanisms. Independent audits check target recoverability from observed files; rubrics support evaluation and RL rewards. Human preference-based curation for question realism selects 100 tasks across 50 held-out worlds and 16 domains for DataWorld-Bench. The engine also yields 2,135 training tasks from 1,037 disjoint worlds. Evaluation of ten frontier models shows that the benchmark remains challenging, particularly for insight discovery, with a consistent computation-insight gap. RL-zero training on the synthesized tasks produces DataWorld-35B-A3B from Qwen3.6-35B-A3B without trajectory distillation. Under matched evaluation, it improves over its base by 7.06 points on DataWorld-Bench, 14.28 on DAComp, 20.90 on DABstep-Hard, and 12.13 on JobBench, a broader occupational benchmark.
+
+Authors: Zhanli Li, Zeyuan Xu, Chaoxu Pang, Zeyuan Liu, Anyang Ji, Te Sun, Kongcheng Zhang, Wenbo Xu, Xubin Yue, Shipeng Luo, Junjie Zhao, Yingfan Hua, Jingqing Ruan, Zhongda Su, Feng Hong, Zhizhao Zeng, Ke Zeng, Xunliang Cai, Hanjia Ye
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/Zhanli-Li/Data-World</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Are We Overthinking One-Step Generation?</title>
+      <link>https://arxiv.org/abs/2610.20331</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.20331</guid>
+      <description>Diffusion and flow matching are now dominant frameworks for generative modeling in continuous domains, but they typically require multiple network evaluations at inference. This has motivated extensive research on one-step generative modeling primarily built on diffusion and flow, though existing approaches often rely on complex training machinery. In this work, we introduce Priming Models, a simple two-stage framework for training one-step generators. Motivated by the difficulty of distributional training from scratch, Priming Models are first trained on a reconstruction objective, e.g., pixel-space denoising at a fixed noise level, before undergoing feature-space distributional post-training. Our central scientific finding is that this simple reconstruction stage is already enough to entirely alleviate the difficulty of distributional training. Empirically, across class-conditional image generation, text-to-image generation, and world modeling, Priming Models significantly advance the Pareto frontier of training compute vs. generation quality. On ImageNet at $256 \times 256$ resolution, we achieve a state-of-the-art FID of $1.19$ among one-step generators using approximately one-tenth the training compute of prior methods with comparable FID. We open-source our codebase at https://github.com/JaeyeonKim01/priming.
+
+Authors: Woobin Park, Jaeyeon Kim, Yilun Du, Sitan Chen, Bohyung Han
+
+Code: https://github.com/jaeyeonkim01/priming</description>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>InfiniSplat v2: Analyzing and Improving Feed-Forward 3DGS from Any Views</title>
+      <link>https://arxiv.org/abs/2610.20341</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.20341</guid>
+      <description>Feed-forward Gaussian reconstruction builds 3D scenes directly from input images for novel view rendering, but learning Gaussian attributes from predicted geometry for high-quality rendering under large viewpoint changes remains challenging. We analyze limitations in Gaussian attribute learning and introduce InfiniSplat v2, which improves rendering quality through architectural and training changes. Our method decouples geometry and attribute prediction with a frozen geometry branch, aligns predicted Gaussians using ground-truth camera poses during training, and adopts large-angle target view supervision. Across six datasets, the feed-forward outputs of the same trained model achieve state-of-the-art mean LPIPS and DISTS among the evaluated methods in both pose-conditioned and pose-free settings. In the pose-conditioned setting, mean LPIPS and DISTS decrease by 25.8% and 32.9%, respectively, compared with the strongest evaluated baselines. We further find that opacity learned with only image reconstruction supervision suppresses geometrically inconsistent points. Project page: https://zju3dv.github.io/InfiniSplat2/
+
+Authors: Yongzhen Hu, Hao Yu, Jiawei Wang, Xianming Zeng, Jianyun Xu, Xingliang Liu, Ruizhen Hu, Xiaowei Zhou, Hujun Bao, Sida Peng
+
+Code: https://github.com/zju3dv/InfiniSplat</description>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>3DCodeVerse: Exploring 3D Worlds as Code</title>
+      <link>https://arxiv.org/abs/2610.22341</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.22341</guid>
+      <description>We introduce 3DCodeVerse, a research ecosystem that enables coding agents to create editable and verifiable 3D content at scale. 3DCodeVerse comprises large-scale, high-quality datasets of executable 3D code, a coding harness for spatial reasoning and automated verification, and practical guidance for 3D coding. First, we construct 3DCodeVerse-2M, a large-scale curated dataset of standalone 3D executable code. We build this corpus by collecting open-source data, converting specialized representations, and generating new programs with coding agents. Each program is packaged with the source files and associated assets required for execution in its declared environment, along with available descriptions and verification records. Second, we develop the 3DCodeVerse Harness, a multi-agent directed acyclic graph framework for generating and refining 3D content. It uses execution checks, spatial measurements, and visual feedback to automatically evaluate and revise generated programs without human feedback during generation. Third, we conduct systematic empirical studies of 3D coding, establishing baselines with fine-tuned open models and deriving practical guidance through component-level analyses of our harness. Extensive experiments demonstrate that fine-tuning on our dataset significantly improves the 3D coding capabilities of open-source models. Notably, our 3DCodeVerse harness achieves a 90% win rate against Claude Design (3D Object) in pairwise human evaluations, when both are utilized by Claude Opus 5.5.
+
+Authors: Yipeng Gao, Ziyao Zeng, Jinfa Huang, Yijiang Li, Haolin Xiong, Wang Qin, Xinlei Yu, Youheng Yao, Jie Zhang, Kun-Yu Lin, Rong Liu, Yinyuan Zhao, Yajie Zhao, Meiqi Guo, Jiebo Luo, Lei Shu, Yunhao Ge, Xinyu Hu, Laurent Itti
+
+Tasks: Coding Agents
+
+Code: https://github.com/gaoypeng/3dcodeverse</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use</title>
+      <link>https://arxiv.org/abs/2610.22200</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.22200</guid>
+      <description>Computer use has reached a turning point: the focus is expanding from GUI-only interaction to systems that complete tasks on users' computers through visual and programmatic interfaces. We define a generalist computer-use agent (GCUA) as a system in which the model chooses how to observe, act, and organize its work across visual and programmatic interfaces. Yet frontier implementations, such as GPT-6 Astra's computer-use system, remain largely closed, limiting systematic study of their design. We introduce Open Generalist CUA (OpenGCUA), an ongoing project to develop and open the full stack for GCUAs with the community. This report presents the first release of OpenGCUA. Code execution is a key feature of our agent design: it lets intermediate results determine subsequent operations and enables models to apply their existing programming capabilities directly to computer interaction. We also propose harness-to-model decision transfer, moving selected observations and task-state decisions from fixed harness rules to the model. On OSWorld-v2, our full configuration improves task scores across all eight evaluated models, including GPT-6 Astra and Claude Opus 5, raising mean partial score by +19.6 points and reducing reported steps per task by an average of 53.0% relative to batched GUI-only execution. We release our implementation and prompts, evaluation trajectories from all eight models, and preliminary versions of a real-device harness and a cross-device SDK. The harness addresses real-device challenges not fully captured by benchmarks, while the SDK provides a common programming interface across computers, mobiles and browsers. Across four real macOS tasks under our real-device harness, selected Qwen3.8-Max runs use 19.4 times as many reported reasoning tokens as GPT-6 Astra, highlighting substantial differences between models in real-device execution efficiency.
+
+Authors: Hanzhang Zhou, Long Li, Quyu Kong, Lei Wang, Panrong Tong, Long Chen, Tianyu Xia, Gongjie Zhang, Xu Zhang, Chen Liu, Jianan Zhang, Chenglin Cai, Zhengwen Zeng, Steven Hoi, Yue Wang
+
+Tasks: Computer Use Agents
+
+Code: https://github.com/Tongyi-MAI/OpenGCUA</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Speculative Forcing for Efficient Autoregressive Video Generation</title>
+      <link>https://arxiv.org/abs/2610.22347</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.22347</guid>
+      <description>Few-step autoregressive video generators enable streaming generation, yet they run every token through the final denoising step, regardless of how much refinement it needs. We find this uniform computation is often unnecessary: many tokens already closely match their eventual full-step outputs in the initial steps, while others require refinement until the end. We introduce Speculative Forcing, a framework that treats intermediate clean estimates as drafts and predicts when individual tokens can be safely accepted early. Once accepted, a token is frozen as its final output and undergoes no further denoising, while its cached keys and values remain available as context for the remaining tokens. We explore two alternative verifier designs: a training-free one based on similarity to clean content and stability across steps, and a learned one that reads the frozen generator's intermediate features to estimate each token's remaining gap to its full-step output. Across short-video, long-video, and world generation, Speculative Forcing preserves the quality of full-step sampling while substantially reducing computation. On LongLive, it matches the four-step generator with ~1.7 denoising steps per token, running over 1.5x faster at 41.7 and 37.8 fps. On Lingbot-World 2.0, where camera motion continually changes the visible content, it maintains quality with ~2.5 denoising steps per token and runs 1.35x faster at 24.5 fps.
+
+Authors: Hyunwook Choi, Seungryong Kim, Dongyoon Han, Sangdoo Yun
+
+Tasks: Video generation
+
+Code: https://github.com/naver-ai/speculative-forcing</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Speculative Sampling in Interactive Video Generation</title>
@@ -82,56 +193,6 @@ Code: https://github.com/fishaudio/fish-speech</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Any Time, Any Space: A World-State-Centric Framework for Agentic Video Generation</title>
-      <link>https://arxiv.org/abs/2610.20571</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.20571</guid>
-      <description>Long-form agentic video generation must turn a screenplay into shots that remain spatially and temporally consistent across nonconsecutive requests. Passing prompts or recent frames between shots does not provide a shared spatial frame for revisiting a scene or a time-indexed record for replaying an earlier event. We present Any Time, Any Space (ATAS), which compiles a screenplay into shot requests with explicit location, camera, and event-time references. Before generation, it retrieves relevant evidence from a scene memory of registered static geometry and an event memory of dynamic observations indexed by scene, event, and time. After generation, ATAS reconstructs and registers the clip. It updates memory only when review and state checks accept the observation, while film delivery remains independent of memory admission. Across four video generators, ATAS improves all reported cross-shot consistency measures and achieves the highest aggregate benchmark score for each backbone. It also outperforms the compared agents and 3D-guided methods on target-image spatial revisit, leads three event-recapture criteria, and receives the highest human ratings on all six criteria. The video results and code are available on our project page: https://lhmd.top/atas/.
-
-Authors: Weijie Wang, Haomin Zhang, Ye Li, Akide Liu, Zeyu Zhang, Haoyu Zhao, Yefei He, Donny Y. Chen, Feng Chen, Bohan Zhuang
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/ziplab/ATAS</description>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>InfiniSplat v2: Analyzing and Improving Feed-Forward 3DGS from Any Views</title>
-      <link>https://arxiv.org/abs/2610.20341</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.20341</guid>
-      <description>Feed-forward Gaussian reconstruction builds 3D scenes directly from input images for novel view rendering, but learning Gaussian attributes from predicted geometry for high-quality rendering under large viewpoint changes remains challenging. We analyze limitations in Gaussian attribute learning and introduce InfiniSplat v2, which improves rendering quality through architectural and training changes. Our method decouples geometry and attribute prediction with a frozen geometry branch, aligns predicted Gaussians using ground-truth camera poses during training, and adopts large-angle target view supervision. Across six datasets, the feed-forward outputs of the same trained model achieve state-of-the-art mean LPIPS and DISTS among the evaluated methods in both pose-conditioned and pose-free settings. In the pose-conditioned setting, mean LPIPS and DISTS decrease by 25.8% and 32.9%, respectively, compared with the strongest evaluated baselines. We further find that opacity learned with only image reconstruction supervision suppresses geometrically inconsistent points. Project page: https://zju3dv.github.io/InfiniSplat2/
-
-Authors: Yongzhen Hu, Hao Yu, Jiawei Wang, Xianming Zeng, Jianyun Xu, Xingliang Liu, Ruizhen Hu, Xiaowei Zhou, Hujun Bao, Sida Peng
-
-Code: https://github.com/zju3dv/InfiniSplat</description>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Intern-Decision: Efficient Multimodal Decision Making with Autoregressive Masked Language Modeling</title>
-      <link>https://arxiv.org/abs/2610.22131</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.22131</guid>
-      <description>Interactive agents repeatedly choose among a finite set of actions, labels, or ordinal outcomes. Generating a free-form response for each choice adds latency and complicates the interface between a model and its environment. We present Intern-Decision, a family of 0.8B, 2B, and 4B multimodal decision models that return structured choices and candidate probabilities from text and optional images. Our autoregressive masked language modeling objective places one decision placeholder per field in a complete assistant JSON skeleton. Ground-truth symbols appear only in supervision, while all fields are evaluated in a single causal forward pass using the backbone's native language-model head. The 4B model achieves a 90.02% unweighted average accuracy across seven evaluation suites, compared with 88.74% for Jev v1.13.0. For a fixed 289-token request with three fields on one RTX 4090, mean latency is 44.16 ms for the 4B model and approximately 33--34 ms for the smaller models. On a separate 96-case known-distribution pilot, temperature scaling reduces expected multiclass Brier from 0.628 to 0.550 and expected calibration error from 0.213 to 0.089. A confidence-based handoff study on 111 public Jevbench-Hard items improves accuracy from 82/111 (73.87%) to 97/111 (87.39%) by routing 42 items to Atria-Dawn-Preview. We also describe qualitative game, visual interface, and browser demonstrations. These results support compact decision models as a practical component of larger agent systems.
-
-Authors: Tong Zhu, Zhe Xu, Zefeng He, Yunkai Chai, Xuyang Hu, Dehong Zheng, Yun Luo, Yafu Li, Qi Zhang, Yu Cheng
-
-Tasks: Language Modeling
-
-Code: https://github.com/InternLM/Intern-Decision</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>3DCodeVerse: Exploring 3D Worlds as Code</title>
-      <link>https://arxiv.org/abs/2610.22341</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.22341</guid>
-      <description>We introduce 3DCodeVerse, a research ecosystem that enables coding agents to create editable and verifiable 3D content at scale. 3DCodeVerse comprises large-scale, high-quality datasets of executable 3D code, a coding harness for spatial reasoning and automated verification, and practical guidance for 3D coding. First, we construct 3DCodeVerse-2M, a large-scale curated dataset of standalone 3D executable code. We build this corpus by collecting open-source data, converting specialized representations, and generating new programs with coding agents. Each program is packaged with the source files and associated assets required for execution in its declared environment, along with available descriptions and verification records. Second, we develop the 3DCodeVerse Harness, a multi-agent directed acyclic graph framework for generating and refining 3D content. It uses execution checks, spatial measurements, and visual feedback to automatically evaluate and revise generated programs without human feedback during generation. Third, we conduct systematic empirical studies of 3D coding, establishing baselines with fine-tuned open models and deriving practical guidance through component-level analyses of our harness. Extensive experiments demonstrate that fine-tuning on our dataset significantly improves the 3D coding capabilities of open-source models. Notably, our 3DCodeVerse harness achieves a 90% win rate against Claude Design (3D Object) in pairwise human evaluations, when both are utilized by Claude Opus 5.5.
-
-Authors: Yipeng Gao, Ziyao Zeng, Jinfa Huang, Yijiang Li, Haolin Xiong, Wang Qin, Xinlei Yu, Youheng Yao, Jie Zhang, Kun-Yu Lin, Rong Liu, Yinyuan Zhao, Yajie Zhao, Meiqi Guo, Jiebo Luo, Lei Shu, Yunhao Ge, Xinyu Hu, Laurent Itti
-
-Tasks: Coding Agents
-
-Code: https://github.com/gaoypeng/3dcodeverse</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Hybrid Reasoning Agents</title>
       <link>https://arxiv.org/abs/2610.18861</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.18861</guid>
@@ -143,17 +204,6 @@ Tasks: Agents, Healthcare &amp; Medical AI, Reasoning
 
 Code: https://github.com/togethercomputer/HybridAgent</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Are We Overthinking One-Step Generation?</title>
-      <link>https://arxiv.org/abs/2610.20331</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.20331</guid>
-      <description>Diffusion and flow matching are now dominant frameworks for generative modeling in continuous domains, but they typically require multiple network evaluations at inference. This has motivated extensive research on one-step generative modeling primarily built on diffusion and flow, though existing approaches often rely on complex training machinery. In this work, we introduce Priming Models, a simple two-stage framework for training one-step generators. Motivated by the difficulty of distributional training from scratch, Priming Models are first trained on a reconstruction objective, e.g., pixel-space denoising at a fixed noise level, before undergoing feature-space distributional post-training. Our central scientific finding is that this simple reconstruction stage is already enough to entirely alleviate the difficulty of distributional training. Empirically, across class-conditional image generation, text-to-image generation, and world modeling, Priming Models significantly advance the Pareto frontier of training compute vs. generation quality. On ImageNet at $256 \times 256$ resolution, we achieve a state-of-the-art FID of $1.19$ among one-step generators using approximately one-tenth the training compute of prior methods with comparable FID. We open-source our codebase at https://github.com/JaeyeonKim01/priming.
-
-Authors: Woobin Park, Jaeyeon Kim, Yilun Du, Sitan Chen, Bohyung Han
-
-Code: https://github.com/jaeyeonkim01/priming</description>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>VLA-Δ: Learning Physical State Transition for Vision-Language-Action Models</title>
@@ -180,32 +230,6 @@ Code: https://github.com/JusperLee/Dynamic-Band-Splitting</description>
       <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LensErase: A Foundation Model for Erase Anything</title>
-      <link>https://arxiv.org/abs/2610.18072</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.18072</guid>
-      <description>We introduce LensErase, a general-purpose mask-based Erase Anything foundation model designed to cover a broad spectrum of real-world erase scenarios. LensErase supports diverse objects, visual text, watermarks, associated visual effects, multiple-object removal, and a wide range of object scales, aspect ratios, and image resolutions. First, to enable such broad coverage, we construct LensErase-100M, a large-scale dataset containing 101.07 million paired source-mask-target examples spanning diverse erase scenarios. Second, we pretrain LensErase from the text-to-image model Lens, adapting its strong generative prior to mask-based erasing. To efficiently incorporate the source image and erase mask, we propose Mask-Aware RoPE, a 3D rotary positional encoding that directly injects mask information into the source-image tokens without introducing a separate mask token sequence. Finally, we refine the model through supervised fine-tuning and reinforcement learning with contract-guided, region-aware rewards, and apply TraceFusion at inference to preserve high-fidelity content outside the effective edit region. Across six public benchmarks and the proposed LensErase-Bench, LensErase achieves substantial improvements under both reference-based objective metrics and reference-free VLM evaluation. We hope LensErase can serve as a foundational model for erase-related applications and systems.
-
-Authors: Yunuo Chen, Xiuyu Wu, Qinhong Yang, Jinjing Zhao, Yanchen Dong, Sirui Zhang, Dong Chen, Fangyun Wei, Lei Shi, Ji Li, Dongdong Chen, Guo Lu, Yan Lu, Baining Guo
-
-Tasks: Image Inpainting
-
-Code: https://github.com/lensfamily/lenserase</description>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>TPPO: Tracking-Value PPO For Language Model Reasoning</title>
-      <link>https://arxiv.org/abs/2610.16794</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.16794</guid>
-      <description>Proximal Policy Optimization (PPO) is widely used in reinforcement learning with verifiable rewards for language-model reasoning. While value evolution along trajectory characterizes relative token-level credit, yet standard critics often fail to track it under sparse terminal rewards. To model this evolution, we analyze the relation between successive prefix values and show that they admit a Bayesian decomposition with additive updates in log-odds space. We use this additive structure to construct Tracking-Value PPO (\method), a cumulative value parameterization that sums position-wise scalar outputs into value logits. These outputs are learned through terminal-outcome supervision on the reconstructed values. \method improves aggregate mathematical reasoning scores over PPO by 7.0 and 8.4 points on Qwen3-4B-Base and Qwen3-8B-Base, respectively, while improving out-of-distribution generalization. Gains extend to Qwen3-4B, Qwen2.5-Math-1.5B, Qwen3.5-9B and to countdown, and scientific coding tasks. Further analysis shows more accurate tracking of value evolution and more reliable advantage estimates. Our code is publicly available in https://github.com/LINs-lab/TPPO.
-
-Authors: Futing Wang, Chenxi Li, Jianhao Yan, Yun Luo, Zhi Wang, Yizhuo Li, Runzhe Zhan, Yu Cheng, Tao Lin
-
-Tasks: Classic Reinforcement Learning, Mathematics, Reasoning, Reinforcement Learning
-
-Code: https://github.com/LINs-lab/TPPO</description>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>More Methods, Better Agents? A Reality Check on Self-Distillation in Agentic Reinforcement Learning</title>
       <link>https://arxiv.org/abs/2610.19789</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.19789</guid>
@@ -230,30 +254,6 @@ Tasks: Classic Reinforcement Learning, Computer Use Agents, Continuous Control, 
 
 Code: https://github.com/TencentARC/Player-1</description>
       <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>AReA: Adaptive Receptive-Field Attention for Efficient High-Resolution Diffusion Transformers</title>
-      <link>https://arxiv.org/abs/2610.17227</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.17227</guid>
-      <description>Generating images beyond the training resolution of Diffusion Transformers (DiTs) remains challenging, as the number of tokens grows rapidly with resolution, full attention becomes expensive, and outputs often suffer from structural distortions and degraded detail. We identify uniform full attention as the common source of both problems. Attending to all tokens at every step causes quadratic cost and exposes the model to more tokens and relative distances beyond the training range, pushing the model out of distribution. We observe that attention's effective receptive field narrows during denoising, from global in early steps that form structure to local in later steps that refine details. We propose AReA, a training-free attention mechanism whose receptive field evolves from coarse to fine, following the denoising progression. In early steps, AReA applies cross-scale coarse attention over downsampled keys and values, capturing global context, while in later steps it applies local attention within progressively shrinking windows. Without additional parameters or training, experiments show that AReA consistently outperforms state-of-the-art training-free baselines across target resolutions and different models, while also being faster and more efficient.
-
-Authors: Javad Rajabi, Koorosh Roohi, David B. Lindell, Babak Taati
-
-Tasks: Image generation
-
-Code: https://github.com/KooroshRH/AReA</description>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Trajectory-Level Speculation with Semantic Verification for Tool-Using Agents</title>
-      <link>https://arxiv.org/abs/2610.21463</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.21463</guid>
-      <description>Large language model agents solve tasks through long sequences of tool calls, and the prevailing design has a single strong model generate every step, although many steps are routine enough for a much smaller model. Existing ways of sharing this work keep the strong model as the generator: routers and collaborative agents decide which model handles each query or step, and speculative methods check a small model's drafts one step at a time, usually against the strong model's own action. We introduce SpecAgent, a collaboration protocol that turns the strong model from the author of each step into a reviewer of steps drafted by a weak model. The weak model executes read-only tool calls as it drafts, so that every step is grounded in real observations, and holds the first action that would modify the environment. The strong model then verifies the drafted segment in a single prefill pass, commits the longest prefix it judges semantically valid, and repairs the first rejected step. Because verification replaces autoregressive decoding with parallel prefill, the strong model decodes only short verdicts and occasional repairs rather than every step. On τ^2-Bench, SpecAgent comes within one point of the strong model's success rate while roughly halving memory traffic and wall time, and on AutomationBench and VitaBench it recovers 44-75% of the quality gap while lowering both. In an edge-cloud deployment on MCP-Atlas with three cloud models, it closes 53-75% of the weak-strong quality gap while the strong model generates at most half as many tokens. These results suggest that a strong model need not author every step of an agent: reviewing grounded drafts retains most of its quality while cutting both latency and memory traffic.
-
-Authors: Zilin Wang, Yinhong Liu, Chao Chen, Qun Liu, Zhijiang Guo
-
-Code: https://github.com/LARK-AI-Lab/SpecAgent</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
