@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 16 Oct 2026 22:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 23:00:00 GMT</lastBuildDate>
     <item>
       <title>Self-Evolving Agent Harness</title>
       <link>https://arxiv.org/abs/2610.18813</link>
@@ -41,6 +41,19 @@ Code: https://github.com/mistralai/timestral</description>
       <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Fish Audio Drama 3 Technical Report</title>
+      <link>https://arxiv.org/abs/2610.18010</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.18010</guid>
+      <description>We introduce Fish Audio Drama 3, an open-source speech generation model that turns text into directed performances, built on a 35B-parameter mixture-of-experts backbone that activates 3B parameters per token. It clones voices from multiple references, follows natural-language direction, revises a take when the next turn gives a note, voices multi-character scenes, edits existing speech by infilling, and synthesizes long-form and streaming audio. Multi-turn revision, scene dubbing, editing by infilling, and streaming text input are new in Drama 3, all in one model. Drama 3 pairs the hybrid linear-attention backbone with a new codebook multi-token-prediction audio decoder that predicts the acoustic codebooks of each frame in dedicated layers that attend over the entire sequence. The model is trained with a three-stage pre-training recipe, instruction fine-tuning, and large-batch reinforcement learning whose only reward is a single learned model of human preference. Its inference engine decodes a single stream at 271 frames per second on one H200, against 177 for Fish Audio S2, although Drama 3 has more than seven times as many parameters. The model weights are available on GitHub (https://github.com/fishaudio/fish-speech) and Hugging Face (https://huggingface.co/fishaudio/drama-3), and inference is available through SGLang-Omni (https://github.com/sgl-project/sglang-omni). We highly encourage readers to visit https://fish.audio to direct their own performances.
+
+Authors: Dawei Han, Shidong Li, Shijia Liao, Jiahua Liu, Songting Liu, Qingzheng Wang, Yuxuan Wang, Xin Chen, Yifan Cheng, Tianyu Li, Gangin Park, Xuehao Yang, Chang Zeng, Haoyang Zhang, Ruoyi Zhang, Xiangyu Zhang
+
+Tasks: Audio and Speech Editing, Audio Generation, Reinforcement Learning, Text-to-speech, Voice cloning
+
+Code: https://github.com/fishaudio/fish-speech</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>UniForge3D: Joint 3D Reconstruction and Generation in a Shared Anchor-Guided Space</title>
       <link>https://arxiv.org/abs/2610.15357</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.15357</guid>
@@ -52,6 +65,108 @@ Tasks: 3D generation, 3D Reconstruction, 3D understanding
 
 Code: https://github.com/xibushu/UniForge3D</description>
       <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use</title>
+      <link>https://arxiv.org/abs/2610.22200</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.22200</guid>
+      <description>Computer use has reached a turning point: the focus is expanding from GUI-only interaction to systems that complete tasks on users' computers through visual and programmatic interfaces. We define a generalist computer-use agent (GCUA) as a system in which the model chooses how to observe, act, and organize its work across visual and programmatic interfaces. Yet frontier implementations, such as GPT-6 Astra's computer-use system, remain largely closed, limiting systematic study of their design. We introduce Open Generalist CUA (OpenGCUA), an ongoing project to develop and open the full stack for GCUAs with the community. This report presents the first release of OpenGCUA. Code execution is a key feature of our agent design: it lets intermediate results determine subsequent operations and enables models to apply their existing programming capabilities directly to computer interaction. We also propose harness-to-model decision transfer, moving selected observations and task-state decisions from fixed harness rules to the model. On OSWorld-v2, our full configuration improves task scores across all eight evaluated models, including GPT-6 Astra and Claude Opus 5, raising mean partial score by +19.6 points and reducing reported steps per task by an average of 53.0% relative to batched GUI-only execution. We release our implementation and prompts, evaluation trajectories from all eight models, and preliminary versions of a real-device harness and a cross-device SDK. The harness addresses real-device challenges not fully captured by benchmarks, while the SDK provides a common programming interface across computers, mobiles and browsers. Across four real macOS tasks under our real-device harness, selected Qwen3.8-Max runs use 19.4 times as many reported reasoning tokens as GPT-6 Astra, highlighting substantial differences between models in real-device execution efficiency.
+
+Authors: Hanzhang Zhou, Long Li, Quyu Kong, Lei Wang, Panrong Tong, Long Chen, Tianyu Xia, Gongjie Zhang, Xu Zhang, Chen Liu, Jianan Zhang, Chenglin Cai, Zhengwen Zeng, Steven Hoi, Yue Wang
+
+Tasks: Computer Use Agents
+
+Code: https://github.com/Tongyi-MAI/OpenGCUA</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Intern-Decision: Efficient Multimodal Decision Making with Autoregressive Masked Language Modeling</title>
+      <link>https://arxiv.org/abs/2610.22131</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.22131</guid>
+      <description>Interactive agents repeatedly choose among a finite set of actions, labels, or ordinal outcomes. Generating a free-form response for each choice adds latency and complicates the interface between a model and its environment. We present Intern-Decision, a family of 0.8B, 2B, and 4B multimodal decision models that return structured choices and candidate probabilities from text and optional images. Our autoregressive masked language modeling objective places one decision placeholder per field in a complete assistant JSON skeleton. Ground-truth symbols appear only in supervision, while all fields are evaluated in a single causal forward pass using the backbone's native language-model head. The 4B model achieves a 90.02% unweighted average accuracy across seven evaluation suites, compared with 88.74% for Jev v1.13.0. For a fixed 289-token request with three fields on one RTX 4090, mean latency is 44.16 ms for the 4B model and approximately 33--34 ms for the smaller models. On a separate 96-case known-distribution pilot, temperature scaling reduces expected multiclass Brier from 0.628 to 0.550 and expected calibration error from 0.213 to 0.089. A confidence-based handoff study on 111 public Jevbench-Hard items improves accuracy from 82/111 (73.87%) to 97/111 (87.39%) by routing 42 items to Atria-Dawn-Preview. We also describe qualitative game, visual interface, and browser demonstrations. These results support compact decision models as a practical component of larger agent systems.
+
+Authors: Tong Zhu, Zhe Xu, Zefeng He, Yunkai Chai, Xuyang Hu, Dehong Zheng, Yun Luo, Yafu Li, Qi Zhang, Yu Cheng
+
+Tasks: Language Modeling
+
+Code: https://github.com/InternLM/Intern-Decision</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Doc2Harness: Benchmarking LLMs on Long-Horizon Harness Engineering of Coding Agents</title>
+      <link>https://arxiv.org/abs/2610.20344</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.20344</guid>
+      <description>Agents driven by large language models are increasingly deployed on long-horizon tasks, where they use tools and modify real workspaces. How well they perform depends as much on the harness around the model as on the model itself. Existing benchmarks measure downstream task success under a fixed harness, leaving harness engineering itself unexplored. We propose Doc2Harness, a two-stage benchmark that evaluates long-horizon harness engineering directly. In Stage 1, a build model operating inside a fixed builder harness receives an interface-only contract skeleton and a development document that consolidates behavior across twelve frontier harnesses, and then constructs a complete candidate harness in an isolated container. In Stage 2, the frozen candidate harness runs in containers separate from the construction environment, one per test case, and is driven end to end by a scripted mock model. We score each test case using four observable channels, namely the requests sent to the model, the files on disk, the process exit code, and the command output; positive controls rule out vacuous passes. Across nineteen frontier models, each evaluated with three independent builds on 328 test cases, GPT-6 Astra achieves the highest pass rate at 53.05%, while the weakest model reaches 27.44%, a gap of roughly twenty-six percentage points. Even the strongest model fails nearly half of the test cases, and failures cluster around how cross-cutting functionality is split across modules. To our knowledge, Doc2Harness provides the first deterministic benchmark for measuring long-horizon harness engineering.
+
+Authors: Yuyao Ge, Shenghua Liu, Peizhong Gao, Chendi Ge, Chenxu Liu, Yiwei Wang, Lingrui Mei, Baolong Bi, Jiayu Yao, Jiafeng Guo, Xueqi Cheng
+
+Tasks: Coding Agents
+
+Code: https://github.com/YuyaoGe/doc2harness</description>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Gen4P: Video Generators are 4D Perceivers</title>
+      <link>https://arxiv.org/abs/2610.22371</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.22371</guid>
+      <description>We introduce Gen4P, a unified framework for recovering 4D geometry and motion from monocular video. We show that a pretrained video generator can be repurposed into a feed-forward 4D perceiver without iterative denoising. Building on on-demand querying, Gen4P processes clean video latents in a single encoder pass and predicts the requested 4D attributes through a lightweight cross-attention decoder. The on-demand query formulation enables flexible spatial sampling, and our proposed continuous-time queries further provide temporal flexibility. To strengthen geometric knowledge, we propose a straightforward plug-in solution by incorporating a pretrained video-depth LoRA as a frozen geometry prior, improving overall performance without adding extra trainable parameters. Gen4P achieves state-of-the-art or competitive performance on tasks of 3D point tracking, video depth and camera pose estimation. Qualitative results on in-the-wild videos illustrate its capability of tracking complex motion while maintaining the delicate structure. Together, these results demonstrate the potential of video generative pretraining for unified 4D perception. See https://gen4p.github.io for more visual results.
+
+Authors: Yitong Xia, Zeren Jiang, Chuanxia Zheng
+
+Tasks: 3D Tracking, Camera Pose Estimation, Pose Estimation
+
+Code: https://github.com/yitongx/Gen4P</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>InfiniSplat v2: Analyzing and Improving Feed-Forward 3DGS from Any Views</title>
+      <link>https://arxiv.org/abs/2610.20341</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.20341</guid>
+      <description>Feed-forward Gaussian reconstruction builds 3D scenes directly from input images for novel view rendering, but learning Gaussian attributes from predicted geometry for high-quality rendering under large viewpoint changes remains challenging. We analyze limitations in Gaussian attribute learning and introduce InfiniSplat v2, which improves rendering quality through architectural and training changes. Our method decouples geometry and attribute prediction with a frozen geometry branch, aligns predicted Gaussians using ground-truth camera poses during training, and adopts large-angle target view supervision. Across six datasets, the feed-forward outputs of the same trained model achieve state-of-the-art mean LPIPS and DISTS among the evaluated methods in both pose-conditioned and pose-free settings. In the pose-conditioned setting, mean LPIPS and DISTS decrease by 25.8% and 32.9%, respectively, compared with the strongest evaluated baselines. We further find that opacity learned with only image reconstruction supervision suppresses geometrically inconsistent points. Project page: https://zju3dv.github.io/InfiniSplat2/
+
+Authors: Yongzhen Hu, Hao Yu, Jiawei Wang, Xianming Zeng, Jianyun Xu, Xingliang Liu, Ruizhen Hu, Xiaowei Zhou, Hujun Bao, Sida Peng
+
+Code: https://github.com/zju3dv/InfiniSplat</description>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Any Time, Any Space: A World-State-Centric Framework for Agentic Video Generation</title>
+      <link>https://arxiv.org/abs/2610.20571</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.20571</guid>
+      <description>Long-form agentic video generation must turn a screenplay into shots that remain spatially and temporally consistent across nonconsecutive requests. Passing prompts or recent frames between shots does not provide a shared spatial frame for revisiting a scene or a time-indexed record for replaying an earlier event. We present Any Time, Any Space (ATAS), which compiles a screenplay into shot requests with explicit location, camera, and event-time references. Before generation, it retrieves relevant evidence from a scene memory of registered static geometry and an event memory of dynamic observations indexed by scene, event, and time. After generation, ATAS reconstructs and registers the clip. It updates memory only when review and state checks accept the observation, while film delivery remains independent of memory admission. Across four video generators, ATAS improves all reported cross-shot consistency measures and achieves the highest aggregate benchmark score for each backbone. It also outperforms the compared agents and 3D-guided methods on target-image spatial revisit, leads three event-recapture criteria, and receives the highest human ratings on all six criteria. The video results and code are available on our project page: https://lhmd.top/atas/.
+
+Authors: Weijie Wang, Haomin Zhang, Ye Li, Akide Liu, Zeyu Zhang, Haoyu Zhao, Yefei He, Donny Y. Chen, Feng Chen, Bohan Zhuang
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/ziplab/ATAS</description>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AReA: Adaptive Receptive-Field Attention for Efficient High-Resolution Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2610.17227</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.17227</guid>
+      <description>Generating images beyond the training resolution of Diffusion Transformers (DiTs) remains challenging, as the number of tokens grows rapidly with resolution, full attention becomes expensive, and outputs often suffer from structural distortions and degraded detail. We identify uniform full attention as the common source of both problems. Attending to all tokens at every step causes quadratic cost and exposes the model to more tokens and relative distances beyond the training range, pushing the model out of distribution. We observe that attention's effective receptive field narrows during denoising, from global in early steps that form structure to local in later steps that refine details. We propose AReA, a training-free attention mechanism whose receptive field evolves from coarse to fine, following the denoising progression. In early steps, AReA applies cross-scale coarse attention over downsampled keys and values, capturing global context, while in later steps it applies local attention within progressively shrinking windows. Without additional parameters or training, experiments show that AReA consistently outperforms state-of-the-art training-free baselines across target resolutions and different models, while also being faster and more efficient.
+
+Authors: Javad Rajabi, Koorosh Roohi, David B. Lindell, Babak Taati
+
+Tasks: Image generation
+
+Code: https://github.com/KooroshRH/AReA</description>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>GreenWAM: A World Foundation Model for Robotics</title>
+      <link>https://arxiv.org/abs/2610.18774</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.18774</guid>
+      <description>A robot needs a world model that predicts how its actions will change the scene and a policy that chooses those actions. Models are usually built and evaluated for only one of these roles, and every robot records its actions in its own format. We ask whether one robot world model can serve both roles across different bodies, and what makes this work. We present GreenWAM, a world foundation model for robotics, together with the recipe that produces it: (1) a shared anatomical action space that describes 20 robot families, from bimanual arms to dexterous humanoids, in common joint coordinates; (2) joint training on these families in visual, action-conditioned and world-action modes; and (3) policies that split an action expert off the generator. As a world model, GreenWAM attains top-tier trajectory, depth and 3D accuracy on WorldArena 1.0, ahead of every world-action model and video generator in our comparison. As a policy, it scores among the top entries of the RoboTwin 2.0 leaderboard, reaches the highest zero-shot LIBERO-plus success among the compared methods and is competitive with dedicated vision-language-action and world-action policies on CALVIN and LIBERO. We further adapt GreenWAM to a real humanoid, where it succeeds more often than policies adapted from π_{0.5} and from Cosmos 3 Edge, and distill it into a single-step policy for real-time control. Controlled experiments yield three findings: robot specialization improves world prediction and control together; an action expert helps when split off at the start of adaptation; and keeping world-model modes during policy adaptation preserves robustness to scene changes.
+
+Authors: G. Sidorov, Valerii Kornilov, Denis Grankin, P. Fedotova, A. Postnikov
+
+Tasks: Robotics, Video generation, World Models
+
+Code: https://github.com/greenvla/GreenWAM</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Hybrid Reasoning Agents</title>
@@ -89,19 +204,6 @@ Authors: Binxiao Xu, Ruichuan An, Bocheng Zou, Weihua Du, Xinyu Wei, Hangyu Guo,
 
 Code: https://github.com/Little-Fridge/ViewCraft</description>
       <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fish Audio Drama 3 Technical Report</title>
-      <link>https://arxiv.org/abs/2610.18010</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.18010</guid>
-      <description>We introduce Fish Audio Drama 3, an open-source speech generation model that turns text into directed performances, built on a 35B-parameter mixture-of-experts backbone that activates 3B parameters per token. It clones voices from multiple references, follows natural-language direction, revises a take when the next turn gives a note, voices multi-character scenes, edits existing speech by infilling, and synthesizes long-form and streaming audio. Multi-turn revision, scene dubbing, editing by infilling, and streaming text input are new in Drama 3, all in one model. Drama 3 pairs the hybrid linear-attention backbone with a new codebook multi-token-prediction audio decoder that predicts the acoustic codebooks of each frame in dedicated layers that attend over the entire sequence. The model is trained with a three-stage pre-training recipe, instruction fine-tuning, and large-batch reinforcement learning whose only reward is a single learned model of human preference. Its inference engine decodes a single stream at 271 frames per second on one H200, against 177 for Fish Audio S2, although Drama 3 has more than seven times as many parameters. The model weights are available on GitHub (https://github.com/fishaudio/fish-speech) and Hugging Face (https://huggingface.co/fishaudio/drama-3), and inference is available through SGLang-Omni (https://github.com/sgl-project/sglang-omni). We highly encourage readers to visit https://fish.audio to direct their own performances.
-
-Authors: Dawei Han, Shidong Li, Shijia Liao, Jiahua Liu, Songting Liu, Qingzheng Wang, Yuxuan Wang, Xin Chen, Yifan Cheng, Tianyu Li, Gangin Park, Xuehao Yang, Chang Zeng, Haoyang Zhang, Ruoyi Zhang, Xiangyu Zhang
-
-Tasks: Audio and Speech Editing, Audio Generation, Reinforcement Learning, Text-to-speech, Voice cloning
-
-Code: https://github.com/fishaudio/fish-speech</description>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ActionOPD: Distilling Decisions, Not Tokens</title>
@@ -152,104 +254,6 @@ Tasks: Classic Reinforcement Learning, Reinforcement Learning, Visual Grounding
 
 Code: https://github.com/AMAP-ML/Urbex</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Can World and Action Modeling Benefit Each Other under Unified Causal Training?</title>
-      <link>https://arxiv.org/abs/2610.21095</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.21095</guid>
-      <description>World and action modeling are closely related, yet their reciprocal benefits under unified causal training remain unclear. We introduce OneWM, a simple framework for unified causal training that treats actions as both conditions for world prediction and targets for policy learning within a shared video-action architecture. Using this framework, we investigate whether learning forward dynamics conditioned on specified actions improves action learning, and whether learning to generate actions in turn improves action-conditioned world modeling. We use LIBERO, LIBERO-Plus, and RoboCasa365 as embodied testbeds to evaluate both policy learning and world modeling, complemented by real-world policy experiments. Learning the visual consequences of specified actions improves policy performance and generalization across changing scenes. In turn, action learning improves multi-view world-prediction fidelity under the same architecture. Together, these results answer both questions positively, supporting reciprocal benefits between world modeling and action generation under unified causal training.
-
-Authors: Yue Su, Bokai Lin, Xinkai Wang, Chubin Zhang, Xiangnan Wu, Kuan Zhang, Weiyang Jin, Jiwen Yu, Yiming Li, Cewu Lu, Lixin Yang, Xihui Liu
-
-Code: https://github.com/Interactive-Active-AI/OneWM</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Gen4P: Video Generators are 4D Perceivers</title>
-      <link>https://arxiv.org/abs/2610.22371</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.22371</guid>
-      <description>We introduce Gen4P, a unified framework for recovering 4D geometry and motion from monocular video. We show that a pretrained video generator can be repurposed into a feed-forward 4D perceiver without iterative denoising. Building on on-demand querying, Gen4P processes clean video latents in a single encoder pass and predicts the requested 4D attributes through a lightweight cross-attention decoder. The on-demand query formulation enables flexible spatial sampling, and our proposed continuous-time queries further provide temporal flexibility. To strengthen geometric knowledge, we propose a straightforward plug-in solution by incorporating a pretrained video-depth LoRA as a frozen geometry prior, improving overall performance without adding extra trainable parameters. Gen4P achieves state-of-the-art or competitive performance on tasks of 3D point tracking, video depth and camera pose estimation. Qualitative results on in-the-wild videos illustrate its capability of tracking complex motion while maintaining the delicate structure. Together, these results demonstrate the potential of video generative pretraining for unified 4D perception. See https://gen4p.github.io for more visual results.
-
-Authors: Yitong Xia, Zeren Jiang, Chuanxia Zheng
-
-Tasks: 3D Tracking, Camera Pose Estimation, Pose Estimation
-
-Code: https://github.com/yitongx/Gen4P</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>LFM2.5-24B-A2B: Built for Fast On-Device Agents</title>
-      <link>https://www.liquid.ai/blog/lfm2-5-24b-a2b</link>
-      <guid isPermaLink="true">https://www.liquid.ai/blog/lfm2-5-24b-a2b</guid>
-      <description>Today, we release LFM2.5-24B-A2B, a 24B-parameter reasoning model with just 2B active parameters, built for fast, private agents on-device. It is the largest and final model in the LFM2.5 family, which now spans two orders of magnitude: from LFM2.5-230M to LFM2.5-24B-A2B. LFM2.5-24B-A2B is competitive with Qwen3.6-35B-A3B, a model with ~50% more total and active parameters, on five of eight agentic and tool-use benchmarks, scoring 48.09 on LiveClaw versus 38.19 and 27.69 on AutomationBench versus 8.72. Because only 2B parameters are active per token, it runs up to 1.7× faster than comparable MoEs on-device, with 184 tokens/s on an Apple M5 Max and up to 21K output tokens/s on a single NVIDIA B300 GPU. The base (LFM2.5-24B-A2B-Base) and post-trained (LFM2.5-24B-A2B) models are open-weight and available today on Hugging Face.
-
-Tasks: Agents, Coding Agents, Instruction Following, Language Modeling, Reasoning, Reinforcement Learning
-
-Code: https://github.com/huggingface/transformers</description>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Orbia: Do Generated Videos Form a Consistent 3D World?</title>
-      <link>https://arxiv.org/abs/2610.20693</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.20693</guid>
-      <description>Video generators serve as interactive worlds for exploration and simulation, yet realistic and visually appealing frames do not necessarily depict a consistent 3D world. Existing benchmarks assess selected geometric properties or use vision-language models to judge memory and consistency, leaving systematic 3D evaluation underexplored. We introduce Orbia, the first benchmark dedicated to a systematic and comprehensive evaluation of 3D consistency in interactive world models. Through controlled exploration and revisit, we organize the evaluation into three dimensions: input preservation, generated-content persistence, and 3D self-consistency. For input preservation, registered RGB-D references and annotated anchors support appearance, geometry, and spatial stability measurements. For generated-content persistence, we compare revisits to regions absent from the input image with their first generated observations to test whether models preserve what they create. For 3D self-consistency, cross-view depth and feature correspondence, regional scale agreement, and held-out Gaussian rendering test whether generated views describe the same 3D scene. Minute-long exploration and revisits further test long-term consistency. Our construction and annotation pipeline brings together public datasets, self-captured scenes, and simulation, yielding 720 instances across indoor and outdoor environments and six exploration-and-revisit protocols. Evaluation spans 27 text-, action-, and camera-conditioned models through native-interface adapters. Our Orbia benchmark provides a systematic basis for diagnosing 3D inconsistency and developing more persistent video world models.
-
-Authors: Dongyue Lu, Guian Fang, Hur Lim, Yonggang Wu, Yanrong Wang, Hongshan Chen, Shengju Qian, Yue Liao, Wei Chow, Lingdong Kong, Tianxin Huang, Yu Yang, Hongji Yang, Junchao Huang, Ao Liang, Yihao Wang, Zihan Wang, Rong Li, Hanlin Chen, Xin Wang, Wei Tsang Ooi, Mike Zheng Shou, Shuicheng Yan
-
-Tasks: Classic Reinforcement Learning, Image Matching, World Models
-
-Code: https://github.com/worldbench/orbia</description>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Player-1: Learning to Play from Synthetic Experience</title>
-      <link>https://arxiv.org/abs/2610.20584</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.20584</guid>
-      <description>Computer-use agents have demonstrated strong capabilities in interpreting screens and executing keyboard and mouse actions. However, games, with their visually rich worlds and diverse mechanics, remain challenging and offer a demanding next step toward general digital control. Current game-agent learning pipelines often rely on large-scale demonstrations with limited coverage of dynamic game states, while scalable environments for interactive training remain difficult to obtain. We introduce Player-1, a post-training framework for learning game control beyond demonstrations through synthetic experience. We extend the computer-use action space with relative pointer motion, sustained inputs, and composite actions. For supervised initialization, we fine-tune computer-use models on 6,044 curated gameplay trajectories that pair recorded actions with task instructions and visual reasoning. We construct Player-1-Gym, sixteen synthetic 2D and 3D environments designed around control demands shared across games. Programmatically verifiable rewards and randomized observations and control dynamics support multi-environment reinforcement learning with PPO. The resulting Player-1-9B and Player-1-35B-A3B improve MineDojo-300 success over their SFT policies by 27.8 and 17.7 percentage points, respectively. Player-1-9B reaches 38.33% success compared with 12.63% for the strongest evaluated baseline, with further gains over SFT on ViZDoom-10 and GameWorld. Further analyses show that broader synthetic environment coverage improves transfer, while the use of composite actions that combine multiple keyboard and mouse inputs increases during RL. We demonstrate that learning from synthetic experience substantially improves game control beyond supervised initialization, with gains that generalize beyond the RL training suite.
-
-Authors: Mingyu Ouyang, Yiran Wang, Siyuan Hu, Xingyilang Yin, Huiqiang Sun, Guangzhi Wang, Junfu Pu, Cheng Cheng, Honghao Chen, Ying Shan, Mike Zheng Shou, Hwee Tou Ng
-
-Tasks: Classic Reinforcement Learning, Computer Use Agents, Continuous Control, Image Understanding, Reinforcement Learning
-
-Code: https://github.com/TencentARC/Player-1</description>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Mosaic: Multi-Session Agentic Reinforcement Learning</title>
-      <link>https://arxiv.org/abs/2610.22174</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.22174</guid>
-      <description>Most existing agentic reinforcement learning methods assume single-session trajectories, where interaction proceeds within one continuously accumulated context. However, agentic techniques such as context compaction and subagent forking may produce trajectories spanning multiple sessions, creating a mismatch between the single-session training assumption and inference-time execution. Therefore, we introduce Multi-Session Agentic Reinforcement Learning, a more general setting that supports an arbitrary number of sessions within a trajectory. Under this setting, a widely adopted method is to broadcast trajectory-level advantages to all sessions, but this does not distinguish contributions from various sessions or guide session allocation within trajectories. To address this issue, we propose Mosaic, a multi-session agentic RL method with critic-free hierarchical optimization. At the trajectory level, it incorporates session-usage signals into advantage estimation. At the session level, it shapes each session's advantage according to the estimated marginal contribution. Experiments on BrowseComp with Qwen3.5-4B show that Mosaic outperforms broadcasting in both context compaction and subagent forking scenarios while using fewer sessions on average. Further analyses show that our method achieves improvements in session utility and allocation, which we suggested is a promising target for future advances in multi-session agentic RL.
-
-Authors: Yilong Xu, Minrui Xu, Xinyu Zhou, Xiang Long, Haochen Tan, Zhijiang Guo
-
-Tasks: Reinforcement Learning
-
-Code: https://github.com/LARK-AI-Lab/Mosaic</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>InfiniSplat v2: Analyzing and Improving Feed-Forward 3DGS from Any Views</title>
-      <link>https://arxiv.org/abs/2610.20341</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.20341</guid>
-      <description>Feed-forward Gaussian reconstruction builds 3D scenes directly from input images for novel view rendering, but learning Gaussian attributes from predicted geometry for high-quality rendering under large viewpoint changes remains challenging. We analyze limitations in Gaussian attribute learning and introduce InfiniSplat v2, which improves rendering quality through architectural and training changes. Our method decouples geometry and attribute prediction with a frozen geometry branch, aligns predicted Gaussians using ground-truth camera poses during training, and adopts large-angle target view supervision. Across six datasets, the feed-forward outputs of the same trained model achieve state-of-the-art mean LPIPS and DISTS among the evaluated methods in both pose-conditioned and pose-free settings. In the pose-conditioned setting, mean LPIPS and DISTS decrease by 25.8% and 32.9%, respectively, compared with the strongest evaluated baselines. We further find that opacity learned with only image reconstruction supervision suppresses geometrically inconsistent points. Project page: https://zju3dv.github.io/InfiniSplat2/
-
-Authors: Yongzhen Hu, Hao Yu, Jiawei Wang, Xianming Zeng, Jianyun Xu, Xingliang Liu, Ruizhen Hu, Xiaowei Zhou, Hujun Bao, Sida Peng
-
-Code: https://github.com/zju3dv/InfiniSplat</description>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Speculative Forcing for Efficient Autoregressive Video Generation</title>
-      <link>https://arxiv.org/abs/2610.22347</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.22347</guid>
-      <description>Few-step autoregressive video generators enable streaming generation, yet they run every token through the final denoising step, regardless of how much refinement it needs. We find this uniform computation is often unnecessary: many tokens already closely match their eventual full-step outputs in the initial steps, while others require refinement until the end. We introduce Speculative Forcing, a framework that treats intermediate clean estimates as drafts and predicts when individual tokens can be safely accepted early. Once accepted, a token is frozen as its final output and undergoes no further denoising, while its cached keys and values remain available as context for the remaining tokens. We explore two alternative verifier designs: a training-free one based on similarity to clean content and stability across steps, and a learned one that reads the frozen generator's intermediate features to estimate each token's remaining gap to its full-step output. Across short-video, long-video, and world generation, Speculative Forcing preserves the quality of full-step sampling while substantially reducing computation. On LongLive, it matches the four-step generator with ~1.7 denoising steps per token, running over 1.5x faster at 41.7 and 37.8 fps. On Lingbot-World 2.0, where camera motion continually changes the visible content, it maintains quality with ~2.5 denoising steps per token and runs 1.35x faster at 24.5 fps.
-
-Authors: Hyunwook Choi, Seungryong Kim, Dongyoon Han, Sangdoo Yun
-
-Tasks: Video generation
-
-Code: https://github.com/naver-ai/speculative-forcing</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
