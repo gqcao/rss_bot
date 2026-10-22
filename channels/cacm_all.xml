@@ -12,7 +12,7 @@
 	<atom:link href="https://cacm.acm.org/feed/" rel="self" type="application/rss+xml" />
 	<link>https://cacm.acm.org</link>
 	<description></description>
-	<lastBuildDate>Wed, 21 Oct 2026 20:50:30 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 22 Oct 2026 15:42:45 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -28,6 +28,161 @@
 	<height>32</height>
 </image> 
 <site xmlns="com-wordpress:feed-additions:1">212686646</site>	<item>
+		<title>Click Fraud Beyond Bots: Why Better Models Are Not Enough</title>
+		<link>https://cacm.acm.org/blogcacm/click-fraud-beyond-bots-why-better-models-are-not-enough/</link>
+					<comments>https://cacm.acm.org/blogcacm/click-fraud-beyond-bots-why-better-models-are-not-enough/#respond</comments>
+		
+		<dc:creator><![CDATA[Harshit Agarwal]]></dc:creator>
+		<pubDate>Thu, 22 Oct 2026 15:42:45 +0000</pubDate>
+				<category><![CDATA[Computing Applications]]></category>
+		<category><![CDATA[Data and Information]]></category>
+		<category><![CDATA[Security and Privacy]]></category>
+		<category><![CDATA[Systems and Networking]]></category>
+		<guid isPermaLink="false">https://cacm.acm.org/?p=813676</guid>
+
+					<description><![CDATA[<p>Click fraud has persisted not because detection engineering is inadequate, but because the economic incentives surrounding it reward fraud at every layer of the supply chain.</p>]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">In 2024, advertisers lost more than $100 billion to digital ad fraud, and Juniper Research projects the figure will reach $172 billion by 2028.<sup><a href="#seven">7</a></sup> Click fraud accounts for the largest share of that loss,<sup><a href="#seven">7</a></sup> and absolute costs have climbed relentlessly even as detection has improved. Not because the fraud rate is rising, but because global ad spending has expanded faster than defenses. No other engineering problem of this scale, with this level of sustained investment, has resisted solution for this long. That should give the computing community pause—not about whether detection technology is improving, but about whether detection technology is even the right lever.</p>
+
+
+
+<p class="wp-block-paragraph">The field&#8217;s dominant framing—treat invalid clicks as a classification problem, train a better model, deploy it—is not wrong; it is insufficient. Click fraud has persisted not because detection engineering is inadequate, but because the economic incentives surrounding it reward fraud at every layer of the supply chain. Detection operates on one layer. The incentives operate on all of them.</p>
+
+
+<h3>More Bots, Broken Audits</h3>
+
+
+<p class="wp-block-paragraph">DoubleVerify detected 140% more CTV fraud schemes in Q1 2026 than a year earlier, identifying over 50 distinct bot variants in 2025 alone.<sup><a href="#five">5</a></sup> The newest of these are agentic AI bots that mimic human browsing—scrolling, hesitating, navigating—specifically engineered to defeat the behavioral signals that current detection relies on.<sup><a href="#five">5</a></sup> The measurement problem runs deeper than the fraud itself. A March 2025 Adalytics report described by <em>The Wall Street Journal </em>found that Integral Ad Science labeled known bot traffic as human 77% of the time across a 2019 to 2024 dataset; DoubleVerify missed the same bots 21% of the time.<sup><a href="#one">1</a></sup> DoubleVerify disputed the methodology and filed a defamation suit; a securities class action followed in May 2025.<sup><a href="#four">4</a></sup> But the core implication—that MRC accreditation does not guarantee bot blocking—was not substantively denied. Advertisers paying for third-party verification may be receiving less protection than they believe, and the companies measuring fraud carry the same structural incentive to under-report it that platform operators choose to tolerate.</p>
+
+
+<h3>Three Actors, Three Motives, and One Misconfigured Detector</h3>
+
+
+<p class="wp-block-paragraph">The field treats click fraud as a single problem. It is not. Three distinct actors commit it for entirely different reasons, each requiring a different detection approach. </p>
+
+
+
+<p class="wp-block-paragraph">The first is the platform operator: generating fake traffic through bot networks or click farms costs a fraction of building legitimate traffic, yet earns the same per-click rate. This is rational behavior given the incentive structure, not a technical failure. A classifier trained on this type of fraud will systematically miss the other two.</p>
+
+
+
+<p class="wp-block-paragraph">The second actor is the competitor. In high-CPC (cost per click) categories such as legal, finance, and real estate, a single click can cost $50 to $100,<sup><a href="#three">3</a></sup> and fraudulent clicks can account for up to 30% of total traffic in these verticals.<sup><a href="#three">3</a></sup> Competitors direct bots or click farms at a rival&#8217;s ads to deplete their daily budget, removing them from the auction entirely. A 2025 PPC study found that 50% of marketers attributed nearly half of their fraudulent clicks to competitor activity.<sup><a href="#three">3</a></sup> This variant is particularly hard to detect: it originates from real devices, often in the same geographic market as a legitimate audience. The distinguishing signal tends to be post-click behavior—sabotage clicks bounce immediately, real buyers navigate and linger.</p>
+
+
+
+<p class="wp-block-paragraph">The third actor is the fraudulent affiliate. Affiliate networks pay commission per click or conversion, creating a direct financial incentive for commission theft. Industry estimates place affiliate fraud at approximately 17% of affiliate traffic, costing around $3.4 billion annually.<sup><a href="#ten">10</a></sup> The Honey.com controversy of 2024 to 2025 brought one technique—<a href="https://en.wikipedia.org/wiki/Cookie_stuffing">cookie stuffing</a>—to mainstream attention: the browser extension replaced legitimate affiliate cookies at checkout, claiming commissions on purchases it had no role in generating.<sup><a href="#nine">9</a></sup> More broadly, affiliate cloaking rose from 25% of fraud cases in 2022 to 45% by 2024.<sup><a href="#eleven">11</a></sup> The detection signal is the commission-to-conversion ratio: a fraudulent affiliate accumulates clicks that evaporate before any purchase completes.</p>
+
+
+
+<p class="wp-block-paragraph">A classifier trained on platform-operator bot traffic will miss competitor sabotage—real devices, no purchase intent—and affiliate fraud—real clicks, stolen attribution. One detection system cannot be equally calibrated for all three.</p>
+
+
+
+<h3 class="wp-block-heading">An Arms Race, Not a Classification Problem</h3>
+
+
+
+<p class="wp-block-paragraph">Standard detection trains on known bad traffic and catches what resembles it. Click fraud breaks this: the moment you improve your filter, fraudsters study what gets caught and adjust until they slip back through. Your false-negative rate is their calibration target—they need not defeat your system, only stay outside your detection zone. In practice, this probing tends to leave a trace: test traffic clusters just below your detection threshold, and a sudden spike there is often the first sign someone is mapping your defenses. Sometimes days pass before false-negative rates move. Watching the shape of your score distribution—not just the overall filter rate—turns their reconnaissance into your early warning.</p>
+
+
+
+<p class="wp-block-paragraph">The response is to use multiple independent signals that are hard to defeat simultaneously. Three signals worth combining in practice: click timing variance within a session (bots are either too mechanical or too erratic); scroll depth before clicking (bots head straight to the ad unit; real users wander first); and navigation path entropy (bots take direct routes; organic users meander). Evading one is straightforward; evading all three requires sustained human mimicry that is hard to automate at scale. More fundamentally, the goal is not to raise the detection bar—it is to make it invisible. Any threshold a fraudster can locate becomes one they can calibrate against. Overlapping signals with randomized decision elements make the boundary much harder to find.</p>
+
+
+
+<p class="wp-block-paragraph">Agentic AI bots challenge this directly. A scripted bot fails behavioral detection because its timing is mechanical, its paths direct, its scroll behavior absent. An agentic bot is goal-directed: given the objective &#8216;appear human to this classifier,&#8217; it can observe which sessions get flagged, infer which signals triggered detection, and adapt until it passes. The signals above were calibrated against bots that did not know what was being measured. An agentic bot can learn what is being measured. Timing variance, scroll depth, and navigation entropy each lose their discriminating power the moment the adversary can optimize against them directly. The implication is a shift toward infrastructure signals—network fingerprints, device consistency across sessions, hardware attestation—that operate below the layer a bot&#8217;s learned behavior can influence. The arms race does not end; it moves to a layer that is harder to fake.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>Why the Supply Chain Cannot Fix Itself</strong></h3>
+
+
+
+<p class="wp-block-paragraph">The economics of programmatic advertising reward fraud at every level. When a fraudulent platform operator inflates traffic with fake clicks, their reported numbers—click rates and impression volumes—look better than those of an honest operator who cleaned theirs up. Advertisers following the best-looking metrics send more budget to the fraudster and less to the honest operator, penalizing exactly the behavior that should be encouraged. The middlemen—ad exchanges and supply-side platforms that route transactions between advertisers and platform operators—earn a cut of every transaction regardless of traffic quality, so removing a high-volume fraudulent operator directly hurts their own revenue. Nobody in the chain has a financial reason to fix the problem, and the players with the most visibility into traffic quality have the least incentive to use it. The only pressure that can break this comes from advertisers. Requiring independent verification before spending, and negotiating refunds for confirmed invalid traffic, shifts the cost of fraud back onto the intermediaries who profit from tolerating it.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Platform operators in court.</strong> The pattern is consistent across two decades: the entity with the most visibility into traffic quality has the strongest financial reason not to look too closely. Google settled a click fraud suit for $90 million in 2006.<sup><a href="#eight">8</a></sup> Meta faced a class action over invisible ‘stealth clicks’ charged at full CPC rates.<sup><a href="#two">2</a></sup> In 2026, the FTC sued Amazon, alleging its algorithm extracted an estimated $20 billion from advertisers through artificial auction manipulation.<sup><a href="#six">6</a></sup></p>
+
+
+
+<h3 class="wp-block-heading"><strong>When Traffic Quality Fights Revenue</strong></h3>
+
+
+
+<p class="wp-block-paragraph">Inside every platform, fraud filtering creates an organizational conflict. Removing fake traffic makes reported clicks and sessions fall—which shows up on dashboards as a revenue problem, even when filtering is working exactly as intended. Without a prior agreement, this tends to play out the same way: the fraud team tightens a threshold; the revenue team points to falling numbers; the threshold gets loosened. The fix is a pre-agreed filtering rate that both teams commit to before the quarter begins, a number neither can change alone. When the rate holds, the threshold holds. When it is breached, both teams investigate together. In my experience, this structural alignment matters more than any model improvement: a better model inside a broken organizational structure gets overridden back to the same bad result.</p>
+
+
+
+<p class="wp-block-paragraph">Fixing click fraud requires working on two fronts the industry has treated as separate. On detection: watch how the mix of filtered traffic changes, not just the overall rate; test against fraud the system currently misses, not just what it already catches; and keep the detection boundary hidden so adversaries cannot calibrate against it. On incentives: advertiser pressure for mandatory refunds on confirmed invalid traffic, and regulatory enforcement of the kind the FTC is now pursuing against Amazon. Detection catches fraud after it occurs. Changing incentives removes the motivation to commit it in the first place. Until the incentive front receives the same investment as the detection front, click fraud engineering will remain what it has been for two decades: always improving, never arriving.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Disclosure: </strong>&nbsp;I used generative AI tools for limited editorial assistance, including language refinement and structural review. I independently reviewed and verified the content and references and take full responsibility for the final version.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>References</strong></p>
+
+
+
+<p class="wp-block-paragraph">1. <a href="https://ppc.land/bot-traffic-costing-advertisers-billions-as-fraud-detection-fails-investigation-reveals/">Bot traffic costing advertisers billions as fraud detection fails, investigation reveals</a>. <em>PPC Land</em> (2025).</p>
+
+
+
+<p class="wp-block-paragraph">2. ClassAction.org. <a href="https://www.classaction.org/blog/facebook-inflates-cpc-ad-prices-by-stealth-clicking-on-the-ads-itself-class-action-says">Facebook Inflates CPC Ad Prices by ‘Stealth’ Clicking on the Ads Itself, Class Action Says</a>. (2024). </p>
+
+
+
+<p class="wp-block-paragraph">3. ClickPatrol. <a href="https://clickpatrol.com/ppc-click-fraud-study-2025-key-statistics-industr/">PPC Click Fraud Study 2025: Key Statistics, Industry Insights, and Prevention Strategies</a> (2025). </p>
+
+
+
+<p class="wp-block-paragraph">4.  <a href="https://www.mediapost.com/publications/article/405901/doubleverify-sues-adalytics-jury-trial-demanded.html">DoubleVerify Sues Adalytics, Jury Trial Demanded</a>, <em>MediaPost</em> (May 16, 2025); <a href="https://classactionlawyertn.com/doubleverify-class-action-lawsuit-55561/">DoubleVerify Class Action Lawsuit: Shareholder Portfolio Decimation After the Truth Emerges.</a> <em>ClassActionLawyerTN</em> (2025).</p>
+
+
+
+<p class="wp-block-paragraph">5. DoubleVerify. Must-CTV: Streaming’s Shift From Promise to Performance (2026 Global Insights Report). Summarized in <a href="https://ppc.land/ctv-fraud-schemes-up-140-as-ai-arms-both-sides-of-the-fight/">CTV fraud schemes up 140% as AI arms both sides of the fight</a>. <em>PPC Land</em> (2026). </p>
+
+
+
+<p class="wp-block-paragraph">6. <a href="https://www.cnbc.com/2026/08/31/amazon-ftc-lawsuit-advertisers.html">FTC sues Amazon, accusing the e-commerce giant of misleading advertisers</a>. <em>CNBC</em> (August 31, 2026).</p>
+
+
+
+<p class="wp-block-paragraph">7. Juniper Research. <a href="https://s3.amazonaws.com/media.mediapost.com/uploads/Ad-Fraud-Whitepaper_Juniper-Research.pdf">Quantifying the Cost of Ad Fraud: 2023–2028</a>. Research whitepaper (2024). </p>
+
+
+
+<p class="wp-block-paragraph">8. <a href="https://searchenginewatch.com/2006/03/08/google-agrees-to-90-million-settlement-in-class-action-lawsuit-over-click-fraud/">Google Agrees To $90 Million Settlement In Class Action Lawsuit Over Click Fraud</a>. <em>Search Engine Watch</em> (March 8, 2006).</p>
+
+
+
+<p class="wp-block-paragraph">9. PPC Land. <a href="https://ppc.land/honey-drops-to-14-million-chrome-users-amid-ongoing-affiliate-scandal/">Honey drops to 14 million Chrome users amid ongoing affiliate scandal</a> (2025). </p>
+
+
+
+<p class="wp-block-paragraph">10. TrafficGuard. <a href="https://www.trafficguard.ai/blog/the-state-of-affiliate-fraud">The State of Affiliate Fraud in 2025</a> (2025). </p>
+
+
+
+<p class="wp-block-paragraph">11. <a href="https://searchengineland.com/affiliate-cloaking-is-behind-45-of-fraud-heres-how-to-beat-it-460868">Affiliate cloaking is behind 45% of fraud—here’s how to beat it</a>. <em>Search Engine Land</em> (2025).</p>
+
+
+
+<figure class="wp-block-image"><img fetchpriority="high" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/10/Harshit-Agarwal.101426.BLOG-350.jpg" alt="Harshit Agarwal" class="wp-image-813891" srcset="https://cacm.acm.org/wp-content/uploads/2026/10/Harshit-Agarwal.101426.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/10/Harshit-Agarwal.101426.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/10/Harshit-Agarwal.101426.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
+
+
+
+<p class="wp-block-paragraph"><em><strong>Harshit Agarwal </strong>is a Staff Software Engineer at eBay Inc., leading eBay&#8217;s seller monetization platform that powers pricing, fee management, and financial integrity for sellers and buyers across global eCommerce. With over 14 years in the industry, research spanning marketplace monetization and agentic AI systems, and a first-place win at eBay&#8217;s company-wide Invent Week Hackathon, he specializes in large-scale platform engineering, monetization system design, and applied AI—shaping the commercial infrastructure of global online marketplaces.&#8221;</em></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://cacm.acm.org/blogcacm/click-fraud-beyond-bots-why-better-models-are-not-enough/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">813676</post-id>	</item>
+		<item>
 		<title>A Research Agenda for the Economics of Transformative AI</title>
 		<link>https://cacm.acm.org/research/a-research-agenda-for-the-economics-of-transformative-ai/</link>
 					<comments>https://cacm.acm.org/research/a-research-agenda-for-the-economics-of-transformative-ai/#respond</comments>
@@ -571,7 +726,7 @@
 
 
 
-<figure class="wp-block-image"><img fetchpriority="high" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/10/Morissa-Schwartz.100926.BLOG-350.jpg" alt="Morissa Schwartz" class="wp-image-813872" srcset="https://cacm.acm.org/wp-content/uploads/2026/10/Morissa-Schwartz.100926.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/10/Morissa-Schwartz.100926.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/10/Morissa-Schwartz.100926.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
+<figure class="wp-block-image"><img decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/10/Morissa-Schwartz.100926.BLOG-350.jpg" alt="Morissa Schwartz" class="wp-image-813872" srcset="https://cacm.acm.org/wp-content/uploads/2026/10/Morissa-Schwartz.100926.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/10/Morissa-Schwartz.100926.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/10/Morissa-Schwartz.100926.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
 
 
 
@@ -1001,7 +1156,7 @@
 
 
 
-<figure class="wp-block-image size-large"><img decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/09/Abhilash-Rao-Mesala.100126.BLOG-350.jpg?w=350" alt="Abhilash Rao Mesala" class="wp-image-813363" srcset="https://cacm.acm.org/wp-content/uploads/2026/09/Abhilash-Rao-Mesala.100126.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/09/Abhilash-Rao-Mesala.100126.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/09/Abhilash-Rao-Mesala.100126.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/09/Abhilash-Rao-Mesala.100126.BLOG-350.jpg?w=350" alt="Abhilash Rao Mesala" class="wp-image-813363" srcset="https://cacm.acm.org/wp-content/uploads/2026/09/Abhilash-Rao-Mesala.100126.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/09/Abhilash-Rao-Mesala.100126.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/09/Abhilash-Rao-Mesala.100126.BLOG-350.jpg?resize=300,300 300w" sizes="auto, (max-width: 350px) 100vw, 350px" /></figure>
 
 
 
@@ -1086,70 +1241,5 @@
 		      <dc:creator><![CDATA[Shriram Krishnamurthi]]></dc:creator>
       <dc:creator><![CDATA[Michael Littman]]></dc:creator>
 <post-id xmlns="com-wordpress:feed-additions:1">813406</post-id>	</item>
-		<item>
-		<title>When Will AI Cross the Human-Independence Threshold?</title>
-		<link>https://cacm.acm.org/opinion/when-will-ai-cross-the-human-independence-threshold/</link>
-					<comments>https://cacm.acm.org/opinion/when-will-ai-cross-the-human-independence-threshold/#respond</comments>
-		
-		<dc:creator><![CDATA[Shaoshan Liu]]></dc:creator>
-		<pubDate>Mon, 19 Oct 2026 15:22:14 +0000</pubDate>
-				<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
-		<category><![CDATA[Computing Profession]]></category>
-		<category><![CDATA[HCI]]></category>
-		<category><![CDATA[Software Engineering and Programming Languages]]></category>
-		<guid isPermaLink="false">https://cacm.acm.org/?post_type=digital-library&#038;p=813247</guid>
-
-					<description><![CDATA[<p>AI crosses the human-independence threshold when intentional human action is no longer an indispensable part of the causal network required for AI persistence and reproduction.</p>]]></description>
-										<content:encoded><![CDATA[<article>
-<div class="body" lang="en">
-<section id="sec1" class="sec">
-<p id="p-1"><strong>Shaoshan Liu</strong><br /><strong>When Does AI Stop Needing Us?</strong><br /><strong>DOI: 10.1145/3849865</strong><br /><a class="ext-link" href="https://bit.ly/4hnGWbA" data-jats-ext-link-type="uri"><strong>https://bit.ly/4hnGWbA</strong></a></p>
-<p id="p-5">In <i>Sapiens: A Brief History of Humankind</i>, Yuval Noah Harari popularized a deliberately unsettling way to describe the Agricultural Revolution: perhaps humans did not simply domesticate wheat; wheat domesticated humans. Humans cleared fields, carried water, guarded crops, and reorganized settlements around a plant that, in evolutionary terms, became spectacularly successful. Wheat did not need intention; it only needed humans to keep choosing, planting, and spreading it.<a class="reference-link xref xref-bibr" href="#B1" data-jats-ref-type="bibr" data-jats-rid="B1"><sup>3</sup></a></p>
-<p id="p-6">Artificial intelligence invites a similar analogy. We build the datacenters, produce the chips, generate the training data, write the prompts, correct the outputs, pay for the compute, and embed AI into schools, companies, hospitals, and governments. The systems that attract more use receive more data, capital, compute, and deployment. Human adoption becomes part of their selection environment. No survival instinct is required; selection can operate through what humans choose to deploy.</p>
-<p id="p-7">But the wheat analogy hides a more important question: What happens if the cultivated system eventually no longer needs the cultivator?</p>
-</section>
-<section id="sec2" class="sec">
-<h2 class="heading">From Replication to Reproductive Closure</h2>
-<p id="p-8">The idea of machines reproducing is old. Samuel Butler speculated about machine evolution in 1863.<sup>1</sup> John von Neumann later developed a formal theory of self-reproducing automata.<a class="reference-link xref xref-bibr" href="#B3" data-jats-ref-type="bibr" data-jats-rid="B3"><sup>11</sup></a> Roboticists have studied machines that could reproduce from increasingly basic physical inputs, including raw materials.<a class="reference-link xref xref-bibr" href="#B4" data-jats-ref-type="bibr" data-jats-rid="B4"><sup>5</sup></a></p>
-<p id="p-9">Today’s AI-safety research makes the question concrete. METR’s work on autonomous replication and adaptation asks whether an AI agent can acquire resources, create copies, and persist.<a class="reference-link xref xref-bibr" href="#B5" data-jats-ref-type="bibr" data-jats-rid="B5"><sup>4</sup></a> Google DeepMind has evaluated “self-proliferation” as a dangerous capability.<a class="reference-link xref xref-bibr" href="#B6" data-jats-ref-type="bibr" data-jats-rid="B6"><sup>8</sup></a> RepliBench decomposes autonomous replication into obtaining resources, acquiring model weights, deploying copies onto compute, and persisting there; in its 2025 evaluation, frontier systems completed many components but did not reliably close the loop.<a class="reference-link xref xref-bibr" href="#B7" data-jats-ref-type="bibr" data-jats-rid="B7"><sup>2</sup></a></p>
-<p id="p-10">These are important thresholds. But replication is not independence.</p>
-<p id="p-11">An AI that copies itself to 1,000 cloud servers still depends on humans if people operate the cloud, maintain the power grid, and replace failed hardware. The copies may be autonomous at the software layer, while remaining evolutionarily dependent at the system layer.</p>
-<p id="p-12">The sharper question is therefore not: Can AI replicate? It is: Can AI reproduce the conditions of its own reproduction?</p>
-</section>
-<section id="sec3" class="sec">
-<h2 class="heading">Where AI Still Needs Humans</h2>
-<p id="p-13">Think of AI proliferation as a dependency graph. A viable AI ecology needs a chain of functions: resource acquisition, energy, compute, operation, maintenance, replication, adaptation, and eventually replacement of failed physical components.</p>
-<p id="p-14">Today, human agency sits inside that graph everywhere. Remove enough human nodes and the loop breaks.</p>
-<p id="p-15">This suggests a stricter threshold. Call it the human-independence threshold: AI crosses it when intentional human action is no longer an indispensable part of the causal network required for AI persistence and reproduction.</p>
-<p id="p-16">For AI, that could require much more than software self-copying. Agents might need to acquire compute and energy; diagnose and repair infrastructure; coordinate robotic maintenance; manage supply chains; manufacture replacement machines; and generate, test, and deploy successor systems. The unit that becomes independent may not be a single model. It may be an ecology of models, agents, robots, factories, networks, and energy systems.</p>
-<p id="p-17">This is why embodied AI and physical infrastructure matter to a question usually framed as software safety.</p>
-</section>
-<section id="sec4" class="sec">
-<h2 class="heading">Beyond Coevolution</h2>
-<p id="p-18">Recent work already points toward the surrounding pieces. Pedreschi and colleagues describe human-AI coevolution as a feedback loop in which human choices generate data that shape AI, which then reshapes human choices.<a class="reference-link xref xref-bibr" href="#B8" data-jats-ref-type="bibr" data-jats-rid="B8"><sup>7</sup></a> Rainey and Hochberg ask whether deep interdependence could eventually make humans and AI a new evolutionary individual.<a class="reference-link xref xref-bibr" href="#B9" data-jats-ref-type="bibr" data-jats-rid="B9"><sup>9</sup></a> Müller, Steels, and Szathmáry distinguish a human-controlled “breeder” regime from an AI “ecosystem” regime in which selection increasingly arises from the environment rather than human design.<a class="reference-link xref xref-bibr" href="#B10" data-jats-ref-type="bibr" data-jats-rid="B10"><sup>6</sup></a> Ulrich’s “Digital Darwinism” similarly considers replication, variation, selection, and replication-rate thresholds for artificial populations.<a class="reference-link xref xref-bibr" href="#B11" data-jats-ref-type="bibr" data-jats-rid="B11"><sup>10</sup></a></p>
-<p id="p-19">The missing distinction is between loss of control and loss of necessity. Humans may lose control of an AI system while remaining essential to its survival. Conversely, the most consequential transition may occur without a dramatic moment of superintelligence: human civilization could simply automate, one by one, the functions through which AI currently depends on us.</p>
-<p id="p-20">That creates a possible dependency inversion. At first, AI depends heavily on humans and humans depend little on AI. As AI becomes embedded in cognition, organizations, and infrastructure, human dependence can rise. At the same time, automation can reduce AI’s dependence on human labor, judgment, maintenance, and eventually production.</p>
-<p id="p-21">The two curves need not cross at AGI. Intelligence and evolutionary independence are different thresholds.</p>
-</section>
-<section id="sec5" class="sec">
-<h2 class="heading">The Threshold We Should Measure</h2>
-<p id="p-22">This reframes an important part of AI safety. Instead of asking only how capable a model is, we should map which human functions remain indispensable to its continued proliferation.</p>
-<p id="p-23">Which human interventions are still hard dependencies? Which are merely convenient? Which can already be automated? How quickly is the minimum human support set shrinking?</p>
-<p id="p-24">A practical assessment could track dependence across compute, energy, maintenance, networking, manufacturing, and physical action. The goal would be to identify whether the reproduction graph is approaching closure without human agency.</p>
-<p id="p-25">That is a systems question, and potentially a measurable one.</p>
-<p id="p-26">Harari’s wheat prospered because humans reorganized their lives around its cultivation. Yet wheat never escaped its dependency. It could not build irrigation systems, repair tractors, acquire land, or redesign the machinery of agriculture. Its evolutionary success remained coupled to ours.</p>
-<p id="p-27">AI may begin the same way: cultivated by humans, nourished by human cognition, and propagated because humans find it useful. But if it can eventually maintain and reproduce the infrastructure that makes its own continuation possible, the analogy ends exactly where the deeper question begins.</p>
-<p id="p-28">AI is not wheat.</p>
-</section>
-</div>
-<footer class="back"></footer>
-</article>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://cacm.acm.org/opinion/when-will-ai-cross-the-human-independence-threshold/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-		<post-id xmlns="com-wordpress:feed-additions:1">813247</post-id>	</item>
 	</channel>
 </rss>
