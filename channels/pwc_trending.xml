@@ -4,7 +4,18 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 23 Oct 2026 02:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 03:00:00 GMT</lastBuildDate>
+    <item>
+      <title>DecisionPivot: A Diagnostic Benchmark for Decision Models in LLM Systems</title>
+      <link>https://arxiv.org/abs/2610.28522</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.28522</guid>
+      <description>Decision models support routing, guardrails, and output verification in LLM systems. However, item accuracy alone cannot establish whether models make correct decisions across controlled variations or assign reliable confidence to their predictions. We introduce DecisionPivot, a diagnostic benchmark comprising 48 tasks and 40,033 items across seven decision roles. Its core track contains 7,800 items from 13 generated task families, organized into contrast groups with computed answers verified by independently implemented solvers. The complementary reference track contains 32,233 items from 35 public test sets, preserving their original evaluation metrics. We evaluate 40 decision models and 14 general models using documented, model-specific protocols, assessing item and contrast-group accuracy, probability ordering, calibration, and empirical selective coverage. Our results reveal substantial differences obscured by aggregate scores: two 27B models separated by only 2.6 points on the reference track achieve contrast-group accuracies of 70.1% and 44.2%. Across 2,400 binary contrast pairs, Perplexity Decider correctly ranks the positive member above the negative member in 92.3% of pairs but answers both members correctly in only 74.1%, exposing a gap between probability ordering and decision correctness. Models with similar item accuracy also differ in the reliability of their high-confidence predictions. On a separate 1,296-item subset, GLM-5.3 achieves 93.5\% contrast-group accuracy at a higher reasoning setting, compared with 81.5% at its lowest effort. By linking errors to pivotal details and difficulty levels, DecisionPivot provides fine-grained diagnostics of decision failures that aggregate evaluation alone cannot reveal.
+
+Authors: Caspian Zhuang, Mingcong Lei, Zunhai Su, Ri Liu, Jianjin Li, Peixian Ma, Jia Pan, Ngai Wong, Guanhua Chen, Chuan-Wei Kuo
+
+Code: https://github.com/StartLuxLabs/DecisionPivot</description>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Scaling in Games: Continued Pre-Training For Embodied Agents In Diverse Virtual Worlds</title>
       <link>https://arxiv.org/abs/2610.28698</link>
@@ -17,45 +28,6 @@ Tasks: Agents
 
 Code: https://github.com/THUSI-Lab/GameScaling</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Looking Ahead: Modeling Future Evolution in Autoregressive Video Generation</title>
-      <link>https://arxiv.org/abs/2610.29989</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.29989</guid>
-      <description>Autoregressive video diffusion models generate videos chunk by chunk, yet producing plausible continuations does not guarantee that they capture how scenes evolve. Under teacher forcing, strong temporal redundancy may allow local visual continuity to serve as a shortcut for current-chunk denoising, reducing the pressure to model visual evolution. We introduce Future Chunk Prediction (FCP), an auxiliary objective jointly optimized with teacher-forced denoising that predicts temporally separated chunks without access to the intervening visual context. Drawing supervision directly from training videos, FCP requires no additional pretrained visual encoder and leaves autoregressive inference unchanged. Our method achieves superior physical plausibility over standard teacher-forced autoregressive training with a lower overall training compute budget, highlighting the effectiveness and efficiency of future-chunk supervision for modeling visual evolution. Intriguingly, our visualizations suggest that FCP fosters a more structured representation space, which may be valuable for building autoregressive world models.
-
-Authors: Ruopeng Gao, Yukun Huang, Jiarui Hu, Shuai Wang, WENBO HU, Ying Shan, Limin Wang
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/TencentARC/Looking-Ahead</description>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>StreamEval: Evaluating Interactive Streaming Video Generation Models</title>
-      <link>https://arxiv.org/abs/2610.28402</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.28402</guid>
-      <description>As streaming video generation advances, enabling real-time interaction with generated video is becoming increasingly important. We introduce StreamEval, a unified benchmark for interactive streaming video generation spanning five tasks: avatar dialogue, avatar performance, world generation, instruction editing, and reference editing. StreamEval comprises 300 scripted test cases lasting 15-300s, each specifying initial assets, incrementally arriving multimodal requests, and explicit requirements for state changes and content preservation. Performance is assessed along four evaluation dimensions: task execution, state consistency, visual fidelity, and audiovisual coordination, instantiated through ten task-specific metrics on a 0-100 scale. Evaluating 37 distinct models across 300 test cases, we find that high visual quality and identity retention do not necessarily coincide with reliable request execution or sustained state consistency. In particular, request execution remains challenging: the highest task-specific scores are 36.90 for Following among seven avatar-performance models, 25.93 for Following in text-conditioned world generation, and 15.00 for Edit Success among three reported reference-editing models. These findings identify reliable request execution under timing and preservation constraints as a central challenge for advancing omni-modal real-time interactive systems. The leaderboard is available at https://streameval.ai
-
-Authors: StreamEval Team
-
-Tasks: Omni models, Video Editing, Video generation
-
-Code: https://github.com/StreamEval/StreamEval</description>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>HandsOn: A Large-Scale Simulation Benchmark for Generalizable Dexterous Manipulation</title>
-      <link>https://arxiv.org/abs/2610.26765</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.26765</guid>
-      <description>General-purpose manipulation requires reliable behavior across embodiments, objects, and task demands. We introduce HandsOn, a composable simulation platform and benchmark for cross-embodiment dexterous manipulation. It supports five robotic arms, six dexterous hands, and approximately 200 rigid, articulated, and deformable assets in randomized scenes. The benchmark pairs 18,000 curated human demonstrations with 66 human-verified tasks: Core-50 supports demonstration-based learning and execution tests, while Transfer-16 evaluates asset and relation transfer, skill composition, and deformable manipulation without target-task training demonstrations. Qualitative real-robot rollouts illustrate sim-to-real transfer. Across diffusion, vision-language-action, world-action, and prompted VLM-based methods, the best trained multi-task policy achieves 29.1% Core-50 success. Without benchmark finetuning, GPT-6 using move_eef for palm-and-finger control achieves 5.2% on Core-50 and 1.9% on Transfer-16 over 660 trials. Trained-policy stage diagnostics expose failures in contact establishment, action coordination, and maintaining achieved goals, with additional sequencing errors in composed tasks. HandsOn provides a shared basis for investigating manipulation generalization and the limits of reliable physical interaction.
-
-Authors: Tianwei Luo, Yiming He, Hongjin Wu, Ting Pan, Debin Ren, Haorui Guo, Junlin Yang, Yuxin Zuo, Zhehao Kou, Kaisen Yang, Zhuoqun Lai, Yi Ding, Jiale Yu, Yuchen Zhang, Zijie Qiu, Haozhan Li, Ning Ding
-
-Tasks: Robotics
-
-Code: https://github.com/TsinghuaC3I/HandsOn</description>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>MemT-1.0: Towards Memory-Native Evolution</title>
@@ -71,56 +43,17 @@ Code: https://github.com/MemTensor/MemT-1.0</description>
       <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SolarRenderer: Few-Step Generative Reference Rendering</title>
-      <link>https://arxiv.org/abs/2610.28630</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.28630</guid>
-      <description>Game engines and coding agents can specify the layout, motion, and camera of a scene, yet turning such coarse structure into realistic video requires a renderer that follows the structure and completes the appearance it leaves open. Existing renderers are tied to the representation of one engine, need tens of denoising steps or a costly distillation of their own, and learn from conditions that are not aligned with their target videos. We present SolarRenderer, a structure-conditioned video renderer that adapts a frozen MiniMax-H3 33B backbone with two lightweight LoRAs. Structural videos enter the native reference pathway of the backbone at the positions of the frames they describe, without a type identifier and described only in plain text, so that a single control LoRA follows arbitrary structural representations. Starting from a pretrained four-step LoRA, structure-guided distribution matching renders in four steps, 12.3 times faster than 50-step sampling, while preserving the learned control. A block-causal variant extends the same design to streaming and renders 768p video in real time. To train the model, we build a frame-aligned corpus of 136K clips from game engines, simulators, and YouTube videos. Experiments on an in-distribution test set and a generalization benchmark of 16 structural representations show that SolarRenderer achieves state-of-the-art results across both, and generalizes to 11 unseen representations, including pose skeletons, drawings, and point clouds.
+      <title>StreamEval: Evaluating Interactive Streaming Video Generation Models</title>
+      <link>https://arxiv.org/abs/2610.28402</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.28402</guid>
+      <description>As streaming video generation advances, enabling real-time interaction with generated video is becoming increasingly important. We introduce StreamEval, a unified benchmark for interactive streaming video generation spanning five tasks: avatar dialogue, avatar performance, world generation, instruction editing, and reference editing. StreamEval comprises 300 scripted test cases lasting 15-300s, each specifying initial assets, incrementally arriving multimodal requests, and explicit requirements for state changes and content preservation. Performance is assessed along four evaluation dimensions: task execution, state consistency, visual fidelity, and audiovisual coordination, instantiated through ten task-specific metrics on a 0-100 scale. Evaluating 37 distinct models across 300 test cases, we find that high visual quality and identity retention do not necessarily coincide with reliable request execution or sustained state consistency. In particular, request execution remains challenging: the highest task-specific scores are 36.90 for Following among seven avatar-performance models, 25.93 for Following in text-conditioned world generation, and 15.00 for Edit Success among three reported reference-editing models. These findings identify reliable request execution under timing and preservation constraints as a central challenge for advancing omni-modal real-time interactive systems. The leaderboard is available at https://streameval.ai
 
-Authors: Guian Fang, Shengju Qian, Dongyue Lu, Junchao Huang, Lutao Jiang, Xin Wang, Yiren Song, Li Jiang, Mike Zheng Shou
+Authors: StreamEval Team
 
-Tasks: Coding Agents, Video generation
+Tasks: Omni models, Video Editing, Video generation
 
-Code: https://github.com/Enderfga/SolarRenderer</description>
+Code: https://github.com/StreamEval/StreamEval</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>HarnessPro: Recursive Harness Self-Improvement with Pareto Optimization for Performance-Cost Trade-offs</title>
-      <link>https://arxiv.org/abs/2610.26770</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.26770</guid>
-      <description>Harness development plays a crucial role in building capable AI agents. Recent approaches improve harnesses through recursive self-improvement (RSI), but their performance gains often come with higher execution costs. We introduce HarnessPro, a label-free method for evolving harnesses to improve task performance while reducing execution cost. In this setting, candidate harnesses are evaluated using LLM-generated tests without access to ground-truth solutions or official tests. Specialized agents diagnose execution trajectories, plan updates with different performance-cost priorities, and implement them as candidate harnesses. Rather than returning a single harness, HarnessPro uses normalized weighted squared-distance selection to provide cost-focused (lite), balanced (medium), and performance-focused (heavy) harnesses for different deployment budgets. Selected harnesses enter the next iteration, where execution feedback guides further updates. Our experiments cover Terminal-Bench 2, SWE-Bench Pro, and ProgramBench, using GPT-5.5 with Codex and GLM-5.2 with Claude Code. Across these benchmarks using GPT-5.5 with Codex, the heavy mode of HarnessPro achieves an average pass-rate gain of 2.0 percentage points and an average per-task cost reduction of 26.1% relative to RHO. This advantage also holds when using GLM-5.2 with Claude Code. Code is available at https://github.com/pzs19/HarnessPro
-
-Authors: Zhuoshi Pan, Zhiyuan Feng, Yukuo Cen, Honglin Lin, Junru Lu, Zhongxia Chen, Shuo Yang, H. Vicky Zhao, Jie Tang
-
-Tasks: Agents, Coding Agents
-
-Code: https://github.com/pzs19/HarnessPro</description>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>FrontierCS 2: A Benchmark for Computer Science R&amp;D</title>
-      <link>https://arxiv.org/abs/2610.29932</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.29932</guid>
-      <description>Can LLM agents make contributions to frontier computer science R&amp;D? We introduce FrontierCS 2, a benchmark of 48 open-ended tasks. We take a paper and the code its authors released and delete the paper's contribution. The deleted code becomes the human reference that sets the bar. Earlier open-ended benchmarks give each agent a problem statement and grade one program after the run. FrontierCS 2 places the agent inside a research environment. The agent inherits a working repository and may submit a patch at any point. For each patch, a judge returns a development-suite score but keeps the evaluator, the held-out final suite and the reference private, and grades the final submission on that suite against the reference. The tasks span 13 domains, from machine-learning systems and high-performance computing to databases, security and robotics. Beyond these 48 tasks, FrontierCS 2 keeps a private set of more than 100 tasks, to be announced in the future. We evaluate 12 agents. The best one is Claude Opus 5.5, passing 58% of its runs. No run passes on 16 tasks. A higher score is not the same as a pass: most runs that beat the reference on the combined final score still fall short on some metric or workload. On a shared capability scale for agents and tasks, the median task is roughly as difficult as what the strongest agent can handle.
-
-Authors: Qiuyang Mang, Wenhao Chai, Runyuan He, Dongruixuan Li, Zihan Zheng, Yujun He, Xuanyi Zhou, Hao Wang, Siddhant Ray, Bo Peng, Ruyi Ji, Shuo Yang, Haocheng Xi, Boru Chen, Xinyang David Han, Melissa Pan, Mayank Mishra, Boxi Yu, Sijia Liu, Kerem Akillioglu, Yi Pan, Zirui Wang, Mert Cemri, Diogo Antunes, Yichuan Wang, Aiwei Ivy Zhang, Zhenyang Chen, Qizheng Zhang, Kaiyuan Liu, Wenyuan Huang, Sherry Ruan, Shu Liu, Dacheng Li, Zerui Cheng, Zeyu Shen, Shang Zhou, Hanfei Chen, Yuzhong Zhang, Bohan Lyu, Qu Ao, Han Zheng, Chonghe Jiang, Jingzhuo Hu, Xiaokun Chen, Kunjun Li, Zhiqing Zhong, Haoye Tian, Tong Zhao, Yunzhong He, Hanchen Li, Ofir Press, Jiantao Jiao, Kunle Olukotun, Karthik R. Narasimhan, Jingbo Shang, Koushik Sen, Matei Zaharia, Alex Dimakis, Ion Stoica, Joseph E. Gonzalez, Alvin Cheung
-
-Tasks: Coding Agents
-
-Code: https://github.com/FrontierCS/FrontierCS-2</description>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Harness Scaling for Generalizable Agentic Reinforcement Learning</title>
-      <link>https://arxiv.org/abs/2610.29458</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.29458</guid>
-      <description>Agent harnesses have become a central component of modern agentic systems, shaping how models use tools, manage context, and coordinate long-horizon interaction. Realizing the benefits of these harnesses depends on how effectively the underlying model can make use of them, motivating reinforcement learning directly through the harness. However, existing approaches typically train through a single fixed harness, which can lead to specialization and limited transfer across harness configurations. To address this, we introduce Harness Scaling, a new scaling dimension for agentic RL that extends training from a single harness to diverse execution configurations. Concretely, we construct a factorized harness space, select a compact training subset with balanced factorial coverage, and organize cross-harness training to combine global coverage with controlled variation for the same task. Across multiple benchmarks, model scales, and RL algorithms, Harness Scaling consistently improves generalization to unseen white-box configurations. Moreover, models trained through structured white-box variation transfer effectively to unseen external black-box harnesses, outperforming models trained through a single complex black-box harness. These results establish harness diversity as a meaningful scaling dimension for agentic RL and highlight the importance of how this diversity is organized for cross-harness generalization.
-
-Authors: Fei Bai, Huatong Song, Chuan Hao, Ran Tao, Jian Yang, Bryan Dai, Wayne Xin Zhao, Ji-Rong Wen
-
-Tasks: Agents, Reinforcement Learning
-
-Code: https://github.com/RUCAIBox/Harness-Scaling</description>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Matrix-Game 4.0: Harnessing Video Models for Real-Time Playable Game Worlds</title>
@@ -136,43 +69,43 @@ Code: https://github.com/SkyworkAI/Matrix-Game</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>DONIC: Generalist Dexterous Bimanual Tracking Control from Human Demonstrations</title>
-      <link>https://arxiv.org/abs/2610.29997</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.29997</guid>
-      <description>Despite recent progress in dexterous reference tracking, existing models focus primarily on single-hand manipulation and a limited range of interactions, leaving the bimanual dexterous behaviors common in real life unaddressed. The scarcity of contact-rich bimanual manipulation data and the increased complexity of coordinating contacts make developing a generalist bimanual tracker particularly challenging. Therefore, we present 1) DONIC, the first generalist bimanual tracker jointly trained across operation categories and human-motion sources, together with 2) BiHOI, a multi-view dataset of 1,575 sequences spanning 229 objects and emphasizing sustained bimanual interaction, where reconstructed interactions are retargeted into robot references. DONIC combines proximal policy optimization with behavioral cloning in a feedback loop that recycles verified successful executions into training demonstrations. An object-centered per-hand reward maintains object-motion feedback while supervising each hand according to its reference contact role. Clip-Centered Advantages remove reference-dependent advantage offsets while preserving within-trajectory differences. Together, these designs enable one single policy to learn coordinated manipulation across heterogeneous references. Without finetuning, a single checkpoint achieves 86.79% success on unseen trajectories of training objects and 57.32% on held-out objects, surpassing the state-of-the-art bimanual tracking baselines by 77.36 and 45.73 percentage points.
+      <title>SolarRenderer: Few-Step Generative Reference Rendering</title>
+      <link>https://arxiv.org/abs/2610.28630</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.28630</guid>
+      <description>Game engines and coding agents can specify the layout, motion, and camera of a scene, yet turning such coarse structure into realistic video requires a renderer that follows the structure and completes the appearance it leaves open. Existing renderers are tied to the representation of one engine, need tens of denoising steps or a costly distillation of their own, and learn from conditions that are not aligned with their target videos. We present SolarRenderer, a structure-conditioned video renderer that adapts a frozen MiniMax-H3 33B backbone with two lightweight LoRAs. Structural videos enter the native reference pathway of the backbone at the positions of the frames they describe, without a type identifier and described only in plain text, so that a single control LoRA follows arbitrary structural representations. Starting from a pretrained four-step LoRA, structure-guided distribution matching renders in four steps, 12.3 times faster than 50-step sampling, while preserving the learned control. A block-causal variant extends the same design to streaming and renders 768p video in real time. To train the model, we build a frame-aligned corpus of 136K clips from game engines, simulators, and YouTube videos. Experiments on an in-distribution test set and a generalization benchmark of 16 structural representations show that SolarRenderer achieves state-of-the-art results across both, and generalizes to 11 unseen representations, including pose skeletons, drawings, and point clouds.
 
-Authors: Mingze Sun, Ziang Cao, Yuan Fei, Qiankuan Tao, Zihan Wang, Tianqi Liu, Junhao Chen, Haiwen Diao, Fangzhou Hong, Zhaoxi Chen, Ziwei Liu
+Authors: Guian Fang, Shengju Qian, Dongyue Lu, Junchao Huang, Lutao Jiang, Xin Wang, Yiren Song, Li Jiang, Mike Zheng Shou
 
-Tasks: Robotics
+Tasks: Coding Agents, Video generation
 
-Code: https://github.com/Ropedia/DONIC</description>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Focused Omni-Modal GUI Agents</title>
-      <link>https://arxiv.org/abs/2610.26203</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.26203</guid>
-      <description>Graphical User Interface (GUI) agents increasingly act over streaming omni-modal observations spanning screenshots, audio, video, interaction history, and device states. However, exposing this complete context uniformly at every step ignores that relevance is transient and sparse: the signal determining one action can become clutter at the next. Because executed actions feed back into the context, these errors compound into Sequential Distraction, driving the agent into irreversible trajectory drift. We formulate the underlying requirement as Focused Perception: a representation that is step-adaptive, action-sufficient, and non-intrusive. We realize this in FocusGUI, a lightweight adapter that dynamically prioritizes multimodal channels against a step-specific decision reference. Instead of uniformly processing all inputs, it compresses the most relevant evidence into a compact latent and subtly injects it into the frozen decoder's embeddings, guiding the model's attention without altering its native parameter space. FocusGUI trains from action supervision alone, requiring neither modality-relevance labels nor backbone fine-tuning. Across four omni-modal backbones, it raises overall Type Match by +33.2 and Exact Match by 3.0 times over the frozen backbone on average, and Type Match by +30.1 over the strongest existing enhancement method.
-
-Authors: Fuyao Zhang, Wenwen He, Jiaming Zhang, Yurong Hao, Xuan Wang, Guowei Guan, Che Wang, Longtao Huang, Wei Yang Bryan Lim
-
-Tasks: Computer Use Agents, Omni models
-
-Code: https://github.com/fyzhang1/FocusGUI</description>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?</title>
-      <link>https://arxiv.org/abs/2610.28763</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.28763</guid>
-      <description>Frontier coding agents are increasingly framed as end-to-end automated researchers, and ML for science offers a demanding test of that promise: improving a scientific model often requires domain insight beyond routine ML engineering. We introduce Agent4Sci, a long-horizon testbed for measuring how far today's agents can improve the published best models on scientific ML benchmarks, spanning 20 benchmarks across 11 domains. Rather than ranking agents on a leaderboard, Agent4Sci asks what kinds of progress agents can make on these tasks under in-the-wild conditions, and where they fall short. Empirically, today's frontier agents advance the published best on every benchmark, with Claude Opus reaching 10.4% mean relative improvement and no run flagged for academic misconduct. These gains, however, come almost entirely from a bag of ML-engineering tricks rather than research-level insight. Trajectory analysis surfaces three recurring limitations in this setting: novelty miscalibration, resource under-utilization, and rapid collapse into local engineering sweeps. Lightweight plug-in skills for research ideation, experiment management, and scheduled checklists raise Claude Opus from 10.4% to 20.1% and Codex from 4.4% to 8.1%, while yielding more diverse, domain-relevant interventions. Agent4Sci gives the community a way to track and push frontier agents from ML engineering toward domain insight on real-world ML-for-science problems. Code and data are available on GitHub (https://github.com/maszhongming/agent4sci) and Hugging Face (https://huggingface.co/datasets/MingZhong/agent4sci).
-
-Authors: Ming Zhong, Stacy Li, Nicholas Carlini, Matthew Jagielski
-
-Tasks: Coding Agents, Deep Research Agents
-
-Code: https://github.com/maszhongming/agent4sci</description>
+Code: https://github.com/Enderfga/SolarRenderer</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Large Flow Language Models</title>
+      <link>https://arxiv.org/abs/2610.28559</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.28559</guid>
+      <description>Continuous flow language models offer a path to parallel generation with tools for control and acceleration unavailable to discrete diffusion, yet effective techniques for building them at the billion-parameter scale remain less established. We present Lafa (Large flow language model), a fast, high-performing flow language model scaled to 8B parameters in a data-efficient manner. Lafa is a blockwise flow model with causal attention on the prefix and bidirectional, asynchronous flow within each block. This design enables efficient training by adapting pretrained autoregressive (AR) models and fast inference via prefix caching and blockwise parallel decoding. We train Lafa at 0.5B, 7B, and 8B scales with fewer than 30B tokens, more efficient than previous diffusion models, and evaluate it on instruction following, reasoning, and coding, where the learned flow matches or surpasses the quality of AR and can be distilled into flow maps for one- and few-step generation. Notably, flow training preserves or even improves pretrained AR capabilities via a multi-token prediction effect, which we leverage in a self-speculative decoding scheme that verifies flow-based drafts autoregressively within a single model. This yields 2.54x the throughput of an AR model at comparable quality, outperforming multi-token prediction and discrete diffusion methods. Our findings show that continuous flows can serve as a scalable foundation for language modeling.
+
+Authors: Arnav Chavan, Chanhuyk Lee, Udbhav Bamba, Jaehoon Yoo, Seunghoon Hong, Aditi Raghunathan, Jinwoo Kim
+
+Tasks: Instruction Following, Language Modeling
+
+Code: https://github.com/lafa-gh/large-flow-lms</description>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Agentic World Action Models</title>
+      <link>https://arxiv.org/abs/2610.30136</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.30136</guid>
+      <description>Recent world action models provide visual foresight and future prediction for robot manipulation, but lack explicit mechanisms for compositional skill reuse. Agentic robotics combines code-based planning and reasoning with reusable skills, but often lacks predictive grounding in physical dynamics. We introduce AW-0, an agentic world action model framework that integrates code-based planning with joint video and action prediction. We jointly model code, future video, and robot actions as three coupled generative streams within a unified mixture-of-transformers architecture. Within this architecture a code expert generates parameterized skill routines and control logic while video and action experts generate future visual states and low-level motor commands. Code serves two complementary roles: it structures multi-step prediction and control within the world model and represents skills as reusable programs for subsequent agentic execution. We further introduce an automated curation pipeline that labels robot and human video trajectories with aligned programs and consolidates recurring routines into reusable skill libraries. Evaluations on RoboTwin 2.0 and physical bimanual manipulation tasks show improved task performance over VLA and WAM baselines, alongside gains in language following, semantic reasoning and robustness, demonstrating that agentic code enables connection between planning, prediction and execution within WAMs.
+
+Authors: Zhuoyang Liu, Dantong Niu, Botong Zhang, Boning Shao, Jing Wang, Ruijie Zheng, Yuvan Sharma, Runyu Lu, Jiaming Liu, Renrui Zhang, Roei Herzig, Yutong Bai, Ken Goldberg, Danfei Xu, Yuke Zhu, Guanzhi Wang, Linxi &amp;#34;Jim&amp;#34; Fan, Trevor Darrell
+
+Tasks: Code Generation, Robotics, World Models
+
+Code: https://github.com/zhuoyangliu2005/agentic-wam</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience</title>
@@ -188,16 +121,16 @@ Code: https://github.com/Ropedia/ropedia-w0</description>
       <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Evolving Agent Interfaces</title>
-      <link>https://arxiv.org/abs/2610.28601</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.28601</guid>
-      <description>Computer-use agents are limited by the interfaces humans give them. An agent may type a spreadsheet cell by cell when a single line of code would do, or print all two thousand lines of a file through a shell to find one function. Both the interfaces and the knowledge of when to use each are built by hand, which cannot keep pace with new applications, workflows, and models. We argue that interface design should itself be an agent capability. We introduce Agent S4, an autonomous computer-use scientist that builds Evolving Agent Interfaces from task experience. A meta-agent examines task agents' trajectories on synthetic training tasks, without success labels, and constructs and revises interfaces and usage knowledge in a repository. Population-based evolution then selects which repositories to develop further by their performance on validation tasks the meta-agent never sees, favoring changes that generalize beyond the seen tasks. On OSWorld V2, Agent S4, with Qwen3.8-27B and the evolved repository of interfaces, sets a new state of the art in open-source computer-use agents, reaching 21.3% binary score, 3.8 times the same model with fixed interfaces. This is above both GPT-5.5 (13.0%) and Claude Opus 4.8 (20.6%), at about 4.3% and 1.5% of their respective costs. On ScienceBoard, the evolved interfaces improve the success rate from 41.4% to 58.6% with the same model. These results suggest that useful interfaces can be evolved from experience, making autonomous interface design a source of improvement complementary to advances in models and harnesses. We open-source our code at https://github.com/simular-ai/agent-s.
+      <title>AgenticRoboRL: Bringing Coding-Agent Post-Training to Agentic Robotics</title>
+      <link>https://arxiv.org/abs/2610.28589</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.28589</guid>
+      <description>Agentic robotics systems combine planners with robot harnesses to perform complex manipulation tasks. Recent work improves these systems through better harnesses and external memory, but relies on powerful closed-source models as planners and does not improve the planners' own capabilities. In contrast, coding agents have improved substantially by post-training the model itself. We therefore investigate whether post-training can also improve robot planners. However, applying it across robot harnesses requires accommodating different execution mechanisms, including VLA skill invocation and control-code generation. To this end, we introduce AgenticRoboRL, a framework for post-training robot planners across different harnesses. The training recipe combines supervised fine-tuning with multi-turn reinforcement learning. To accommodate different execution mechanisms, harness-specific adapters connect recorded planner interactions with task outcomes, enabling a common RL training pipeline while keeping execution components fixed. On LIBERO-PRO, AgenticRoboRL raises the success rate of a 9B-parameter planner from 18.1% to 71.0% without external memory, approaching the 72.1% achieved by Codex (GPT-5.5) with external memory. These results demonstrate post-training as an effective approach for improving robot planners. We will release the framework and trained planner checkpoints.
 
-Authors: Saaket Agashe, Yuzhe Yang, Gonzalo Gonzalez-Pumariega, Bhuvan Chandra Koduru, Chih-Lun Li, Jiachen Yang, Ang Li, Xin Eric Wang
+Authors: Xinxin Liu, Bingxin Xu, Wenrui Bao, Ming Li, Wentao Bao, Chen Chen, Yuzhang Shang
 
-Tasks: Computer Use Agents
+Tasks: Code Generation, Coding Agents, Reinforcement Learning, Robotics
 
-Code: https://github.com/simular-ai/agent-s</description>
+Code: https://github.com/xinxinliu-ai/AgenticRoboRL</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -214,17 +147,43 @@ Code: https://github.com/zju3dv/RealMe</description>
       <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Large Flow Language Models</title>
-      <link>https://arxiv.org/abs/2610.28559</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.28559</guid>
-      <description>Continuous flow language models offer a path to parallel generation with tools for control and acceleration unavailable to discrete diffusion, yet effective techniques for building them at the billion-parameter scale remain less established. We present Lafa (Large flow language model), a fast, high-performing flow language model scaled to 8B parameters in a data-efficient manner. Lafa is a blockwise flow model with causal attention on the prefix and bidirectional, asynchronous flow within each block. This design enables efficient training by adapting pretrained autoregressive (AR) models and fast inference via prefix caching and blockwise parallel decoding. We train Lafa at 0.5B, 7B, and 8B scales with fewer than 30B tokens, more efficient than previous diffusion models, and evaluate it on instruction following, reasoning, and coding, where the learned flow matches or surpasses the quality of AR and can be distilled into flow maps for one- and few-step generation. Notably, flow training preserves or even improves pretrained AR capabilities via a multi-token prediction effect, which we leverage in a self-speculative decoding scheme that verifies flow-based drafts autoregressively within a single model. This yields 2.54x the throughput of an AR model at comparable quality, outperforming multi-token prediction and discrete diffusion methods. Our findings show that continuous flows can serve as a scalable foundation for language modeling.
+      <title>DONIC: Generalist Dexterous Bimanual Tracking Control from Human Demonstrations</title>
+      <link>https://arxiv.org/abs/2610.29997</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.29997</guid>
+      <description>Despite recent progress in dexterous reference tracking, existing models focus primarily on single-hand manipulation and a limited range of interactions, leaving the bimanual dexterous behaviors common in real life unaddressed. The scarcity of contact-rich bimanual manipulation data and the increased complexity of coordinating contacts make developing a generalist bimanual tracker particularly challenging. Therefore, we present 1) DONIC, the first generalist bimanual tracker jointly trained across operation categories and human-motion sources, together with 2) BiHOI, a multi-view dataset of 1,575 sequences spanning 229 objects and emphasizing sustained bimanual interaction, where reconstructed interactions are retargeted into robot references. DONIC combines proximal policy optimization with behavioral cloning in a feedback loop that recycles verified successful executions into training demonstrations. An object-centered per-hand reward maintains object-motion feedback while supervising each hand according to its reference contact role. Clip-Centered Advantages remove reference-dependent advantage offsets while preserving within-trajectory differences. Together, these designs enable one single policy to learn coordinated manipulation across heterogeneous references. Without finetuning, a single checkpoint achieves 86.79% success on unseen trajectories of training objects and 57.32% on held-out objects, surpassing the state-of-the-art bimanual tracking baselines by 77.36 and 45.73 percentage points.
 
-Authors: Arnav Chavan, Chanhuyk Lee, Udbhav Bamba, Jaehoon Yoo, Seunghoon Hong, Aditi Raghunathan, Jinwoo Kim
+Authors: Mingze Sun, Ziang Cao, Yuan Fei, Qiankuan Tao, Zihan Wang, Tianqi Liu, Junhao Chen, Haiwen Diao, Fangzhou Hong, Zhaoxi Chen, Ziwei Liu
 
-Tasks: Instruction Following, Language Modeling
+Tasks: Robotics
 
-Code: https://github.com/lafa-gh/large-flow-lms</description>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/Ropedia/DONIC</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Looking Ahead: Modeling Future Evolution in Autoregressive Video Generation</title>
+      <link>https://arxiv.org/abs/2610.29989</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.29989</guid>
+      <description>Autoregressive video diffusion models generate videos chunk by chunk, yet producing plausible continuations does not guarantee that they capture how scenes evolve. Under teacher forcing, strong temporal redundancy may allow local visual continuity to serve as a shortcut for current-chunk denoising, reducing the pressure to model visual evolution. We introduce Future Chunk Prediction (FCP), an auxiliary objective jointly optimized with teacher-forced denoising that predicts temporally separated chunks without access to the intervening visual context. Drawing supervision directly from training videos, FCP requires no additional pretrained visual encoder and leaves autoregressive inference unchanged. Our method achieves superior physical plausibility over standard teacher-forced autoregressive training with a lower overall training compute budget, highlighting the effectiveness and efficiency of future-chunk supervision for modeling visual evolution. Intriguingly, our visualizations suggest that FCP fosters a more structured representation space, which may be valuable for building autoregressive world models.
+
+Authors: Ruopeng Gao, Yukun Huang, Jiarui Hu, Shuai Wang, Wenbo Hu, Ying Shan, Limin Wang
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/TencentARC/Looking-Ahead</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>FrontierCS 2: A Benchmark for Computer Science R&amp;D</title>
+      <link>https://arxiv.org/abs/2610.29932</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.29932</guid>
+      <description>Can LLM agents make contributions to frontier computer science R&amp;D? We introduce FrontierCS 2, a benchmark of 48 open-ended tasks. We take a paper and the code its authors released and delete the paper's contribution. The deleted code becomes the human reference that sets the bar. Earlier open-ended benchmarks give each agent a problem statement and grade one program after the run. FrontierCS 2 places the agent inside a research environment. The agent inherits a working repository and may submit a patch at any point. For each patch, a judge returns a development-suite score but keeps the evaluator, the held-out final suite and the reference private, and grades the final submission on that suite against the reference. The tasks span 13 domains, from machine-learning systems and high-performance computing to databases, security and robotics. Beyond these 48 tasks, FrontierCS 2 keeps a private set of more than 100 tasks, to be announced in the future. We evaluate 12 agents. The best one is Claude Opus 5.5, passing 58% of its runs. No run passes on 16 tasks. A higher score is not the same as a pass: most runs that beat the reference on the combined final score still fall short on some metric or workload. On a shared capability scale for agents and tasks, the median task is roughly as difficult as what the strongest agent can handle.
+
+Authors: Qiuyang Mang, Wenhao Chai, Runyuan He, Dongruixuan Li, Zihan Zheng, Yujun He, Xuanyi Zhou, Hao Wang, Siddhant Ray, Bo Peng, Ruyi Ji, Shuo Yang, Haocheng Xi, Boru Chen, Xinyang David Han, Melissa Pan, Mayank Mishra, Boxi Yu, Sijia Liu, Kerem Akillioglu, Yi Pan, Zirui Wang, Mert Cemri, Diogo Antunes, Yichuan Wang, Aiwei Ivy Zhang, Zhenyang Chen, Qizheng Zhang, Kaiyuan Liu, Wenyuan Huang, Sherry Ruan, Shu Liu, Dacheng Li, Zerui Cheng, Zeyu Shen, Shang Zhou, Hanfei Chen, Yuzhong Zhang, Bohan Lyu, Qu Ao, Han Zheng, Chonghe Jiang, Jingzhuo Hu, Xiaokun Chen, Kunjun Li, Zhiqing Zhong, Haoye Tian, Tong Zhao, Yunzhong He, Hanchen Li, Ofir Press, Jiantao Jiao, Kunle Olukotun, Karthik R. Narasimhan, Jingbo Shang, Koushik Sen, Matei Zaharia, Alex Dimakis, Ion Stoica, Joseph E. Gonzalez, Alvin Cheung
+
+Tasks: Coding Agents
+
+Code: https://github.com/FrontierCS/FrontierCS-2</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory</title>
@@ -240,30 +199,67 @@ Code: https://github.com/uclanlp/OpenVLHarness</description>
       <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>S-Agent 2.0: Spatial Reasoning with a General Coding Agent</title>
-      <link>https://arxiv.org/abs/2610.28354</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.28354</guid>
-      <description>Spatial reasoning asks a model to work out where objects are in 3D space, how they relate to one another, and how they move. Agentic VLMs have recently brought large improvements on such tasks by letting the model actively gather evidence with 3D perception tools instead of answering in a single pass. Even so, on many questions the tools return the right evidence and the model still does not arrive at the correct answer: the gap between model and tools, where raw readings become usable conclusions, is left unfilled. We present S-Agent 2.0, a spatial reasoning agent that equips an off-the-shelf general coding agent with a command-line perception toolkit, and we design the interface around one principle: help the VLM close the evidence loop: acquire scene evidence, remember it in a persistent scene memory, and interpret each reading in plain spatial language. This design keeps the full flexibility of a coding agent, and every reading it acts on stays grounded in the tools' geometry. On MMSI-Bench and ReVSI, the toolkit improves a strong open-source model, Qwen3.8-27B, by +13.9 and +20.5 points over the same agent without tools, and a strong closed-source model, Gemini-3.8-Flash, by +11.2 and +9.6 points. With the open backbone S-Agent 2.0 reaches 66.5 on MMSI-Bench and 82.3 on ReVSI, ahead of the specialized system SpatialClaw on the same backbone (62.6 and 74.5), and with Gemini-3.8-Flash it reaches 74.1 and 90.5 against its 67.0 and 79.7. Both tool gains shrink as the backbone grows more capable, but SpatialClaw's shrinks far more on ReVSI, from +13.2 to +2.7, while ours stays at +9.6. S-Agent 2.0 also works across different general coding agent harnesses, such as Codex and Claude Code.
+      <title>Evolving Agent Interfaces</title>
+      <link>https://arxiv.org/abs/2610.28601</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.28601</guid>
+      <description>Computer-use agents are limited by the interfaces humans give them. An agent may type a spreadsheet cell by cell when a single line of code would do, or print all two thousand lines of a file through a shell to find one function. Both the interfaces and the knowledge of when to use each are built by hand, which cannot keep pace with new applications, workflows, and models. We argue that interface design should itself be an agent capability. We introduce Agent S4, an autonomous computer-use scientist that builds Evolving Agent Interfaces from task experience. A meta-agent examines task agents' trajectories on synthetic training tasks, without success labels, and constructs and revises interfaces and usage knowledge in a repository. Population-based evolution then selects which repositories to develop further by their performance on validation tasks the meta-agent never sees, favoring changes that generalize beyond the seen tasks. On OSWorld V2, Agent S4, with Qwen3.8-27B and the evolved repository of interfaces, sets a new state of the art in open-source computer-use agents, reaching 21.3% binary score, 3.8 times the same model with fixed interfaces. This is above both GPT-5.5 (13.0%) and Claude Opus 4.8 (20.6%), at about 4.3% and 1.5% of their respective costs. On ScienceBoard, the evolved interfaces improve the success rate from 41.4% to 58.6% with the same model. These results suggest that useful interfaces can be evolved from experience, making autonomous interface design a source of improvement complementary to advances in models and harnesses. We open-source our code at https://github.com/simular-ai/agent-s.
 
-Authors: Rui Gong, Ruoyu Wang, Yalun Dai, Hao Li, Sidi Yang, Qihao Zhao, Hongyu Li, Zeyang Guan, Fangzhou Hong, Zhaoxi Chen, Kim-Hui Yap, Ziwei Liu
+Authors: Saaket Agashe, Yuzhe Yang, Gonzalo Gonzalez-Pumariega, Bhuvan Chandra Koduru, Chih-Lun Li, Jiachen Yang, Ang Li, Xin Eric Wang
 
-Tasks: 3D understanding, Coding Agents, Reasoning
+Tasks: Computer Use Agents
 
-Code: https://github.com/Ropedia/S-Agent-2.0</description>
+Code: https://github.com/simular-ai/agent-s</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>CulturalRiddles: A Multicultural Benchmark of Riddles</title>
-      <link>https://arxiv.org/abs/2610.29968</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.29968</guid>
-      <description>As LLMs expand their language coverage, evaluating how well they understand and represent diverse cultures becomes increasingly important. However, many benchmarks remain English-centric, with limited cultural coverage and a focus on factual knowledge over its application in real-world cultural contexts. We propose CulturalRiddles, a benchmark of original, culturally grounded riddles created entirely by humans through a participatory community effort, spanning 62 cultures (45 countries, 51 languages). These riddles are deeply rooted in their respective cultures and require abductive and compositional reasoning, alongside detailed factual and social knowledge, language skills, and an understanding of culturally specific associations. We benchmark 28 LLM configurations using both automatic and large-scale human evaluation. Even frontier models achieve at most 22% accuracy in some communities. We publicly release all artifacts alongside an open contribution process to expand the benchmark's linguistic and cultural coverage.
+      <title>Scaling Parameter-Efficient Fine-Tuning for Brain Encoding</title>
+      <link>https://arxiv.org/abs/2610.26802</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26802</guid>
+      <description>Brain encoding models aim to predict neural responses to stimuli. The most widely used approach fits readouts from frozen pretrained backbones. Using neural data to train large models from scratch or fully fine-tune them after task-pretraining has proven difficult because neural data is costly and limited. We show that parameter-efficient fine-tuning (PEFT) enables us to effectively adapt very large pretrained backbones for brain encoding with a small number of trainable parameters. To make it computationally practical, we exploit the backbone's causal structure to predict multiple timepoints in a single pass instead of using sliding windows, significantly reducing feature-extraction cost. This enables efficient fine-tuning of multimodal backbones with up to 104B parameters, the largest model adapted for brain encoding to our knowledge. Trained with a low-rank adapter (LoRA) and a lightweight readout, our approach consistently improves brain encoding performance across nine diverse multimodal backbones. On the same Qwen3-Omni backbone as the prior state-of-the-art (SoTA), our method BrainLoRA achieves the best published performance on the Algonauts 2025 Challenge. We also show the adapted multimodal backbones remain interpretable: modality attribution recovers the canonical sensory topography that prior work often obtains by construction from separate unimodal encoders, and neural adaptation increases the contribution of audio inputs and cross-modal mixing within the backbone. To scale out the number of adapted models, we develop a multi-LoRA kernel that accelerates joint training of multiple LoRAs on a shared backbone. This enables an ensemble of 200+ adapted models that ranks first on the public Algonauts post-challenge leaderboard at the time of writing. Together, our results highlight PEFT as an efficient and powerful paradigm for brain encoding.
 
-Authors: My Chiffon Nguyen, Tianyi Hu, Vinod Anbalagan, Henry Gagnier, Pouya Sadeghi, Farah Abdou, Tidor-Vlad Pricope, Diego MMS Oliveira, Jocelyn K D&amp;#39;Arcy, Madeline Smith, Oluwaseun A Ajayi, Yusser Al Ghussin, Zena Al-Khalili, Micol Altomare, Shayan Amir, Ahanaf Aziz, Bryan Chen, Ruchira Dhar, Abdellah El Mekki, Rawan Mohammed Elframawy, Akhil Eppa, Silvia Fernandez, Alex Gimei, Arya Hariharan, Christian Hoang, RamMohanRao Kadiyala, Diana Kozachek, Peerat Limkonchotiwat, Ankita Maity, Di Mo, Ayush Munot, Aylin Naebzadeh, Anastasiia Nikitina, Dina Pisarevskaya, Divas Poudel, Jebish Purbey, Md Rabius Sany Apu, Ahmad Mufli Ramadhan, Ralitza Nikolova Rizova, Diogo M. Serrano-Miranda, Vivek Gopalkrishna Silimkhan, Luis Fernando Solis Navarro, Kaiser Sun, Arya Suneesh, Manaswitha Sunkara, Tejaswi Sunkara, Jonathan E Swindell, Hanna Yukhymenko, Jingyi Zheng, Esther Adenuga, Ilia Afanasev, Wafa Aissa, Lisa Alazraki, Lauren C Altomare, Priscilla Amondi Amuok, Emile Anand, Gabriel Assis, José Matías Avalos, Silvia Lorena Avila, Zakaria Baannou, Niyati Bafna, Yash Bagla, Sarah Bahrami, Bontu F Balcha, Vanya Bannihatti Kumar, Irene Baucells, Abdumutalib Begmuratov, Naman Bhatia, Souvik Bhattacharyya, Isabel Blanco Ferreiro, Felipe Bochini, Sayuru Bopitiya, Angana Borah, Tulika Bose, Olena Bugaiova, Juliana Carvalho, Nancy F Chen, Stephy Chen, Rochelle Choenni, Jayanth Krishna Chundru, Leandro A Cossio, Nebojša Damnjanović, Ona de Gibert, Marco De Santis, Pedro Delgado, Kaustubh Dholé, Adnan El Assadi, Wesam El-Sayed, Nadine M Elframawy, Oumayma Essarhi, Naome A Etori, Reuben Chagas Fernandes, Saanidhi Pravin Gade, Javier García Gilabert, Álvaro González-Escapa, Bin Hu, Kaiyu Huang, Abderrahmane Issam, Danka Jokić, Ulugbek Khalilov, Dominik Krzemiński, Roy Ka-Wei Lee, Haichang Li, Chen Cecilia Liu, Zhengyuan Liu, Cedric Lothritz, Houman Mehrafarin, Antonio Miranda-Escalada, Fengran Mo, Mehrnaz Mofakhami, Wafaa Mohammed, Felipe Moreno-Vera, Prahitha Movva, Jannatul Nayem, Van Ngo, Joy Olusanya, Marc Pàmies, Avinash Kuney Pandey, Yurii Paniv, Fred Philippy, Vladislav Poritski, Dikshya Poudel, Joanna Radoła, Sara Rajaee, Swati Rajwal, Prerana Rane, Muhammad Ravi Shulthan Habibi, Lucas Resck, Shubhashis Roy Dipta, Ananya Sahu, Eduardo Sánchez, Borja Sánchez Clemente, Aleix Sant, Nobin Sarwar, Istiak Shihab, Santhoshini Pranathi Singaraju, Jane Smith, David Stap, Emily Z Su, Ananth K Suresh, Sajag Swami, Ruiyang Tan, Nazia Tasnim, Khalid Tounoussi, Patteera Triamamornwooth, Muhammad Saad Umar, Shankar Venkitachalam, Oksana Volchek, Lingbo Wang, Debela Desalegn Yadeta, Rushikesh Zawar, Jinghan Zhang, Mike Zhang, Weihua Zheng, Marzieh Fadaee, Akhil Arora, Károly Boczka, Julia Kreutzer
+Authors: Zhuofan Josh Ying, Guanglong Sun, Nolan Ho, Kieran Liu, Rui Yang, Andrew Chen, Nikolaus Kriegeskorte, Pony Ma, Hossein Adeli
 
-Tasks: Reasoning
+Code: https://github.com/zfying/brain-lora</description>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SpatialScout: Can VLM Agents Actively Explore and Map 3D Scenes?</title>
+      <link>https://arxiv.org/abs/2610.26659</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26659</guid>
+      <description>Spatial intelligence requires agents to actively acquire visual evidence and integrate observations into a coherent representation of the three-dimensional world. Yet spatial question answering offers limited evidence of whether models can construct accurate metric maps through autonomous exploration. We introduce SpatialScout, a benchmark for evaluating vision-language model (VLM) agents on active object-level 3D mapping. SpatialScout comprises 80 diverse indoor scenes containing 3,140 target objects. Given an object inventory, RGB observations, camera calibration, and camera poses, agents control a camera to explore each scene and estimate object centers in a shared coordinate frame. The task requires coordinating viewpoint selection, cross-view association, geometric estimation, and map revision under bounded interaction budgets. Evaluation jointly measures localization accuracy and target coverage through object-scale overlap scores that penalize missing predictions. Experiments with frontier VLMs reveal substantial limitations: the strongest evaluated model, Claude Opus 5.5, achieves a mean overlap score of 41.71%, with 47.23% of targets exceeding an intersection-over-union (IoU) threshold of 0.5 and only 3.25% exceeding 0.9. These results reveal a substantial gap between recovering coarse object layouts and constructing complete, precise metric maps. SpatialScout provides a quantitative testbed for developing agents that build reliable 3D spatial representations through active perception. Code is available at https://github.com/JesseZZZZZ/SpatialScout.
 
-Code: https://github.com/Cohere-Labs-Community/CulturalRiddles</description>
+Authors: Zhaoxi Zhang, Hao Liang, Linxuan Wu, Yiming Wu, Yifu Yuan, Kun Liang, Chenming Tang, Meiyi Qiang, Wentao Zhang, Weikang Li
+
+Tasks: 3D understanding, Question Answering
+
+Code: https://github.com/JesseZZZZZ/SpatialScout</description>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation</title>
+      <link>https://arxiv.org/abs/2610.29560</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.29560</guid>
+      <description>Vision-language-action (VLA) models achieve strong performance across embodied manipulation tasks by unifying visual understanding, language conditioning, and action generation. However, long-horizon tasks can involve non-Markovian dependencies: successful decisions may require retaining task progress and past interaction outcomes, while partial observability and execution errors compound over time. Existing work has begun to address these challenges by augmenting foundation-model policies with memory and by introducing hierarchical architectures that separate high-level planning from low-level execution. We organize the high-level VLM as a robotic agent through an editable harness to maintain task context and improve planning through execution experience. We instantiate this approach as SERA (Self-Evolving Robotic Agent), with a fixed VLA executor providing low-level control. The harness maintains and updates task context using observations and execution feedback to guide subsequent planning. Self-evolution uses environment rollouts to propose and evaluate harness revisions, with the selected configuration fixed before held-out testing. On RoboMME, SERA achieves 51.38% overall success with autonomous selection, compared with 44.38% without self-evolution. Our exploration suggests that agentic planning is a promising direction for history-dependent robotic manipulation.
+
+Authors: Tingwen Du, Haoyu Guo, Hanxue Zhang, Xuanxu Wang, Junting Dong, Chao Gao, Mingfei Han, Tao Lu, Mulin Yu, Chunhua Shen, Xiaojun Chang, Zhihui Li
+
+Tasks: Image Understanding, Robotics
+
+Code: https://github.com/StevenKKXS/SERA</description>
       <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>HandsOn: A Large-Scale Simulation Benchmark for Generalizable Dexterous Manipulation</title>
+      <link>https://arxiv.org/abs/2610.26765</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26765</guid>
+      <description>General-purpose manipulation requires reliable behavior across embodiments, objects, and task demands. We introduce HandsOn, a composable simulation platform and benchmark for cross-embodiment dexterous manipulation. It supports five robotic arms, six dexterous hands, and approximately 200 rigid, articulated, and deformable assets in randomized scenes. The benchmark pairs 18,000 curated human demonstrations with 66 human-verified tasks: Core-50 supports demonstration-based learning and execution tests, while Transfer-16 evaluates asset and relation transfer, skill composition, and deformable manipulation without target-task training demonstrations. Qualitative real-robot rollouts illustrate sim-to-real transfer. Across diffusion, vision-language-action, world-action, and prompted VLM-based methods, the best trained multi-task policy achieves 29.1% Core-50 success. Without benchmark finetuning, GPT-6 using move_eef for palm-and-finger control achieves 5.2% on Core-50 and 1.9% on Transfer-16 over 660 trials. Trained-policy stage diagnostics expose failures in contact establishment, action coordination, and maintaining achieved goals, with additional sequencing errors in composed tasks. HandsOn provides a shared basis for investigating manipulation generalization and the limits of reliable physical interaction.
+
+Authors: Tianwei Luo, Yiming He, Hongjin Wu, Ting Pan, Debin Ren, Haorui Guo, Junlin Yang, Yuxin Zuo, Zhehao Kou, Kaisen Yang, Zhuoqun Lai, Yi Ding, Jiale Yu, Yuchen Zhang, Zijie Qiu, Haozhan Li, Ning Ding
+
+Tasks: Robotics
+
+Code: https://github.com/TsinghuaC3I/HandsOn</description>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
