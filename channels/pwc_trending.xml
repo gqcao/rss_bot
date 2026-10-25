@@ -4,32 +4,134 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sun, 25 Oct 2026 02:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 03:00:00 GMT</lastBuildDate>
     <item>
-      <title>OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory</title>
-      <link>https://arxiv.org/abs/2610.26860</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.26860</guid>
-      <description>Multimodal large language models (MLLMs) have made rapid progress on visual reasoning, yet many tasks require evidence that is difficult to obtain through internal reasoning alone: our controlled study on 22 benchmarks shows that simply increasing the inference budget of the base model yields only modest gains. Such tasks demand grounded perception, external knowledge, and numerical measurements obtained through heterogeneous tools, whose outputs must be made interpretable to the model and retained across reasoning steps. We introduce OpenVLHarness, a multimodal reasoning harness organized around a capability layer and persistent multimodal memory. The capability layer combines task-level tool interfaces with evidence rendering, providing consistent access to heterogeneous backends and converting their outputs into model-readable observations. Persistent multimodal memory retains the corresponding images, structured data, and web references as addressable artifacts throughout each query. A coding interface executes generated programs over stored data, enabling computations that combine results from multiple tools. Together, these mechanisms support an iterative process of acquiring, inspecting, and composing multimodal evidence. Evaluated on 22 benchmarks with eight open and proprietary backbones, OpenVLHarness improves average scores by 9.7-12.6 points over matched no-tool baselines, including +11.2 with Qwen3-VL-8B, +9.7 with Kimi K3, and +9.9 with GPT-6 Astra. With GPT-6 Luna at medium reasoning effort, OpenVLHarness outperforms the base model, Codex, and Visual Sketchpad at maximum effort by 7.7-8.5 points while incurring at most 37% of their model-token cost.
+      <title>HarnessPro: Recursive Harness Self-Improvement with Pareto Optimization for Performance-Cost Trade-offs</title>
+      <link>https://arxiv.org/abs/2610.26770</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26770</guid>
+      <description>Harness development plays a crucial role in building capable AI agents. Recent approaches improve harnesses through recursive self-improvement (RSI), but their performance gains often come with higher execution costs. We introduce HarnessPro, a label-free method for evolving harnesses to improve task performance while reducing execution cost. In this setting, candidate harnesses are evaluated using LLM-generated tests without access to ground-truth solutions or official tests. Specialized agents diagnose execution trajectories, plan updates with different performance-cost priorities, and implement them as candidate harnesses. Rather than returning a single harness, HarnessPro uses normalized weighted squared-distance selection to provide cost-focused (lite), balanced (medium), and performance-focused (heavy) harnesses for different deployment budgets. Selected harnesses enter the next iteration, where execution feedback guides further updates. Our experiments cover Terminal-Bench 2, SWE-Bench Pro, and ProgramBench, using GPT-5.5 with Codex and GLM-5.2 with Claude Code. Across these benchmarks using GPT-5.5 with Codex, the heavy mode of HarnessPro achieves an average pass-rate gain of 2.0 percentage points and an average per-task cost reduction of 26.1% relative to RHO. This advantage also holds when using GLM-5.2 with Claude Code. Code is available at https://github.com/pzs19/HarnessPro
 
-Authors: Yu Zhou, Cheng-Fu Yang, Rui Sun, Di Wu, Sibo Peng, Mingyang Zhang, Zhen Yang, Ruiyi Zhang, Nanyun Peng, Zhe Gan, Kai-Wei Chang
+Authors: Zhuoshi Pan, Zhiyuan Feng, Yukuo Cen, Honglin Lin, Junru Lu, Zhongxia Chen, Shuo Yang, H. Vicky Zhao, Jie Tang
 
-Tasks: Agents, Image Understanding
+Tasks: Agents, Coding Agents
 
-Code: https://github.com/uclanlp/OpenVLHarness</description>
+Code: https://github.com/pzs19/HarnessPro</description>
       <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>InfiniDream: Open-Ended Photorealistic 3D Worlds Through Procedural Generation</title>
-      <link>https://arxiv.org/abs/2610.26853</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.26853</guid>
-      <description>Procedural generation plays a key role in synthetic data creation and game development, offering greater controllability, editability, and diversity than static mesh representations. However, VLM-based code generation often produces relatively simple 3D assets, while sophisticated photorealistic procedural systems require extensive manual development. Existing VLM-guided procedural methods remain largely constrained by predefined factories and APIs, limiting their ability to create novel asset types. We introduce InfiniDream, a VLM-driven framework for open-ended procedural 3D world generation. First, we propose Symbolically Constrained Asset Generation, which leverages existing procedural algorithms to create novel, photorealistic assets while preserving editability and seed-based diversity. Second, we develop an end-to-end text-to-world pipeline that combines semantic scene planning with Deterministic Frustum-Guided Grid Placement to construct large-scale 3D worlds with precise object placement, procedural population, and animation. Extensive evaluations on 100 object and 20 scene generation tasks demonstrate improvements across four perceptual metrics. Diversity analysis, ablation studies, and human preference evaluations further validate the effectiveness of our framework. Project page: https://yichuanh.github.io/infinidream-page/
+      <title>Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience</title>
+      <link>https://arxiv.org/abs/2610.26855</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26855</guid>
+      <description>World models enable embodied agents to anticipate action consequences, yet jointly modeling locomotion and manipulation across diverse embodiments remains challenging due to heterogeneous action spaces and limited multimodal supervision. We present Ropedia W0, the first egocentric loco-manipulation world foundation model spanning humans and robots with diverse embodiments. We curate Xp-Data, comprising 10k hours of egocentric human data and 3k hours of robot data with unified multimodal annotations and systematic quality control. A unified kinematic representation encodes locomotion through camera poses and manipulation through projected skeletons, with robot skeletons combining embodiment-specific forward kinematics with extensive manual keypoint annotation and correction. We also introduce Xp-Teleop, a long-horizon loco-manipulation benchmark based on high-quality dexterous humanoid teleoperation data. Evaluations demonstrate state-of-the-art performance across five cross-embodiment benchmarks (DreamDojo, Ψ_0, ω-HOME, Xp-Teleop, and AgiBot) and on held-out human egocentric video, from zero-shot inference to few-shot and full-data post-training. Scaling human pre-training data improves performance on both human and robot evaluations. After distillation, our model supports real-time, minute-long rollouts, enabling live VR interaction. Applications in policy evaluation, model-based planning, and world-action modeling further demonstrate the model's utility for embodied decision-making.
 
-Authors: Yi-Chuan Huang, Hao-Jen Chien, Zheng-Hui Huang, Yu-Lun Liu, Kaipeng Zhang, Zhixiang Wang
+Authors: Tianqi Liu, Hanfei Zhao, Qifeng Liang, Hui En Pang, Jiarui Xu, Sayang Mu, Penghao Qiu, Yingsheng Zhang, Jun Wang, Ziang Cao, Mingze Sun, Yukang Cao, Fangzhou Hong, Zhaoxi Chen, Ziwei Liu
 
-Tasks: 3D generation, Code Generation, Procedural Generalization
+Tasks: Continuous Control, Egocentric Vision, Video generation, World Models
 
-Code: https://github.com/yichuanH/InfiniDream</description>
+Code: https://github.com/Ropedia/ropedia-w0</description>
       <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Is Complex Agentic Memory Always Needed? Naive RAG Is Stronger Than We Thought</title>
+      <link>https://arxiv.org/abs/2610.30755</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.30755</guid>
+      <description>LLM memory is widely used in long-term conversation understanding. Agentic memory systems often use mutation, structural organization, learned retrieval strategies, or other complex operations. Is this complexity always necessary? We study Raw-RAG, a naive RAG baseline using dense retrieval and reranking over raw history to supply evidence to a reader LLM. Across LoCoMo, LongMemEval, MEME, and MemoryAgentBench, Raw-RAG ranks first among the compared memory systems in six of seven benchmark-model settings, outperforming the strongest compared agentic memory system by 0.13-5.53 points. We investigate why raw-history retrieval remains competitive. Evidence analysis shows that its higher coverage of necessary evidence can offset lower utilization. Useful evidence includes both answer values and the relations and dependency paths needed to derive them. Even complete access to transformed memory stores leaves an accuracy gap relative to raw evidence, highlighting the importance of preserving raw information. These findings challenge the necessity of complex agentic memory for the evaluated conversation tasks and establish naive RAG as an essential baseline.
+
+Authors: Zhengye Bao, Shengtao Zhang, Haokai Zhang, Shiqi Lou, Muning Wen, Minnan Luo
+
+Tasks: Retrieval, Retrieval-Augmented Generation, Text Reranking
+
+Code: https://github.com/Litmeb/RAW-RAG</description>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AnyGoal: On World Model Generalization Beyond Expert Rollouts</title>
+      <link>https://arxiv.org/abs/2610.26844</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26844</guid>
+      <description>The goal of a world model is to capture the dynamics of an environment. This has the great appeal that it allows agents to plan and simulate a course of actions with the help of a world model. For these uses to be reliable, however, the learned dynamics must behave well beyond the specific state-action combinations observed in expert rollouts. Despite this, the relationship between data coverage, dynamics generalization, and downstream planning performance remains underexplored. We study this relationship through the lens of compositional generalization: can a world model recombine familiar state and action factors into valid dynamics? To answer this, we introduce AnyGoal, a benchmark of goal-shifted task variants built from widely used world-model environments, together with an open-source library. Each task is designed to be within reach of a world model that has learned the underlying dynamics: individual state factors and actions remain within their training support, but their combinations are underrepresented in expert trajectories. Across multiple environments and world model families, we find that current models consistently exhibit failures under these recombinations. By examining dynamics and representation failures across model families, interaction regimes, and evaluation metrics, we study where current world models generalize and where challenges remain for goal-shifted prediction and planning. Together, this framework, benchmark, and analysis provide a basis for evaluating progress toward world models that generalize to new planning tasks.
+
+Authors: Heejeong Nam, Divyat Mahajan, Quentin Le Lidec, Randall Balestriero, David Klindt
+
+Tasks: World Models
+
+Code: https://github.com/galilai-group/AnyGoal</description>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>BrickWright: Agentic Creation of Physically Feasible Brick Builds</title>
+      <link>https://arxiv.org/abs/2610.31651</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.31651</guid>
+      <description>Frontier coding agents are becoming increasingly adept at 3D modeling. Yet, they still face challenges when building objects meant to be assembled in the physical world, often creating invalid assemblies with floating, colliding, or disconnected parts. We argue that providing agents with tools for assembling builds and verifying their physical feasibility is sufficient for them to produce physically valid assemblies that still adhere to input prompts. Focusing on the domain of LEGO brick builds, we present BrickWright, a framework for generating physically feasible brick builds from text or image prompts using pre-trained agents, where a build is physically feasible if it uses only real parts, has no colliding or floating parts, and forms a connected structure if possible. BrickWright guides agents to create builds by writing code with BrickLayer, a Python toolkit with two main components: an ergonomic brick assembly API that halves inference cost compared to working in raw LDraw, and a validator that provides feedback on physical feasibility. Whereas baseline agents achieve physical validity rates ranging from only 9% (GPT-6 Luna) to 69% (GPT-6 Astra), BrickWright-guided agents achieve 100% validity on a sample of 512 prompts, while improving prompt adherence for lightweight agents and maintaining it for stronger agents. Additionally, they outperform specialized models on the text-to-brick task. Code is available on our project page: https://avalovelace1.github.io/brickwright/
+
+Authors: Ava Pun, Kevin Dai, Sally Chen, Maxwell Jones, Ruixuan Liu, Kangle Deng, Changliu Liu, Maneesh Agrawala, Deva Ramanan, Jun-Yan Zhu
+
+Tasks: 3D generation, Coding Agents
+
+Code: https://github.com/AvaLovelace1/brickwright</description>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>StreamEval: Evaluating Interactive Streaming Video Generation Models</title>
+      <link>https://arxiv.org/abs/2610.28402</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.28402</guid>
+      <description>As streaming video generation advances, enabling real-time interaction with generated video is becoming increasingly important. We introduce StreamEval, a unified benchmark for interactive streaming video generation spanning five tasks: avatar dialogue, avatar performance, world generation, instruction editing, and reference editing. StreamEval comprises 300 scripted test cases lasting 15-300s, each specifying initial assets, incrementally arriving multimodal requests, and explicit requirements for state changes and content preservation. Performance is assessed along four evaluation dimensions: task execution, state consistency, visual fidelity, and audiovisual coordination, instantiated through ten task-specific metrics on a 0-100 scale. Evaluating 37 distinct models across 300 test cases, we find that high visual quality and identity retention do not necessarily coincide with reliable request execution or sustained state consistency. In particular, request execution remains challenging: the highest task-specific scores are 36.90 for Following among seven avatar-performance models, 25.93 for Following in text-conditioned world generation, and 15.00 for Edit Success among three reported reference-editing models. These findings identify reliable request execution under timing and preservation constraints as a central challenge for advancing omni-modal real-time interactive systems. The leaderboard is available at https://streameval.ai
+
+Authors: StreamEval Team
+
+Tasks: Omni models, Streaming Video Understanding, Video Editing, Video generation
+
+Code: https://github.com/StreamEval/StreamEval</description>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Introducing Flint: A Fast, Intelligent Model for Coding Locally on Your Laptop</title>
+      <link>https://www.recursive.com/updates/introducing-recursive-flint</link>
+      <guid isPermaLink="true">https://www.recursive.com/updates/introducing-recursive-flint</guid>
+      <description>We're introducing Recursive Flint, a mixture-of-experts (MoE) model built for fast agentic coding on local hardware. Flint has 40 billion total parameters and activates just 2.5 billion per token. Our small team of people and agents built it from scratch in under four months. Flint leads MoE models with fewer than 50 billion total parameters on agentic coding benchmarks, including SWE-Bench Pro v2, Terminal-Bench 2.1, and SWE-Bench Verified. It also rivals the coding performance of dense models with 25–40 billion parameters, while running more than five times faster. With our optimized inference engine, Flint generates more than 125 tokens per second on an M4 Pro MacBook Pro and more than 150 tokens per second on a 64GB NVIDIA RTX Spark at short contexts—up to twice as fast as comparable models. Building Flint was a practical test of Recursive's Eureka Machine, our system for large-scale automated AI research and development.
+
+Tasks: Code Generation, Coding Agents
+
+Code: https://github.com/recursive-oss/rec</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>F2G-Pose: Geometry-Aware Foundation Feature Lifting for Direct RGB-D Category-Level Object Pose Estimation</title>
+      <link>https://arxiv.org/abs/2610.31623</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.31623</guid>
+      <description>This paper studies category-level RGB-D object pose estimation, which recovers an object's 3D rotation and translation without instance-specific CAD models or reference views. This task is highly ambiguous due to intra-class variations, symmetries, and partial observations. Current solutions struggle to balance reliability and efficiency: methods based on intermediate structures are prone to error propagation, while diffusion models suffer from high inference latency and complex post-hoc candidate extraction. To address this, we present F2G-Pose, a real-time direct, single-pass framework that predicts category-level pose, metric size, and camera-frame completed shape from a single RGB-D observation in one feed-forward pass. F2G-Pose lifts dense visual foundation features to partial point clouds, encodes local geometry with DGCNN tokenization, and integrates object-level structure with a Mixture-of-Experts Transformer. Joint size prediction and camera-frame shape completion encourage metric consistency through dense geometric supervision. With its task-specific network trained only on pose-annotated synthetic SOPE data and its frozen RADIO backbone externally pretrained, F2G-Pose achieves state-of-the-art accuracy on SOPE and ROPE while running at 28 FPS for pose-only inference, and further demonstrates strong camera-frame geometry on HouseCat6D and real-object transfer on HANDAL. Analyses of latency, robustness, shape completion, and GenPose++ candidate behavior further demonstrate the efficiency and reliability of F2G-Pose, with real-world manipulation experiments demonstrating deployment potential under segmented RGB-D inputs. The project page, code, and pretrained models are made available at https://jrryzh.github.io/F2G-Pose/.
+
+Authors: Jinyu Zhang, Haitao Lin, Jiashu Hou, Xiangyang Xue, Yanwei Fu
+
+Tasks: 6D Pose Estimation, Pose Estimation
+
+Code: https://github.com/jrryzh/F2G-Pose</description>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SolarRenderer: Few-Step Generative Reference Rendering</title>
+      <link>https://arxiv.org/abs/2610.28630</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.28630</guid>
+      <description>Game engines and coding agents can specify the layout, motion, and camera of a scene, yet turning such coarse structure into realistic video requires a renderer that follows the structure and completes the appearance it leaves open. Existing renderers are tied to the representation of one engine, need tens of denoising steps or a costly distillation of their own, and learn from conditions that are not aligned with their target videos. We present SolarRenderer, a structure-conditioned video renderer that adapts a frozen MiniMax-H3 33B backbone with two lightweight LoRAs. Structural videos enter the native reference pathway of the backbone at the positions of the frames they describe, without a type identifier and described only in plain text, so that a single control LoRA follows arbitrary structural representations. Starting from a pretrained four-step LoRA, structure-guided distribution matching renders in four steps, 12.3 times faster than 50-step sampling, while preserving the learned control. A block-causal variant extends the same design to streaming and renders 768p video in real time. To train the model, we build a frame-aligned corpus of 136K clips from game engines, simulators, and YouTube videos. Experiments on an in-distribution test set and a generalization benchmark of 16 structural representations show that SolarRenderer achieves state-of-the-art results across both, and generalizes to 11 unseen representations, including pose skeletons, drawings, and point clouds.
+
+Authors: Guian Fang, Shengju Qian, Dongyue Lu, Junchao Huang, Lutao Jiang, Xin Wang, Yiren Song, Li Jiang, Mike Zheng Shou
+
+Tasks: Coding Agents, Video generation
+
+Code: https://github.com/Enderfga/SolarRenderer</description>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>TARSphere: A Robot-Oriented Full-Stack Framework for Long-Horizon Embodied Agents in Evolving Physical and Social Environments</title>
+      <link>https://arxiv.org/abs/2610.30043</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.30043</guid>
+      <description>Robots must act under physical and social constraints while adapting to changes in their environment and human needs. Existing embodied-agent systems often focus on specified goals or abstract execution into symbolic actions, limiting evaluation in an evolving world. We introduce TARSphere, a robot-oriented full-stack framework for physically and socially grounded long-horizon embodied agents. TARSphere-Infra runs robot policies in a physics simulator with embodied NPCs and constrained dialogue. An event-driven finite-state machine (FSM) uses completed actions and delivered information to update task states and evaluate outcomes. TARSphere-Harness, its embodied brain harness, lets a frozen multimodal large language model (MLLM) act through multi-level executable skills, using observations, hierarchical memory, and execution feedback to revise its decisions. On this foundation, agent-in-the-loop curation aligns task semantics, causal dependencies, and scene geometry to construct TARSphere-Bench: 360 episodes across 30 indoor scenes. Five paired conditions assess perceptual robustness, disruption adaptation, task update, human coordination, and intent understanding for navigate-and-report and fetch-and-deliver tasks. Our evaluation of 8 MLLMs shows that general-purpose models can outperform embodied models, while task updates and human interaction remain difficult. Frequent collisions and falls further motivate evaluating execution safety alongside task success, even with a shared action interface and decision budget.
+
+Authors: Yicheng Xu, Zhikai Xu, Ziyuan Chen, Yuhang Dong, Tao Zhang, Zhucun Xue, Yong Liu, Jiangning Zhang
+
+Tasks: Long-Horizon Agents, Robotics
+
+Code: https://github.com/xuyicheng-zju/TARSphere</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>WeVisOne-VL: Unified Visual Perception from Objects to Pixels</title>
@@ -58,43 +160,30 @@ Code: https://github.com/Physical2RSI/Awesome-Physical2RSI</description>
       <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience</title>
-      <link>https://arxiv.org/abs/2610.26855</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.26855</guid>
-      <description>World models enable embodied agents to anticipate action consequences, yet jointly modeling locomotion and manipulation across diverse embodiments remains challenging due to heterogeneous action spaces and limited multimodal supervision. We present Ropedia W0, the first egocentric loco-manipulation world foundation model spanning humans and robots with diverse embodiments. We curate Xp-Data, comprising 10k hours of egocentric human data and 3k hours of robot data with unified multimodal annotations and systematic quality control. A unified kinematic representation encodes locomotion through camera poses and manipulation through projected skeletons, with robot skeletons combining embodiment-specific forward kinematics with extensive manual keypoint annotation and correction. We also introduce Xp-Teleop, a long-horizon loco-manipulation benchmark based on high-quality dexterous humanoid teleoperation data. Evaluations demonstrate state-of-the-art performance across five cross-embodiment benchmarks (DreamDojo, Ψ_0, ω-HOME, Xp-Teleop, and AgiBot) and on held-out human egocentric video, from zero-shot inference to few-shot and full-data post-training. Scaling human pre-training data improves performance on both human and robot evaluations. After distillation, our model supports real-time, minute-long rollouts, enabling live VR interaction. Applications in policy evaluation, model-based planning, and world-action modeling further demonstrate the model's utility for embodied decision-making.
+      <title>OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory</title>
+      <link>https://arxiv.org/abs/2610.26860</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26860</guid>
+      <description>Multimodal large language models (MLLMs) have made rapid progress on visual reasoning, yet many tasks require evidence that is difficult to obtain through internal reasoning alone: our controlled study on 22 benchmarks shows that simply increasing the inference budget of the base model yields only modest gains. Such tasks demand grounded perception, external knowledge, and numerical measurements obtained through heterogeneous tools, whose outputs must be made interpretable to the model and retained across reasoning steps. We introduce OpenVLHarness, a multimodal reasoning harness organized around a capability layer and persistent multimodal memory. The capability layer combines task-level tool interfaces with evidence rendering, providing consistent access to heterogeneous backends and converting their outputs into model-readable observations. Persistent multimodal memory retains the corresponding images, structured data, and web references as addressable artifacts throughout each query. A coding interface executes generated programs over stored data, enabling computations that combine results from multiple tools. Together, these mechanisms support an iterative process of acquiring, inspecting, and composing multimodal evidence. Evaluated on 22 benchmarks with eight open and proprietary backbones, OpenVLHarness improves average scores by 9.7-12.6 points over matched no-tool baselines, including +11.2 with Qwen3-VL-8B, +9.7 with Kimi K3, and +9.9 with GPT-6 Astra. With GPT-6 Luna at medium reasoning effort, OpenVLHarness outperforms the base model, Codex, and Visual Sketchpad at maximum effort by 7.7-8.5 points while incurring at most 37% of their model-token cost.
 
-Authors: Tianqi Liu, Hanfei Zhao, Qifeng Liang, Hui En Pang, Jiarui Xu, Sayang Mu, Penghao Qiu, Yingsheng Zhang, Jun Wang, Ziang Cao, Mingze Sun, Yukang Cao, Fangzhou Hong, Zhaoxi Chen, Ziwei Liu
+Authors: Yu Zhou, Cheng-Fu Yang, Rui Sun, Di Wu, Sibo Peng, Mingyang Zhang, Zhen Yang, Ruiyi Zhang, Nanyun Peng, Zhe Gan, Kai-Wei Chang
 
-Tasks: Continuous Control, Egocentric Vision, Video generation, World Models
+Tasks: Agents, Image Understanding
 
-Code: https://github.com/Ropedia/ropedia-w0</description>
+Code: https://github.com/uclanlp/OpenVLHarness</description>
       <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Kronecker Delta Rule for Long Context Linear Attention</title>
-      <link>https://arxiv.org/abs/2610.26834</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.26834</guid>
-      <description>We propose KronLSTM, a linear attention architecture based on the Kronecker Delta Rule, a novel update rule for associative matrix memories. KronLSTM extends the xLSTM family with a memory-revision mechanism that corrects targeted associations while modifying the memory only along a single direction in matrix space. This minimally invasive memory revision reduces interference with previously stored information compared with delta-rule updates, making it particularly well suited for long-context language modeling. The resulting memory dynamics can be mathematically described as a Markov chain that converges to a steady-state distribution, while the expected norm of the memory matrix remains uniformly bounded throughout the entire input sequence. Hence, KronLSTM ensures stable memory dynamics without requiring additional normalization and stabilization mechanisms for the memory state. Experiments show that KronLSTM is competitive with, and often outperforms, existing linear attention architectures, including models of the (Gated) DeltaNet family, with particularly strong performance on long context benchmarks. These results establish the Kronecker Delta Rule as an effective and analytically tractable foundation for stable associative memory in recurrent linear attention architectures. Our code (https://github.com/NX-AI/KronLSTM) and models (https://huggingface.co/collections/NX-AI/kronlstm) are open-source.
+      <title>InfiniDream: Open-Ended Photorealistic 3D Worlds Through Procedural Generation</title>
+      <link>https://arxiv.org/abs/2610.26853</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26853</guid>
+      <description>Procedural generation plays a key role in synthetic data creation and game development, offering greater controllability, editability, and diversity than static mesh representations. However, VLM-based code generation often produces relatively simple 3D assets, while sophisticated photorealistic procedural systems require extensive manual development. Existing VLM-guided procedural methods remain largely constrained by predefined factories and APIs, limiting their ability to create novel asset types. We introduce InfiniDream, a VLM-driven framework for open-ended procedural 3D world generation. First, we propose Symbolically Constrained Asset Generation, which leverages existing procedural algorithms to create novel, photorealistic assets while preserving editability and seed-based diversity. Second, we develop an end-to-end text-to-world pipeline that combines semantic scene planning with Deterministic Frustum-Guided Grid Placement to construct large-scale 3D worlds with precise object placement, procedural population, and animation. Extensive evaluations on 100 object and 20 scene generation tasks demonstrate improvements across four perceptual metrics. Diversity analysis, ablation studies, and human preference evaluations further validate the effectiveness of our framework. Project page: https://yichuanh.github.io/infinidream-page/
 
-Authors: Anamaria-Roberta Hartl, Levente Zólyomi, Michael List, Günter Klambauer, Sebastian Böck, Sepp Hochreiter
+Authors: Yi-Chuan Huang, Hao-Jen Chien, Zheng-Hui Huang, Yu-Lun Liu, Kaipeng Zhang, Zhixiang Wang
 
-Tasks: Language Modeling, Long Context, Retrieval
+Tasks: 3D generation, Code Generation, Procedural Generalization
 
-Code: https://github.com/nx-ai/kronlstm</description>
+Code: https://github.com/yichuanH/InfiniDream</description>
       <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>StreamEval: Evaluating Interactive Streaming Video Generation Models</title>
-      <link>https://arxiv.org/abs/2610.28402</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.28402</guid>
-      <description>As streaming video generation advances, enabling real-time interaction with generated video is becoming increasingly important. We introduce StreamEval, a unified benchmark for interactive streaming video generation spanning five tasks: avatar dialogue, avatar performance, world generation, instruction editing, and reference editing. StreamEval comprises 300 scripted test cases lasting 15-300s, each specifying initial assets, incrementally arriving multimodal requests, and explicit requirements for state changes and content preservation. Performance is assessed along four evaluation dimensions: task execution, state consistency, visual fidelity, and audiovisual coordination, instantiated through ten task-specific metrics on a 0-100 scale. Evaluating 37 distinct models across 300 test cases, we find that high visual quality and identity retention do not necessarily coincide with reliable request execution or sustained state consistency. In particular, request execution remains challenging: the highest task-specific scores are 36.90 for Following among seven avatar-performance models, 25.93 for Following in text-conditioned world generation, and 15.00 for Edit Success among three reported reference-editing models. These findings identify reliable request execution under timing and preservation constraints as a central challenge for advancing omni-modal real-time interactive systems. The leaderboard is available at https://streameval.ai
-
-Authors: StreamEval Team
-
-Tasks: Omni models, Streaming Video Understanding, Video Editing, Video generation
-
-Code: https://github.com/StreamEval/StreamEval</description>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>HyperDrone: Simulation-to-Reality Transfer at Millions of Frames per Second</title>
@@ -110,6 +199,19 @@ Code: https://github.com/rl-tools/hyperdrone</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Kronecker Delta Rule for Long Context Linear Attention</title>
+      <link>https://arxiv.org/abs/2610.26834</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.26834</guid>
+      <description>We propose KronLSTM, a linear attention architecture based on the Kronecker Delta Rule, a novel update rule for associative matrix memories. KronLSTM extends the xLSTM family with a memory-revision mechanism that corrects targeted associations while modifying the memory only along a single direction in matrix space. This minimally invasive memory revision reduces interference with previously stored information compared with delta-rule updates, making it particularly well suited for long-context language modeling. The resulting memory dynamics can be mathematically described as a Markov chain that converges to a steady-state distribution, while the expected norm of the memory matrix remains uniformly bounded throughout the entire input sequence. Hence, KronLSTM ensures stable memory dynamics without requiring additional normalization and stabilization mechanisms for the memory state. Experiments show that KronLSTM is competitive with, and often outperforms, existing linear attention architectures, including models of the (Gated) DeltaNet family, with particularly strong performance on long context benchmarks. These results establish the Kronecker Delta Rule as an effective and analytically tractable foundation for stable associative memory in recurrent linear attention architectures. Our code (https://github.com/NX-AI/KronLSTM) and models (https://huggingface.co/collections/NX-AI/kronlstm) are open-source.
+
+Authors: Anamaria-Roberta Hartl, Levente Zólyomi, Michael List, Günter Klambauer, Sebastian Böck, Sepp Hochreiter
+
+Tasks: Language Modeling, Long Context, Retrieval
+
+Code: https://github.com/nx-ai/kronlstm</description>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Evolving Agent Interfaces</title>
       <link>https://arxiv.org/abs/2610.28601</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.28601</guid>
@@ -121,30 +223,6 @@ Tasks: Computer Use Agents
 
 Code: https://github.com/simular-ai/agent-s</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Introducing Flint: A Fast, Intelligent Model for Coding Locally on Your Laptop</title>
-      <link>https://www.recursive.com/updates/introducing-recursive-flint</link>
-      <guid isPermaLink="true">https://www.recursive.com/updates/introducing-recursive-flint</guid>
-      <description>We're introducing Recursive Flint, a mixture-of-experts (MoE) model built for fast agentic coding on local hardware. Flint has 40 billion total parameters and activates just 2.5 billion per token. Our small team of people and agents built it from scratch in under four months. Flint leads MoE models with fewer than 50 billion total parameters on agentic coding benchmarks, including SWE-Bench Pro v2, Terminal-Bench 2.1, and SWE-Bench Verified. It also rivals the coding performance of dense models with 25–40 billion parameters, while running more than five times faster. With our optimized inference engine, Flint generates more than 125 tokens per second on an M4 Pro MacBook Pro and more than 150 tokens per second on a 64GB NVIDIA RTX Spark at short contexts—up to twice as fast as comparable models. Building Flint was a practical test of Recursive's Eureka Machine, our system for large-scale automated AI research and development.
-
-Tasks: Code Generation, Coding Agents
-
-Code: https://github.com/recursive-oss/rec</description>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>F2G-Pose: Geometry-Aware Foundation Feature Lifting for Direct RGB-D Category-Level Object Pose Estimation</title>
-      <link>https://arxiv.org/abs/2610.31623</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.31623</guid>
-      <description>This paper studies category-level RGB-D object pose estimation, which recovers an object's 3D rotation and translation without instance-specific CAD models or reference views. This task is highly ambiguous due to intra-class variations, symmetries, and partial observations. Current solutions struggle to balance reliability and efficiency: methods based on intermediate structures are prone to error propagation, while diffusion models suffer from high inference latency and complex post-hoc candidate extraction. To address this, we present F2G-Pose, a real-time direct, single-pass framework that predicts category-level pose, metric size, and camera-frame completed shape from a single RGB-D observation in one feed-forward pass. F2G-Pose lifts dense visual foundation features to partial point clouds, encodes local geometry with DGCNN tokenization, and integrates object-level structure with a Mixture-of-Experts Transformer. Joint size prediction and camera-frame shape completion encourage metric consistency through dense geometric supervision. With its task-specific network trained only on pose-annotated synthetic SOPE data and its frozen RADIO backbone externally pretrained, F2G-Pose achieves state-of-the-art accuracy on SOPE and ROPE while running at 28 FPS for pose-only inference, and further demonstrates strong camera-frame geometry on HouseCat6D and real-object transfer on HANDAL. Analyses of latency, robustness, shape completion, and GenPose++ candidate behavior further demonstrate the efficiency and reliability of F2G-Pose, with real-world manipulation experiments demonstrating deployment potential under segmented RGB-D inputs. The project page, code, and pretrained models are made available at https://jrryzh.github.io/F2G-Pose/.
-
-Authors: Jinyu Zhang, Haitao Lin, Jiashu Hou, Xiangyang Xue, Yanwei Fu
-
-Tasks: 6D Pose Estimation, Pose Estimation
-
-Code: https://github.com/jrryzh/F2G-Pose</description>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Agentic World Action Models</title>
@@ -173,19 +251,6 @@ Code: https://github.com/lafa-gh/large-flow-lms</description>
       <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SolarRenderer: Few-Step Generative Reference Rendering</title>
-      <link>https://arxiv.org/abs/2610.28630</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.28630</guid>
-      <description>Game engines and coding agents can specify the layout, motion, and camera of a scene, yet turning such coarse structure into realistic video requires a renderer that follows the structure and completes the appearance it leaves open. Existing renderers are tied to the representation of one engine, need tens of denoising steps or a costly distillation of their own, and learn from conditions that are not aligned with their target videos. We present SolarRenderer, a structure-conditioned video renderer that adapts a frozen MiniMax-H3 33B backbone with two lightweight LoRAs. Structural videos enter the native reference pathway of the backbone at the positions of the frames they describe, without a type identifier and described only in plain text, so that a single control LoRA follows arbitrary structural representations. Starting from a pretrained four-step LoRA, structure-guided distribution matching renders in four steps, 12.3 times faster than 50-step sampling, while preserving the learned control. A block-causal variant extends the same design to streaming and renders 768p video in real time. To train the model, we build a frame-aligned corpus of 136K clips from game engines, simulators, and YouTube videos. Experiments on an in-distribution test set and a generalization benchmark of 16 structural representations show that SolarRenderer achieves state-of-the-art results across both, and generalizes to 11 unseen representations, including pose skeletons, drawings, and point clouds.
-
-Authors: Guian Fang, Shengju Qian, Dongyue Lu, Junchao Huang, Lutao Jiang, Xin Wang, Yiren Song, Li Jiang, Mike Zheng Shou
-
-Tasks: Coding Agents, Video generation
-
-Code: https://github.com/Enderfga/SolarRenderer</description>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>SplatLab: Autonomous Scientific Discovery for 3DGS Research</title>
       <link>https://arxiv.org/abs/2610.30468</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.30468</guid>
@@ -196,71 +261,6 @@ Authors: Seemandhar Jain, Manmohan Chandraker
 Tasks: Auto-Research
 
 Code: https://github.com/seemandhar/SplatLab</description>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>BrickWright: Agentic Creation of Physically Feasible Brick Builds</title>
-      <link>https://arxiv.org/abs/2610.31651</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.31651</guid>
-      <description>Frontier coding agents are becoming increasingly adept at 3D modeling. Yet, they still face challenges when building objects meant to be assembled in the physical world, often creating invalid assemblies with floating, colliding, or disconnected parts. We argue that providing agents with tools for assembling builds and verifying their physical feasibility is sufficient for them to produce physically valid assemblies that still adhere to input prompts. Focusing on the domain of LEGO brick builds, we present BrickWright, a framework for generating physically feasible brick builds from text or image prompts using pre-trained agents, where a build is physically feasible if it uses only real parts, has no colliding or floating parts, and forms a connected structure if possible. BrickWright guides agents to create builds by writing code with BrickLayer, a Python toolkit with two main components: an ergonomic brick assembly API that halves inference cost compared to working in raw LDraw, and a validator that provides feedback on physical feasibility. Whereas baseline agents achieve physical validity rates ranging from only 9% (GPT-6 Luna) to 69% (GPT-6 Astra), BrickWright-guided agents achieve 100% validity on a sample of 512 prompts, while improving prompt adherence for lightweight agents and maintaining it for stronger agents. Additionally, they outperform specialized models on the text-to-brick task. Code is available on our project page: https://avalovelace1.github.io/brickwright/
-
-Authors: Ava Pun, Kevin Dai, Sally Chen, Maxwell Jones, Ruixuan Liu, Kangle Deng, Changliu Liu, Maneesh Agrawala, Deva Ramanan, Jun-Yan Zhu
-
-Tasks: 3D generation, Coding Agents
-
-Code: https://github.com/AvaLovelace1/brickwright</description>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Looking Ahead: Modeling Future Evolution in Autoregressive Video Generation</title>
-      <link>https://arxiv.org/abs/2610.29989</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.29989</guid>
-      <description>Autoregressive video diffusion models generate videos chunk by chunk, yet producing plausible continuations does not guarantee that they capture how scenes evolve. Under teacher forcing, strong temporal redundancy may allow local visual continuity to serve as a shortcut for current-chunk denoising, reducing the pressure to model visual evolution. We introduce Future Chunk Prediction (FCP), an auxiliary objective jointly optimized with teacher-forced denoising that predicts temporally separated chunks without access to the intervening visual context. Drawing supervision directly from training videos, FCP requires no additional pretrained visual encoder and leaves autoregressive inference unchanged. Our method achieves superior physical plausibility over standard teacher-forced autoregressive training with a lower overall training compute budget, highlighting the effectiveness and efficiency of future-chunk supervision for modeling visual evolution. Intriguingly, our visualizations suggest that FCP fosters a more structured representation space, which may be valuable for building autoregressive world models.
-
-Authors: Ruopeng Gao, Yukun Huang, Jiarui Hu, Shuai Wang, Wenbo Hu, Ying Shan, Limin Wang
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/TencentARC/Looking-Ahead</description>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Matrix-Game 4.0: Harnessing Video Models for Real-Time Playable Game Worlds</title>
-      <link>https://arxiv.org/abs/2610.27999</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.27999</guid>
-      <description>Moving from controllable videos to genuinely playable worlds requires persistent world state, executable game rules, and low-latency interaction. We outline a roadmap for the next generation of Matrix-Game that separates game execution from visual generation through an executable game harness, and introduce Matrix-Game 4.0 as the first system built on this design. A lightweight game engine maintains world state and executes interaction rules, a multimodal coding agent translates player ideas into game code and dynamic scene captions, and a renderer based on autoregressive video model transforms engine-rendered low-poly proxies into detailed visuals, conditioned on dynamic captions and memory references. This framework provides continuous guidance for visual generation and enables natural-language creation and modification of scenes and gameplay. Our renderer is trained on aligned low-poly and high-fidelity video pairs and distilled into a causal generator that generates in four-frame chunks with one or two denoising steps. Together with targeted inference optimizations, Matrix-Game 4.0 enables 480p, 60 FPS gameplay on a single NVIDIA RTX5090 with a key-press-to-display latency of 112ms. Single-step generation achieves 83FPS steady-state throughput with 18.2GiB of peak GPU memory usage. With fixed prompts, steady-state throughput also reaches 67FPS on an RTX5080 and 58FPS on an RTX5070Ti. We demonstrate customizable shooter and driving games with engine-enforced mechanics, and release code, model weights, and low-poly game assets to support research and creation of playable game worlds.
-
-Authors: Jihai Zhang, Runjia Qian, Kaiqin Kong, Biao Jiang, Puyi Wang, Siru Chen, Tianle Li, Guanjie Chen, Junyi Wu, Chubin Chen, Yuanhang Li, Kaichen Huang, Haobo Zhang, Yangguang Li, Wei Yu, Guibin Chen, Yu Cheng, Yahui Zhou
-
-Tasks: Coding Agents, Video generation, World Models
-
-Code: https://github.com/SkyworkAI/Matrix-Game</description>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>FrontierCS 2: A Benchmark for Computer Science R&amp;D</title>
-      <link>https://arxiv.org/abs/2610.29932</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.29932</guid>
-      <description>Can LLM agents make contributions to frontier computer science R&amp;D? We introduce FrontierCS 2, a benchmark of 48 open-ended tasks. We take a paper and the code its authors released and delete the paper's contribution. The deleted code becomes the human reference that sets the bar. Earlier open-ended benchmarks give each agent a problem statement and grade one program after the run. FrontierCS 2 places the agent inside a research environment. The agent inherits a working repository and may submit a patch at any point. For each patch, a judge returns a development-suite score but keeps the evaluator, the held-out final suite and the reference private, and grades the final submission on that suite against the reference. The tasks span 13 domains, from machine-learning systems and high-performance computing to databases, security and robotics. Beyond these 48 tasks, FrontierCS 2 keeps a private set of more than 100 tasks, to be announced in the future. We evaluate 12 agents. The best one is Claude Opus 5.5, passing 58% of its runs. No run passes on 16 tasks. A higher score is not the same as a pass: most runs that beat the reference on the combined final score still fall short on some metric or workload. On a shared capability scale for agents and tasks, the median task is roughly as difficult as what the strongest agent can handle.
-
-Authors: Qiuyang Mang, Wenhao Chai, Runyuan He, Dongruixuan Li, Zihan Zheng, Yujun He, Xuanyi Zhou, Hao Wang, Siddhant Ray, Bo Peng, Ruyi Ji, Shuo Yang, Haocheng Xi, Boru Chen, Xinyang David Han, Melissa Pan, Mayank Mishra, Boxi Yu, Sijia Liu, Kerem Akillioglu, Yi Pan, Zirui Wang, Mert Cemri, Diogo Antunes, Yichuan Wang, Aiwei Ivy Zhang, Zhenyang Chen, Qizheng Zhang, Kaiyuan Liu, Wenyuan Huang, Sherry Ruan, Shu Liu, Dacheng Li, Zerui Cheng, Zeyu Shen, Shang Zhou, Hanfei Chen, Yuzhong Zhang, Bohan Lyu, Qu Ao, Han Zheng, Chonghe Jiang, Jingzhuo Hu, Xiaokun Chen, Kunjun Li, Zhiqing Zhong, Haoye Tian, Tong Zhao, Yunzhong He, Hanchen Li, Ofir Press, Jiantao Jiao, Kunle Olukotun, Karthik R. Narasimhan, Jingbo Shang, Koushik Sen, Matei Zaharia, Alex Dimakis, Ion Stoica, Joseph E. Gonzalez, Alvin Cheung
-
-Tasks: Coding Agents
-
-Code: https://github.com/FrontierCS/FrontierCS-2</description>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ALPS: Visual State Encoders for World Models</title>
-      <link>https://arxiv.org/abs/2610.30120</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.30120</guid>
-      <description>World models turn visual representations into predictions and actions. We argue that their visual foundation should combine physical-state information, native language alignment, and pixel reconstruction, so that a single representation can support prediction, instruction, and inspection. However, existing encoders typically specialize in only one or two of these capabilities; we therefore introduce ALPS, a pretrained visual state encoder that unifies all three in a single set of patch tokens. Using only still images and text, we pretrain a ViT-B/16 from scratch with language, reconstruction, and spatial correspondence objectives, and then refine it via cross-view self-distillation. In a unified evaluation across fifteen public encoders, ALPS achieves the lowest aggregate LIBERO state-probe error among ViT-B models (matching the 3.5x larger V-JEPA 2-L) while maintaining strong language alignment and accurate pixel reconstruction. Downstream, frozen ALPS tokens reach the highest mean policy success on LIBERO (85.5%) when paired with our native text tower, match or exceed leading encoders on world-model planning across PushT, Wall, and Granular, and allow predicted future tokens to be decoded directly into pixels for visual inspection. We hope this work helps establish visual pretraining as a shared foundation for understanding, prediction, and action in world models.
-
-Authors: Yanqing Liu, Letian Zhang, Chengzhi Liu, Zijun Wang, Jieru Mei, Hongliang Fei, Yuyin Zhou, Cihang Xie
-
-Tasks: Robotics, World Models
-
-Code: https://github.com/UCSC-VLAA/ALPS</description>
       <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
