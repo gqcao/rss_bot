@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 30 Oct 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 10:00:00 GMT</lastBuildDate>
     <item>
       <title>Investor's Last Exam: Can AI Agents Do Equity Investment Without Seeing the Future?</title>
       <link>https://arxiv.org/abs/2610.38342</link>
@@ -58,17 +58,17 @@ Code: https://github.com/JiongfanYang/SpecSlot</description>
       <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</title>
-      <link>https://arxiv.org/abs/2610.36671</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.36671</guid>
-      <description>Diffusion vision-language models (DVLMs) process their entire input at every denoising step. Since visual tokens make up 89-97% of this input on the benchmarks we study, most of the decoding computation is spent repeatedly processing the same image. Visual token pruning methods partially relieve this burden by removing part of the visual tokens, but they lose the removed information and still process the remaining image at every step. To measure how often the image is actually needed, we compare LLaDA-V's predictions with and without the image at every decoding step and find that removing the image changes a token being unmasked at only 22.8% of steps on average and at as few as 7.9%. We therefore propose LOWN, a decoding method that decides at every step whether to process the image and how many tokens to unmask. LOWN predicts the masked tokens without the image and processes the image only when this prediction disagrees with the last image-conditioned prediction. Agreement certifies the earlier prediction for reuse, and the number of certified tokens sets how many are unmasked in that step. We further observe that the need for the image differs across benchmarks, so LOWN's adaptive decision is needed rather than a fixed schedule. Without training or a tuned threshold, LOWN retains 99.6% of LLaDA-V's score on ten benchmarks at 35.3% of the decoding FLOPs on average. LOWN also generalizes across LLaDA-based DVLMs, composes orthogonally with visual token pruning, and runs under key-value caching for further efficiency gains. Code and project page are available at https://hyeon9698.github.io/LOWN/
+      <title>HairDeck: Animation-Ready Stylized Hair Cards from a Single Image</title>
+      <link>https://arxiv.org/abs/2610.40599</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.40599</guid>
+      <description>The hair of stylized characters in games and avatars is built from hair cards: artist-placed ribbons whose geometry is the visible hair, animated by spring bones. Existing image-based methods produce realistic hair or a single fused mesh, while CHARM, the only generator of stylized hair cards, decodes a hairstyle autoregressively as a long sequence of control points. Observing that a card hairstyle is an unordered set of artist-defined primitives, we propose HairDeck, which generates it as one: each card is a single token, and a set diffusion transformer denoises all cards together. From a single image, HairDeck generates the cards and the spring-bone chains that drive them, yielding an animatable asset that exports to ready-to-use downstream formats. On CHARM's own test set, it lowers Chamfer distance by 44% and card-orientation error by more than half while running 33 times faster, and from single images it outperforms CHARM, image-to-3D pipelines and strand-based methods. Project page: https://hyzcluster.github.io/HairDeck
 
-Authors: Donghyeon Cho, Joowon Kim, Seungho Shin, Eunho Yang
+Authors: Yuze He, Yixiang Wei, Wang Zhao, Chuhao Chen, Yanning Zhou, Yong-Jin Liu
 
-Tasks: Image Understanding
+Tasks: 3D generation
 
-Code: https://github.com/hyeon9698/LOWN</description>
-      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/hyz317/HairDeck</description>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Intrinsic Distribution Matching</title>
@@ -97,16 +97,16 @@ Code: https://github.com/amiya-special/Dynaflow</description>
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>HairDeck: Animation-Ready Stylized Hair Cards from a Single Image</title>
-      <link>https://arxiv.org/abs/2610.40599</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.40599</guid>
-      <description>The hair of stylized characters in games and avatars is built from hair cards: artist-placed ribbons whose geometry is the visible hair, animated by spring bones. Existing image-based methods produce realistic hair or a single fused mesh, while CHARM, the only generator of stylized hair cards, decodes a hairstyle autoregressively as a long sequence of control points. Observing that a card hairstyle is an unordered set of artist-defined primitives, we propose HairDeck, which generates it as one: each card is a single token, and a set diffusion transformer denoises all cards together. From a single image, HairDeck generates the cards and the spring-bone chains that drive them, yielding an animatable asset that exports to ready-to-use downstream formats. On CHARM's own test set, it lowers Chamfer distance by 44% and card-orientation error by more than half while running 33 times faster, and from single images it outperforms CHARM, image-to-3D pipelines and strand-based methods. Project page: https://hyzcluster.github.io/HairDeck
+      <title>L3G-World: Real-Time Infinite World Generation with Latent 3D Gaussian Memory</title>
+      <link>https://arxiv.org/abs/2610.40614</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.40614</guid>
+      <description>Interactive world models generate visual content conditioned on user actions, yet maintaining spatial consistency over long-horizon exploration in real time remains challenging. Existing approaches rely on either temporal context or explicit 3D memory, both of which scale poorly because memory grows with the length of the generated stream. Moreover, explicit 3D memories condition latent video generators by re-encoding RGB renderings, which precludes real-time generation. In this paper, we introduce a Latent 3D Gaussian Memory (L3G) that combines the efficiency of feed-forward reconstruction with a compact, rapidly renderable scene representation. Building on this memory, we propose L3G-World, in which a memory updater and a video diffusion transformer (DiT) alternate autoregressively to generate spatially consistent worlds. The memory updater spawns Gaussians in newly observed regions and refines existing ones, so that the memory grows with scene extent rather than stream length. Each Gaussian further stores a VAE latent feature, allowing the memory to be rendered directly into the DiT's latent space without VAE re-encoding. Experiments show that L3G-World achieves state-of-the-art generation quality and long-horizon spatial consistency, with up to 38.6times fewer 3D primitives, 3.2times faster memory updates, and 359times faster memory rendering relative to the most efficient prior 3D-memory baseline for each metric, enabling real-time world generation at 9 FPS.
 
-Authors: Yuze He, Yixiang Wei, Wang Zhao, Chuhao Chen, Yanning Zhou, Yong-Jin Liu
+Authors: Jinhyeok Choi, JoungBin Lee, Jongmin Lee, Minkyeong Jeon, Jiyoung Kim, Kaeun Han, Yoonjin Yoon, Seungryong Kim
 
-Tasks: 3D generation
+Tasks: Novel View Synthesis, Video generation, World Models
 
-Code: https://github.com/hyz317/HairDeck</description>
+Code: https://github.com/cvlab-kaist/L3G-World</description>
       <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -136,6 +136,71 @@ Code: https://github.com/facebookresearch/InteractiveWorld</description>
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Hy-Nomas: Towards Free-form Interactive World Generation</title>
+      <link>https://arxiv.org/abs/2610.36729</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.36729</guid>
+      <description>Interactive world generation requires models to follow successive commands while preserving relevant history and action consequences. We present Hy-Nomas, a video world model with an 8B diffusion backbone that supports free-form text instructions and continuous camera control across multiple interaction turns. It generates variable-length segments conditioned on current inputs and cached history. Our central design aligns structured video captions with action-aware causal attention: descriptive context remains accessible across segments, while action instructions are restricted to their intended temporal windows. A vision-language Prompt Enhancer (PE) translates user requests and multimodal interaction histories into structured conditions for the next segment. A multi-stage curriculum progressively introduces causal generation, text interaction, camera control, and training on model-generated histories, followed by diffusion distillation. In human evaluation, Hy-Nomas shows superior performance over existing world models. We release model weights, code and benchmarks, together with a lightweight adaptation workflow, to support reproducible research on interactive world generation.
+
+Authors: Qiaoling Chen, Jiaxiang Cheng, Xueqing Deng, Tiankai Hang, Ji Hou, Jiaqi Li, Yifan Liu, Tao Lu, Junshu Tang, Yu Tang, Yao Teng, Yu Tian, Heng Wang, Weizhi Wang, Xiyao Wang, Xilun Wu, Mingyu Yang, Yangbin Yu, Rui Zhao, Longjun Cao, Linghao Chen, Haoyi Duan, Jiaming Han, Mingji Han, Enhua Jiang, Shunkai Li, Yanzhe Liang, Qinwei Ma, Cong Wang, Lei Wang, Bing Wu, Ke Xing, Ray Ying, Zhentao Yu, Key Zhang, Yuan Zhou, Zhengguang Zhou, Kai Zou
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/tencent-hunyuan/hy-nomas</description>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Omni-InteractScope: Benchmarking Proactive and Agentic Interaction in Continuous Omnimodal Streams</title>
+      <link>https://arxiv.org/abs/2610.35439</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.35439</guid>
+      <description>Omnimodal large language models (Omni-LLMs) are increasingly expected to assist users while observing continuous audiovisual streams. However, existing evaluations provide limited insight into how reliably these models connect stream evidence and user needs to timely, sustained interventions. We introduce Omni-InteractScope, a benchmark of 1,479 human-annotated, cross-reviewed interactions with 1,790 temporal targets across eight task groups. It links input modalities, event triggers, intervention types, and user needs, covering event-timed tool invocation and query-free assistance alongside notifications, warnings, state tracking, and continuous responses. Our experimental results on the proposed benchmark reveal three critical limitations of current Omni-LLMs: (1) Timely tool invocation remains unreliable: all 12 evaluated models produce an on-time first response for at most 40\% of tool-invocation targets, and joint timing-and-tool accuracy reaches at most 32.0\%. (2) Query-free reminders remain poorly covered: all evaluated models achieve lower timely reference-target recall on query-free reminders than on explicit questions, measured on their respective target sets. Reminder recall never exceeds 23.0\%. (3) End-to-end guidance coverage remains limited: nine models cover none of the 26 guidance sequences in full, and the remaining three cover only one to three sequences each. Targeted controls further show that tool-invocation scores alone do not establish event grounding and that reminder coverage depends on response history and frequency. These findings motivate developing and evaluating streaming assistants for timely action, initiative under general user needs, and coverage of entire response sequences.
+
+Authors: Yinsong Yan, Ling Wang, Yuxuan Wang, Yifan Yang, Ruiyang Xu, Junming Lin, Qi CHEN, Meng Gao, Minghao Han, Yunfei Chu, Qize Yang, Xize Cheng, Jin Xu, Jibin Wu
+
+Tasks: Omni models, Streaming Video Understanding, Video Understanding
+
+Code: https://github.com/YinsongYan/Omni-InteractScope</description>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Build, Don't Play: Self-Improving LLM Research Agents Develop a Hearthstone Battlegrounds AI That Rivals Top Players</title>
+      <link>https://arxiv.org/abs/2610.33845</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.33845</guid>
+      <description>Can LLM agents carry a hard real-world problem from raw data to a system that holds its own against people? We study this in Hearthstone Battlegrounds, an eight-player auto-battler with stochastic shops and battles, hidden information and nearly a thousand interacting cards. We present AutoTavern, a self-improving research system: specialised LLM research agents share a typed research memory, every claim passes verification gates, and live games close the loop, so the agents improve the simulator, opponents and policy and, from the same feedback, their own research process; a human sets goals and rules on ambiguous mechanics. In 20 days AutoTavern built TavernGym, the first faithful, full-content reproduction of the live game, and delivered 23 versions of TavernAgent, trained with PPO against opponents calibrated to real games. TavernAgent plays complete games on the live ladder by itself: its rating rose from 6,000 to about 15,000 and, on the public leaderboard's measure, its last 20 records average a placement of 1.60 with 80% first places, better than the server's ten highest-rated players on every statistic (2.34, 59%). TavernBench, 960 tasks in 40 scenarios, shows that the system the agents built is the strongest player: TavernAgent answers 91% of the play tasks against at most 63% for frontier LLMs, and decides in 0.03 s where they need up to 26 s; within the second a live turn allows, it keeps 90% and no LLM more than 26%. LLM agents build far better than they play. We will open-source TavernBench and TavernGym at https://github.com/MCG-NJU/AutoTavern.
+
+Authors: Changlian Ma, Limin Wang
+
+Tasks: Multi-Agent Systems, Reinforcement Learning
+
+Code: https://github.com/MCG-NJU/AutoTavern</description>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SO-101 Bench: Accessible Spatial Manipulation</title>
+      <link>https://arxiv.org/abs/2610.36420</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.36420</guid>
+      <description>Low-cost arms such as the SO-101 have become the most common entry point to robot learning, yet no released policy performs spatially constrained, language-conditioned tasks on them out of the box, and existing SO-101 benchmarks run only on physical hardware with simple tasks and few held-out objects. We introduce SO-101 Bench, a simulated benchmark for language-conditioned spatial manipulation built on an Isaac Lab digital twin of a real SO-101 setup. It has four tasks scored as five families, 138 objects in seen, unseen-instance and unseen-class splits, 916 evaluation episodes with subsets for held-out appearances, rotate-to-fit planning and occlusion memory, and 3,629 simulated demonstrations on which every learned policy is fine-tuned under an equal compute budget. The twin ranks policies as the real robot does: five policies trained without real data, four VLAs and an LLM agent, keep their exact ranking when the same weights run on the physical arm in an unseen environment with unseen objects (Spearman rho = 1.00, MMRV = 0.000), although simulation overestimates success. Across nine VLAs and world-action models, the best learned policies score near 61%, with spatial placement, unseen object classes and rotate-to-fit planning remaining open. An LLM agent that writes code and hands grasping to a learned policy scores 83.2%, and an ablation shows that this lead comes from the choice of harness and the choice of language model.
+
+Authors: Truman Hickok
+
+Tasks: Robotics
+
+Code: https://github.com/5hadytru/so101_bench</description>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</title>
+      <link>https://arxiv.org/abs/2610.36671</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.36671</guid>
+      <description>Diffusion vision-language models (DVLMs) process their entire input at every denoising step. Since visual tokens make up 89-97% of this input on the benchmarks we study, most of the decoding computation is spent repeatedly processing the same image. Visual token pruning methods partially relieve this burden by removing part of the visual tokens, but they lose the removed information and still process the remaining image at every step. To measure how often the image is actually needed, we compare LLaDA-V's predictions with and without the image at every decoding step and find that removing the image changes a token being unmasked at only 22.8% of steps on average and at as few as 7.9%. We therefore propose LOWN, a decoding method that decides at every step whether to process the image and how many tokens to unmask. LOWN predicts the masked tokens without the image and processes the image only when this prediction disagrees with the last image-conditioned prediction. Agreement certifies the earlier prediction for reuse, and the number of certified tokens sets how many are unmasked in that step. We further observe that the need for the image differs across benchmarks, so LOWN's adaptive decision is needed rather than a fixed schedule. Without training or a tuned threshold, LOWN retains 99.6% of LLaDA-V's score on ten benchmarks at 35.3% of the decoding FLOPs on average. LOWN also generalizes across LLaDA-based DVLMs, composes orthogonally with visual token pruning, and runs under key-value caching for further efficiency gains. Code and project page are available at https://hyeon9698.github.io/LOWN/
+
+Authors: Donghyeon Cho, Joowon Kim, Seungho Shin, Eunho Yang
+
+Tasks: Image Understanding
+
+Code: https://github.com/hyeon9698/LOWN</description>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>IntReal: A Real-World Dataset and Benchmark for Multimodal Interleaved Generation</title>
       <link>https://arxiv.org/abs/2610.38425</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.38425</guid>
@@ -162,19 +227,6 @@ Code: https://github.com/y0urOy/JAM</description>
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models</title>
-      <link>https://arxiv.org/abs/2610.35138</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.35138</guid>
-      <description>Evaluating human-AI co-design requires testing whether coding agents can translate real users' multimodal requests into working application revisions. We introduce Co-Design Bench, a reference-free benchmark of 273 tasks curated from 37,463 deduplicated queries across 26,314 real user coding sessions. Its two tracks, Multimodal Editing (ME) and Repository Editing (RE), cover localized edits with optional image, audio, video, or document inputs and coordinated repository revisions. Tasks span three capability dimensions: Grounded Understanding, UI Transformation, and Functional Implementation. The tasks pair normalized requests and runnable pre-edit applications with 2,331 hidden expert-authored acceptance criteria. Our judge-then-refute protocol grades criteria using source and browser evidence, challenges positive verdicts with a separate LLM verifier, and audits visual and interaction claims without gold code or target screenshots. Under a shared agentic harness, the strongest of ten model endpoints passes an average of 69.9% of criteria per task but fully satisfies only 26.4% of tasks. All ten endpoints achieve lower criterion completion on repository edits spanning three or four change types than on those spanning one or two. Co-Design Bench provides a testbed for studying the gap between partial requirement satisfaction and complete task success under agentic execution for real-user application revisions.
-
-Authors: Xilin Wei, Shengyuan Ding, Xinyu Fang, Tiancheng Gu, Yuchi Wang, Zhixun Li, Ziyu Liu, Yuhang Zang, Weixiang Yu, Cheng Lu, Chonggao Sun, Tong Zhou, Dahua Lin, Hang Zhang, Shuai Bai, Dayiheng Liu
-
-Tasks: Coding Agents, Harness Engineering
-
-Code: https://github.com/Wiselnn570/Co-Design-Bench</description>
-      <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>On the SPOT: Enhancing Speculative Decoding for Diffusion Language Models via Commit-Order Prediction</title>
       <link>https://arxiv.org/abs/2610.22543</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.22543</guid>
@@ -186,32 +238,6 @@ Tasks: Language Modeling
 
 Code: https://github.com/Eliezer318/SPOT-dLLM</description>
       <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Hy-Nomas: Towards Free-form Interactive World Generation</title>
-      <link>https://arxiv.org/abs/2610.36729</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.36729</guid>
-      <description>Interactive world generation requires models to follow successive commands while preserving relevant history and action consequences. We present Hy-Nomas, a video world model with an 8B diffusion backbone that supports free-form text instructions and continuous camera control across multiple interaction turns. It generates variable-length segments conditioned on current inputs and cached history. Our central design aligns structured video captions with action-aware causal attention: descriptive context remains accessible across segments, while action instructions are restricted to their intended temporal windows. A vision-language Prompt Enhancer (PE) translates user requests and multimodal interaction histories into structured conditions for the next segment. A multi-stage curriculum progressively introduces causal generation, text interaction, camera control, and training on model-generated histories, followed by diffusion distillation. In human evaluation, Hy-Nomas shows superior performance over existing world models. We release model weights, code and benchmarks, together with a lightweight adaptation workflow, to support reproducible research on interactive world generation.
-
-Authors: Qiaoling Chen, Jiaxiang Cheng, Xueqing Deng, Tiankai Hang, Ji Hou, Jiaqi Li, Yifan Liu, Tao Lu, Junshu Tang, Yu Tang, Yao Teng, Yu Tian, Heng Wang, Weizhi Wang, Xiyao Wang, Xilun Wu, Mingyu Yang, Yangbin Yu, Rui Zhao, Longjun Cao, Linghao Chen, Haoyi Duan, Jiaming Han, Mingji Han, Enhua Jiang, Shunkai Li, Yanzhe Liang, Qinwei Ma, Cong Wang, Lei Wang, Bing Wu, Ke Xing, Ray Ying, Zhentao Yu, Key Zhang, Yuan Zhou, Zhengguang Zhou, Kai Zou
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/tencent-hunyuan/hy-nomas</description>
-      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WeVisCut: The Whole Editing Room in One Agent From Narration to Long-Form Video</title>
-      <link>https://arxiv.org/abs/2610.38352</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.38352</guid>
-      <description>Producing long-form videos from narration requires interdependent decisions that remain coherent across shots. Existing agentic editors often use multi-stage workflows driven by general models, leaving the quality-cost trade-off of compact, task-adapted policies unclear. We address this gap with WeVisCut, a long-form script-to-video system that connects tool execution with policy learning. Its agent harness maintains shared production state so that tool feedback informs subsequent decisions and repairs. Because finished videos do not expose these decisions, our four-stage data pipeline combines editing inversion with verified replay to turn recovered editing intent into executable supervision. Applied to 3,750 finished videos, this pipeline yields over 130K training examples. We use this supervision to train a single 9B policy that coordinates production and recovers from failures within the same harness. Moreover, we introduce a 100-task benchmark and five metrics assessing editing quality and delivery reliability. Under a shared tool environment, WeVisCut substantially outperforms its base model and achieves comparable performance to Claude Opus 5 while using nearly 33x fewer generated tokens per successful output minute. It also outperforms task-matched native editors on our proposed metrics.
-
-Authors: Chenyu Mu, Wenming Weng, Qinrui Wang, Xingsong Ye, Hao Yu, Jun He, Chong Sun, Chen Li, Jing Lyu, Erkun Yang, Cheng Deng
-
-Tasks: Harness Engineering, Long-Horizon Agents, Video Editing
-
-Code: https://github.com/Tencent/WeVisCut</description>
-      <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Trustworthy Recursive Self-Improvement in the Era of Large Models: Foundation, Risks, Evaluation and Open Challenges</title>
@@ -236,32 +262,6 @@ Tasks: Coding Agents, Long-Horizon Agents, Question Answering
 
 Code: https://github.com/KaiserWhoLearns/ReasoningEffortLLM</description>
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>HuGe: Scaling Humanoid Generalist Vision-Language-Action Models with Egocentric Experience</title>
-      <link>https://arxiv.org/abs/2610.34186</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.34186</guid>
-      <description>Extending Vision-Language-Action models (VLAs) to humanoid robots requires coordinated whole-body control and diverse demonstrations that are costly to collect in real-world scenarios. Although egocentric human demonstrations provide a complementary source of task experience, differences in visual embodiment and missing robot proprioception complicate transfer to humanoid policies. To address these challenges, we introduce HuGe, a family of Humanoid Generalist VLAs pre-trained on over 2,000 hours of egocentric human and robot data. Specifically, HuGe employs three existing representative VLA architectures to predict latent motion tokens for a pretrained whole-body controller, together with hand-control signals. Based on this, we introduce a three-stage training pipeline that combines egocentric pre-training, humanoid adaptation, and downstream fine-tuning. To facilitate transfer across embodiments, we construct pseudo-proprioceptive states through simulation playback during pre-training and modify arm appearance in egocentric observations through re-rendering during downstream fine-tuning. With this pipeline, HuGe achieves the state-of-the-art on simulation benchmark HumanoidArena. Furthermore, real-world experiments on the Unitree G1 indicate that augmenting robot demonstrations with visually adapted egocentric demonstrations significantly increases success on a pick-and-drop task.
-
-Authors: Yang Liu, Jiacheng Liu, Hengtao Li, Yuheng Huang, Zijian Yang, Ji Dai, Maoxin Wang, Yi Gao, Qishen Wang, Baohua Yin, Peiyang Li, Shuanghao Bai, Mingyang Sun, Pengxiang Ding, Jianqin Yin, Lixin Yang, Donglin Wang
-
-Tasks: Continuous Control, Robotics
-
-Code: https://github.com/yliu-cs/HuGe</description>
-      <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Build, Don't Play: Self-Improving LLM Research Agents Develop a Hearthstone Battlegrounds AI That Rivals Top Players</title>
-      <link>https://arxiv.org/abs/2610.33845</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.33845</guid>
-      <description>Can LLM agents carry a hard real-world problem from raw data to a system that holds its own against people? We study this in Hearthstone Battlegrounds, an eight-player auto-battler with stochastic shops and battles, hidden information and nearly a thousand interacting cards. We present AutoTavern, a self-improving research system: specialised LLM research agents share a typed research memory, every claim passes verification gates, and live games close the loop, so the agents improve the simulator, opponents and policy and, from the same feedback, their own research process; a human sets goals and rules on ambiguous mechanics. In 20 days AutoTavern built TavernGym, the first faithful, full-content reproduction of the live game, and delivered 23 versions of TavernAgent, trained with PPO against opponents calibrated to real games. TavernAgent plays complete games on the live ladder by itself: its rating rose from 6,000 to about 15,000 and, on the public leaderboard's measure, its last 20 records average a placement of 1.60 with 80% first places, better than the server's ten highest-rated players on every statistic (2.34, 59%). TavernBench, 960 tasks in 40 scenarios, shows that the system the agents built is the strongest player: TavernAgent answers 91% of the play tasks against at most 63% for frontier LLMs, and decides in 0.03 s where they need up to 26 s; within the second a live turn allows, it keeps 90% and no LLM more than 26%. LLM agents build far better than they play. We will open-source TavernBench and TavernGym at https://github.com/MCG-NJU/AutoTavern.
-
-Authors: Changlian Ma, Limin Wang
-
-Tasks: Multi-Agent Systems, Reinforcement Learning
-
-Code: https://github.com/MCG-NJU/AutoTavern</description>
-      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
