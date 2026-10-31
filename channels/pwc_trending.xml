@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sat, 31 Oct 2026 19:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 20:00:00 GMT</lastBuildDate>
     <item>
       <title>HairDeck: Animation-Ready Stylized Hair Cards from a Single Image</title>
       <link>https://arxiv.org/abs/2610.40599</link>
@@ -45,6 +45,19 @@ Code: https://github.com/inclusionai/idm</description>
       <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Proving and Improving the Platonic Representation Hypothesis with JEPAs</title>
+      <link>https://arxiv.org/abs/2610.39302</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.39302</guid>
+      <description>Whether models trained on different modalities converge to the same representation of the world is central to AI. The Platonic Representation Hypothesis (PRH) conjectures that they do as they scale, but without a proof it offers neither a guarantee nor a recipe. We turn the hypothesis into a theorem. First, we prove a Platonic Representation Theorem: Joint-Embedding Predictive Architectures (JEPAs) trained separately on any number of modalities learn the same representation up to one rotation whenever their positive pairs are two observations of one scene--good views--and their misalignment is bounded otherwise. Second, we show that next-token prediction is a JEPA with bad views, parts of a single document, which explains why language models align with vision only through scale. Third, we validate the theory from 145k captions to the texts of 940M web images, and uncover a scaling law of alignment that predicts unseen runs within seed noise. Good views need 42 times fewer training samples than next-token prediction on the same corpus to reach the same alignment, and a 109M-parameter text JEPA aligns with DINOv2 and CLIP's image encoders better than every language model we evaluated, up to 72B parameters, and than CLIP's text encoder: next-token prediction is a remarkably inefficient route to platonic representations. As a showcase, one rotation turns separately trained encoders into an image captioner (CIDEr .838 on COCO). Even that rotation needs no pair: on the latest pair-free benchmark, our text JEPA beats every zero-shot accuracy reported with language models up to 8B parameters, e.g., 64\% against at most 56\% top-5 on ImageNet-100. Positive views, and not scale alone, are thus the lever to build platonic representations.
+
+Authors: Randall Balestriero, Yann LeCun
+
+Tasks: Language Modeling
+
+Code: https://github.com/galilai-group/prh-proof</description>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Multi-Token Prediction Done Right</title>
       <link>https://arxiv.org/abs/2610.38331</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.38331</guid>
@@ -69,6 +82,58 @@ Tasks: Automatic Music Transcription, Automatic Speech Recognition, Chart Unders
 
 Code: https://github.com/TencentCloudADP/youtu-parsing</description>
       <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hy-Nomas: Towards Free-form Interactive World Generation</title>
+      <link>https://arxiv.org/abs/2610.36729</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.36729</guid>
+      <description>Interactive world generation requires models to follow successive commands while preserving relevant history and action consequences. We present Hy-Nomas, a video world model with an 8B diffusion backbone that supports free-form text instructions and continuous camera control across multiple interaction turns. It generates variable-length segments conditioned on current inputs and cached history. Our central design aligns structured video captions with action-aware causal attention: descriptive context remains accessible across segments, while action instructions are restricted to their intended temporal windows. A vision-language Prompt Enhancer (PE) translates user requests and multimodal interaction histories into structured conditions for the next segment. A multi-stage curriculum progressively introduces causal generation, text interaction, camera control, and training on model-generated histories, followed by diffusion distillation. In human evaluation, Hy-Nomas shows superior performance over existing world models. We release model weights, code and benchmarks, together with a lightweight adaptation workflow, to support reproducible research on interactive world generation.
+
+Authors: Qiaoling Chen, Jiaxiang Cheng, Xueqing Deng, Tiankai Hang, Ji Hou, Jiaqi Li, Yifan Liu, Tao Lu, Junshu Tang, Yu Tang, Yao Teng, Yu Tian, Heng Wang, Weizhi Wang, Xiyao Wang, Xilun Wu, Mingyu Yang, Yangbin Yu, Rui Zhao, Longjun Cao, Linghao Chen, Haoyi Duan, Jiaming Han, Mingji Han, Enhua Jiang, Shunkai Li, Yanzhe Liang, Qinwei Ma, Cong Wang, Lei Wang, Bing Wu, Ke Xing, Ray Ying, Zhentao Yu, Key Zhang, Yuan Zhou, Zhengguang Zhou, Kai Zou
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/tencent-hunyuan/hy-nomas</description>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What Effort Level Should I Choose? On the Economics of Reasoning Effort in LLM Agents</title>
+      <link>https://arxiv.org/abs/2610.34491</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.34491</guid>
+      <description>Generative models increasingly expose a reasoning effort setting that lets users scale inference-time compute, trading higher cost for potentially improved performance. Users must choose an effort level before knowing whether extra reasoning will help, and even a successful run does not reveal whether the effort purchased was necessary. Reasoning effort is therefore a credence good: buyers observe the outcome but cannot assess the marginal value of the computation they paid for. In this work, we measure the counterfactual effect of effort levels on both proprietary and open-weight models on four benchmarks, spanning single-call reasoning and long-horizon agentic tasks. Effort, it turns out, does not consistently preserve tasks that lower effort solves, can overspend, and can change trajectory behavior. First, we find that although higher effort can raise accuracy in aggregate, it frequently fails on tasks that lower effort solved. Second, on the subset of easy tasks that every effort level solves, higher effort is generally more costly, with the highest effort level costing up to 42x as much as the lowest. Lastly, effort changes not only how many tokens are used, but also how agents solve tasks: at higher effort, agents verify their own work more heavily and more often search for solutions than work through problems directly, both of which lengthen trajectories without necessarily altering the outcome. These findings show that naively choosing the highest level is not only cost-inefficient but also offers no guarantee of the best instance-level performance. A simple alternative, starting at the lowest effort and escalating only after a verified failure, matches or improves on fixed top effort across all models and benchmarks at lower cost for most proprietary models.
+
+Authors: Kaiser Sun, Yongchan Kwon, Zain Hasan, Shang Zhu, Kaitlyn Zhou, Federico Bianchi
+
+Tasks: Coding Agents, Long-Horizon Agents, Question Answering
+
+Code: https://github.com/KaiserWhoLearns/ReasoningEffortLLM</description>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Training Foundation Models with a Single Algorithm</title>
+      <link>https://arxiv.org/abs/2610.40564</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.40564</guid>
+      <description>Foundation models are typically trained in stages: pretraining, midtraining, supervised fine-tuning (SFT), and reinforcement learning (RL), with changes in both data and learning algorithms. We show that this algorithmic separation is not fundamental. By deriving suitable RL objectives as maximum-likelihood fitting to model-generated target distributions, we place all of these stages under a single likelihood-based training algorithm, unified training. This perspective turns the foundation-model training lifecycle into a problem of choosing which data to train on, in what proportions, and when, with conventional staged training as a special case. We instantiate this framework in a unified training system that mixes static data and RL generations within a single trainer. Across controlled and real-world experiments, unified training improves the accuracy-compute tradeoff and task coverage while preserving broader capabilities, and provides a stronger starting point for continual learning. This work lays the groundwork for a unified science of foundation-model training, connecting mathematical principles, training infrastructure, and the development of model capabilities.
+
+Authors: Yuda Song, Alvin Zhang, Fahim Tajwar, Daman Arora, Jeff Schneider, Daniel Khashabi, Ruslan Salakhutdinov, J. Andrew Bagnell, Aarti Singh, Andrea Zanette
+
+Tasks: Continual Learning, Reinforcement Learning
+
+Code: https://github.com/yudasong/unified-training</description>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Can LLMs Uncover Hidden Physical Laws through Free Exploration?</title>
+      <link>https://arxiv.org/abs/2610.37649</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.37649</guid>
+      <description>Scientific discovery often begins with an unexpected observation that prompts a new research question. In a world with altered physical laws, can large language models (LLMs) notice unexpected behavior, such as heavier objects falling more slowly, and discover the law through experiments without being told what to investigate? To evaluate this ability, we introduce LongChang, an automated framework that creates simulated worlds with altered physics, where one or more laws differ from ordinary physics. The evaluated LLMs act as explorers, manipulating objects and building tools to investigate their own questions without research tasks or hints about these laws. Separate LLM agents generate and review scenes, review tool designs, and evaluate reports for correctness and experimental support using the altered physical laws and exploration records. These records guide scene evolution for further exploration, allowing the full cycle to run without human intervention. Among 12 LLMs, GPT-6-Astra achieves a discovery rate of 16.7%, while the other 11 score 0%. The exploration records reveal uninvestigated anomalies and only partial identification of the altered physical laws.
+
+Authors: Zhen Yang, Wen Wang, Xander Xu, Ying-Cong Chen
+
+Tasks: Agents
+
+Code: https://github.com/envision-research/longchang</description>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ChronoReplay: One Answer Interface Is Not Enough for Streaming Spatial Intelligence</title>
@@ -110,32 +175,6 @@ Code: https://github.com/amiya-special/Dynaflow</description>
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Can LLMs Uncover Hidden Physical Laws through Free Exploration?</title>
-      <link>https://arxiv.org/abs/2610.37649</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.37649</guid>
-      <description>Scientific discovery often begins with an unexpected observation that prompts a new research question. In a world with altered physical laws, can large language models (LLMs) notice unexpected behavior, such as heavier objects falling more slowly, and discover the law through experiments without being told what to investigate? To evaluate this ability, we introduce LongChang, an automated framework that creates simulated worlds with altered physics, where one or more laws differ from ordinary physics. The evaluated LLMs act as explorers, manipulating objects and building tools to investigate their own questions without research tasks or hints about these laws. Separate LLM agents generate and review scenes, review tool designs, and evaluate reports for correctness and experimental support using the altered physical laws and exploration records. These records guide scene evolution for further exploration, allowing the full cycle to run without human intervention. Among 12 LLMs, GPT-6-Astra achieves a discovery rate of 16.7%, while the other 11 score 0%. The exploration records reveal uninvestigated anomalies and only partial identification of the altered physical laws.
-
-Authors: Zhen Yang, Wen Wang, Xander Xu, Ying-Cong Chen
-
-Tasks: Agents
-
-Code: https://github.com/envision-research/longchang</description>
-      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Proving and Improving the Platonic Representation Hypothesis with JEPAs</title>
-      <link>https://arxiv.org/abs/2610.39302</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.39302</guid>
-      <description>Whether models trained on different modalities converge to the same representation of the world is central to AI. The Platonic Representation Hypothesis (PRH) conjectures that they do as they scale, but without a proof it offers neither a guarantee nor a recipe. We turn the hypothesis into a theorem. First, we prove a Platonic Representation Theorem: Joint-Embedding Predictive Architectures (JEPAs) trained separately on any number of modalities learn the same representation up to one rotation whenever their positive pairs are two observations of one scene--good views--and their misalignment is bounded otherwise. Second, we show that next-token prediction is a JEPA with bad views, parts of a single document, which explains why language models align with vision only through scale. Third, we validate the theory from 145k captions to the texts of 940M web images, and uncover a scaling law of alignment that predicts unseen runs within seed noise. Good views need 42 times fewer training samples than next-token prediction on the same corpus to reach the same alignment, and a 109M-parameter text JEPA aligns with DINOv2 and CLIP's image encoders better than every language model we evaluated, up to 72B parameters, and than CLIP's text encoder: next-token prediction is a remarkably inefficient route to platonic representations. As a showcase, one rotation turns separately trained encoders into an image captioner (CIDEr .838 on COCO). Even that rotation needs no pair: on the latest pair-free benchmark, our text JEPA beats every zero-shot accuracy reported with language models up to 8B parameters, e.g., 64\% against at most 56\% top-5 on ImageNet-100. Positive views, and not scale alone, are thus the lever to build platonic representations.
-
-Authors: Randall Balestriero, Yann LeCun
-
-Tasks: Language Modeling
-
-Code: https://github.com/galilai-group/prh-proof</description>
-      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Memory Tax: Dissecting the Net Value of Agent Memory</title>
       <link>https://arxiv.org/abs/2610.34073</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.34073</guid>
@@ -162,19 +201,6 @@ Code: https://github.com/facebookresearch/InteractiveWorld</description>
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Hy-Nomas: Towards Free-form Interactive World Generation</title>
-      <link>https://arxiv.org/abs/2610.36729</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.36729</guid>
-      <description>Interactive world generation requires models to follow successive commands while preserving relevant history and action consequences. We present Hy-Nomas, a video world model with an 8B diffusion backbone that supports free-form text instructions and continuous camera control across multiple interaction turns. It generates variable-length segments conditioned on current inputs and cached history. Our central design aligns structured video captions with action-aware causal attention: descriptive context remains accessible across segments, while action instructions are restricted to their intended temporal windows. A vision-language Prompt Enhancer (PE) translates user requests and multimodal interaction histories into structured conditions for the next segment. A multi-stage curriculum progressively introduces causal generation, text interaction, camera control, and training on model-generated histories, followed by diffusion distillation. In human evaluation, Hy-Nomas shows superior performance over existing world models. We release model weights, code and benchmarks, together with a lightweight adaptation workflow, to support reproducible research on interactive world generation.
-
-Authors: Qiaoling Chen, Jiaxiang Cheng, Xueqing Deng, Tiankai Hang, Ji Hou, Jiaqi Li, Yifan Liu, Tao Lu, Junshu Tang, Yu Tang, Yao Teng, Yu Tian, Heng Wang, Weizhi Wang, Xiyao Wang, Xilun Wu, Mingyu Yang, Yangbin Yu, Rui Zhao, Longjun Cao, Linghao Chen, Haoyi Duan, Jiaming Han, Mingji Han, Enhua Jiang, Shunkai Li, Yanzhe Liang, Qinwei Ma, Cong Wang, Lei Wang, Bing Wu, Ke Xing, Ray Ying, Zhentao Yu, Key Zhang, Yuan Zhou, Zhengguang Zhou, Kai Zou
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/tencent-hunyuan/hy-nomas</description>
-      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Timestral</title>
       <link>https://arxiv.org/abs/2610.37585</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2610.37585</guid>
@@ -186,32 +212,6 @@ Tasks: Time-series forecasting
 
 Code: https://github.com/mistralai/timestral</description>
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>What Effort Level Should I Choose? On the Economics of Reasoning Effort in LLM Agents</title>
-      <link>https://arxiv.org/abs/2610.34491</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.34491</guid>
-      <description>Generative models increasingly expose a reasoning effort setting that lets users scale inference-time compute, trading higher cost for potentially improved performance. Users must choose an effort level before knowing whether extra reasoning will help, and even a successful run does not reveal whether the effort purchased was necessary. Reasoning effort is therefore a credence good: buyers observe the outcome but cannot assess the marginal value of the computation they paid for. In this work, we measure the counterfactual effect of effort levels on both proprietary and open-weight models on four benchmarks, spanning single-call reasoning and long-horizon agentic tasks. Effort, it turns out, does not consistently preserve tasks that lower effort solves, can overspend, and can change trajectory behavior. First, we find that although higher effort can raise accuracy in aggregate, it frequently fails on tasks that lower effort solved. Second, on the subset of easy tasks that every effort level solves, higher effort is generally more costly, with the highest effort level costing up to 42x as much as the lowest. Lastly, effort changes not only how many tokens are used, but also how agents solve tasks: at higher effort, agents verify their own work more heavily and more often search for solutions than work through problems directly, both of which lengthen trajectories without necessarily altering the outcome. These findings show that naively choosing the highest level is not only cost-inefficient but also offers no guarantee of the best instance-level performance. A simple alternative, starting at the lowest effort and escalating only after a verified failure, matches or improves on fixed top effort across all models and benchmarks at lower cost for most proprietary models.
-
-Authors: Kaiser Sun, Yongchan Kwon, Zain Hasan, Shang Zhu, Kaitlyn Zhou, Federico Bianchi
-
-Tasks: Coding Agents, Long-Horizon Agents, Question Answering
-
-Code: https://github.com/KaiserWhoLearns/ReasoningEffortLLM</description>
-      <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Surya OCR 2.5</title>
-      <link>https://www.datalab.to/blog/surya-2-5</link>
-      <guid isPermaLink="true">https://www.datalab.to/blog/surya-2-5</guid>
-      <description>Surya 2.5 reads 1.7x as many pages per second as Surya 2 and scores 85.9 on OmniParseBench, the best of any open model under 1B parameters. It reads 4.5 pages per second on one H100, against 2.7 for Surya 2, has 689M parameters with open weights, and almost never loops. A single VLM handles layout analysis with reading order, full-page or per-block OCR, and table reading as HTML; a larger 88,526-token vocabulary covers emoji and styled math letters and makes pages 2.6x cheaper to write.
-
-Authors: Hunter Heidenreich, Vik Paruchuri
-
-Tasks: Document Layout Analysis, Document Understanding, OCR, Table Structure Recognition
-
-Code: https://github.com/datalab-to/surya</description>
-      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Investor's Last Exam: Can AI Agents Do Equity Investment Without Seeing the Future?</title>
@@ -227,17 +227,17 @@ Code: https://github.com/Prophetlab/Investor-Last-Exam</description>
       <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>IntReal: A Real-World Dataset and Benchmark for Multimodal Interleaved Generation</title>
-      <link>https://arxiv.org/abs/2610.38425</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.38425</guid>
-      <description>Humans routinely consume multimodal content, where textual and visual information is naturally interleaved. Although Unified Multimodal Models (UMMs) can jointly generate text and images, multimodal interleaved generation remains largely underexplored. Progress in this area is hindered by two key limitations: (1) the lack of well-defined interleaved generation tasks and corresponding training data, and (2) the absence of fine-grained evaluation protocols that can reliably diagnose model performance across different capability dimensions. To this end, we present IntReal, comprising two complementary components: IntReal-100K, a real-world dataset of multimodal interleaved samples spanning four major categories, and the IntReal Evaluation Suite, which evaluates model performance across seven complementary dimensions using specialized expert models, enabling coarse-to-fine diagnosis. Extensive experiments validate our evaluation suite through low inter-metric redundancy (max pairwise absolute Spearman's ρleq 0.42 ), high agreement with human judgments (83.3% accuracy), and strong consistency across different expert evaluators (Spearman's ρ&gt; 0.9 ), supporting the complementarity and reliability of our metrics. By benchmarking four families of UMMs, we show that IntReal Evaluation Suite reveals distinct strengths and weaknesses across models. Post-training experiments demonstrate the utility of IntReal-100K for improving interleaved generation and further show that training unimodal generation can also benefit interleaved generation. These findings suggest that interleaved generation can benefit from modality-specific optimization, rather than requiring joint text-image training at every stage.
+      <title>Surya OCR 2.5</title>
+      <link>https://www.datalab.to/blog/surya-2-5</link>
+      <guid isPermaLink="true">https://www.datalab.to/blog/surya-2-5</guid>
+      <description>Surya 2.5 reads 1.7x as many pages per second as Surya 2 and scores 85.9 on OmniParseBench, the best of any open model under 1B parameters. It reads 4.5 pages per second on one H100, against 2.7 for Surya 2, has 689M parameters with open weights, and almost never loops. A single VLM handles layout analysis with reading order, full-page or per-block OCR, and table reading as HTML; a larger 88,526-token vocabulary covers emoji and styled math letters and makes pages 2.6x cheaper to write.
 
-Authors: Shaohan Yu, Jie Qin, Wende Tan, Haiwen Diao, Limeng Qiao, Yueming Lyu, Chenyang Si
+Authors: Hunter Heidenreich, Vik Paruchuri
 
-Tasks: Image generation
+Tasks: Document Layout Analysis, Document Understanding, OCR, Table Structure Recognition
 
-Code: https://github.com/yushaohan/intreal</description>
-      <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/datalab-to/surya</description>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>WeVisCut: The Whole Editing Room in One Agent From Narration to Long-Form Video</title>
@@ -253,17 +253,17 @@ Code: https://github.com/Tencent/WeVisCut</description>
       <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers</title>
-      <link>https://arxiv.org/abs/2610.40647</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.40647</guid>
-      <description>Pixel-space generative Transformers typically use one token per image patch, so capturing finer detail requires more tokens and makes global attention increasingly expensive. We observe that finer detail does not necessarily require more global communication: low-frequency structure benefits from global exchange, while high-frequency detail can be modeled locally. Based on this insight, we introduce SpecSlot, a pixel-space rectified-flow Transformer that decouples output detail from the length of the global attention sequence. SpecSlot expands each spatial anchor into multiple slots, each assigned a disjoint band of DCT coefficients; this separates anchor density from spectral subdivision. Only the lowest-frequency slot from each anchor participates in global attention, while all slots interact locally. This allows the model to increase spectral detail without enlarging the global sequence. A spatial head further adds a local correction to the spectral prediction, while the generative state, target, and loss remain in pixel space. On ImageNet-256, SpecSlot achieves a comparable final FID to a FLOPs-matched JiT control while converging faster. On ImageNet-512, it improves FID by 2.84 over the control with 3.9% fewer FLOPs, and comes within only 0.69 FID of JiT-B/16 at 38.2% lower cost. On text-to-image generation, SpecSlot surpasses JiT-B/8 on DPG-Bench by 1.06 at 40.6% lower forward cost.
+      <title>IntReal: A Real-World Dataset and Benchmark for Multimodal Interleaved Generation</title>
+      <link>https://arxiv.org/abs/2610.38425</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.38425</guid>
+      <description>Humans routinely consume multimodal content, where textual and visual information is naturally interleaved. Although Unified Multimodal Models (UMMs) can jointly generate text and images, multimodal interleaved generation remains largely underexplored. Progress in this area is hindered by two key limitations: (1) the lack of well-defined interleaved generation tasks and corresponding training data, and (2) the absence of fine-grained evaluation protocols that can reliably diagnose model performance across different capability dimensions. To this end, we present IntReal, comprising two complementary components: IntReal-100K, a real-world dataset of multimodal interleaved samples spanning four major categories, and the IntReal Evaluation Suite, which evaluates model performance across seven complementary dimensions using specialized expert models, enabling coarse-to-fine diagnosis. Extensive experiments validate our evaluation suite through low inter-metric redundancy (max pairwise absolute Spearman's ρleq 0.42 ), high agreement with human judgments (83.3% accuracy), and strong consistency across different expert evaluators (Spearman's ρ&gt; 0.9 ), supporting the complementarity and reliability of our metrics. By benchmarking four families of UMMs, we show that IntReal Evaluation Suite reveals distinct strengths and weaknesses across models. Post-training experiments demonstrate the utility of IntReal-100K for improving interleaved generation and further show that training unimodal generation can also benefit interleaved generation. These findings suggest that interleaved generation can benefit from modality-specific optimization, rather than requiring joint text-image training at every stage.
 
-Authors: Jiongfan Yang, Weichen Fan, Haiwen Diao, Zhongang Cai, Ziwei Liu
+Authors: Shaohan Yu, Jie Qin, Wende Tan, Haiwen Diao, Limeng Qiao, Yueming Lyu, Chenyang Si
 
-Tasks: Image generation, Text-to-Image Generation
+Tasks: Image generation
 
-Code: https://github.com/JiongfanYang/SpecSlot</description>
-      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/yushaohan/intreal</description>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
