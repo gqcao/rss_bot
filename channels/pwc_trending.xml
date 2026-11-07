@@ -4,7 +4,70 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sat, 07 Nov 2026 13:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 14:00:00 GMT</lastBuildDate>
+    <item>
+      <title>VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding</title>
+      <link>https://arxiv.org/abs/2611.08449</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.08449</guid>
+      <description>Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion. However, autoregressive vision-language models generate these plans one coordinate token at a time, making richer predictions increasingly costly. We introduce VFlash, a method for fast, accurate visual planning through Flash Primitive Decoding. VFlash exploits the known structure of visual primitives to predict their coordinates jointly, using a lightweight drafter that generates an entire primitive in one forward pass. The layout adapts to the primitive's type, dimensionality, and length, supporting compact boxes and long, variable-length trajectories. Crucially, spatial accuracy need not require reproducing an autoregressive model's exact token sequence. VFlash therefore trains on annotated primitives and directly accepts structurally valid predictions without target-token agreement. Across the evaluated 2D and 3D robot trajectory tasks, VFlash consistently reduces prediction errors relative to autoregressive decoding. Preliminary single-rollout measurements indicate approximately 25x faster generation for 3D point motion forecasting. A world action model conditioned on VFlash plans achieves 70.2% average success across four MolmoSpaces task suites, compared with 62.6% for the baseline.
+
+Authors: Yu-Cheng Chou, Shihao Wang, Jin Huang, Chi-Pin Huang, Chiao-An Yang, Xianzhe Fan, Jing Wang, Zhiqi Li, Yuanguo Kuang, Ruijie Zheng, Johan Bjorck, Sifei Liu, Hang Su, Abhishek Badki, Lei Zhang, Alan Yuille, Linxi Fan, Jan Kautz, Zhiding Yu
+
+Tasks: Autonomous Driving, Robotics, Trajectory Prediction, World Models
+
+Code: https://github.com/nvlabs/eagle</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Training a Text-to-Image Model for $21K</title>
+      <link>https://www.linum.ai/field-notes/pjit-21k</link>
+      <guid isPermaLink="true">https://www.linum.ai/field-notes/pjit-21k</guid>
+      <description>In our last blog post, we iterated towards P-JiT, a pixel-space architecture that cut attention context windows by 4× while converging in 11× fewer samples. Here, we train the P-JiT for 660M samples (just $21K in compute) as a stepping stone towards larger, video models. The release is a 2B-parameter Pyramid-JiT text-to-image diffusion model that operates directly in pixel space with 32×32 patches, conditioned on a frozen Qwen3.5-4B text encoder, trained at 512² and then 1024², and post-trained with Finite Difference Flow Optimization (FDFO). Code and weights are released under Apache 2.0.
+
+Authors: Sahil Chopra, Manu Chopra
+
+Tasks: Text-to-Image Generation
+
+Code: https://github.com/linum-ai/pjit-21k</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>On the Opportunities and Challenges of Prefill-to-Autoregressive Cross-Model Transfer</title>
+      <link>https://arxiv.org/abs/2611.06976</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.06976</guid>
+      <description>Prefill-to-Autoregressive Cross-model Transfer (PACT), a form of latent communication between language models, combines a larger model's prompt representations with a smaller model's efficient generation, offering a promising way to balance capability and inference cost. However, existing systems provide limited support for independently evaluating large-small model collaboration, and improved task performance alone does not establish whether the receiver benefits from the sender's information. We introduce PLatour, an open-source PACT framework that connects frozen models through lightweight, zero-initialized linear bridges trained directly with task rewards and supports hybrid-attention architectures. PLatour significantly outperforms open-source baselines on generation tasks and surpasses Mostik's reported results on shared mathematics and coding benchmarks using a substantially smaller sender. However, controlled experiments show that the gains on some tasks can be reproduced by uninformative sender signals, self-communication, or receiver-only training. We find that trainable bridges can act as parameter-efficient adaptation mechanisms without exploiting useful sender information. We therefore propose PACT-Check to quantify how much of a trained PACT system's gain genuinely comes from communication. Finally, we discuss the opportunities and challenges of PACT systems. Code is available at https://github.com/zhenyi4/platour.
+
+Authors: Zhenyi Shen, Junru Lu, Wei Liu, Jiangnan Ye, Jiazheng Li, Di Yin, Xing Sun, Tameem Adel, Yali Du, Lin Gui, Yulan He
+
+Tasks: Code Generation, Mathematics, Reasoning
+
+Code: https://github.com/zhenyi4/platour</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SpecPilot: Autonomous Algorithm Discovery and Systems Optimization for Speculative Decoding</title>
+      <link>https://arxiv.org/abs/2611.02501</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.02501</guid>
+      <description>Speculative decoding accelerates memory-bound LLM decoding with a lightweight drafter, and parallel drafters extend this speedup by drafting a whole block in one forward pass. However, it remains unclear whether their released systems (stock) attain the full speedup that parallel drafting permits. We identify three challenges. First, with one request, each step accepts few tokens but reads every target weight. Second, with batching, per-request verification work roughly halves the speedup over autoregressive (AR) decoding. Third, speculative decoding is deployment-specific, and no universal optimization fits every serving regime, drafter, target model and GPU. To address these challenges, we present SpecPilot, an autonomous agentic loop that discovers algorithms and systems optimizations for each deployment. In each round, a cost model locates the largest gaps between the current system and its ceiling. Parallel agents explore directions and integrate the successful ones. Token forcing checks every output token against stock to detect reward hacking. A structured memory carries validated mechanisms to new rounds and deployments. SpecPilot discovered a general lossless 12-bit weight format, tree verification for hybrid recurrent targets, two-level verification and three batching mechanisms. We evaluate it across four target models, three drafters, two GPU platforms and five benchmarks. Without training or quality loss, it raises the speedup over AR from stock's 4.46times to 10.87times with one request, and from 1.94times to 3.93times with batching.
+
+Authors: Kunjun Li, Wenhao Chai, Yihao Liang, Yuezhou Hu, Shuyao Xu, Yi Pan, William X. Zheng, Kannan Ramchandran, Kurt Keutzer, Jiantao Jiao
+
+Code: https://github.com/StargazerX0/SpecPilot</description>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights</title>
+      <link>https://rikiyat.github.io/blog/weight-space-programming/</link>
+      <guid isPermaLink="true">https://rikiyat.github.io/blog/weight-space-programming/</guid>
+      <description>We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights, well past what we'd expect from humans or conventional algorithms. This might be a big deal for both optimization and interpretability. Just by looking at the raw weights, GPT-6 Astra can tell what a network was trained to do. And without any environment feedback, it has no trouble writing, from scratch, small game-playing networks that outplay networks trained with PPO for 100 million steps. Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra identifies an issue in its weights causing reasoning loops that Qwen's own model card warns about, and fixes this by natively editing 0.016% of the weights. With the same sampling settings, this weight correction raises MATH-500 from 7.9% to 48.1% and generalizes out of the box to instruction following, raising IFEval by 3x. All of this is possible without allowing Astra to write training loops. It uses its reasoning to figure out what each part of a neural network computes, or should compute, and changes the weights accordingly. We call this Weight-Space Programming.
+
+Authors: Rikiya Takehi, Jayden Teoh, Alex Zhang, Omar Khattab
+
+Tasks: Atari Games, Mathematics, Reinforcement Learning
+
+Code: https://github.com/rikiyat/lm_understand-logs</description>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Hyra: Hunyuan Research Agent</title>
       <link>https://hy.tencent.com/research/hyra</link>
@@ -30,19 +93,6 @@ Code: https://github.com/kwanyun/edgar-code</description>
       <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>VidDub: Replacement-Aware Distillation for Two-Step Video Dubbing</title>
-      <link>https://arxiv.org/abs/2611.03404</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.03404</guid>
-      <description>Video dubbing aims to synthesize lip movements that match target speech while preserving the speaker identity, head pose, and background of a source video. Existing editors are predominantly trained via self-reconstruction under original paired audio, even though the source mouth becomes a conflicting target when driving speech is replaced. We introduce replacement-aware cross-audio supervision: paired-audio samples use full-frame reconstruction, whereas unpaired replacement-audio samples mask out source-mouth reconstruction losses and supervise the mouth solely through audio-visual synchronization while preserving unmasked facial regions and background. Because offline dubbing provides the complete source video and target speech beforehand, we present VidDub, a full-context diffusion editor distilled into two denoising steps (2 NFE). Our replacement-aware teacher first learns accurate lip synchronization without regressing toward conflicting source mouth movements. Matched trajectory regression then transfers the teacher's CFG-guided trajectories to a two-step student, and distribution matching distillation recovers visual quality after step compression. We will release the curated training dataset, VidDub-Bench, fixed paired- and cross-audio evaluation manifests, preprocessing outputs, and unified evaluation code. Across three training seeds, masking out conflicting source-mouth reconstruction improves cross-audio Sync-C by 0.833; the final two-step model combines strong lip synchronization with superior visual quality, identity preservation, and visual speech recognition across four benchmarks.
-
-Authors: Yexin Liu, Yunlong Lin, Zehan Wang, Guangxin He, Xinli Xu, Jiajun Zha, Yaofu Liu, Yueze Wang, Bowen Ping, Yuan-Ming Li, Amie Wang, Bernard Ghanem, Bing Li, Harry Yang
-
-Tasks: Automatic Speech Recognition, Talking Head Generation, Video Editing, Visual Speech Recognition
-
-Code: https://github.com/LAW1223/VidDub</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>WebHarbor: Docking Real Websites for Evolving GUI Agent Environments</title>
       <link>https://arxiv.org/abs/2611.03634</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.03634</guid>
@@ -53,6 +103,19 @@ Authors: Zhaoyang Wang, Qianhui Wu, Boyu Gou, Demi Wang, Jiacheng Zhang, Peichun
 Tasks: Coding Agents, Computer Use Agents, Reinforcement Learning
 
 Code: https://github.com/aiming-lab/WebHarbor</description>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VidDub: Replacement-Aware Distillation for Two-Step Video Dubbing</title>
+      <link>https://arxiv.org/abs/2611.03404</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.03404</guid>
+      <description>Video dubbing aims to synthesize lip movements that match target speech while preserving the speaker identity, head pose, and background of a source video. Existing editors are predominantly trained via self-reconstruction under original paired audio, even though the source mouth becomes a conflicting target when driving speech is replaced. We introduce replacement-aware cross-audio supervision: paired-audio samples use full-frame reconstruction, whereas unpaired replacement-audio samples mask out source-mouth reconstruction losses and supervise the mouth solely through audio-visual synchronization while preserving unmasked facial regions and background. Because offline dubbing provides the complete source video and target speech beforehand, we present VidDub, a full-context diffusion editor distilled into two denoising steps (2 NFE). Our replacement-aware teacher first learns accurate lip synchronization without regressing toward conflicting source mouth movements. Matched trajectory regression then transfers the teacher's CFG-guided trajectories to a two-step student, and distribution matching distillation recovers visual quality after step compression. We will release the curated training dataset, VidDub-Bench, fixed paired- and cross-audio evaluation manifests, preprocessing outputs, and unified evaluation code. Across three training seeds, masking out conflicting source-mouth reconstruction improves cross-audio Sync-C by 0.833; the final two-step model combines strong lip synchronization with superior visual quality, identity preservation, and visual speech recognition across four benchmarks.
+
+Authors: Yexin Liu, Yunlong Lin, Zehan Wang, Guangxin He, Xinli Xu, Jiajun Zha, Yaofu Liu, Yueze Wang, Bowen Ping, Yuan-Ming Li, Amie Wang, Bernard Ghanem, Bing Li, Harry Yang
+
+Tasks: Automatic Speech Recognition, Talking Head Generation, Video Editing, Visual Speech Recognition
+
+Code: https://github.com/LAW1223/VidDub</description>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -108,19 +171,6 @@ Code: https://github.com/OpenHelix-Team/Spatial-Forcing</description>
       <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>PrimeSim: A Generalist World Model Simulator from Large-Scale Cross-Embodiment Demonstrations</title>
-      <link>https://arxiv.org/abs/2611.04870</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.04870</guid>
-      <description>A robot world model that serves as a simulator must do more than generate plausible videos: it must faithfully follow commanded actions, maintain consistency across camera views, and sustain coherent long-horizon rollouts. We present PrimeSim, an action-conditioned, multiview world model simulator that addresses these challenges through progressive midtraining and posttraining. Starting from a pretrained video generator, we midtrain on 30,110 hours of robot demonstrations spanning 22 platforms. To improve action following, we introduce a unified cross-embodiment action representation and frame-aligned dual-path conditioning to strengthen action-frame correspondence. To maintain multiview consistency, we develop view-aware interleaved attention with explicit camera identities, enabling cross-view information exchange while preserving view-specific representations. We further introduce a fast-video, slow-memory posttraining framework that transforms the bidirectional video generator into an efficient autoregressive simulator. By combining fast causal generation, self-rollout training, and hierarchical temporal memory, PrimeSim mitigates error accumulation from self-generated histories and supports coherent long-horizon simulation. PrimeSim runs at 10.1 FPS, remains stable over long-horizon rollouts on rigid and deformable manipulation tasks, and transfers to held-out platforms within 100 to 200 gradient steps where the pretrained backbone does not. Against five open-source action-conditioned world models it leads four of the five WorldSimProbe suites and posts the best overall EWMBench score, while fine-grained local calibration still trails the field; its rollouts are faithful enough to support GRPO-based policy optimization. We release the model weights, inference code, and training code.
-
-Authors: Travis Davies, Wentao Ma, Lihao Guo, Tengfei Ma, Xiaowen Chang, Jiafeng Xu, Shilong Wang, Yiqi Deng, Shaowen He, Xiaoqi Li, Qian Zhu, Ran Cheng, Hao Dong
-
-Tasks: Reinforcement Learning, Robotics, Video generation, World Models
-
-Code: https://github.com/primebottech/primesim</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>EmoReward: Self-Evolving Reward Calibration for Emotional Video Generation RL</title>
       <link>https://arxiv.org/abs/2611.06518</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.06518</guid>
@@ -132,6 +182,19 @@ Tasks: Reinforcement Learning, Reward model evaluation, Video generation
 
 Code: https://github.com/Tencent-Hunyuan/EmoReward</description>
       <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PrimeSim: A Generalist World Model Simulator from Large-Scale Cross-Embodiment Demonstrations</title>
+      <link>https://arxiv.org/abs/2611.04870</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.04870</guid>
+      <description>A robot world model that serves as a simulator must do more than generate plausible videos: it must faithfully follow commanded actions, maintain consistency across camera views, and sustain coherent long-horizon rollouts. We present PrimeSim, an action-conditioned, multiview world model simulator that addresses these challenges through progressive midtraining and posttraining. Starting from a pretrained video generator, we midtrain on 30,110 hours of robot demonstrations spanning 22 platforms. To improve action following, we introduce a unified cross-embodiment action representation and frame-aligned dual-path conditioning to strengthen action-frame correspondence. To maintain multiview consistency, we develop view-aware interleaved attention with explicit camera identities, enabling cross-view information exchange while preserving view-specific representations. We further introduce a fast-video, slow-memory posttraining framework that transforms the bidirectional video generator into an efficient autoregressive simulator. By combining fast causal generation, self-rollout training, and hierarchical temporal memory, PrimeSim mitigates error accumulation from self-generated histories and supports coherent long-horizon simulation. PrimeSim runs at 10.1 FPS, remains stable over long-horizon rollouts on rigid and deformable manipulation tasks, and transfers to held-out platforms within 100 to 200 gradient steps where the pretrained backbone does not. Against five open-source action-conditioned world models it leads four of the five WorldSimProbe suites and posts the best overall EWMBench score, while fine-grained local calibration still trails the field; its rollouts are faithful enough to support GRPO-based policy optimization. We release the model weights, inference code, and training code.
+
+Authors: Travis Davies, Wentao Ma, Lihao Guo, Tengfei Ma, Xiaowen Chang, Jiafeng Xu, Shilong Wang, Yiqi Deng, Shaowen He, Xiaoqi Li, Qian Zhu, Ran Cheng, Hao Dong
+
+Tasks: Reinforcement Learning, Robotics, Video generation, World Models
+
+Code: https://github.com/primebottech/primesim</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Solv3R: 3D Looped Transformer as a Multi-view Solver</title>
@@ -196,71 +259,6 @@ Authors: Ruikang Li, Zixuan Chen, Jiarui Wu, Mingde Yao, Yiyuan Zhang, Yujin Wan
 Tasks: Image editing, Image generation, Text-to-Image Generation
 
 Code: https://github.com/Lyricccco/tailsteer</description>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding</title>
-      <link>https://arxiv.org/abs/2611.08449</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08449</guid>
-      <description>Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion. However, autoregressive vision-language models generate these plans one coordinate token at a time, making richer predictions increasingly costly. We introduce VFlash, a method for fast, accurate visual planning through Flash Primitive Decoding. VFlash exploits the known structure of visual primitives to predict their coordinates jointly, using a lightweight drafter that generates an entire primitive in one forward pass. The layout adapts to the primitive's type, dimensionality, and length, supporting compact boxes and long, variable-length trajectories. Crucially, spatial accuracy need not require reproducing an autoregressive model's exact token sequence. VFlash therefore trains on annotated primitives and directly accepts structurally valid predictions without target-token agreement. Across the evaluated 2D and 3D robot trajectory tasks, VFlash consistently reduces prediction errors relative to autoregressive decoding. Preliminary single-rollout measurements indicate approximately 25x faster generation for 3D point motion forecasting. A world action model conditioned on VFlash plans achieves 70.2% average success across four MolmoSpaces task suites, compared with 62.6% for the baseline.
-
-Authors: Yu-Cheng Chou, Shihao Wang, Jin Huang, Chi-Pin Huang, Chiao-An Yang, Xianzhe Fan, Jing Wang, Zhiqi Li, Yuanguo Kuang, Ruijie Zheng, Johan Bjorck, Sifei Liu, Hang Su, Abhishek Badki, Lei Zhang, Alan Yuille, Linxi Fan, Jan Kautz, Zhiding Yu
-
-Tasks: Autonomous Driving, Robotics, Trajectory Prediction, World Models
-
-Code: https://github.com/nvlabs/eagle</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MetricTrail: Revisiting the Power of Metric Depth and Local Optimization for Long-Sequence Streaming 3D Reconstruction</title>
-      <link>https://arxiv.org/abs/2611.07555</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.07555</guid>
-      <description>We present MetricTrail, a streaming system for accurate camera motion estimation and dense reconstruction from long monocular videos. To keep inference efficient over long sequences, we revisit DPVO's sparse local estimator. We find that single-image metric depth substantially improves its trajectory accuracy, without retraining the correspondence network or enlarging the optimization window. Metric predictions initialize patch depths and remain as soft constraints during optimization. We further improve correspondence estimation through learned adapters that augment matching features and recurrent context with frozen DINOv3 representations. The correspondence estimator and adapters are trained on diverse short clips without additional long-sequence training. This modular design also allows the depth provider to be independently upgraded and supports supplied camera intrinsics and calibrated stereo observations without retraining. Under the reported RGB-only protocols, MetricTrail achieves the lowest average trajectory error among evaluated methods on KITTI, Oxford Spires, and VBR. Pairing the estimated poses with single-image depth predictions also produces strong dense reconstruction on indoor and outdoor benchmarks and coherent reconstructions of in-the-wild videos. With supplied intrinsics, the system processes KITTI-02 at 12.70 FPS with 3.21 GB peak GPU memory.
-
-Authors: Jingnan Gao, Jiahui Huang, Sven Elflein, Jianhao Zheng, Bingxin Ke, Xiaokang Yang, Yichao Yan, Laura Leal-Taixé, Qunjie Zhou, Jiawei Ren, Shengyu Huang
-
-Tasks: 3D Reconstruction, Camera Pose Estimation, Visual SLAM
-
-Code: https://github.com/nv-tlabs/vipe</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Koopman Generative Operators for Efficient Probabilistic Time-Series Forecasting</title>
-      <link>https://arxiv.org/abs/2611.04760</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.04760</guid>
-      <description>Probabilistic time-series forecasting requires models that simultaneously capture structured temporal dynamics, expressive uncertainty, and efficient inference, yet existing approaches fall short of this goal: latent dynamical models impose structure but rely on restrictive generation mechanisms, while modern generative methods such as diffusion and flow matching achieve flexibility at the cost of iterative and computationally expensive sampling. We introduce the Koopman Generative Operator (KGO), a probabilistic forecasting method that conceptualizes prediction as the evolution of structured uncertainty. KGO integrates three core components: (1) Koopman Patch Embedding (KoPE) for temporally consistent latent trajectory extrapolation; (2) Koopman Flow Matching (KoFM), which enables fast, single-step generation through a closed-form matrix exponential in a Koopman latent space, bypassing iterative sampling; and (3) an Adaptive Uncertainty Gate (AUG), which provides probabilistic forecasts by adapting uncertainty per-variable and per-horizon, corresponding to a learned decomposition of aleatoric uncertainty without manual tuning. By unifying these components, KGO achieves state-of-the-art accuracy on 13/17 ProbTS benchmarks in CRPS and 16/17 in NMAE. Further, by eliminating iterative sampling, KGO delivers at least a 25times reduction in inference time compared to iterative generative models. These results position KGO as a practical and principled framework that advances the accuracy-efficiency trade-off in probabilistic time-series forecasting, combining leading accuracy on the evaluated benchmarks with fast, single-step generation.
-
-Authors: Raz Marshanski, Raz Marshanski, Liran Nochumsohn, Mayank Jauhari Iitr, Mayank Jauhari, Boris Oreshkin, Boris N. Oreshkin, Omri Azencot
-
-Tasks: Time-series forecasting
-
-Code: https://github.com/azencot-group/KGO</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights</title>
-      <link>https://rikiyat.github.io/blog/weight-space-programming/</link>
-      <guid isPermaLink="true">https://rikiyat.github.io/blog/weight-space-programming/</guid>
-      <description>We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights, well past what we'd expect from humans or conventional algorithms. This might be a big deal for both optimization and interpretability. Just by looking at the raw weights, GPT-6 Astra can tell what a network was trained to do. And without any environment feedback, it has no trouble writing, from scratch, small game-playing networks that outplay networks trained with PPO for 100 million steps. Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra identifies an issue in its weights causing reasoning loops that Qwen's own model card warns about, and fixes this by natively editing 0.016% of the weights. With the same sampling settings, this weight correction raises MATH-500 from 7.9% to 48.1% and generalizes out of the box to instruction following, raising IFEval by 3x. All of this is possible without allowing Astra to write training loops. It uses its reasoning to figure out what each part of a neural network computes, or should compute, and changes the weights accordingly. We call this Weight-Space Programming.
-
-Authors: Rikiya Takehi, Jayden Teoh, Alex Zhang, Omar Khattab
-
-Tasks: Atari Games, Mathematics, Reinforcement Learning
-
-Code: https://github.com/rikiyat/lm_understand-logs</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VA-TDM: A Unified View for Improving Few-Step Diffusion Models by Velocity Adversarial Distillation</title>
-      <link>https://arxiv.org/abs/2611.06796</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.06796</guid>
-      <description>Few-step distillation offers efficient generation with diffusion and flow models, but preserving quality with only a few sampling steps remains challenging. Distribution-matching methods via score distillation provide a strong foundation, yet they rely on accurately tracking the student's changing distribution. At intermediate generation steps in few-step sampling, student-score estimation can be difficult, and commonly used estimators may describe a different distribution from the one used to update the student. Flow matching allows a more flexible approach to supervision through velocity fields constructed from the student's sampling process. Building on this perspective, we introduce Velocity Adversarial Distillation (VAD), which uses a learned critic to compare student and teacher fields and turn their disagreement into feedback for learning. VAD unifies score distillation, Fisher-based matching, and moment matching, also explaining existing heuristic MMD updates and delivering new training objectives. We further develop VA-TDM, which follows trajectory distribution matching: providing supervision for partial denoising along the student trajectory. Beyond this, VA-TDM combines transition-aware online velocity learning and dual-form VAD supervision across intermediate student transitions. Extensive results show that VA-TDM is powerful for learning few-step generators, achieving state-of-the-art four-step performance in both text-to-image and text-to-video generation across various backbones and scaling effectively to 33B MiniMax-H3. In particular, our VA-TDM-H3 notably outperforms the few-step Fast-H3 and is closer to the original many-step H3 according to human preference.
-
-Authors: Yihong Luo, Tianyu Pang, Tianyang Hu
-
-Tasks: Text-to-Image Generation, Video generation
-
-Code: https://github.com/Luo-Yihong/VA-TDM</description>
       <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
