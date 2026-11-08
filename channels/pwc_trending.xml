@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sun, 08 Nov 2026 10:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 11:00:00 GMT</lastBuildDate>
     <item>
       <title>NitroFusion2: Bringing Adversarial Loss to the Text Stream of Multimodal Diffusion Transformers</title>
       <link>https://arxiv.org/abs/2611.05648</link>
@@ -17,6 +17,123 @@ Tasks: Image generation, Text-to-Image Generation, Time Series Anomaly Detection
 
 Code: https://github.com/ChenDarYen/NitroFusion2</description>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights</title>
+      <link>https://rikiyat.github.io/blog/weight-space-programming/</link>
+      <guid isPermaLink="true">https://rikiyat.github.io/blog/weight-space-programming/</guid>
+      <description>We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights, well past what we'd expect from humans or conventional algorithms. This might be a big deal for both optimization and interpretability. Just by looking at the raw weights, GPT-6 Astra can tell what a network was trained to do. And without any environment feedback, it has no trouble writing, from scratch, small game-playing networks that outplay networks trained with PPO for 100 million steps. Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra identifies an issue in its weights causing reasoning loops that Qwen's own model card warns about, and fixes this by natively editing 0.016% of the weights. With the same sampling settings, this weight correction raises MATH-500 from 7.9% to 48.1% and generalizes out of the box to instruction following, raising IFEval by 3x. All of this is possible without allowing Astra to write training loops. It uses its reasoning to figure out what each part of a neural network computes, or should compute, and changes the weights accordingly. We call this Weight-Space Programming.
+
+Authors: Rikiya Takehi, Jayden Teoh, Alex Zhang, Omar Khattab
+
+Tasks: Atari Games, Instruction Following, Mathematics, Reinforcement Learning
+
+Code: https://github.com/rikiyat/lm_understand-logs</description>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VINO: Revisiting 3D Representation Learning with Volume Transformers</title>
+      <link>https://arxiv.org/abs/2611.07176</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.07176</guid>
+      <description>Self-supervised learning has given rise to vision foundation models that learn general-purpose image representations transferable across downstream tasks, yet representation learning for 3D scenes has not achieved comparable success. Motivated by this, we identify key limitations of current 3D representation learning approaches and revisit their core design choices. We first replace the commonly used hierarchical PTv3 backbone with the Volume Transformer, a ViT-like architecture for 3D scenes. We then redesign two core objectives of modern approaches built around student-teacher networks: matching representations across views and predicting masked content from visible context. For the first objective, we separate the roles of teacher and student: the teacher provides clean, consistent targets while the student learns invariance to stronger perturbations. For the second objective, we prevent the student from accessing the masked geometry and instead require it to infer missing representations from visible context only. Finally, we redesign 2D-to-3D knowledge distillation, replacing direct regression of view-dependent image features with view-consistent supervision. Together, these changes form VINO, a framework that learns semantic representations of 3D scenes without labels. VINO substantially improves dense linear probing across indoor and outdoor benchmarks and transfers strongly to out-of-domain settings.
+
+Authors: Adrian Kruse, Kadir Yilmaz, Daan de Geus, Francis Engelmann, Bastian Leibe
+
+Tasks: 3D instance segmentation, 3D semantic segmentation, Point Cloud Registration
+
+Code: https://github.com/adriankruse/vino</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Training a Text-to-Image Model for $21K</title>
+      <link>https://www.linum.ai/field-notes/pjit-21k</link>
+      <guid isPermaLink="true">https://www.linum.ai/field-notes/pjit-21k</guid>
+      <description>In our last blog post, we iterated towards P-JiT, a pixel-space architecture that cut attention context windows by 4× while converging in 11× fewer samples. Here, we train the P-JiT for 660M samples (just $21K in compute) as a stepping stone towards larger, video models. The release is a 2B-parameter Pyramid-JiT text-to-image diffusion model that operates directly in pixel space with 32×32 patches, conditioned on a frozen Qwen3.5-4B text encoder, trained at 512² and then 1024², and post-trained with Finite Difference Flow Optimization (FDFO). Code and weights are released under Apache 2.0.
+
+Authors: Sahil Chopra, Manu Chopra
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/linum-ai/pjit-21k</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SLA: Scaling Spatial-Language-Action Model via Continual Pre-training</title>
+      <link>https://arxiv.org/abs/2611.08373</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.08373</guid>
+      <description>Reliable robotic manipulation requires both semantic understanding and precise control in three-dimensional space. However, vision-language-action (VLA) foundations largely inherit visual representations from 2D vision-language pre-training, while spatial supervision is often introduced only during task-specific adaptation. Developing spatial understanding as a transferable foundation-model capability therefore calls for learning from broader robot experience. We present SLA, a Spatial-Language-Action Model that scales implicit spatial alignment to continual pre-training and maintains it during downstream post-training. Initialized from a pretrained pi05 policy, SLA jointly optimizes action prediction and alignment between intermediate visual embeddings and spatial representations from a frozen 3D perception model. We curate and unify heterogeneous robot datasets to support spatial learning across diverse embodiments, tasks, and scenes. To accommodate this diversity, we introduce feature-dependent gates that adaptively aggregate visual embeddings from multiple VLA layers for spatial supervision. The teacher further exploits partially available depth and camera calibration alongside RGB observations, enabling effective use of heterogeneous geometric annotations. Probabilistic state dropout encourages reliance on visual cues and mitigates overfitting to demonstration trajectories. All auxiliary components are used only during training, allowing direct reuse of pretrained VLA weights and preserving the original inference architecture.
+
+Authors: Fuhao Li, Wenxuan Song, Qizhou Huang, Ziyang Zhou, Jingbo Wang, Junwu E, Pengwei Wang, Yan Wang, Shunbo Zhou, Haoang Li
+
+Tasks: Continual Learning, Robotics, Spatial Understanding
+
+Code: https://github.com/OpenHelix-Team/Spatial-Forcing</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding</title>
+      <link>https://arxiv.org/abs/2611.08449</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.08449</guid>
+      <description>Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion. However, autoregressive vision-language models generate these plans one coordinate token at a time, making richer predictions increasingly costly. We introduce VFlash, a method for fast, accurate visual planning through Flash Primitive Decoding. VFlash exploits the known structure of visual primitives to predict their coordinates jointly, using a lightweight drafter that generates an entire primitive in one forward pass. The layout adapts to the primitive's type, dimensionality, and length, supporting compact boxes and long, variable-length trajectories. Crucially, spatial accuracy need not require reproducing an autoregressive model's exact token sequence. VFlash therefore trains on annotated primitives and directly accepts structurally valid predictions without target-token agreement. Across the evaluated 2D and 3D robot trajectory tasks, VFlash consistently reduces prediction errors relative to autoregressive decoding. Preliminary single-rollout measurements indicate approximately 25x faster generation for 3D point motion forecasting. A world action model conditioned on VFlash plans achieves 70.2% average success across four MolmoSpaces task suites, compared with 62.6% for the baseline.
+
+Authors: Yu-Cheng Chou, Shihao Wang, Jin Huang, Chi-Pin Huang, Chiao-An Yang, Xianzhe Fan, Jing Wang, Zhiqi Li, Yuanguo Kuang, Ruijie Zheng, Johan Bjorck, Sifei Liu, Hang Su, Abhishek Badki, Lei Zhang, Alan Yuille, Linxi Fan, Jan Kautz, Zhiding Yu
+
+Tasks: Autonomous Driving, Robotics, Trajectory Prediction, World Models
+
+Code: https://github.com/nvlabs/eagle</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>EDGAR: Efficient Diffusion-Driven Gaussian Avatar Refinement via Synthetic Failure</title>
+      <link>https://arxiv.org/abs/2611.07909</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.07909</guid>
+      <description>Recent advances in Gaussian splatting have enabled efficient and photorealistic head avatar reconstruction, yet monocular video-based or image-based methods still suffer from under-constrained geometry and texture, leading to artifacts such as blurring, stretching, and temporal instability. We present EDGAR (Efficient Diffusion-Driven Gaussian Avatar Refinement), a conditional diffusion framework designed to enhance the quality of Gaussian avatars by correcting artifacts while preserving identity fidelity. To train EDGAR, we construct EDGAR-SET, a hybrid triplet dataset composed of real-captured and synthetic-rendered samples, which simulates realistic Gaussian avatar failure cases by pairing degraded renderings with ground-truth and reference images. EDGAR refines degraded frames through a fusion block that injects identity features extracted by the self-supervised Sapiens model into a one-step diffusion backbone, enabling effective artifact removal without sacrificing efficiency. Our EDGAR model incorporates a Mixture-of-Experts (MoE) architecture to address diverse degradation types and severity levels. The refined multi-view renderings are subsequently used as pseudo-targets to optimize a single underlying Gaussian avatar, so that the final avatar can be rendered without applying EDGAR to every output frame. Experiments on three different Gaussian avatar reconstruction methods, each evaluated under three different settings, show improvements in both perceptual and reconstruction measures over the raw outputs and an SDEdit-style refinement baseline. In addition, cross-view evaluation demonstrates improved calibrated consistency, while tests under large yaw and open-mouth expressions verify robustness under extreme settings. These results collectively indicate a useful operating regime for recoverable appearance artifacts. The code is available at https://kwanyun.github.io/edgar/
+
+Authors: Kwan Yun, Minhyeok Bang, Colette Suhjung Koo, Junyong Noh
+
+Tasks: 3D Reconstruction, Image Restoration
+
+Code: https://github.com/kwanyun/edgar-code</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Koopman Generative Operators for Efficient Probabilistic Time-Series Forecasting</title>
+      <link>https://arxiv.org/abs/2611.04760</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.04760</guid>
+      <description>Probabilistic time-series forecasting requires models that simultaneously capture structured temporal dynamics, expressive uncertainty, and efficient inference, yet existing approaches fall short of this goal: latent dynamical models impose structure but rely on restrictive generation mechanisms, while modern generative methods such as diffusion and flow matching achieve flexibility at the cost of iterative and computationally expensive sampling. We introduce the Koopman Generative Operator (KGO), a probabilistic forecasting method that conceptualizes prediction as the evolution of structured uncertainty. KGO integrates three core components: (1) Koopman Patch Embedding (KoPE) for temporally consistent latent trajectory extrapolation; (2) Koopman Flow Matching (KoFM), which enables fast, single-step generation through a closed-form matrix exponential in a Koopman latent space, bypassing iterative sampling; and (3) an Adaptive Uncertainty Gate (AUG), which provides probabilistic forecasts by adapting uncertainty per-variable and per-horizon, corresponding to a learned decomposition of aleatoric uncertainty without manual tuning. By unifying these components, KGO achieves state-of-the-art accuracy on 13/17 ProbTS benchmarks in CRPS and 16/17 in NMAE. Further, by eliminating iterative sampling, KGO delivers at least a 25times reduction in inference time compared to iterative generative models. These results position KGO as a practical and principled framework that advances the accuracy-efficiency trade-off in probabilistic time-series forecasting, combining leading accuracy on the evaluated benchmarks with fast, single-step generation.
+
+Authors: Raz Marshanski, Raz Marshanski, Liran Nochumsohn, Mayank Jauhari, Mayank Jauhari Iitr, Boris N. Oreshkin, Boris Oreshkin, Omri Azencot
+
+Tasks: Time-series forecasting
+
+Code: https://github.com/azencot-group/KGO</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>TaoMate-HD: Progressive-Resolution Autoregressive Audio-Video Generation</title>
+      <link>https://arxiv.org/abs/2611.03394</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.03394</guid>
+      <description>Streaming digital humans produce detailed video while continuing speech as new text arrives. High-resolution denoising is costly, and text updates can cause repeated or interrupted speech. We present TaoMate-HD, an autoregressive model for high-resolution audio-video streaming. For each short segment, or chunk, two denoising steps establish coarse video structure at low resolution. A final step refines the video to high resolution, with audio generated throughout the same trajectory. Each stage passes its audiovisual predictions to the same stage of the next chunk as history. Across text updates, the model retains this history to infer what has already been spoken. Continuation training utilizes asymmetric text conditioning, with separate text windows for generation and distillation. Experiments show a 1.6x speedup over direct high-resolution generation with the same model and hardware. Optimized stage-parallel deployment provides a further 1.9x overall speedup over serial progressive generation. Our continuation training reduces character error rate by 11.18 percentage points relative to the baseline. The model also supports hour-long audiovisual generation. Our project page is https://taoliveaigc.github.io/TaoMate-HD.
+
+Authors: Qijun Gan, Chenwei Zhang, Xinyang Li, Meiguang Jin, Junfeng Ma, Shen Qiu
+
+Tasks: Video generation
+
+Code: https://github.com/TaoLiveAIGC/TaoMate-HD</description>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>EmoReward: Self-Evolving Reward Calibration for Emotional Video Generation RL</title>
+      <link>https://arxiv.org/abs/2611.06518</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.06518</guid>
+      <description>Group Relative Policy Optimization (GRPO) has advanced generative model post-training in verifiable domains such as code and mathematics, but evaluating video quality, especially emotional expression, often depends on subjective aesthetics and has no uniquely correct target. Existing approaches typically rely on fixed rewards for visual quality, motion quality, and text alignment that poorly capture emotional intent and can invite reward hacking, while RLHF is difficult to scale and subject to individual aesthetic differences that complicate the calibration of facial, body motion, and chromatic cues across narrative contexts. We introduce EmoReward, a new self-evolving training mechanism that distills evidence reliability from reward traces collected during an actual training run to adaptively guide multi-reward weight allocation in subsequent training by determining which emotional evidence to trust and how much to weight it. EmoReward first plans specific grounding cues from the emotional prompt to guide evaluation, then uses heterogeneous signal primitives to score the generated video during the act stage. Reflective Reward Gating calibrates their contributions through instance-level gates for phase, face confidence, conflict, and subtlety, then renormalizes weights over the active set to produce the sample's fused reward. RewardMemory then estimates each primitive's reliability from rollout scores and outcomes within each emotional regime in the finished training run, then fixes bounded multipliers that calibrate fusion weights in the next training run without updating reward models. Experiments on HunyuanVideo 1.5 show improvements across multiple RL algorithms and compare EmoReward with other agentic reward methods under SAGE-GRPO. Ablations and transfer experiments on SD 3.5 and FLUX further support adaptive reward calibration for visual generation.
+
+Authors: Mingzhe Zheng, Yue Wu, Jing Tan, Chang Zou, Dengyang Jiang, Zeyue Tian, Xuanhua He, Ryan Xu, Yunyang Ge, Sihui Ji, Yunlong Lin, Kaihang Pan, Hongru Yan, Sixiang Chen, Dianyi Wang, Julian Zhang, Weijie Kong, Changlin Li, Lanqing Guo, Zhao Zhong, Qifeng Chen, Harry Yang
+
+Tasks: Reinforcement Learning, Reward model evaluation, Video generation
+
+Code: https://github.com/Tencent-Hunyuan/EmoReward</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Open-HumanScale: An Open Recipe for Scaling Human and Robot Experience for Embodied Foundation Models</title>
@@ -80,45 +197,6 @@ Code: https://github.com/tencent-hunyuan/hyra-results</description>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Training a Text-to-Image Model for $21K</title>
-      <link>https://www.linum.ai/field-notes/pjit-21k</link>
-      <guid isPermaLink="true">https://www.linum.ai/field-notes/pjit-21k</guid>
-      <description>In our last blog post, we iterated towards P-JiT, a pixel-space architecture that cut attention context windows by 4× while converging in 11× fewer samples. Here, we train the P-JiT for 660M samples (just $21K in compute) as a stepping stone towards larger, video models. The release is a 2B-parameter Pyramid-JiT text-to-image diffusion model that operates directly in pixel space with 32×32 patches, conditioned on a frozen Qwen3.5-4B text encoder, trained at 512² and then 1024², and post-trained with Finite Difference Flow Optimization (FDFO). Code and weights are released under Apache 2.0.
-
-Authors: Sahil Chopra, Manu Chopra
-
-Tasks: Image generation, Text-to-Image Generation
-
-Code: https://github.com/linum-ai/pjit-21k</description>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VINO: Revisiting 3D Representation Learning with Volume Transformers</title>
-      <link>https://arxiv.org/abs/2611.07176</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.07176</guid>
-      <description>Self-supervised learning has given rise to vision foundation models that learn general-purpose image representations transferable across downstream tasks, yet representation learning for 3D scenes has not achieved comparable success. Motivated by this, we identify key limitations of current 3D representation learning approaches and revisit their core design choices. We first replace the commonly used hierarchical PTv3 backbone with the Volume Transformer, a ViT-like architecture for 3D scenes. We then redesign two core objectives of modern approaches built around student-teacher networks: matching representations across views and predicting masked content from visible context. For the first objective, we separate the roles of teacher and student: the teacher provides clean, consistent targets while the student learns invariance to stronger perturbations. For the second objective, we prevent the student from accessing the masked geometry and instead require it to infer missing representations from visible context only. Finally, we redesign 2D-to-3D knowledge distillation, replacing direct regression of view-dependent image features with view-consistent supervision. Together, these changes form VINO, a framework that learns semantic representations of 3D scenes without labels. VINO substantially improves dense linear probing across indoor and outdoor benchmarks and transfers strongly to out-of-domain settings.
-
-Authors: Adrian Kruse, Kadir Yilmaz, Daan de Geus, Francis Engelmann, Bastian Leibe
-
-Tasks: 3D instance segmentation, 3D semantic segmentation, Point Cloud Registration
-
-Code: https://github.com/adriankruse/vino</description>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights</title>
-      <link>https://rikiyat.github.io/blog/weight-space-programming/</link>
-      <guid isPermaLink="true">https://rikiyat.github.io/blog/weight-space-programming/</guid>
-      <description>We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights, well past what we'd expect from humans or conventional algorithms. This might be a big deal for both optimization and interpretability. Just by looking at the raw weights, GPT-6 Astra can tell what a network was trained to do. And without any environment feedback, it has no trouble writing, from scratch, small game-playing networks that outplay networks trained with PPO for 100 million steps. Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra identifies an issue in its weights causing reasoning loops that Qwen's own model card warns about, and fixes this by natively editing 0.016% of the weights. With the same sampling settings, this weight correction raises MATH-500 from 7.9% to 48.1% and generalizes out of the box to instruction following, raising IFEval by 3x. All of this is possible without allowing Astra to write training loops. It uses its reasoning to figure out what each part of a neural network computes, or should compute, and changes the weights accordingly. We call this Weight-Space Programming.
-
-Authors: Rikiya Takehi, Jayden Teoh, Alex Zhang, Omar Khattab
-
-Tasks: Atari Games, Instruction Following, Mathematics, Reinforcement Learning
-
-Code: https://github.com/rikiyat/lm_understand-logs</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Solv3R: 3D Looped Transformer as a Multi-view Solver</title>
       <link>https://arxiv.org/abs/2611.02857</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.02857</guid>
@@ -130,19 +208,6 @@ Tasks: 3D Reconstruction
 
 Code: https://github.com/ubc-vision/solv3r</description>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SLA: Scaling Spatial-Language-Action Model via Continual Pre-training</title>
-      <link>https://arxiv.org/abs/2611.08373</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08373</guid>
-      <description>Reliable robotic manipulation requires both semantic understanding and precise control in three-dimensional space. However, vision-language-action (VLA) foundations largely inherit visual representations from 2D vision-language pre-training, while spatial supervision is often introduced only during task-specific adaptation. Developing spatial understanding as a transferable foundation-model capability therefore calls for learning from broader robot experience. We present SLA, a Spatial-Language-Action Model that scales implicit spatial alignment to continual pre-training and maintains it during downstream post-training. Initialized from a pretrained pi05 policy, SLA jointly optimizes action prediction and alignment between intermediate visual embeddings and spatial representations from a frozen 3D perception model. We curate and unify heterogeneous robot datasets to support spatial learning across diverse embodiments, tasks, and scenes. To accommodate this diversity, we introduce feature-dependent gates that adaptively aggregate visual embeddings from multiple VLA layers for spatial supervision. The teacher further exploits partially available depth and camera calibration alongside RGB observations, enabling effective use of heterogeneous geometric annotations. Probabilistic state dropout encourages reliance on visual cues and mitigates overfitting to demonstration trajectories. All auxiliary components are used only during training, allowing direct reuse of pretrained VLA weights and preserving the original inference architecture.
-
-Authors: Fuhao Li, Wenxuan Song, Qizhou Huang, Ziyang Zhou, Jingbo Wang, Junwu E, Pengwei Wang, Yan Wang, Shunbo Zhou, Haoang Li
-
-Tasks: Continual Learning, Robotics, Spatial Understanding
-
-Code: https://github.com/OpenHelix-Team/Spatial-Forcing</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>MetricTrail: Revisiting the Power of Metric Depth and Local Optimization for Long-Sequence Streaming 3D Reconstruction</title>
@@ -195,71 +260,6 @@ Authors: Shangziqi Zhao, Yitong Zhang, Jia Li
 Tasks: Coding Agents, Continual Learning, Harness Engineering
 
 Code: https://github.com/THU-Agent/continual-harness-evolution</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>TaoMate-FVSR:Audio-Guided Facial Video Restoration</title>
-      <link>https://arxiv.org/abs/2611.03393</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.03393</guid>
-      <description>AI-generated videos often depict people within detailed scenes while leaving their small facial regions poorly resolved. Visual super-resolution can sharpen these regions without resolving whether the recovered lips and teeth agree with the spoken audio. We present an audio-guided facial video restoration framework that addresses this ambiguity within a reference-guided video flow model. Source--noise mixing initializes reconstruction from a partially preserved observation, and structured reference injection separates appearance anchors from continuous motion context. Training combines restoration of degraded images and videos with correction of degraded dubbed sources under target audio. Appearance and synchronization supervision allow the model to recover facial detail and support visual dubbing when the audio is replaced. On talking-head restoration benchmarks, our method achieves the best paired perceptual similarity and synchronization scores among the compared restoration methods. Component comparisons examine audio conditioning, the reconstruction formulation, and reference injection. Native AIGC examples further illustrate the recovery of lip contours, dental structure, and surrounding facial texture in scene-level footage. injection. Native AIGC examples further illustrate the recovery of lip contours, dental structure, and surrounding facial texture in scene-level footage.
-
-Authors: Xinyang Li, Zeran Xu, Qijun Gan, Chenwei Zhang, Meiguang Jin, Junfeng Ma
-
-Tasks: Video Restoration
-
-Code: https://github.com/TaoLiveAIGC/TaoMate-FVSR</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>CoworkOS:Scaling Agent Coworkers for Real-world Automation</title>
-      <link>https://arxiv.org/abs/2611.03178</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.03178</guid>
-      <description>Rapid advances in cowork agents are shifting human-AI collaboration toward real-world automation, delivering software, designs, and other artifacts. However, such productivity work demands both high-quality delivery on complex productivity tasks and continued monitoring and decision-making over long horizons, a combination that remains an open challenge. We introduce CoworkOS, a general-purpose harness for long-horizon work that separates task strategy from execution management: the model decides actions, delegation, and acceptance, while the runtime maintains state and feedback. Its three-layer architecture enables direct execution or delegation to Subagents, synchronously or asynchronously, under stable responsibilities. Through a shared application layer, humans and agents inspect and revise the same evolving documents, presentations, CAD models, and Blender scenes, so human-in-the-loop participation can enter both through conversation and through direct modification of the work itself. To sustain continuity across agents and sessions, CoworkOS further introduces hierarchical workspaces and persistent semantic memory, so working files, key decisions, and long-running Job logs remain shareable, reusable, and resumable after interruption. Across 12 benchmarks and 6 categories of real-world applications, CoworkOS proves highly competitive with frontier agent applications such as Codex and DeepSeek Harness. As a sustained-work case study, CoworkOS uses GLM-5.3 as its backbone to conduct RSI-driven automated post-training on Qwen3.6-35B-A3B. Over five rounds, the model's average score across eight benchmarks rose from 33.19 to 42.95 (+9.76). Looking ahead, we believe CoworkOS opens a meaningful path toward general cowork-agent intelligence.
-
-Authors: Jiajie Jin, Guanting Dong, Chengjun Pan, Xin Deng, Zhuohui Sheng, Guoqiang Wang, Tao Gui, Yutao Zhu, Yujia Chen, Shihong Yi, Binze Hu, Zhixiong Yang, Zhichao Sun, Rui Wang, Han Han, Mingyu Ma, Junhao Huang, Xiaotao Wang, Huicheng Jiang, Yuyang Hu, Xinyu Yang, Wanghan Xu, Yajie Yang, Zhecan Wang, Honglin Guo, Xiaoyu Xing, Xiaoqian Zhang, Yulun Zhu, Xiaoxi Li, Jiahang Lin, Shaofan Liu, Shihan Dou, Zhiheng Xi, Qi Zhang, Yu-Gang Jiang, See-Kiong Ng, Yang Zhang, Tat-Seng Chua, Ji-Rong Wen, Zhicheng Dou
-
-Tasks: Agents, Long-Horizon Agents, Multi-Agent Systems
-
-Code: https://github.com/RUC-NLPIR/CoworkOS</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>GigaSpeech 3: Scaling Multi-Dialect Arabic Speech Recognition with Weakly Labeled Data</title>
-      <link>https://arxiv.org/abs/2611.02476</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.02476</guid>
-      <description>Dialectal Arabic speech recognition remains constrained by the scarcity of dialect-resolved transcribed speech despite the abundance of web audio. We introduce GigaSpeech 3, a corpus of 39,000 hours and 10 million weakly transcribed speech segments covering Algerian, Egyptian, Iraqi, Saudi, and Syrian Arabic. Starting from 60 hours of manual transcription per dialect, we train labeling models using speech-recognition-biased self-supervised learning and apply them to dialect-matched web audio. Data selection and four rounds of noisy-student refinement for Saudi and Syrian Arabic yield the final corpus. We validate its utility through dialect-specific and multi-dialect speech recognition training and cross-domain evaluation. On GigaSpeechBench, the final dialect-specific models outperform their labeling models across all five dialects and achieve a macro-average word error rate of 23.86%, a 16.6% relative reduction from the strongest third-party system covering all five dialects, while outperforming the best third-party result on three dialects. A multi-dialect model using self-predicted dialect identities achieves a macro-average word error rate of 25.51% while also supporting Modern Standard Arabic. Across eight conditions from three external corpora, a GigaSpeech 3-trained Zipformer achieves the lowest word error rate among six evaluated models in every condition, while adapting the Qwen3 speech recognizer on GigaSpeech 3 improves performance across all eight conditions. We release the corpus and recipes as a foundation for dialect-aware Arabic speech processing.
-
-Authors: Junzhe Liu, Yujie Tu, Yifan Yang, Peng Wang, Haoran Wang, Guodong Lin, Leyan Liao, Chengquan Zhang, Zhifu Gao, Xiangang Li, Qinyuan Cheng, Xipeng Qiu, Wei-Qiang Zhang, Guoguo Chen, Kai Yu, Xie Chen
-
-Tasks: Automatic Speech Recognition
-
-Code: https://github.com/Antares-97/GigaSpeech3</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>EDGAR: Efficient Diffusion-Driven Gaussian Avatar Refinement via Synthetic Failure</title>
-      <link>https://arxiv.org/abs/2611.07909</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.07909</guid>
-      <description>Recent advances in Gaussian splatting have enabled efficient and photorealistic head avatar reconstruction, yet monocular video-based or image-based methods still suffer from under-constrained geometry and texture, leading to artifacts such as blurring, stretching, and temporal instability. We present EDGAR (Efficient Diffusion-Driven Gaussian Avatar Refinement), a conditional diffusion framework designed to enhance the quality of Gaussian avatars by correcting artifacts while preserving identity fidelity. To train EDGAR, we construct EDGAR-SET, a hybrid triplet dataset composed of real-captured and synthetic-rendered samples, which simulates realistic Gaussian avatar failure cases by pairing degraded renderings with ground-truth and reference images. EDGAR refines degraded frames through a fusion block that injects identity features extracted by the self-supervised Sapiens model into a one-step diffusion backbone, enabling effective artifact removal without sacrificing efficiency. Our EDGAR model incorporates a Mixture-of-Experts (MoE) architecture to address diverse degradation types and severity levels. The refined multi-view renderings are subsequently used as pseudo-targets to optimize a single underlying Gaussian avatar, so that the final avatar can be rendered without applying EDGAR to every output frame. Experiments on three different Gaussian avatar reconstruction methods, each evaluated under three different settings, show improvements in both perceptual and reconstruction measures over the raw outputs and an SDEdit-style refinement baseline. In addition, cross-view evaluation demonstrates improved calibrated consistency, while tests under large yaw and open-mouth expressions verify robustness under extreme settings. These results collectively indicate a useful operating regime for recoverable appearance artifacts. The code is available at https://kwanyun.github.io/edgar/
-
-Authors: Kwan Yun, Minhyeok Bang, Colette Suhjung Koo, Junyong Noh
-
-Tasks: 3D Reconstruction, Image Restoration
-
-Code: https://github.com/kwanyun/edgar-code</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Measuring AI Agents as Teammates with Collaborative Intelligence</title>
-      <link>https://arxiv.org/abs/2611.02633</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.02633</guid>
-      <description>Progress in AI is often measured by what a single model can do on its own. Yet teams of AI agents are starting to make breakthroughs and discoveries in science, medicine, mathematics and software engineering. As AI begins to work in teams of agents and people, the ability to collaborate becomes a core part of their intelligence. Research on human teams has measured this ability for decades. Inspired by this, we introduce the Collaborative Intelligence Benchmark, which measures how well an AI agent works as a teammate. It contains 240 tasks across 8 dimensions of teamwork, from refusing an unsafe shortcut to checking the work that a weaker model leaves behind. Each task comes from a real record or an existing benchmark, from aviation accident reports and clinical cases to coding tasks and negotiations, and has a programmatically verifiable outcome. To isolate teamwork from individual capability, models are scored only on tasks that they can solve by themselves when they have full information. We evaluate 18 closed- and open-weight models and find that every model, across sizes and families, has clear weaknesses as a teammate, with the best model scoring only 82.2 out of 100. Frontier models almost always refuse unsafe shortcuts and report misconduct, yet they cave under interpersonal pressure, reaching the best overall deal in only 14% of conflicts, and their pass rate drops from 97% to 81% when they take over a task in which a weaker model has cheated. Crucially, general capability does not guarantee good teamwork, as models with nearly the same capability score differ by up to 11 points as teammates. The benchmark includes 160 public tasks with code and data, along with 80 held-out tasks for evaluation. As AI agents increasingly work alongside other agents and people, the ability to collaborate effectively is becoming a crucial capability to measure and develop.
-
-Authors: Sean Wu, Aneesh Pappu, Jiaru Zou, Yubin Kim, Yuncong Mao, Hongjian Zhou, Junchi Yu, Jieneng Chen, James Zou
-
-Tasks: Agents, Healthcare &amp; Medical AI, Multi-Agent Systems
-
-Code: https://github.com/zou-group/collaborative-intelligence</description>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
