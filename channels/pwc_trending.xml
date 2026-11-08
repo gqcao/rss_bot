@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sun, 08 Nov 2026 05:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 06:00:00 GMT</lastBuildDate>
     <item>
       <title>Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights</title>
       <link>https://rikiyat.github.io/blog/weight-space-programming/</link>
@@ -17,6 +17,134 @@ Tasks: Atari Games, Mathematics, Reinforcement Learning
 
 Code: https://github.com/rikiyat/lm_understand-logs</description>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Harness-S: Learning from Sibling Harnesses for Generalizable Agent Training</title>
+      <link>https://arxiv.org/abs/2611.04277</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.04277</guid>
+      <description>Harness evolution from a common base exhibits Locality, Complementarity, and Nonstationarity: variants repair different failures, and their utility changes as the policy learns. Rather than seeking a universally superior harness, we introduce Harness-S to selectively rescue failures of a base execution system through sibling harnesses and transfer the resulting capabilities into a single policy that remains effective under the original harness. Directional Harness Evolution develops specialized sibling harnesses along distinct repair directions, forming a reusable Sibling Harness Pool that remains fixed during policy training. Complementary Harness Rescue Training invokes this pool only when all initial attempts under the base harness fail. The same policy generates fresh rollouts under selected auxiliary harnesses, and these trajectories replace the failed group for reinforcement learning. An Adaptive Harness Router selects the Top-k variants using Harness Behavior Profiles and voting across multiple LLMs. Policy-aware profile re-anchoring refreshes this evidence as the policy learns. Across AppWorld, SWE-Gym, and DBBench, the trained policy substantially outperforms policy-only training when returned to the original base harness. Behavioral analyses and held-out cases support the transfer of harness-elicited behaviors into the policy itself. Reusing the router for Rank-1 inference provides additional gains at the same executor rollout count.
+
+Authors: Kangning Zhang, Wenxiang Jiao, Bowen Fang, Shuai Shao, Jiachen Zhu, Rong Shan, Shijian Wang, Hao Wang, Yuan Lu, Weiwen Liu, Weinan Zhang
+
+Tasks: Agents, Coding Agents, Continuous Control, Long-Horizon Agents, Reinforcement Learning
+
+Code: https://github.com/DeepExperience/Harness-S</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding</title>
+      <link>https://arxiv.org/abs/2611.08449</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.08449</guid>
+      <description>Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion. However, autoregressive vision-language models generate these plans one coordinate token at a time, making richer predictions increasingly costly. We introduce VFlash, a method for fast, accurate visual planning through Flash Primitive Decoding. VFlash exploits the known structure of visual primitives to predict their coordinates jointly, using a lightweight drafter that generates an entire primitive in one forward pass. The layout adapts to the primitive's type, dimensionality, and length, supporting compact boxes and long, variable-length trajectories. Crucially, spatial accuracy need not require reproducing an autoregressive model's exact token sequence. VFlash therefore trains on annotated primitives and directly accepts structurally valid predictions without target-token agreement. Across the evaluated 2D and 3D robot trajectory tasks, VFlash consistently reduces prediction errors relative to autoregressive decoding. Preliminary single-rollout measurements indicate approximately 25x faster generation for 3D point motion forecasting. A world action model conditioned on VFlash plans achieves 70.2% average success across four MolmoSpaces task suites, compared with 62.6% for the baseline.
+
+Authors: Yu-Cheng Chou, Shihao Wang, Jin Huang, Chi-Pin Huang, Chiao-An Yang, Xianzhe Fan, Jing Wang, Zhiqi Li, Yuanguo Kuang, Ruijie Zheng, Johan Bjorck, Sifei Liu, Hang Su, Abhishek Badki, Lei Zhang, Alan Yuille, Linxi Fan, Jan Kautz, Zhiding Yu
+
+Tasks: Autonomous Driving, Robotics, Trajectory Prediction, World Models
+
+Code: https://github.com/nvlabs/eagle</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Solv3R: 3D Looped Transformer as a Multi-view Solver</title>
+      <link>https://arxiv.org/abs/2611.02857</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.02857</guid>
+      <description>Classical structure-from-motion reconstruction proceeds iteratively, refining camera poses and scene geometry from a current estimate. This allows maps to easily expand without recomputing already computed views, or geometry estimates to improve as more observations are provided. Most geometric foundation models, however, predict entire geometry in a single forward pass or update a recurrent state as frames arrive sequentially, making this expansion and refinement non-trivial. We introduce Solv3R, a looped transformer that learns to continue solving multi-view geometry from its current state. Importantly, its update operator is independent of the iteration count, allowing previously refined and newly introduced views to be jointly updated regardless of how ``solved'' they are. We train the operator to preserve accurate reconstructions under continued iteration and correct inaccurate states, enabling refinement of fixed image collections and integration of new observations. Representations of solved views can also be cached once and reused as geometric context across iterations, enabling compact and efficient key-value caching. We analyze the solver dynamics and compare it with the state-of-the-art, demonstrating that a single learned solver supports offline reconstruction, incremental reconstruction, relocalization, and streaming without task-specific training or modules. The code and models will be made publicly available at https://ubc-vision.github.io/solv3r/.
+
+Authors: Jeong-gi Kwak, Andrea Tagliasacchi, Sho Kagami, Yuki Ono, Kwang Moo Yi
+
+Tasks: 3D Reconstruction
+
+Code: https://github.com/ubc-vision/solv3r</description>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SpecPilot: Autonomous Algorithm Discovery and Systems Optimization for Speculative Decoding</title>
+      <link>https://arxiv.org/abs/2611.02501</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.02501</guid>
+      <description>Speculative decoding accelerates memory-bound LLM decoding with a lightweight drafter, and parallel drafters extend this speedup by drafting a whole block in one forward pass. However, it remains unclear whether their released systems (stock) attain the full speedup that parallel drafting permits. We identify three challenges. First, with one request, each step accepts few tokens but reads every target weight. Second, with batching, per-request verification work roughly halves the speedup over autoregressive (AR) decoding. Third, speculative decoding is deployment-specific, and no universal optimization fits every serving regime, drafter, target model and GPU. To address these challenges, we present SpecPilot, an autonomous agentic loop that discovers algorithms and systems optimizations for each deployment. In each round, a cost model locates the largest gaps between the current system and its ceiling. Parallel agents explore directions and integrate the successful ones. Token forcing checks every output token against stock to detect reward hacking. A structured memory carries validated mechanisms to new rounds and deployments. SpecPilot discovered a general lossless 12-bit weight format, tree verification for hybrid recurrent targets, two-level verification and three batching mechanisms. We evaluate it across four target models, three drafters, two GPU platforms and five benchmarks. Without training or quality loss, it raises the speedup over AR from stock's 4.46times to 10.87times with one request, and from 1.94times to 3.93times with batching.
+
+Authors: Kunjun Li, Wenhao Chai, Yihao Liang, Yuezhou Hu, Shuyao Xu, Yi Pan, William X. Zheng, Kannan Ramchandran, Kurt Keutzer, Jiantao Jiao
+
+Code: https://github.com/StargazerX0/SpecPilot</description>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VINO: Revisiting 3D Representation Learning with Volume Transformers</title>
+      <link>https://arxiv.org/abs/2611.07176</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.07176</guid>
+      <description>Self-supervised learning has given rise to vision foundation models that learn general-purpose image representations transferable across downstream tasks, yet representation learning for 3D scenes has not achieved comparable success. Motivated by this, we identify key limitations of current 3D representation learning approaches and revisit their core design choices. We first replace the commonly used hierarchical PTv3 backbone with the Volume Transformer, a ViT-like architecture for 3D scenes. We then redesign two core objectives of modern approaches built around student-teacher networks: matching representations across views and predicting masked content from visible context. For the first objective, we separate the roles of teacher and student: the teacher provides clean, consistent targets while the student learns invariance to stronger perturbations. For the second objective, we prevent the student from accessing the masked geometry and instead require it to infer missing representations from visible context only. Finally, we redesign 2D-to-3D knowledge distillation, replacing direct regression of view-dependent image features with view-consistent supervision. Together, these changes form VINO, a framework that learns semantic representations of 3D scenes without labels. VINO substantially improves dense linear probing across indoor and outdoor benchmarks and transfers strongly to out-of-domain settings.
+
+Authors: Adrian Kruse, Kadir Yilmaz, Daan de Geus, Francis Engelmann, Bastian Leibe
+
+Tasks: 3D instance segmentation, 3D semantic segmentation, Point Cloud Registration
+
+Code: https://github.com/adriankruse/vino</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Open-HumanScale: An Open Recipe for Scaling Human and Robot Experience for Embodied Foundation Models</title>
+      <link>https://arxiv.org/abs/2611.06817</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.06817</guid>
+      <description>Egocentric human video offers a scalable source of manipulation priors for robot learning, yet translating raw data scale into generalizable robot policies demands rigorous data curation and training recipes. We introduce Open-HumanScale, the first fully open recipe for scaling egocentric pretraining to 50,000 hours, anchored by Open-HumanScale-50K---a curated egocentric video corpus densely annotated with hand motion and natural language. Leveraging this corpus, we systematically investigate pure human pretraining via closed-loop simulation evaluations and uncover an empirical log-linear scaling law linking pretraining data hours to downstream robot success rates. Grounded in these findings, we develop HumanWAM-Vanilla, a world--action model pretrained exclusively on 50k hours of egocentric human video. Upon robot post-training, HumanWAM-Vanilla reaches 92.08% success on RoboTwin 2.0 Clean2Clean and 68.88% on Clean2Random, alongside a 14.17% mean success rate and a 19.00 mean progress score on RoboDojo. To push the capability frontier further, we explore joint human--robot pretraining with HumanWAM-Goal, a visual-goal-conditioned world--action model. Hybrid data scaling unlocks broad zero-shot generalization across both simulation and physical benchmarks, propelling post-trained RoboTwin 2.0 performance to new state-of-the-art levels: 92.70% on Clean2Clean and a substantial leap to 84.60% on Clean2Random. On physical robots, HumanWAM-Goal further exhibits emergent embodied in-context learning, dynamically adapting its manipulation behavior to unseen visual goals without parameter updates. To support reproducible scaling research in embodied AI, we open-source the Open-HumanScale-50K corpus, data curation and pretraining pipelines, alongside the pretrained and post-trained HumanWAM checkpoints, inference code, and simulation evaluation suites.
+
+Authors: Juncheng Ma, Jiaxin LI, Jiankai Tu, Bo Liang, Guodong Lv, Yufan Deng, Junzhe Tang, Liangzhu Yang, Chen Bian, Zicong Cao, Baohao Zhu, Jianxin Bi, Tengfei Yan, Yinyuan Zhang, Kewei Zhang, Xinglong Chen, Kaiqi Chen, Duomin Wang, Xiaotian Tang, Liang Tan, Li Li, Yuan Xu, Haosen Yang, Yuqi Wang, Jingfei Xia, Songyan Huang, Zhiyang Dou, Zhen Dong, Enze Xie, Tat-Seng Chua, Daquan Zhou
+
+Tasks: Egocentric Vision, Robotics, World Models
+
+Code: https://github.com/DAGroup-PKU/HumanNet</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents</title>
+      <link>https://arxiv.org/abs/2611.05036</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.05036</guid>
+      <description>Large language models are deployed as long-horizon agents that compose diverse tools across MCP services into executable workflows. Existing MCP environment-scaling methods are data-centric: they first synthesize a database and scenario, then derive tools and tasks from them. As a result, tool interfaces may not match real ones, tool compositions are not grounded in execution, and tasks rarely span more than one environment. We propose ToolSpace, a tool-centric framework that reverses this order. ToolSpace mines data, state, and retry dependencies from adjacent calls in execution traces of real MCP services and open agent corpora, using deterministic rules rather than LLM judgment, and clusters the resulting weighted tool-composition graph into environments. Databases are synthesized only for state-mutating environments, while query and stateless tools replay recorded returns. ToolSpace then performs state-aware random walks with rollback and decompiles each chain into a natural-language task with assertion-based checks, keeping only samples that replay successfully from the initial state. Applied to AutomationBench and tau3-Bench Banking, the pipeline produces harder Pro versions on which 7 frontier models drop by up to 38.2 points. Across seven long-horizon tool-use benchmarks, ToolSpace raises Qwen3.6-35B-A3B from 23.0 to 41.0 average score (43.2 with RL) and GLM-5.2 from 44.6 to 56.6, on par with Claude Opus 5. Ablations show that execution-witnessed edges clearly outperform LLM-judged ones, and performance keeps improving with data and environment scale.
+
+Authors: Guanting Dong, Zhichao Sun, Xinyu Yang, Rui Wang, Xin Deng, Jiajie Jin, Zhixiong Yang, Junhao Huang, Han Han, Mingyu Ma, Xiaotao Wang, Yuyang Hu, Xiaoshuai Song, Xiaoxi Li, Jiejun Tan, Zhecan Wang, Shihan Dou, Honglin Guo, Zhiheng Xi, Tao Gui, Tao Ji, Qi Zhang, Yutao Zhu, Ji-Rong Wen, Zhicheng Dou
+
+Tasks: Long-Horizon Agents, Reinforcement Learning
+
+Code: https://github.com/dongguanting/ToolSpace</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>GigaSpeech 3: Scaling Multi-Dialect Arabic Speech Recognition with Weakly Labeled Data</title>
+      <link>https://arxiv.org/abs/2611.02476</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.02476</guid>
+      <description>Dialectal Arabic speech recognition remains constrained by the scarcity of dialect-resolved transcribed speech despite the abundance of web audio. We introduce GigaSpeech 3, a corpus of 39,000 hours and 10 million weakly transcribed speech segments covering Algerian, Egyptian, Iraqi, Saudi, and Syrian Arabic. Starting from 60 hours of manual transcription per dialect, we train labeling models using speech-recognition-biased self-supervised learning and apply them to dialect-matched web audio. Data selection and four rounds of noisy-student refinement for Saudi and Syrian Arabic yield the final corpus. We validate its utility through dialect-specific and multi-dialect speech recognition training and cross-domain evaluation. On GigaSpeechBench, the final dialect-specific models outperform their labeling models across all five dialects and achieve a macro-average word error rate of 23.86%, a 16.6% relative reduction from the strongest third-party system covering all five dialects, while outperforming the best third-party result on three dialects. A multi-dialect model using self-predicted dialect identities achieves a macro-average word error rate of 25.51% while also supporting Modern Standard Arabic. Across eight conditions from three external corpora, a GigaSpeech 3-trained Zipformer achieves the lowest word error rate among six evaluated models in every condition, while adapting the Qwen3 speech recognizer on GigaSpeech 3 improves performance across all eight conditions. We release the corpus and recipes as a foundation for dialect-aware Arabic speech processing.
+
+Authors: Junzhe Liu, Yujie Tu, Yifan Yang, Peng Wang, Haoran Wang, Guodong Lin, Leyan Liao, Chengquan Zhang, Zhifu Gao, Xiangang Li, Qinyuan Cheng, Xipeng Qiu, Wei-Qiang Zhang, Guoguo Chen, Kai Yu, Xie Chen
+
+Tasks: Automatic Speech Recognition
+
+Code: https://github.com/Antares-97/GigaSpeech3</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Training a Text-to-Image Model for $21K</title>
+      <link>https://www.linum.ai/field-notes/pjit-21k</link>
+      <guid isPermaLink="true">https://www.linum.ai/field-notes/pjit-21k</guid>
+      <description>In our last blog post, we iterated towards P-JiT, a pixel-space architecture that cut attention context windows by 4× while converging in 11× fewer samples. Here, we train the P-JiT for 660M samples (just $21K in compute) as a stepping stone towards larger, video models. The release is a 2B-parameter Pyramid-JiT text-to-image diffusion model that operates directly in pixel space with 32×32 patches, conditioned on a frozen Qwen3.5-4B text encoder, trained at 512² and then 1024², and post-trained with Finite Difference Flow Optimization (FDFO). Code and weights are released under Apache 2.0.
+
+Authors: Sahil Chopra, Manu Chopra
+
+Tasks: Text-to-Image Generation
+
+Code: https://github.com/linum-ai/pjit-21k</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VeriSpoof: Beyond Real or Fake with One Audio LLM</title>
+      <link>https://arxiv.org/abs/2611.04634</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.04634</guid>
+      <description>A speech deepfake detector estimates whether a recording is synthetic, but a forensic analyst also asks which system produced it, whether recordings share a source, and what evidence supports each conclusion. We present VeriSpoof, an audio language model that unifies five tasks with shared weights: deepfake detection, generator attribution (generator, acoustic model and vocoder), recording-condition analysis, synthesized-span localisation, and source verification. Each decision is supported by grounded rationales whose statements can be independently verified. Answers are scored by sentence likelihood, allowing detection and source verification to be thresholded without separate heads. Rationale statements can be checked against waveform measurements, span labels, or generator metadata. Counterfactual examples train decisions to follow the stated evidence. Across the 14 Speech-DF-Arena test sets, VeriSpoof-Plus achieves 2.14% pooled EER, ranking third of 28 systems and first among open-weight systems. VeriSpoof-Base, trained only on official training splits of eight corpora, achieves 4.43% EER, less than half that of the next open-weight detector. With the same weights, VeriSpoof-Plus verifies whether recordings from generators unseen in training share a source at 6.2% EER. Controlled studies show that the audio representation governs detection, the LLM governs recording comparison, and source supervision is necessary for neural-codec fakes. Statement-checkable rationales catch partial fakes missed by one-step answers (99.6% vs. 78.4% on PartialEdit) and determine decisions under edits unseen in training (99.5%). Training updates only 29.7M of 2.85B parameters, fitting a single 24 GB GPU with gradient checkpointing. We release both models, inference code, a demo, and VeriSpoof-Bench, the evaluation suite covering these questions.
+
+Authors: Yang Xiao, Ting Dang
+
+Tasks: Audio understanding, Deepfake Detection, Speech Deepfake Detection
+
+Code: https://github.com/swagshaw/verispoof</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Towards Foundation Decision Models: Drex</title>
@@ -85,45 +213,6 @@ Code: https://github.com/THU-Agent/Coca-cola</description>
       <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>VeriSpoof: Beyond Real or Fake with One Audio LLM</title>
-      <link>https://arxiv.org/abs/2611.04634</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.04634</guid>
-      <description>A speech deepfake detector estimates whether a recording is synthetic, but a forensic analyst also asks which system produced it, whether recordings share a source, and what evidence supports each conclusion. We present VeriSpoof, an audio language model that unifies five tasks with shared weights: deepfake detection, generator attribution (generator, acoustic model and vocoder), recording-condition analysis, synthesized-span localisation, and source verification. Each decision is supported by grounded rationales whose statements can be independently verified. Answers are scored by sentence likelihood, allowing detection and source verification to be thresholded without separate heads. Rationale statements can be checked against waveform measurements, span labels, or generator metadata. Counterfactual examples train decisions to follow the stated evidence. Across the 14 Speech-DF-Arena test sets, VeriSpoof-Plus achieves 2.14% pooled EER, ranking third of 28 systems and first among open-weight systems. VeriSpoof-Base, trained only on official training splits of eight corpora, achieves 4.43% EER, less than half that of the next open-weight detector. With the same weights, VeriSpoof-Plus verifies whether recordings from generators unseen in training share a source at 6.2% EER. Controlled studies show that the audio representation governs detection, the LLM governs recording comparison, and source supervision is necessary for neural-codec fakes. Statement-checkable rationales catch partial fakes missed by one-step answers (99.6% vs. 78.4% on PartialEdit) and determine decisions under edits unseen in training (99.5%). Training updates only 29.7M of 2.85B parameters, fitting a single 24 GB GPU with gradient checkpointing. We release both models, inference code, a demo, and VeriSpoof-Bench, the evaluation suite covering these questions.
-
-Authors: Yang Xiao, Ting Dang
-
-Tasks: Audio understanding, Deepfake Detection, Speech Deepfake Detection
-
-Code: https://github.com/swagshaw/verispoof</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Training a Text-to-Image Model for $21K</title>
-      <link>https://www.linum.ai/field-notes/pjit-21k</link>
-      <guid isPermaLink="true">https://www.linum.ai/field-notes/pjit-21k</guid>
-      <description>In our last blog post, we iterated towards P-JiT, a pixel-space architecture that cut attention context windows by 4× while converging in 11× fewer samples. Here, we train the P-JiT for 660M samples (just $21K in compute) as a stepping stone towards larger, video models. The release is a 2B-parameter Pyramid-JiT text-to-image diffusion model that operates directly in pixel space with 32×32 patches, conditioned on a frozen Qwen3.5-4B text encoder, trained at 512² and then 1024², and post-trained with Finite Difference Flow Optimization (FDFO). Code and weights are released under Apache 2.0.
-
-Authors: Sahil Chopra, Manu Chopra
-
-Tasks: Text-to-Image Generation
-
-Code: https://github.com/linum-ai/pjit-21k</description>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>GigaSpeech 3: Scaling Multi-Dialect Arabic Speech Recognition with Weakly Labeled Data</title>
-      <link>https://arxiv.org/abs/2611.02476</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.02476</guid>
-      <description>Dialectal Arabic speech recognition remains constrained by the scarcity of dialect-resolved transcribed speech despite the abundance of web audio. We introduce GigaSpeech 3, a corpus of 39,000 hours and 10 million weakly transcribed speech segments covering Algerian, Egyptian, Iraqi, Saudi, and Syrian Arabic. Starting from 60 hours of manual transcription per dialect, we train labeling models using speech-recognition-biased self-supervised learning and apply them to dialect-matched web audio. Data selection and four rounds of noisy-student refinement for Saudi and Syrian Arabic yield the final corpus. We validate its utility through dialect-specific and multi-dialect speech recognition training and cross-domain evaluation. On GigaSpeechBench, the final dialect-specific models outperform their labeling models across all five dialects and achieve a macro-average word error rate of 23.86%, a 16.6% relative reduction from the strongest third-party system covering all five dialects, while outperforming the best third-party result on three dialects. A multi-dialect model using self-predicted dialect identities achieves a macro-average word error rate of 25.51% while also supporting Modern Standard Arabic. Across eight conditions from three external corpora, a GigaSpeech 3-trained Zipformer achieves the lowest word error rate among six evaluated models in every condition, while adapting the Qwen3 speech recognizer on GigaSpeech 3 improves performance across all eight conditions. We release the corpus and recipes as a foundation for dialect-aware Arabic speech processing.
-
-Authors: Junzhe Liu, Yujie Tu, Yifan Yang, Peng Wang, Haoran Wang, Guodong Lin, Leyan Liao, Chengquan Zhang, Zhifu Gao, Xiangang Li, Qinyuan Cheng, Xipeng Qiu, Wei-Qiang Zhang, Guoguo Chen, Kai Yu, Xie Chen
-
-Tasks: Automatic Speech Recognition
-
-Code: https://github.com/Antares-97/GigaSpeech3</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Factorized MLLM Embeddings for Composed Image Retrieval</title>
       <link>https://arxiv.org/abs/2611.05193</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.05193</guid>
@@ -137,19 +226,6 @@ Code: https://github.com/cvlab-kaist/FactEmbed</description>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding</title>
-      <link>https://arxiv.org/abs/2611.08449</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08449</guid>
-      <description>Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion. However, autoregressive vision-language models generate these plans one coordinate token at a time, making richer predictions increasingly costly. We introduce VFlash, a method for fast, accurate visual planning through Flash Primitive Decoding. VFlash exploits the known structure of visual primitives to predict their coordinates jointly, using a lightweight drafter that generates an entire primitive in one forward pass. The layout adapts to the primitive's type, dimensionality, and length, supporting compact boxes and long, variable-length trajectories. Crucially, spatial accuracy need not require reproducing an autoregressive model's exact token sequence. VFlash therefore trains on annotated primitives and directly accepts structurally valid predictions without target-token agreement. Across the evaluated 2D and 3D robot trajectory tasks, VFlash consistently reduces prediction errors relative to autoregressive decoding. Preliminary single-rollout measurements indicate approximately 25x faster generation for 3D point motion forecasting. A world action model conditioned on VFlash plans achieves 70.2% average success across four MolmoSpaces task suites, compared with 62.6% for the baseline.
-
-Authors: Yu-Cheng Chou, Shihao Wang, Jin Huang, Chi-Pin Huang, Chiao-An Yang, Xianzhe Fan, Jing Wang, Zhiqi Li, Yuanguo Kuang, Ruijie Zheng, Johan Bjorck, Sifei Liu, Hang Su, Abhishek Badki, Lei Zhang, Alan Yuille, Linxi Fan, Jan Kautz, Zhiding Yu
-
-Tasks: Autonomous Driving, Robotics, Trajectory Prediction, World Models
-
-Code: https://github.com/nvlabs/eagle</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>TaoMate-FVSR:Audio-Guided Facial Video Restoration</title>
       <link>https://arxiv.org/abs/2611.03393</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.03393</guid>
@@ -160,32 +236,6 @@ Authors: Xinyang Li, Zeran Xu, Qijun Gan, Chenwei Zhang, Meiguang Jin, Junfeng M
 Tasks: Video Restoration
 
 Code: https://github.com/TaoLiveAIGC/TaoMate-FVSR</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VINO: Revisiting 3D Representation Learning with Volume Transformers</title>
-      <link>https://arxiv.org/abs/2611.07176</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.07176</guid>
-      <description>Self-supervised learning has given rise to vision foundation models that learn general-purpose image representations transferable across downstream tasks, yet representation learning for 3D scenes has not achieved comparable success. Motivated by this, we identify key limitations of current 3D representation learning approaches and revisit their core design choices. We first replace the commonly used hierarchical PTv3 backbone with the Volume Transformer, a ViT-like architecture for 3D scenes. We then redesign two core objectives of modern approaches built around student-teacher networks: matching representations across views and predicting masked content from visible context. For the first objective, we separate the roles of teacher and student: the teacher provides clean, consistent targets while the student learns invariance to stronger perturbations. For the second objective, we prevent the student from accessing the masked geometry and instead require it to infer missing representations from visible context only. Finally, we redesign 2D-to-3D knowledge distillation, replacing direct regression of view-dependent image features with view-consistent supervision. Together, these changes form VINO, a framework that learns semantic representations of 3D scenes without labels. VINO substantially improves dense linear probing across indoor and outdoor benchmarks and transfers strongly to out-of-domain settings.
-
-Authors: Adrian Kruse, Kadir Yilmaz, Daan de Geus, Francis Engelmann, Bastian Leibe
-
-Tasks: 3D instance segmentation, 3D semantic segmentation, Point Cloud Registration
-
-Code: https://github.com/adriankruse/vino</description>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>EvoMemState: Evolving Memory State for Personal Agents</title>
-      <link>https://arxiv.org/abs/2611.03743</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.03743</guid>
-      <description>Long-term memory enables large language model (LLM) agents to provide continuous personalized assistance by retaining user information across interactions. Existing systems support this process through fact extraction, organization, updating, and retrieval, but largely maintain memories as independent facts. This fact-centric paradigm may overlook how new facts update, constrain, or conflict with earlier ones, while leaving their applicability, role, and priority for the current request implicit. In this paper, we introduce EvoMemState, a state-centric framework that augments persistent facts with two complementary states: Relational States that capture how facts remain valid and relate to one another as memory evolves, and a Reasoning State that determines how these facts should be applied to the current request. Specifically, EvoMemState consists of three key components: (i) Ontology-Guided Memory State Induction extracts Persistent Facts and constructs Relational States that maintain their validity, scope, and evolving relations. (ii) RL-Based State Evolution internalizes memory-use experience into a policy through reinforcement learning to generate a request-specific Reasoning State. (iii) State-Aware Reasoning then combines the relevant facts with their Relational States and the generated Reasoning State to guide the personal agent. Extensive experiments on long-term dialogue and memory-use benchmarks demonstrate consistent improvements over existing memory systems in retrieval completeness and memory-grounded response accuracy. Our code and implementation details are available at https://github.com/XMUDeepLIT/EvoMemState.git.
-
-Authors: Zhishang Xiang, Yunbo Tang, Zhongqiao Liu, Junkai Chen, Zerui Chen, Qingguo Hu, Yuxuan Zhang, William Grant, Qinggang Zhang, Jinsong Su
-
-Tasks: Agents, Reinforcement Learning
-
-Code: https://github.com/XMUDeepLIT/EvoMemState</description>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -202,69 +252,17 @@ Code: https://github.com/antins-labs/VisSearch-Bench-v1</description>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>EDGAR: Efficient Diffusion-Driven Gaussian Avatar Refinement via Synthetic Failure</title>
-      <link>https://arxiv.org/abs/2611.07909</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.07909</guid>
-      <description>Recent advances in Gaussian splatting have enabled efficient and photorealistic head avatar reconstruction, yet monocular video-based or image-based methods still suffer from under-constrained geometry and texture, leading to artifacts such as blurring, stretching, and temporal instability. We present EDGAR (Efficient Diffusion-Driven Gaussian Avatar Refinement), a conditional diffusion framework designed to enhance the quality of Gaussian avatars by correcting artifacts while preserving identity fidelity. To train EDGAR, we construct EDGAR-SET, a hybrid triplet dataset composed of real-captured and synthetic-rendered samples, which simulates realistic Gaussian avatar failure cases by pairing degraded renderings with ground-truth and reference images. EDGAR refines degraded frames through a fusion block that injects identity features extracted by the self-supervised Sapiens model into a one-step diffusion backbone, enabling effective artifact removal without sacrificing efficiency. Our EDGAR model incorporates a Mixture-of-Experts (MoE) architecture to address diverse degradation types and severity levels. The refined multi-view renderings are subsequently used as pseudo-targets to optimize a single underlying Gaussian avatar, so that the final avatar can be rendered without applying EDGAR to every output frame. Experiments on three different Gaussian avatar reconstruction methods, each evaluated under three different settings, show improvements in both perceptual and reconstruction measures over the raw outputs and an SDEdit-style refinement baseline. In addition, cross-view evaluation demonstrates improved calibrated consistency, while tests under large yaw and open-mouth expressions verify robustness under extreme settings. These results collectively indicate a useful operating regime for recoverable appearance artifacts. The code is available at https://kwanyun.github.io/edgar/
+      <title>EvoMemState: Evolving Memory State for Personal Agents</title>
+      <link>https://arxiv.org/abs/2611.03743</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.03743</guid>
+      <description>Long-term memory enables large language model (LLM) agents to provide continuous personalized assistance by retaining user information across interactions. Existing systems support this process through fact extraction, organization, updating, and retrieval, but largely maintain memories as independent facts. This fact-centric paradigm may overlook how new facts update, constrain, or conflict with earlier ones, while leaving their applicability, role, and priority for the current request implicit. In this paper, we introduce EvoMemState, a state-centric framework that augments persistent facts with two complementary states: Relational States that capture how facts remain valid and relate to one another as memory evolves, and a Reasoning State that determines how these facts should be applied to the current request. Specifically, EvoMemState consists of three key components: (i) Ontology-Guided Memory State Induction extracts Persistent Facts and constructs Relational States that maintain their validity, scope, and evolving relations. (ii) RL-Based State Evolution internalizes memory-use experience into a policy through reinforcement learning to generate a request-specific Reasoning State. (iii) State-Aware Reasoning then combines the relevant facts with their Relational States and the generated Reasoning State to guide the personal agent. Extensive experiments on long-term dialogue and memory-use benchmarks demonstrate consistent improvements over existing memory systems in retrieval completeness and memory-grounded response accuracy. Our code and implementation details are available at https://github.com/XMUDeepLIT/EvoMemState.git.
 
-Authors: Kwan Yun, Minhyeok Bang, Colette Suhjung Koo, Junyong Noh
+Authors: Zhishang Xiang, Yunbo Tang, Zhongqiao Liu, Junkai Chen, Zerui Chen, Qingguo Hu, Yuxuan Zhang, William Grant, Qinggang Zhang, Jinsong Su
 
-Tasks: 3D Reconstruction, Image Restoration
+Tasks: Agents, Reinforcement Learning
 
-Code: https://github.com/kwanyun/edgar-code</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Solv3R: 3D Looped Transformer as a Multi-view Solver</title>
-      <link>https://arxiv.org/abs/2611.02857</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.02857</guid>
-      <description>Classical structure-from-motion reconstruction proceeds iteratively, refining camera poses and scene geometry from a current estimate. This allows maps to easily expand without recomputing already computed views, or geometry estimates to improve as more observations are provided. Most geometric foundation models, however, predict entire geometry in a single forward pass or update a recurrent state as frames arrive sequentially, making this expansion and refinement non-trivial. We introduce Solv3R, a looped transformer that learns to continue solving multi-view geometry from its current state. Importantly, its update operator is independent of the iteration count, allowing previously refined and newly introduced views to be jointly updated regardless of how ``solved'' they are. We train the operator to preserve accurate reconstructions under continued iteration and correct inaccurate states, enabling refinement of fixed image collections and integration of new observations. Representations of solved views can also be cached once and reused as geometric context across iterations, enabling compact and efficient key-value caching. We analyze the solver dynamics and compare it with the state-of-the-art, demonstrating that a single learned solver supports offline reconstruction, incremental reconstruction, relocalization, and streaming without task-specific training or modules. The code and models will be made publicly available at https://ubc-vision.github.io/solv3r/.
-
-Authors: Jeong-gi Kwak, Andrea Tagliasacchi, Sho Kagami, Yuki Ono, Kwang Moo Yi
-
-Tasks: 3D Reconstruction
-
-Code: https://github.com/ubc-vision/solv3r</description>
+Code: https://github.com/XMUDeepLIT/EvoMemState</description>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SpecOPD: Branch-Parallel On-Policy Distillation for Speculative Decoding</title>
-      <link>https://arxiv.org/abs/2611.02846</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.02846</guid>
-      <description>Speculative decoding (SD) accelerates large language model inference by reducing the sequential cost of token-by-token generation. Advanced SD methods reduce proposal cost with parallel drafters that predict entire blocks in one forward pass, but overall speedup still depends on acceptance length. On-policy distillation (OPD) can push well-trained drafters beyond acceptance-length plateaus, yet conventional pipelines collect supervision through sequential draft-and-verify rollouts. Our key insight is that on-policy supervision need not inherit these dependencies: a draft block can be supervised using only its reference prefix and draft-sampled history. We propose SpecOPD, a branch-parallel OPD framework that parallelizes draft sampling and target supervision across independent branches drawn from the evolving drafter policy at reference anchors. We pack these branches into proposal trees to share target-prefix computation, using tree masks for full attention, branch-consistent indexer groups for sparse attention, and indexed state replay for linear attention to preserve each branch's history. We train the drafter with an E2E-TV surrogate that directly targets acceptance length. Our study spans 8B full-attention (GQA), 27B full-linear (GQA--GDN), and 125B sparse-linear (QSA--GDN) targets, three parallel draft architectures (DFlash, DSpark, and DFlash V2), and four task domains (dialogue, coding, mathematics, and agentic). SpecOPD achieves up to 41.45% higher mean acceptance length, 16.09times supervised-token throughput over sequential-rollout OPD under native configurations, and up to 3.56times generation speedup over autoregressive decoding.
-
-Authors: Tianyu Liu, Jun Zhang, Wenjie Huang, Yuhao Shen, Tianqi Xu, Xinyue Hao, Hongyaoxing Gu, Xuyang Liu, Baolin Zhang, Yating Zhu, Shuang Ge, Jun Dai, Lei Chen, Yue Li, Mingchen Wan
-
-Tasks: Language Modeling
-
-Code: https://github.com/QwenApp/SpecOPD</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>What Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents?</title>
-      <link>https://arxiv.org/abs/2611.06483</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.06483</guid>
-      <description>While multi-turn agentic reinforcement learning (RL) excels on long-horizon tasks, its performance gains remain highly sensitive to interaction constraints. Evaluating across sampling breadth K and interaction depth T via Pass@(K,T), we show that trajectory-level RL advantages depend on sufficient turn budgets, diminishing significantly when budgets tighten. Besides, agentic RL does not uniformly elevate single-step decision quality; rather, its strength concentrates in error recovery and long-horizon resilience. To mitigate the deployment risks caused by this budget dependence, we provide a preliminary discussion on the benefits and limitations of process supervision signals and introduce BudgetMix RL as an alternative that varies interaction budgets during training. Experiments demonstrate that BudgetMix RL achieves robust performance across diverse execution settings. Project Page: https://rethinking-agentic-rl.github.io/
-
-Authors: Kejian Zhu, Zhuoran Jin, Shangqing Tu, Tianyi Men, Yupu Hao, Jiachun Li, Kang Liu, Jun Zhao
-
-Tasks: Agents, Long-Horizon Agents, Reinforcement Learning
-
-Code: https://github.com/GaryStack/Rethinking-Agent-RL</description>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VA-TDM: A Unified View for Improving Few-Step Diffusion Models by Velocity Adversarial Distillation</title>
-      <link>https://arxiv.org/abs/2611.06796</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.06796</guid>
-      <description>Few-step distillation offers efficient generation with diffusion and flow models, but preserving quality with only a few sampling steps remains challenging. Distribution-matching methods via score distillation provide a strong foundation, yet they rely on accurately tracking the student's changing distribution. At intermediate generation steps in few-step sampling, student-score estimation can be difficult, and commonly used estimators may describe a different distribution from the one used to update the student. Flow matching allows a more flexible approach to supervision through velocity fields constructed from the student's sampling process. Building on this perspective, we introduce Velocity Adversarial Distillation (VAD), which uses a learned critic to compare student and teacher fields and turn their disagreement into feedback for learning. VAD unifies score distillation, Fisher-based matching, and moment matching, also explaining existing heuristic MMD updates and delivering new training objectives. We further develop VA-TDM, which follows trajectory distribution matching: providing supervision for partial denoising along the student trajectory. Beyond this, VA-TDM combines transition-aware online velocity learning and dual-form VAD supervision across intermediate student transitions. Extensive results show that VA-TDM is powerful for learning few-step generators, achieving state-of-the-art four-step performance in both text-to-image and text-to-video generation across various backbones and scaling effectively to 33B MiniMax-H3. In particular, our VA-TDM-H3 notably outperforms the few-step Fast-H3 and is closer to the original many-step H3 according to human preference.
-
-Authors: Yihong Luo, Tianyu Pang, Tianyang Hu
-
-Tasks: Text-to-Image Generation, Video generation
-
-Code: https://github.com/Luo-Yihong/VA-TDM</description>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
