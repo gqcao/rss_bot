@@ -4,19 +4,45 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Mon, 09 Nov 2026 14:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 15:00:00 GMT</lastBuildDate>
     <item>
-      <title>PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data</title>
-      <link>https://arxiv.org/abs/2611.05320</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.05320</guid>
-      <description>Teleoperation remains the default way to collect robot demonstrations, but every episode costs robot and operator time, and every new task starts from scratch. We ask whether a coding agent can take over the teleoperator's job. In our DataFarm, the agent receives a data request and one calibration episode of the robot in the target scene and rebuilds the task in simulation: it writes the scene, an expert controller, and a success judge. The simulator supplies exact actions, and a video model conditioned on real images renders each rollout as photographic video, generating all camera views together consistently. The output is real-ready data: synchronized camera views labelled with the robot's actions, on which a policy can be trained directly and deployed on the real robot. Independent judges certify the expert and every rendered episode before admission. On five real-robot tasks, policies trained only on farm data match policies trained on as many teleoperated episodes (93 vs. 84 successes in 100 trials), and under an unseen tablecloth and coloured light they keep 87 successes where the teleoperation-trained policies fall to 46. Adapting a task is fully automatic and costs \21 of API usage on average, paid once per task, plus 5 for a render contract; every further episode costs \0.80 on average for simulation, rendering, and review, with no robot or operator. One hour of three-view data for a task costs 107 on average, these costs included, slightly below a quote of \117 for teleoperation in China and below 290 in labour alone in North America.
+      <title>SplatAnything: Gaussian Spacing Normalization for Feed-forward 3DGS across Arbitrary Scenes</title>
+      <link>https://arxiv.org/abs/2611.08264</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.08264</guid>
+      <description>We identify a key limitation of existing feed-forward 3DGS methods: Gaussian attributes are typically predicted in a radial-distance-normalized space that canonicalizes a global radial statistic of the reconstructed geometry, while the spacing between neighboring Gaussian centers can still vary substantially across scene scales and camera configurations. This mismatch induces systematic shifts in Gaussian-scale targets, leading to ambiguous supervision. To address this, we propose SplatAnything with Gaussian Spacing Normalization (GSNorm), which canonicalizes a robust scene-level statistic of Gaussian spacing to provide a more consistent spatial reference for Gaussian prediction. To rigorously assess our method, we further establish a systematic benchmark spanning diverse datasets, input sparsity levels, and challenging extrapolated viewpoints. Extensive experiments demonstrate that SplatAnything achieves state-of-the-art performance, with particularly strong gains under substantial variations in scene scale and viewpoint.
 
-Authors: Kewei Zhang, Juncheng Ma, Guodong Lv, Duomin Wang, Feixiang Ruan, Ruiyang Si, Chuanrui Zhang, Yuxuan Chen, Hao Chen, Yichen Liu, Yintianrun Zhang, Yufan Deng, Enze Xie, Daquan Zhou
+Authors: Hao Yu, Zhenwei Wang, Yongzhen Hu, Yuning Gong, Junta Wu, Xiaowei Zhou, Hujun Bao, Tengfei Wang, Chunchao Guo, Sida Peng
 
-Tasks: Coding Agents, Robotics, Video generation
+Tasks: 3D Reconstruction, Novel View Synthesis
 
-Code: https://github.com/DAGroup-PKU/PyRUA-Lean</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/zju3dv/SplatAnything</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Towards Foundation Decision Models: Drex</title>
+      <link>https://arxiv.org/abs/2611.07854</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.07854</guid>
+      <description>Autoregressive approaches with large language models, such as long chain-of-thought reasoning, have become the default for new AI applications because they reach higher accuracy on a wide range of tasks. In production, however, they give inconsistent answers, require parsing of outputs, and add cost and latency. Decision models address this: given a question and a set of options supplied by the user, they return a probability distribution over the options without autoregressive decoding. We present Drex, a family of four open decision models with 8B (DLM), 9B (v1.5), 35B with 3B active (v2.0), and 27B (Max) parameters. Each request consists of a state (a document, record, or agent context, optionally with images) and questions about it, each asking for a choice among options, a yes/no judgment, or a score on an ordered scale. Training combines supervised fine-tuning with reinforcement learning from adjusted feedback (RLAF), plus vision tuning for Max. Ablations show that RLAF improves accuracy and that consistency losses improve robustness to option order. On Decision Index 0.4.1, Max sets a new state of the art among the decision models we compare (67.52 on the public suite vs. 60.70 for Jev 1.14.0). On Decision Bench v4, it is statistically tied with d3-turbo and GPT-6 Sol and trails Claude Opus 5.5 by 1.6 points, and it has the highest accuracy among decision models on DecideBench. Max answers a typical request in 183 ms, against about 2.0 s for GPT-6 Sol and 3.5 s for Claude Opus 5.5, and its outputs are stable under option reordering. All four models are open source: https://github.com/nace-ai/drex-decision-models
+
+Authors: Nischay Dhankhar, Alisher Amantay, Zhanibek Datbayev, Darkhan Akhmetov, Yash Shah, Nurmukhamed Ubaidullayev, Raman Saparkhan, Dos Baha, Abulhair Saparov
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/nace-ai/drex-decision-models</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Where to Connect? Boosting MLLMs via Dynamic Gated Pathways across ALL ViT and LLM Layers</title>
+      <link>https://arxiv.org/abs/2611.06844</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.06844</guid>
+      <description>A central yet under-explored question in Multimodal Large Language Models (MLLMs) is where to connect---how visual information from a hierarchical vision encoder should be wired into the layer-wise semantics of a large language model. Mainstream MLLMs inject a fixed single-layer visual representation into the LLM and treat all LLM layers as a single consumer, ignoring that different layers demand different visual granularities. Recent multi-layer fusion methods either compress hierarchical features on the encoder side or rely on predefined sparse or hierarchical layer-to-layer connections, and therefore stop short of modeling adaptive cross-layer interactions between the ViT and LLM hierarchies. We address this gap with DGP (Dynamic Gated Pathways), a routing mechanism that establishes all-to-all connections between every ViT layer and every LLM layer, with each LLM layer dynamically gating its preference over visual layers conditioned on its own semantic state. Built on top of LLaVA-1.5-7B and 13B, DGP delivers consistent gains over the LLaVA-1.5-7B baseline (e.g., +4.2 on SQA^{I}, +3.3 on MM-Vet, +3.1 on VizWiz and LLaVA^{W}) and surpasses prior multi-layer visual fusion methods on most benchmarks. Layer-wise routing analyses further show that different LLM layers do select different visual granularities on demand, supporting both the effectiveness and interpretability of the proposed dynamic gated pathways. The code is available: https://github.com/YingyingYan1/DGP.
+
+Authors: Yingying Yan, Jiaqi Tang, Jiaqi Tang, Wei Wei, Wei Wei, Qianzhou Wang, Lei Zhang, Jianmin Chen, Yuyang Xia, Botong Geng, Jinjian Wu, Qifeng Chen, Qifeng Chen
+
+Tasks: Image Understanding, Table question answering
+
+Code: https://github.com/yingyingyan1/dgp</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding</title>
@@ -32,30 +58,30 @@ Code: https://github.com/nvlabs/eagle</description>
       <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SLA: Scaling Spatial-Language-Action Model via Continual Pre-training</title>
-      <link>https://arxiv.org/abs/2611.08373</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08373</guid>
-      <description>Reliable robotic manipulation requires both semantic understanding and precise control in three-dimensional space. However, vision-language-action (VLA) foundations largely inherit visual representations from 2D vision-language pre-training, while spatial supervision is often introduced only during task-specific adaptation. Developing spatial understanding as a transferable foundation-model capability therefore calls for learning from broader robot experience. We present SLA, a Spatial-Language-Action Model that scales implicit spatial alignment to continual pre-training and maintains it during downstream post-training. Initialized from a pretrained pi05 policy, SLA jointly optimizes action prediction and alignment between intermediate visual embeddings and spatial representations from a frozen 3D perception model. We curate and unify heterogeneous robot datasets to support spatial learning across diverse embodiments, tasks, and scenes. To accommodate this diversity, we introduce feature-dependent gates that adaptively aggregate visual embeddings from multiple VLA layers for spatial supervision. The teacher further exploits partially available depth and camera calibration alongside RGB observations, enabling effective use of heterogeneous geometric annotations. Probabilistic state dropout encourages reliance on visual cues and mitigates overfitting to demonstration trajectories. All auxiliary components are used only during training, allowing direct reuse of pretrained VLA weights and preserving the original inference architecture.
+      <title>ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents</title>
+      <link>https://arxiv.org/abs/2611.05036</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.05036</guid>
+      <description>Large language models are deployed as long-horizon agents that compose diverse tools across MCP services into executable workflows. Existing MCP environment-scaling methods are data-centric: they first synthesize a database and scenario, then derive tools and tasks from them. As a result, tool interfaces may not match real ones, tool compositions are not grounded in execution, and tasks rarely span more than one environment. We propose ToolSpace, a tool-centric framework that reverses this order. ToolSpace mines data, state, and retry dependencies from adjacent calls in execution traces of real MCP services and open agent corpora, using deterministic rules rather than LLM judgment, and clusters the resulting weighted tool-composition graph into environments. Databases are synthesized only for state-mutating environments, while query and stateless tools replay recorded returns. ToolSpace then performs state-aware random walks with rollback and decompiles each chain into a natural-language task with assertion-based checks, keeping only samples that replay successfully from the initial state. Applied to AutomationBench and tau3-Bench Banking, the pipeline produces harder Pro versions on which 7 frontier models drop by up to 38.2 points. Across seven long-horizon tool-use benchmarks, ToolSpace raises Qwen3.6-35B-A3B from 23.0 to 41.0 average score (43.2 with RL) and GLM-5.2 from 44.6 to 56.6, on par with Claude Opus 5. Ablations show that execution-witnessed edges clearly outperform LLM-judged ones, and performance keeps improving with data and environment scale.
 
-Authors: Fuhao Li, Wenxuan Song, Qizhou Huang, Ziyang Zhou, Jingbo Wang, Junwu E, Pengwei Wang, Yan Wang, Shunbo Zhou, Haoang Li
+Authors: Guanting Dong, Zhichao Sun, Xinyu Yang, Rui Wang, Xin Deng, Jiajie Jin, Zhixiong Yang, Junhao Huang, Han Han, Mingyu Ma, Xiaotao Wang, Yuyang Hu, Xiaoshuai Song, Xiaoxi Li, Jiejun Tan, Zhecan Wang, Shihan Dou, Honglin Guo, Zhiheng Xi, Tao Gui, Tao Ji, Qi Zhang, Yutao Zhu, Ji-Rong Wen, Zhicheng Dou
 
-Tasks: Continual Learning, Robotics, Spatial Understanding
+Tasks: Long-Horizon Agents, Reinforcement Learning
 
-Code: https://github.com/OpenHelix-Team/Spatial-Forcing</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/dongguanting/ToolSpace</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Towards Foundation Decision Models: Drex</title>
-      <link>https://arxiv.org/abs/2611.07854</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.07854</guid>
-      <description>Autoregressive approaches with large language models, such as long chain-of-thought reasoning, have become the default for new AI applications because they reach higher accuracy on a wide range of tasks. In production, however, they give inconsistent answers, require parsing of outputs, and add cost and latency. Decision models address this: given a question and a set of options supplied by the user, they return a probability distribution over the options without autoregressive decoding. We present Drex, a family of four open decision models with 8B (DLM), 9B (v1.5), 35B with 3B active (v2.0), and 27B (Max) parameters. Each request consists of a state (a document, record, or agent context, optionally with images) and questions about it, each asking for a choice among options, a yes/no judgment, or a score on an ordered scale. Training combines supervised fine-tuning with reinforcement learning from adjusted feedback (RLAF), plus vision tuning for Max. Ablations show that RLAF improves accuracy and that consistency losses improve robustness to option order. On Decision Index 0.4.1, Max sets a new state of the art among the decision models we compare (67.52 on the public suite vs. 60.70 for Jev 1.14.0). On Decision Bench v4, it is statistically tied with d3-turbo and GPT-6 Sol and trails Claude Opus 5.5 by 1.6 points, and it has the highest accuracy among decision models on DecideBench. Max answers a typical request in 183 ms, against about 2.0 s for GPT-6 Sol and 3.5 s for Claude Opus 5.5, and its outputs are stable under option reordering. All four models are open source: https://github.com/nace-ai/drex-decision-models
+      <title>PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data</title>
+      <link>https://arxiv.org/abs/2611.05320</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.05320</guid>
+      <description>Teleoperation remains the default way to collect robot demonstrations, but every episode costs robot and operator time, and every new task starts from scratch. We ask whether a coding agent can take over the teleoperator's job. In our DataFarm, the agent receives a data request and one calibration episode of the robot in the target scene and rebuilds the task in simulation: it writes the scene, an expert controller, and a success judge. The simulator supplies exact actions, and a video model conditioned on real images renders each rollout as photographic video, generating all camera views together consistently. The output is real-ready data: synchronized camera views labelled with the robot's actions, on which a policy can be trained directly and deployed on the real robot. Independent judges certify the expert and every rendered episode before admission. On five real-robot tasks, policies trained only on farm data match policies trained on as many teleoperated episodes (93 vs. 84 successes in 100 trials), and under an unseen tablecloth and coloured light they keep 87 successes where the teleoperation-trained policies fall to 46. Adapting a task is fully automatic and costs \21 of API usage on average, paid once per task, plus 5 for a render contract; every further episode costs \0.80 on average for simulation, rendering, and review, with no robot or operator. One hour of three-view data for a task costs 107 on average, these costs included, slightly below a quote of \117 for teleoperation in China and below 290 in labour alone in North America.
 
-Authors: Nischay Dhankhar, Alisher Amantay, Zhanibek Datbayev, Darkhan Akhmetov, Yash Shah, Nurmukhamed Ubaidullayev, Raman Saparkhan, Dos Baha, Abulhair Saparov
+Authors: Kewei Zhang, Juncheng Ma, Guodong Lv, Duomin Wang, Feixiang Ruan, Ruiyang Si, Chuanrui Zhang, Yuxuan Chen, Hao Chen, Yichen Liu, Yintianrun Zhang, Yufan Deng, Enze Xie, Daquan Zhou
 
-Tasks: Reinforcement Learning
+Tasks: Coding Agents, Robotics, Video generation
 
-Code: https://github.com/nace-ai/drex-decision-models</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/DAGroup-PKU/PyRUA-Lean</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Confucius4-R2T2: A Stable-Prefix Streaming ASR Model for Real Real-Time Transcription</title>
@@ -82,6 +108,19 @@ Code: https://github.com/tencent-hunyuan/hyra-results</description>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>SLA: Scaling Spatial-Language-Action Model via Continual Pre-training</title>
+      <link>https://arxiv.org/abs/2611.08373</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.08373</guid>
+      <description>Reliable robotic manipulation requires both semantic understanding and precise control in three-dimensional space. However, vision-language-action (VLA) foundations largely inherit visual representations from 2D vision-language pre-training, while spatial supervision is often introduced only during task-specific adaptation. Developing spatial understanding as a transferable foundation-model capability therefore calls for learning from broader robot experience. We present SLA, a Spatial-Language-Action Model that scales implicit spatial alignment to continual pre-training and maintains it during downstream post-training. Initialized from a pretrained pi05 policy, SLA jointly optimizes action prediction and alignment between intermediate visual embeddings and spatial representations from a frozen 3D perception model. We curate and unify heterogeneous robot datasets to support spatial learning across diverse embodiments, tasks, and scenes. To accommodate this diversity, we introduce feature-dependent gates that adaptively aggregate visual embeddings from multiple VLA layers for spatial supervision. The teacher further exploits partially available depth and camera calibration alongside RGB observations, enabling effective use of heterogeneous geometric annotations. Probabilistic state dropout encourages reliance on visual cues and mitigates overfitting to demonstration trajectories. All auxiliary components are used only during training, allowing direct reuse of pretrained VLA weights and preserving the original inference architecture.
+
+Authors: Fuhao Li, Wenxuan Song, Qizhou Huang, Ziyang Zhou, Jingbo Wang, Junwu E, Pengwei Wang, Yan Wang, Shunbo Zhou, Haoang Li
+
+Tasks: Continual Learning, Robotics, Spatial Understanding
+
+Code: https://github.com/OpenHelix-Team/Spatial-Forcing</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Video-Coder: Reinforcing Agentic Coding for Video Generation</title>
       <link>https://arxiv.org/abs/2611.09894</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.09894</guid>
@@ -93,19 +132,6 @@ Tasks: Coding Agents, Reinforcement Learning, Video generation
 
 Code: https://github.com/CYWang735/Video-Coder</description>
       <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SplatAnything: Gaussian Spacing Normalization for Feed-forward 3DGS across Arbitrary Scenes</title>
-      <link>https://arxiv.org/abs/2611.08264</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08264</guid>
-      <description>We identify a key limitation of existing feed-forward 3DGS methods: Gaussian attributes are typically predicted in a radial-distance-normalized space that canonicalizes a global radial statistic of the reconstructed geometry, while the spacing between neighboring Gaussian centers can still vary substantially across scene scales and camera configurations. This mismatch induces systematic shifts in Gaussian-scale targets, leading to ambiguous supervision. To address this, we propose SplatAnything with Gaussian Spacing Normalization (GSNorm), which canonicalizes a robust scene-level statistic of Gaussian spacing to provide a more consistent spatial reference for Gaussian prediction. To rigorously assess our method, we further establish a systematic benchmark spanning diverse datasets, input sparsity levels, and challenging extrapolated viewpoints. Extensive experiments demonstrate that SplatAnything achieves state-of-the-art performance, with particularly strong gains under substantial variations in scene scale and viewpoint.
-
-Authors: Hao Yu, Zhenwei Wang, Yongzhen Hu, Yuning Gong, Junta Wu, Xiaowei Zhou, Hujun Bao, Tengfei Wang, Chunchao Guo, Sida Peng
-
-Tasks: 3D Reconstruction, Novel View Synthesis
-
-Code: https://github.com/zju3dv/SplatAnything</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>MetricTrail: Revisiting the Power of Metric Depth and Local Optimization for Long-Sequence Streaming 3D Reconstruction</title>
@@ -173,19 +199,6 @@ Code: https://github.com/EvolvingLMMs-Lab/NEO</description>
       <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Where to Connect? Boosting MLLMs via Dynamic Gated Pathways across ALL ViT and LLM Layers</title>
-      <link>https://arxiv.org/abs/2611.06844</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.06844</guid>
-      <description>A central yet under-explored question in Multimodal Large Language Models (MLLMs) is where to connect---how visual information from a hierarchical vision encoder should be wired into the layer-wise semantics of a large language model. Mainstream MLLMs inject a fixed single-layer visual representation into the LLM and treat all LLM layers as a single consumer, ignoring that different layers demand different visual granularities. Recent multi-layer fusion methods either compress hierarchical features on the encoder side or rely on predefined sparse or hierarchical layer-to-layer connections, and therefore stop short of modeling adaptive cross-layer interactions between the ViT and LLM hierarchies. We address this gap with DGP (Dynamic Gated Pathways), a routing mechanism that establishes all-to-all connections between every ViT layer and every LLM layer, with each LLM layer dynamically gating its preference over visual layers conditioned on its own semantic state. Built on top of LLaVA-1.5-7B and 13B, DGP delivers consistent gains over the LLaVA-1.5-7B baseline (e.g., +4.2 on SQA^{I}, +3.3 on MM-Vet, +3.1 on VizWiz and LLaVA^{W}) and surpasses prior multi-layer visual fusion methods on most benchmarks. Layer-wise routing analyses further show that different LLM layers do select different visual granularities on demand, supporting both the effectiveness and interpretability of the proposed dynamic gated pathways. The code is available: https://github.com/YingyingYan1/DGP.
-
-Authors: Yingying Yan, Jiaqi Tang, Jiaqi Tang, Wei Wei, Wei Wei, Qianzhou Wang, Lei Zhang, Jianmin Chen, Yuyang Xia, Botong Geng, Jinjian Wu, Qifeng Chen, Qifeng Chen
-
-Tasks: Image Understanding, Table question answering
-
-Code: https://github.com/yingyingyan1/dgp</description>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models</title>
       <link>https://arxiv.org/abs/2611.04386</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.04386</guid>
@@ -225,19 +238,6 @@ Code: https://github.com/swagshaw/verispoof</description>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Factorized MLLM Embeddings for Composed Image Retrieval</title>
-      <link>https://arxiv.org/abs/2611.05193</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.05193</guid>
-      <description>Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language Models (MLLMs) have shown significant progress, we argue that the MLLM's compositional understanding remains underutilized. This stems from directly mapping composed queries into a retrieval embedding via contrastive supervision alone, without explicitly resolving the intended visual modifications. In this work, we introduce Factorized MLLM Embeddings (FactEmbed), which decouples compositional query comprehension from building discriminative embeddings. Rather than directly projecting the composed query into a single embedding without internal reasoning, FactEmbed employs a set of factorized latents that simulate the intended visual modifications via an intermediate target imagination objective. This process encourages the latents to ground into target semantics before forming discriminative representations for retrieval. Subsequently, to propagate these factorized representations throughout the model for retrieval, we optimize a factor-level contrastive loss while distilling the decomposed representations into a deeper attention layer of the MLLM. Finally, for efficient inference, we retain the [EOS] token to establish a global-level embedding on top of these factorized latents, while we exploit the mean-pooled factorized latents to rerank a short candidate list at negligible cost, as both are produced by the same forward pass. Extensive evaluations demonstrate that FactEmbed outperforms prior works across CIR benchmarks.
-
-Authors: WonJun Moon, Seongchan Kim, Dahun Kim, Seungryong Kim
-
-Tasks: Composed Image Retrieval, Image Retrieval
-
-Code: https://github.com/cvlab-kaist/FactEmbed</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Open-HumanScale: An Open Recipe for Scaling Human and Robot Experience for Embodied Foundation Models</title>
       <link>https://arxiv.org/abs/2611.06817</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.06817</guid>
@@ -251,17 +251,17 @@ Code: https://github.com/DAGroup-PKU/HumanNet</description>
       <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Harness-S: Learning from Sibling Harnesses for Generalizable Agent Training</title>
-      <link>https://arxiv.org/abs/2611.04277</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.04277</guid>
-      <description>Harness evolution from a common base exhibits Locality, Complementarity, and Nonstationarity: variants repair different failures, and their utility changes as the policy learns. Rather than seeking a universally superior harness, we introduce Harness-S to selectively rescue failures of a base execution system through sibling harnesses and transfer the resulting capabilities into a single policy that remains effective under the original harness. Directional Harness Evolution develops specialized sibling harnesses along distinct repair directions, forming a reusable Sibling Harness Pool that remains fixed during policy training. Complementary Harness Rescue Training invokes this pool only when all initial attempts under the base harness fail. The same policy generates fresh rollouts under selected auxiliary harnesses, and these trajectories replace the failed group for reinforcement learning. An Adaptive Harness Router selects the Top-k variants using Harness Behavior Profiles and voting across multiple LLMs. Policy-aware profile re-anchoring refreshes this evidence as the policy learns. Across AppWorld, SWE-Gym, and DBBench, the trained policy substantially outperforms policy-only training when returned to the original base harness. Behavioral analyses and held-out cases support the transfer of harness-elicited behaviors into the policy itself. Reusing the router for Rank-1 inference provides additional gains at the same executor rollout count.
+      <title>Training a Text-to-Image Model for $21K</title>
+      <link>https://www.linum.ai/field-notes/pjit-21k</link>
+      <guid isPermaLink="true">https://www.linum.ai/field-notes/pjit-21k</guid>
+      <description>In our last blog post, we iterated towards P-JiT, a pixel-space architecture that cut attention context windows by 4× while converging in 11× fewer samples. Here, we train the P-JiT for 660M samples (just $21K in compute) as a stepping stone towards larger, video models. The release is a 2B-parameter Pyramid-JiT text-to-image diffusion model that operates directly in pixel space with 32×32 patches, conditioned on a frozen Qwen3.5-4B text encoder, trained at 512² and then 1024², and post-trained with Finite Difference Flow Optimization (FDFO). Code and weights are released under Apache 2.0.
 
-Authors: Kangning Zhang, Wenxiang Jiao, Bowen Fang, Shuai Shao, Jiachen Zhu, Rong Shan, Shijian Wang, Hao Wang, Yuan Lu, Weiwen Liu, Weinan Zhang
+Authors: Sahil Chopra, Manu Chopra
 
-Tasks: Agents, Coding Agents, Continuous Control, Long-Horizon Agents, Reinforcement Learning
+Tasks: Image generation, Text-to-Image Generation
 
-Code: https://github.com/DeepExperience/Harness-S</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/linum-ai/pjit-21k</description>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
