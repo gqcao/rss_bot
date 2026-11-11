@@ -4,7 +4,20 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Wed, 11 Nov 2026 15:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 16:00:00 GMT</lastBuildDate>
+    <item>
+      <title>MACaQ: Fast, Model Agnostic Calibrated Quantization for Low-Precision Weights and Activations</title>
+      <link>https://arxiv.org/abs/2611.10649</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.10649</guid>
+      <description>Weight-activation quantization can reduce the memory and compute cost of neural-network inference, but recent methods often require expensive optimization and architecture-specific propagation of basis transforms across layers. We introduce MACaQ, an MXFP4 W4A4 post-training quantization method that treats every linear layer independently. MACaQ applies a per-channel scale and a block-Hadamard transform online to each layer's activations, while absorbing the corresponding inverse transforms into its weights. Retaining these transforms online avoids cross-layer dependencies and enables a simple streaming implementation of the quantization process, in which only one layer must reside in memory at a time. To improve over round-to-nearest quantization, we introduce Flip-Refinement, a Hessian-aware coordinate-descent procedure that greedily moves individual FP4 codes to adjacent representable values. Despite executing the activation transforms at inference time, MACaQ adds only 2.3% end-to-end overhead over pure MXFP4 on Qwen3-32B in vLLM. MACaQ reaches lower perplexity than DuQuant++ and MR-GPTQ, and already matches their best perplexity on Llama-3-8B in 11 times less quantization time. We further apply MACaQ without architecture-specific modifications to an image diffusion model, illustrating the generality of its layer-local design and show quantization of a 122B parameter model in 64 minutes, using only 32.5GB GPU RAM.
+
+Authors: Lorenz K. Muller, Philippe Bich, Chiara Boretti, Hyun-Min Chang, Jiawei Zhuang, Lukas Cavigelli
+
+Tasks: Language Modeling, Text-to-Image Generation
+
+Code: https://github.com/huawei-csl/MACaQ</description>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>MiniMax H3-Image: Bringing 4K Image Generation into the 10-Second Era</title>
       <link>https://www.minimax.io/blog/minimax-h3-image</link>
@@ -15,6 +28,30 @@ Tasks: Image editing, Image generation, Text-to-Image Generation
 
 Code: https://github.com/minimax-ai/minimax-h3-image</description>
       <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>e-means: outperforming k-means (in one-tenth the epochs)</title>
+      <link>https://arxiv.org/abs/2611.09501</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.09501</guid>
+      <description>Lloyd's k-means algorithm is a long-running standard for clustering, with applications in data analysis, retrieval, quantization and data curation. In this paper, we introduce an exponential moving average optimization procedure for k-means with mini-batch updates, powered by modern deep learning machinery and new insights. We also establish scaling laws on how decay rate and batch size impact final performance. This gives us a formulaic rule to fix them for multiple problem sizes and embedding datasets, without the need for any hyperparameter sweep. The resulting clustering algorithm, coined e-means, is much faster than Lloyd k-means and converges to lower losses, frequently even beating k-means++. On a wide array of embeddings datasets, it beats the loss of Lloyd k-means at 25 epochs in 1.4 to 2.6 epochs, which translates to 10-45x GPU wall-clock speedups compared to state-of-the-art k-means implementations. As an example, e-means partitions DINO10B, a dataset of 10 billion DINO embeddings, into 16 million clusters in only 2.5 epochs, reaching a loss below Lloyd's at 25 epochs.
+
+Authors: Swann Bessa, Pierre-Emmanuel Mazaré, Gergely Szilvasy, Hugo Touvron, David Picard, Matthijs Douze, Hervé Jégou
+
+Code: https://github.com/facebookresearch/faiss</description>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ZONOS3-Mini</title>
+      <link>https://www.zyphra.com/our-work/zonos3-mini</link>
+      <guid isPermaLink="true">https://www.zyphra.com/our-work/zonos3-mini</guid>
+      <description>We are excited to announce ZONOS3-Mini, a compact zero-shot voice-cloning Text-To-Speech (TTS) model with state-of-the-art performance as well as leading voice control capabilities which can run in real-time on-device.
+
+ZONOS3-Mini is a sparse Mixture of Experts (MoE) model with 100 million active parameters and 800 million total parameters licensed under Apache 2.0. We trained ZONOS3-Mini on 112 NVIDIA H100s in 2.5 days. You can access it on Zyphra Inference served on NVIDIA H200s, on your own GPU, or in your browser on-device.
+
+Tasks: Audio and Speech Editing, Text-to-speech, Voice cloning
+
+Code: https://github.com/zyphra/zonos3-mini</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Learning Heterogeneous Tactile Representation for General Dexterous Manipulation</title>
@@ -30,16 +67,120 @@ Code: https://github.com/Robbyant/lingbot-touch</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SplatAnything: Gaussian Spacing Normalization for Feed-forward 3DGS across Arbitrary Scenes</title>
-      <link>https://arxiv.org/abs/2611.08264</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08264</guid>
-      <description>We identify a key limitation of existing feed-forward 3DGS methods: Gaussian attributes are typically predicted in a radial-distance-normalized space that canonicalizes a global radial statistic of the reconstructed geometry, while the spacing between neighboring Gaussian centers can still vary substantially across scene scales and camera configurations. This mismatch induces systematic shifts in Gaussian-scale targets, leading to ambiguous supervision. To address this, we propose SplatAnything with Gaussian Spacing Normalization (GSNorm), which canonicalizes a robust scene-level statistic of Gaussian spacing to provide a more consistent spatial reference for Gaussian prediction. To rigorously assess our method, we further establish a systematic benchmark spanning diverse datasets, input sparsity levels, and challenging extrapolated viewpoints. Extensive experiments demonstrate that SplatAnything achieves state-of-the-art performance, with particularly strong gains under substantial variations in scene scale and viewpoint.
+      <title>Toward the Era of Agentic Embodied Intelligence</title>
+      <link>https://arxiv.org/abs/2611.09124</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.09124</guid>
+      <description>Foundation models increasingly guide robot actions, yet sustained autonomy requires efficient control and failure recovery. We introduce A2-MEAS, an embodied multi-agent framework built around code as a scaling interface. Learned correction codes combine corrective language, spatial evidence, execution history, and action proposals. MetaBrain provides training supervision and runtime guidance. A correction encoder and adapter absorb this knowledge into policy weights during training, while fresh codes adapt behavior with frozen weights at deployment. The action model, A2-WLA, adds motion-aware history and a latent world model to a vision-language-action policy. Surprisingly, this simple design with action pretraining and task specialization reaches 0.5755 Q-score on the 50-task BEHAVIOR 2026 public subset before online correction, 2.21x the 2025 winner's reported 0.2605 across different benchmark editions and training configurations. On all 100 BEHAVIOR 2026 public tasks, A2-MEAS achieves 0.6411 Q-score and 45.40% task success. On RoboTwin 2.0, A2-WLA achieves 93.98% average success, rising to 95.05% with the complete system. Across 12 real-robot tasks in five household settings, A2-WLA achieves 57.92% average success versus 26.67% for pi0.5. In long-horizon pour-over coffee preparation, a history-conditioned adapter raises post-failure completion at two filter-handling steps from 14% to 94% and from 8% to 82%, compared with A2-WLA retries. Our training infrastructure delivers 427.1 samples per second, 4.03x the throughput of a pi0.5 reference implementation on matched hardware. We will release the system, models, training scripts, and infrastructure to support efficient embodied learning.
 
-Authors: Hao Yu, Zhenwei Wang, Yongzhen Hu, Yuning Gong, Junta Wu, Xiaowei Zhou, Hujun Bao, Tengfei Wang, Chunchao Guo, Sida Peng
+Authors: Chao Liang, Ke Chen, Fengxiaoxiao Li, Shibo Huang, Yufeng Sun, Zhaokai Yin, Jianhuan Lai, Haozhe Feng, Chenghuan Jia, Zhipeng Zhang
 
-Tasks: 3D Reconstruction, Novel View Synthesis
+Tasks: Robotics, World Models
 
-Code: https://github.com/zju3dv/SplatAnything</description>
+Code: https://github.com/AutoLab-SAI-SJTU/A2MEAS</description>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Surprising Effectiveness of Deleting Weights in LLM Post-Training</title>
+      <link>https://arxiv.org/abs/2611.10866</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.10866</guid>
+      <description>How little of a pretrained large language model (LLM) has to change for it to acquire new capabilities? We find that zeroing fewer than 0.05% of its weights, with no other modification, matches full fine-tuning (FFT) at scale across three LLM post-training regimes: reinforcement learning with verifiable rewards, supervised fine-tuning, and on-policy distillation. Our method, Deletion Tuning, learns a binary mask over the gate projection of transformer blocks. Two practical advantages follow: the trained mask is hundreds to thousands of times smaller than the corresponding FFT checkpoint, and Deletion Tuning forgets far less, which addresses a central challenge in continual learning. Under reinforcement learning, its prior-task accuracy stays near the base level while FFT, LoRA, and random sparse fine-tuning lose up to 5.4 points. To understand why masking alone suffices, we analyze the geometry of the learned weight changes under reinforcement learning using stable rank, spectrum drift, and principal-weight overlap. Compared with LoRA and random sparse fine-tuning, Deletion Tuning is closest to FFT across the three measures.
+
+Authors: Jack Lu, Zhenbang Yang, Mike Lasby, Tejas Pote, Yani Ioannou, Mengye Ren
+
+Tasks: Continual Learning, Reinforcement Learning
+
+Code: https://github.com/agentic-learning-ai-lab/deleting-weights</description>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>World In-Context Learning for Agentic Robot Manipulation</title>
+      <link>https://arxiv.org/abs/2611.12885</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.12885</guid>
+      <description>Trained action policies write manipulation skill into network weights, tying what is learned to the distribution it is learned from. In-context learning (ICL) avoids this coupling but has not matched trained policies, because a demonstration recorded in another scene carries no feedback from the world the robot currently faces. We observe that what an agent learns in context is semantic, recording task steps and object roles rather than visual appearance, so experience gathered in one world transfers to another. Based on this insight, we propose World In-Context Learning (WICL), a paradigm in which a frozen model starts from a demonstration, rehearses the task in a world such as a simulator, and writes the feedback into its context rather than its weights. We build RoboScript, a modular infrastructure that implements WICL for agentic manipulation. From a single demonstration, RoboScript learns each task through rehearsal in simulation, freezes the learned knowledge as a Task Memory, and deploys the frozen memory on new scenes with data isolation that ensures every deployment input is available on a real robot. On all 50 tasks of RoboTwin 2.0, RoboScript reaches 83.4% mean success across clean and randomized settings with one demonstration per task and no gradient updates, exceeding the strongest trained action policy by over 20 points. The method generalizes across visual distributions, improves through reflection, scales with the foundation model, and transfers to a physical dual-arm robot through cross-embodiment memory adaptation. With a world in the loop, a robot can learn a manipulation task in its context as well as it learns one in its weights. All code is available at https://github.com/ArcheOne-AI/RoboScript
+
+Authors: Heng Fang, ZeHui Guo, Yuehan Zhang, Mingyang Du, Dingkang Liang, Xiang Bai
+
+Tasks: Robotics
+
+Code: https://github.com/ArcheOne-AI/RoboScript</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Evolver: Turning Agent Exploration into Evolving Capabilities</title>
+      <link>https://arxiv.org/abs/2611.07595</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.07595</guid>
+      <description>Agent exploration produces valuable procedural knowledge, yet much of this experience remains confined to transient execution traces and is not systematically reused. We introduce Evolver, an experience-driven framework that transforms agent exploration into persistent, reusable capabilities without updating foundation model parameters. Built around structured Gene assets, Evolver integrates experience acquisition, retrieval, and feedback-guided evolution to support experience-conditioned execution across existing agent harnesses. We evaluate Evolver using Claude Code and Codex, two foundation model configurations, and four benchmarks: Terminal-Bench 2.1, SWE-bench Multilingual, SWE-rebench, and GAIA. On a selected diagnostic set of 320 paired executions, Evolver improves task success from 83.13% to 87.50% (+4.38 percentage points) while reducing recorded task-execution token consumption by 24.24%. Furthermore, among 265 pairs successful under both conditions, token consumption decreases by 17.57%, demonstrating efficiency benefits even when task success is preserved. These findings suggest that persistent procedural experience can improve both task effectiveness and execution efficiency, providing a practical foundation for transforming agent exploration into evolving capabilities.
+
+Authors: Haoyang Zhang, Qumeng Sun, Xiao Zhang, Xiang Liu, Zhidong Fan, Junjie Wang
+
+Tasks: Agents, Coding Agents
+
+Code: https://github.com/evomap/evolver</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>InfraRSI: Harnessing Recursive Self-Improvement for Training Infrastructure</title>
+      <link>https://arxiv.org/abs/2611.11558</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.11558</guid>
+      <description>While Recursive Self-Improvement (RSI) accelerates isolated algorithm and kernel synthesis, distributed LLM training depends on tightly coupled launch settings, operator kernels, and communication schedules, where single edits often hit out-of-memory (OOM) boundaries, compiler conflicts, measurement jitter, or silent numerical drift. We present InfraRSI, the agentic harness that turns open-ended human commands into verified training optimizations via a five-stage workflow: init locks editable scope and a fixed task contract over workload, loss, and timing invariants to prevent reward hacking, doctor profiles baseline phases and calibrates cluster noise, run co-optimizes launch knobs and code patches before re-verifying top candidates against the baseline and logging findings to a cross-hardware experience bank, and report and apply audit source paths, track failed-trial costs, and commit promoted changes. Rather than stepping greedily from a single incumbent, InfraRSI initializes from diverse experience-seeded configurations and fits global execution-time and censored peak-memory models across all trials, including OOMs. Using these models, it prices per-setting memory costs, revises miscalibrated LLM priors from live runs, and pairs memory-hungry optimizations with memory savers and verified code patches. Across four single- and multi-node dense and Mixture-of-Experts (MoE) LLM workloads, InfraRSI achieves a speedup of up to 2.75times and lifts mean Model FLOPs Utilization (MFU) from 17.4% to 30.0%, outperforming existing tuners and coding agents while transferring experience across GPUs. As it improves training infrastructure efficiency, InfraRSI forms a two-level Recursive Self-Improvement loop---revising priors online within runs and distilling experience across clusters---to push foundation model scaling.
+
+Authors: InfraRSI Team, Yuchuan Tian, Haocheng Mei, Ye Yuan, Chao Xu, Boxun Li, Guohao Dai, Kai Han, Allen Chen, Yunhe Wang, Yu Wang
+
+Tasks: Coding Agents, Harness Engineering
+
+Code: https://github.com/tokenrhythm/infrarsi</description>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SWAM: Scaling World Action Models with Cross-Modal Alignment</title>
+      <link>https://arxiv.org/abs/2611.12870</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.12870</guid>
+      <description>World action models jointly predict video and actions conditioned on language. Existing studies focus primarily on architectures and training mechanisms, typically treating language-video alignment acquired through video pretraining as an established foundation. However, introducing action learning may impair this alignment. Principled guidance on data and supervision design for maintaining language-video alignment during action learning remains limited. To investigate this, we curate a pool of approximately 47,000 hours of general videos, egocentric videos, UMI demonstrations, and robot demonstrations. Building on this, we systematically study how language-video supervision, language-video-action supervision, and the joint use of these two forms affect WAM performance. In particular, we examine how language annotation quality affects pretrained language-video capabilities, and how action supervision from UMI and robot demonstrations extends these capabilities to language-video-action modeling. To better scale the model, we further conduct detailed studies on joint training recipe and model architecture. Under a fixed training budget, mixing egocentric videos and UMI demonstrations improves control generalization. Model architecture affects how effectively these experiences are used, while scaling pretraining under the selected configuration brings further gains. The resulting recipe, post-trained on RoboTwin Clean demonstrations only, achieves success rates of 88.10% and 61.56% under Easy (Clean-to-Clean) and Hard (Clean-to-Random) conditions, respectively. Our model achieves 40.00% SR across three real-world tasks, compared with 23.33% for the strongest baseline, indicating better generalization under unseen conditions. We release the curated data, training code, and model weights.
+
+Authors: Yu Zhou, Xinyuan Xia, Xuankun Yang, Yinghao Yang, Wendi Chen, Bowen Liu, Jianhan Ma, Weicheng Duan, Jun Lv, Cewu Lu, Yanwei Li
+
+Tasks: Egocentric Vision, Robotics, World Models
+
+Code: https://github.com/shaaaaron/SWAM</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents</title>
+      <link>https://arxiv.org/abs/2611.14320</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.14320</guid>
+      <description>External memory enables LLM agents to improve from experience by distilling trajectories of past tasks into concise lessons for new tasks. However, memory can also lead to memory-induced degradation, where an agent fails on tasks it would solve without memory, often because it follows a lesson that is incorrect, or misapplies or misreads a valid one. This is because lessons are inferred from trajectories labeled only with task success or failure, yet are typically provided without the trajectories they came from, leaving the agent no way to check them. To address this, we introduce WikiTrace, an evidence-linked memory system designed to let agents check each lesson against its original trajectory. Specifically, motivated by the finding that a trajectory often still holds the evidence needed to catch an erroneous lesson, WikiTrace stores each lesson as a concise insight linked to a summary of why its trajectory succeeded or failed and to the raw trajectory itself. Then, on a new task, the agent starts from all insights and, whenever one lacks details needed to act, conflicts with another, or comes from a failed task, descends through its links with terminal tools to fill in missing details or correct the insight before acting. We validate WikiTrace on five agentic benchmarks, showing that it consistently outperforms existing memory approaches and a baseline given the same insights alone, while also reducing memory-induced degradation. Our code is available at https://github.com/yukyeongleee/wikitrace
+
+Authors: Yukyeong Lee, Yumin Choi, Jinheon Baek, Sung Ju Hwang
+
+Tasks: Agents
+
+Code: https://github.com/yukyeongleee/wikitrace</description>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A Survey on Continuous Diffusion and Flow Language Models</title>
+      <link>https://www.alphaxiv.org/abs/2611.continuous-diffusion-flow-language-models.pdf</link>
+      <guid isPermaLink="true">https://www.alphaxiv.org/abs/2611.continuous-diffusion-flow-language-models.pdf</guid>
+      <description>Continuous diffusion and flow language models generate text by transforming noise into continuous representations of tokens. They can refine many positions in parallel while preserving dependencies between them, and their continuous states allow generation to be steered using gradients of a differentiable objective. Joint generation is especially useful in the few-step regime, where standard parallel discrete-diffusion samplers can incur a factorization error by sampling multiple tokens conditionally independently. Recent advances have made continuous models competitive with discrete diffusion on language benchmarks and have enabled scaling to billions of parameters. This survey explains the principles behind these advances and organizes the field by how models represent text, learn generative dynamics, and generate samples. We examine the methods that enable few-step generation, including flow maps and distillation, and connect them to developments in image and video generation. We then review scaling, applications, and evaluation, and identify open questions in representation learning, scaling, few-step distillation, post-training, multimodality, and safety.
+
+Authors: Sophia Tang, Chanhyuk Lee, Floor Eijkelboom, Jinwoo Kim
+
+Tasks: Language Modeling
+
+Code: https://github.com/sophtang/awesome-continuous-language-models</description>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Towards Foundation Decision Models: Drex</title>
+      <link>https://arxiv.org/abs/2611.07854</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.07854</guid>
+      <description>Autoregressive approaches with large language models, such as long chain-of-thought reasoning, have become the default for new AI applications because they reach higher accuracy on a wide range of tasks. In production, however, they give inconsistent answers, require parsing of outputs, and add cost and latency. Decision models address this: given a question and a set of options supplied by the user, they return a probability distribution over the options without autoregressive decoding. We present Drex, a family of four open decision models with 8B (DLM), 9B (v1.5), 35B with 3B active (v2.0), and 27B (Max) parameters. Each request consists of a state (a document, record, or agent context, optionally with images) and questions about it, each asking for a choice among options, a yes/no judgment, or a score on an ordered scale. Training combines supervised fine-tuning with reinforcement learning from adjusted feedback (RLAF), plus vision tuning for Max. Ablations show that RLAF improves accuracy and that consistency losses improve robustness to option order. On Decision Index 0.4.1, Max sets a new state of the art among the decision models we compare (67.52 on the public suite vs. 60.70 for Jev 1.14.0). On Decision Bench v4, it is statistically tied with d3-turbo and GPT-6 Sol and trails Claude Opus 5.5 by 1.6 points, and it has the highest accuracy among decision models on DecideBench. Max answers a typical request in 183 ms, against about 2.0 s for GPT-6 Sol and 3.5 s for Claude Opus 5.5, and its outputs are stable under option reordering. All four models are open source: https://github.com/nace-ai/drex-decision-models
+
+Authors: Nischay Dhankhar, Alisher Amantay, Zhanibek Datbayev, Darkhan Akhmetov, Yash Shah, Nurmukhamed Ubaidullayev, Raman Saparkhan, Dos Baha, Abulhair Saparov
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/nace-ai/drex-decision-models</description>
       <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -56,41 +197,17 @@ Code: https://github.com/Naturalpad-studio/InstantHMR</description>
       <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>World In-Context Learning for Agentic Robot Manipulation</title>
-      <link>https://arxiv.org/abs/2611.12885</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.12885</guid>
-      <description>Trained action policies write manipulation skill into network weights, tying what is learned to the distribution it is learned from. In-context learning (ICL) avoids this coupling but has not matched trained policies, because a demonstration recorded in another scene carries no feedback from the world the robot currently faces. We observe that what an agent learns in context is semantic, recording task steps and object roles rather than visual appearance, so experience gathered in one world transfers to another. Based on this insight, we propose World In-Context Learning (WICL), a paradigm in which a frozen model starts from a demonstration, rehearses the task in a world such as a simulator, and writes the feedback into its context rather than its weights. We build RoboScript, a modular infrastructure that implements WICL for agentic manipulation. From a single demonstration, RoboScript learns each task through rehearsal in simulation, freezes the learned knowledge as a Task Memory, and deploys the frozen memory on new scenes with data isolation that ensures every deployment input is available on a real robot. On all 50 tasks of RoboTwin 2.0, RoboScript reaches 83.4% mean success across clean and randomized settings with one demonstration per task and no gradient updates, exceeding the strongest trained action policy by over 20 points. The method generalizes across visual distributions, improves through reflection, scales with the foundation model, and transfers to a physical dual-arm robot through cross-embodiment memory adaptation. With a world in the loop, a robot can learn a manipulation task in its context as well as it learns one in its weights. All code is available at https://github.com/ArcheOne-AI/RoboScript
+      <title>SplatAnything: Gaussian Spacing Normalization for Feed-forward 3DGS across Arbitrary Scenes</title>
+      <link>https://arxiv.org/abs/2611.08264</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.08264</guid>
+      <description>We identify a key limitation of existing feed-forward 3DGS methods: Gaussian attributes are typically predicted in a radial-distance-normalized space that canonicalizes a global radial statistic of the reconstructed geometry, while the spacing between neighboring Gaussian centers can still vary substantially across scene scales and camera configurations. This mismatch induces systematic shifts in Gaussian-scale targets, leading to ambiguous supervision. To address this, we propose SplatAnything with Gaussian Spacing Normalization (GSNorm), which canonicalizes a robust scene-level statistic of Gaussian spacing to provide a more consistent spatial reference for Gaussian prediction. To rigorously assess our method, we further establish a systematic benchmark spanning diverse datasets, input sparsity levels, and challenging extrapolated viewpoints. Extensive experiments demonstrate that SplatAnything achieves state-of-the-art performance, with particularly strong gains under substantial variations in scene scale and viewpoint.
 
-Authors: Heng Fang, ZeHui Guo, Yuehan Zhang, Mingyang Du, Dingkang Liang, Xiang Bai
+Authors: Hao Yu, Zhenwei Wang, Yongzhen Hu, Yuning Gong, Junta Wu, Xiaowei Zhou, Hujun Bao, Tengfei Wang, Chunchao Guo, Sida Peng
 
-Tasks: Robotics
+Tasks: 3D Reconstruction, Novel View Synthesis
 
-Code: https://github.com/ArcheOne-AI/RoboScript</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ZONOS3-Mini</title>
-      <link>https://www.zyphra.com/our-work/zonos3-mini</link>
-      <guid isPermaLink="true">https://www.zyphra.com/our-work/zonos3-mini</guid>
-      <description>We are excited to announce ZONOS3-Mini, a compact zero-shot voice-cloning Text-To-Speech (TTS) model with state-of-the-art performance as well as leading voice control capabilities which can run in real-time on-device.
-
-ZONOS3-Mini is a sparse Mixture of Experts (MoE) model with 100 million active parameters and 800 million total parameters licensed under Apache 2.0. We trained ZONOS3-Mini on 112 NVIDIA H100s in 2.5 days. You can access it on Zyphra Inference served on NVIDIA H200s, on your own GPU, or in your browser on-device.
-
-Tasks: Text-to-speech, Voice cloning
-
-Code: https://github.com/zyphra/zonos3-mini</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>e-means: outperforming k-means (in one-tenth the epochs)</title>
-      <link>https://arxiv.org/abs/2611.09501</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.09501</guid>
-      <description>Lloyd's k-means algorithm is a long-running standard for clustering, with applications in data analysis, retrieval, quantization and data curation. In this paper, we introduce an exponential moving average optimization procedure for k-means with mini-batch updates, powered by modern deep learning machinery and new insights. We also establish scaling laws on how decay rate and batch size impact final performance. This gives us a formulaic rule to fix them for multiple problem sizes and embedding datasets, without the need for any hyperparameter sweep. The resulting clustering algorithm, coined e-means, is much faster than Lloyd k-means and converges to lower losses, frequently even beating k-means++. On a wide array of embeddings datasets, it beats the loss of Lloyd k-means at 25 epochs in 1.4 to 2.6 epochs, which translates to 10-45x GPU wall-clock speedups compared to state-of-the-art k-means implementations. As an example, e-means partitions DINO10B, a dataset of 10 billion DINO embeddings, into 16 million clusters in only 2.5 epochs, reaching a loss below Lloyd's at 25 epochs.
-
-Authors: Swann Bessa, Pierre-Emmanuel Mazaré, Gergely Szilvasy, Hugo Touvron, David Picard, Matthijs Douze, Hervé Jégou
-
-Code: https://github.com/facebookresearch/faiss</description>
-      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/zju3dv/SplatAnything</description>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>EmoHarness: Boosting Multimodal Emotion Understanding with Meta-Harness Evolving</title>
@@ -106,32 +223,6 @@ Code: https://github.com/Emo-Harness/EmoHarness</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>InfraRSI: Harnessing Recursive Self-Improvement for Training Infrastructure</title>
-      <link>https://arxiv.org/abs/2611.11558</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.11558</guid>
-      <description>While Recursive Self-Improvement (RSI) accelerates isolated algorithm and kernel synthesis, distributed LLM training depends on tightly coupled launch settings, operator kernels, and communication schedules, where single edits often hit out-of-memory (OOM) boundaries, compiler conflicts, measurement jitter, or silent numerical drift. We present InfraRSI, the agentic harness that turns open-ended human commands into verified training optimizations via a five-stage workflow: init locks editable scope and a fixed task contract over workload, loss, and timing invariants to prevent reward hacking, doctor profiles baseline phases and calibrates cluster noise, run co-optimizes launch knobs and code patches before re-verifying top candidates against the baseline and logging findings to a cross-hardware experience bank, and report and apply audit source paths, track failed-trial costs, and commit promoted changes. Rather than stepping greedily from a single incumbent, InfraRSI initializes from diverse experience-seeded configurations and fits global execution-time and censored peak-memory models across all trials, including OOMs. Using these models, it prices per-setting memory costs, revises miscalibrated LLM priors from live runs, and pairs memory-hungry optimizations with memory savers and verified code patches. Across four single- and multi-node dense and Mixture-of-Experts (MoE) LLM workloads, InfraRSI achieves a speedup of up to 2.75times and lifts mean Model FLOPs Utilization (MFU) from 17.4% to 30.0%, outperforming existing tuners and coding agents while transferring experience across GPUs. As it improves training infrastructure efficiency, InfraRSI forms a two-level Recursive Self-Improvement loop---revising priors online within runs and distilling experience across clusters---to push foundation model scaling.
-
-Authors: InfraRSI Team, Yuchuan Tian, Haocheng Mei, Ye Yuan, Chao Xu, Boxun Li, Guohao Dai, Kai Han, Allen Chen, Yunhe Wang, Yu Wang
-
-Tasks: Coding Agents, Harness Engineering
-
-Code: https://github.com/tokenrhythm/infrarsi</description>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>The Surprising Effectiveness of Deleting Weights in LLM Post-Training</title>
-      <link>https://arxiv.org/abs/2611.10866</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.10866</guid>
-      <description>How little of a pretrained large language model (LLM) has to change for it to acquire new capabilities? We find that zeroing fewer than 0.05% of its weights, with no other modification, matches full fine-tuning (FFT) at scale across three LLM post-training regimes: reinforcement learning with verifiable rewards, supervised fine-tuning, and on-policy distillation. Our method, Deletion Tuning, learns a binary mask over the gate projection of transformer blocks. Two practical advantages follow: the trained mask is hundreds to thousands of times smaller than the corresponding FFT checkpoint, and Deletion Tuning forgets far less, which addresses a central challenge in continual learning. Under reinforcement learning, its prior-task accuracy stays near the base level while FFT, LoRA, and random sparse fine-tuning lose up to 5.4 points. To understand why masking alone suffices, we analyze the geometry of the learned weight changes under reinforcement learning using stable rank, spectrum drift, and principal-weight overlap. Compared with LoRA and random sparse fine-tuning, Deletion Tuning is closest to FFT across the three measures.
-
-Authors: Jack Lu, Zhenbang Yang, Mike Lasby, Tejas Pote, Yani Ioannou, Mengye Ren
-
-Tasks: Continual Learning, Reinforcement Learning
-
-Code: https://github.com/agentic-learning-ai-lab/deleting-weights</description>
-      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>WaveGen: Truly End-to-End Waveform Generation via Internal Spectral Trajectory Learning</title>
       <link>https://arxiv.org/abs/2611.12527</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.12527</guid>
@@ -143,19 +234,6 @@ Tasks: Audio Compression, Audio Generation, Embedding models, Text-to-speech
 
 Code: https://github.com/sh-lee-prml/WaveGen</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MetricTrail: Revisiting the Power of Metric Depth and Local Optimization for Long-Sequence Streaming 3D Reconstruction</title>
-      <link>https://arxiv.org/abs/2611.07555</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.07555</guid>
-      <description>We present MetricTrail, a streaming system for accurate camera motion estimation and dense reconstruction from long monocular videos. To keep inference efficient over long sequences, we revisit DPVO's sparse local estimator. We find that single-image metric depth substantially improves its trajectory accuracy, without retraining the correspondence network or enlarging the optimization window. Metric predictions initialize patch depths and remain as soft constraints during optimization. We further improve correspondence estimation through learned adapters that augment matching features and recurrent context with frozen DINOv3 representations. The correspondence estimator and adapters are trained on diverse short clips without additional long-sequence training. This modular design also allows the depth provider to be independently upgraded and supports supplied camera intrinsics and calibrated stereo observations without retraining. Under the reported RGB-only protocols, MetricTrail achieves the lowest average trajectory error among evaluated methods on KITTI, Oxford Spires, and VBR. Pairing the estimated poses with single-image depth predictions also produces strong dense reconstruction on indoor and outdoor benchmarks and coherent reconstructions of in-the-wild videos. With supplied intrinsics, the system processes KITTI-02 at 12.70 FPS with 3.21 GB peak GPU memory.
-
-Authors: Jingnan Gao, Jiahui Huang, Sven Elflein, Jianhao Zheng, Bingxin Ke, Xiaokang Yang, Yichao Yan, Laura Leal-Taixé, Qunjie Zhou, Jiawei Ren, Shengyu Huang
-
-Tasks: 3D Reconstruction, 3D understanding, Camera Pose Estimation, Depth estimation, Visual SLAM
-
-Code: https://github.com/nv-tlabs/vipe</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>EarthRecord: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery</title>
@@ -183,80 +261,6 @@ Tasks: Instruction Following, Mathematics, Medical Question Answering, Scientifi
 
 Code: https://github.com/WSP-Scope/WSP-Scope-Project</description>
       <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding</title>
-      <link>https://arxiv.org/abs/2611.08449</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08449</guid>
-      <description>Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion. However, autoregressive vision-language models generate these plans one coordinate token at a time, making richer predictions increasingly costly. We introduce VFlash, a method for fast, accurate visual planning through Flash Primitive Decoding. VFlash exploits the known structure of visual primitives to predict their coordinates jointly, using a lightweight drafter that generates an entire primitive in one forward pass. The layout adapts to the primitive's type, dimensionality, and length, supporting compact boxes and long, variable-length trajectories. Crucially, spatial accuracy need not require reproducing an autoregressive model's exact token sequence. VFlash therefore trains on annotated primitives and directly accepts structurally valid predictions without target-token agreement. Across the evaluated 2D and 3D robot trajectory tasks, VFlash consistently reduces prediction errors relative to autoregressive decoding. Preliminary single-rollout measurements indicate approximately 25x faster generation for 3D point motion forecasting. A world action model conditioned on VFlash plans achieves 70.2% average success across four MolmoSpaces task suites, compared with 62.6% for the baseline.
-
-Authors: Yu-Cheng Chou, Shihao Wang, Jin Huang, Chi-Pin Huang, Chiao-An Yang, Xianzhe Fan, Jing Wang, Zhiqi Li, Yuanguo Kuang, Ruijie Zheng, Johan Bjorck, Sifei Liu, Hang Su, Abhishek Badki, Lei Zhang, Alan Yuille, Linxi Fan, Jan Kautz, Zhiding Yu
-
-Tasks: Autonomous Driving, Robotics, Trajectory Prediction, World Models
-
-Code: https://github.com/nvlabs/eagle</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Static Recovery Is Not Dynamic Stability: Dynamics-Aware Benchmarking of Protein Motif Scaffolding</title>
-      <link>https://arxiv.org/abs/2611.07723</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.07723</guid>
-      <description>Protein motif scaffolding benchmarks assess whether generative models can build scaffolds around functionally important residues. Their conclusions depend on which motifs are tested and which criteria define success. Existing benchmarks typically use small hand-curated motif sets and static refolding criteria, but protein function often depends on conformational ensembles and transitions. Here, we address both benchmark scope and success criteria. We introduce BILBY-PRO, a systematically derived benchmark of structurally conserved functional motifs from PROSITE-linked experimental structures, comprising 220 cases from 174 PROSITE motif-pattern entries. Evaluating six recent scaffold-generation models reveals distinct patterns in target coverage and unique-solution yield: RFDiffusion and Proteina solve more targets, whereas ESM3 produces more unique successful scaffolds on the targets it solves. We further introduce BILBY-MD, a reference-based all-atom molecular dynamics evaluation framework. Applied to statically solved designs from the original MotifBench benchmark, it compares motif drift, scaffold drift, motif-contact preservation, and motif-dihedral free-energy landscapes against reference simulations. Of 55 statically solved model-problem pairs, 31 satisfy our MD-supported criterion and only 8 pass all checks. Compact, self-contained motifs are often MD-supported, whereas interface-like or context-dependent motifs fail more frequently. Static refolding success therefore provides useful evidence of local motif recovery but does not establish dynamical fidelity of the full scaffold. BILBY highlights three complementary axes of motif-scaffolding evaluation: target coverage, unique-solution yield, and MD-supported dynamical fidelity.
-
-Authors: Emile de Bruyn, Moritz Schäffler, Jannik Schneider, Sebastian R. Schmidt, Chanwoong Hwang, Aleena Siji, Utkarsh Upadhyay, Stefan Bauer, Alexander Schug, Stefan Kesselheim, Artur Yakimovich, Alina Bazarova
-
-Code: https://github.com/PROFOUND-HFMI/BILBY-MD</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SWAM: Scaling World Action Models with Cross-Modal Alignment</title>
-      <link>https://arxiv.org/abs/2611.12870</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.12870</guid>
-      <description>World action models jointly predict video and actions conditioned on language. Existing studies focus primarily on architectures and training mechanisms, typically treating language-video alignment acquired through video pretraining as an established foundation. However, introducing action learning may impair this alignment. Principled guidance on data and supervision design for maintaining language-video alignment during action learning remains limited. To investigate this, we curate a pool of approximately 47,000 hours of general videos, egocentric videos, UMI demonstrations, and robot demonstrations. Building on this, we systematically study how language-video supervision, language-video-action supervision, and the joint use of these two forms affect WAM performance. In particular, we examine how language annotation quality affects pretrained language-video capabilities, and how action supervision from UMI and robot demonstrations extends these capabilities to language-video-action modeling. To better scale the model, we further conduct detailed studies on joint training recipe and model architecture. Under a fixed training budget, mixing egocentric videos and UMI demonstrations improves control generalization. Model architecture affects how effectively these experiences are used, while scaling pretraining under the selected configuration brings further gains. The resulting recipe, post-trained on RoboTwin Clean demonstrations only, achieves success rates of 88.10% and 61.56% under Easy (Clean-to-Clean) and Hard (Clean-to-Random) conditions, respectively. Our model achieves 40.00% SR across three real-world tasks, compared with 23.33% for the strongest baseline, indicating better generalization under unseen conditions. We release the curated data, training code, and model weights.
-
-Authors: Yu Zhou, Xinyuan Xia, Xuankun Yang, Yinghao Yang, Wendi Chen, Bowen Liu, Jianhan Ma, Weicheng Duan, Jun Lv, Cewu Lu, Yanwei Li
-
-Tasks: Egocentric Vision, Robotics, World Models
-
-Code: https://github.com/shaaaaron/SWAM</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Toward the Era of Agentic Embodied Intelligence</title>
-      <link>https://arxiv.org/abs/2611.09124</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.09124</guid>
-      <description>Foundation models increasingly guide robot actions, yet sustained autonomy requires efficient control and failure recovery. We introduce A2-MEAS, an embodied multi-agent framework built around code as a scaling interface. Learned correction codes combine corrective language, spatial evidence, execution history, and action proposals. MetaBrain provides training supervision and runtime guidance. A correction encoder and adapter absorb this knowledge into policy weights during training, while fresh codes adapt behavior with frozen weights at deployment. The action model, A2-WLA, adds motion-aware history and a latent world model to a vision-language-action policy. Surprisingly, this simple design with action pretraining and task specialization reaches 0.5755 Q-score on the 50-task BEHAVIOR 2026 public subset before online correction, 2.21x the 2025 winner's reported 0.2605 across different benchmark editions and training configurations. On all 100 BEHAVIOR 2026 public tasks, A2-MEAS achieves 0.6411 Q-score and 45.40% task success. On RoboTwin 2.0, A2-WLA achieves 93.98% average success, rising to 95.05% with the complete system. Across 12 real-robot tasks in five household settings, A2-WLA achieves 57.92% average success versus 26.67% for pi0.5. In long-horizon pour-over coffee preparation, a history-conditioned adapter raises post-failure completion at two filter-handling steps from 14% to 94% and from 8% to 82%, compared with A2-WLA retries. Our training infrastructure delivers 427.1 samples per second, 4.03x the throughput of a pi0.5 reference implementation on matched hardware. We will release the system, models, training scripts, and infrastructure to support efficient embodied learning.
-
-Authors: Chao Liang, Ke Chen, Fengxiaoxiao Li, Shibo Huang, Yufeng Sun, Zhaokai Yin, Jianhuan Lai, Haozhe Feng, Chenghuan Jia, Zhipeng Zhang
-
-Tasks: Robotics, World Models
-
-Code: https://github.com/AutoLab-SAI-SJTU/A2MEAS</description>
-      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>JoVox: Joint Hierarchical Flow Matching for Lightweight Voxel Generation</title>
-      <link>https://arxiv.org/abs/2611.10690</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.10690</guid>
-      <description>Generating high-fidelity voxels while keeping their lightweight nature remains an open problem in computer vision. Current generators are either high-fidelity but computationally heavy, or lightweight but of lower fidelity. Hierarchical methods keep the lightweight nature of voxels. However, their coarse levels, which decide where all finer cells can appear, are generated with the least information about the shape and are never revisited, so they are often plausible but wrong. Our key insight is to let finer cells take part in deciding coarse cells. To this end, we propose JoVox, a discrete flow matching framework that learns the joint distribution of all levels of the voxel hierarchy, instead of a separate distribution for each level, so that coarse cells can be predicted with finer cells already generated nearby. Within this framework, we further introduce a two-level prediction, which outputs the cells two levels finer at once instead of one level finer, halving the number of levels that the network processes and yielding voxels of higher fidelity. We also introduce an unmasking strategy that revisits early decisions once finer cells are generated and corrects inconsistencies in masked diffusion models. Our framework outperforms the baselines on both unconditional and image-conditioned voxel generation. Compared with the current state-of-the-art TRELLIS.2, we achieve 8x higher training throughput, 1/15 of the FLOPs in a forward pass, train on 4 vs. 32 GPUs, and obtain higher quality with an 11% lower Chamfer distance.
-
-Authors: Xiangjun Tang, Jianqi Chen, Peter Wonka
-
-Tasks: 3D generation
-
-Code: https://github.com/yuyujunjun/JoVox</description>
-      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Infrathon: Benchmarking Language Agents for Real-World, Long-Horizon AI Infra Optimization</title>
-      <link>https://arxiv.org/abs/2611.11995</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.11995</guid>
-      <description>In this work, we study whether frontier agent can continually improve real-world AI infrastructure over long horizons. We introduce Infrathon, a benchmark of diverse, long-horizon AI infrastructure optimization tasks across different levels. We evaluate six models across 150 runs with 24-hour budgets, totaling over 10,000 GPU-hours. Our results show that model rankings vary with the evaluation horizon, while 135 of the 150 runs achieve further improvements during the second half of their budgets. These findings indicate that shorter evaluations can overlook both optimization gains and changes in relative model performance. We also find agents can discover solutions that outperform human-designed baselines: Claude Opus 5.5 increases the mean KV-cache compression ratio from 6.82% with the human-designed Quant-VideoGen codec to 19.86%. Analysis of agent trajectories identifies task violations, unreliable testing, and premature completion as barriers to sustained improvement. Together, Our Infrathon framework provide resources for constructing long-horizon tasks, evaluating frontier agents, and discovering good infrastructure solutions.
-
-Authors: Zhengyu Hu, Zheyuan Xiao, Yike Wang, Hamish Ivison, Haoyu Wang, Yige Yuan, Rulin Shao, Yuetai Li, Niqi Lyu, Yicheng Ding, Shu Yang, Zhichen Zeng, Banghua Zhu, Jiaxin Pei, Kaize Ding, Pradeep Dasigi, Dan Roth, Hannaneh Hajishirzi, Noah A. Smith, Teng Xiao, Radha Poovendran
-
-Code: https://github.com/infrathonx/infrathon</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
