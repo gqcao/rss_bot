@@ -12,7 +12,7 @@
 	<atom:link href="https://cacm.acm.org/feed/" rel="self" type="application/rss+xml" />
 	<link>https://cacm.acm.org</link>
 	<description></description>
-	<lastBuildDate>Thu, 12 Nov 2026 15:55:47 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 12 Nov 2026 19:27:41 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -28,6 +28,170 @@
 	<height>32</height>
 </image> 
 <site xmlns="com-wordpress:feed-additions:1">212686646</site>	<item>
+		<title>What Rerunning Security Research Reveals About Software Supply Chains</title>
+		<link>https://cacm.acm.org/blogcacm/what-rerunning-security-research-reveals-about-software-supply-chains/</link>
+					<comments>https://cacm.acm.org/blogcacm/what-rerunning-security-research-reveals-about-software-supply-chains/#respond</comments>
+		
+		<dc:creator><![CDATA[Jamshir Qureshi]]></dc:creator>
+		<pubDate>Thu, 12 Nov 2026 19:27:41 +0000</pubDate>
+				<category><![CDATA[Architecture and Hardware]]></category>
+		<category><![CDATA[Computing Applications]]></category>
+		<category><![CDATA[Data and Information]]></category>
+		<guid isPermaLink="false">https://cacm.acm.org/?p=814858</guid>
+
+					<description><![CDATA[<p>In practice, research artifacts are difficult to reproduce for many of the same reasons software supply chains are hard to trust.</p>]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">In my artifact evaluations, I have consistently encountered the same issue: setup scripts depend on packages from public indexes without specifying exact versions. By the time I attempt to run the artifact, the required package may no longer be available. Although a paper’s findings may remain valid, reproducing and verifying those results can be difficult before evaluation even begins.</p>
+
+
+
+<p class="wp-block-paragraph">These are not the only problems I encounter when assessing artifacts. Some require an NVIDIA GPU with a specific CUDA version, a particular Linux kernel feature, or administrative access that is unavailable on the evaluation machine. Others fail because files have been moved, permissions have changed, or repositories no longer align with the instructions in the README.</p>
+
+
+
+<p class="wp-block-paragraph">Another challenge is that experiments do not always yield consistent results. Benchmarks may show variations in accuracy, latency, or throughput across runs. As an evaluator, I need to determine whether these differences stem from random seeds, hardware, system load, or an actual problem with the code.</p>
+
+
+
+<p class="wp-block-paragraph">These challenges are not limited to research reproducibility. They also reflect well-known problems in software supply-chain engineering.</p>
+
+
+
+<p class="wp-block-paragraph">In 2026, I served on the Artifact Evaluation Committee for the IEEE Symposium on Security and Privacy. This mostly meant reviewing the documentation, loosely following the setup instructions, setting up the required environments, running the code, and comparing the results with what the paper claimed. If we ran into trouble with dependencies, environment fit, or results that didn&#8217;t match every time, we documented it and sent technical notes back to the committee.&nbsp;&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">That aligns with much of my day-to-day work in financial services. I regularly review software builds, verify dependencies, and validate container images before they are deployed to production.</p>
+
+
+
+<p class="wp-block-paragraph">In practice, these research artifacts are difficult to reproduce for many of the same reasons software supply chains are hard to trust.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>What a Badge Does, and Does Not, Promise</strong></h3>
+
+
+
+<p class="wp-block-paragraph">An <strong>Available</strong> badge means the artifact has been archived and is accessible to others. A <strong>Functional</strong> badge indicates that evaluators have confirmed it works as described, including being installable and executable. A <strong>Reproduced</strong> badge indicates that independent evaluators have reproduced the paper’s key results using the supplied artifact.</p>
+
+
+
+<p class="wp-block-paragraph">During evaluation, we follow the authors&#8217; instructions, set up the environment, install dependencies, run the experiments, and compare our results with the reported outputs. If something breaks or the instructions are unclear, we might reach out to the authors via an anonymous review channel to clarify the issue.</p>
+
+
+
+<p class="wp-block-paragraph">I see the growing adoption of artifact evaluation as largely positive for security research. <a href="https://www.usenix.org/conference/usenixsecurity26/call-for-artifacts">USENIX Security</a> has introduced mandatory artifact submission, so availability verification is more or less baked in. All of this nudges researchers to make their work easier to review and verify.</p>
+
+
+
+<p class="wp-block-paragraph">However, I believe we also should recognize what an artifact badge does and does not prove. A successful evaluation shows that the artifact met specific requirements under the test conditions. It does not necessarily mean the same code will continue to work months or years later, especially when dependencies, operating systems, hardware, and external resources change.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>What The 2026 Evidence Shows</strong></h3>
+
+
+
+<p class="wp-block-paragraph">In one study, researchers at <a href="https://www.isi.edu/results/publications/74686/measuring-ease-of-reuse-for-security-research-artifacts-with-results-reproduced-badges/">USC</a>&#8216;s Information Sciences Institute examined 97 research artifacts from the PETS and ACSAC conferences that already had received the Results Reproduced badge. They found that about 12% were missing or incomplete. Of the 85 that were complete, 23 still required additional resources, which were hard to obtain. Of the remaining 62, only 43 could be installed and run successfully within the study’s one-hour limit. Overall, only about 44% of the original 97 artifacts met the reuse criteria. This doesn’t necessarily imply the original findings were wrong, but it does highlight how difficult it is to reuse artifacts that were evaluated earlier.</p>
+
+
+
+<p class="wp-block-paragraph">Another 2026 study by <a href="https://arxiv.org/abs/2605.06508">Nanda Rani and Christian Rossow</a> examined security risks associated with research artifacts, the materials that end up bundled with papers. In their revised preprint, the researchers analyzed 1,388 artifacts from four major security conferences and, using static analysis, identified more than 132,000 potential security findings. After reviewing the results in context, they classified 44.8% of the findings as security-relevant. That also raises another concern for me as an evaluator: When we download and run research code, we might execute scripts, dependencies, and other software components that no one has independently tested for security risks.</p>
+
+
+
+<p class="wp-block-paragraph">A third study by <a href="https://arxiv.org/abs/2608.09567">Bo Chen</a> examined reproducibility in LLM- and agent-driven vulnerability-validation research. After allowing environment-only fixes, the count rose to 11. The study also found issues with how some artifacts were used to determine whether a vulnerability was genuinely reproduced.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>The Same Failures, with Established Fixes</strong></h3>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>Problems I encounter during artifact evaluation</strong></td><td><strong>Technical issue</strong></td><td><strong>Established engineering practice</strong></td></tr><tr><td>Dependencies are listed without specific versions, and newer versions may break the setup.</td><td>Dependency drift</td><td>Use lockfiles and pin dependency versions and hashes.</td></tr><tr><td>Container images use tags such as latest, which may point to different images over time.</td><td>Mutable image references</td><td>Pin container images by immutable digest.</td></tr><tr><td>Code runs on the author&#8217;s machine but fails in a different environment.</td><td>Environment-dependent builds</td><td>Use reproducible build practices and CI pipelines that rebuild and test from a clean environment.</td></tr><tr><td>Source code is hosted on a personal website or linked to a GitHub branch that changes over time.</td><td>No stable source of truth</td><td>Archive a specific release with a persistent identifier.</td></tr><tr><td>There is no clear record of the source code, dependencies, or build process used during evaluation.</td><td>Missing provenance</td><td>Maintain Software Bills of Materials (SBOMs) and build provenance records using frameworks such as <a href="https://slsa.dev/">SLSA</a>.</td></tr><tr><td>Setup scripts download and execute code from external sources without verifying its integrity.</td><td>Unverified external inputs</td><td>Use trusted sources, pinned revisions, and verified checksums or signatures.</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">A research artifact should not only work during its first evaluation; it should also provide enough information for future researchers to understand what was executed, verify its integrity, and reproduce the results. Reproducibility builds confidence in research findings, and provenance and security controls help establish the same level of trust in the software that produced them.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>What can researchers take from industry?</strong></h3>
+
+
+
+<p class="wp-block-paragraph">Most of these fixes are inexpensive if you build them into a project from the start, rather than adding them at the last minute, the week before the artifact deadline.</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>Commit a lockfile, and pin container images by digest instead of tag.</li>
+
+
+
+<li>Add a CI job that builds the artifact in a clean environment for every change. If CI can&#8217;t build it, an evaluator certainly can’t.</li>
+
+
+
+<li>Create an SBOM so reviewers and future users can see exactly what the artifact contains.</li>
+
+
+
+<li>Archive the final version with a persistent identifier instead of linking to a moving branch.</li>
+
+
+
+<li>Flag anything that downloads code or requires elevated privileges so evaluators can sandbox it.</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">In my published work on the <a href="https://www.svedbergopen.com/index.php/ijaiml/article/view/12">Hybrid Chain of Trust (HCoT) framework</a>, I verify source code and container images prior to deployment, addressing several of the failures listed in the table above.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>What sector can learn from this research?</strong></h3>
+
+
+
+<p class="wp-block-paragraph">The lessons run both ways. Artifact evaluation does something many enterprise reviews don’t: an independent person actually runs the artifact. A code review examines the code; an evaluation runs the artifact and compares the result to the claim.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>Reproducibility is maintained, not achieved</strong></h3>
+
+
+
+<p class="wp-block-paragraph">In a 2026 position paper, <a href="https://www.isi.edu/directory/david-balenson/publications/">Jelena Mirkovic and David Balenson</a> argue the field should move beyond validating an artifact once and instead adopt “living artifacts” that are deployed on shared infrastructure and kept running as they evolve. From a supply chain perspective, that&#8217;s absolutely right. Reproducibility isn&#8217;t a property of the result on publication day; it must be maintained, just like a secure build pipeline.</p>
+
+
+
+<p class="wp-block-paragraph">Security researchers spend their lives demonstrating that trust must be verified. Our artifacts should meet the same standard.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Disclosure</strong>: I served on the IEEE S&amp;P 2026 artifact evaluation committee, chaired by Jelena Mirkovic and Manuel Egele; two of the studies referenced here list Mirkovic as an author. I authored the HCoT framework mentioned above. I work in software supply chain security within financial services. The views expressed in this post are my own.</p>
+
+
+
+<p class="wp-block-paragraph">Also, I used an AI assistant to help structure and edit the draft. The ideas, experiences, and final wording are mine.</p>
+
+
+
+<figure class="wp-block-image"><img fetchpriority="high" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/11/Jamshir-Qureshi.111226.BLOG-350.jpg" alt="Jamshir Qureshi" class="wp-image-814912" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/Jamshir-Qureshi.111226.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/11/Jamshir-Qureshi.111226.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/11/Jamshir-Qureshi.111226.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure>
+
+
+
+<p class="wp-block-paragraph"><em><strong>Jamshir Qureshi </strong>is a DevOps engineering vice president in financial services, working on software supply-chain security. He served on the IEEE Symposium on Security and Privacy 2026 artifact evaluation committee as one of four Distinguished Artifact Evaluators. The views here are his own and not his employer’s.</em></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://cacm.acm.org/blogcacm/what-rerunning-security-research-reveals-about-software-supply-chains/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">814858</post-id>	</item>
+		<item>
 		<title>Reasoning Beyond Prediction: From Data-Driven to Causal Software Engineering</title>
 		<link>https://cacm.acm.org/research/reasoning-beyond-prediction-from-data-driven-to-causal-software-engineering/</link>
 					<comments>https://cacm.acm.org/research/reasoning-beyond-prediction-from-data-driven-to-causal-software-engineering/#respond</comments>
@@ -176,7 +340,7 @@
 <h2 class="heading">The CSE Conceptual Framework</h2>
 <p id="p-15">Here, we outline a conceptual framework to harness causal reasoning for SE tasks, from requirements analysis to design-space exploration, test generation, code analysis, and root cause analysis. In the next section, we review recent research efforts, including our own work on testing and analysis, that instantiate elements of this framework.</p>
 <p id="p-16">The framework, shown in <a class="xref xref-fig" href="#F1" data-jats-ref-type="fig" data-jats-rid="F1">Figure 1</a>, revolves around <i>causal models</i>: structured, inspectable representations of a system and its environment that encode the cause-effect relations relevant to a given task. Different tasks may call for different models; Table <a class="xref xref-table" href="#T4" data-jats-rid="T4" data-jats-ref-type="table">2</a> provides examples of cause and effect variables. A causal model is a mathematical representation of causal relationships within a system. There are two main approaches to causal modeling and inference: the <i>potential outcomes</i> framework, which frames causality in terms of what happened with what would have happened under an alternative condition; and <i>graphical models</i>, where relationships are expressed through <i>directed acyclic graphs</i>, with associated conditional probabilities (in causal Bayesian networks; CBNs) or structural equations (in structural causal models; SCMs) to specify how variables influence one another.<a class="reference-link xref xref-bibr" href="#B17" data-jats-ref-type="bibr" data-jats-rid="B17"><sup>17</sup></a><sup>,</sup><a class="reference-link xref xref-bibr" href="#B29" data-jats-ref-type="bibr" data-jats-rid="B29"><sup>29</sup></a> We focus on graphical models in the description, though the core ideas generalize across formalisms.<img decoding="async" class="graphic" title="Figure 1. " src="3815122_fig01.svg" alt="" data-image-id="F1" data-image-type="figure" /></p>
-<figure id="F1" class="fig" data-jats-position="float"><figcaption><span class="caption-label"><img fetchpriority="high" decoding="async" class="alignnone wp-image-814771 size-large" src="https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?w=1024" alt="" width="1024" height="702" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg 2963w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=300,206 300w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=768,526 768w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=1024,702 1024w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=1536,1052 1536w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=2048,1403 2048w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=1600,1096 1600w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=620,425 620w" sizes="(max-width: 1024px) 100vw, 1024px" /><br />Figure 1. </span> <span class="p">The CSE conceptual framework.</span></p>
+<figure id="F1" class="fig" data-jats-position="float"><figcaption><span class="caption-label"><img decoding="async" class="alignnone wp-image-814771 size-large" src="https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?w=1024" alt="" width="1024" height="702" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg 2963w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=300,206 300w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=768,526 768w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=1024,702 1024w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=1536,1052 1536w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=2048,1403 2048w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=1600,1096 1600w, https://cacm.acm.org/wp-content/uploads/2026/11/Fig1_new.jpg?resize=620,425 620w" sizes="(max-width: 1024px) 100vw, 1024px" /><br />Figure 1. </span> <span class="p">The CSE conceptual framework.</span></p>
 <div class="figcaption-footer"> </div>
 </figcaption></figure>
 <figure id="T4" class="table-wrap" data-jats-position="float">
@@ -681,7 +845,7 @@
 
 
 
-<figure class="wp-block-image"><img decoding="async" width="1600" height="860" src="https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg" alt="figure 'Two Ways Into'" class="wp-image-814836" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg 1600w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=300,161 300w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=768,413 768w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=1024,550 1024w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=1536,826 1536w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=620,333 620w" sizes="(max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Towns A to Z, each with a toll; the cheapest route is in green. </figcaption></figure>
+<figure class="wp-block-image"><img loading="lazy" decoding="async" width="1600" height="860" src="https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg" alt="figure 'Two Ways Into'" class="wp-image-814836" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg 1600w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=300,161 300w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=768,413 768w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=1024,550 1024w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=1536,826 1536w, https://cacm.acm.org/wp-content/uploads/2026/11/111126.BLOG_.Figure-SCO.jpg?resize=620,333 620w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Towns A to Z, each with a toll; the cheapest route is in green. </figcaption></figure>
 
 
 
@@ -1479,126 +1643,5 @@ while y &gt; x+e:
 		
 		      <dc:creator><![CDATA[Jeff Behrends]]></dc:creator>
 <post-id xmlns="com-wordpress:feed-additions:1">814288</post-id>	</item>
-		<item>
-		<title>GenAI Is Shipping Code Faster Than You Can Read It</title>
-		<link>https://cacm.acm.org/blogcacm/genai-is-shipping-code-faster-than-you-can-read-it/</link>
-					<comments>https://cacm.acm.org/blogcacm/genai-is-shipping-code-faster-than-you-can-read-it/#respond</comments>
-		
-		<dc:creator><![CDATA[Rahul Vaish]]></dc:creator>
-		<pubDate>Mon, 09 Nov 2026 14:36:39 +0000</pubDate>
-				<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
-		<category><![CDATA[Computing Profession]]></category>
-		<guid isPermaLink="false">https://cacm.acm.org/?p=814104</guid>
-
-					<description><![CDATA[<p>The silent question many coders are asking is if they can follow all of the code, or are perhaps falling behind.</p>]]></description>
-										<content:encoded><![CDATA[
-<p class="wp-block-paragraph">Open your team’s board on a Monday morning and the picture has already changed. Tickets that were open on Friday are closed. Pull requests that didn’t exist an hour ago are merged. A teammate shipped a feature over the weekend that, a year ago, would have taken a sprint. Much of the code was drafted by an AI assistant, reviewed quickly, and is already running in production.</p>
-
-
-
-<p class="wp-block-paragraph">If you feel a small knot of anxiety reading that, you’re in good company. Developers have always had to keep up with new frameworks and tools. What’s different now is how fast the code changes inside the codebase you’re responsible for. Code is arriving faster than anyone can read it, and the silent question many of us carry is: if I can’t follow all of this, am I falling behind? This post offers practical ways to work with the pace instead of being worn down by it.</p>
-
-
-
-<h3 class="wp-block-heading">The New Shape of FOMO</h3>
-
-
-
-<p class="wp-block-paragraph">The classic fear of missing out (FOMO) in tech was about technologies: the language you hadn’t learned, the framework everyone else seemed to be using. The AI-era version is different. It’s about comprehension. You’re not worried about missing a tool; you’re worried about no longer understanding your own system.</p>
-
-
-
-<p class="wp-block-paragraph">That’s a more uncomfortable feeling, because it touches professional identity. Developers have traditionally earned trust by knowing how things work. When a large share of the change in a repository is machine-drafted and merged within hours, that sense of mastery can feel as if it’s slipping, even when your own output is higher than ever.</p>
-
-
-
-<h3 class="wp-block-heading">Why the Comparison is Broken</h3>
-
-
-
-<p class="wp-block-paragraph">Much of the anxiety comes from measuring yourself against a dashboard. Merged pull requests, closed tickets, and lines changed are easy to count, so they are what we notice. But they only tell you how much was produced. They don’t tell you whether the change was architecturally correct, whether anyone else understands it well enough to build on top of it, or whether it will still make sense to the team in six months.</p>
-
-
-
-<p class="wp-block-paragraph">Think of a newsroom where the reporters suddenly start writing ten times faster. The editors still read at the same speed, so stories pile up waiting to be checked, and the editor’s attention becomes the limit. Software is the same. AI can write code quickly, but people still have to read it, understand it, and answer for it at human speed.</p>
-
-
-
-<p class="wp-block-paragraph">So the developer who tries to read every change isn’t the most diligent person on the team. They’re spending their scarcest resource, attention, on every change equally, including the ones that don’t need it. What matters now is knowing which changes deserve your attention, and that’s a skill you can build.</p>
-
-
-
-<h3 class="wp-block-heading">Practical Ways to Cope</h3>
-
-
-
-<p class="wp-block-paragraph">None of these strategies ask you to read more. They’re about deciding where your attention goes.</p>
-
-
-
-<p class="wp-block-paragraph">● <strong>Start with one part and go deep:</strong> You’re accountable for the whole system, but you can’t know all of it at once, so don’t try. Start with the one part that matters most, maybe the one that paged someone last quarter or the one every feature seems to touch, and learn it properly. When it feels familiar, add the next. Keep only a rough outline of the rest. Depth grows one part at a time, and the anxiety shrinks with it.</p>
-
-
-
-<p class="wp-block-paragraph">●<strong> Let a weekly briefing do the streaming: </strong>Think of the morning digest an editor reads before deciding which stories need a closer look. Ask your team’s approved AI tool to read last week’s merged changes and write you one: a few plain-language bullet points on what changed, plus a sequence diagram of one or two key flows, like placing an order or logging in, showing what calls what and where it can fail. Try it by hand once to see if it’s useful, then put it on a weekly schedule so it doesn’t depend on anyone remembering. Read it over a coffee and you’ll spot things like a new fraud check before payment or a retry that was quietly introduced, even in parts of the system you don’t know well.</p>
-
-
-
-<p class="wp-block-paragraph">● <strong>Read what gets flagged like an editor: </strong>When the briefing flags a change, or a change lands in the part you know deeply, slow down. Ask whether the design fits the system, what the generated code quietly assumes, and what happens when it fails. Everything else gets a skim, and that’s fine. As generating code gets cheaper, the person who can quickly judge whether a change is sound becomes the most valuable one in the room. Review isn’t a tax on productivity anymore; it’s the craft.</p>
-
-
-
-<p class="wp-block-paragraph">● <strong>Follow one thread a week: </strong>Pick one item from the briefing, or one flow you’ve never traced, and follow it all the way down. Read the module you didn’t write, or work through the design behind it. An hour is usually enough. Depth builds on itself in a way scanning never does, and it’s the best cure for the feeling of skating on the surface.</p>
-
-
-
-<p class="wp-block-paragraph">● <strong>Say it out loud:</strong> This feeling is far more common than people admit. Mention it in a retro or a one-on-one and you’ll likely find others feel it too, and the weekly briefing is an easy thing to bring along. That’s usually where the conversation about smaller pull requests and better review habits starts.</p>
-
-
-
-<h3 class="wp-block-heading">What Teams and Leaders Can Do</h3>
-
-
-
-<p class="wp-block-paragraph">A team that produces more than it can understand has a systems problem, so it needs systems answers, not just individual coping.</p>
-
-
-
-<p class="wp-block-paragraph">● Keep changes small enough to review. Smaller pull requests with a clear note on intent make review realistic, whether a person or a model wrote the code.</p>
-
-
-
-<p class="wp-block-paragraph">● Measure outcomes, not volume. Reliability, customer impact and time to recover say far more than merge counts, and they take away the pressure to compete on throughput.</p>
-
-
-
-<p class="wp-block-paragraph">● Budget time for understanding. Leave room for design reviews, documentation, and knowledge sharing. They’re what keeps a fast-moving codebase something people can still reason about.</p>
-
-
-
-<h3 class="wp-block-heading">A Steadier Way Forward</h3>
-
-
-
-<p class="wp-block-paragraph">The speed of AI-assisted development is real and, for most teams, valuable. But it doesn’t change what makes an engineer worth trusting: sound judgment, a clear understanding of the systems they’re responsible for, and the discipline to focus on what matters. Those qualities aren’t made obsolete by a faster stream of code. They’re what make the stream safe to build on.</p>
-
-
-
-<p class="wp-block-paragraph">You don’t need to keep up with everything. You need to know what you’re accountable for, decide where your attention goes, and keep building the skills that machines make more important rather than less. The developers who thrive in this period won’t be the ones who read the most pull requests. They’ll be the ones who stay calm enough to ask the right questions: what changed, what could break, and what needs a closer look.</p>
-
-
-
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/07/Rahul-Vaish.080726.BLOG-350.jpg?w=350" alt="Rahul Vaish" class="wp-image-811101" srcset="https://cacm.acm.org/wp-content/uploads/2026/07/Rahul-Vaish.080726.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/07/Rahul-Vaish.080726.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/07/Rahul-Vaish.080726.BLOG-350.jpg?resize=300,300 300w" sizes="auto, (max-width: 350px) 100vw, 350px" /></figure>
-
-
-
-<p class="wp-block-paragraph"><em><strong>Rahul Vaish </strong>is a Software Engineer and Independent Researcher with over a decade of experience designing and building enterprise systems.</em> <em>His work focuses on software architecture, distributed systems, and applied AI.</em></p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://cacm.acm.org/blogcacm/genai-is-shipping-code-faster-than-you-can-read-it/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-		<post-id xmlns="com-wordpress:feed-additions:1">814104</post-id>	</item>
 	</channel>
 </rss>
