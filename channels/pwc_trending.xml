@@ -4,7 +4,20 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Thu, 12 Nov 2026 04:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 05:00:00 GMT</lastBuildDate>
+    <item>
+      <title>MACaQ: Fast, Model Agnostic Calibrated Quantization for Low-Precision Weights and Activations</title>
+      <link>https://arxiv.org/abs/2611.10649</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.10649</guid>
+      <description>Weight-activation quantization can reduce the memory and compute cost of neural-network inference, but recent methods often require expensive optimization and architecture-specific propagation of basis transforms across layers. We introduce MACaQ, an MXFP4 W4A4 post-training quantization method that treats every linear layer independently. MACaQ applies a per-channel scale and a block-Hadamard transform online to each layer's activations, while absorbing the corresponding inverse transforms into its weights. Retaining these transforms online avoids cross-layer dependencies and enables a simple streaming implementation of the quantization process, in which only one layer must reside in memory at a time. To improve over round-to-nearest quantization, we introduce Flip-Refinement, a Hessian-aware coordinate-descent procedure that greedily moves individual FP4 codes to adjacent representable values. Despite executing the activation transforms at inference time, MACaQ adds only 2.3% end-to-end overhead over pure MXFP4 on Qwen3-32B in vLLM. MACaQ reaches lower perplexity than DuQuant++ and MR-GPTQ, and already matches their best perplexity on Llama-3-8B in 11 times less quantization time. We further apply MACaQ without architecture-specific modifications to an image diffusion model, illustrating the generality of its layer-local design and show quantization of a 122B parameter model in 64 minutes, using only 32.5GB GPU RAM.
+
+Authors: Lorenz K. Muller, Philippe Bich, Chiara Boretti, Hyun-Min Chang, Jiawei Zhuang, Lukas Cavigelli
+
+Tasks: Language Modeling, Text-to-Image Generation
+
+Code: https://github.com/huawei-csl/MACaQ</description>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Learning Heterogeneous Tactile Representation for General Dexterous Manipulation</title>
       <link>https://arxiv.org/abs/2611.12806</link>
@@ -30,19 +43,6 @@ Code: https://github.com/minimax-ai/minimax-h3-image</description>
       <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>MACaQ: Fast, Model Agnostic Calibrated Quantization for Low-Precision Weights and Activations</title>
-      <link>https://arxiv.org/abs/2611.10649</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.10649</guid>
-      <description>Weight-activation quantization can reduce the memory and compute cost of neural-network inference, but recent methods often require expensive optimization and architecture-specific propagation of basis transforms across layers. We introduce MACaQ, an MXFP4 W4A4 post-training quantization method that treats every linear layer independently. MACaQ applies a per-channel scale and a block-Hadamard transform online to each layer's activations, while absorbing the corresponding inverse transforms into its weights. Retaining these transforms online avoids cross-layer dependencies and enables a simple streaming implementation of the quantization process, in which only one layer must reside in memory at a time. To improve over round-to-nearest quantization, we introduce Flip-Refinement, a Hessian-aware coordinate-descent procedure that greedily moves individual FP4 codes to adjacent representable values. Despite executing the activation transforms at inference time, MACaQ adds only 2.3% end-to-end overhead over pure MXFP4 on Qwen3-32B in vLLM. MACaQ reaches lower perplexity than DuQuant++ and MR-GPTQ, and already matches their best perplexity on Llama-3-8B in 11 times less quantization time. We further apply MACaQ without architecture-specific modifications to an image diffusion model, illustrating the generality of its layer-local design and show quantization of a 122B parameter model in 64 minutes, using only 32.5GB GPU RAM.
-
-Authors: Lorenz K. Muller, Philippe Bich, Chiara Boretti, Hyun-Min Chang, Jiawei Zhuang, Lukas Cavigelli
-
-Tasks: Language Modeling, Text-to-Image Generation
-
-Code: https://github.com/huawei-csl/MACaQ</description>
-      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>World In-Context Learning for Agentic Robot Manipulation</title>
       <link>https://arxiv.org/abs/2611.12885</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.12885</guid>
@@ -56,15 +56,56 @@ Code: https://github.com/ArcheOne-AI/RoboScript</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>e-means: outperforming k-means (in one-tenth the epochs)</title>
-      <link>https://arxiv.org/abs/2611.09501</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.09501</guid>
-      <description>Lloyd's k-means algorithm is a long-running standard for clustering, with applications in data analysis, retrieval, quantization and data curation. In this paper, we introduce an exponential moving average optimization procedure for k-means with mini-batch updates, powered by modern deep learning machinery and new insights. We also establish scaling laws on how decay rate and batch size impact final performance. This gives us a formulaic rule to fix them for multiple problem sizes and embedding datasets, without the need for any hyperparameter sweep. The resulting clustering algorithm, coined e-means, is much faster than Lloyd k-means and converges to lower losses, frequently even beating k-means++. On a wide array of embeddings datasets, it beats the loss of Lloyd k-means at 25 epochs in 1.4 to 2.6 epochs, which translates to 10-45x GPU wall-clock speedups compared to state-of-the-art k-means implementations. As an example, e-means partitions DINO10B, a dataset of 10 billion DINO embeddings, into 16 million clusters in only 2.5 epochs, reaching a loss below Lloyd's at 25 epochs.
+      <title>The Surprising Effectiveness of Deleting Weights in LLM Post-Training</title>
+      <link>https://arxiv.org/abs/2611.10866</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.10866</guid>
+      <description>How little of a pretrained large language model (LLM) has to change for it to acquire new capabilities? We find that zeroing fewer than 0.05% of its weights, with no other modification, matches full fine-tuning (FFT) at scale across three LLM post-training regimes: reinforcement learning with verifiable rewards, supervised fine-tuning, and on-policy distillation. Our method, Deletion Tuning, learns a binary mask over the gate projection of transformer blocks. Two practical advantages follow: the trained mask is hundreds to thousands of times smaller than the corresponding FFT checkpoint, and Deletion Tuning forgets far less, which addresses a central challenge in continual learning. Under reinforcement learning, its prior-task accuracy stays near the base level while FFT, LoRA, and random sparse fine-tuning lose up to 5.4 points. To understand why masking alone suffices, we analyze the geometry of the learned weight changes under reinforcement learning using stable rank, spectrum drift, and principal-weight overlap. Compared with LoRA and random sparse fine-tuning, Deletion Tuning is closest to FFT across the three measures.
 
-Authors: Swann Bessa, Pierre-Emmanuel Mazaré, Gergely Szilvasy, Hugo Touvron, David Picard, Matthijs Douze, Hervé Jégou
+Authors: Jack Lu, Zhenbang Yang, Mike Lasby, Tejas Pote, Yani Ioannou, Mengye Ren
 
-Code: https://github.com/facebookresearch/faiss</description>
+Tasks: Continual Learning, Reinforcement Learning
+
+Code: https://github.com/agentic-learning-ai-lab/deleting-weights</description>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ZONOS3-Mini</title>
+      <link>https://www.zyphra.com/our-work/zonos3-mini</link>
+      <guid isPermaLink="true">https://www.zyphra.com/our-work/zonos3-mini</guid>
+      <description>We are excited to announce ZONOS3-Mini, a compact zero-shot voice-cloning Text-To-Speech (TTS) model with state-of-the-art performance as well as leading voice control capabilities which can run in real-time on-device.
+
+ZONOS3-Mini is a sparse Mixture of Experts (MoE) model with 100 million active parameters and 800 million total parameters licensed under Apache 2.0. We trained ZONOS3-Mini on 112 NVIDIA H100s in 2.5 days. You can access it on Zyphra Inference served on NVIDIA H200s, on your own GPU, or in your browser on-device.
+
+Tasks: Audio and Speech Editing, Text-to-speech, Voice cloning
+
+Code: https://github.com/zyphra/zonos3-mini</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>InstantHMR : Real-Time Human Mesh Recovery on Your Phone</title>
+      <link>https://arxiv.org/abs/2611.09195</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.09195</guid>
+      <description>Real-time 3D human mesh recovery from a single image on mobile devices is a challenging problem with many applications, including robotics, biomechanics, AR/VR, and exergames. Current state-of-the-art models are either too slow to run efficiently on mobile devices or sacrifice accuracy for speed. We present InstantHMR, a family of open-source single-image regressors suited for mobile inference, based on the Momentum Human Rig (MHR) parametric model and trained exclusively on publicly available annotations from the SAM 3D Body dataset. Our approach achieves remarkable performance on a Samsung Galaxy S23 NPU, recovering a 6,890-vertex body mesh in 5.5 ms per person, and 0.98 ms on an NVIDIA RTX 4070 GPU. This speed surpasses all existing methods we evaluated. On mobile, it is 12x faster than the single mobile-compatible method that slightly outperforms ours in accuracy, while achieving competitive accuracy with 40.0 mm PA-MPJPE on 3DPW, 48.8 mm on EMDB and 41.7 mm on RICH. To ensure fair comparisons, we re-evaluate 11 state-of-the-art methods under a unified protocol aligned with the closest MHR-based competitors, including Meta's official MHR-to-SMPL conversion, and report their reproduction results. Additionally, we measure latency across eight different targets, ranging from desktop TensorRT to two phone NPUs. Code and models are available at https://github.com/Naturalpad-studio/InstantHMR.
+
+Authors: Mohamed Adjel, Kahina Chalabi, Vincent Bonnet
+
+Tasks: Human Mesh Recovery
+
+Code: https://github.com/Naturalpad-studio/InstantHMR</description>
       <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Prompt2Echo (P2Echo): Text-Prompted Multi-View Echocardiography Segmentation with One Model</title>
+      <link>https://arxiv.org/abs/2611.13425</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.13425</guid>
+      <description>Automated segmentation in multi-view echocardiography is essential for comprehensive cardiac assessment, yet remains challenging due to substantial anatomical and appearance variability across standard acoustic windows. In this paper, we present P2Echo, a unified framework capable of segmenting diverse cardiac structures across multiple standard echocardiographic views using a single model controlled by structured view-aware text prompts. Unlike recent foundation model adaptations that rely on implicit latent priors, P2Echo explicitly conditions the segmentation process via a novel Dynamic Image-Text Alignment (DyITA) module. DyITA integrates a differentiable routing mechanism and token differential operators to dynamically modulate decoder features according to the requested view and target structure. This allows the network to adaptively switch its processing pathways for different views without architectural changes. Extensive experiments on a large-scale internal dataset (seen during training) and held-out evaluation on three external datasets demonstrate that P2Echo matches or exceeds both view-specific specialists and state-of-the-art universal models at a fraction of their computational cost, offering an efficient, controllable solution for multi-plane cardiac analysis. Code is available at: https://github.com/moeinheidari7829/P2Echo.
+
+Authors: Moein Heidari, Alvin Kimbowa, Mahdi Tabatabaei, Afshin Bozorgpour, Sina Ghorbani Kolahi, River Jiang, Wenjin Chen, David J. Foran, Jasmine Grewal, Dorit Merhof, Ilker Hacihaliloglu
+
+Tasks: Image segmentation, Medical Image Segmentation
+
+Code: https://github.com/moeinheidari7829/P2Echo</description>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Embodied First Exam</title>
@@ -77,6 +118,56 @@ Authors: Kangrui Wang, Qineng Wang, Changhe Chen, Pingyue Zhang, Chi Gui, Feishi
 Tasks: Coding Agents, Robotics
 
 Code: https://github.com/mll-lab-nu/embodied-first-exam</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Praxis-1: From Video Pretraining to Robot Control | Runway Research</title>
+      <link>https://runway.com/research/praxis-1-video-pretraining-to-robot-control</link>
+      <guid isPermaLink="true">https://runway.com/research/praxis-1-video-pretraining-to-robot-control</guid>
+      <description>Robotics deployments keep running into the same problem: real-world robot data is scarce, and collecting enough of it to train a generalist policy is expensive. Some labs respond with more teleoperation, others with more egocentric footage. We think the most scalable source is general video, the everyday footage people already record. A model trained to predict that video learns how objects behave, how hands move and what a task looks like partway through. A robot can build on that knowledge. With Praxis-1, we turn a 27B-parameter video foundation model into an open weight world model that predicts the future in short chunks. A small action expert reads the video model’s internal state as it imagines what comes next. Each time the robot acts, Praxis-1 predicts both what the scene will look like and the motion that will get it there. Praxis-1 fine-tuned on DROID is the top world action model and the top open-source robot foundation model on the RoboLab-120 leaderboard. On a real Franka arm it achieves a competitive success rate against the previous state-of-the-art world action model.
+
+Tasks: Robotics, World Models
+
+Code: https://github.com/runwayml/praxis-1-oss</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SWAM: Scaling World Action Models with Cross-Modal Alignment</title>
+      <link>https://arxiv.org/abs/2611.12870</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.12870</guid>
+      <description>World action models jointly predict video and actions conditioned on language. Existing studies focus primarily on architectures and training mechanisms, typically treating language-video alignment acquired through video pretraining as an established foundation. However, introducing action learning may impair this alignment. Principled guidance on data and supervision design for maintaining language-video alignment during action learning remains limited. To investigate this, we curate a pool of approximately 47,000 hours of general videos, egocentric videos, UMI demonstrations, and robot demonstrations. Building on this, we systematically study how language-video supervision, language-video-action supervision, and the joint use of these two forms affect WAM performance. In particular, we examine how language annotation quality affects pretrained language-video capabilities, and how action supervision from UMI and robot demonstrations extends these capabilities to language-video-action modeling. To better scale the model, we further conduct detailed studies on joint training recipe and model architecture. Under a fixed training budget, mixing egocentric videos and UMI demonstrations improves control generalization. Model architecture affects how effectively these experiences are used, while scaling pretraining under the selected configuration brings further gains. The resulting recipe, post-trained on RoboTwin Clean demonstrations only, achieves success rates of 88.10% and 61.56% under Easy (Clean-to-Clean) and Hard (Clean-to-Random) conditions, respectively. Our model achieves 40.00% SR across three real-world tasks, compared with 23.33% for the strongest baseline, indicating better generalization under unseen conditions. We release the curated data, training code, and model weights.
+
+Authors: Yu Zhou, Xinyuan Xia, Xuankun Yang, Yinghao Yang, Wendi Chen, Bowen Liu, Jianhan Ma, Weicheng Duan, Jun Lv, Cewu Lu, Yanwei Li
+
+Tasks: Egocentric Vision, Robotics, World Models
+
+Code: https://github.com/shaaaaron/SWAM</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents</title>
+      <link>https://arxiv.org/abs/2611.14320</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.14320</guid>
+      <description>External memory enables LLM agents to improve from experience by distilling trajectories of past tasks into concise lessons for new tasks. However, memory can also lead to memory-induced degradation, where an agent fails on tasks it would solve without memory, often because it follows a lesson that is incorrect, or misapplies or misreads a valid one. This is because lessons are inferred from trajectories labeled only with task success or failure, yet are typically provided without the trajectories they came from, leaving the agent no way to check them. To address this, we introduce WikiTrace, an evidence-linked memory system designed to let agents check each lesson against its original trajectory. Specifically, motivated by the finding that a trajectory often still holds the evidence needed to catch an erroneous lesson, WikiTrace stores each lesson as a concise insight linked to a summary of why its trajectory succeeded or failed and to the raw trajectory itself. Then, on a new task, the agent starts from all insights and, whenever one lacks details needed to act, conflicts with another, or comes from a failed task, descends through its links with terminal tools to fill in missing details or correct the insight before acting. We validate WikiTrace on five agentic benchmarks, showing that it consistently outperforms existing memory approaches and a baseline given the same insights alone, while also reducing memory-induced degradation. Our code is available at https://github.com/yukyeongleee/wikitrace
+
+Authors: Yukyeong Lee, Yumin Choi, Jinheon Baek, Sung Ju Hwang
+
+Tasks: Agents
+
+Code: https://github.com/yukyeongleee/wikitrace</description>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WaveGen: Truly End-to-End Waveform Generation via Internal Spectral Trajectory Learning</title>
+      <link>https://arxiv.org/abs/2611.12527</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.12527</guid>
+      <description>This work proposes WaveGen, a fully end-to-end diffusion-based text-to-waveform framework based on Spectral Forcing, which jointly learns an internal spectral trajectory and the target waveform trajectory within a single model, enabling direct end-to-end text-to-waveform generation. Unlike recent TTS pipelines, WaveGen does not rely on separately trained or externally decoded intermediate representations, such as neural audio codecs, Mel-spectrogram vocoders, or VAE-based latent models. In addition, WaveGen performs internal text-speech alignment within a single model, eliminating the need for external alignment modules such as duration predictors. To preserve a truly end-to-end formulation, our framework further avoids dependence on self-supervised representations, such as BERT-based text embeddings and Wav2Vec 2.0-based semantic representations, as well as semantic distillation methods for training optimization. To achieve this, we carefully design Spectral Forcing, a model architecture with disentangled diffusion heads, and a training objective based on a multi-scale spectral v-loss. We further validate the scalability of end-to-end TTS models by scaling the model size from 0.1B to 0.6B parameters. Using a single architecture, open-source data, and one-stage training, without external modules such as duration predictor or REPA, WaveGen demonstrates fully end-to-end waveform generation achieving state-of-the-art performance on the Emilia training dataset. In particular, WaveGen achieves a WER of 1.47 and a SIM of 0.75 on the Seed-en benchmark. Source code and checkpoints are available at https://github.com/sh-lee-prml/WaveGen
+
+Authors: Sang-Hoon Lee, Sang-Hoon Lee, Ha-Yeong Choi, Ha-Yeong Choi
+
+Tasks: Audio Compression, Audio Generation, Embedding models, Text-to-speech
+
+Code: https://github.com/sh-lee-prml/WaveGen</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -106,69 +197,6 @@ Code: https://github.com/GOAL-Lab/FraudBench-Public</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Praxis-1: From Video Pretraining to Robot Control | Runway Research</title>
-      <link>https://runway.com/research/praxis-1-video-pretraining-to-robot-control</link>
-      <guid isPermaLink="true">https://runway.com/research/praxis-1-video-pretraining-to-robot-control</guid>
-      <description>Robotics deployments keep running into the same problem: real-world robot data is scarce, and collecting enough of it to train a generalist policy is expensive. Some labs respond with more teleoperation, others with more egocentric footage. We think the most scalable source is general video, the everyday footage people already record. A model trained to predict that video learns how objects behave, how hands move and what a task looks like partway through. A robot can build on that knowledge. With Praxis-1, we turn a 27B-parameter video foundation model into an open weight world model that predicts the future in short chunks. A small action expert reads the video model’s internal state as it imagines what comes next. Each time the robot acts, Praxis-1 predicts both what the scene will look like and the motion that will get it there. Praxis-1 fine-tuned on DROID is the top world action model and the top open-source robot foundation model on the RoboLab-120 leaderboard. On a real Franka arm it achieves a competitive success rate against the previous state-of-the-art world action model.
-
-Tasks: Robotics, World Models
-
-Code: https://github.com/runwayml/praxis-1-oss</description>
-      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>The Surprising Effectiveness of Deleting Weights in LLM Post-Training</title>
-      <link>https://arxiv.org/abs/2611.10866</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.10866</guid>
-      <description>How little of a pretrained large language model (LLM) has to change for it to acquire new capabilities? We find that zeroing fewer than 0.05% of its weights, with no other modification, matches full fine-tuning (FFT) at scale across three LLM post-training regimes: reinforcement learning with verifiable rewards, supervised fine-tuning, and on-policy distillation. Our method, Deletion Tuning, learns a binary mask over the gate projection of transformer blocks. Two practical advantages follow: the trained mask is hundreds to thousands of times smaller than the corresponding FFT checkpoint, and Deletion Tuning forgets far less, which addresses a central challenge in continual learning. Under reinforcement learning, its prior-task accuracy stays near the base level while FFT, LoRA, and random sparse fine-tuning lose up to 5.4 points. To understand why masking alone suffices, we analyze the geometry of the learned weight changes under reinforcement learning using stable rank, spectrum drift, and principal-weight overlap. Compared with LoRA and random sparse fine-tuning, Deletion Tuning is closest to FFT across the three measures.
-
-Authors: Jack Lu, Zhenbang Yang, Mike Lasby, Tejas Pote, Yani Ioannou, Mengye Ren
-
-Tasks: Continual Learning, Reinforcement Learning
-
-Code: https://github.com/agentic-learning-ai-lab/deleting-weights</description>
-      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents</title>
-      <link>https://arxiv.org/abs/2611.14320</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.14320</guid>
-      <description>External memory enables LLM agents to improve from experience by distilling trajectories of past tasks into concise lessons for new tasks. However, memory can also lead to memory-induced degradation, where an agent fails on tasks it would solve without memory, often because it follows a lesson that is incorrect, or misapplies or misreads a valid one. This is because lessons are inferred from trajectories labeled only with task success or failure, yet are typically provided without the trajectories they came from, leaving the agent no way to check them. To address this, we introduce WikiTrace, an evidence-linked memory system designed to let agents check each lesson against its original trajectory. Specifically, motivated by the finding that a trajectory often still holds the evidence needed to catch an erroneous lesson, WikiTrace stores each lesson as a concise insight linked to a summary of why its trajectory succeeded or failed and to the raw trajectory itself. Then, on a new task, the agent starts from all insights and, whenever one lacks details needed to act, conflicts with another, or comes from a failed task, descends through its links with terminal tools to fill in missing details or correct the insight before acting. We validate WikiTrace on five agentic benchmarks, showing that it consistently outperforms existing memory approaches and a baseline given the same insights alone, while also reducing memory-induced degradation. Our code is available at https://github.com/yukyeongleee/wikitrace
-
-Authors: Yukyeong Lee, Yumin Choi, Jinheon Baek, Sung Ju Hwang
-
-Tasks: Agents
-
-Code: https://github.com/yukyeongleee/wikitrace</description>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SWAM: Scaling World Action Models with Cross-Modal Alignment</title>
-      <link>https://arxiv.org/abs/2611.12870</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.12870</guid>
-      <description>World action models jointly predict video and actions conditioned on language. Existing studies focus primarily on architectures and training mechanisms, typically treating language-video alignment acquired through video pretraining as an established foundation. However, introducing action learning may impair this alignment. Principled guidance on data and supervision design for maintaining language-video alignment during action learning remains limited. To investigate this, we curate a pool of approximately 47,000 hours of general videos, egocentric videos, UMI demonstrations, and robot demonstrations. Building on this, we systematically study how language-video supervision, language-video-action supervision, and the joint use of these two forms affect WAM performance. In particular, we examine how language annotation quality affects pretrained language-video capabilities, and how action supervision from UMI and robot demonstrations extends these capabilities to language-video-action modeling. To better scale the model, we further conduct detailed studies on joint training recipe and model architecture. Under a fixed training budget, mixing egocentric videos and UMI demonstrations improves control generalization. Model architecture affects how effectively these experiences are used, while scaling pretraining under the selected configuration brings further gains. The resulting recipe, post-trained on RoboTwin Clean demonstrations only, achieves success rates of 88.10% and 61.56% under Easy (Clean-to-Clean) and Hard (Clean-to-Random) conditions, respectively. Our model achieves 40.00% SR across three real-world tasks, compared with 23.33% for the strongest baseline, indicating better generalization under unseen conditions. We release the curated data, training code, and model weights.
-
-Authors: Yu Zhou, Xinyuan Xia, Xuankun Yang, Yinghao Yang, Wendi Chen, Bowen Liu, Jianhan Ma, Weicheng Duan, Jun Lv, Cewu Lu, Yanwei Li
-
-Tasks: Egocentric Vision, Robotics, World Models
-
-Code: https://github.com/shaaaaron/SWAM</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WaveGen: Truly End-to-End Waveform Generation via Internal Spectral Trajectory Learning</title>
-      <link>https://arxiv.org/abs/2611.12527</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.12527</guid>
-      <description>This work proposes WaveGen, a fully end-to-end diffusion-based text-to-waveform framework based on Spectral Forcing, which jointly learns an internal spectral trajectory and the target waveform trajectory within a single model, enabling direct end-to-end text-to-waveform generation. Unlike recent TTS pipelines, WaveGen does not rely on separately trained or externally decoded intermediate representations, such as neural audio codecs, Mel-spectrogram vocoders, or VAE-based latent models. In addition, WaveGen performs internal text-speech alignment within a single model, eliminating the need for external alignment modules such as duration predictors. To preserve a truly end-to-end formulation, our framework further avoids dependence on self-supervised representations, such as BERT-based text embeddings and Wav2Vec 2.0-based semantic representations, as well as semantic distillation methods for training optimization. To achieve this, we carefully design Spectral Forcing, a model architecture with disentangled diffusion heads, and a training objective based on a multi-scale spectral v-loss. We further validate the scalability of end-to-end TTS models by scaling the model size from 0.1B to 0.6B parameters. Using a single architecture, open-source data, and one-stage training, without external modules such as duration predictor or REPA, WaveGen demonstrates fully end-to-end waveform generation achieving state-of-the-art performance on the Emilia training dataset. In particular, WaveGen achieves a WER of 1.47 and a SIM of 0.75 on the Seed-en benchmark. Source code and checkpoints are available at https://github.com/sh-lee-prml/WaveGen
-
-Authors: Sang-Hoon Lee, Sang-Hoon Lee, Ha-Yeong Choi, Ha-Yeong Choi
-
-Tasks: Audio Compression, Audio Generation, Embedding models, Text-to-speech
-
-Code: https://github.com/sh-lee-prml/WaveGen</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Video-Coder: Reinforcing Agentic Coding for Video Generation</title>
       <link>https://arxiv.org/abs/2611.09894</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.09894</guid>
@@ -195,19 +223,6 @@ Code: https://github.com/yuyujunjun/JoVox</description>
       <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ZONOS3-Mini</title>
-      <link>https://www.zyphra.com/our-work/zonos3-mini</link>
-      <guid isPermaLink="true">https://www.zyphra.com/our-work/zonos3-mini</guid>
-      <description>We are excited to announce ZONOS3-Mini, a compact zero-shot voice-cloning Text-To-Speech (TTS) model with state-of-the-art performance as well as leading voice control capabilities which can run in real-time on-device.
-
-ZONOS3-Mini is a sparse Mixture of Experts (MoE) model with 100 million active parameters and 800 million total parameters licensed under Apache 2.0. We trained ZONOS3-Mini on 112 NVIDIA H100s in 2.5 days. You can access it on Zyphra Inference served on NVIDIA H200s, on your own GPU, or in your browser on-device.
-
-Tasks: Audio and Speech Editing, Text-to-speech, Voice cloning
-
-Code: https://github.com/zyphra/zonos3-mini</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>ExRL: Sample-Efficient Online Adaptation of Long-Chunk Policies via Execution Length Control</title>
       <link>https://arxiv.org/abs/2611.13482</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.13482</guid>
@@ -229,19 +244,6 @@ Code: https://github.com/Frankluox/ExRL</description>
 Authors: Zhengyu Hu, Zheyuan Xiao, Yike Wang, Hamish Ivison, Haoyu Wang, Yige Yuan, Rulin Shao, Yuetai Li, Niqi Lyu, Yicheng Ding, Shu Yang, Zhichen Zeng, Banghua Zhu, Jiaxin Pei, Kaize Ding, Pradeep Dasigi, Dan Roth, Hannaneh Hajishirzi, Noah A. Smith, Teng Xiao, Radha Poovendran
 
 Code: https://github.com/infrathonx/infrathon</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Click3R: Interactive Stereo 3D Reconstruction with Sparse Correspondence Clicks</title>
-      <link>https://arxiv.org/abs/2611.12875</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.12875</guid>
-      <description>Despite impressive progress, existing feed-forward large 3D reconstruction models produce a single, irrevocable prediction. When these models fail, there is no mechanism to correct their mistakes. To address this limitation, we introduce Click3R, a framework for interactive geometric correction of feed-forward models using sparse human correspondence clicks. Given an image pair and a small set of cross-view point correspondences provided by a user, Click3R injects geometric constraints into the 3D reconstruction networks through a lightweight point correspondence adapter, enabling the model to resolve ambiguities in challenging scenarios such as repetitive textures, symmetric structures, large viewpoint changes, or textureless regions. To evaluate interactive reconstruction, we curate a challenging benchmark specifically designed to expose failure modes of existing feed-forward 3D reconstruction methods. Experiments show that Click3R reduces reconstruction error with as few as a single correspondence click, improving performance on both standard and our curated benchmarks. Our results highlight that sparse human interaction provides an effective and practical mechanism for correcting geometric reconstruction errors.
-
-Authors: Hao Gu, Hao Gu, Jin Yao, Jin Yao, Zezhou Cheng, Zezhou Cheng
-
-Tasks: 3D Reconstruction, 3D understanding, Non-rigid 3D Shape Correspondence
-
-Code: https://github.com/UVA-Computer-Vision-Lab/click3r</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
