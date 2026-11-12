@@ -12,7 +12,7 @@
 	<atom:link href="https://cacm.acm.org/feed/" rel="self" type="application/rss+xml" />
 	<link>https://cacm.acm.org</link>
 	<description></description>
-	<lastBuildDate>Wed, 11 Nov 2026 21:53:48 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 12 Nov 2026 14:57:21 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -28,6 +28,140 @@
 	<height>32</height>
 </image> 
 <site xmlns="com-wordpress:feed-additions:1">212686646</site>	<item>
+		<title>Meta’s Laptop Surveillance Leak Damages Internal Trust</title>
+		<link>https://cacm.acm.org/news/metas-laptop-surveillance-leak-damages-internal-trust/</link>
+					<comments>https://cacm.acm.org/news/metas-laptop-surveillance-leak-damages-internal-trust/#respond</comments>
+		
+		<dc:creator><![CDATA[David Geer]]></dc:creator>
+		<pubDate>Thu, 12 Nov 2026 14:57:21 +0000</pubDate>
+				<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
+		<category><![CDATA[Computing Applications]]></category>
+		<category><![CDATA[Security and Privacy]]></category>
+		<guid isPermaLink="false">https://cacm.acm.org/?p=814171</guid>
+
+					<description><![CDATA[<p>MCI telemetry software logged personal messages, password fields, non-work applications, and sensitive financial activity.</p>]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">One approach to training agentic AI is eroding workplace privacy and trust: developers are deploying desktop tracking tools that record live screen content, mouse movements, and keystrokes. While designed to learn user workflows, the logging captures passwords, login tokens, and private messages. Installing these tools without clear policies or employee consent adds to workplace friction and creates data security risks.</p>
+
+
+
+<p class="wp-block-paragraph">Meta employees discovered the company was logging their corporate laptops to train internal AI models, according to media reports. Launched in April 2026 under Meta’s Model Capability Initiative (MCI), the software recorded desktop activity of laptops across the U.S. A month later, growing internal backlash led more than 1,600 employees to sign a petition protesting the non-consensual surveillance. In a minor concession in June, Meta executives offered employees the ability to pause tracking for up to thirty minutes at a time. However, later that month, internal monitors uncovered a security incident in which unencrypted MCI telemetry streams were written directly into 45,000 internal Apache Hive database tables company-wide, without role-based access controls. The exposed records were accessible in plain text by employees with database query access. The records included performance reviews, raw AI prompts, and employee chat logs. The exposure forced executives to halt the project indefinitely.</p>
+
+
+
+<p class="wp-block-paragraph">Meta confirmed that the 45,000 Hive tables served as the central storage warehouse for raw plain-text behavior logs. Meta’s proprietary MCI agent captured OS-level framebuffer snapshots and keystrokes on macOS and Windows devices, streaming the data through internal telemetry aggregators directly into Apache Hive storage formats like ORC and Parquet. While Meta intended for these dataset feeds to train autonomous workflow agents, engineers failed to implement <a href="https://www.imperva.com/learn/data-security/data-sanitization/">data sanitization</a>, <a href="https://www.tankpkg.dev/skills/@tank/token-redaction">token redaction</a>, or <a href="https://docs.oracle.com/en/engineered-systems/private-cloud-appliance/3.0-latest/concept/concept-tag-access.html">access-control tagging</a> before ingestion. Cross-border communications on monitored U.S. laptops pulled international staff and European Union residents into unencrypted domestic datasets, triggering significant <a href="https://gdpr-info.eu/">GDPR</a> compliance concerns.</p>
+
+
+
+<p class="wp-block-paragraph">Following the leak disclosure, Meta issued a statement: “We have carefully designed this program with privacy safeguards and while we have no indication at this time that any data was improperly accessed by Meta employees, we’re pausing it while we investigate.”</p>
+
+
+
+<p class="wp-block-paragraph">While Meta maintained it had contained exposure internally and that deactivating the background agent across all corporate laptops would take several days, the statement failed to address why they omitted basic data classification standards from the ingestion pipeline in the first place.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>No Employee Consent, No Clear Data Usage Limits</strong></p>
+
+
+
+<p class="wp-block-paragraph">In leaked internal memos and in information shared with the news media, Meta leadership claimed MCI telemetry would strictly serve model training and never feed performance evaluations. Yet the software operated without technical boundaries, logging personal messaging, password fields, non-work applications, and sensitive financial activity.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.linkedin.com/in/davidredekop/">David Redekop</a>, chief executive officer at ADAMnetworks, a cybersecurity company, said there&#8217;s a premium on real-world training data because organizations have already trained and retrained AI iteratively on historical, conventionally available datasets.</p>
+
+
+
+<p class="wp-block-paragraph">As frontier AI labs reach saturation on public Web scrapes and synthetic data, high-density human behavioral telemetry, capturing how experts navigate complex desktop environments, has become a new frontier for agentic AI training data.</p>
+
+
+
+<p class="wp-block-paragraph">Redekop called AI model development a kind of arms race and said that any company with internal, fresh data would be tempted to use it. In addition, corporate devices are company-owned, which would technically suffice as a reason to access without employee consent.</p>
+
+
+
+<p class="wp-block-paragraph">For systems architects, this highlights a critical gap in corporate governance: hardware ownership does not automatically grant the authority to bypass zero-trust data classification policies or to collect application-layer secrets without audit logging.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Raw Keystrokes, Private Messages Sit On Accessible Hive Tables</strong></p>
+
+
+
+<p class="wp-block-paragraph">Available information suggests the collection of raw keystrokes and private messages was not a technical error. Rather, it appears to have been an intentional capability of the Model Capability Initiative (MCI), which had the purpose of capturing desktop activities, including application usage, prompts, messages, and potentially keystrokes, for AI model development, said <a href="https://www.linkedin.com/in/gail-joon-ahn-3a59b411/">Gail-Joon Ahn</a>, a Fellow of both IEEE and ACM and a professor in the School of Computing and Augmented Intelligence at Arizona State University.</p>
+
+
+
+<p class="wp-block-paragraph">In system design, when organizations engineer endpoint agents with full OS-level hook capabilities such as framebuffer snapshots and keylogging, the security posture depends entirely on downstream pipeline controls rather than endpoint collection limits. Said Ahn, “The technical issue appears to be the subsequent exposure of that collected data due to a system misconfiguration. Without access to Meta’s internal incident report, audit logs, or compliance documentation, it is impossible to identify the exact root cause.”</p>
+
+
+
+<p class="wp-block-paragraph">For software engineers, this underscores the necessity of automated CI/CD schema validation and mandatory role-based access control tagging before central data lakes like Apache Hive ingest raw endpoint streams.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Privacy Reviews Approve Content Capture From Non-U.S. Employees</strong></p>
+
+
+
+<p class="wp-block-paragraph">According to Redekop, organizations frequently attempt to exploit jurisdictional boundaries by restricting the installation of tracking software to U.S.-based hardware. But it creates a compliance blind spot in which foreign employees communicate from monitored U.S. laptops, and cross-border data streams take GDPR-protected communications into domestic data lakes that lack strict privacy controls.</p>
+
+
+
+<p class="wp-block-paragraph">From a regulatory standpoint, relying on hardware deployment geography fails under international privacy law. European data protection authorities such as the<a href="https://edpb.europa.eu/"> European Data Protection Board</a> and privacy advocacy groups like <a href="https://noyb.eu/">None Of Your Business</a> emphasize that processing non-U.S. personal data in plain-text domestic data lakes, such as the interactions of U.S. workers with EU staff, violates the GDPR.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Local Data Anonymization Not Applied To Laptops</strong></p>
+
+
+
+<p class="wp-block-paragraph">“Mitigating AI training data risk requires strict validation across the data pipeline,” said <a href="https://www.linkedin.com/in/brian-w-661454169/">Brian Walsh</a>, incident response manager at Varonis and FBI cybercrime expert emeritus. Walsh noted that organizations must evaluate whether endpoint tools support client-side masking, anonymization, or filtering scripts before transmitting screen captures to central servers. “If local sanitization isn’t technically supported at collection, organizations are forced to execute rigorous post-collection review and masking. Without strict validation at either stage, collecting sensitive and irrelevant data becomes an inevitability.”</p>
+
+
+
+<p class="wp-block-paragraph">From an engineering standpoint, applying local regex filters or client-side redaction hooks before network egress is computationally lightweight and remains the primary defense against turning central data lakes into liability surfaces.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Monitoring Employees Affects Workplace Trust</strong></p>
+
+
+
+<p class="wp-block-paragraph">“Deploying covert surveillance tools during a wave of corporate layoffs burns through organizational trust at the exact moment it is most fragile,” said <a href="https://www.linkedin.com/in/erburgess/">Eric R. Burgess</a>, CEO of Credtent, a licensing platform that connects AI companies and content creators. Burgess said profitable tech firms that conduct workforce reductions while installing endpoint tracking software can create insider threats. Companies that treat employees as disposable optimization targets can incentivize frustrated workers to expose internal missteps and leak corporate data, he said.</p>
+
+
+
+<p class="wp-block-paragraph">Meta reportedly conducted sweeping <a href="https://www.reuters.com/investigations/mark-zuckerberg-had-bold-plan-replace-meta-staff-with-ai-heres-how-it-imploded-2026-08-26/">workforce reductions</a> in 2026 while simultaneously rolling out and operating its MCI laptop-tracking software.</p>
+
+
+
+<p class="wp-block-paragraph">The situation highlights the human dimension of insider risk when organizations pair workplace surveillance with workforce reductions: technical security controls can be undermined by eroded employee trust.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Standards To Protect Employee Data Rights</strong></p>
+
+
+
+<p class="wp-block-paragraph">Building and training in-house AI models on employee behavioral telemetry intersects directly with binding legal regulations and international governance standards. In Europe, the <a href="https://artificialintelligenceact.eu/" target="_blank" rel="noopener">EU Artificial Intelligence Act (Regulation 2024/1689)</a> explicitly classifies AI systems deployed for workplace monitoring and employment decision-making as “high-risk,” imposing strict advance-notice requirements on employers. This operates alongside <a href="https://gdpr-info.eu/art-35-gdpr/" target="_blank" rel="noopener">GDPR Article 35</a>, which mandates a formal Data Protection Impact Assessment (DPIA) and strict purpose limitation before an enterprise can repurpose raw employee computer activity into machine learning training pipelines.</p>
+
+
+
+<p class="wp-block-paragraph">In the U.S. and globally, voluntary technical frameworks set the benchmark for enterprise compliance. The <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework (AI RMF 1.0)</a> provides systems architects with actionable guidelines for mapping, measuring, and managing human rights risks during data ingestion. Globally, the <a href="https://cloud.google.com/security/compliance/iso-42001" target="_blank" rel="noopener">ISO/IEC 42001 Standard</a> establishes the baseline for Artificial Intelligence Management Systems, requiring formalized governance for data provenance, transparency, and data-subject rights whenever harvesting internal corporate datasets.</p>
+
+
+
+<p class="wp-block-paragraph"><strong><em>David Geer</em></strong> <em>is a journalist who focuses on issues related to cybersecurity. He writes from Cleveland, OH, USA.</em></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://cacm.acm.org/news/metas-laptop-surveillance-leak-damages-internal-trust/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">814171</post-id>	</item>
+		<item>
 		<title>Quantum is Gaining, but Don’t Throw Away that Supercomputer</title>
 		<link>https://cacm.acm.org/news/quantum-is-gaining-but-dont-throw-away-that-supercomputer/</link>
 					<comments>https://cacm.acm.org/news/quantum-is-gaining-but-dont-throw-away-that-supercomputer/#respond</comments>
@@ -144,11 +278,11 @@
 
 
 
-<p class="wp-block-paragraph">Izhar Madelsy, co-founder and CEO of Quantum Elements, Los Angeles, described quantum as a return to the analog world—a notable departure from the digital side of computing to which the world is accustomed.</p>
+<p class="wp-block-paragraph">Izhar Madalsy, co-founder and CEO of Quantum Elements, Los Angeles, described quantum as a return to the analog world—a notable departure from the digital side of computing to which the world is accustomed.</p>
 
 
 
-<p class="wp-block-paragraph">Quantum computers are analog precisely because the quantum mechanics on which they are based are themselves analog, Madelsy said. “While when you look at quantum devices, which are analog devices, they’re very good at representing complex systems that are rooted in quantum physics,” he said. &#8220;They represent nature using an analog system.”</p>
+<p class="wp-block-paragraph">Quantum computers are analog precisely because the quantum mechanics on which they are based are themselves analog, Madalsy said. “While when you look at quantum devices, which are analog devices, they’re very good at representing complex systems that are rooted in quantum physics,” he said. &#8220;They represent nature using an analog system.”</p>
 
 
 
@@ -1226,124 +1360,5 @@ while y &gt; x+e:
 		
 		
 		<post-id xmlns="com-wordpress:feed-additions:1">813972</post-id>	</item>
-		<item>
-		<title>Who Audits the AI Auditors?</title>
-		<link>https://cacm.acm.org/blogcacm/who-audits-the-ai-auditors/</link>
-					<comments>https://cacm.acm.org/blogcacm/who-audits-the-ai-auditors/#respond</comments>
-		
-		<dc:creator><![CDATA[Srinivas Padmanabhuni]]></dc:creator>
-		<pubDate>Fri, 06 Nov 2026 20:15:33 +0000</pubDate>
-				<category><![CDATA[Architecture and Hardware]]></category>
-		<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
-		<category><![CDATA[Computing Applications]]></category>
-		<category><![CDATA[Data and Information]]></category>
-		<guid isPermaLink="false">https://cacm.acm.org/?p=814017</guid>
-
-					<description><![CDATA[<p>Human judgment is still the strongest tool we have to address ambiguity, accountability, and genuine edge cases.</p>]]></description>
-										<content:encoded><![CDATA[
-<p class="wp-block-paragraph">I work as an AI assurance specialist at AiEnsured in Bengaluru. My job, in plain terms, is testing other people&#8217;s AI. That kind of work used to be optional hygiene. It is steadily becoming an operational requirement: regulators, banks, and large enterprises increasingly want independent verification before a probabilistic system goes anywhere near production.</p>
-
-
-
-<p class="wp-block-paragraph">That is progress. It is also a new risk, and one the industry talks about far less than it should.</p>
-
-
-
-<p class="wp-block-paragraph">The organizations that vouch for other people&#8217;s AI now sit on sensitive models, proprietary data and, increasingly, their own AI tooling. Which raises an obvious question that almost nobody in the room wants to answer out loud: who audits the AI auditors?</p>
-
-
-
-<h3 class="wp-block-heading">A Familiar Pattern, Three Familiar Gaps</h3>
-
-
-
-<p class="wp-block-paragraph">Computing professionals know this pattern from software quality. Nobody accepts a vendor&#8217;s own unit tests as sufficient assurance for a flight-control system. We ask who tested it, against which oracle, with what independence, and what residual risk remains. AI assurance is catching up to that discipline, but unevenly. Three gaps appear again and again in practice.</p>
-
-
-
-<p class="wp-block-paragraph">Independence is assumed, not designed. An internal model-risk team, a consulting slide deck, and an external technical assessor are not interchangeable. Each can be useful. Only some of them can speak freely when the finding is inconvenient. Procurement language still rarely defines what &#8220;independent&#8221; means for AI testing: contractual freedom to deliver unvarnished findings, separation from the teams that built the model, and clear rules for handling residual risk.</p>
-
-
-
-<p class="wp-block-paragraph">Evidence is thinner than policy. Most enterprises now have AI principles, ethics boards, and acceptable-use documents. Far fewer can show repeatable tests with thresholds, named owners, and continuous monitoring. A fairness metric with no owner and no review cadence is theatre. So is a jailbreak demo that never becomes a regression suite. Assurance that cannot be replayed is very hard to audit.</p>
-
-
-
-<p class="wp-block-paragraph">The auditors use AI, too. Test-case generators, summarizers, and triage assistants bring their own failure modes: client context leaking into external models, overconfident summaries of vulnerability logs, silent drift in the helper model. If an assurance firm cannot inventory and govern its own AI use, buyers should treat that as a material risk, not a footnote.</p>
-
-
-
-<h3 class="wp-block-heading">What the Frameworks Do, and Do Not Do</h3>
-
-
-
-<p class="wp-block-paragraph">The regulatory picture is real but partial. The EU AI Act imposes strict independence rules on notified bodies, the third parties that run conformity assessments for certain high-risk systems. Article 31 requires those bodies to be independent of the provider of the system under assessment, of any operator with an economic interest in it, and of the provider&#8217;s competitors. Neither the body, its top management, nor the personnel performing the assessment may be involved in the design, development, marketing, or use of the systems they assess, and consultancy work that could compromise independence of judgment is expressly barred. Impartiality procedures and liability insurance are mandatory. That is a serious answer, on paper.</p>
-
-
-
-<p class="wp-block-paragraph">The catch is coverage. For most high-risk uses listed in Annex III, Article 43 routes providers through the internal-control procedure of Annex VI, which means self-assessment with no notified body involved. Third-party assessment is concentrated in narrower cases, mainly certain biometric systems when harmonized standards are not fully applied. The Act hard-codes independence where external assessment is mandatory, and leaves a large share of high-risk systems to the provider&#8217;s own processes.</p>
-
-
-
-<p class="wp-block-paragraph">NIST&#8217;s AI Risk Management Framework takes the opposite approach: voluntary, process-oriented. Its Measure function recommends involving independent assessors, or internal experts who were not front-line developers, specifically to reduce bias and conflicts of interest. It prescribes no certified auditor class. It treats independent review as a way to strengthen measurement inside an organization&#8217;s own risk process, which is useful, and easy to skip.</p>
-
-
-
-<p class="wp-block-paragraph">The standards community is filling part of the gap. ISO/IEC 42001:2023, described by ISO as the world&#8217;s first AI management system standard, forces evidence of accountability rather than one-off technical claims: who owns AI risk, how risks are assessed and treated, how changes are controlled, how incidents are learned from. India has adopted it nationally through the Bureau of Indian Standards. Just as relevant to my title question, ISO/IEC 42006:2025 sets requirements for the bodies that audit and certify organizations against ISO/IEC 42001, supplementing the general auditing rules of ISO/IEC 17021-1 with AI-specific expectations on competence, impartiality, and consistency. It defines what the certifier must demonstrate before its stamp means anything. ISO/IEC 23894 adds guidance on AI risk management across the lifecycle. None of this is sufficient on its own, but the shape of an answer is emerging.</p>
-
-
-
-<p class="wp-block-paragraph">Professional and standards bodies have moved in the same direction. IEEE&#8217;s 7000-series standards address ethical concerns, transparency, and algorithmic bias in system design. ACM&#8217;s Code of Ethics asks computing professionals for comprehensive and thorough evaluation of systems and their impacts, and ACM policy statements call for auditability and independent scrutiny of algorithmic systems. Yet none of these frameworks, on its own or together, establishes one universal regime for overseeing the auditors of everyday AI systems.</p>
-
-
-
-<h3 class="wp-block-heading">The Human Bottleneck</h3>
-
-
-
-<p class="wp-block-paragraph">Human judgment is still the strongest tool we have to address ambiguity, accountability, and genuine edge cases. People weigh context that is not in the training data, spot the statistically plausible output that is still unacceptable, and can stand behind a decision when a regulator asks who signed off. An AI system cannot be held responsible in the ordinary sense. Someone has to be.</p>
-
-
-
-<p class="wp-block-paragraph">But judgment does not scale. Ask a person to approve every output or every action, and fatigue and automation bias arrive quickly. People over-trust confident recommendations, click through repetitive prompts, and miss the rare serious error precisely when the system is mostly right. In agentic settings the problem is sharper: an agent can initiate hundreds of actions, and per-action human approval becomes rubber-stamping or simple operational impossibility. Scaling judgment is a design problem, not a staffing slogan. It needs risk-tiered oversight, human-on-the-loop monitoring with selective intervention, clear escalation thresholds, and measurement of the review process itself.</p>
-
-
-
-<h3 class="wp-block-heading">What the Community Should Demand</h3>
-
-
-
-<p class="wp-block-paragraph">So what should we, as computing professionals, actually ask for?</p>
-
-
-
-<p class="wp-block-paragraph">Ask assurance providers for the same class of proof we demand of AI vendors. Not a product pitch: evidence. The scope of the assessment, the methods and benchmarks used, the known limitations, the data-handling controls, and how the firm governs AI inside its own delivery. Prefer providers who can show a managed system for AI risk, not only a toolkit. Treat standards such as ISO/IEC 42001, and the competence and impartiality rules of ISO/IEC 42006 for the certifiers themselves, as necessary but not sufficient. They organize accountability. They do not replace technical tests for bias, robustness, security, or drift.</p>
-
-
-
-<p class="wp-block-paragraph">For researchers and tool builders, the opportunity is to make assurance itself measurable: shared benchmarks for LLM application testing, clearer reporting formats for fairness and robustness findings, and evaluation methods that survive model updates. For educators, AI quality belongs next to software engineering and security in the curriculum. The next generation of engineers will ship probabilistic systems. They also will be asked to vouch for them.</p>
-
-
-
-<p class="wp-block-paragraph">I am not arguing that every tester must hold the same certificate, or that management-system audits replace hands-on evaluation. I am arguing for symmetry. As AI assurance moves from optional hygiene to regulatory and contractual necessity, the people who test AI should expect to be tested on how they run their own house.</p>
-
-
-
-<p class="wp-block-paragraph">Trust in AI will not come from louder assurances. It will come from evidence that travels, including evidence about the auditors.</p>
-
-
-
-<figure class="wp-block-image"><img loading="lazy" decoding="async" width="350" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/10/Srinivas-Padmanabhuni.103026.BLOG-350.jpg" alt="Srinivas Padmanabhuni" class="wp-image-814624" srcset="https://cacm.acm.org/wp-content/uploads/2026/10/Srinivas-Padmanabhuni.103026.BLOG-350.jpg 350w, https://cacm.acm.org/wp-content/uploads/2026/10/Srinivas-Padmanabhuni.103026.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/10/Srinivas-Padmanabhuni.103026.BLOG-350.jpg?resize=300,300 300w" sizes="auto, (max-width: 350px) 100vw, 350px" /></figure>
-
-
-
-<p class="wp-block-paragraph"><em><strong>Srinivas</strong> <strong>Padmanabhuni</strong> is CTO and co-founder of testAIng.com/AiEnsured, where he works as an AI assurance specialist. He is a member of an expert group contributing to draft AI regulation in India, a member of a TMMi AI testing expert committee, and co-author of one of the first AI testing certification syllabi, which fed into ISTQB&#8217;s Certified Tester AI Testing. He works on AI quality, software engineering, and responsible AI.</em></p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://cacm.acm.org/blogcacm/who-audits-the-ai-auditors/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-		<post-id xmlns="com-wordpress:feed-additions:1">814017</post-id>	</item>
 	</channel>
 </rss>
