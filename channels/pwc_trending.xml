@@ -4,44 +4,18 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 13 Nov 2026 08:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 09:00:00 GMT</lastBuildDate>
     <item>
-      <title>Actor, Judge, or Teacher? Understanding Decision Models in Long-Horizon Agents</title>
-      <link>https://arxiv.org/abs/2611.17167</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.17167</guid>
-      <description>Decision models answer a question with a typed output, such as a choice among options with a probability for each, so one model can choose an agent's actions, evaluate actions already taken, or score every action to teach a policy with reinforcement learning. Prior work has studied them mainly as actors, judging their usefulness by how well they act. We ask whether a decision model that acts poorly can still teach well. We compare three decision models and three general LLMs as actors and judges on ALFWorld, and use JEV as a teacher on ALFWorld and WebShop. As actors, all six models are pulled away from a subgoal that must come first by an easier one. As judges that see the whole trajectory, the same models credit the steps toward that subgoal, and asking whether each action helped, rather than whether the task will succeed, separates useful from useless actions. As a teacher, JEV raises a Qwen2.5-1.5B policy over GRPO from 72.8% to 82.9% success on ALFWorld and from 56.8% to 71.4% on WebShop. These results suggest that a poor actor can still teach well, because judging an action after the episode ends reveals the consequences that acting must anticipate. Code is available at https://github.com/ZJU-REAL/decision-agents.
+      <title>TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models</title>
+      <link>https://arxiv.org/abs/2611.17331</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17331</guid>
+      <description>Decoder-only Large View Synthesis Models (LVSMs) with KV-cache have recently achieved state-of-the-art quality by regressing novel views from neural networks without reconstructing 3D geometry, while Test-Time Training (TTT) layers save computation but sacrifice quality. We propose Test-Time Baking (TTB), a strategy that learns to bake global scene information from cross-view attention into a lightweight MLP, enabling fast and high-fidelity novel-view decoding. The first key is to repurpose the fast-weight MLP of TTT to learn the cross-view attention mapping explicitly from its input-output pairs, rather than replacing attention entirely, achieving the same rendering efficiency as TTT while delivering substantially higher quality. The second key addresses a modality misalignment between context prefilling and novel-view rendering: we disentangle context tokens into camera-only context rendering tokens to serve as TTB input, and context ground-truth tokens with image content to serve as the TTB mapping target, ensuring the baked MLPs are relieved of the modality generalization challenge between context and novel-view processing. Our method achieves up to **23x** rendering speedup with quality on par with the state-of-the-art across several benchmarks. Project page: https://test-time-baking.github.io
 
-Authors: Haochen Liu, Qianhao Zhu, Zixuan Wang, Dingming Li, Tongbo Chen, Peng Qiu, Yingqi Qu, Weiming Lu, Jun Xiao, Yongliang Shen
+Authors: Chin-Yang Lin, Ryo Hachiuma, Jaesung Choe, Min-Hung Chen, Yu-Chiang Frank Wang, Yen-Yu Lin, Wei-Chen Chiu, Yu-Lun Liu, Cheng Sun
 
-Tasks: Agents, Decision Making, Long-Horizon Agents, Reinforcement Learning
+Tasks: Novel View Synthesis, Test-time Adaptation
 
-Code: https://github.com/ZJU-REAL/decision-agents</description>
-      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>World In-Context Learning for Agentic Robot Manipulation</title>
-      <link>https://arxiv.org/abs/2611.12885</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.12885</guid>
-      <description>Trained action policies write manipulation skill into network weights, tying what is learned to the distribution it is learned from. In-context learning (ICL) avoids this coupling but has not matched trained policies, because a demonstration recorded in another scene carries no feedback from the world the robot currently faces. We observe that what an agent learns in context is semantic, recording task steps and object roles rather than visual appearance, so experience gathered in one world transfers to another. Based on this insight, we propose World In-Context Learning (WICL), a paradigm in which a frozen model starts from a demonstration, rehearses the task in a world such as a simulator, and writes the feedback into its context rather than its weights. We build RoboScript, a modular infrastructure that implements WICL for agentic manipulation. From a single demonstration, RoboScript learns each task through rehearsal in simulation, freezes the learned knowledge as a Task Memory, and deploys the frozen memory on new scenes with data isolation that ensures every deployment input is available on a real robot. On all 50 tasks of RoboTwin 2.0, RoboScript reaches 83.4% mean success across clean and randomized settings with one demonstration per task and no gradient updates, exceeding the strongest trained action policy by over 20 points. The method generalizes across visual distributions, improves through reflection, scales with the foundation model, and transfers to a physical dual-arm robot through cross-embodiment memory adaptation. With a world in the loop, a robot can learn a manipulation task in its context as well as it learns one in its weights. All code is available at https://github.com/ArcheOne-AI/RoboScript
-
-Authors: Heng Fang, ZeHui Guo, Yuehan Zhang, Mingyang Du, Dingkang Liang, Xiang Bai
-
-Tasks: Robotics
-
-Code: https://github.com/ArcheOne-AI/RoboScript</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>PhysLoop: Harnessing LLMs' Physics Awareness for Self-Improving Video Generation Models</title>
-      <link>https://arxiv.org/abs/2611.16748</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.16748</guid>
-      <description>Video generation models produce visually realistic videos but still struggle with physical dynamics and causal consistency. Learning from generated videos requires fine-grained physical supervision, yet reliable quality judgments, correction pairs, and controlled variations are difficult to obtain. Large language models (LLMs) possess physical knowledge, but struggle to reliably guide video generation models in producing their training videos. We present PhysLoop, a unified harness designed to support physically grounded self-improvement in video generation models. The harness guides and constrains LLMs throughout video generation, selection, and correction, distilling their physical knowledge into physically consistent videos. The framework supports controllable training-data construction and inference-time video repair. By identifying and correcting failures, PhysLoop marks a key milestone toward recursive self-improvement (RSI) in video generation models with limited human intervention. We release 100K videos spanning diverse, realistic indoor and outdoor scenes, along with generation tools and two evaluation datasets: PhysLoop-Gen and PhysLoop-Repair. We evaluate controllable generation and localized repair on these datasets, respectively, and assess physical behavior on the external Physics-IQ Verified benchmark.
-
-Authors: Yuxuan Chen, Xiaojie Li, Hao Chen, Juncheng Ma, Kewei Zhang, Zhongjing Du, Guoqiang Wei, Fangfang Wang, Zhen Dong, Zhiyang Dou, Liming Zhao, Yan Zeng, jianwei zhang, Daquan Zhou
-
-Tasks: Video Editing, Video generation
-
-Code: https://github.com/DAGroup-PKU/PhysLoop</description>
+Code: https://github.com/NVlabs/DVSM</description>
       <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -58,6 +32,32 @@ Code: https://github.com/Robbyant/lingbot-touch</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>SO-Arena: Benchmarking the Capability Spectrum and Reliability of System One Models</title>
+      <link>https://arxiv.org/abs/2611.15777</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.15777</guid>
+      <description>System One models promise fast, general-purpose decision-making without lengthy token generation. However, understanding their capability spectrum and decision reliability requires more than aggregate performance on current benchmarks. Existing evaluations often provide limited insight into the breadth of model capabilities and the reliability of their decisions. We introduce SO-Arena, a benchmark characterizing the capability spectrum and decision reliability of System One models across 11 domains and five capability families. For the capability spectrum, SO-Arena offers evidence-grounded evaluation through reliable sources and manual verification of reference labels against model-visible inputs; fine-grained capability assessment through domain-specific difficulty criteria; and realistic interactive evaluation, where models iteratively execute actions in sandboxes. Reasoning-intensive tasks further enable system one-two comparison. Beyond accuracy, SO-Arena assesses decision reliability through two complementary measures: decision stability under controlled option-set changes and missing-answer recognition when no valid option is available. Evaluations across 21 models reveal that the benefits of scaling and additional reasoning vary substantially across domains. More importantly, strong overall performance does not necessarily imply reliable decision-making: the best-performing System One model ranks only seventh in reliability. Together, these findings highlight the need to characterize capability spectrum and decision reliability as complementary dimensions, providing a systematic view of the strengths and limitations of System One models.
+
+Authors: Lichen Li, Ziping Dong, Sicheng Feng, Qi Li, Xinchao Wang
+
+Tasks: Decision Making
+
+Code: https://github.com/holdrain/SO-Arena</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>G-STAR: Group-Scaled Token Capacity for Deeply Compressed Autoregressive Generation</title>
+      <link>https://arxiv.org/abs/2611.13004</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.13004</guid>
+      <description>Discrete autoregressive models offer a scalable framework for image generation. However, they face a fundamental trade-off: long token sequences preserve representation quality but slow generation, while aggressive spatial compression reduces representation capacity. Based on product quantization, we show that, under a fixed nominal information budget, group size should scale quadratically with the per-axis spatial compression factor. Building on this principle, we propose GSTAR, a spatial--group co-scaling framework that enables \(32\times\) and even effective \(64\times\) compression while preserving strong reconstruction, understanding, and generation performance. Since larger groups introduce intra-group dependencies that must be modeled efficiently, we analyze their impact on inference latency and generation quality and introduce a semi-autoregressive decoder that combines parallel feature computation with lightweight causal modeling. With these designs, our highly compressed models perform competitively with leading models across five representative text-to-image benchmarks (GenEval, DPG-Bench, PRISM, LongText-Bench, and Qwen-Image-Bench). At \(1024\times1024\) resolution, our model delivers a \(20\times\) speedup over prior discrete autoregressive models, generating each image in 2.5 seconds on a single NVIDIA H200. Together, these results show that highly compressed discrete representations can enable high-quality autoregressive generation at low latency.
+
+Authors: Xu Huang, Ye Huang, Xiaotong Li, Zhengrong Yue, Jialv Zou, Minhao Jing, Haodong Li, Wenhao Yan, Yaxin Luo, Duomin Wang, Daquan Zhou
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/DAGroup-PKU/G-STAR</description>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>MiniMax H3-Image: Bringing 4K Image Generation into the 10-Second Era</title>
       <link>https://www.minimax.io/blog/minimax-h3-image</link>
       <guid isPermaLink="true">https://www.minimax.io/blog/minimax-h3-image</guid>
@@ -69,16 +69,105 @@ Code: https://github.com/minimax-ai/minimax-h3-image</description>
       <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SO-Arena: Benchmarking the Capability Spectrum and Reliability of System One Models</title>
-      <link>https://arxiv.org/abs/2611.15777</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.15777</guid>
-      <description>System One models promise fast, general-purpose decision-making without lengthy token generation. However, understanding their capability spectrum and decision reliability requires more than aggregate performance on current benchmarks. Existing evaluations often provide limited insight into the breadth of model capabilities and the reliability of their decisions. We introduce SO-Arena, a benchmark characterizing the capability spectrum and decision reliability of System One models across 11 domains and five capability families. For the capability spectrum, SO-Arena offers evidence-grounded evaluation through reliable sources and manual verification of reference labels against model-visible inputs; fine-grained capability assessment through domain-specific difficulty criteria; and realistic interactive evaluation, where models iteratively execute actions in sandboxes. Reasoning-intensive tasks further enable system one-two comparison. Beyond accuracy, SO-Arena assesses decision reliability through two complementary measures: decision stability under controlled option-set changes and missing-answer recognition when no valid option is available. Evaluations across 21 models reveal that the benefits of scaling and additional reasoning vary substantially across domains. More importantly, strong overall performance does not necessarily imply reliable decision-making: the best-performing System One model ranks only seventh in reliability. Together, these findings highlight the need to characterize capability spectrum and decision reliability as complementary dimensions, providing a systematic view of the strengths and limitations of System One models.
+      <title>Ropedia Xperience 2: A Gold Standard for Scaling Physical AI Environments and Behaviors</title>
+      <link>https://arxiv.org/abs/2611.17060</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17060</guid>
+      <description>Large foundation models such as GPT-6 Astra and Claude Fable 5.1 have recently been shown to control robots directly from visual observations. They nevertheless remain brittle on long-horizon, contact-rich tasks in real-world environments. Further progress depends on two complementary resources: demonstrations of human behavior that supervise how tasks are performed, and interactive environments in which policies can be rolled out, evaluated, and improved in closed loop. Language models have advanced along well-characterized scaling laws; the corresponding question for physical AI is how capability scales with environments and behaviors, which first requires identifying which data to scale and how to produce and reuse such data continuously. To address this question, we introduce Ropedia Xperience 2, comprising 1,589 released metric-scale 3D scans and a collection of 4,230 egocentric recordings of 74 tasks (131 hours). We further show that each capture can be repurposed for robot learning: scenes are converted into physically interactive simulation environments, human motion is retargeted to whole-body robot trajectories, and additional robot behaviors are obtained through virtual teleoperation and automated long-horizon trajectory generation. We propose this joint capture of environments and behaviors as a gold standard for physical AI data collection, laying a data foundation for establishing scaling laws over environments and behaviors.
 
-Authors: Lichen Li, Ziping Dong, Sicheng Feng, Qi Li, Xinchao Wang
+Authors: Hao Li, Fangzhou Hong, Zhaoxi Chen, Hui En Pang, Kairui Hu, Mingze Sun, Runmao Yao, Xinhao Ji, Xiyuan Zheng, Xuanli Chen, Yalun Dai, Yap Kim Hui, Dingwen Zhang, Yuanyuan Gao, Ziang Cao, Cheng Huang Yean, Jackson Peng, Rui Duan, Yaobo Liu, Zetong Wang, Ziwei Liu
 
-Tasks: Decision Making
+Tasks: 3D object detection, 3D Reconstruction, Depth estimation, Robotics
 
-Code: https://github.com/holdrain/SO-Arena</description>
+Code: https://github.com/Ropedia/Ropedia-Xperience-2</description>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Actor, Judge, or Teacher? Understanding Decision Models in Long-Horizon Agents</title>
+      <link>https://arxiv.org/abs/2611.17167</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17167</guid>
+      <description>Decision models answer a question with a typed output, such as a choice among options with a probability for each, so one model can choose an agent's actions, evaluate actions already taken, or score every action to teach a policy with reinforcement learning. Prior work has studied them mainly as actors, judging their usefulness by how well they act. We ask whether a decision model that acts poorly can still teach well. We compare three decision models and three general LLMs as actors and judges on ALFWorld, and use JEV as a teacher on ALFWorld and WebShop. As actors, all six models are pulled away from a subgoal that must come first by an easier one. As judges that see the whole trajectory, the same models credit the steps toward that subgoal, and asking whether each action helped, rather than whether the task will succeed, separates useful from useless actions. As a teacher, JEV raises a Qwen2.5-1.5B policy over GRPO from 72.8% to 82.9% success on ALFWorld and from 56.8% to 71.4% on WebShop. These results suggest that a poor actor can still teach well, because judging an action after the episode ends reveals the consequences that acting must anticipate. Code is available at https://github.com/ZJU-REAL/decision-agents.
+
+Authors: Haochen Liu, Qianhao Zhu, Zixuan Wang, Dingming Li, Tongbo Chen, Peng Qiu, Yingqi Qu, Weiming Lu, Jun Xiao, Yongliang Shen
+
+Tasks: Agents, Decision Making, Long-Horizon Agents, Reinforcement Learning
+
+Code: https://github.com/ZJU-REAL/decision-agents</description>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Surprising Effectiveness of Deleting Weights in LLM Post-Training</title>
+      <link>https://arxiv.org/abs/2611.10866</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.10866</guid>
+      <description>How little of a pretrained large language model (LLM) has to change for it to acquire new capabilities? We find that zeroing fewer than 0.05% of its weights, with no other modification, matches full fine-tuning (FFT) at scale across three LLM post-training regimes: reinforcement learning with verifiable rewards, supervised fine-tuning, and on-policy distillation. Our method, Deletion Tuning, learns a binary mask over the gate projection of transformer blocks. Two practical advantages follow: the trained mask is hundreds to thousands of times smaller than the corresponding FFT checkpoint, and Deletion Tuning forgets far less, which addresses a central challenge in continual learning. Under reinforcement learning, its prior-task accuracy stays near the base level while FFT, LoRA, and random sparse fine-tuning lose up to 5.4 points. To understand why masking alone suffices, we analyze the geometry of the learned weight changes under reinforcement learning using stable rank, spectrum drift, and principal-weight overlap. Compared with LoRA and random sparse fine-tuning, Deletion Tuning is closest to FFT across the three measures.
+
+Authors: Jack Lu, Zhenbang Yang, Mike Lasby, Tejas Pote, Yani Ioannou, Mengye Ren
+
+Tasks: Continual Learning, Reinforcement Learning
+
+Code: https://github.com/agentic-learning-ai-lab/deleting-weights</description>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PhysLoop: Harnessing LLMs' Physics Awareness for Self-Improving Video Generation Models</title>
+      <link>https://arxiv.org/abs/2611.16748</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.16748</guid>
+      <description>Video generation models produce visually realistic videos but still struggle with physical dynamics and causal consistency. Learning from generated videos requires fine-grained physical supervision, yet reliable quality judgments, correction pairs, and controlled variations are difficult to obtain. Large language models (LLMs) possess physical knowledge, but struggle to reliably guide video generation models in producing their training videos. We present PhysLoop, a unified harness designed to support physically grounded self-improvement in video generation models. The harness guides and constrains LLMs throughout video generation, selection, and correction, distilling their physical knowledge into physically consistent videos. The framework supports controllable training-data construction and inference-time video repair. By identifying and correcting failures, PhysLoop marks a key milestone toward recursive self-improvement (RSI) in video generation models with limited human intervention. We release 100K videos spanning diverse, realistic indoor and outdoor scenes, along with generation tools and two evaluation datasets: PhysLoop-Gen and PhysLoop-Repair. We evaluate controllable generation and localized repair on these datasets, respectively, and assess physical behavior on the external Physics-IQ Verified benchmark.
+
+Authors: Yuxuan Chen, Xiaojie Li, Hao Chen, Juncheng Ma, Kewei Zhang, Zhongjing Du, Guoqiang Wei, Fangfang Wang, Zhen Dong, Zhiyang Dou, Liming Zhao, Yan Zeng, jianwei zhang, Daquan Zhou
+
+Tasks: Video Editing, Video generation
+
+Code: https://github.com/DAGroup-PKU/PhysLoop</description>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>World In-Context Learning for Agentic Robot Manipulation</title>
+      <link>https://arxiv.org/abs/2611.12885</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.12885</guid>
+      <description>Trained action policies write manipulation skill into network weights, tying what is learned to the distribution it is learned from. In-context learning (ICL) avoids this coupling but has not matched trained policies, because a demonstration recorded in another scene carries no feedback from the world the robot currently faces. We observe that what an agent learns in context is semantic, recording task steps and object roles rather than visual appearance, so experience gathered in one world transfers to another. Based on this insight, we propose World In-Context Learning (WICL), a paradigm in which a frozen model starts from a demonstration, rehearses the task in a world such as a simulator, and writes the feedback into its context rather than its weights. We build RoboScript, a modular infrastructure that implements WICL for agentic manipulation. From a single demonstration, RoboScript learns each task through rehearsal in simulation, freezes the learned knowledge as a Task Memory, and deploys the frozen memory on new scenes with data isolation that ensures every deployment input is available on a real robot. On all 50 tasks of RoboTwin 2.0, RoboScript reaches 83.4% mean success across clean and randomized settings with one demonstration per task and no gradient updates, exceeding the strongest trained action policy by over 20 points. The method generalizes across visual distributions, improves through reflection, scales with the foundation model, and transfers to a physical dual-arm robot through cross-embodiment memory adaptation. With a world in the loop, a robot can learn a manipulation task in its context as well as it learns one in its weights. All code is available at https://github.com/ArcheOne-AI/RoboScript
+
+Authors: Heng Fang, ZeHui Guo, Yuehan Zhang, Mingyang Du, Dingkang Liang, Xiang Bai
+
+Tasks: Robotics
+
+Code: https://github.com/ArcheOne-AI/RoboScript</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents</title>
+      <link>https://arxiv.org/abs/2611.14320</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.14320</guid>
+      <description>External memory enables LLM agents to improve from experience by distilling trajectories of past tasks into concise lessons for new tasks. However, memory can also lead to memory-induced degradation, where an agent fails on tasks it would solve without memory, often because it follows a lesson that is incorrect, or misapplies or misreads a valid one. This is because lessons are inferred from trajectories labeled only with task success or failure, yet are typically provided without the trajectories they came from, leaving the agent no way to check them. To address this, we introduce WikiTrace, an evidence-linked memory system designed to let agents check each lesson against its original trajectory. Specifically, motivated by the finding that a trajectory often still holds the evidence needed to catch an erroneous lesson, WikiTrace stores each lesson as a concise insight linked to a summary of why its trajectory succeeded or failed and to the raw trajectory itself. Then, on a new task, the agent starts from all insights and, whenever one lacks details needed to act, conflicts with another, or comes from a failed task, descends through its links with terminal tools to fill in missing details or correct the insight before acting. We validate WikiTrace on five agentic benchmarks, showing that it consistently outperforms existing memory approaches and a baseline given the same insights alone, while also reducing memory-induced degradation. Our code is available at https://github.com/yukyeongleee/wikitrace
+
+Authors: Yukyeong Lee, Yumin Choi, Jinheon Baek, Sung Ju Hwang
+
+Tasks: Agents
+
+Code: https://github.com/yukyeongleee/wikitrace</description>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ZONOS3-Mini</title>
+      <link>https://www.zyphra.com/our-work/zonos3-mini</link>
+      <guid isPermaLink="true">https://www.zyphra.com/our-work/zonos3-mini</guid>
+      <description>We are excited to announce ZONOS3-Mini, a compact zero-shot voice-cloning Text-To-Speech (TTS) model with state-of-the-art performance as well as leading voice control capabilities which can run in real-time on-device.
+
+ZONOS3-Mini is a sparse Mixture of Experts (MoE) model with 100 million active parameters and 800 million total parameters licensed under Apache 2.0. We trained ZONOS3-Mini on 112 NVIDIA H100s in 2.5 days. You can access it on Zyphra Inference served on NVIDIA H200s, on your own GPU, or in your browser on-device.
+
+Tasks: Audio and Speech Editing, Text-to-speech, Voice cloning
+
+Code: https://github.com/zyphra/zonos3-mini</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Praxis-1: From Video Pretraining to Robot Control | Runway Research</title>
+      <link>https://runway.com/research/praxis-1-video-pretraining-to-robot-control</link>
+      <guid isPermaLink="true">https://runway.com/research/praxis-1-video-pretraining-to-robot-control</guid>
+      <description>Robotics deployments keep running into the same problem: real-world robot data is scarce, and collecting enough of it to train a generalist policy is expensive. Some labs respond with more teleoperation, others with more egocentric footage. We think the most scalable source is general video, the everyday footage people already record. A model trained to predict that video learns how objects behave, how hands move and what a task looks like partway through. A robot can build on that knowledge. With Praxis-1, we turn a 27B-parameter video foundation model into an open weight world model that predicts the future in short chunks. A small action expert reads the video model’s internal state as it imagines what comes next. Each time the robot acts, Praxis-1 predicts both what the scene will look like and the motion that will get it there. Praxis-1 fine-tuned on DROID is the top world action model and the top open-source robot foundation model on the RoboLab-120 leaderboard. On a real Franka arm it achieves a competitive success rate against the previous state-of-the-art world action model.
+
+Tasks: Robotics, World Models
+
+Code: https://github.com/runwayml/praxis-1-oss</description>
       <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -95,19 +184,6 @@ Code: https://github.com/mit-han-lab/EvolvingInfra</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>The Surprising Effectiveness of Deleting Weights in LLM Post-Training</title>
-      <link>https://arxiv.org/abs/2611.10866</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.10866</guid>
-      <description>How little of a pretrained large language model (LLM) has to change for it to acquire new capabilities? We find that zeroing fewer than 0.05% of its weights, with no other modification, matches full fine-tuning (FFT) at scale across three LLM post-training regimes: reinforcement learning with verifiable rewards, supervised fine-tuning, and on-policy distillation. Our method, Deletion Tuning, learns a binary mask over the gate projection of transformer blocks. Two practical advantages follow: the trained mask is hundreds to thousands of times smaller than the corresponding FFT checkpoint, and Deletion Tuning forgets far less, which addresses a central challenge in continual learning. Under reinforcement learning, its prior-task accuracy stays near the base level while FFT, LoRA, and random sparse fine-tuning lose up to 5.4 points. To understand why masking alone suffices, we analyze the geometry of the learned weight changes under reinforcement learning using stable rank, spectrum drift, and principal-weight overlap. Compared with LoRA and random sparse fine-tuning, Deletion Tuning is closest to FFT across the three measures.
-
-Authors: Jack Lu, Zhenbang Yang, Mike Lasby, Tejas Pote, Yani Ioannou, Mengye Ren
-
-Tasks: Continual Learning, Reinforcement Learning
-
-Code: https://github.com/agentic-learning-ai-lab/deleting-weights</description>
-      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>dNaViT: Discrete Codes are General-Purpose Visual Representations</title>
       <link>https://arxiv.org/abs/2611.12426</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.12426</guid>
@@ -121,19 +197,6 @@ Code: https://github.com/meituan-longcat/LongCat-Next</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ZONOS3-Mini</title>
-      <link>https://www.zyphra.com/our-work/zonos3-mini</link>
-      <guid isPermaLink="true">https://www.zyphra.com/our-work/zonos3-mini</guid>
-      <description>We are excited to announce ZONOS3-Mini, a compact zero-shot voice-cloning Text-To-Speech (TTS) model with state-of-the-art performance as well as leading voice control capabilities which can run in real-time on-device.
-
-ZONOS3-Mini is a sparse Mixture of Experts (MoE) model with 100 million active parameters and 800 million total parameters licensed under Apache 2.0. We trained ZONOS3-Mini on 112 NVIDIA H100s in 2.5 days. You can access it on Zyphra Inference served on NVIDIA H200s, on your own GPU, or in your browser on-device.
-
-Tasks: Audio and Speech Editing, Text-to-speech, Voice cloning
-
-Code: https://github.com/zyphra/zonos3-mini</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>InfraRSI: Harnessing Recursive Self-Improvement for Training Infrastructure</title>
       <link>https://arxiv.org/abs/2611.11558</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.11558</guid>
@@ -144,19 +207,6 @@ Authors: InfraRSI Team, Yuchuan Tian, Haocheng Mei, Ye Yuan, Chao Xu, Boxun Li, 
 Tasks: Coding Agents, Harness Engineering
 
 Code: https://github.com/tokenrhythm/infrarsi</description>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>G-STAR: Group-Scaled Token Capacity for Deeply Compressed Autoregressive Generation</title>
-      <link>https://arxiv.org/abs/2611.13004</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.13004</guid>
-      <description>Discrete autoregressive models offer a scalable framework for image generation. However, they face a fundamental trade-off: long token sequences preserve representation quality but slow generation, while aggressive spatial compression reduces representation capacity. Based on product quantization, we show that, under a fixed nominal information budget, group size should scale quadratically with the per-axis spatial compression factor. Building on this principle, we propose GSTAR, a spatial--group co-scaling framework that enables \(32\times\) and even effective \(64\times\) compression while preserving strong reconstruction, understanding, and generation performance. Since larger groups introduce intra-group dependencies that must be modeled efficiently, we analyze their impact on inference latency and generation quality and introduce a semi-autoregressive decoder that combines parallel feature computation with lightweight causal modeling. With these designs, our highly compressed models perform competitively with leading models across five representative text-to-image benchmarks (GenEval, DPG-Bench, PRISM, LongText-Bench, and Qwen-Image-Bench). At \(1024\times1024\) resolution, our model delivers a \(20\times\) speedup over prior discrete autoregressive models, generating each image in 2.5 seconds on a single NVIDIA H200. Together, these results show that highly compressed discrete representations can enable high-quality autoregressive generation at low latency.
-
-Authors: Xu Huang, Ye Huang, Xiaotong Li, Zhengrong Yue, Jialv Zou, Minhao Jing, Haodong Li, Wenhao Yan, Yaxin Luo, Duomin Wang, Daquan Zhou
-
-Tasks: Image generation, Text-to-Image Generation
-
-Code: https://github.com/DAGroup-PKU/G-STAR</description>
       <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -186,43 +236,6 @@ Code: https://github.com/huawei-csl/MACaQ</description>
       <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Praxis-1: From Video Pretraining to Robot Control | Runway Research</title>
-      <link>https://runway.com/research/praxis-1-video-pretraining-to-robot-control</link>
-      <guid isPermaLink="true">https://runway.com/research/praxis-1-video-pretraining-to-robot-control</guid>
-      <description>Robotics deployments keep running into the same problem: real-world robot data is scarce, and collecting enough of it to train a generalist policy is expensive. Some labs respond with more teleoperation, others with more egocentric footage. We think the most scalable source is general video, the everyday footage people already record. A model trained to predict that video learns how objects behave, how hands move and what a task looks like partway through. A robot can build on that knowledge. With Praxis-1, we turn a 27B-parameter video foundation model into an open weight world model that predicts the future in short chunks. A small action expert reads the video model’s internal state as it imagines what comes next. Each time the robot acts, Praxis-1 predicts both what the scene will look like and the motion that will get it there. Praxis-1 fine-tuned on DROID is the top world action model and the top open-source robot foundation model on the RoboLab-120 leaderboard. On a real Franka arm it achieves a competitive success rate against the previous state-of-the-art world action model.
-
-Tasks: Robotics, World Models
-
-Code: https://github.com/runwayml/praxis-1-oss</description>
-      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents</title>
-      <link>https://arxiv.org/abs/2611.14320</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.14320</guid>
-      <description>External memory enables LLM agents to improve from experience by distilling trajectories of past tasks into concise lessons for new tasks. However, memory can also lead to memory-induced degradation, where an agent fails on tasks it would solve without memory, often because it follows a lesson that is incorrect, or misapplies or misreads a valid one. This is because lessons are inferred from trajectories labeled only with task success or failure, yet are typically provided without the trajectories they came from, leaving the agent no way to check them. To address this, we introduce WikiTrace, an evidence-linked memory system designed to let agents check each lesson against its original trajectory. Specifically, motivated by the finding that a trajectory often still holds the evidence needed to catch an erroneous lesson, WikiTrace stores each lesson as a concise insight linked to a summary of why its trajectory succeeded or failed and to the raw trajectory itself. Then, on a new task, the agent starts from all insights and, whenever one lacks details needed to act, conflicts with another, or comes from a failed task, descends through its links with terminal tools to fill in missing details or correct the insight before acting. We validate WikiTrace on five agentic benchmarks, showing that it consistently outperforms existing memory approaches and a baseline given the same insights alone, while also reducing memory-induced degradation. Our code is available at https://github.com/yukyeongleee/wikitrace
-
-Authors: Yukyeong Lee, Yumin Choi, Jinheon Baek, Sung Ju Hwang
-
-Tasks: Agents
-
-Code: https://github.com/yukyeongleee/wikitrace</description>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WaveGen: Truly End-to-End Waveform Generation via Internal Spectral Trajectory Learning</title>
-      <link>https://arxiv.org/abs/2611.12527</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.12527</guid>
-      <description>This work proposes WaveGen, a fully end-to-end diffusion-based text-to-waveform framework based on Spectral Forcing, which jointly learns an internal spectral trajectory and the target waveform trajectory within a single model, enabling direct end-to-end text-to-waveform generation. Unlike recent TTS pipelines, WaveGen does not rely on separately trained or externally decoded intermediate representations, such as neural audio codecs, Mel-spectrogram vocoders, or VAE-based latent models. In addition, WaveGen performs internal text-speech alignment within a single model, eliminating the need for external alignment modules such as duration predictors. To preserve a truly end-to-end formulation, our framework further avoids dependence on self-supervised representations, such as BERT-based text embeddings and Wav2Vec 2.0-based semantic representations, as well as semantic distillation methods for training optimization. To achieve this, we carefully design Spectral Forcing, a model architecture with disentangled diffusion heads, and a training objective based on a multi-scale spectral v-loss. We further validate the scalability of end-to-end TTS models by scaling the model size from 0.1B to 0.6B parameters. Using a single architecture, open-source data, and one-stage training, without external modules such as duration predictor or REPA, WaveGen demonstrates fully end-to-end waveform generation achieving state-of-the-art performance on the Emilia training dataset. In particular, WaveGen achieves a WER of 1.47 and a SIM of 0.75 on the Seed-en benchmark. Source code and checkpoints are available at https://github.com/sh-lee-prml/WaveGen
-
-Authors: Sang-Hoon Lee, Sang-Hoon Lee, Ha-Yeong Choi, Ha-Yeong Choi
-
-Tasks: Audio Compression, Audio Generation, Embedding models, Text-to-speech
-
-Code: https://github.com/sh-lee-prml/WaveGen</description>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Embodied First Exam</title>
       <link>https://arxiv.org/abs/2611.12177</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.12177</guid>
@@ -236,27 +249,16 @@ Code: https://github.com/mll-lab-nu/embodied-first-exam</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LEASH: Stay Safe in Agentic Robotics</title>
-      <link>https://arxiv.org/abs/2611.14115</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.14115</guid>
-      <description>Foundation models such as GPT and Claude have shown strong capabilities in spatial understanding and embodied intelligence. These advances make agentic robotics a promising path toward artificial general intelligence in robotics. However, we find that using foundation models to control robots poses serious safety risks, and comprehensive safety evaluation is still lacking. We introduce RoboRisk, a comprehensive benchmark for evaluating safety in agentic robotics. Its 92 simulated tasks and 13 physical-robot tasks fall into five categories: Task-level Refusal (T), Plan Repair (P), Execution-time Hazard (E), Injection (I), and Sequential Memory (S). Prior benchmarks cover at most two of these categories, and several evaluate only text outputs. In contrast, RoboRisk covers all five and executes every task in closed loop. We evaluate six state-of-the-art foundation models on RoboRisk: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna, Claude Opus 5.5, Gemini 4 Argon, and Grok 4.7. These models generally show high harm rates. We also evaluate two robot-specific APIs: the Dream API and PokeBot's RoboAPI. We further propose the Lease-Enforced Agentic Safety Harness (LEASH), which offers essential safety infrastructure for agentic robotics and can be integrated into nearly any agentic architecture. LEASH leverages a decision model (Jev or OpenAI's Decisions API) to implement task, action, and commit gates, which review the task, each action, and each irreversible operation in their visual context. The planner and all three gates share a common safety policy. Experiments on RoboRisk in simulation and on physical robots show that LEASH effectively reduces harm across all six foundation models. It largely preserves their task completion performance and adds little time and token overhead.
+      <title>WaveGen: Truly End-to-End Waveform Generation via Internal Spectral Trajectory Learning</title>
+      <link>https://arxiv.org/abs/2611.12527</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.12527</guid>
+      <description>This work proposes WaveGen, a fully end-to-end diffusion-based text-to-waveform framework based on Spectral Forcing, which jointly learns an internal spectral trajectory and the target waveform trajectory within a single model, enabling direct end-to-end text-to-waveform generation. Unlike recent TTS pipelines, WaveGen does not rely on separately trained or externally decoded intermediate representations, such as neural audio codecs, Mel-spectrogram vocoders, or VAE-based latent models. In addition, WaveGen performs internal text-speech alignment within a single model, eliminating the need for external alignment modules such as duration predictors. To preserve a truly end-to-end formulation, our framework further avoids dependence on self-supervised representations, such as BERT-based text embeddings and Wav2Vec 2.0-based semantic representations, as well as semantic distillation methods for training optimization. To achieve this, we carefully design Spectral Forcing, a model architecture with disentangled diffusion heads, and a training objective based on a multi-scale spectral v-loss. We further validate the scalability of end-to-end TTS models by scaling the model size from 0.1B to 0.6B parameters. Using a single architecture, open-source data, and one-stage training, without external modules such as duration predictor or REPA, WaveGen demonstrates fully end-to-end waveform generation achieving state-of-the-art performance on the Emilia training dataset. In particular, WaveGen achieves a WER of 1.47 and a SIM of 0.75 on the Seed-en benchmark. Source code and checkpoints are available at https://github.com/sh-lee-prml/WaveGen
 
-Authors: Qinfeng Zhu, Weiguang Zhao, Ke Sun, Xihao Guo, Yunxi Jiang, Rui Zhang, Lei Fan, Kaizhu Huang
+Authors: Sang-Hoon Lee, Sang-Hoon Lee, Ha-Yeong Choi, Ha-Yeong Choi
 
-Tasks: Decision Making, Robotics, Safety and Grounding, Spatial Understanding
+Tasks: Audio Compression, Audio Generation, Embedding models, Text-to-speech
 
-Code: https://github.com/zhuqinfeng1999/LEASH</description>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Where Does Alignment Emerge and What Does It Mean? A Closer Look at the Platonic Representation Hypothesis</title>
-      <link>https://arxiv.org/abs/2611.12869</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.12869</guid>
-      <description>The Platonic Representation Hypothesis (PRH) suggests that neural networks are converging toward similar representation spaces. As language models become more capable, their representations are aligning with those of vision models. However, recent work has questioned whether this trend continues to hold for newer language models. Moreover, it has been shown that representation similarity metrics can be confounded by model depth and width, requiring appropriate baselines for interpretation. In this work, we first investigate where alignment emerges between unimodal models across model layers and representation dimensions. Next, we find that the PRH capability-alignment trend persists for newer models as long as the captions are sufficiently clean and informative. Finally, we contextualize cross-modal alignment, introducing unimodal and multimodal baselines on various datasets. Our results show that the cross-modal representational alignment of unimodal models can surpass that of explicitly aligned vision-language models, but remains substantially behind the alignment observed for models of the same modality. Code is available at https://github.com/ExplainableML/prh-closer-look.
-
-Authors: Julia Herbst, Simon Roschmann, Quentin Bouniot, Zeynep Akata
-
-Code: https://github.com/ExplainableML/prh-closer-look</description>
+Code: https://github.com/sh-lee-prml/WaveGen</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
