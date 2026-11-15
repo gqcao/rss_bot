@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sun, 15 Nov 2026 02:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 03:00:01 GMT</lastBuildDate>
     <item>
       <title>World In-Context Learning for Agentic Robot Manipulation</title>
       <link>https://arxiv.org/abs/2611.12885</link>
@@ -32,17 +32,41 @@ Code: https://github.com/Robbyant/lingbot-touch</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models</title>
-      <link>https://arxiv.org/abs/2611.17331</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.17331</guid>
-      <description>Decoder-only Large View Synthesis Models (LVSMs) with KV-cache have recently achieved state-of-the-art quality by regressing novel views from neural networks without reconstructing 3D geometry, while Test-Time Training (TTT) layers save computation but sacrifice quality. We propose Test-Time Baking (TTB), a strategy that learns to bake global scene information from cross-view attention into a lightweight MLP, enabling fast and high-fidelity novel-view decoding. The first key is to repurpose the fast-weight MLP of TTT to learn the cross-view attention mapping explicitly from its input-output pairs, rather than replacing attention entirely, achieving the same rendering efficiency as TTT while delivering substantially higher quality. The second key addresses a modality misalignment between context prefilling and novel-view rendering: we disentangle context tokens into camera-only context rendering tokens to serve as TTB input, and context ground-truth tokens with image content to serve as the TTB mapping target, ensuring the baked MLPs are relieved of the modality generalization challenge between context and novel-view processing. Our method achieves up to **23x** rendering speedup with quality on par with the state-of-the-art across several benchmarks. Project page: https://test-time-baking.github.io
+      <title>MiniMax H3-Image: Bringing 4K Image Generation into the 10-Second Era</title>
+      <link>https://www.minimax.io/blog/minimax-h3-image</link>
+      <guid isPermaLink="true">https://www.minimax.io/blog/minimax-h3-image</guid>
+      <description>Today, we're releasing MiniMax H3-Image, an open-weight image generation model built on H3. It supports text-to-image generation, reference-based generation, and image editing. H3-Image can generate a 4K (4096 × 4096) image in under 10 seconds, with rich, realistic details, strong prompt adherence, the ability to understand and work with up to 16 reference image. Building on H3's pre-training capabilities, we've made improvements across the entire post-training pipeline, from data and reinforcement learning to sampling-step reduction, PE, and deployment optimization. No single change made the difference. Together, these improvements allow H3-Image to deliver speed, image quality, and prompt adherence at the same time.
 
-Authors: Chin-Yang Lin, Ryo Hachiuma, Jaesung Choe, Min-Hung Chen, Yu-Chiang Frank Wang, Yen-Yu Lin, Wei-Chen Chiu, Yu-Lun Liu, Cheng Sun
+Tasks: Image editing, Image generation, Text-to-Image Generation
 
-Tasks: Novel View Synthesis, Test-time Adaptation
+Code: https://github.com/minimax-ai/minimax-h3-image</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Actor, Judge, or Teacher? Understanding Decision Models in Long-Horizon Agents</title>
+      <link>https://arxiv.org/abs/2611.17167</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17167</guid>
+      <description>Decision models answer a question with a typed output, such as a choice among options with a probability for each, so one model can choose an agent's actions, evaluate actions already taken, or score every action to teach a policy with reinforcement learning. Prior work has studied them mainly as actors, judging their usefulness by how well they act. We ask whether a decision model that acts poorly can still teach well. We compare three decision models and three general LLMs as actors and judges on ALFWorld, and use JEV as a teacher on ALFWorld and WebShop. As actors, all six models are pulled away from a subgoal that must come first by an easier one. As judges that see the whole trajectory, the same models credit the steps toward that subgoal, and asking whether each action helped, rather than whether the task will succeed, separates useful from useless actions. As a teacher, JEV raises a Qwen2.5-1.5B policy over GRPO from 72.8% to 82.9% success on ALFWorld and from 56.8% to 71.4% on WebShop. These results suggest that a poor actor can still teach well, because judging an action after the episode ends reveals the consequences that acting must anticipate. Code is available at https://github.com/ZJU-REAL/decision-agents.
 
-Code: https://github.com/NVlabs/DVSM</description>
+Authors: Haochen Liu, Qianhao Zhu, Zixuan Wang, Dingming Li, Tongbo Chen, Peng Qiu, Yingqi Qu, Weiming Lu, Jun Xiao, Yongliang Shen
+
+Tasks: Agents, Decision Making, Long-Horizon Agents, Reinforcement Learning
+
+Code: https://github.com/ZJU-REAL/decision-agents</description>
       <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Duo: A Reciprocal World Model for Full-Duplex Interaction</title>
+      <link>https://arxiv.org/abs/2611.15131</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.15131</guid>
+      <description>In this report, we introduce the Reciprocal World Model (RWM) and present Duo v1, a full-duplex world model that continuously perceives audiovisual inputs while responding to users in real time. The RWM treats intelligence and physical reality as equally fundamental to what constitutes a world. Existing world models largely focus on simulating the latter, leaving reasoning and decision-making as external controls rather than intrinsic parts of the world itself. In RWM, we identify two equally fundamental capabilities: Intent, which provides the cognition underlying world interactions, and Realization, which generates coherent audio-visual behavior. To realize this formulation, Duo v1 introduces three key technical designs: (1) Leveraging autoregressive modeling for continuous interaction reasoning and participation decisions, rather than restricting it to instruction understanding for diffusion models. (2) Constructing chunk-specific conditions and synchronize tokens across Intent and Realization on a unified timeline. Module-specific attention masks enforce causal dependencies both within and across chunks, preventing access to future inputs. (3) Mitigating distribution shift in both modules through dual rollout distillation, training on autoregressively generated Intent tokens and synthesized audiovisual histories from Realization. Both modules continuously perceive real-time audio, video, and text, enabling full-duplex interaction with spontaneous conversations and interruptions. Beyond conversation, users can share real objects, reshape virtual scenes, guide assistants, or play audiovisual games without mouse or keyboard controls. The release of Duo v1 makes our first step, with the next version coming soon. We look forward to broader exploration of this emerging field.
+
+Authors: Hengyuan Cao, Biao Gong, Guoshan Lu, Qiyuan Zhang, Lin Liu, Yiding Tian, Yilei Jiang, Yuxin Ma, Chengzhang Wu, Kun Chen, Yiqian Xie, Ting Liu, Xin Zheng, Xijun Gu, Tianren Ma, Jiancheng Pan, CHI ZHANG, Xuzhe Zheng, Siyi Li, Zhenzhong Lan
+
+Tasks: Full-Duplex Spoken Dialogue, Video generation, World Models
+
+Code: https://github.com/inclusionai/duo</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Open Vision Banana: A Fully Open Recipe for Generative Visual Perception</title>
@@ -56,6 +80,19 @@ Tasks: Depth estimation, Image editing, Image generation, Image segmentation, Im
 
 Code: https://github.com/OpenVisionBanana/OpenVisionBanana</description>
       <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models</title>
+      <link>https://arxiv.org/abs/2611.17331</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17331</guid>
+      <description>Decoder-only Large View Synthesis Models (LVSMs) with KV-cache have recently achieved state-of-the-art quality by regressing novel views from neural networks without reconstructing 3D geometry, while Test-Time Training (TTT) layers save computation but sacrifice quality. We propose Test-Time Baking (TTB), a strategy that learns to bake global scene information from cross-view attention into a lightweight MLP, enabling fast and high-fidelity novel-view decoding. The first key is to repurpose the fast-weight MLP of TTT to learn the cross-view attention mapping explicitly from its input-output pairs, rather than replacing attention entirely, achieving the same rendering efficiency as TTT while delivering substantially higher quality. The second key addresses a modality misalignment between context prefilling and novel-view rendering: we disentangle context tokens into camera-only context rendering tokens to serve as TTB input, and context ground-truth tokens with image content to serve as the TTB mapping target, ensuring the baked MLPs are relieved of the modality generalization challenge between context and novel-view processing. Our method achieves up to **23x** rendering speedup with quality on par with the state-of-the-art across several benchmarks. Project page: https://test-time-baking.github.io
+
+Authors: Chin-Yang Lin, Ryo Hachiuma, Jaesung Choe, Min-Hung Chen, Yu-Chiang Frank Wang, Yen-Yu Lin, Wei-Chen Chiu, Yu-Lun Liu, Cheng Sun
+
+Tasks: Novel View Synthesis, Test-time Adaptation
+
+Code: https://github.com/NVlabs/DVSM</description>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ZONOS3-Mini Technical Report</title>
@@ -84,30 +121,6 @@ Code: https://github.com/mit-han-lab/EvolvingInfra</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Duo: A Reciprocal World Model for Full-Duplex Interaction</title>
-      <link>https://arxiv.org/abs/2611.15131</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.15131</guid>
-      <description>In this report, we introduce the Reciprocal World Model (RWM) and present Duo v1, a full-duplex world model that continuously perceives audiovisual inputs while responding to users in real time. The RWM treats intelligence and physical reality as equally fundamental to what constitutes a world. Existing world models largely focus on simulating the latter, leaving reasoning and decision-making as external controls rather than intrinsic parts of the world itself. In RWM, we identify two equally fundamental capabilities: Intent, which provides the cognition underlying world interactions, and Realization, which generates coherent audio-visual behavior. To realize this formulation, Duo v1 introduces three key technical designs: (1) Leveraging autoregressive modeling for continuous interaction reasoning and participation decisions, rather than restricting it to instruction understanding for diffusion models. (2) Constructing chunk-specific conditions and synchronize tokens across Intent and Realization on a unified timeline. Module-specific attention masks enforce causal dependencies both within and across chunks, preventing access to future inputs. (3) Mitigating distribution shift in both modules through dual rollout distillation, training on autoregressively generated Intent tokens and synthesized audiovisual histories from Realization. Both modules continuously perceive real-time audio, video, and text, enabling full-duplex interaction with spontaneous conversations and interruptions. Beyond conversation, users can share real objects, reshape virtual scenes, guide assistants, or play audiovisual games without mouse or keyboard controls. The release of Duo v1 makes our first step, with the next version coming soon. We look forward to broader exploration of this emerging field.
-
-Authors: Hengyuan Cao, Biao Gong, Guoshan Lu, Qiyuan Zhang, Lin Liu, Yiding Tian, Yilei Jiang, Yuxin Ma, Chengzhang Wu, Kun Chen, Yiqian Xie, Ting Liu, Xin Zheng, Xijun Gu, Tianren Ma, Jiancheng Pan, CHI ZHANG, Xuzhe Zheng, Siyi Li, Zhenzhong Lan
-
-Tasks: Full-Duplex Spoken Dialogue, Video generation, World Models
-
-Code: https://github.com/inclusionai/duo</description>
-      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MiniMax H3-Image: Bringing 4K Image Generation into the 10-Second Era</title>
-      <link>https://www.minimax.io/blog/minimax-h3-image</link>
-      <guid isPermaLink="true">https://www.minimax.io/blog/minimax-h3-image</guid>
-      <description>Today, we're releasing MiniMax H3-Image, an open-weight image generation model built on H3. It supports text-to-image generation, reference-based generation, and image editing. H3-Image can generate a 4K (4096 × 4096) image in under 10 seconds, with rich, realistic details, strong prompt adherence, the ability to understand and work with up to 16 reference image. Building on H3's pre-training capabilities, we've made improvements across the entire post-training pipeline, from data and reinforcement learning to sampling-step reduction, PE, and deployment optimization. No single change made the difference. Together, these improvements allow H3-Image to deliver speed, image quality, and prompt adherence at the same time.
-
-Tasks: Image editing, Image generation, Text-to-Image Generation
-
-Code: https://github.com/minimax-ai/minimax-h3-image</description>
-      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Can LLM Agents Organize Their Own Memory?</title>
       <link>https://arxiv.org/abs/2611.11929</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.11929</guid>
@@ -132,32 +145,6 @@ Tasks: Robotics
 
 Code: https://github.com/ZefanW/JustRUA</description>
       <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering</title>
-      <link>https://arxiv.org/abs/2611.13410</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.13410</guid>
-      <description>Low-bit quantization reduces the inference cost of LLM agents but can compromise task success. Examining failed rollouts, we find that quantized agents overlook task requirements or environmental conditions, producing environment transitions that diverge from successful full-precision references. Correcting these behavioral divergences remains difficult: offline data may miss the student's failure contexts, while its own rollouts may provide few correct responses in those contexts. We introduce SteerDistill, a quantization-aware distillation method in which a full-precision teacher guides the student to revise failed responses and iteratively refines its guidance using feedback from student execution. This closed-loop teacher steering produces locally verified behavioral corrections. We internalize these corrections by training the student without guidance to match the steered student's predictions at corrected turns and the full-precision teacher's at other turns, enabling unassisted inference. Across five agentic benchmarks and three models, SteerDistill exceeds the strongest quantized baseline by 1.67--2.18 points in average score under W4A16 and stays within one point of BF16. On τ^2-Bench, it outperforms QeRL by 1.84 percentage points in success rate using 67% fewer training GPU hours and produces shorter successful trajectories than the quantized baselines.
-
-Authors: Genming Cui, Xiangyu Li, Zixu Hao, Xin Ding, Yunxin Liu, Ting Cao
-
-Tasks: Agents
-
-Code: https://github.com/air-embodied-brain/SteerDistill</description>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>PhyRubric: Rubric-Grounded Diagnostic Evaluation of Physical Commonsense in Text-to-Video Generation</title>
-      <link>https://arxiv.org/abs/2611.13576</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.13576</guid>
-      <description>As text-to-video (T2V) models are increasingly positioned as world simulators, it is essential to evaluate whether their videos conform to physical commonsense. However, existing benchmarks rely on annotators who rate each video with a single score based on intuition, yielding ratings that are subjective and do not tell which physical principle is violated. We introduce PhyRubric, a rubric-grounded diagnostic framework for evaluating physical commonsense in T2V generation. For each caption, PhyRubric constructs a caption-specific rubric before any video is seen, decomposing the caption into semantic and physical items, and derives scores from item-level verdicts grounded in timestamped evidence. We instantiate this framework as PhyRubric-Bench, which spans 34 categories across five physical domains, and scale it up to PhyRubric-Train with 3,788 videos, on which we fine-tune the open-source PhyRubric-Judge. Empirical results across ten T2V models show that physical commonsense remains far from solved, and that PhyRubric-Judge correlates more closely with human judgments than existing open-source judges while matching the frontier proprietary Gemini 4 Argon. Further analysis provides actionable insights for T2V models.
-
-Authors: Huiyi Chen, Weitai Kang, Shicheng Fan, Xinshuo Wang, Zhixiang Shen, Yan Yan, Philip S. Yu, Baoxin Li
-
-Tasks: Video generation
-
-Code: https://github.com/chenyil6/phyRubric</description>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>dNaViT: Discrete Codes are General-Purpose Visual Representations</title>
@@ -234,19 +221,6 @@ Code: https://github.com/thumai-lab/rit</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Actor, Judge, or Teacher? Understanding Decision Models in Long-Horizon Agents</title>
-      <link>https://arxiv.org/abs/2611.17167</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.17167</guid>
-      <description>Decision models answer a question with a typed output, such as a choice among options with a probability for each, so one model can choose an agent's actions, evaluate actions already taken, or score every action to teach a policy with reinforcement learning. Prior work has studied them mainly as actors, judging their usefulness by how well they act. We ask whether a decision model that acts poorly can still teach well. We compare three decision models and three general LLMs as actors and judges on ALFWorld, and use JEV as a teacher on ALFWorld and WebShop. As actors, all six models are pulled away from a subgoal that must come first by an easier one. As judges that see the whole trajectory, the same models credit the steps toward that subgoal, and asking whether each action helped, rather than whether the task will succeed, separates useful from useless actions. As a teacher, JEV raises a Qwen2.5-1.5B policy over GRPO from 72.8% to 82.9% success on ALFWorld and from 56.8% to 71.4% on WebShop. These results suggest that a poor actor can still teach well, because judging an action after the episode ends reveals the consequences that acting must anticipate. Code is available at https://github.com/ZJU-REAL/decision-agents.
-
-Authors: Haochen Liu, Qianhao Zhu, Zixuan Wang, Dingming Li, Tongbo Chen, Peng Qiu, Yingqi Qu, Weiming Lu, Jun Xiao, Yongliang Shen
-
-Tasks: Agents, Decision Making, Long-Horizon Agents, Reinforcement Learning
-
-Code: https://github.com/ZJU-REAL/decision-agents</description>
-      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>SWAM: Scaling World Action Models with Cross-Modal Alignment</title>
       <link>https://arxiv.org/abs/2611.12870</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.12870</guid>
@@ -257,6 +231,30 @@ Authors: Yu Zhou, Xinyuan Xia, Xuankun Yang, Yinghao Yang, Wendi Chen, Bowen Liu
 Tasks: Egocentric Vision, Robotics, World Models
 
 Code: https://github.com/shaaaaron/SWAM</description>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PhysLoop: Harnessing LLMs' Physics Awareness for Self-Improving Video Generation Models</title>
+      <link>https://arxiv.org/abs/2611.16748</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.16748</guid>
+      <description>Video generation models produce visually realistic videos but still struggle with physical dynamics and causal consistency. Learning from generated videos requires fine-grained physical supervision, yet reliable quality judgments, correction pairs, and controlled variations are difficult to obtain. Large language models (LLMs) possess physical knowledge, but struggle to reliably guide video generation models in producing their training videos. We present PhysLoop, a unified harness designed to support physically grounded self-improvement in video generation models. The harness guides and constrains LLMs throughout video generation, selection, and correction, distilling their physical knowledge into physically consistent videos. The framework supports controllable training-data construction and inference-time video repair. By identifying and correcting failures, PhysLoop marks a key milestone toward recursive self-improvement (RSI) in video generation models with limited human intervention. We release 100K videos spanning diverse, realistic indoor and outdoor scenes, along with generation tools and two evaluation datasets: PhysLoop-Gen and PhysLoop-Repair. We evaluate controllable generation and localized repair on these datasets, respectively, and assess physical behavior on the external Physics-IQ Verified benchmark.
+
+Authors: Yuxuan Chen, Xiaojie Li, Hao Chen, Juncheng Ma, Kewei Zhang, Zhongjing Du, Guoqiang Wei, Fangfang Wang, Zhen Dong, Zhiyang Dou, Liming Zhao, Yan Zeng, jianwei zhang, Daquan Zhou
+
+Tasks: Video Editing, Video generation
+
+Code: https://github.com/DAGroup-PKU/PhysLoop</description>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Infrathon: Benchmarking Language Agents for Real-World, Long-Horizon AI Infra Optimization</title>
+      <link>https://arxiv.org/abs/2611.11995</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.11995</guid>
+      <description>In this work, we study whether frontier agent can continually improve real-world AI infrastructure over long horizons. We introduce Infrathon, a benchmark of diverse, long-horizon AI infrastructure optimization tasks across different levels. We evaluate six models across 150 runs with 24-hour budgets, totaling over 10,000 GPU-hours. Our results show that model rankings vary with the evaluation horizon, while 135 of the 150 runs achieve further improvements during the second half of their budgets. These findings indicate that shorter evaluations can overlook both optimization gains and changes in relative model performance. We also find agents can discover solutions that outperform human-designed baselines: Claude Opus 5.5 increases the mean KV-cache compression ratio from 6.82% with the human-designed Quant-VideoGen codec to 19.86%. Analysis of agent trajectories identifies task violations, unreliable testing, and premature completion as barriers to sustained improvement. Together, Our Infrathon framework provide resources for constructing long-horizon tasks, evaluating frontier agents, and discovering good infrastructure solutions.
+
+Authors: Zhengyu Hu, Zheyuan Xiao, Yike Wang, Hamish Ivison, Haoyu Wang, Yige Yuan, Rulin Shao, Yuetai Li, Niqi Lyu, Yicheng Ding, Shu Yang, Zhichen Zeng, Banghua Zhu, Jiaxin Pei, Kaize Ding, Pradeep Dasigi, Dan Roth, Hannaneh Hajishirzi, Noah A. Smith, Teng Xiao, Radha Poovendran
+
+Code: https://github.com/infrathonx/infrathon</description>
       <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
