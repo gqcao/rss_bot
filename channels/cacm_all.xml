@@ -12,7 +12,7 @@
 	<atom:link href="https://cacm.acm.org/feed/" rel="self" type="application/rss+xml" />
 	<link>https://cacm.acm.org</link>
 	<description></description>
-	<lastBuildDate>Tue, 17 Nov 2026 15:55:07 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 17 Nov 2026 16:16:55 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -28,6 +28,50 @@
 	<height>32</height>
 </image> 
 <site xmlns="com-wordpress:feed-additions:1">212686646</site>	<item>
+		<title>Can We Understand the Inner Workings of LLMs?</title>
+		<link>https://cacm.acm.org/news/can-we-understand-the-inner-workings-of-llms/</link>
+					<comments>https://cacm.acm.org/news/can-we-understand-the-inner-workings-of-llms/#respond</comments>
+		
+		<dc:creator><![CDATA[Bennie Mols]]></dc:creator>
+		<pubDate>Tue, 17 Nov 2026 16:16:55 +0000</pubDate>
+				<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
+		<category><![CDATA[Data and Information]]></category>
+		<category><![CDATA[Theory]]></category>
+		<guid isPermaLink="false">https://cacm.acm.org/?post_type=digital-library&#038;p=814291</guid>
+
+					<description><![CDATA[<p>Researchers are using tools from causality theory to understand the keys to an algorithm working at a higher level of abstraction.</p>]]></description>
+										<content:encoded><![CDATA[<article>
+<div class="body" lang="en">
+<section id="sec1" class="sec">
+<p id="p-1">Large language models (LLMs) can write essays, solve math problems, and generate computer code. But nobody fully understands how they do it. Researchers can observe billions of parameters inside these systems changing during training, yet the internal logic of the models remains largely hidden. In a sense, the engineering is ahead of the science. Can science catch up and make LLMs and other deep neural networks mechanistically interpretable?</p>
+<p id="p-2">One of the researchers in this growing field is Thomas Icard, professor of philosophy and computer science at Stanford University. Icard is contributing to this effort using tools from logic and cognitive science. “It’s striking how much progress there already has been in the last few years on basically every dimension,” Icard said. “From how much a model’s behaviors and representations reflect patterns in training data, and how post-training reshapes that behavior, to deep connections between internalized abstractions and generalization.”</p>
+<p id="p-3">A central question in this field is whether neural networks merely mimic reasoning, or do they internally build elements of a logical or algorithmic reasoning system. One approach to investigating this question is a framework known as causal abstraction,<a class="footnote-link xref xref-fn" href="#FN1" data-jats-rid="FN1" data-jats-ref-type="fn"><sup>a</sup></a> developed by Icard together with his students and collaborators. It provides a rigorous way of asking whether computations inside a neural network correspond to an interpretable algorithm at a higher level of abstraction.</p>
+<p id="p-4">“Of course, a neural network implements algorithms at a very low level of abstraction,” Icard said, “involving matrix multiplications and the like. But we are searching for concepts that are more intuitive and interpretable, such as those explored in cognitive science, linguistics, and logic.”</p>
+<p id="p-5">This search resembles the way physicists abstract from the statistical behavior of individual molecules to the ideal gas law, which describes a gas in terms of pressure and temperature rather than in terms of colliding particles. In the simplest analogy for neural networks, the activity of many individual neurons can similarly be grouped into the behavior of a single higher-level computational unit. Yet real neural networks can exhibit much more complicated forms of abstraction, because individual neurons can contribute simultaneously to many different functions.</p>
+<p id="p-6">The central question, then, is when two descriptions at different levels of abstraction can nevertheless refer to the same underlying process. Icard: “If you have two causal models that are formulated in different languages with different variables, when do you want to say that one is a more abstract description of the same underlying causal reality as the other? This is called causal abstraction and we build on existing theory, adapting it to the study of neural networks in particular.”</p>
+<p id="p-7">In a 2001 study,<a class="footnote-link xref xref-fn" href="#FN2" data-jats-rid="FN2" data-jats-ref-type="fn"><sup>b</sup></a> Icard and his collaborators – led by then-Ph.D. student, now leading researcher in the field Atticus Geiger<a class="footnote-link xref xref-fn" href="#FN3" data-jats-rid="FN3" data-jats-ref-type="fn"><sup>c</sup></a> – showed that a BERT-based language model internally implements elements of a logical reasoning system. For example, the model learned an internal algorithm for performing complex logical inferences involving quantifiers (“every,” “some,” “not,” etc.) and negation.</p>
+<p id="p-8">Since that early work, other researchers have also begun uncovering examples of the algorithms that language models develop internally. An example that recently generated a lot of attention comes from the paper Arithmetic in the Wild: Llama uses Base-10 Addition to Reason About Cyclic Concepts<a class="footnote-link xref xref-fn" href="#FN4" data-jats-rid="FN4" data-jats-ref-type="fn"><sup>d</sup></a> by researchers at Goodfire AI, led again by Geiger. The researchers studied how a Llama-based language model reasons over cyclic concepts, for example: “What month is six months after August?” One might expect the model to calculate directly within a 12-month cycle. Instead, the model first uses standard decimal addition: August is treated internally as month 8, after which the model calculates 6 + 8 = 14. Only then does it translate the result 14 back to “February,” as 14 = 12 + 2, and February is the second month.</p>
+<p id="p-9">The Llama-based model uses this method not only to reason about months, but also about weekdays and clock time. The model thus applies the same general calculation strategy to different types of problems, without explicitly being instructed to do so. Said Icard, “The paper is a beautiful example of using causal abstraction methods to uncover how a large language model reasons about cyclic concepts.”</p>
+<p id="p-10">Another study<a class="footnote-link xref xref-fn" href="#FN5" data-jats-rid="FN5" data-jats-ref-type="fn"><sup>e</sup></a> from 2026 by Nikhil Prakash and colleagues examines a very different type of reasoning: keeping track of what different characters know. Researchers gave language models simple stories in which two people interact with different objects and may or may not be able to observe each other. For example, Bob fills a bottle with beer and Carla fills a cup with coffee, while Bob can observe Carla’s actions. Later the model is asked: “What does Bob believe the cup contains?” To answer correctly, the model has to connect several pieces of information: Bob is the person whose belief matters; the cup is the object being asked about; coffee is the cup’s contents; and Bob saw Carla fill it, so Bob knows this.</p>
+<p id="p-11">The researchers found evidence that the model does this in several stages. It starts by internally linking together the relevant character, object, and state; for instance, Bob, cup, and coffee. When the question arrives, it uses the words in the question as a kind of pointer to “look back” to the earlier part of the story and retrieve the relevant information.</p>
+<p id="p-12">Yet another 2026 study<a class="footnote-link xref xref-fn" href="#FN6" data-jats-rid="FN6" data-jats-ref-type="fn"><sup>f</sup></a> by Yoav Gur-Arieh and colleagues shows that language models can combine several internal strategies to keep track of relationships between entities. Suppose the model reads the sentences “Pete loves jam, Ann loves pie, Tim loves tea” and is then asked: “Who loves pie?” It has to remember that ‘Ann’ is associated with ‘pie’. The researchers found that models use several strategies at once to retrieve the right association. One is to remember where the pair ‘Ann – pie’ occurred in the list. Another is to use the word ‘pie’ itself to retrieve the name associated with it. A third uses an internal pointer that leads directly back to ‘Ann.’</p>
+<p id="p-13">In short lists, remembering position often works well. In longer lists, especially for items in the middle, this strategy becomes less reliable, and the other two strategies work better. The researchers found the same basic pattern across nine LLMs.</p>
+<p id="p-14">Taken together, these studies show that researchers are beginning to uncover some of the internal strategies LLMs use to reason. Turning such individual findings into a broader understanding of these systems, however, remains a major challenge.</p>
+<p id="p-15">One practical limitation is access to the models themselves. Academic researchers can only do their experiments on open-source LLMs like Llama by Meta and OLMo by the Allen Institute for AI. “The largest models we have worked with contain around a trillion parameters,” Icard said. “In our experiments, we go inside and change the weights or the activations in the neural network. We do not have access to the commercial models, but I do know that some companies, such as Anthropic and Google DeepMind, do have teams working on mechanistic interpretability of large language models. We regularly talk with both these groups.”</p>
+<p id="p-16">Researchers are now exploring whether mechanistic interpretability can help make LLMs safer, more reliable, and more efficient, while also reducing unwanted biases. “I think there is promise for all of those,” said Icard. Major challenges remain, however, such as scaling these techniques to larger models and automating parts of the interpretability process that currently still depend heavily on human insight.</p>
+<p id="p-17">“Mechanistic interpretability will probably never reduce large language models to a few simple equations,” Icard concludes, “but it may gradually turn deep neural networks into systems whose hidden algorithms can at least partly be understood.” If so, the science of LLMs may finally be catching up with the engineering.</p>
+</section>
+<section id="sec2" class="sec"></section>
+</div>
+</article>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://cacm.acm.org/news/can-we-understand-the-inner-workings-of-llms/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">814291</post-id>	</item>
+		<item>
 		<title>In Memoriam: Margaret Hamilton (1936-2026)</title>
 		<link>https://cacm.acm.org/news/in-memoriam-margaret-hamilton-1936-2026/</link>
 					<comments>https://cacm.acm.org/news/in-memoriam-margaret-hamilton-1936-2026/#respond</comments>
@@ -1234,142 +1278,5 @@
 		
 		
 		<post-id xmlns="com-wordpress:feed-additions:1">814171</post-id>	</item>
-		<item>
-		<title>Quantum is Gaining, but Don’t Throw Away that Supercomputer</title>
-		<link>https://cacm.acm.org/news/quantum-is-gaining-but-dont-throw-away-that-supercomputer/</link>
-					<comments>https://cacm.acm.org/news/quantum-is-gaining-but-dont-throw-away-that-supercomputer/#respond</comments>
-		
-		<dc:creator><![CDATA[Mark Halper]]></dc:creator>
-		<pubDate>Wed, 11 Nov 2026 18:48:20 +0000</pubDate>
-				<category><![CDATA[Architecture and Hardware]]></category>
-		<category><![CDATA[Systems and Networking]]></category>
-		<guid isPermaLink="false">https://cacm.acm.org/?p=814161</guid>
-
-					<description><![CDATA[<p>Quantum computers can deliver staggering compute power but have limitations compared to conventional systems.</p>]]></description>
-										<content:encoded><![CDATA[
-<p class="wp-block-paragraph">When IBM <a href="https://www.ibm.com/quantum/blog/cleveland-clinic-riken-chemistry">announced</a> in May that two of its quantum computers helped Cleveland Clinic achieve a record-size simulation of human proteins, a couple of other pieces of hardware also stood out in the accomplishment: two supercomputers.</p>
-
-
-
-<p class="wp-block-paragraph">This pairing of quantum computing and classical computing illustrates that while quantum computers can deliver staggering compute power in certain circumstances, they also have limitations compared to conventional systems, which have faster clock rates, established algorithms, are more capable with large datasets, and are more broadly useful than niche-oriented quantum.</p>
-
-
-
-<p class="wp-block-paragraph">“There’s going to be a classical computer in anything that has to do with quantum,” said IBM vice president of quantum adoption Scott Crowder.</p>
-
-
-
-<p class="wp-block-paragraph">There’s plenty of similar thinking around the quantum computing industry, which is routinely partnering with classical high-performance computing (HPC) companies to serve what Marcus Hennig, chief business officer of German quantum computing company planqc GmbH, referred to as a “coprocessor” boost to supercomputers. In March, planqc <a href="https://planqc.eu/news/2-3m-funding-for-hybrid-quantum-classical-solutions-in-industry-optimization">entered an arrangement</a> with end user partners Infineon and BMW to help them combine quantum and supercomputing processes.</p>
-
-
-
-<p class="wp-block-paragraph">The growing list of such partnerships includes a <a href="https://pressreleasehub.pa.media/article/quantinuum-rolls-royce-riverlane-and-university-of-edinburgh-sign-agreement-to-explore-quantum-computing-for-industrial-design-and-simulation-78867.html">July announcement</a> by quantum company Quantinuum, Rolls-Royce, and the U.K. National Supercomputing Centre at the University of Edinburgh to examine how the combination of quantum and classical computing can improve gas turbine engines. The same month, quantum vendor Rigetti Computing <a href="https://www.globenewswire.com/news-release/2026/07/27/3333556/0/en/rigetti-expands-collaboration-with-hpe-and-pittsburgh-supercomputing-center-to-build-new-hybrid-quantum-classical-supercomputer.html">said</a> it will work with supercomputing provider Hewlett Packard Enterprises at the Pittsburgh Supercomputing Center to integrate the two technologies. Quantinuum also formed an alliance with HPE i<a href="https://www.quantinuum.com/press-releases/quantinuum-announces-strategic-collaboration-with-hpe-on-quantum-hpc-integration-for-enterprise">n June</a>. IBM has several quantum/classical partnerships in addition to the one with Cleveland Clinic.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>A Super Assistant</strong></p>
-
-
-
-<p class="wp-block-paragraph">Quantum computing has been exciting the computing world with eye-popping achievements. One example came in 2024, when a Google quantum computer ran a benchmark algorithm in less than five minutes that the company said would have taken a supercomputer a <a href="https://blog.google/innovation-and-ai/technology/research/google-willow-quantum-chip/">septillion years</a>. In July of this year, IBM, working with the University of Chicago, <a href="https://newsroom.ibm.com/2026-07-30-ibm-and-the-university-of-chicago-demonstrate-quantum-advantage,-establishing-trusted-quantum-computation-on-logical-circuits">announced</a> that its quantum computer had solved in 15 minutes a problem that would “demand infeasible amounts of classical computing time.”</p>
-
-
-
-<p class="wp-block-paragraph">Despite all this brawn, quantum computing is working essentially as a powerful assistant to classical supercomputing, rather than as a replacement.</p>
-
-
-
-<p class="wp-block-paragraph">Why? While quantum is still a work in progress—quantum computing developers are focused on increasing the qubit count in their machines—the answer lies largely in quantum’s reliance on specific algorithms written to solve very specific tasks by taking advantage of quantum properties. Qubits, or quantum bits, can represent zero and one at the same time, a quantum characteristic known as superposition. And they work in conjunction with other qubits, via a quantum process called entanglement.</p>
-
-
-
-<p class="wp-block-paragraph">The combination of superposition and entanglement is what gives quantum computing its enormous computational capabilities.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>It’s All About the Algorithms</strong></p>
-
-
-
-<p class="wp-block-paragraph">Yet that is only true if the quantum computer has the proper algorithms. “Quantum is not a general-purpose machine,” said Hennig of planqc. “It’s a coprocessor. It solves certain kinds of problems where classical computers are really, really bad. You load it with problems that a classical cannot solve.”</p>
-
-
-
-<p class="wp-block-paragraph">No one is throwing away their classical iron.</p>
-
-
-
-<p class="wp-block-paragraph">“We will still have supercomputers, classical computers, and they’ll have additional tools for different kinds of problems,” Hennig said. “One tool will be a quantum computer. With quantum computers, you’re still at the stage where you still have to develop algorithms. With classical computers, we have many, many years of experience. We have very well established algorithms and libraries and codes and all these things.”</p>
-
-
-
-<p class="wp-block-paragraph">So classical computers will continue to carry the general computing workload, probably for a long time to come. Quantum computers won’t supplant them any time soon for AI, for example, because for now, quantum cannot readily absorb large amounts of data. Quantum computers, however, can feed their findings into a classically-driven AI process.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Quantum for Quantum</strong></p>
-
-
-
-<p class="wp-block-paragraph">One of several promising areas for quantum is the simulation of matter, fluid dynamics, physical processes and chemistry. That’s because the quantum properties of quantum computers can echo the quantum makeup of matter which, many physicists believe, exhibit quantum superposition and entangled behavior on the atomic and subatomic level. Thus, quantum computing portends major improvements in materials for batteries, in pharmaceuticals, in aerospace fuel use (as with Quantinuum and Rolls-Royce&#8217;s arrangement), and other things.</p>
-
-
-
-<p class="wp-block-paragraph">“You can try to do it classically, but the compute resources you have will never be sufficient for that,” said Hennig.</p>
-
-
-
-<p class="wp-block-paragraph">In hybrid projects, quantum hands over its results to a supercomputer for broader application.</p>
-
-
-
-<p class="wp-block-paragraph">That’s what happened when Cleveland Clinic used two IBM quantum computers and two Japanese supercomputers provided through a partnership with Japan’s government-owned research institute RIKEN when it was trying to simulate a couple of human proteins. The combination was able to model two different molecules (one that’s part of the human digestion system, and another that’s part of the human immune system) at a size of 12,635 atoms and11,608 atoms, both roughly 40 times the size of the previous high of 303 atoms.</p>
-
-
-
-<p class="wp-block-paragraph">IBM described the approach as quantum-centric supercomputing. Basically, “Classical broke up the problem into fragments, quantum simulated the pieces” and “classical stitched it back together to get the full answer,” explained IBM’s Crowder.</p>
-
-
-
-<p class="wp-block-paragraph">Quantum/classical combinations also help companies optimize financial portfolios and logistics. For example, planqc’s project with Infineon and BMW aims to optimize supply chain processes. IBM in May <a href="https://www.ibm.com/quantum/blog/allstate-quantum-insurance-portfolio">announced</a> that it is working with insurance company Allstate to improve its combination of risks and values. To evaluate home insurance policy offerings, IBM’s Heron quantum computer “generates a batch of candidate answers nudged toward combinations that are both valuable and within budget,&#8221; an IBM representative said. &#8220;Then, a classical step cleans up the list.&#8221;</p>
-
-
-
-<p class="wp-block-paragraph">“Quantum computers are a very niche tool for very important problems which currently you can’t even approach on a classical computer,” said Mykola Maksymenko, co-founder and chief technology officer of New York City-based Haiqu, which simulates quantum processes on classical computers.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Analog, or Nature’s Way</strong></p>
-
-
-
-<p class="wp-block-paragraph">One irony is that quantum computers work their “septillion year” wonders even though they are, by the conventional measurement of clock speed, slower than classical systems. While today’s high-performance classical computers run in the terahertz range, a quantum computer might run in the hertz range of one operation per second. That’s one reason they are not good at large data processing.</p>
-
-
-
-<p class="wp-block-paragraph">It’s a striking difference. But clock speed is misleading from the quantum perspective, because quantum doesn’t rely on it. Rather, what is lost in clock speed is made up with the exponential power of combining superposition and entanglement for specific tasks.</p>
-
-
-
-<p class="wp-block-paragraph">Izhar Medalsy, co-founder and CEO of Quantum Elements, Los Angeles, described quantum as a return to the analog world—a notable departure from the digital side of computing to which the world is accustomed.</p>
-
-
-
-<p class="wp-block-paragraph">Quantum computers are analog precisely because the quantum mechanics on which they are based are themselves analog, Medalsy said. “While when you look at quantum devices, which are analog devices, they’re very good at representing complex systems that are rooted in quantum physics,” he said. &#8220;They represent nature using an analog system.”</p>
-
-
-
-<p class="wp-block-paragraph">In short, he said, quantum computing “is an analog beast.”</p>
-
-
-
-<p class="wp-block-paragraph"><strong><em>Mark Halper</em></strong> <em>is a freelance journalist based near Bristol, U.K. He covers everything from media moguls to subatomic particles.</em></p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://cacm.acm.org/news/quantum-is-gaining-but-dont-throw-away-that-supercomputer/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-		<post-id xmlns="com-wordpress:feed-additions:1">814161</post-id>	</item>
 	</channel>
 </rss>
