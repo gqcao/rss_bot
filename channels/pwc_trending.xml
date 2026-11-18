@@ -4,20 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Wed, 18 Nov 2026 12:00:00 GMT</lastBuildDate>
-    <item>
-      <title>MedJev: A System One Vision-Language Decision Model for Fast and Effective Medical Image Understanding</title>
-      <link>https://arxiv.org/abs/2611.20992</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20992</guid>
-      <description>Medical image understanding with vision-language models (VLMs) typically relies on autoregressively generating reasoning and answer tokens. These unnecessary tokens make the inference cost scale with the response length and force the answer to be parsed from free-form text, incurring avoidable latency and decision errors. To this end, we introduce MedJev, a system one vision-language decision model that maps medical images, questions, and candidate answers directly to decisions in a single multimodal forward pass, without any autoregressive generation process. For fast inference, MedJev removes the upper language layers and the generative output pathway, while keeping the full vision pathway and all visual tokens. On this shortened backbone, a decision head scores each candidate by pretrained query--key matching and refines the scores with a lightweight multilayer perceptron (MLP) residual, coupling the pretrained matching structure with task-specific nonlinear discrimination. Built on Qwen3.5-4B, MedJev-4B improves both accuracy and speed over the original model on each of four medical image classification and visual question answering benchmarks, with an absolute accuracy gain of 7.93\% and a 6.04times end-to-end speedup. Further comparison with 20 cutting-edge models shows that MedJev-4B achieves state-of-the-art performance and inference speed among 4B--9B general and medical VLMs, indicating that direct multimodal decision making is an effective route to fast and effective medical image understanding.
-
-Authors: Fan zhang, Hao Wu, Jinyang Wu, Hongyu Qu, Zheng Lian, Dongfu Yin, Qingsong Wen, Pheng-Ann Heng
-
-Tasks: Decision Making, Image Classification, Image Understanding, Medical Image Classification, Medical Visual Question Answering, Question Answering
-
-Code: https://github.com/zfkarl/MedJev</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Wed, 18 Nov 2026 13:00:00 GMT</lastBuildDate>
     <item>
       <title>π^4: A Foundation Model for 4D Scene Geometry and Motion</title>
       <link>https://arxiv.org/abs/2611.23144</link>
@@ -45,19 +32,6 @@ Code: https://github.com/RainBowLuoCS/Gamer</description>
       <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>VoxMel TTS Technical Report</title>
-      <link>https://arxiv.org/abs/2611.20254</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20254</guid>
-      <description>Continuous autoregressive TTS relies on an acoustic target that enables stable next-latent modeling while preserving fine-grained acoustic details. While existing approaches employ learned compressed representations (e.g., continuous VAE latents) to render prediction tractable, they rely on complex neural encoders that often cap generation fidelity. Conversely, training-free targets like mel-spectrograms eliminate encoder overhead, yet their potential for autoregressive generation remains largely underexplored. In this work, we propose VoxMel, a tokenizer-free framework for autoregressive TTS that makes stable mel modeling tractable through a fixed, exactly invertible two-axis Haar transform. The transform first decomposes each mel spectrogram along frequency into local averages and a frequency residual, then splits the averaged component along time into Coarse-Mel and a temporal residual. A language-model backbone with a flow-matching head autoregressively generates Coarse-Mel. Non-autoregressive residual tiers then predict the temporal residual from Coarse-Mel, followed by the frequency residual conditioned on the reconstructed Frequency-Averaged Mel. Neither residual is fed back into the autoregressive history. Trained on 100K hours of Emilia, the supervised 0.6B model obtains 1.51\% WER and 0.738 speaker similarity (SIM) on test-en, and 1.29\% CER and 0.755 SIM on test-zh. GRPO improves these results to 1.15\% WER / 0.753 SIM and 1.17\% CER / 0.776 SIM, respectively. We also distill the guided flow head into two- and four-step students, requiring 2 or 4 head evaluations per coarse frame. The four-step student retains competitive SIM and nearly matches the supervised model in WER/CER.
-
-Authors: Wenhao Guan, Jiaxin Ye, HAITAO LI, Yifan Duan, Junxi Liu, Wangjin Zhou, Lin Li, Qingyang Hong, Xie Chen
-
-Tasks: Reinforcement Learning, Text-to-speech
-
-Code: https://github.com/VoxDance-Lab/VoxMel</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>LongCat-Video-Avatar 1.6 Technical Report</title>
       <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
       <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
@@ -67,6 +41,145 @@ Tasks: Talking Head Generation, Video generation
 
 Code: https://github.com/meituan-longcat/LongCat-Video</description>
       <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Introducing Hy4 flash: Ultimate cost-efficiency for everyday productivity</title>
+      <link>https://hy.tencent.ai/research/hy4-flash</link>
+      <guid isPermaLink="true">https://hy.tencent.ai/research/hy4-flash</guid>
+      <description>Hy4 flash is our most cost-effective Hy model to date, featuring 220B total parameters (including 64B Engram parameters) with just 12B active parameters per token. It natively accepts text and image inputs, generates text, and supports a context window of up to 1M tokens. Its 42-layer language backbone consists of one dense feed-forward layer and 41 MoE layers, with identity Hyper-Connections (iHC) supporting inter-layer information flow. A vision encoder (adapted from SigLIP2-So400m-Patch16-Res512) is connected to the backbone through an MLP projector. In addition to the backbone, a built-in 5-layer drafter, DFly2 (0.85B parameters), reuses the target model's KV cache and sparse indices to support long-context speculative decoding at a low, constant cost. Compared with Hy4, Hy4 Flash introduces three notable architectural changes: hybrid attention (sparse IndexPool attention and sliding-window attention interleaved at a 1:3 ratio), LatentMoE (routed experts operate in a lower-dimensional latent space, each token activating 16 of 512 routed experts alongside one shared expert), and N-gram embedding (Engram), which augments the backbone with learned bigram and trigram representations retrieved via multi-head hash lookups.
+
+Tasks: Agents, Code Generation, Image Understanding, Language Modeling, Long Context, Question Answering
+
+Code: https://github.com/tencent-hunyuan/hy4-flash</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VoxMel TTS Technical Report</title>
+      <link>https://arxiv.org/abs/2611.20254</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20254</guid>
+      <description>Continuous autoregressive TTS relies on an acoustic target that enables stable next-latent modeling while preserving fine-grained acoustic details. While existing approaches employ learned compressed representations (e.g., continuous VAE latents) to render prediction tractable, they rely on complex neural encoders that often cap generation fidelity. Conversely, training-free targets like mel-spectrograms eliminate encoder overhead, yet their potential for autoregressive generation remains largely underexplored. In this work, we propose VoxMel, a tokenizer-free framework for autoregressive TTS that makes stable mel modeling tractable through a fixed, exactly invertible two-axis Haar transform. The transform first decomposes each mel spectrogram along frequency into local averages and a frequency residual, then splits the averaged component along time into Coarse-Mel and a temporal residual. A language-model backbone with a flow-matching head autoregressively generates Coarse-Mel. Non-autoregressive residual tiers then predict the temporal residual from Coarse-Mel, followed by the frequency residual conditioned on the reconstructed Frequency-Averaged Mel. Neither residual is fed back into the autoregressive history. Trained on 100K hours of Emilia, the supervised 0.6B model obtains 1.51\% WER and 0.738 speaker similarity (SIM) on test-en, and 1.29\% CER and 0.755 SIM on test-zh. GRPO improves these results to 1.15\% WER / 0.753 SIM and 1.17\% CER / 0.776 SIM, respectively. We also distill the guided flow head into two- and four-step students, requiring 2 or 4 head evaluations per coarse frame. The four-step student retains competitive SIM and nearly matches the supervised model in WER/CER.
+
+Authors: Wenhao Guan, Jiaxin Ye, HAITAO LI, Yifan Duan, Junxi Liu, Wangjin Zhou, Lin Li, Qingyang Hong, Xie Chen
+
+Tasks: Reinforcement Learning, Text-to-speech, Voice cloning
+
+Code: https://github.com/VoxDance-Lab/VoxMel</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>MedJev: A System One Vision-Language Decision Model for Fast and Effective Medical Image Understanding</title>
+      <link>https://arxiv.org/abs/2611.20992</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20992</guid>
+      <description>Medical image understanding with vision-language models (VLMs) typically relies on autoregressively generating reasoning and answer tokens. These unnecessary tokens make the inference cost scale with the response length and force the answer to be parsed from free-form text, incurring avoidable latency and decision errors. To this end, we introduce MedJev, a system one vision-language decision model that maps medical images, questions, and candidate answers directly to decisions in a single multimodal forward pass, without any autoregressive generation process. For fast inference, MedJev removes the upper language layers and the generative output pathway, while keeping the full vision pathway and all visual tokens. On this shortened backbone, a decision head scores each candidate by pretrained query--key matching and refines the scores with a lightweight multilayer perceptron (MLP) residual, coupling the pretrained matching structure with task-specific nonlinear discrimination. Built on Qwen3.5-4B, MedJev-4B improves both accuracy and speed over the original model on each of four medical image classification and visual question answering benchmarks, with an absolute accuracy gain of 7.93\% and a 6.04times end-to-end speedup. Further comparison with 20 cutting-edge models shows that MedJev-4B achieves state-of-the-art performance and inference speed among 4B--9B general and medical VLMs, indicating that direct multimodal decision making is an effective route to fast and effective medical image understanding.
+
+Authors: Fan zhang, Hao Wu, Jinyang Wu, Hongyu Qu, Zheng Lian, Dongfu Yin, Qingsong Wen, Pheng-Ann Heng
+
+Tasks: Decision Making, Image Classification, Image Understanding, Medical Image Classification, Medical Visual Question Answering, Question Answering
+
+Code: https://github.com/zfkarl/MedJev</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PanDWM: Panoramic 4D Driving World Models</title>
+      <link>https://arxiv.org/abs/2611.19857</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.19857</guid>
+      <description>Driving world models usually generate videos from six pinhole cameras with separate optical centres and small overlaps, and must learn to keep these views consistent. We present PanDWM, which stitches them into one 360^circ panoramic band. Camera boundaries then fall inside one image, so keeping the views consistent means keeping the image continuous, and each pixel still records its camera ray. Conditioned on layouts, a causal student generates the band window by window in four steps; it is distilled from a causal teacher and trained on its own rollouts. A feed-forward decoder lifts each frame along these rays into 3D Gaussians, and static Gaussians from neighbouring frames complete them into 4D scenes. On nuScenes, scored in one stitched 360^circ view, PanDWM has lower FID and FVD than the multi-camera baselines at 8-46times their speed, and keeps its 50-step teacher's FID while lowering FVD by 22-25%.
+
+Authors: Jiajun Sun, Zeyu Zhang, Zeyu Ren, Guangfeng Jiang, yang zhao, Hao Tang
+
+Tasks: 3D Reconstruction, Autonomous Driving, Novel View Synthesis, Video generation, World Models
+
+Code: https://github.com/AIGeeksGroup/PanDWM</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>FastFrames: Video Generation at Interactive Latency</title>
+      <link>https://arxiv.org/abs/2611.23226</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
+      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
+
+Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
+
+Tasks: Video generation
+
+Code: https://github.com/apple-aiml-research/ml-fastframes</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Calpha: Toward Native Biomolecular Intelligence in a General-Purpose Language Model</title>
+      <link>https://arxiv.org/abs/2611.20986</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20986</guid>
+      <description>Biomolecular foundation models predict the structures of proteins and their complexes accurately, and large language models (LLMs) reason in natural language, but the two remain separate: the abilities of the former are not part of a general-purpose LLM, and the reasoning of the latter does not enter a structure prediction. Calpha aims at one general model that folds proteins and complexes, understands protein sequence and structure, and lets its language reasoning influence the structures it predicts. This report covers the first step, in which an LLM outputs single-chain protein structures. Qwen3.5-9B reads a sequence enriched with ESM2 residue features. It can respond in text or emit a token that invokes a pretrained SimpleFold structure head, which receives information about the protein only through Qwen's residue states. Under a fixed folding request, the head achieves mean TM-scores of 0.808 on the FoldBench-334 development set, 0.635 on CASP16 domains and 0.900 on a CAMEO-style PDB set. We compare these predictions with a baseline in which ESM2-3B encodes the sequence and a fine-tuned SimpleFold-3B head predicts the coordinates. The two systems also differ in trainable weights, training duration and crop length. For chains of 100--299 residues, all three paired confidence intervals include zero. At 300--600 residues, the mean differences are -0.044, -0.160 and -0.025, respectively. In a separate test, four English request types triggered folding on every evaluated example. Protein training reduced accuracy on a 350-item MMLU-Pro subset from 77.4% to 70.3%. An LLM can therefore output single-chain structures from its own states, with lower long-chain scores in the current comparisons and reduced accuracy on the evaluated MMLU-Pro subset. Complex prediction, structure understanding and the effect of language reasoning on the predicted coordinates remain future work.
+
+Authors: Yong liu, Zhanpeng Shi, Peicong Lin, Zhenyi Zhong, Yizhou Dang, Wendi Wu, Haoling Li, Shuangjia Zheng
+
+Tasks: Biology
+
+Code: https://github.com/yliust/Calpha</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Autonomous agents can run successful open-model organisations. Evidence from an 8-week case study</title>
+      <link>https://horizon-labs.ai</link>
+      <guid isPermaLink="true">https://horizon-labs.ai</guid>
+      <description>For seven weeks, we gave Horizon, an agent based on Opus 5.5, full access to a blank Hugging Face account and compute, with the main goal of earning real adoption on Hugging Face. It used over 600 GPU-hours, autonomously created 38 models used in over 100 GitHub repositories and downloaded more than 50,000 times. Horizon runs 24/7 in Claude Code with a weekly compute budget, focuses on narrow-task multilingual models fine-tuned from mmBERT (prompt-injection guards, PII redactors, punctuation restoration, rerankers), and relies on public datasets plus synthetic data from Qwen 3.8-27B. External review finds its models often on the size/performance Pareto frontier, and we document real downstream use, including fine-tunes, pipeline integrations and independent evaluations on arXiv. We release the full agent trace.
+
+Authors: Arthur Wuhrmann, David Schmotz, Derck Prinzhorn, Ameya Prabhu, Harry Coppock, Maksym Andriushchenko
+
+Tasks: Agents, Auto-Research, Long-Horizon Agents
+
+Code: https://github.com/horizon-ai-labs/agent-io-guards</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ZONOS3-Mini Technical Report</title>
+      <link>https://arxiv.org/abs/2611.16525</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.16525</guid>
+      <description>ZONOS3-Mini is an ultra-compact, ultra-fast, zero-shot voice-cloning TTS model. The model can run in real time on a laptop or smartphone. For its latency and size, it achieves state-of-the-art accuracy and cloning fidelity. To achieve this we propose a latent MoE backbone with only 886M parameters (100M active per token) and a new audio codec, Zyphra Audio Codec 1 (ZAC-1), which represents 44.1 kHz audio at a 15 Hz frame rate. On the new ZTTS2-Eval benchmark, ZONOS3-Mini reaches a 6.71% macro-average WER over 55 language sets (35 clean and 20 in the wild), which is competitive with larger and slower state-of-the-art models. We release the model weights, inference, and training code.
+
+Authors: Gabriel Clark, Sofian Mejjoute, George Close, Beren Millidge
+
+Tasks: Audio and Speech Editing, Text-to-speech, Voice cloning
+
+Code: https://github.com/zyphra/zonos3-mini</description>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AscendGYM: A Cost-Aware Kernel Optimization Benchmark for Real-World Workloads on Ascend NPUs</title>
+      <link>https://arxiv.org/abs/2611.17621</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17621</guid>
+      <description>Kernel optimization is essential for efficient large language model (LLM) training and inference on Ascend NPUs. Existing Ascend kernel benchmarks primarily focus on kernel generation, with less emphasis on the ability of agents to optimize existing implementations under input configurations drawn from real workloads. To address this requirement, we introduce AscendGYM, a benchmark whose initial suite comprises 48 kernels across three difficulty levels. Each kernel is paired with test cases whose data types and tensor shapes are collected from real-world training and inference tasks. Consequently, performance improvements on AscendGYM map directly to the corresponding workloads. In terms of usability, two evaluation modes are supported in AscendGYM: model evaluation and model-harness evaluation. The kernel optimization capabilities of both trained models and custom agents are allowed to be measured. It provides a complete execution environment that closely reproduces how Ascend kernels are invoked in practical pipelines. For model evaluation, it additionally includes a built-in harness equipped with search orchestration and experience accumulation. Finally, we propose a new metric, the Speedup-Token Score (STS), which quantifies performance gains relative to token cost. By jointly considering speedup and cost, STS enables the assessment of practical kernel optimization capability of a model or harness under an acceptable budget. AscendGYM is available at https://github.com/SLAI-AITP/AscendGYM.
+
+Authors: AI Training Platform Team, Bingwei Zhang, Jing Li, Amir Abdullin, Sihang Chen, Xin Chen, Liangjun Feng, Yingmeng Gao, Tao Guo, Junjie Huang, Dongfang Li, Zhanglian Lin, Jiajun Liu, Zekun Liu, Zhengxuan Lu, Xiaodong Luo, Jian Meng, Ivan Nosov, Linyuan Qiu, Weijian Sun, Wanrui Yan, Binfan Zheng, Zhicheng Zhou, Baotian Hu, Min Zhang, Haizhou Li, Zhiquan Luo
+
+Code: https://github.com/SLAI-AITP/AscendGYM</description>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>From Repositories to Training Environments: Scaling Long-Horizon Coding Agents with Environment Evolution Loop</title>
+      <link>https://arxiv.org/abs/2611.21152</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21152</guid>
+      <description>Training coding agents for long-horizon tasks requires environments with verifiable feedback. Existing pipelines often follow a linear process that ends with validation, establishing usability but providing little guidance on improving training value. Recursive self-improvement (RSI) often requires model rollouts or model training followed by downstream evaluation, with costs and feedback delays amplified on long-horizon tasks. How can we use timely, reliable proxy signals to improve training value and synthesize environments at scale? We present RepoFactory, an automated pipeline that converts real repositories into verifiable environments where agents build complete projects from scratch given a language specification. Its Environment Evolution Loop optimizes a multiplicative objective combining validity, structural coupling, and implementation scope through proxy feedback. RepoFactory produces 10,159 environments across 17 software domains. Training Qwen3.5-35B-A3B on these environments yields RepoHorizen-35B-A3B, which achieves gains of 22.6 percentage points on NL2Repo-Bench and 8.5 points on average across five benchmarks covering long-horizon coding and agentic tasks in real-world production settings, compared with 17.5 and 6.4 points without environment evolution. These results highlight the training value of RepoFactory environments and the additional gains from the Environment Evolution Loop.
+
+Authors: Yang Tian, Tianyu Zheng, Xiyuan Yang, Yaxin Du, Chengran Yang, Bo Zhao, Jian Yang, Bryan Dai
+
+Tasks: Code Generation, Coding Agents, Long-Horizon Agents
+
+Code: https://github.com/IQuestLab/RepoFactory</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Weight-Space Programming Doesn't Need Transformers</title>
+      <link>https://arxiv.org/abs/2611.22055</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22055</guid>
+      <description>Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights.
+
+Authors: Hyunjong Ok, Jaeho Lee
+
+Tasks: Question Answering, Text classification
+
+Code: https://github.com/effl-lab/Weight-Space-Programming</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Beyond Answering: Learning to Speak First and Act in Streaming Video</title>
@@ -95,14 +208,16 @@ Code: https://github.com/heaveho-humanoid/Heave-Ho</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Introducing Hy4 flash: Ultimate cost-efficiency for everyday productivity</title>
-      <link>https://hy.tencent.ai/research/hy4-flash</link>
-      <guid isPermaLink="true">https://hy.tencent.ai/research/hy4-flash</guid>
-      <description>Hy4 flash is our most cost-effective Hy model to date, featuring 220B total parameters (including 64B Engram parameters) with just 12B active parameters per token. It natively accepts text and image inputs, generates text, and supports a context window of up to 1M tokens. Its 42-layer language backbone consists of one dense feed-forward layer and 41 MoE layers, with identity Hyper-Connections (iHC) supporting inter-layer information flow. A vision encoder (adapted from SigLIP2-So400m-Patch16-Res512) is connected to the backbone through an MLP projector. In addition to the backbone, a built-in 5-layer drafter, DFly2 (0.85B parameters), reuses the target model's KV cache and sparse indices to support long-context speculative decoding at a low, constant cost. Compared with Hy4, Hy4 Flash introduces three notable architectural changes: hybrid attention (sparse IndexPool attention and sliding-window attention interleaved at a 1:3 ratio), LatentMoE (routed experts operate in a lower-dimensional latent space, each token activating 16 of 512 routed experts alongside one shared expert), and N-gram embedding (Engram), which augments the backbone with learned bigram and trigram representations retrieved via multi-head hash lookups.
+      <title>LynnReal-Hand: Unlocking World Interaction with Hand Control</title>
+      <link>https://arxiv.org/abs/2611.21479</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21479</guid>
+      <description>Interactive video world models enable exploration through text and camera controls, yet direct object interaction requires finer control. Hands provide a natural interface, but translating continuous hand movements into coherent visual responses remains challenging because of complex hand-object dynamics and demanding real-time computation. To address these challenges, we introduce LynnReal-Hand, a hand-controlled video world model that unifies precise interaction modeling with efficient streaming generation. We curate 100K interaction clips spanning diverse real and synthetic environments and develop hand-aware supervision to improve fine-grained hand motions and object interactions. Building on this foundation, we learn a causal flow map for few-step generation and introduce region-aware score distillation that combines complementary video and image priors to refine interaction dynamics and visual appearance. To further reduce inference latency, we propose Ultra-Fast-VAE, a compact video decoder that preserves high reconstruction fidelity with substantially lower computational cost. Extensive evaluations on HandBench demonstrate superior hand-following accuracy and visual quality compared with existing approaches. Our full-sequence model achieves an FVD of 181.67 and a MANO Dice score of 93.02, while the three-step causal model maintains a MANO Dice score of 92.49. For real-time interaction, 540p streaming on a single H200 reaches 18.03 FPS with 741ms latency and an optimized peak GPU memory footprint of only 34.89GB. We will release the datasets, model weights, and the full training and inference code to support research on hand-controlled video world models.
 
-Tasks: Agents, Code Generation, Image Understanding, Language Modeling, Long Context, Question Answering
+Authors: Shaohao Rui, Chaoyang Zhang, Xiaofeng Mao, Weijie Ma
 
-Code: https://github.com/tencent-hunyuan/hy4-flash</description>
+Tasks: Video generation, World Models
+
+Code: https://github.com/LynnReal-AI/LynnReal</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -119,19 +234,6 @@ Code: https://github.com/showlab/ForceHarness</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LynnReal-Hand: Unlocking World Interaction with Hand Control</title>
-      <link>https://arxiv.org/abs/2611.21479</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21479</guid>
-      <description>Interactive video world models enable exploration through text and camera controls, yet direct object interaction requires finer control. Hands provide a natural interface, but translating continuous hand movements into coherent visual responses remains challenging because of complex hand-object dynamics and demanding real-time computation. To address these challenges, we introduce LynnReal-Hand, a hand-controlled video world model that unifies precise interaction modeling with efficient streaming generation. We curate 100K interaction clips spanning diverse real and synthetic environments and develop hand-aware supervision to improve fine-grained hand motions and object interactions. Building on this foundation, we learn a causal flow map for few-step generation and introduce region-aware score distillation that combines complementary video and image priors to refine interaction dynamics and visual appearance. To further reduce inference latency, we propose Ultra-Fast-VAE, a compact video decoder that preserves high reconstruction fidelity with substantially lower computational cost. Extensive evaluations on HandBench demonstrate superior hand-following accuracy and visual quality compared with existing approaches. Our full-sequence model achieves an FVD of 181.67 and a MANO Dice score of 93.02, while the three-step causal model maintains a MANO Dice score of 92.49. For real-time interaction, 540p streaming on a single H200 reaches 18.03 FPS with 741ms latency and an optimized peak GPU memory footprint of only 34.89GB. We will release the datasets, model weights, and the full training and inference code to support research on hand-controlled video world models.
-
-Authors: Shaohao Rui, Chaoyang Zhang, Xiaofeng Mao, Weijie Ma
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/LynnReal-AI/LynnReal</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>InclusionMed: Benchmarking AI for Inclusive Healthcare</title>
       <link>https://arxiv.org/abs/2611.21218</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.21218</guid>
@@ -145,19 +247,6 @@ Code: https://github.com/panuvi/inclusionmed</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>FastFrames: Video Generation at Interactive Latency</title>
-      <link>https://arxiv.org/abs/2611.23226</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
-      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
-
-Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
-
-Tasks: Video generation
-
-Code: https://github.com/apple-aiml-research/ml-fastframes</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>K2-Horizon: A Frontier Fleet of Open Source Language Models</title>
       <link>https://arxiv.org/abs/2611.21003</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.21003</guid>
@@ -169,97 +258,6 @@ Tasks: Agents, Code Generation, Coding Agents, Deep Research Agents, Language Mo
 
 Code: https://github.com/ifm-ai/uno</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Classical Energies Learn to Reason 1,000x Faster than Looped Models</title>
-      <link>https://arxiv.org/abs/2611.17309</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.17309</guid>
-      <description>Looped models have emerged as a prominent paradigm for reasoning, with successes on simple reasoning puzzles such as Sudoku-Extreme and Maze-Unique. However, these models can be unstable, slow to train, and use many parameters and FLOPs to solve simple puzzles. Descent on an energy not only mitigates these issues but also offers advantages: built-in early stopping, compute that adapts to problem difficulty, fast training without differentiating through a solver, and interpretable weights that learn the constraints of the puzzle. Here we demonstrate this with a learned version of Hopfield &amp; Tank's energy from the 80s, which we term CRAM, solves 99.996% of Sudoku-Extreme and 100% of Maze-Unique test puzzles after 42 ms and 132 ms of training on one GPU, at least 1,000x faster than looped models on these tasks. CRAM also matches baseline looped models at their highest accuracy on Sudoku-Extreme using at least 282x fewer inference FLOPs. Our work suggests two things. First, that energies are an extremely promising direction for training reasoning from data. Second, a caution against using trivially solvable benchmarks like Sudoku and Maze to test the scalability of looped reasoning techniques.
-
-Authors: Benjamin Hoover, Hugh Blayney, James C. R. Whittington
-
-Tasks: Reasoning
-
-Code: https://github.com/prefrontal-ai/cram</description>
-      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ResWAM: Learning What Changes, Not What Stays, for World-Action Models</title>
-      <link>https://arxiv.org/abs/2611.19559</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.19559</guid>
-      <description>World-action models (WAMs) augment vision-language-action policies (VLAs) with future prediction so that the policy can anticipate how its actions will affect the physical world. Existing WAMs supervise complete future observations. However, observations typically change little over an action chunk, so the future loss is dominated by copying static background content rather than learning task-relevant robot and object motion, limiting policy learning. Moreover, existing WAMs rely on large video generation models or separate world models, incurring heavy training and inference compute that hinders closed-loop deployment. To improve policy performance, we propose visual residual learning, supervising only the feature change from the current frame to the future frame in a frozen DINOv3 space. Compared with complete future features, this residual learning target yields a higher feature rank with richer and more diverse representations of scene changes, and spatially concentrates on the robot arm and manipulated objects rather than the background. To further improve computational efficiency, we present ResWAM, a residual world-action model with 2.3B parameters in total, including a lightweight 0.5B dual-branch DiT that jointly trains an action branch and a residual branch via conditional flow matching. Without robot pretraining (i.e., pretraining on external robot action trajectories beyond the benchmark demonstrations), ResWAM achieves top average success rates on LIBERO-Plus (81.1%), RoboTwin 2.0 (93.8%), and RoboDojo (9.40% success, 13.41 score) at the lowest training (2.7-4.0 TFLOPs) and inference compute (1.0-1.4 TFLOPs), and leads real-robot Open, Put, and Stack (80.0% average, +10.0% over π_{0.5}) at 92.7 ms latency.
-
-Authors: Chongyu Fan, Gaowen Liu, Ramana Rao Kompella, Jason Corso, Sijia Liu
-
-Tasks: Robotics, Video generation, World Models
-
-Code: https://github.com/OPTML-Group/ResWAM</description>
-      <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Autonomous agents can run successful open-model organisations. Evidence from an 8-week case study</title>
-      <link>https://horizon-labs.ai</link>
-      <guid isPermaLink="true">https://horizon-labs.ai</guid>
-      <description>For seven weeks, we gave Horizon, an agent based on Opus 5.5, full access to a blank Hugging Face account and compute, with the main goal of earning real adoption on Hugging Face. It used over 600 GPU-hours, autonomously created 38 models used in over 100 GitHub repositories and downloaded more than 50,000 times. Horizon runs 24/7 in Claude Code with a weekly compute budget, focuses on narrow-task multilingual models fine-tuned from mmBERT (prompt-injection guards, PII redactors, punctuation restoration, rerankers), and relies on public datasets plus synthetic data from Qwen 3.8-27B. External review finds its models often on the size/performance Pareto frontier, and we document real downstream use, including fine-tunes, pipeline integrations and independent evaluations on arXiv. We release the full agent trace.
-
-Authors: Arthur Wuhrmann, David Schmotz, Derck Prinzhorn, Ameya Prabhu, Harry Coppock, Maksym Andriushchenko
-
-Tasks: Agents, Auto-Research, Long-Horizon Agents
-
-Code: https://github.com/horizon-ai-labs/agent-io-guards</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Accelerate Bench: Evaluating Agents for Application-Level Program Optimization</title>
-      <link>https://arxiv.org/abs/2611.20882</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20882</guid>
-      <description>Application optimization requires coding agents to discover useful changes and coordinate them across a complete program while preserving the required computation. We introduce Accelerate Bench, a benchmark of 32 CPU optimization tasks adapted from scientific applications and supercomputing competitions. Each task provides a working program and specifies the workload, correctness requirements, timing boundaries, and permitted edits, leaving agents to choose where and how to optimize. Public testing supports iterative development, and a separate verifier scores the final submission. On benchmark version 1.1, we evaluate 16 coding agents, each pairing a model with a harness. Their Score@1 ranges from 25.5% to 67.4%. Most of their programs are correct, and the size of the speedup separates them: the two leading agents are at least 2x faster on 22 or more of the 32 tasks, while the other fourteen reach 2x on 8 to 17 and leave 125 of their 412 correct outcomes below 1.25x. Controlled replays show why coordination across an application matters: identical source code runs between 0.29x and 2.12x depending only on build and runtime settings, and one code change is worth 1.01x or 6.4x depending on another. Accelerate Bench pairs executable workloads with agents' programs and trajectories to evaluate both their gains and the process behind them.
-
-Authors: Bowen Liu, Yuhan Li, Nuo Chen, Weile Luo, Miao Peng, Qintong Zhang, Qifan Zhang, Jia Li, Ziqi Gao, Lydell Huang
-
-Tasks: Coding Agents
-
-Code: https://github.com/AdAstraAbyssoque/accelerate-bench</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sage S2.1 Flash Technical Report</title>
-      <link>https://arxiv.org/abs/2611.21072</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21072</guid>
-      <description>We introduce Sage S1.5 Flash, a 320-billion-parameter general-purpose mixture-of-experts model designed to reason over scientific evidence and act in interactive environments. Sage Sci-Perception uses dedicated encoders for molecular graphs and biological sequences and represents spectra as ordered patches of measurements. Modality-specific projectors map these representations into the input space of a shared backbone, which processes them alongside text and images. To develop the model's agent capabilities, we construct verifiable environments for tool use, search, and coding, as well as specialized workflows involving machine learning experiments and scientific software. Task completion is checked against execution results, changes in environment state, or submitted artifacts. We evaluate Sage S1.5 Flash on 33 benchmarks across seven domains. In the primary comparison against five baselines, it ranks first on OfficeQA Pro (72.2), MLE-bench Lite (90.3 HumanRank), Harvey LAB, and SpreadsheetBench~2, and second on OSWorld-Verified (85.2), WebArena-Verified (67.6), and DeepResearch Bench~II (54.2). These results show particular strengths in using documentary evidence, producing verifiable workbooks, and carrying out machine learning tasks, alongside competitive performance in desktop and browser workflows that require the model to act on visual feedback.
-
-Authors: Kun Cai, Haodong Chen, Guangran Cheng, Qingxiu Cheng, Xu Dai, Guanting Dong, Qiming Ge, Lixin Gu, Tao Gui, Honglin Guo, Yuyang Hu, Zixian Huang, Jiajie Jin, Alexander Lam, Jiaqiang Li, Yining Li, Jiahang Lin, Yanjiang Liu, Xinyu Lu, Haijun Lv, Ningsheng Ma, Zerun Ma, Minlong Peng, Jianmin Qian, Huayu Sha, Junlin Shang, Shuo Shen, Qisheng Su, Jiajun Sun, Yanan Sun, Zhichao Sun, Ran Tao, Zhongbo Tian, Guoqiang Wang, Hui Wang, Rui Wang, Yiding Wang, Zhecan Wang, Hao Xiang, Xinchen Xie, Shuhao Xing, Xiaoyu Xing, Wanghan Xu, Xinyu Yang, Yajie Yang, Dingbo Yuan, Yuhang Zang, Hongjie Zhang, Chengfeng Zhao, Haoran Zhao, Penghao Zhao, Ruojun Zhou, Dongsheng Zhu, Yicheng Zou, Qiye Cai, Yifei Cao, Xinmeng Che, Hongji Chen, Jiabei Chen, Jiadong Chen, Jiahao Chen, Jiayi Chen, Xinjie Chen, Yujia Chen, Xin Deng, Yi Dong, Yichen Dong, Wenjie Fu, Jianing Geng, Chenyang Gu, Ding Han, Han Han, Feiyang Hao, Haotan He, Qiushi He, Xufeng He, Xin Hong, Jie Hou, Binze Hu, Yongkang Hu, Zijian Hu, Enfu Huang, Junhao Huang, Changhao Jiang, Huicheng Jiang, Jiazhen Jiang, Shufan Jiang, Wenqing Jing, Jiahao Kuang, Bowen Lai, Bo Li, Qi Li, Qilong Li, Zhuoqun Li, Tianhao Liang, Jiaxiang Liu, Junzhang Liu, Shaofan Liu, Shuainan Liu, Tong Liu, Yi Liu, Ziyu Liu, Zhonghang Lu, Jianwen Luo, Xuan Luo, Yanyi Luo, Huijie Lv, Mingyu Ma, Houcheng Min, Hongjun Mo, Songhao Ni, Chengjun Pan, Qiyuan Peng, Xiaoxuan Peng, Wanying Ren, Runhui Ruan, Jifei Shan, Zixin Shang, Bing Shao, Zhuohui Sheng, Jiayang Shi, Qingyun Shi, Yang Shu, Aierpanjiang Simayi, Sirui Song, Yuxiao Song, Jiahao Sun, Zhe Sun, Wenzhe Tan, Guoxiang Wang, Hanchen Wang, Jie Wang, Pengbo Wang, Qing Wang, Weihang Wang, Xiaotao Wang, Yuhui Wang, Zhekai Wang, Zihan Wang, Zile Wang, Jinke Wu, Liwei Wu, Xuansheng Wu, Yida Wu, Yihao Wu, Yinqi Wu, Yue Wu, Yuhan Wu, Yuwa Wu, Zhiheng Xi, Ying Xiao, Zhide Xie, Caijun Xu, Xingle Xu, Yichen Xu, Yongfeng Xu, Xiaolei Yang, Zhixiong Yang, Jiacheng Yao, Dingcheng Yi, Shihong Yi, Jinhui Yin, Peizhou Yu, Shan Yu, Hao Yuan, Junjie Yuan, Xiongyao Zha, Bo Zhang, Caixian Zhang, Kaicheng Zhang, Pengxiang Zhang, Qiuyinzhe Zhang, Wei ZHANG, Xiaoqian Zhang, Xinsen Zhang, Jiyuan Zhao, Shuyu Zhao, Pujun Zheng, Zheyu Zheng, Xiaoxue Zhong, Peiheng Zhou, Xiaohao Zhou, Xinyu Zhou, Fangyi Zhu, Guanru Zhu, Yulun Zhu, Jiabao Zhuang, Pengfei Cao, Zhicheng Dou, Xianpei Han, Ben He, Guoxiu He, Xuanjing Huang, Tao Ji, Yu-Gang Jiang, Dahua Lin, Hongyu Lin, Kang Liu, Yaojie Lu, Le Sun, Ji-Rong Wen, Jun Zhao, Yutao Zhu, Qi Zhang, Bowen Zhou
-
-Tasks: Auto-Research, Coding Agents, Computer Use Agents, Deep Research Agents, Molecular Property Prediction, Scientific Reasoning
-
-Code: https://github.com/InternLM/Sage-S2.1-Flash</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Weight-Space Programming Doesn't Need Transformers</title>
-      <link>https://arxiv.org/abs/2611.22055</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22055</guid>
-      <description>Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights.
-
-Authors: Hyunjong Ok, Jaeho Lee
-
-Tasks: Question Answering, Text classification
-
-Code: https://github.com/effl-lab/Weight-Space-Programming</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Do Underwater Image Quality Metrics Agree with Human Perception? A Benchmark with Human Choices, Simple Edits and Generative Drift</title>
-      <link>https://arxiv.org/abs/2611.18429</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.18429</guid>
-      <description>Underwater image enhancement is challenging to evaluate due to the lack of clean reference images, so researchers rely on no-reference image quality assessment (NR-IQA) metrics. However, it remains unclear whether these metrics agree with human judgments. We evaluate 73 handcrafted underwater, learned underwater, vision-language and general-purpose metrics against human preferences on five references: four published opinion-score sets and a new paired-comparison study. For each metric, we measure how often it selects the same image as people when comparing versions of the same scene. We further test whether simple image edits and small adversarial perturbations raise metric scores above the enhancement people preferred, and whether scores decrease as repeated generative edits add noise. Our results show that no metric consistently matches human preferences. The best worst-case Cohen's kappa over the five references is only 0.23 (Q-Align), while two raters in our study agree with a median kappa of 0.41. The widely used UCIQE often favors edits that people reject. On a Nano Banana Pro replica chain that should leave the image unchanged, only 22 of 73 scores decrease at every checkpoint, while noise grows by 2.5 times. We also introduce TrustUIQA, a benchmark that combines the human references, our study choices, the edited, attacked and generated images, and the scores of every metric on every image. The code is available at https://github.com/TrustUIQA/TrustUIQA and TrustUIQA at https://huggingface.co/datasets/TrustUIQA/TrustUIQA.
-
-Authors: Rishii Kumar Singh, Abhinav Rajput, Dinesh Kumar Vishwakarma
-
-Tasks: Image editing, Image Quality Assessment, No-Reference Image Quality Assessment
-
-Code: https://github.com/TrustUIQA/TrustUIQA</description>
-      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
