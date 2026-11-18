@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Wed, 18 Nov 2026 05:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 06:00:00 GMT</lastBuildDate>
     <item>
       <title>Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent</title>
       <link>https://arxiv.org/abs/2611.18397</link>
@@ -19,17 +19,67 @@ Code: https://github.com/RainBowLuoCS/Gamer</description>
       <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LynnReal-Hand: Unlocking World Interaction with Hand Control</title>
-      <link>https://arxiv.org/abs/2611.21479</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21479</guid>
-      <description>Interactive video world models enable exploration through text and camera controls, yet direct object interaction requires finer control. Hands provide a natural interface, but translating continuous hand movements into coherent visual responses remains challenging because of complex hand-object dynamics and demanding real-time computation. To address these challenges, we introduce LynnReal-Hand, a hand-controlled video world model that unifies precise interaction modeling with efficient streaming generation. We curate 100K interaction clips spanning diverse real and synthetic environments and develop hand-aware supervision to improve fine-grained hand motions and object interactions. Building on this foundation, we learn a causal flow map for few-step generation and introduce region-aware score distillation that combines complementary video and image priors to refine interaction dynamics and visual appearance. To further reduce inference latency, we propose Ultra-Fast-VAE, a compact video decoder that preserves high reconstruction fidelity with substantially lower computational cost. Extensive evaluations on HandBench demonstrate superior hand-following accuracy and visual quality compared with existing approaches. Our full-sequence model achieves an FVD of 181.67 and a MANO Dice score of 93.02, while the three-step causal model maintains a MANO Dice score of 92.49. For real-time interaction, 540p streaming on a single H200 reaches 18.03 FPS with 741ms latency and an optimized peak GPU memory footprint of only 34.89GB. We will release the datasets, model weights, and the full training and inference code to support research on hand-controlled video world models.
+      <title>π^4: A Foundation Model for 4D Scene Geometry and Motion</title>
+      <link>https://arxiv.org/abs/2611.23144</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23144</guid>
+      <description>π^4 is a unified foundation model for 4D scene perception. From diverse, uncalibrated RGB observations in the wild---a single image, an unordered collection, or a video sequence---it recovers dense geometry, camera poses, and metric scale, together with 2D/3D point tracks and moving-object masks for multi-image inputs. It couples a geometry branch with a geometry-conditioned motion branch, which predicts image-space correspondences that are lifted into 3D using reconstructed target-view geometry. Across diverse benchmarks, π^4 achieves the best overall average rank in geometry evaluation, alongside competitive performance in single- and multiview 2D/3D point tracking and moving-object segmentation. With a shared backbone, the full geometry-and-motion system contains approximately 0.5B parameters---less than half the size of most baselines. It produces joint reconstructions and tracks in one forward pass, including large-scale scenes with thousands of input images despite training with contexts of at most 64 views. We further present the data and training recipe underlying these capabilities, together with empirical studies of key design choices. Code and models are available at https://github.com/yyfz/Pi4.
 
-Authors: Shaohao Rui, Chaoyang Zhang, Xiaofeng Mao, Weijie Ma
+Authors: Yifan WANG, Weiguang Zhao, Ni Yang, Haoyu Guo, Junting Dong, Weinan Zhang, Chunhua Shen
 
-Tasks: Video generation, World Models
+Tasks: 2D Point Tracking, 3D Reconstruction, 3D Tracking, Camera Pose Estimation, Depth estimation, Video segmentation
 
-Code: https://github.com/LynnReal-AI/LynnReal</description>
+Code: https://github.com/yyfz/Pi4</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>TCP4D: A Unified Tool-Center-Point Tracking and Generation Model for Robot Manipulation</title>
+      <link>https://arxiv.org/abs/2611.23143</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23143</guid>
+      <description>Robot manipulation videos provide a rich visual experience, yet recovering robot action and gripper-state annotations from RGB observations still remains challenging. Using the embodiment-agnostic tool-center-point (TCP) pose as the action space, we present TCP4D, a unified model in which a shared 4D scene representation both tracks observed TCP motion and generates future TCP trajectories. Given a monocular video and initial 2D TCP queries, the tracker directly recovers metric TCP poses in SE(3) and gripper states alongside scene geometry and camera parameters. The generator samples local features from the same 4D representation along the recovered TCP tracks, then combines them with robot observations and language instructions to predict future TCP states. Our new cross-embodiment augmentation pipeline converts existing RGB videos into demonstrations for alternative embodiments by retargeting the recovered motion and synthesizing the corresponding observations, without recorded source-robot states. Experiments show that the tracker achieves absolute trajectory errors of 7.60 and 16.07 mm on DROID and RoboLab and adapts to a new embodiment with only ten demonstrations. The generator achieves 69.19% mean success on RoboTwin and outperforms well-established policy models on two real-world tasks, while joint training on source and augmented demonstrations improves target-robot success by 41.5% over augmented-only training.
+
+Authors: Haosong Peng, Xiangyang Liu, Zhengshen Zhang, Yunfeng Fan, Tianyu Qi, Xin Xia, Yufeng Zhan, Wenchao Xu
+
+Tasks: 3D Tracking, Robotics, Speech Enhancement, Visual SLAM
+
+Code: https://github.com/Livioni/TCP4D</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models</title>
+      <link>https://arxiv.org/abs/2611.21099</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21099</guid>
+      <description>Frontier multimodal models can now control robots zero-shot from images, yet many manipulation tasks depend on contact forces that images cannot show. Bringing force to an API-only frozen model raises two challenges. First, contact evolves much faster than an API model can decide, so the system must close the loop on force beneath the model. Second, a frozen model cannot interpret raw force streams, so force must be returned in a form the model can reason about. Therefore, we present ForceHarness, a harness that lets frozen models use force without demonstrations or finetuning. After calibrating hand force from a wrist sensor or joint torques alone, ForceHarness addresses the first challenge with self-terminating force primitives that regulate force on their own and return at a contact event. To address the second challenge, a physics translation layer turns each force trace into physical quantities with uncertainty as the tool result. To evaluate ForceHarness against expert force controllers and learned policies under identical conditions, we also build HiddenPhys, a seven-task MuJoCo benchmark with hidden physical variables. On a real arm without a wrist force sensor, ForceHarness raises the zero-shot success rate of GPT-6 Astra from 3.3% to 90.0%. In simulation, it adds 17.5 percentage points on the public ForceBench suite and 34.3 percentage points on HiddenPhys, surpassing force-aware policies trained on demonstrations on both benchmarks and matching hand-written expert controllers on HiddenPhys. Ablations further show that smaller models make significantly better decisions when given physical quantities rather than raw force values.
+
+Authors: Ke Sun, Kevin Yuchen Ma, Yike Zhang, Yanzhe Chen, Mike Zheng Shou
+
+Tasks: Classic Reinforcement Learning, Continuous Control, Robotics
+
+Code: https://github.com/showlab/ForceHarness</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LongCat-Video-Avatar 1.6 Technical Report</title>
+      <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
+      <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
+      <description>We are excited to announce the release of LongCat-Video-Avatar 1.6, the latest upgrade to our open-source framework for audio-driven human video generation. Building upon LongCat-Video-Avatar 1.5, 1.6 improves expressive naturalness, lip–audio synchronization, coordinated facial and body motion, and visual consistency during long-form generation. It also introduces comprehensive inference optimizations for faster and more efficient deployment.
+
+Tasks: Talking Head Generation, Video generation
+
+Code: https://github.com/meituan-longcat/LongCat-Video</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Weight-Space Programming Doesn't Need Transformers</title>
+      <link>https://arxiv.org/abs/2611.22055</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22055</guid>
+      <description>Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights.
+
+Authors: Hyunjong Ok, Jaeho Lee
+
+Tasks: Question Answering, Text classification
+
+Code: https://github.com/effl-lab/Weight-Space-Programming</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>VoxMel TTS Technical Report</title>
@@ -45,16 +95,55 @@ Code: https://github.com/VoxDance-Lab/VoxMel</description>
       <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models</title>
-      <link>https://arxiv.org/abs/2611.21099</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21099</guid>
-      <description>Frontier multimodal models can now control robots zero-shot from images, yet many manipulation tasks depend on contact forces that images cannot show. Bringing force to an API-only frozen model raises two challenges. First, contact evolves much faster than an API model can decide, so the system must close the loop on force beneath the model. Second, a frozen model cannot interpret raw force streams, so force must be returned in a form the model can reason about. Therefore, we present ForceHarness, a harness that lets frozen models use force without demonstrations or finetuning. After calibrating hand force from a wrist sensor or joint torques alone, ForceHarness addresses the first challenge with self-terminating force primitives that regulate force on their own and return at a contact event. To address the second challenge, a physics translation layer turns each force trace into physical quantities with uncertainty as the tool result. To evaluate ForceHarness against expert force controllers and learned policies under identical conditions, we also build HiddenPhys, a seven-task MuJoCo benchmark with hidden physical variables. On a real arm without a wrist force sensor, ForceHarness raises the zero-shot success rate of GPT-6 Astra from 3.3% to 90.0%. In simulation, it adds 17.5 percentage points on the public ForceBench suite and 34.3 percentage points on HiddenPhys, surpassing force-aware policies trained on demonstrations on both benchmarks and matching hand-written expert controllers on HiddenPhys. Ablations further show that smaller models make significantly better decisions when given physical quantities rather than raw force values.
+      <title>LynnReal-Hand: Unlocking World Interaction with Hand Control</title>
+      <link>https://arxiv.org/abs/2611.21479</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21479</guid>
+      <description>Interactive video world models enable exploration through text and camera controls, yet direct object interaction requires finer control. Hands provide a natural interface, but translating continuous hand movements into coherent visual responses remains challenging because of complex hand-object dynamics and demanding real-time computation. To address these challenges, we introduce LynnReal-Hand, a hand-controlled video world model that unifies precise interaction modeling with efficient streaming generation. We curate 100K interaction clips spanning diverse real and synthetic environments and develop hand-aware supervision to improve fine-grained hand motions and object interactions. Building on this foundation, we learn a causal flow map for few-step generation and introduce region-aware score distillation that combines complementary video and image priors to refine interaction dynamics and visual appearance. To further reduce inference latency, we propose Ultra-Fast-VAE, a compact video decoder that preserves high reconstruction fidelity with substantially lower computational cost. Extensive evaluations on HandBench demonstrate superior hand-following accuracy and visual quality compared with existing approaches. Our full-sequence model achieves an FVD of 181.67 and a MANO Dice score of 93.02, while the three-step causal model maintains a MANO Dice score of 92.49. For real-time interaction, 540p streaming on a single H200 reaches 18.03 FPS with 741ms latency and an optimized peak GPU memory footprint of only 34.89GB. We will release the datasets, model weights, and the full training and inference code to support research on hand-controlled video world models.
 
-Authors: Ke Sun, Kevin Yuchen Ma, Yike Zhang, Yanzhe Chen, Mike Zheng Shou
+Authors: Shaohao Rui, Chaoyang Zhang, Xiaofeng Mao, Weijie Ma
 
-Tasks: Classic Reinforcement Learning, Continuous Control, Robotics
+Tasks: Video generation, World Models
 
-Code: https://github.com/showlab/ForceHarness</description>
+Code: https://github.com/LynnReal-AI/LynnReal</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Heave-Ho: Decentralized Long-Horizon Multi-Humanoid Collaboration</title>
+      <link>https://arxiv.org/abs/2611.22275</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22275</guid>
+      <description>Collaboration promises to extend humanoid capabilities beyond what individual robots can achieve. However, realizing this potential requires coordinated whole-body interactions, coherent long-horizon planning, and precise synchronization across robots. We introduce Heave-Ho, a decentralized framework for long-horizon collaborative multi-humanoid loco-manipulation. At the low level, we develop a multi-agent post-training framework that adapts a humanoid foundation tracking model to physically coupled interactions between humanoids, enabling coordinated decentralized control from local observations alone. At the high level, we train a vision-language planner and design a speech-based leader-follower coordination mechanism to synchronize decentralized execution without network communication. Trained with two identical humanoids, our system scales to teams of up to ten robots and generalizes to heterogeneous teams without retraining. To benchmark these capabilities, we introduce HH-Bench, comprising 12 tasks involving teams of 2 to 10 humanoids, including heterogeneous teams. Systematic evaluations show that Heave-Ho consistently outperforms baseline methods, while real-world experiments demonstrate robust decentralized collaboration across challenging tasks.
+
+Authors: Ting-Hsuan Chen, Siheng Zhao, Han Jiang, Qi Pan, Louison Lu, Jiaheng Luo, Henghui Bao, Yiyu Chen, Quan Nguyen, Yue Wang
+
+Tasks: Continuous Control, Multi-Agent Reinforcement Learning, Multi-Agent Systems, Robotics
+
+Code: https://github.com/heaveho-humanoid/Heave-Ho</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations</title>
+      <link>https://arxiv.org/abs/2611.20218</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20218</guid>
+      <description>A coding agent working within a software organization must establish what to build, collaborate with colleagues, and verify what it delivers. We introduce SWE-CoWork, a benchmark comprising 101 development assignments across 101 real repositories, 11 programming languages, and 12 application domains. Each assignment places an agent in a simulated engineering organization with 26 colleagues who have distinct responsibilities, bounded knowledge, and controlled collaboration behavior. Starting from a brief handoff, agents must recover requirements distributed across colleagues and workplace records, reconcile conflicting evidence, and implement changes evaluated by private executable tests. We evaluate eleven models and find a substantial gap between partial implementation and complete task delivery. The two leading models satisfy approximately 63% of fail-to-pass (F2P) tests but complete fewer than 8% of assignments. Providing complete requirements upfront improves F2P by approximately 16 percentage points for Seed Evolving and GPT-6 Astra, yet leaves complete task success unchanged. Requirement-level trajectory analysis reveals failures throughout the delivery process: Claude-Opus-5.5 directs a mean of 93% of first questions about queried cards to their accountable owners across runs but obtains only 64% of colleague-held requirements. Deferred questions go unfollowed, implementations remain incomplete even after requirements are acquired, and 31% of requirements reported as completed fail their tests. These findings highlight sustained requirement tracking, from clarification through implementation, verification, and handoff, as a key challenge for reliable autonomous software engineering.
+
+Authors: Xinping Lei, Minghao Liu, Ruijie Zhu, Xiaohui Hu, Xingqiao Li, Ao Zhang, Wenhao Chai, Han Li, Tao Wang, Jingyuan Zhang, Enduo Zhao, Yunfeng Shi, Yiming Liang, Zetao Yang, Xingjian Wang, Yifan Yao, Xinkai Ma, Yingru Li, Tianhan Yang, Huan Zhou, Weiran Shi, Shen Yan, Jiaheng Liu, Stephen Huang, Eli Cheung, Weihao Xuan
+
+Tasks: Coding Agents
+
+Code: https://github.com/TokenWave-AI/swe-cowork-bench</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>MedJev: A System One Vision-Language Decision Model for Fast and Effective Medical Image Understanding</title>
+      <link>https://arxiv.org/abs/2611.20992</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20992</guid>
+      <description>Medical image understanding with vision-language models (VLMs) typically relies on autoregressively generating reasoning and answer tokens. These unnecessary tokens make the inference cost scale with the response length and force the answer to be parsed from free-form text, incurring avoidable latency and decision errors. To this end, we introduce MedJev, a system one vision-language decision model that maps medical images, questions, and candidate answers directly to decisions in a single multimodal forward pass, without any autoregressive generation process. For fast inference, MedJev removes the upper language layers and the generative output pathway, while keeping the full vision pathway and all visual tokens. On this shortened backbone, a decision head scores each candidate by pretrained query--key matching and refines the scores with a lightweight multilayer perceptron (MLP) residual, coupling the pretrained matching structure with task-specific nonlinear discrimination. Built on Qwen3.5-4B, MedJev-4B improves both accuracy and speed over the original model on each of four medical image classification and visual question answering benchmarks, with an absolute accuracy gain of 7.93\% and a 6.04times end-to-end speedup. Further comparison with 20 cutting-edge models shows that MedJev-4B achieves state-of-the-art performance and inference speed among 4B--9B general and medical VLMs, indicating that direct multimodal decision making is an effective route to fast and effective medical image understanding.
+
+Authors: Fan zhang, Hao Wu, Jinyang Wu, Hongyu Qu, Zheng Lian, Dongfu Yin, Qingsong Wen, Pheng-Ann Heng
+
+Tasks: Decision Making, Image Classification, Image Understanding, Medical Image Classification, Medical Visual Question Answering, Question Answering
+
+Code: https://github.com/zfkarl/MedJev</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -71,15 +160,69 @@ Code: https://github.com/zyphra/zonos3-mini</description>
       <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LongCat-Video-Avatar 1.6 Technical Report</title>
-      <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
-      <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
-      <description>We are excited to announce the release of LongCat-Video-Avatar 1.6, the latest upgrade to our open-source framework for audio-driven human video generation. Building upon LongCat-Video-Avatar 1.5, 1.6 improves expressive naturalness, lip–audio synchronization, coordinated facial and body motion, and visual consistency during long-form generation. It also introduces comprehensive inference optimizations for faster and more efficient deployment.
+      <title>Sage S2.1 Flash Technical Report</title>
+      <link>https://arxiv.org/abs/2611.21072</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21072</guid>
+      <description>We introduce Sage S1.5 Flash, a 320-billion-parameter general-purpose mixture-of-experts model designed to reason over scientific evidence and act in interactive environments. Sage Sci-Perception uses dedicated encoders for molecular graphs and biological sequences and represents spectra as ordered patches of measurements. Modality-specific projectors map these representations into the input space of a shared backbone, which processes them alongside text and images. To develop the model's agent capabilities, we construct verifiable environments for tool use, search, and coding, as well as specialized workflows involving machine learning experiments and scientific software. Task completion is checked against execution results, changes in environment state, or submitted artifacts. We evaluate Sage S1.5 Flash on 33 benchmarks across seven domains. In the primary comparison against five baselines, it ranks first on OfficeQA Pro (72.2), MLE-bench Lite (90.3 HumanRank), Harvey LAB, and SpreadsheetBench~2, and second on OSWorld-Verified (85.2), WebArena-Verified (67.6), and DeepResearch Bench~II (54.2). These results show particular strengths in using documentary evidence, producing verifiable workbooks, and carrying out machine learning tasks, alongside competitive performance in desktop and browser workflows that require the model to act on visual feedback.
 
-Tasks: Talking Head Generation, Video generation
+Authors: Kun Cai, Haodong Chen, Guangran Cheng, Qingxiu Cheng, Xu Dai, Guanting Dong, Qiming Ge, Lixin Gu, Tao Gui, Honglin Guo, Yuyang Hu, Zixian Huang, Jiajie Jin, Alexander Lam, Jiaqiang Li, Yining Li, Jiahang Lin, Yanjiang Liu, Xinyu Lu, Haijun Lv, Ningsheng Ma, Zerun Ma, Minlong Peng, Jianmin Qian, Huayu Sha, Junlin Shang, Shuo Shen, Qisheng Su, Jiajun Sun, Yanan Sun, Zhichao Sun, Ran Tao, Zhongbo Tian, Guoqiang Wang, Hui Wang, Rui Wang, Yiding Wang, Zhecan Wang, Hao Xiang, Xinchen Xie, Shuhao Xing, Xiaoyu Xing, Wanghan Xu, Xinyu Yang, Yajie Yang, Dingbo Yuan, Yuhang Zang, Hongjie Zhang, Chengfeng Zhao, Haoran Zhao, Penghao Zhao, Ruojun Zhou, Dongsheng Zhu, Yicheng Zou, Qiye Cai, Yifei Cao, Xinmeng Che, Hongji Chen, Jiabei Chen, Jiadong Chen, Jiahao Chen, Jiayi Chen, Xinjie Chen, Yujia Chen, Xin Deng, Yi Dong, Yichen Dong, Wenjie Fu, Jianing Geng, Chenyang Gu, Ding Han, Han Han, Feiyang Hao, Haotan He, Qiushi He, Xufeng He, Xin Hong, Jie Hou, Binze Hu, Yongkang Hu, Zijian Hu, Enfu Huang, Junhao Huang, Changhao Jiang, Huicheng Jiang, Jiazhen Jiang, Shufan Jiang, Wenqing Jing, Jiahao Kuang, Bowen Lai, Bo Li, Qi Li, Qilong Li, Zhuoqun Li, Tianhao Liang, Jiaxiang Liu, Junzhang Liu, Shaofan Liu, Shuainan Liu, Tong Liu, Yi Liu, Ziyu Liu, Zhonghang Lu, Jianwen Luo, Xuan Luo, Yanyi Luo, Huijie Lv, Mingyu Ma, Houcheng Min, Hongjun Mo, Songhao Ni, Chengjun Pan, Qiyuan Peng, Xiaoxuan Peng, Wanying Ren, Runhui Ruan, Jifei Shan, Zixin Shang, Bing Shao, Zhuohui Sheng, Jiayang Shi, Qingyun Shi, Yang Shu, Aierpanjiang Simayi, Sirui Song, Yuxiao Song, Jiahao Sun, Zhe Sun, Wenzhe Tan, Guoxiang Wang, Hanchen Wang, Jie Wang, Pengbo Wang, Qing Wang, Weihang Wang, Xiaotao Wang, Yuhui Wang, Zhekai Wang, Zihan Wang, Zile Wang, Jinke Wu, Liwei Wu, Xuansheng Wu, Yida Wu, Yihao Wu, Yinqi Wu, Yue Wu, Yuhan Wu, Yuwa Wu, Zhiheng Xi, Ying Xiao, Zhide Xie, Caijun Xu, Xingle Xu, Yichen Xu, Yongfeng Xu, Xiaolei Yang, Zhixiong Yang, Jiacheng Yao, Dingcheng Yi, Shihong Yi, Jinhui Yin, Peizhou Yu, Shan Yu, Hao Yuan, Junjie Yuan, Xiongyao Zha, Bo Zhang, Caixian Zhang, Kaicheng Zhang, Pengxiang Zhang, Qiuyinzhe Zhang, Wei ZHANG, Xiaoqian Zhang, Xinsen Zhang, Jiyuan Zhao, Shuyu Zhao, Pujun Zheng, Zheyu Zheng, Xiaoxue Zhong, Peiheng Zhou, Xiaohao Zhou, Xinyu Zhou, Fangyi Zhu, Guanru Zhu, Yulun Zhu, Jiabao Zhuang, Pengfei Cao, Zhicheng Dou, Xianpei Han, Ben He, Guoxiu He, Xuanjing Huang, Tao Ji, Yu-Gang Jiang, Dahua Lin, Hongyu Lin, Kang Liu, Yaojie Lu, Le Sun, Ji-Rong Wen, Jun Zhao, Yutao Zhu, Qi Zhang, Bowen Zhou
 
-Code: https://github.com/meituan-longcat/LongCat-Video</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+Tasks: Auto-Research, Coding Agents, Computer Use Agents, Deep Research Agents, Molecular Property Prediction, Scientific Reasoning
+
+Code: https://github.com/InternLM/Sage-S2.1-Flash</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Restoring Diversity in Distilled Image and Video Generators by Probing Activations</title>
+      <link>https://arxiv.org/abs/2611.18550</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.18550</guid>
+      <description>Distilling diffusion models into few-step student models substantially reduces sampling latency, but induces severe diversity collapse: samples generated from different random seeds show minimal variation. In this work, we investigate the root cause of this failure by probing the internal representations of student models relative to their teachers. We find that distilled students maintain total activation variance comparable to their teachers, but concentrate it into substantially fewer directions. This directional collapse is localized to an identifiable intermediate block at the initial denoising step. Consequently, diversity collapse stems from a misallocation of activation variance rather than an inherent loss of generative capacity. Guided by this finding, we propose ReDiverse to reinstate the missing variance directions. At training time, ReDiverse-FT fine-tunes a lightweight adapter that regresses student activations onto the teacher's, reviving the teacher's feature variance characteristic. At inference time, ReDiverse-TF introduces a training-free mechanism that steers activations along precomputed teacher principal directions. Across image and video distillation benchmarks, ReDiverse consistently restores sample diversity while preserving generation quality, further supported by the user study.
+
+Authors: Furkan Horoz, Ozgur Kara, Kaan Oktay, Adil Kaan Akan, Atakan Kara, Anand Bhattad, James Matthew Rehg
+
+Tasks: Image generation, Video generation
+
+Code: https://github.com/H-furkan/rediverse</description>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JVT: Just Video Transformer makes pixel-space video diffusion simple</title>
+      <link>https://arxiv.org/abs/2611.18549</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.18549</guid>
+      <description>Direct diffusion modeling of high-dimensional raw video data is challenging, and existing pixel-space methods often rely on specialized architectures. We introduce JVT (Just Video Transformer), a simple large-patch DiT-style Transformer for pixel-space video diffusion, without a pretrained autoencoder, auxiliary detailers, cascaded stages, or U-Net-style skip connections. We systematically examine video patch embeddings, register tokens, and adaptive layer normalization to identify design choices that balance generation quality and computational efficiency. The resulting JVT design achieves generation quality competitive with latent diffusion baselines in both class-conditioned and unconditional settings. The pixel-space formulation of JVT also naturally supports joint generation of pixel-aligned modalities. We demonstrate this capability through camera-conditioned RGB-disparity generation, which improves camera following relative to RGB-only baselines and yields explicit scene geometry without an additional reconstruction model at inference. These results highlight the potential of simple DiT-style Transformers for pixel-space video diffusion, and we hope our findings offer useful insights and practical guidance for future research.
+
+Authors: Jianjun Zhou, Hua Geng, Haoyu Guo
+
+Tasks: Video generation
+
+Code: https://github.com/ZhouTimeMachine/JVT</description>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models</title>
+      <link>https://arxiv.org/abs/2611.17331</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17331</guid>
+      <description>Decoder-only Large View Synthesis Models (LVSMs) with KV-cache have recently achieved state-of-the-art quality by regressing novel views from neural networks without reconstructing 3D geometry, while Test-Time Training (TTT) layers save computation but sacrifice quality. We propose Test-Time Baking (TTB), a strategy that learns to bake global scene information from cross-view attention into a lightweight MLP, enabling fast and high-fidelity novel-view decoding. The first key is to repurpose the fast-weight MLP of TTT to learn the cross-view attention mapping explicitly from its input-output pairs, rather than replacing attention entirely, achieving the same rendering efficiency as TTT while delivering substantially higher quality. The second key addresses a modality misalignment between context prefilling and novel-view rendering: we disentangle context tokens into camera-only context rendering tokens to serve as TTB input, and context ground-truth tokens with image content to serve as the TTB mapping target, ensuring the baked MLPs are relieved of the modality generalization challenge between context and novel-view processing. Our method achieves up to **23x** rendering speedup with quality on par with the state-of-the-art across several benchmarks. Project page: https://test-time-baking.github.io
+
+Authors: Chin-Yang Lin, Ryo Hachiuma, Jaesung Choe, Min-Hung Chen, Yu-Chiang Frank Wang, Yen-Yu Lin, Wei-Chen Chiu, Yu-Lun Liu, Cheng Sun
+
+Tasks: Novel View Synthesis, Test-time Adaptation
+
+Code: https://github.com/NVlabs/DVSM</description>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Calpha: Toward Native Biomolecular Intelligence in a General-Purpose Language Model</title>
+      <link>https://arxiv.org/abs/2611.20986</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20986</guid>
+      <description>Biomolecular foundation models predict the structures of proteins and their complexes accurately, and large language models (LLMs) reason in natural language, but the two remain separate: the abilities of the former are not part of a general-purpose LLM, and the reasoning of the latter does not enter a structure prediction. Calpha aims at one general model that folds proteins and complexes, understands protein sequence and structure, and lets its language reasoning influence the structures it predicts. This report covers the first step, in which an LLM outputs single-chain protein structures. Qwen3.5-9B reads a sequence enriched with ESM2 residue features. It can respond in text or emit a token that invokes a pretrained SimpleFold structure head, which receives information about the protein only through Qwen's residue states. Under a fixed folding request, the head achieves mean TM-scores of 0.808 on the FoldBench-334 development set, 0.635 on CASP16 domains and 0.900 on a CAMEO-style PDB set. We compare these predictions with a baseline in which ESM2-3B encodes the sequence and a fine-tuned SimpleFold-3B head predicts the coordinates. The two systems also differ in trainable weights, training duration and crop length. For chains of 100--299 residues, all three paired confidence intervals include zero. At 300--600 residues, the mean differences are -0.044, -0.160 and -0.025, respectively. In a separate test, four English request types triggered folding on every evaluated example. Protein training reduced accuracy on a 350-item MMLU-Pro subset from 77.4% to 70.3%. An LLM can therefore output single-chain structures from its own states, with lower long-chain scores in the current comparisons and reduced accuracy on the evaluated MMLU-Pro subset. Complex prediction, structure understanding and the effect of language reasoning on the predicted coordinates remain future work.
+
+Authors: Yong liu, Zhanpeng Shi, Peicong Lin, Zhenyi Zhong, Yizhou Dang, Wendi Wu, Haoling Li, Shuangjia Zheng
+
+Tasks: Biology
+
+Code: https://github.com/yliust/Calpha</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos</title>
@@ -108,19 +251,6 @@ Code: https://github.com/allocflow/AllocFlow</description>
       <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations</title>
-      <link>https://arxiv.org/abs/2611.20218</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20218</guid>
-      <description>A coding agent working within a software organization must establish what to build, collaborate with colleagues, and verify what it delivers. We introduce SWE-CoWork, a benchmark comprising 101 development assignments across 101 real repositories, 11 programming languages, and 12 application domains. Each assignment places an agent in a simulated engineering organization with 26 colleagues who have distinct responsibilities, bounded knowledge, and controlled collaboration behavior. Starting from a brief handoff, agents must recover requirements distributed across colleagues and workplace records, reconcile conflicting evidence, and implement changes evaluated by private executable tests. We evaluate eleven models and find a substantial gap between partial implementation and complete task delivery. The two leading models satisfy approximately 63% of fail-to-pass (F2P) tests but complete fewer than 8% of assignments. Providing complete requirements upfront improves F2P by approximately 16 percentage points for Seed Evolving and GPT-6 Astra, yet leaves complete task success unchanged. Requirement-level trajectory analysis reveals failures throughout the delivery process: Claude-Opus-5.5 directs a mean of 93% of first questions about queried cards to their accountable owners across runs but obtains only 64% of colleague-held requirements. Deferred questions go unfollowed, implementations remain incomplete even after requirements are acquired, and 31% of requirements reported as completed fail their tests. These findings highlight sustained requirement tracking, from clarification through implementation, verification, and handoff, as a key challenge for reliable autonomous software engineering.
-
-Authors: Xinping Lei, Minghao Liu, Ruijie Zhu, Xiaohui Hu, Xingqiao Li, Ao Zhang, Wenhao Chai, Han Li, Tao Wang, Jingyuan Zhang, Enduo Zhao, Yunfeng Shi, Yiming Liang, Zetao Yang, Xingjian Wang, Yifan Yao, Xinkai Ma, Yingru Li, Tianhan Yang, Huan Zhou, Weiran Shi, Shen Yan, Jiaheng Liu, Stephen Huang, Eli Cheung, Weihao Xuan
-
-Tasks: Coding Agents
-
-Code: https://github.com/TokenWave-AI/swe-cowork-bench</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>InclusionMed: Benchmarking AI for Inclusive Healthcare</title>
       <link>https://arxiv.org/abs/2611.21218</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.21218</guid>
@@ -132,134 +262,6 @@ Tasks: Healthcare &amp; Medical AI
 
 Code: https://github.com/panuvi/inclusionmed</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MMFlash: Faster Speculative Decoding for Vision-Language Models</title>
-      <link>https://arxiv.org/abs/2611.18482</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.18482</guid>
-      <description>Speculative decoding accelerates generation by letting a lightweight drafter propose tokens for parallel verification by a target model. Diffusion drafters such as DFlash propose an entire token block in a single forward pass, but mainly focus on text-only tasks, leaving multimodal drafting underexplored. To study this setting, we first introduce a metric of token-level visual dependence based on the KL divergence between next-token distributions with and without visual input. We find that acceptance rates decrease from 46% in the lowest visual-dependence quartile to 22% in the highest, with this disparity persisting after multimodal training. Motivated by this observation, we propose MMFlash, a simple and effective framework that adaptively upweights visually dependent tokens that the drafter predicts poorly. For long video inputs, MMFlash further employs sparse attention to reduce redundant attention computation and improve drafting quality. Across various multimodal benchmarks, MMFlash achieves lossless decoding speedups of up to 3.58times, outperforming EAGLE-3 and DFlash by up to 195.4% and 17.1%, respectively.
-
-Authors: Sicheng Feng, Zigeng Chen, Song Wang, Gongfan Fang, Xinchao Wang
-
-Tasks: Image Understanding, Video Understanding
-
-Code: https://github.com/fscdc/MMFlash</description>
-      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MedJev: A System One Vision-Language Decision Model for Fast and Effective Medical Image Understanding</title>
-      <link>https://arxiv.org/abs/2611.20992</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20992</guid>
-      <description>Medical image understanding with vision-language models (VLMs) typically relies on autoregressively generating reasoning and answer tokens. These unnecessary tokens make the inference cost scale with the response length and force the answer to be parsed from free-form text, incurring avoidable latency and decision errors. To this end, we introduce MedJev, a system one vision-language decision model that maps medical images, questions, and candidate answers directly to decisions in a single multimodal forward pass, without any autoregressive generation process. For fast inference, MedJev removes the upper language layers and the generative output pathway, while keeping the full vision pathway and all visual tokens. On this shortened backbone, a decision head scores each candidate by pretrained query--key matching and refines the scores with a lightweight multilayer perceptron (MLP) residual, coupling the pretrained matching structure with task-specific nonlinear discrimination. Built on Qwen3.5-4B, MedJev-4B improves both accuracy and speed over the original model on each of four medical image classification and visual question answering benchmarks, with an absolute accuracy gain of 7.93\% and a 6.04times end-to-end speedup. Further comparison with 20 cutting-edge models shows that MedJev-4B achieves state-of-the-art performance and inference speed among 4B--9B general and medical VLMs, indicating that direct multimodal decision making is an effective route to fast and effective medical image understanding.
-
-Authors: Fan zhang, Hao Wu, Jinyang Wu, Hongyu Qu, Zheng Lian, Dongfu Yin, Qingsong Wen, Pheng-Ann Heng
-
-Tasks: Decision Making, Image Classification, Image Understanding, Medical Image Classification, Medical Visual Question Answering, Question Answering
-
-Code: https://github.com/zfkarl/MedJev</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Restoring Diversity in Distilled Image and Video Generators by Probing Activations</title>
-      <link>https://arxiv.org/abs/2611.18550</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.18550</guid>
-      <description>Distilling diffusion models into few-step student models substantially reduces sampling latency, but induces severe diversity collapse: samples generated from different random seeds show minimal variation. In this work, we investigate the root cause of this failure by probing the internal representations of student models relative to their teachers. We find that distilled students maintain total activation variance comparable to their teachers, but concentrate it into substantially fewer directions. This directional collapse is localized to an identifiable intermediate block at the initial denoising step. Consequently, diversity collapse stems from a misallocation of activation variance rather than an inherent loss of generative capacity. Guided by this finding, we propose ReDiverse to reinstate the missing variance directions. At training time, ReDiverse-FT fine-tunes a lightweight adapter that regresses student activations onto the teacher's, reviving the teacher's feature variance characteristic. At inference time, ReDiverse-TF introduces a training-free mechanism that steers activations along precomputed teacher principal directions. Across image and video distillation benchmarks, ReDiverse consistently restores sample diversity while preserving generation quality, further supported by the user study.
-
-Authors: Furkan Horoz, Ozgur Kara, Kaan Oktay, Adil Kaan Akan, Atakan Kara, Anand Bhattad, James Matthew Rehg
-
-Tasks: Image generation, Video generation
-
-Code: https://github.com/H-furkan/rediverse</description>
-      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>K2-Horizon: A Frontier Fleet of Open Source Language Models</title>
-      <link>https://arxiv.org/abs/2611.21003</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21003</guid>
-      <description>We present K2-Horizon, a fleet of six fully open language models, from a 0.9B dense model to a 375B-A23B MoE, built for general-purpose reasoning and agentic work across math and science, software engineering, deep research, office automation, and beyond. The models lead or are competitive with strong open models of their size on agentic and coding benchmarks. On the modeling side, to strengthen reasoning, we introduce Mixture-of-Value Attention (MoVA), applying MoE to attention value projections, and softplus attention gating, a more flexible, theoretically motivated gate. Our 36B-A4B model uses both and nearly matches a 32B dense model trained on the same data, with one-seventh the active parameters. We also introduce Uno, lossless diffusion adapters that speed up decoding by up to 2.2x without a separate draft model. Our release follows the LLM360 definition of open source for transparency and reproducibility: the full development history, including intermediate checkpoints from every training stage, pre-training data, training logs, and all training, evaluation, and infrastructure code, notably our production-scale xLLM framework for dense and MoE training and the RL360 reinforcement-learning stack. Beyond the data itself, we release and document in detail every pipeline that built it, the part of model development that open releases most rarely disclose. These pipelines produced roughly 10T synthetic pre-training tokens, showing that synthetic data can be a major ingredient of pre-training at scale. Four of the models share one 22T-token pre-training corpus and recipe, revealing consistent scaling behavior and enabling controlled studies of scale and sparsity. All artifacts are available at https://ifm.ai/k2/
-
-Authors: K2 Team, Zhengzhong Liu, Haonan Li, Xuezhe Ma, Alexander Moreno, Subham Sekhar Sahoo, Rupesh Kumar Srivastava, Mikhail Yurochkin, Hadi Abdine, Yash Akhauri, Adharsh Babu, David Bellamy, Jalaj Bhandari, Dani Bouch, Wail Bouhedja, Weili Cao, Ahmad Chamma, Po-Chun Chang, Junlin Chen, Lingjie Chen, Zhoujun Cheng, Kyle Chickering, Ryandito Diandaru, Evan Dufraisse, Chaitanya Dwivedi, Bilal El Bouardi, Desai Fan, Richard Fan, Chengqian Gao, Rifo Ahmad Genadi, Jonathan Geuter, Charles Guille-Escuret, Willis Guo, Dhawal Gupta, Seungwook Han, Tingxu Han, Shibo Hao, Besher Hassan, Guowei He, Ming Shan Hee, Joel Hestness, Yu Huang, Yuan Huang, Haolong Jia, Linghao Jin, Junu Kim, Lingjing Kong, Nurkhan Laiyk, Andrej Leban, Liqun Ma, John Maggs, Amr Mohamed, Mukhesh Narra, Omkar Pangarkar, Aldo Pareja, Khiem Pham, Varad Pimpalkhute, Nikhil Ranjan, Elizaveta Rebrova, Hector Ren, Shaurya Rohatgi, Guokan Shang, Jianshu She, Chufan Shi, Aaryamonvikram Singh, Daria Soboleva, Kartik Sreenivasan, Suqi Sun, Yuekai Sun, Bowen Tan, Liping Tang, Shengkun Tang, Muzi Tao, Mallikarjuna Tupakula, Micah Villmow, Hongyi Wang, Huijuan Wang, Renxi Wang, Yongxin Wang, Yuqi Wang, Zhenting Wang, Shicheng Wen, Yingquan Wu, Anze Xie, Andrew Xing, Matthew Yang, Shuanghai Yu, Kerem Zaman, Zenan Zhai, Hongli Zhan, Xuezhou Zhang, Anshun Asher Zheng, Zhe Zhou, Richard Zhuang, Eric P. Xing
-
-Tasks: Agents, Code Generation, Coding Agents, Deep Research Agents, Language Modeling, Long Context, Reasoning, Reinforcement Learning, Scientific Reasoning
-
-Code: https://github.com/ifm-ai/xllm</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Ropedia Xperience 2: A Gold Standard for Scaling Physical AI Environments and Behaviors</title>
-      <link>https://arxiv.org/abs/2611.17060</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.17060</guid>
-      <description>Large foundation models such as GPT-6 Astra and Claude Fable 5.1 have recently been shown to control robots directly from visual observations. They nevertheless remain brittle on long-horizon, contact-rich tasks in real-world environments. Further progress depends on two complementary resources: demonstrations of human behavior that supervise how tasks are performed, and interactive environments in which policies can be rolled out, evaluated, and improved in closed loop. Language models have advanced along well-characterized scaling laws; the corresponding question for physical AI is how capability scales with environments and behaviors, which first requires identifying which data to scale and how to produce and reuse such data continuously. To address this question, we introduce Ropedia Xperience 2, comprising 1,589 released metric-scale 3D scans and a collection of 4,230 egocentric recordings of 74 tasks (131 hours). We further show that each capture can be repurposed for robot learning: scenes are converted into physically interactive simulation environments, human motion is retargeted to whole-body robot trajectories, and additional robot behaviors are obtained through virtual teleoperation and automated long-horizon trajectory generation. We propose this joint capture of environments and behaviors as a gold standard for physical AI data collection, laying a data foundation for establishing scaling laws over environments and behaviors.
-
-Authors: Hao Li, Fangzhou Hong, Zhaoxi Chen, Hui En Pang, Kairui Hu, Mingze Sun, Runmao Yao, Xinhao Ji, Xiyuan Zheng, Xuanli Chen, Yalun Dai, Yap Kim Hui, Dingwen Zhang, Yuanyuan Gao, Ziang Cao, Cheng Huang Yean, Jackson Peng, Rui Duan, Yaobo Liu, Zetong Wang, Ziwei Liu
-
-Tasks: 3D object detection, 3D Reconstruction, Depth estimation, Robotics
-
-Code: https://github.com/Ropedia/Ropedia-Xperience-2</description>
-      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models</title>
-      <link>https://arxiv.org/abs/2611.17331</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.17331</guid>
-      <description>Decoder-only Large View Synthesis Models (LVSMs) with KV-cache have recently achieved state-of-the-art quality by regressing novel views from neural networks without reconstructing 3D geometry, while Test-Time Training (TTT) layers save computation but sacrifice quality. We propose Test-Time Baking (TTB), a strategy that learns to bake global scene information from cross-view attention into a lightweight MLP, enabling fast and high-fidelity novel-view decoding. The first key is to repurpose the fast-weight MLP of TTT to learn the cross-view attention mapping explicitly from its input-output pairs, rather than replacing attention entirely, achieving the same rendering efficiency as TTT while delivering substantially higher quality. The second key addresses a modality misalignment between context prefilling and novel-view rendering: we disentangle context tokens into camera-only context rendering tokens to serve as TTB input, and context ground-truth tokens with image content to serve as the TTB mapping target, ensuring the baked MLPs are relieved of the modality generalization challenge between context and novel-view processing. Our method achieves up to **23x** rendering speedup with quality on par with the state-of-the-art across several benchmarks. Project page: https://test-time-baking.github.io
-
-Authors: Chin-Yang Lin, Ryo Hachiuma, Jaesung Choe, Min-Hung Chen, Yu-Chiang Frank Wang, Yen-Yu Lin, Wei-Chen Chiu, Yu-Lun Liu, Cheng Sun
-
-Tasks: Novel View Synthesis, Test-time Adaptation
-
-Code: https://github.com/NVlabs/DVSM</description>
-      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Inpriora: A Pretrained Tabular Foundation Model for Classification and Regression</title>
-      <link>https://github.com/ai-for-data/inpriora/blob/main/README.md</link>
-      <guid isPermaLink="true">https://github.com/ai-for-data/inpriora/blob/main/README.md</guid>
-      <description>Inpriora is a pretrained tabular foundation model developed by Ant Group for classification and regression, trained entirely on synthetic data. The model performs in-context learning: fit prepares the training context, and predict / predict_proba run forward passes without gradient updates. Inpriora encodes cells with adaptive Fourier features and ranks within each context column, capturing both numerical patterns and relative order. Its dual-branch ICL processes context and query rows with separate attention projections, allowing each to retain information suited to its role.
-
-Tasks: Tabular Learning
-
-Code: https://github.com/ai-for-data/inpriora</description>
-      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Multi-Branch Transformer</title>
-      <link>https://arxiv.org/abs/2611.19800</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.19800</guid>
-      <description>Transformer language models are commonly scaled by making their blocks wider or stacking them deeper. In this work, we explore a complementary path: branching, the parallel composition of full Transformer blocks. We introduce the Multi-Branch Transformer (MBT), which processes the input through shared initial layers, executes independently parameterized branches of sequential blocks in parallel, and fuses their outputs before shared final layers. At comparable training compute, we study three MBT variants: Wide-Shallow preserves block width, Narrow-Deep preserves sequential depth, and Balanced interpolates between them. In controlled pretraining experiments at four mixture-of-experts scales (0.8B to 2.1B total parameters), 2-branch Wide-Shallow MBTs consistently outperform sequential Transformers under matched parameter and training-compute budgets. Balanced MBTs improve further and retain comparable quality as the number of branches increases. To improve inference efficiency at long contexts, we introduce Joint-KV, which constructs a shared KV cache from branch representations at each depth. Our final recipe combines Balanced MBTs with Joint-KV, supported by an inference engine that exploits branch grouping and shared-cache reuse. Fitted scaling curves indicate that standard Transformers require up to 1.26x as much training body compute to match our final models' validation loss. These models reduce full-model KV-cache storage by up to 34% and deliver up to 51.4% higher decoding throughput on a single H200 GPU. Ablation studies show that branching yields gains beyond changes in width and depth, enables an effective KV-sharing strategy (Joint-KV), remains robust across fusion functions, and performs best in the middle layers. These findings show that branching offers a practical path for scaling language models toward both better modeling quality and faster inference.
-
-Authors: Gaotang Li, Lingjie Chen, Chunyuan Deng, Zhiwei Xu, Hongzheng Chen, Christopher De Sa, Jingrui He, Yingheng Wang, Hanghang Tong
-
-Tasks: Language Modeling, Long Context
-
-Code: https://github.com/GaotangLi/Multi-Branch-Transformer</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>PhysLoop: Harnessing LLMs' Physics Awareness for Self-Improving Video Generation Models</title>
-      <link>https://arxiv.org/abs/2611.16748</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.16748</guid>
-      <description>Video generation models produce visually realistic videos but still struggle with physical dynamics and causal consistency. Learning from generated videos requires fine-grained physical supervision, yet reliable quality judgments, correction pairs, and controlled variations are difficult to obtain. Large language models (LLMs) possess physical knowledge, but struggle to reliably guide video generation models in producing their training videos. We present PhysLoop, a unified harness designed to support physically grounded self-improvement in video generation models. The harness guides and constrains LLMs throughout video generation, selection, and correction, distilling their physical knowledge into physically consistent videos. The framework supports controllable training-data construction and inference-time video repair. By identifying and correcting failures, PhysLoop marks a key milestone toward recursive self-improvement (RSI) in video generation models with limited human intervention. We release 100K videos spanning diverse, realistic indoor and outdoor scenes, along with generation tools and two evaluation datasets: PhysLoop-Gen and PhysLoop-Repair. We evaluate controllable generation and localized repair on these datasets, respectively, and assess physical behavior on the external Physics-IQ Verified benchmark.
-
-Authors: Yuxuan Chen, Xiaojie Li, Hao Chen, Juncheng Ma, Kewei Zhang, Zhongjing Du, Guoqiang Wei, Fangfang Wang, Zhen Dong, Zhiyang Dou, Liming Zhao, Yan Zeng, jianwei zhang, Daquan Zhou
-
-Tasks: Video Editing, Video generation
-
-Code: https://github.com/DAGroup-PKU/PhysLoop</description>
-      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Weight-Space Programming Doesn't Need Transformers</title>
-      <link>https://arxiv.org/abs/2611.22055</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22055</guid>
-      <description>Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights.
-
-Authors: Hyunjong Ok, Jaeho Lee
-
-Tasks: Question Answering, Text classification
-
-Code: https://github.com/effl-lab/Weight-Space-Programming</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
