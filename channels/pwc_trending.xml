@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Thu, 19 Nov 2026 15:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 16:00:00 GMT</lastBuildDate>
     <item>
       <title>Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent</title>
       <link>https://arxiv.org/abs/2611.18397</link>
@@ -30,6 +30,82 @@ Tasks: 2D Point Tracking, 3D Reconstruction, 3D Tracking, Camera Pose Estimation
 
 Code: https://github.com/yyfz/Pi4</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Code World Model 2.0: Towards Infinite Controllable Video Generation</title>
+      <link>https://arxiv.org/abs/2611.22925</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22925</guid>
+      <description>Visual proxies decouple explicit world-state simulation from photorealistic video synthesis, offering a controllable interface for both offline clip creation and real-time interactive streaming. Yet a practical renderer must address two challenges. Upstream proxies vary from coarse layouts to fine articulated geometry depending on the interaction, and streaming inference must operate in a few causal steps without accumulating drift across self-generated history. We present Invoker-Render, pairing a bidirectional creation model with a causal four-step streaming model under a shared conditioning interface over structural proxies, an appearance reference, and language. Trained on an aligned approximately 200-hour multi-granularity corpus, Invoker-Render honors fine geometric constraints when supplied while synthesizing plausible local motion under coarse proxies, enabling runtime selection of input detail. To bridge bidirectional creation and real-time streaming without compounding step compression and rollout drift, we introduce Progressive Forcing (ProForcing). ProForcing first trains a causal predictor and distills it into a four-step renderer using histories derived from training videos. Training then shifts to continuous self-generated rollouts. A pipelined serving stack supports efficient streaming inference. Experiments show versatile control across proxy families, granularities, and camera paths, consistent gains over recent streaming baselines, and stable 30-minute racing rollouts that preserve scene and subject appearance.
+
+Authors: Ruoyu Wang, Hao Zhong, Yanming Yang, Jiahao Tian, Lin Liu, Biao Gong, Guoshan Lu, Yiding Tian, Chunhua Shen, Zhenzhong Lan, CHI ZHANG
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/inclusionAI/CodeWorldModel</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>FastFrames: Video Generation at Interactive Latency</title>
+      <link>https://arxiv.org/abs/2611.23226</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
+      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
+
+Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
+
+Tasks: Video generation
+
+Code: https://github.com/apple-aiml-research/ml-fastframes</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LynnReal-Hand: Unlocking World Interaction with Hand Control</title>
+      <link>https://arxiv.org/abs/2611.21479</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21479</guid>
+      <description>Interactive video world models enable exploration through text and camera controls, yet direct object interaction requires finer control. Hands provide a natural interface, but translating continuous hand movements into coherent visual responses remains challenging because of complex hand-object dynamics and demanding real-time computation. To address these challenges, we introduce LynnReal-Hand, a hand-controlled video world model that unifies precise interaction modeling with efficient streaming generation. We curate 100K interaction clips spanning diverse real and synthetic environments and develop hand-aware supervision to improve fine-grained hand motions and object interactions. Building on this foundation, we learn a causal flow map for few-step generation and introduce region-aware score distillation that combines complementary video and image priors to refine interaction dynamics and visual appearance. To further reduce inference latency, we propose Ultra-Fast-VAE, a compact video decoder that preserves high reconstruction fidelity with substantially lower computational cost. Extensive evaluations on HandBench demonstrate superior hand-following accuracy and visual quality compared with existing approaches. Our full-sequence model achieves an FVD of 181.67 and a MANO Dice score of 93.02, while the three-step causal model maintains a MANO Dice score of 92.49. For real-time interaction, 540p streaming on a single H200 reaches 18.03 FPS with 741ms latency and an optimized peak GPU memory footprint of only 34.89GB. We will release the datasets, model weights, and the full training and inference code to support research on hand-controlled video world models.
+
+Authors: Shaohao Rui, Chaoyang Zhang, Xiaofeng Mao, Weijie Ma
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/LynnReal-AI/LynnReal</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models</title>
+      <link>https://arxiv.org/abs/2611.21099</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21099</guid>
+      <description>Frontier multimodal models can now control robots zero-shot from images, yet many manipulation tasks depend on contact forces that images cannot show. Bringing force to an API-only frozen model raises two challenges. First, contact evolves much faster than an API model can decide, so the system must close the loop on force beneath the model. Second, a frozen model cannot interpret raw force streams, so force must be returned in a form the model can reason about. Therefore, we present ForceHarness, a harness that lets frozen models use force without demonstrations or finetuning. After calibrating hand force from a wrist sensor or joint torques alone, ForceHarness addresses the first challenge with self-terminating force primitives that regulate force on their own and return at a contact event. To address the second challenge, a physics translation layer turns each force trace into physical quantities with uncertainty as the tool result. To evaluate ForceHarness against expert force controllers and learned policies under identical conditions, we also build HiddenPhys, a seven-task MuJoCo benchmark with hidden physical variables. On a real arm without a wrist force sensor, ForceHarness raises the zero-shot success rate of GPT-6 Astra from 3.3% to 90.0%. In simulation, it adds 17.5 percentage points on the public ForceBench suite and 34.3 percentage points on HiddenPhys, surpassing force-aware policies trained on demonstrations on both benchmarks and matching hand-written expert controllers on HiddenPhys. Ablations further show that smaller models make significantly better decisions when given physical quantities rather than raw force values.
+
+Authors: Ke Sun, Kevin Yuchen Ma, Yike Zhang, Yanzhe Chen, Mike Zheng Shou
+
+Tasks: Classic Reinforcement Learning, Continuous Control, Robotics
+
+Code: https://github.com/showlab/ForceHarness</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>HINT-WAM: Hindsight-Informed Training for World Action Models</title>
+      <link>https://arxiv.org/abs/2611.24789</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24789</guid>
+      <description>World action models (WAMs) have shown promising generalization and data efficiency in robot manipulation by coupling action generation with predictions of future visual dynamics. Translating these capabilities into reliable task execution, however, remains a challenge for existing post-training methods. Offline supervised fine-tuning provides dense supervision on expert trajectories, but its flow-matching action expert is trained only on noised demonstration actions and never on the intermediate states produced by its own sampler; task-specific adaptation can also compromise pretrained capabilities. On-policy reinforcement learning trains on the policy's own behavior, yet sparse task rewards make exploration and credit assignment difficult, while dense reward shaping still provides scalar evaluations rather than direct action targets. We introduce HINT-WAM, the first on-policy self-distillation framework that supervises the action expert on its own sampling trajectories using hindsight, the future video of the demonstration, as privileged information available to the WAM itself. For each demonstration observation, the student generates its action through its own denoising trajectory, and at the states along this trajectory the same model acts as a teacher conditioned additionally on this hindsight, providing a conditional action distribution as a dense training target, while the student sees only deployment-time inputs and needs no environmental rewards or simulator interaction. To transfer this supervision to a flow-matching action expert, HINT-WAM distills the teacher into the student with an energy score, a distribution-level objective that matches the teacher's action distribution from the student's own samples rather than regressing its velocity field. The project web is available in https://tuandattt.github.io/hintwam/.
+
+Authors: Phuong Tuan Dat, Qi Li, Xinchao Wang
+
+Tasks: Reinforcement Learning, Robotics, World Models
+
+Code: https://github.com/tuandattt/hintwam_code</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LongCat-Video-Avatar 1.6 Technical Report</title>
+      <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
+      <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
+      <description>We are excited to announce the release of LongCat-Video-Avatar 1.6, the latest upgrade to our open-source framework for audio-driven human video generation. Building upon LongCat-Video-Avatar 1.5, 1.6 improves expressive naturalness, lip–audio synchronization, coordinated facial and body motion, and visual consistency during long-form generation. It also introduces comprehensive inference optimizations for faster and more efficient deployment.
+
+Tasks: Talking Head Generation, Video generation
+
+Code: https://github.com/meituan-longcat/LongCat-Video</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Heave-Ho: Decentralized Long-Horizon Multi-Humanoid Collaboration</title>
@@ -93,19 +169,6 @@ Tasks: Decision Making
 
 Code: https://github.com/agentscope-ai/Piccolo</description>
       <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Code World Model 2.0: Towards Infinite Controllable Video Generation</title>
-      <link>https://arxiv.org/abs/2611.22925</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22925</guid>
-      <description>Visual proxies decouple explicit world-state simulation from photorealistic video synthesis, offering a controllable interface for both offline clip creation and real-time interactive streaming. Yet a practical renderer must address two challenges. Upstream proxies vary from coarse layouts to fine articulated geometry depending on the interaction, and streaming inference must operate in a few causal steps without accumulating drift across self-generated history. We present Invoker-Render, pairing a bidirectional creation model with a causal four-step streaming model under a shared conditioning interface over structural proxies, an appearance reference, and language. Trained on an aligned approximately 200-hour multi-granularity corpus, Invoker-Render honors fine geometric constraints when supplied while synthesizing plausible local motion under coarse proxies, enabling runtime selection of input detail. To bridge bidirectional creation and real-time streaming without compounding step compression and rollout drift, we introduce Progressive Forcing (ProForcing). ProForcing first trains a causal predictor and distills it into a four-step renderer using histories derived from training videos. Training then shifts to continuous self-generated rollouts. A pipelined serving stack supports efficient streaming inference. Experiments show versatile control across proxy families, granularities, and camera paths, consistent gains over recent streaming baselines, and stable 30-minute racing rollouts that preserve scene and subject appearance.
-
-Authors: Ruoyu Wang, Hao Zhong, Yanming Yang, Jiahao Tian, Lin Liu, Biao Gong, Guoshan Lu, Yiding Tian, Chunhua Shen, Zhenzhong Lan, CHI ZHANG
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/inclusionAI/CodeWorldModel</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ALIVE: Making Streaming Video Models Interactive</title>
@@ -173,30 +236,6 @@ Code: https://github.com/GaotangLi/Multi-Branch-Transformer</description>
       <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>FastFrames: Video Generation at Interactive Latency</title>
-      <link>https://arxiv.org/abs/2611.23226</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
-      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
-
-Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
-
-Tasks: Video generation
-
-Code: https://github.com/apple-aiml-research/ml-fastframes</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>LongCat-Video-Avatar 1.6 Technical Report</title>
-      <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
-      <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
-      <description>We are excited to announce the release of LongCat-Video-Avatar 1.6, the latest upgrade to our open-source framework for audio-driven human video generation. Building upon LongCat-Video-Avatar 1.5, 1.6 improves expressive naturalness, lip–audio synchronization, coordinated facial and body motion, and visual consistency during long-form generation. It also introduces comprehensive inference optimizations for faster and more efficient deployment.
-
-Tasks: Talking Head Generation, Video generation
-
-Code: https://github.com/meituan-longcat/LongCat-Video</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>AllocFlow: End-to-End Portfolio Trading Action Generation from Raw Market Data</title>
       <link>https://arxiv.org/abs/2611.19937</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.19937</guid>
@@ -221,43 +260,6 @@ Tasks: Streaming Video Understanding, Visual Grounding
 
 Code: https://github.com/aurateam2026/Aura2.0</description>
       <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations</title>
-      <link>https://arxiv.org/abs/2611.20218</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20218</guid>
-      <description>A coding agent working within a software organization must establish what to build, collaborate with colleagues, and verify what it delivers. We introduce SWE-CoWork, a benchmark comprising 101 development assignments across 101 real repositories, 11 programming languages, and 12 application domains. Each assignment places an agent in a simulated engineering organization with 26 colleagues who have distinct responsibilities, bounded knowledge, and controlled collaboration behavior. Starting from a brief handoff, agents must recover requirements distributed across colleagues and workplace records, reconcile conflicting evidence, and implement changes evaluated by private executable tests. We evaluate eleven models and find a substantial gap between partial implementation and complete task delivery. The two leading models satisfy approximately 63% of fail-to-pass (F2P) tests but complete fewer than 8% of assignments. Providing complete requirements upfront improves F2P by approximately 16 percentage points for Seed Evolving and GPT-6 Astra, yet leaves complete task success unchanged. Requirement-level trajectory analysis reveals failures throughout the delivery process: Claude-Opus-5.5 directs a mean of 93% of first questions about queried cards to their accountable owners across runs but obtains only 64% of colleague-held requirements. Deferred questions go unfollowed, implementations remain incomplete even after requirements are acquired, and 31% of requirements reported as completed fail their tests. These findings highlight sustained requirement tracking, from clarification through implementation, verification, and handoff, as a key challenge for reliable autonomous software engineering.
-
-Authors: Xinping Lei, Minghao Liu, Ruijie Zhu, Xiaohui Hu, Xingqiao Li, Ao Zhang, Wenhao Chai, Han Li, Tao Wang, Jingyuan Zhang, Enduo Zhao, Yunfeng Shi, Yiming Liang, Zetao Yang, Xingjian Wang, Yifan Yao, Xinkai Ma, Yingru Li, Tianhan Yang, Huan Zhou, Weiran Shi, Shen Yan, Jiaheng Liu, Stephen Huang, Eli Cheung, Weihao Xuan
-
-Tasks: Coding Agents
-
-Code: https://github.com/TokenWave-AI/swe-cowork-bench</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Restoring Diversity in Distilled Image and Video Generators by Probing Activations</title>
-      <link>https://arxiv.org/abs/2611.18550</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.18550</guid>
-      <description>Distilling diffusion models into few-step student models substantially reduces sampling latency, but induces severe diversity collapse: samples generated from different random seeds show minimal variation. In this work, we investigate the root cause of this failure by probing the internal representations of student models relative to their teachers. We find that distilled students maintain total activation variance comparable to their teachers, but concentrate it into substantially fewer directions. This directional collapse is localized to an identifiable intermediate block at the initial denoising step. Consequently, diversity collapse stems from a misallocation of activation variance rather than an inherent loss of generative capacity. Guided by this finding, we propose ReDiverse to reinstate the missing variance directions. At training time, ReDiverse-FT fine-tunes a lightweight adapter that regresses student activations onto the teacher's, reviving the teacher's feature variance characteristic. At inference time, ReDiverse-TF introduces a training-free mechanism that steers activations along precomputed teacher principal directions. Across image and video distillation benchmarks, ReDiverse consistently restores sample diversity while preserving generation quality, further supported by the user study.
-
-Authors: Furkan Horoz, Ozgur Kara, Kaan Oktay, Adil Kaan Akan, Atakan Kara, Anand Bhattad, James Matthew Rehg
-
-Tasks: Image generation, Video generation
-
-Code: https://github.com/H-furkan/rediverse</description>
-      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Introducing Hy4 flash: Ultimate cost-efficiency for everyday productivity</title>
-      <link>https://hy.tencent.ai/research/hy4-flash</link>
-      <guid isPermaLink="true">https://hy.tencent.ai/research/hy4-flash</guid>
-      <description>Hy4 flash is our most cost-effective Hy model to date, featuring 220B total parameters (including 64B Engram parameters) with just 12B active parameters per token. It natively accepts text and image inputs, generates text, and supports a context window of up to 1M tokens. Its 42-layer language backbone consists of one dense feed-forward layer and 41 MoE layers, with identity Hyper-Connections (iHC) supporting inter-layer information flow. A vision encoder (adapted from SigLIP2-So400m-Patch16-Res512) is connected to the backbone through an MLP projector. In addition to the backbone, a built-in 5-layer drafter, DFly2 (0.85B parameters), reuses the target model's KV cache and sparse indices to support long-context speculative decoding at a low, constant cost. Compared with Hy4, Hy4 Flash introduces three notable architectural changes: hybrid attention (sparse IndexPool attention and sliding-window attention interleaved at a 1:3 ratio), LatentMoE (routed experts operate in a lower-dimensional latent space, each token activating 16 of 512 routed experts alongside one shared expert), and N-gram embedding (Engram), which augments the backbone with learned bigram and trigram representations retrieved via multi-head hash lookups.
-
-Tasks: Agents, Code Generation, Image Understanding, Language Modeling, Long Context, Question Answering
-
-Code: https://github.com/tencent-hunyuan/hy4-flash</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
