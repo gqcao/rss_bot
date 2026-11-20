@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 20 Nov 2026 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 19:00:00 GMT</lastBuildDate>
     <item>
       <title>Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth</title>
       <link>https://arxiv.org/abs/2611.26603</link>
@@ -17,32 +17,6 @@ Tasks: Depth estimation
 
 Code: https://github.com/apple-aiml-research/ml-depth-pro-2</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>π^4: A Foundation Model for 4D Scene Geometry and Motion</title>
-      <link>https://arxiv.org/abs/2611.23144</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23144</guid>
-      <description>π^4 is a unified foundation model for 4D scene perception. From diverse, uncalibrated RGB observations in the wild---a single image, an unordered collection, or a video sequence---it recovers dense geometry, camera poses, and metric scale, together with 2D/3D point tracks and moving-object masks for multi-image inputs. It couples a geometry branch with a geometry-conditioned motion branch, which predicts image-space correspondences that are lifted into 3D using reconstructed target-view geometry. Across diverse benchmarks, π^4 achieves the best overall average rank in geometry evaluation, alongside competitive performance in single- and multiview 2D/3D point tracking and moving-object segmentation. With a shared backbone, the full geometry-and-motion system contains approximately 0.5B parameters---less than half the size of most baselines. It produces joint reconstructions and tracks in one forward pass, including large-scale scenes with thousands of input images despite training with contexts of at most 64 views. We further present the data and training recipe underlying these capabilities, together with empirical studies of key design choices. Code and models are available at https://github.com/yyfz/Pi4.
-
-Authors: Yifan WANG, Weiguang Zhao, Ni Yang, Haoyu Guo, Junting Dong, Weinan Zhang, Chunhua Shen
-
-Tasks: 2D Point Tracking, 3D Reconstruction, 3D Tracking, Camera Pose Estimation, Depth estimation, Video segmentation
-
-Code: https://github.com/yyfz/Pi4</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Code World Model 2.0: Towards Infinite Controllable Video Generation</title>
-      <link>https://arxiv.org/abs/2611.22925</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22925</guid>
-      <description>Visual proxies decouple explicit world-state simulation from photorealistic video synthesis, offering a controllable interface for both offline clip creation and real-time interactive streaming. Yet a practical renderer must address two challenges. Upstream proxies vary from coarse layouts to fine articulated geometry depending on the interaction, and streaming inference must operate in a few causal steps without accumulating drift across self-generated history. We present Invoker-Render, pairing a bidirectional creation model with a causal four-step streaming model under a shared conditioning interface over structural proxies, an appearance reference, and language. Trained on an aligned approximately 200-hour multi-granularity corpus, Invoker-Render honors fine geometric constraints when supplied while synthesizing plausible local motion under coarse proxies, enabling runtime selection of input detail. To bridge bidirectional creation and real-time streaming without compounding step compression and rollout drift, we introduce Progressive Forcing (ProForcing). ProForcing first trains a causal predictor and distills it into a four-step renderer using histories derived from training videos. Training then shifts to continuous self-generated rollouts. A pipelined serving stack supports efficient streaming inference. Experiments show versatile control across proxy families, granularities, and camera paths, consistent gains over recent streaming baselines, and stable 30-minute racing rollouts that preserve scene and subject appearance.
-
-Authors: Ruoyu Wang, Hao Zhong, Yanming Yang, Jiahao Tian, Lin Liu, Biao Gong, Guoshan Lu, Yiding Tian, Chunhua Shen, Zhenzhong Lan, CHI ZHANG
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/inclusionAI/CodeWorldModel</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>AURA: AUdio-dRiven streaming Avatar</title>
@@ -58,41 +32,30 @@ Code: https://github.com/kyutai-labs/aura</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>VoxMel TTS Technical Report</title>
-      <link>https://arxiv.org/abs/2611.20254</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20254</guid>
-      <description>Continuous autoregressive TTS relies on an acoustic target that enables stable next-latent modeling while preserving fine-grained acoustic details. While existing approaches employ learned compressed representations (e.g., continuous VAE latents) to render prediction tractable, they rely on complex neural encoders that often cap generation fidelity. Conversely, training-free targets like mel-spectrograms eliminate encoder overhead, yet their potential for autoregressive generation remains largely underexplored. In this work, we propose VoxMel, a tokenizer-free framework for autoregressive TTS that makes stable mel modeling tractable through a fixed, exactly invertible two-axis Haar transform. The transform first decomposes each mel spectrogram along frequency into local averages and a frequency residual, then splits the averaged component along time into Coarse-Mel and a temporal residual. A language-model backbone with a flow-matching head autoregressively generates Coarse-Mel. Non-autoregressive residual tiers then predict the temporal residual from Coarse-Mel, followed by the frequency residual conditioned on the reconstructed Frequency-Averaged Mel. Neither residual is fed back into the autoregressive history. Trained on 100K hours of Emilia, the supervised 0.6B model obtains 1.51\% WER and 0.738 speaker similarity (SIM) on test-en, and 1.29\% CER and 0.755 SIM on test-zh. GRPO improves these results to 1.15\% WER / 0.753 SIM and 1.17\% CER / 0.776 SIM, respectively. We also distill the guided flow head into two- and four-step students, requiring 2 or 4 head evaluations per coarse frame. The four-step student retains competitive SIM and nearly matches the supervised model in WER/CER.
+      <title>FastFrames: Video Generation at Interactive Latency</title>
+      <link>https://arxiv.org/abs/2611.23226</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
+      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
 
-Authors: Wenhao Guan, Jiaxin Ye, HAITAO LI, Yifan Duan, Junxi Liu, Wangjin Zhou, Lin Li, Qingyang Hong, Xie Chen
+Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
 
-Tasks: Reinforcement Learning, Text-to-speech, Voice cloning
+Tasks: Video generation
 
-Code: https://github.com/VoxDance-Lab/VoxMel</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/apple-aiml-research/ml-fastframes</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LongCat-Video-Avatar 1.6 Technical Report</title>
-      <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
-      <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
-      <description>We are excited to announce the release of LongCat-Video-Avatar 1.6, the latest upgrade to our open-source framework for audio-driven human video generation. Building upon LongCat-Video-Avatar 1.5, 1.6 improves expressive naturalness, lip–audio synchronization, coordinated facial and body motion, and visual consistency during long-form generation. It also introduces comprehensive inference optimizations for faster and more efficient deployment.
+      <title>π^4: A Foundation Model for 4D Scene Geometry and Motion</title>
+      <link>https://arxiv.org/abs/2611.23144</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23144</guid>
+      <description>π^4 is a unified foundation model for 4D scene perception. From diverse, uncalibrated RGB observations in the wild---a single image, an unordered collection, or a video sequence---it recovers dense geometry, camera poses, and metric scale, together with 2D/3D point tracks and moving-object masks for multi-image inputs. It couples a geometry branch with a geometry-conditioned motion branch, which predicts image-space correspondences that are lifted into 3D using reconstructed target-view geometry. Across diverse benchmarks, π^4 achieves the best overall average rank in geometry evaluation, alongside competitive performance in single- and multiview 2D/3D point tracking and moving-object segmentation. With a shared backbone, the full geometry-and-motion system contains approximately 0.5B parameters---less than half the size of most baselines. It produces joint reconstructions and tracks in one forward pass, including large-scale scenes with thousands of input images despite training with contexts of at most 64 views. We further present the data and training recipe underlying these capabilities, together with empirical studies of key design choices. Code and models are available at https://github.com/yyfz/Pi4.
 
-Tasks: Talking Head Generation, Video generation
+Authors: Yifan WANG, Weiguang Zhao, Ni Yang, Haoyu Guo, Junting Dong, Weinan Zhang, Chunhua Shen
 
-Code: https://github.com/meituan-longcat/LongCat-Video</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WeVisForensics: Self-Evolving Agent for Omni AI-Generated Video Detection</title>
-      <link>https://arxiv.org/abs/2611.21373</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21373</guid>
-      <description>Recent advances in video generation call for reliable detection grounded in explicit forensic evidence. However, current methods primarily depend on single-pass chain-of-thought reasoning that overlooks brief or localized artifacts, or on predefined multi-agent workflows that offer limited flexibility in selecting relevant inspections. Even with adaptive investigation, optimizing the investigation policy alone does not directly improve the forensic capabilities of fixed experts. We introduce WeVisForensics, an agentic framework in which a main investigator agent coordinates a self-evolving library of forensic inspector sub-agents spanning visual and audio cues. The investigator learns which artifact type to examine, over which window, and when to conclude, and these interactions provide shared feedback for both levels of agents. Our dual-timescale policy optimization strategy, DTPO, closes this loop through fast reinforcement learning of the investigator and slower refinement of the inspectors, guided by annotated artifact intervals, to report subtle artifacts they once dismissed. Furthermore, we curate ForenCue-30K, combining role-specific forensic annotations and interaction trajectories to supervise individual inspections and their coordination, with an accompanying reinforcement-learning pool. Experiments show that WeVisForensics averages 95.2% detection accuracy across in-domain, out-of-domain and agentic benchmarks, 9.0% above the strongest prior detector, while grounding its verdicts in localized evidence.
+Tasks: 2D Point Tracking, 3D Reconstruction, 3D Tracking, Camera Pose Estimation, Depth estimation, Video segmentation
 
-Authors: Yipeng Du, Yuxi Li, Ying Zhang, Chong Sun, Chen Li, Jing Lyu, Ying Tai
-
-Tasks: Deepfake Detection, Multi-Agent Reinforcement Learning, Reinforcement Learning, Video generation
-
-Code: https://github.com/Tencent/WeVisForensics</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/yyfz/Pi4</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos</title>
@@ -108,17 +71,43 @@ Code: https://github.com/Tencent-Hunyuan/MovieRoll</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>FastFrames: Video Generation at Interactive Latency</title>
-      <link>https://arxiv.org/abs/2611.23226</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
-      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
+      <title>WorldRuler: Interactive World Modeling under Configurable Rules</title>
+      <link>https://arxiv.org/abs/2611.24869</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24869</guid>
+      <description>Rules govern how player actions change interactive worlds. Different rules create distinct gameplay experiences within similar scenes and action spaces. For customizable gameplay, generative world models must follow user-defined rules beyond real-world behaviors. However, realizing user-defined rules presents two challenges: Rule-State Persistence and Rule-to-Visual Realization. The former requires preserving rule definitions, dependencies, and world states across saving and loading, so that restored worlds follow the established rules. The latter requires accurately realizing rule-induced changes on designated objects and attributes, particularly when affected objects are unseen. In this paper, we propose WorldRuler, which organizes rule definitions, dependencies, and object states in an executable 3D rule graph and connects rule execution, video generation, and perceptual feedback in a closed loop. The graph supports joint saving and restoration of rules and world states, while dynamic object binding grounds rule-specified entities in visual instances and uses stored states to constrain generation from their first appearance. We further introduce object attribute state replacement and counterfactual reconstruction training, enabling accurate attribute control and compatible appearance and motion changes while limiting interference with unrelated content. We develop an automated data collection and annotation pipeline using GTA-V and Habitat to construct RuleVerse, a dataset of rule-driven interactions with detailed state and event annotations, including cases where rules take effect before affected objects become visible. Extensive experiments demonstrate the effectiveness of WorldRuler in preserving rule-state consistency across saving and loading and accurately realizing rule outcomes on designated objects and attributes.
 
-Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
+Authors: Mingliang Zhai, Chuanhao Li, Jiaming Tan, Zhen Li, Yuwei Wu, Yunde Jia, Zian Meng, Yuanyang Yin, Kaipeng Zhang
 
-Tasks: Video generation
+Tasks: Video generation, World Models
 
-Code: https://github.com/apple-aiml-research/ml-fastframes</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/AlayaLab/WorldRuler</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Qwen4-Max: Your New Teammate Has Arrived</title>
+      <link>https://qwen.ai/blog?id=qwen4-max</link>
+      <guid isPermaLink="true">https://qwen.ai/blog?id=qwen4-max</guid>
+      <description>Today, we are introducing Qwen4-Max, your new AI teammate for work, creativity, and discovery. Qwen4-Max is built on the new Qwen4 architecture, with a 2.4-trillion-parameter backbone, native vision capabilities, and a one-million-token context window.
+
+Qwen4-Max advances real-world productivity through greater proficiency with professional tools, stronger long-horizon task execution, and higher-quality deliverables. It can take on a wide range of creative and professional work, spanning 3D modeling, game development, precision manufacturing, finance, law, healthcare, and frontier scientific discovery. As a 24/7 AI teammate, Qwen4-Max keeps the big picture in view and moves projects forward, bringing ambitious ideas closer to reality and opening new ways for people and AI to work together.
+
+Tasks: Agents, Auto-Research, Coding Agents, Computer Use Agents, Healthcare &amp; Medical AI, Image Understanding, Language Modeling, Long Context, Long-Horizon Agents, Scientific Reasoning
+
+Code: https://github.com/qwenlm/qwen-live-delivery-plugin</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VAE Rhythm: Temporal Decoding Traces for AI-Generated Video Detection</title>
+      <link>https://arxiv.org/abs/2611.21114</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21114</guid>
+      <description>Visible artifacts are an unreliable cue for detecting generated videos, because newer generators learn to remove them. We instead detect a trace left by the generation pipeline itself. Most video generators decode latents with a 3D causal VAE that groups consecutive frames in time, so the fidelity of generated frames rises and falls periodically with their position in a group. We call this periodic trace VAE Rhythm. Real videos are captured frame by frame and do not have it. To reveal it without training, we propose a phase scan. The scan reconstructs a clip with an off-the-shelf VAE from successive start offsets and measures the periodicity of the reconstruction error across these offsets. We find VAE Rhythm in most of the 39 variants of 31 generators we test, including the closed-source Sora, Kling 3.0 and Seedance 2.0. We use the rhythm as a zero-shot score, as a plug-in for existing detectors and as a data engine that pairs real videos with their VAE reconstructions to train our detector CaDet. On DF26, the training-free rhythm score outperforms all 15 retrained baselines, and as a plug-in it improves all 19 tested detectors by 6.7% to 23.7% AUROC. CaDet achieves the best AUROC on AIGVDBench, DF26 and three 2026 closed-source models, and its variant trained without any generated video still exceeds 90% on AIGVDBench.
+
+Authors: Ke Sun, Shuwei Li, Haiyang Mei, Mike Zheng Shou
+
+Tasks: Deepfake Detection
+
+Code: https://github.com/showlab/vae-rhythm</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Coda-DaVinci: Reimagining Video Generation with Code2Video</title>
@@ -132,32 +121,6 @@ Tasks: Harness Engineering, Instruction Following, Video generation
 
 Code: https://github.com/FrankYang-17/Coda</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Unified Law for Visual Tasks (The Four Laws of Computer Vision)</title>
-      <link>https://arxiv.org/abs/2611.24917</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.24917</guid>
-      <description>In this paper, we propose a Unified Law for Visual Tasks, which could be further divided into Four Laws of Computer Vision, with the goal of enabling a single framework or method to uniformly train on and perform nearly all visual tasks. Our starting point is an inspiration and hypothesis: if the world information is encoded into image, which we call World Snapshots, then image processing is world processing, and image generation is World Snapshot generation. Furthermore, if all visual and visualization tasks can be reformulated as generation tasks, then a unified method, World Snapshot Models (WSMs), can perform the vast majority of visual tasks, much as large language models have largely unified natural language processing. This paper validates these laws across more than 1,000 trained and evaluated visual tasks (defined by distinct input-output mappings) and presents a unified training framework for future visual-task research and applications.
-
-Authors: Sen Fang, Yalin Feng, Yancheng Zhang, Yanxin Zhang, Zonglin Lyu, Hongbin Zhong, Liwei Che, Rui Wu, Chen Chen, Dimitris N. Metaxas
-
-Tasks: Depth estimation, Image generation, World Models
-
-Code: https://github.com/World-Snapshot/WSMs</description>
-      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>AllocFlow: End-to-End Portfolio Trading Action Generation from Raw Market Data</title>
-      <link>https://arxiv.org/abs/2611.19937</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.19937</guid>
-      <description>Real-world portfolio management requires converting noisy market observations into coordinated, simultaneous allocations across multiple assets under shared capital constraints. Advances in forecasting models and alpha discovery help identify opportunities. However, traditional pipelines often decouple signal forecasting from portfolio construction, potentially misaligning learning with allocation and execution objectives. We present AllocFlow, an end-to-end flow-matching framework that directly generates joint portfolio allocations from raw multi-asset market histories. To capture dependencies among portfolio positions, AllocFlow employs a cross-asset flow Transformer conditioned on temporal market representations to generate continuous, signed position weights across all instruments jointly. To address the sample inefficiency and instability of learning continuous allocation policies from scratch, we establish a two-stage training scheme: strategy-supervised imitation shapes a structured distribution of candidate portfolios, followed by group-relative reinforcement learning (RL) that refines joint decisions using portfolio-level financial rewards and a frozen policy reference. On hourly cryptocurrency perpetual futures, RL refinement raises the annualized net return of the imitation policy from 27.79% to 51.38% and its Calmar ratio from 0.955 to 4.043, surpassing the teacher strategy on every metric, and AllocFlow reaches a Calmar ratio of 4.90 on six further months of unseen 2026 data without retraining.
-
-Authors: Annan Wang, Yuchen Xie, Yu Cen, Leon Liangyu Chen, Qianyu Julie Zhu, Xin Li, Tianyi Wei, Weisi Lin
-
-Tasks: Reinforcement Learning
-
-Code: https://github.com/allocflow/AllocFlow</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>AutoMaster: Autonomous Post-Training by Making the Same Model a Better Teacher</title>
@@ -186,56 +149,6 @@ Code: https://github.com/yesiltepe-hidir/PMD</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Direct3D-V3: Latent-Free Diffusion Transformers in the Native Voxel Domain</title>
-      <link>https://arxiv.org/abs/2611.26511</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26511</guid>
-      <description>Native 3D generation has largely been built around latent diffusion, with recent advances concentrating on stronger variational autoencoders (VAE) and increasingly elaborate latent representations, from vecset and triplanes to structured sparse voxels. Despite their architectural differences, these methods all share the same premise: geometry is first compressed into a latent space and only then modeled by the generator. We take a different route and propose Direct3D-V3, a latent-free diffusion transformer (DiT) framework that discards the VAE altogether and operates in the native voxel domain, directly modeling raw SDF voxel grids during both training and sampling. To make this direct voxel formulation geometrically reliable, we introduce an implicit manifold regularization over neighboring voxels to suppress non-watertight surfaces, and convert predicted SDF grids into meshes via Marching Cubes so that rendered normal losses can supervise the model directly from its predicted SDF. To improve alignment between the conditioning image and generated geometry, Direct3D-V3 also predicts the camera parameters of the conditioning image as an auxiliary task, encouraging the DiT to learn the mapping from image observations to 3D shape. This latent-free design removes the reconstruction bottleneck, brings training under an objective in the native voxel domain, and yields meshes with substantially richer local detail. The predicted camera and native SDF voxel output further make Direct3D-V3 extensible to generative reconstruction, where diffusion is interleaved with normal-guided refinement to improve alignment with the observed view while the generative prior completes unseen regions. Project page: https://dreamtechai.github.io/Direct3D-V3.
-
-Authors: Shuang Wu, Jiachen Qian, Youtian Lin, Feihu Zhang, Philip Torr, Yao Yao, Xun Cao
-
-Tasks: 3D generation, 3D Reconstruction
-
-Code: https://github.com/DreamTechAI/Direct3D-V3</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Game2Player: Scaling Gameplay Experience for Visual Agents through Environment-Player Co-Development</title>
-      <link>https://arxiv.org/abs/2611.24154</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.24154</guid>
-      <description>Games are a rich testbed for visual agents, demanding perception, long-horizon planning, and precise control. However, collecting human gameplay is costly, and learning from gameplay videos requires inferring missing actions. Existing datasets also cover a limited range of games, often without explicit tasks or verifiable outcomes. To address these gaps, we introduce Game2Player, a framework that co-develops game environments and players to collect diverse and verifiable gameplay experience at scale. In the Game2Player loop, a Builder agent adapts existing web games, exposes their internal state, and defines tasks with state-based progress measures and success checks. A Coding Player and a VLM Player then attempt the tasks and report problems to the Builder for repair, so that play serves as both environment validation and training data collection. With Game2Player, we build 568 verified web games with 3,436 tasks, collect 15.7K trajectories (307 hours of gameplay), and hold out 50 games as the benchmark PlayerBench. To evaluate the collected experience as training data, we train VLM agents with progress-weighted SFT, assigning greater weight to steps that advance task progress. Game2Player-9B improves progress from 14.3% to 31.2% on PlayerBench and from 30.0% to 53.1% on the external GameWorld benchmark. More broadly, our work suggests a path for visual agents to scale their gameplay experience by building, verifying, and learning from existing game worlds.
-
-Authors: Xirui Jiang, Yuxi Chen, Rui Yang, Feng Luo, Pengcheng Wang, Bingxuan Li, Zihao Zhao, Yushan Li, Han Wang, Manling Li, Yang Zhang, Shiyu Chang, Tong Zhang, Huan Zhang
-
-Code: https://github.com/game2player/Game2Player</description>
-      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>BiCAT: Bimanual Coordination Action Tokenization</title>
-      <link>https://arxiv.org/abs/2611.23499</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23499</guid>
-      <description>Autoregressive vision-language-action (VLA) models predict discrete action tokens with the next-token objective of their vision-language backbone, so the action tokenizer defines the interface between the policy and the robot. In bimanual manipulation, the two arms share a repertoire of movements yet coordinate through complementary roles, and an action representation should capture both. However, most existing tokenizers encode both arms as a single concatenated action vector, in which motion patterns common to the two arms are not shared and cross-arm dependencies remain entangled within each token. The policy must therefore learn both aspects implicitly. We propose Bimanual Coordination Action Tokenization (BiCAT), which shares one motion representation across arms while conditioning each arm's tokens on its partner through symmetric cross-arm attention and a joint decoder. The policy then predicts all tokens of each arm in parallel, generating the left arm first and the right arm conditioned on it. Across ten RoboTwin 2.0 tasks and six real-world tasks on three embodiments, BiCAT achieves the highest success among the compared tokenizers. In simulation, it improves mean success by 17.6 percentage points over the strongest of eight baselines, with the largest gains on tasks that require close coordination between the arms, while requiring only 40.5 ms per action chunk. These results suggest that the action tokenizer is a natural place to model bimanual coordination.
-
-Authors: Xuanwei Liu, Guipu Cao, Zhongyi Luo, Jiafei Duan
-
-Tasks: Robotics
-
-Code: https://github.com/MAGICLAB-NUS/BiCAT</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Do Diffusion Models Learn to Generalize Basic Visual Skills?</title>
-      <link>https://arxiv.org/abs/2611.22427</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22427</guid>
-      <description>Diffusion models generate high-quality images, but how well they generalize is hard to measure. Current evaluations rely on human preference and prompt-following benchmarks for text-to-image models and on distribution-level metrics such as Fréchet Inception Distance (FID) and Inception Score (IS) for class-conditional models, but these cannot tell whether models learn basic visual skills or largely match training patterns. To address this gap, we introduce the Visual Generative Lab (VGL), a controlled experimental framework for studying how diffusion models learn and generalize basic visual skills, including size, position, rotation, count, color, shape, and their compositions. By generating synthetic training data for each skill from explicit rules, VGL allows precise measurement of generalization with task-specific, rule-based metrics. Training models from scratch on these data reveals three patterns in this controlled setting: (1) with our default design, extrapolation is limited: size and position degrade within a few pixels of the training range, count reaches only about 50% accuracy on out-of-range counts, and rotation extrapolation accuracy varies widely across seeds; (2) for compositional generalization, the number of distinct basic visual skill combinations matters more than dataset size; (3) skills mostly fail independently, except position. Code and data-generation scripts: https://github.com/AmishSethi/visual-generative-lab.
-
-Authors: Amish Sethi, Boya Zeng, Wenhao Chai, Zhuang Liu
-
-Tasks: Image generation, Text-to-Image Generation
-
-Code: https://github.com/amishsethi/visual-generative-lab</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>WeMM-Video: Pushing the Frontiers of Open-Source Omni-Modal Video Understanding</title>
       <link>https://arxiv.org/abs/2611.26409</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.26409</guid>
@@ -249,17 +162,104 @@ Code: https://github.com/Tencent/WeMM-Video</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>The Mask Is Not the Object: Volumetric Supervision for 3D Gaussian Segmentation</title>
-      <link>https://arxiv.org/abs/2611.21383</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21383</guid>
-      <description>3D Gaussian Splatting enables object-level operations on Gaussian primitives, yet existing segmentation methods are largely trained and evaluated through rendered views. This mismatch can produce accurate rendered masks from incomplete 3D selections since alpha-blended feature supervision concentrates learning on dominant contributors while leaving occluded or low-contribution Gaussians weakly supervised. We propose VODA, a plug-and-play supervision objective that exploits local depth structure to group per-pixel contributors and directly supervises all Gaussians in selected depth clusters, bypassing contribution-weighted gradient delivery. To evaluate volumetric completeness, we introduce Removal-3D, a synthetic object-removal benchmark, and the Removal Depth Error (RDE), a metric comparing predicted and ground-truth depth changes. Across four rendering-based baselines, VODA consistently improves volumetric segmentation on Removal-3D while maintaining or improving performance on LERF and ScanNet. Further analysis shows that VODA recovers lower-contribution Gaussians, while simple gradient reweighting and spatial propagation fail to reproduce comparable gains.
+      <title>Code World Model 2.0: Towards Infinite Controllable Video Generation</title>
+      <link>https://arxiv.org/abs/2611.22925</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22925</guid>
+      <description>Visual proxies decouple explicit world-state simulation from photorealistic video synthesis, offering a controllable interface for both offline clip creation and real-time interactive streaming. Yet a practical renderer must address two challenges. Upstream proxies vary from coarse layouts to fine articulated geometry depending on the interaction, and streaming inference must operate in a few causal steps without accumulating drift across self-generated history. We present Invoker-Render, pairing a bidirectional creation model with a causal four-step streaming model under a shared conditioning interface over structural proxies, an appearance reference, and language. Trained on an aligned approximately 200-hour multi-granularity corpus, Invoker-Render honors fine geometric constraints when supplied while synthesizing plausible local motion under coarse proxies, enabling runtime selection of input detail. To bridge bidirectional creation and real-time streaming without compounding step compression and rollout drift, we introduce Progressive Forcing (ProForcing). ProForcing first trains a causal predictor and distills it into a four-step renderer using histories derived from training videos. Training then shifts to continuous self-generated rollouts. A pipelined serving stack supports efficient streaming inference. Experiments show versatile control across proxy families, granularities, and camera paths, consistent gains over recent streaming baselines, and stable 30-minute racing rollouts that preserve scene and subject appearance.
 
-Authors: Jeonghwan Cho, Jeonghwan Cho, Minsu Kim, Junyoung Hong, Seon Joo Kim
+Authors: Ruoyu Wang, Hao Zhong, Yanming Yang, Jiahao Tian, Lin Liu, Biao Gong, Guoshan Lu, Yiding Tian, Chunhua Shen, Zhenzhong Lan, CHI ZHANG
 
-Tasks: 3D instance segmentation
+Tasks: Video generation, World Models
 
-Code: https://github.com/jhxcho/voda</description>
+Code: https://github.com/inclusionAI/CodeWorldModel</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VoxMel TTS Technical Report</title>
+      <link>https://arxiv.org/abs/2611.20254</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20254</guid>
+      <description>Continuous autoregressive TTS relies on an acoustic target that enables stable next-latent modeling while preserving fine-grained acoustic details. While existing approaches employ learned compressed representations (e.g., continuous VAE latents) to render prediction tractable, they rely on complex neural encoders that often cap generation fidelity. Conversely, training-free targets like mel-spectrograms eliminate encoder overhead, yet their potential for autoregressive generation remains largely underexplored. In this work, we propose VoxMel, a tokenizer-free framework for autoregressive TTS that makes stable mel modeling tractable through a fixed, exactly invertible two-axis Haar transform. The transform first decomposes each mel spectrogram along frequency into local averages and a frequency residual, then splits the averaged component along time into Coarse-Mel and a temporal residual. A language-model backbone with a flow-matching head autoregressively generates Coarse-Mel. Non-autoregressive residual tiers then predict the temporal residual from Coarse-Mel, followed by the frequency residual conditioned on the reconstructed Frequency-Averaged Mel. Neither residual is fed back into the autoregressive history. Trained on 100K hours of Emilia, the supervised 0.6B model obtains 1.51\% WER and 0.738 speaker similarity (SIM) on test-en, and 1.29\% CER and 0.755 SIM on test-zh. GRPO improves these results to 1.15\% WER / 0.753 SIM and 1.17\% CER / 0.776 SIM, respectively. We also distill the guided flow head into two- and four-step students, requiring 2 or 4 head evaluations per coarse frame. The four-step student retains competitive SIM and nearly matches the supervised model in WER/CER.
+
+Authors: Wenhao Guan, Jiaxin Ye, HAITAO LI, Yifan Duan, Junxi Liu, Wangjin Zhou, Lin Li, Qingyang Hong, Xie Chen
+
+Tasks: Reinforcement Learning, Text-to-speech, Voice cloning
+
+Code: https://github.com/VoxDance-Lab/VoxMel</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WeVisForensics: Self-Evolving Agent for Omni AI-Generated Video Detection</title>
+      <link>https://arxiv.org/abs/2611.21373</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21373</guid>
+      <description>Recent advances in video generation call for reliable detection grounded in explicit forensic evidence. However, current methods primarily depend on single-pass chain-of-thought reasoning that overlooks brief or localized artifacts, or on predefined multi-agent workflows that offer limited flexibility in selecting relevant inspections. Even with adaptive investigation, optimizing the investigation policy alone does not directly improve the forensic capabilities of fixed experts. We introduce WeVisForensics, an agentic framework in which a main investigator agent coordinates a self-evolving library of forensic inspector sub-agents spanning visual and audio cues. The investigator learns which artifact type to examine, over which window, and when to conclude, and these interactions provide shared feedback for both levels of agents. Our dual-timescale policy optimization strategy, DTPO, closes this loop through fast reinforcement learning of the investigator and slower refinement of the inspectors, guided by annotated artifact intervals, to report subtle artifacts they once dismissed. Furthermore, we curate ForenCue-30K, combining role-specific forensic annotations and interaction trajectories to supervise individual inspections and their coordination, with an accompanying reinforcement-learning pool. Experiments show that WeVisForensics averages 95.2% detection accuracy across in-domain, out-of-domain and agentic benchmarks, 9.0% above the strongest prior detector, while grounding its verdicts in localized evidence.
+
+Authors: Yipeng Du, Yuxi Li, Ying Zhang, Chong Sun, Chen Li, Jing Lyu, Ying Tai
+
+Tasks: Deepfake Detection, Multi-Agent Reinforcement Learning, Reinforcement Learning, Video generation
+
+Code: https://github.com/Tencent/WeVisForensics</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LongCat-Video-Avatar 1.6 Technical Report</title>
+      <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
+      <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
+      <description>We are excited to announce the release of LongCat-Video-Avatar 1.6, the latest upgrade to our open-source framework for audio-driven human video generation. Building upon LongCat-Video-Avatar 1.5, 1.6 improves expressive naturalness, lip–audio synchronization, coordinated facial and body motion, and visual consistency during long-form generation. It also introduces comprehensive inference optimizations for faster and more efficient deployment.
+
+Tasks: Talking Head Generation, Video generation
+
+Code: https://github.com/meituan-longcat/LongCat-Video</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Unified Law for Visual Tasks (The Four Laws of Computer Vision)</title>
+      <link>https://arxiv.org/abs/2611.24917</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24917</guid>
+      <description>In this paper, we propose a Unified Law for Visual Tasks, which could be further divided into Four Laws of Computer Vision, with the goal of enabling a single framework or method to uniformly train on and perform nearly all visual tasks. Our starting point is an inspiration and hypothesis: if the world information is encoded into image, which we call World Snapshots, then image processing is world processing, and image generation is World Snapshot generation. Furthermore, if all visual and visualization tasks can be reformulated as generation tasks, then a unified method, World Snapshot Models (WSMs), can perform the vast majority of visual tasks, much as large language models have largely unified natural language processing. This paper validates these laws across more than 1,000 trained and evaluated visual tasks (defined by distinct input-output mappings) and presents a unified training framework for future visual-task research and applications.
+
+Authors: Sen Fang, Yalin Feng, Yancheng Zhang, Yanxin Zhang, Zonglin Lyu, Hongbin Zhong, Liwei Che, Rui Wu, Chen Chen, Dimitris N. Metaxas
+
+Tasks: Depth estimation, Image generation, World Models
+
+Code: https://github.com/World-Snapshot/WSMs</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Direct3D-V3: Latent-Free Diffusion Transformers in the Native Voxel Domain</title>
+      <link>https://arxiv.org/abs/2611.26511</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26511</guid>
+      <description>Native 3D generation has largely been built around latent diffusion, with recent advances concentrating on stronger variational autoencoders (VAE) and increasingly elaborate latent representations, from vecset and triplanes to structured sparse voxels. Despite their architectural differences, these methods all share the same premise: geometry is first compressed into a latent space and only then modeled by the generator. We take a different route and propose Direct3D-V3, a latent-free diffusion transformer (DiT) framework that discards the VAE altogether and operates in the native voxel domain, directly modeling raw SDF voxel grids during both training and sampling. To make this direct voxel formulation geometrically reliable, we introduce an implicit manifold regularization over neighboring voxels to suppress non-watertight surfaces, and convert predicted SDF grids into meshes via Marching Cubes so that rendered normal losses can supervise the model directly from its predicted SDF. To improve alignment between the conditioning image and generated geometry, Direct3D-V3 also predicts the camera parameters of the conditioning image as an auxiliary task, encouraging the DiT to learn the mapping from image observations to 3D shape. This latent-free design removes the reconstruction bottleneck, brings training under an objective in the native voxel domain, and yields meshes with substantially richer local detail. The predicted camera and native SDF voxel output further make Direct3D-V3 extensible to generative reconstruction, where diffusion is interleaved with normal-guided refinement to improve alignment with the observed view while the generative prior completes unseen regions. Project page: https://dreamtechai.github.io/Direct3D-V3.
+
+Authors: Shuang Wu, Jiachen Qian, Youtian Lin, Feihu Zhang, Philip Torr, Yao Yao, Xun Cao
+
+Tasks: 3D generation, 3D Reconstruction
+
+Code: https://github.com/DreamTechAI/Direct3D-V3</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AllocFlow: End-to-End Portfolio Trading Action Generation from Raw Market Data</title>
+      <link>https://arxiv.org/abs/2611.19937</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.19937</guid>
+      <description>Real-world portfolio management requires converting noisy market observations into coordinated, simultaneous allocations across multiple assets under shared capital constraints. Advances in forecasting models and alpha discovery help identify opportunities. However, traditional pipelines often decouple signal forecasting from portfolio construction, potentially misaligning learning with allocation and execution objectives. We present AllocFlow, an end-to-end flow-matching framework that directly generates joint portfolio allocations from raw multi-asset market histories. To capture dependencies among portfolio positions, AllocFlow employs a cross-asset flow Transformer conditioned on temporal market representations to generate continuous, signed position weights across all instruments jointly. To address the sample inefficiency and instability of learning continuous allocation policies from scratch, we establish a two-stage training scheme: strategy-supervised imitation shapes a structured distribution of candidate portfolios, followed by group-relative reinforcement learning (RL) that refines joint decisions using portfolio-level financial rewards and a frozen policy reference. On hourly cryptocurrency perpetual futures, RL refinement raises the annualized net return of the imitation policy from 27.79% to 51.38% and its Calmar ratio from 0.955 to 4.043, surpassing the teacher strategy on every metric, and AllocFlow reaches a Calmar ratio of 4.90 on six further months of unseen 2026 data without retraining.
+
+Authors: Annan Wang, Yuchen Xie, Yu Cen, Leon Liangyu Chen, Qianyu Julie Zhu, Xin Li, Tianyi Wei, Weisi Lin
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/allocflow/AllocFlow</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Game2Player: Scaling Gameplay Experience for Visual Agents through Environment-Player Co-Development</title>
+      <link>https://arxiv.org/abs/2611.24154</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24154</guid>
+      <description>Games are a rich testbed for visual agents, demanding perception, long-horizon planning, and precise control. However, collecting human gameplay is costly, and learning from gameplay videos requires inferring missing actions. Existing datasets also cover a limited range of games, often without explicit tasks or verifiable outcomes. To address these gaps, we introduce Game2Player, a framework that co-develops game environments and players to collect diverse and verifiable gameplay experience at scale. In the Game2Player loop, a Builder agent adapts existing web games, exposes their internal state, and defines tasks with state-based progress measures and success checks. A Coding Player and a VLM Player then attempt the tasks and report problems to the Builder for repair, so that play serves as both environment validation and training data collection. With Game2Player, we build 568 verified web games with 3,436 tasks, collect 15.7K trajectories (307 hours of gameplay), and hold out 50 games as the benchmark PlayerBench. To evaluate the collected experience as training data, we train VLM agents with progress-weighted SFT, assigning greater weight to steps that advance task progress. Game2Player-9B improves progress from 14.3% to 31.2% on PlayerBench and from 30.0% to 53.1% on the external GameWorld benchmark. More broadly, our work suggests a path for visual agents to scale their gameplay experience by building, verifying, and learning from existing game worlds.
+
+Authors: Xirui Jiang, Yuxi Chen, Rui Yang, Feng Luo, Pengcheng Wang, Bingxuan Li, Zihao Zhao, Yushan Li, Han Wang, Manling Li, Yang Zhang, Shiyu Chang, Tong Zhang, Huan Zhang
+
+Code: https://github.com/game2player/Game2Player</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
