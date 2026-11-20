@@ -4,7 +4,20 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 20 Nov 2026 01:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 02:00:00 GMT</lastBuildDate>
+    <item>
+      <title>MedJev: A System One Vision-Language Decision Model for Fast and Effective Medical Image Understanding</title>
+      <link>https://arxiv.org/abs/2611.20992</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20992</guid>
+      <description>Medical image understanding with vision-language models (VLMs) typically relies on autoregressively generating reasoning and answer tokens. These unnecessary tokens make the inference cost scale with the response length and force the answer to be parsed from free-form text, incurring avoidable latency and decision errors. To this end, we introduce MedJev, a system one vision-language decision model that maps medical images, questions, and candidate answers directly to decisions in a single multimodal forward pass, without any autoregressive generation process. For fast inference, MedJev removes the upper language layers and the generative output pathway, while keeping the full vision pathway and all visual tokens. On this shortened backbone, a decision head scores each candidate by pretrained query--key matching and refines the scores with a lightweight multilayer perceptron (MLP) residual, coupling the pretrained matching structure with task-specific nonlinear discrimination. Built on Qwen3.5-4B, MedJev-4B improves both accuracy and speed over the original model on each of four medical image classification and visual question answering benchmarks, with an absolute accuracy gain of 7.93\% and a 6.04times end-to-end speedup. Further comparison with 20 cutting-edge models shows that MedJev-4B achieves state-of-the-art performance and inference speed among 4B--9B general and medical VLMs, indicating that direct multimodal decision making is an effective route to fast and effective medical image understanding.
+
+Authors: Fan zhang, Hao Wu, Jinyang Wu, Hongyu Qu, Zheng Lian, Dongfu Yin, Qingsong Wen, Pheng-Ann Heng
+
+Tasks: Decision Making, Image Classification, Image Understanding, Medical Image Classification, Medical Visual Question Answering, Question Answering
+
+Code: https://github.com/zfkarl/MedJev</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>π^4: A Foundation Model for 4D Scene Geometry and Motion</title>
       <link>https://arxiv.org/abs/2611.23144</link>
@@ -17,19 +30,6 @@ Tasks: 2D Point Tracking, 3D Reconstruction, 3D Tracking, Camera Pose Estimation
 
 Code: https://github.com/yyfz/Pi4</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VoxMel TTS Technical Report</title>
-      <link>https://arxiv.org/abs/2611.20254</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20254</guid>
-      <description>Continuous autoregressive TTS relies on an acoustic target that enables stable next-latent modeling while preserving fine-grained acoustic details. While existing approaches employ learned compressed representations (e.g., continuous VAE latents) to render prediction tractable, they rely on complex neural encoders that often cap generation fidelity. Conversely, training-free targets like mel-spectrograms eliminate encoder overhead, yet their potential for autoregressive generation remains largely underexplored. In this work, we propose VoxMel, a tokenizer-free framework for autoregressive TTS that makes stable mel modeling tractable through a fixed, exactly invertible two-axis Haar transform. The transform first decomposes each mel spectrogram along frequency into local averages and a frequency residual, then splits the averaged component along time into Coarse-Mel and a temporal residual. A language-model backbone with a flow-matching head autoregressively generates Coarse-Mel. Non-autoregressive residual tiers then predict the temporal residual from Coarse-Mel, followed by the frequency residual conditioned on the reconstructed Frequency-Averaged Mel. Neither residual is fed back into the autoregressive history. Trained on 100K hours of Emilia, the supervised 0.6B model obtains 1.51\% WER and 0.738 speaker similarity (SIM) on test-en, and 1.29\% CER and 0.755 SIM on test-zh. GRPO improves these results to 1.15\% WER / 0.753 SIM and 1.17\% CER / 0.776 SIM, respectively. We also distill the guided flow head into two- and four-step students, requiring 2 or 4 head evaluations per coarse frame. The four-step student retains competitive SIM and nearly matches the supervised model in WER/CER.
-
-Authors: Wenhao Guan, Jiaxin Ye, HAITAO LI, Yifan Duan, Junxi Liu, Wangjin Zhou, Lin Li, Qingyang Hong, Xie Chen
-
-Tasks: Reinforcement Learning, Text-to-speech, Voice cloning
-
-Code: https://github.com/VoxDance-Lab/VoxMel</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>FastFrames: Video Generation at Interactive Latency</title>
@@ -45,16 +45,16 @@ Code: https://github.com/apple-aiml-research/ml-fastframes</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ALIVE: Making Streaming Video Models Interactive</title>
-      <link>https://arxiv.org/abs/2611.21366</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21366</guid>
-      <description>Streaming video LLMs can continuously observe the world, yet often handle user requests in isolation. We introduce ALIVE, an interactive streaming video model supporting proactive monitoring, streaming task coordination, and feedback-seeking interaction. We construct ALIVE-SFT-288K and ALIVE-RL-3K for two-stage training. Contrastive supervised fine-tuning teaches when and how to respond, while reinforcement learning with Behavior-Aligned Credit Assignment (BACA) combines trajectory-level and local advantages to refine decisions, responses, and silence across multi-turn interactions. We also introduce FSI-Bench to evaluate feedback seeking and subsequent task completion. ALIVE achieves the highest overall scores among the compared models on four public benchmarks and FSI-Bench, demonstrating strong streaming understanding and interactive capabilities.
+      <title>MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos</title>
+      <link>https://arxiv.org/abs/2611.21339</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21339</guid>
+      <description>Streaming video generation must sustain quality beyond the training horizon while handling self-generated history and growing cache costs. To address these challenges, we present MovieRoll, a base-to-distilled framework that connects streaming fine-tuning, long-rollout distillation, and long-horizon inference. We first establish a robust multi-step base through Window-wise Teacher Forcing (WinTF), which jointly denoises chunks at progressive noise levels with bidirectional attention within each window and causal access to preceding history. To retain historical context efficiently, hierarchical KV-cache compression (HieraKV) exploits layer-wise attention patterns, retaining full history in shallow layers and sink--recent history in deeper layers. This reduces cache memory by up to 78% while improving generation quality. Building on this base, cumulative long tuning with distribution matching distillation (CuLT-DMD) holds parameters fixed throughout each long self-rollout and averages local gradients before updating. Each update therefore combines supervision across temporal positions while retaining only one local computation graph, enabling efficient long-rollout training of a few-step generator. To extend generation beyond the training horizon, KV recomputation bounds context for both models, while guidance annealing (AnnealCFG) reduces guidance toward the clean endpoint to stabilize MovieRoll-Base. Complementing these modeling advances, FBCA attention and PS-VAE decoding support efficient training and streaming output. On HeliosBench, MovieRoll-Base remains competitive at 30s after training on videos of up to 15s, and MovieRoll-Distilled achieves the highest total scores among the compared methods across single- and multi-event evaluations up to 60s, combining sustained naturalness with active motion.
 
-Authors: Jinzhao Li, Yuan Xu, Jinxuan Wu, Yukun Wang, Yijia Lei, Hanyu Ji, Yinuo Chen, Zining Huang, CHI ZHANG, Hang Ye, Yiwu Zhong, Honglei Yan, Panwang Pan, Yizhou Wang, Yin Li, Miao Liu
+Authors: Yunyang Ge, Weijie Kong, Ryan Xu, Yue Wu, Qi Tian, Jiangfeng Xiong, Bin Lin, Mingzhe Zheng, Shenghai Yuan, Zheyuan Liu, jianwei zhang, Li Yuan
 
-Tasks: Reinforcement Learning, Streaming Video Understanding, Video Understanding
+Tasks: Streaming Video Understanding, Video generation
 
-Code: https://github.com/lijinzhao30/ALIVE</description>
+Code: https://github.com/Tencent-Hunyuan/MovieRoll</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -71,16 +71,92 @@ Code: https://github.com/LynnReal-AI/LynnReal</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>DNeo: Your Parallel Draft Model Needs Better Target Feature Encoding</title>
-      <link>https://arxiv.org/abs/2611.21925</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21925</guid>
-      <description>Speculative-diffusion decoding uses a small parallel drafter model to generate b draft tokens in one forward pass, which then undergo parallel verification via a larger target model. Faster inference can be achieved when multiple draft tokens pass verification simultaneously. Recent parallel draft architectures (DFlash, DSpark) improve draft quality by conditioning on rich features computed by the target, through a mechanism known as feature encoding. However, standard feature encoding mechanisms have three limitations: (1) they are lossy, applying encoding projections that are destructive to the underlying target feature-space via a discovered effect known as residual mixing, (2) they are memory-less, with no record of previously processed proposals, and (3) they utilize features sampled uniformly from across the target layers, omitting important hidden states. To address these issues, we propose Mixture-of-Features Attention (MoFA), a lightweight feature-encoding approach equipped with a working memory that encodes previously rejected proposals. Leveraging MoFA, rejection memory, and a set of further enhancements, including 2-tap causal convolutions, prefix-only cross-attention, and non-uniform target layer selection, the final architecture, DNeo, achieves 1.3x faster generation speed than SoTA (DFlash-2) without impacting drafter footprint or generation quality. DNeo marks a new state of the art in high quality, fast LLM inference.
+      <title>Weight-Space Programming Doesn't Need Transformers</title>
+      <link>https://arxiv.org/abs/2611.22055</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22055</guid>
+      <description>Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights.
 
-Authors: Jameson Sandler, Shane Bergsma, Mostafa Elhoushi, Bin Claire Zhang, Gavia Gray, Joel Hestness, Nolan Dey, Ferdinando Fioretto
+Authors: Hyunjong Ok, Jaeho Lee
 
-Tasks: Language Modeling
+Tasks: Question Answering, Text classification
 
-Code: https://github.com/J-sandler/DNeo</description>
+Code: https://github.com/effl-lab/Weight-Space-Programming</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CurvDelta: Low-Curvature Delta Modeling For Surgical Learning and Unlearning</title>
+      <link>https://arxiv.org/abs/2611.24654</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24654</guid>
+      <description>A central challenge in adapting large language models (LLMs) is capability preservation: an adaptation can achieve its target while degrading general capabilities. We introduce CurvDelta, a scalable framework that incorporates the preservation constraint into the parameterization of the model update. By analyzing the local geometry of the preservation constraint around the pre-adaptation model, CurvDelta constructs a low-curvature space in which parameter updates leave the preservation loss nearly invariant. We make its construction practical for LLMs through Kronecker-factored approximate curvature (K-FAC) and a factorized projection. We also introduce CurvLoRA, a low-rank variant within the same preservation geometry, designed for more efficient adaptation. Both methods apply to preservation-constrained adaptation tasks such as capability learning and selective unlearning. We evaluate our methods on mathematical reasoning, code generation, and knowledge unlearning. For mathematical reasoning and code generation, our approaches achieve competitive downstream performance while better preserving general capabilities, offering a favorable acquisition--retention trade-off relative to the baselines. For knowledge unlearning, our main results on TOFU and MUSE show a better balance between targeted forgetting and knowledge retention than the baselines, with retention performance close to the from-scratch retraining reference.
+
+Authors: Zeguan Xiao, Zhuocheng Liang, Yun Chen, Yong Wang, Guanhua Chen, Pinyan Lu
+
+Tasks: Code Generation, Machine Unlearning, Mathematics
+
+Code: https://github.com/xiaozi-max/curvdelta_learning</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DrawScore: Evaluating Generated CAD Models against Engineering Drawings</title>
+      <link>https://arxiv.org/abs/2611.24681</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24681</guid>
+      <description>Automatic CAD generation is commonly evaluated with volumetric IoU, Chamfer Distance, and surface F-score, which barely penalize local errors that occupy only a small fraction of a part's volume or surface area, such as a misplaced hole or a slot on the wrong face, even though such errors are critical to manufacturing. We formalize these metrics in a unified integral form and show that the weight of a local error decays as the (k+q)-th power of its size, where k is the dimension of the integration domain and q is determined by the penalty function. Guided by this analysis, we propose DrawScore, which projects both models into three orthographic views with visible and hidden lines, as in engineering drawings, and applies a saturating penalty along the projected curves, so that the weight of a local error decays only linearly. Controlled experiments confirm the predicted decay orders, and on outputs of existing CAD generation agents, DrawScore exposes errors in outputs that IoU rates as nearly perfect. DrawScore further improves generation as a reinforcement learning reward and, for CAD generation from engineering drawings, serves as a test-time verifier without 3D ground truth or an additional reward model. Our code is available at https://github.com/UESTC-Simon/DrawScore.
+
+Authors: Haorui Chen, Shiteng Lu, Zhanyu Guo, Zaixi Li, Yunhe Ni, Yaosong Du, Yichen Xiang, Xiande Huang, Rui Huang
+
+Tasks: Computer-Aided Design, Reinforcement Learning, Reward model evaluation
+
+Code: https://github.com/UESTC-Simon/DrawScore</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LongCat-Video-Avatar 1.6 Technical Report</title>
+      <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
+      <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
+      <description>We are excited to announce the release of LongCat-Video-Avatar 1.6, the latest upgrade to our open-source framework for audio-driven human video generation. Building upon LongCat-Video-Avatar 1.5, 1.6 improves expressive naturalness, lip–audio synchronization, coordinated facial and body motion, and visual consistency during long-form generation. It also introduces comprehensive inference optimizations for faster and more efficient deployment.
+
+Tasks: Talking Head Generation, Video generation
+
+Code: https://github.com/meituan-longcat/LongCat-Video</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VoxMel TTS Technical Report</title>
+      <link>https://arxiv.org/abs/2611.20254</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20254</guid>
+      <description>Continuous autoregressive TTS relies on an acoustic target that enables stable next-latent modeling while preserving fine-grained acoustic details. While existing approaches employ learned compressed representations (e.g., continuous VAE latents) to render prediction tractable, they rely on complex neural encoders that often cap generation fidelity. Conversely, training-free targets like mel-spectrograms eliminate encoder overhead, yet their potential for autoregressive generation remains largely underexplored. In this work, we propose VoxMel, a tokenizer-free framework for autoregressive TTS that makes stable mel modeling tractable through a fixed, exactly invertible two-axis Haar transform. The transform first decomposes each mel spectrogram along frequency into local averages and a frequency residual, then splits the averaged component along time into Coarse-Mel and a temporal residual. A language-model backbone with a flow-matching head autoregressively generates Coarse-Mel. Non-autoregressive residual tiers then predict the temporal residual from Coarse-Mel, followed by the frequency residual conditioned on the reconstructed Frequency-Averaged Mel. Neither residual is fed back into the autoregressive history. Trained on 100K hours of Emilia, the supervised 0.6B model obtains 1.51\% WER and 0.738 speaker similarity (SIM) on test-en, and 1.29\% CER and 0.755 SIM on test-zh. GRPO improves these results to 1.15\% WER / 0.753 SIM and 1.17\% CER / 0.776 SIM, respectively. We also distill the guided flow head into two- and four-step students, requiring 2 or 4 head evaluations per coarse frame. The four-step student retains competitive SIM and nearly matches the supervised model in WER/CER.
+
+Authors: Wenhao Guan, Jiaxin Ye, HAITAO LI, Yifan Duan, Junxi Liu, Wangjin Zhou, Lin Li, Qingyang Hong, Xie Chen
+
+Tasks: Reinforcement Learning, Text-to-speech, Voice cloning
+
+Code: https://github.com/VoxDance-Lab/VoxMel</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Multi-Branch Transformer</title>
+      <link>https://arxiv.org/abs/2611.19800</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.19800</guid>
+      <description>Transformer language models are commonly scaled by making their blocks wider or stacking them deeper. In this work, we explore a complementary path: branching, the parallel composition of full Transformer blocks. We introduce the Multi-Branch Transformer (MBT), which processes the input through shared initial layers, executes independently parameterized branches of sequential blocks in parallel, and fuses their outputs before shared final layers. At comparable training compute, we study three MBT variants: Wide-Shallow preserves block width, Narrow-Deep preserves sequential depth, and Balanced interpolates between them. In controlled pretraining experiments at four mixture-of-experts scales (0.8B to 2.1B total parameters), 2-branch Wide-Shallow MBTs consistently outperform sequential Transformers under matched parameter and training-compute budgets. Balanced MBTs improve further and retain comparable quality as the number of branches increases. To improve inference efficiency at long contexts, we introduce Joint-KV, which constructs a shared KV cache from branch representations at each depth. Our final recipe combines Balanced MBTs with Joint-KV, supported by an inference engine that exploits branch grouping and shared-cache reuse. Fitted scaling curves indicate that standard Transformers require up to 1.26x as much training body compute to match our final models' validation loss. These models reduce full-model KV-cache storage by up to 34% and deliver up to 51.4% higher decoding throughput on a single H200 GPU. Ablation studies show that branching yields gains beyond changes in width and depth, enables an effective KV-sharing strategy (Joint-KV), remains robust across fusion functions, and performs best in the middle layers. These findings show that branching offers a practical path for scaling language models toward both better modeling quality and faster inference.
+
+Authors: Gaotang Li, Lingjie Chen, Chunyuan Deng, Zhiwei Xu, Hongzheng Chen, Christopher De Sa, Jingrui He, Yingheng Wang, Hanghang Tong
+
+Tasks: Language Modeling, Long Context
+
+Code: https://github.com/GaotangLi/Multi-Branch-Transformer</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ALIVE: Making Streaming Video Models Interactive</title>
+      <link>https://arxiv.org/abs/2611.21366</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21366</guid>
+      <description>Streaming video LLMs can continuously observe the world, yet often handle user requests in isolation. We introduce ALIVE, an interactive streaming video model supporting proactive monitoring, streaming task coordination, and feedback-seeking interaction. We construct ALIVE-SFT-288K and ALIVE-RL-3K for two-stage training. Contrastive supervised fine-tuning teaches when and how to respond, while reinforcement learning with Behavior-Aligned Credit Assignment (BACA) combines trajectory-level and local advantages to refine decisions, responses, and silence across multi-turn interactions. We also introduce FSI-Bench to evaluate feedback seeking and subsequent task completion. ALIVE achieves the highest overall scores among the compared models on four public benchmarks and FSI-Bench, demonstrating strong streaming understanding and interactive capabilities.
+
+Authors: Jinzhao Li, Yuan Xu, Jinxuan Wu, Yukun Wang, Yijia Lei, Hanyu Ji, Yinuo Chen, Zining Huang, CHI ZHANG, Hang Ye, Yiwu Zhong, Honglei Yan, Panwang Pan, Yizhou Wang, Yin Li, Miao Liu
+
+Tasks: Reinforcement Learning, Streaming Video Understanding, Video Understanding
+
+Code: https://github.com/lijinzhao30/ALIVE</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -97,6 +173,19 @@ Code: https://github.com/panuvi/inclusionmed</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>DNeo: Your Parallel Draft Model Needs Better Target Feature Encoding</title>
+      <link>https://arxiv.org/abs/2611.21925</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21925</guid>
+      <description>Speculative-diffusion decoding uses a small parallel drafter model to generate b draft tokens in one forward pass, which then undergo parallel verification via a larger target model. Faster inference can be achieved when multiple draft tokens pass verification simultaneously. Recent parallel draft architectures (DFlash, DSpark) improve draft quality by conditioning on rich features computed by the target, through a mechanism known as feature encoding. However, standard feature encoding mechanisms have three limitations: (1) they are lossy, applying encoding projections that are destructive to the underlying target feature-space via a discovered effect known as residual mixing, (2) they are memory-less, with no record of previously processed proposals, and (3) they utilize features sampled uniformly from across the target layers, omitting important hidden states. To address these issues, we propose Mixture-of-Features Attention (MoFA), a lightweight feature-encoding approach equipped with a working memory that encodes previously rejected proposals. Leveraging MoFA, rejection memory, and a set of further enhancements, including 2-tap causal convolutions, prefix-only cross-attention, and non-uniform target layer selection, the final architecture, DNeo, achieves 1.3x faster generation speed than SoTA (DFlash-2) without impacting drafter footprint or generation quality. DNeo marks a new state of the art in high quality, fast LLM inference.
+
+Authors: Jameson Sandler, Shane Bergsma, Mostafa Elhoushi, Bin Claire Zhang, Gavia Gray, Joel Hestness, Nolan Dey, Ferdinando Fioretto
+
+Tasks: Language Modeling
+
+Code: https://github.com/J-sandler/DNeo</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models</title>
       <link>https://arxiv.org/abs/2611.21099</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.21099</guid>
@@ -108,56 +197,6 @@ Tasks: Classic Reinforcement Learning, Continuous Control, Robotics
 
 Code: https://github.com/showlab/ForceHarness</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos</title>
-      <link>https://arxiv.org/abs/2611.21339</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21339</guid>
-      <description>Streaming video generation must sustain quality beyond the training horizon while handling self-generated history and growing cache costs. To address these challenges, we present MovieRoll, a base-to-distilled framework that connects streaming fine-tuning, long-rollout distillation, and long-horizon inference. We first establish a robust multi-step base through Window-wise Teacher Forcing (WinTF), which jointly denoises chunks at progressive noise levels with bidirectional attention within each window and causal access to preceding history. To retain historical context efficiently, hierarchical KV-cache compression (HieraKV) exploits layer-wise attention patterns, retaining full history in shallow layers and sink--recent history in deeper layers. This reduces cache memory by up to 78% while improving generation quality. Building on this base, cumulative long tuning with distribution matching distillation (CuLT-DMD) holds parameters fixed throughout each long self-rollout and averages local gradients before updating. Each update therefore combines supervision across temporal positions while retaining only one local computation graph, enabling efficient long-rollout training of a few-step generator. To extend generation beyond the training horizon, KV recomputation bounds context for both models, while guidance annealing (AnnealCFG) reduces guidance toward the clean endpoint to stabilize MovieRoll-Base. Complementing these modeling advances, FBCA attention and PS-VAE decoding support efficient training and streaming output. On HeliosBench, MovieRoll-Base remains competitive at 30s after training on videos of up to 15s, and MovieRoll-Distilled achieves the highest total scores among the compared methods across single- and multi-event evaluations up to 60s, combining sustained naturalness with active motion.
-
-Authors: Yunyang Ge, Weijie Kong, Ryan Xu, Yue Wu, Qi Tian, Jiangfeng Xiong, Bin Lin, Mingzhe Zheng, Shenghai Yuan, Zheyuan Liu, jianwei zhang, Li Yuan
-
-Tasks: Streaming Video Understanding, Video generation
-
-Code: https://github.com/Tencent-Hunyuan/MovieRoll</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>TabBioMed: A Large-Scale Benchmark for Biomedical Tabular Learning</title>
-      <link>https://arxiv.org/abs/2611.23779</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23779</guid>
-      <description>Recent advances in machine learning have accelerated biomedical prediction, but evaluation on structured biomedical data remains fragmented, especially for datasets with high dimensionality, large sample size, missingness, and class imbalance. We introduce TabBioMed, a large-scale benchmark of 94 curated public biomedical tabular datasets spanning electronic health records, drug discovery, genomics, transcriptomics, proteomics, metabolomics, single-cell omics, and systems biology. TabBioMed unifies these datasets through a standardized, dataset-aware preprocessing and evaluation framework, enabling reproducible comparison across classification, regression, and multi-target tasks. We benchmark 23 models across classical baselines, gradient-boosted trees, neural tabular architectures, and tabular foundation models. Foundation models deliver the strongest family-level predictive performance. However, their gains are regime-dependent: tree-based models and tuned multilayer perceptrons remain highly competitive, often dominating under inference-time or training-cost constraints. Overall, TabBioMed shows that biomedical tabular learning is strongly context-dependent, with optimal model choice depending on data regime, task type, and computational budget. We release TabBioMed with curated datasets and splits, preprocessing code, baselines, and results, providing a reproducible benchmark for practical model selection and future methods development in biomedical machine learning, available at https://github.com/AI-sandbox/TabBioMed.
-
-Authors: Pau Mateo-Bernadó, Saivenkata Nagavyjayanthi Polapragada, David Bonet, Pol Arbiol Rakuljic, Laia Mogas Pladevall, Marçal Comajoan Cara, Jesus Gonzalez-Ferrer, Jordi Abante, Daniel Mas Montserrat, David Haussler, Alexander G. Ioannidis
-
-Tasks: Healthcare &amp; Medical AI, Tabular Learning
-
-Code: https://github.com/AI-sandbox/TabBioMed</description>
-      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>CADMAGEDDON: High-Fidelity CAD Reconstruction with Local Inference</title>
-      <link>https://arxiv.org/abs/2611.22563</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22563</guid>
-      <description>CAD practitioners often work with proprietary parts that they are unwilling to share with external services. For individuals and small companies, bringing this work in-house also requires computational resources they can afford. We introduce CADMAGEDDON, an open-source agent that reconstructs editable CAD from meshes and can run locally on single-GPU systems and current-generation laptops. The method decomposes this complex task into a chain of simple visual decisions about what to construct and what to correct. Geometric tools support precise construction, allowing the agent to focus on visual reasoning. Using the mid-sized Qwen3.8-27B model, CADMAGEDDON outperforms prior approaches, including systems based on frontier models, in reconstruction quality on all the main benchmarks. CADMAGEDDON integrates with FreeCAD, bringing its reconstructions into practitioners' existing CAD workflows. Code: https://github.com/kulibinai/cadmageddon
-
-Authors: Oleg Pavlov, Nikita Gavrilov, Soslan Kabisov, Gennadii Savrasov, Andrey Kuznetsov, Anton Konushin, Dmitrii Zhemchuzhnikov
-
-Tasks: 3D Reconstruction, Image Understanding
-
-Code: https://github.com/kulibinai/cadmageddon</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>LongCat-Video-Avatar 1.6 Technical Report</title>
-      <link>https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</link>
-      <guid isPermaLink="true">https://github.com/meituan-longcat/LongCat-Video/blob/ca0992d4adf84171c4fea949b7c06ef34c052cea/assets/LongCat-Video-Avatar-1.6-Tech-Report.pdf</guid>
-      <description>We are excited to announce the release of LongCat-Video-Avatar 1.6, the latest upgrade to our open-source framework for audio-driven human video generation. Building upon LongCat-Video-Avatar 1.5, 1.6 improves expressive naturalness, lip–audio synchronization, coordinated facial and body motion, and visual consistency during long-form generation. It also introduces comprehensive inference optimizations for faster and more efficient deployment.
-
-Tasks: Talking Head Generation, Video generation
-
-Code: https://github.com/meituan-longcat/LongCat-Video</description>
-      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Code World Model 2.0: Towards Infinite Controllable Video Generation</title>
@@ -210,19 +249,6 @@ Code: https://github.com/agentscope-ai/Piccolo</description>
       <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>MedJev: A System One Vision-Language Decision Model for Fast and Effective Medical Image Understanding</title>
-      <link>https://arxiv.org/abs/2611.20992</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20992</guid>
-      <description>Medical image understanding with vision-language models (VLMs) typically relies on autoregressively generating reasoning and answer tokens. These unnecessary tokens make the inference cost scale with the response length and force the answer to be parsed from free-form text, incurring avoidable latency and decision errors. To this end, we introduce MedJev, a system one vision-language decision model that maps medical images, questions, and candidate answers directly to decisions in a single multimodal forward pass, without any autoregressive generation process. For fast inference, MedJev removes the upper language layers and the generative output pathway, while keeping the full vision pathway and all visual tokens. On this shortened backbone, a decision head scores each candidate by pretrained query--key matching and refines the scores with a lightweight multilayer perceptron (MLP) residual, coupling the pretrained matching structure with task-specific nonlinear discrimination. Built on Qwen3.5-4B, MedJev-4B improves both accuracy and speed over the original model on each of four medical image classification and visual question answering benchmarks, with an absolute accuracy gain of 7.93\% and a 6.04times end-to-end speedup. Further comparison with 20 cutting-edge models shows that MedJev-4B achieves state-of-the-art performance and inference speed among 4B--9B general and medical VLMs, indicating that direct multimodal decision making is an effective route to fast and effective medical image understanding.
-
-Authors: Fan zhang, Hao Wu, Jinyang Wu, Hongyu Qu, Zheng Lian, Dongfu Yin, Qingsong Wen, Pheng-Ann Heng
-
-Tasks: Decision Making, Image Classification, Image Understanding, Medical Image Classification, Medical Visual Question Answering, Question Answering
-
-Code: https://github.com/zfkarl/MedJev</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Qwen4-Max: Your New Teammate Has Arrived</title>
       <link>https://qwen.ai/blog?id=qwen4-max</link>
       <guid isPermaLink="true">https://qwen.ai/blog?id=qwen4-max</guid>
@@ -233,32 +259,6 @@ Qwen4-Max advances real-world productivity through greater proficiency with prof
 Tasks: Agents, Auto-Research, Coding Agents, Computer Use Agents, Healthcare &amp; Medical AI, Image Understanding, Language Modeling, Long Context, Long-Horizon Agents, Scientific Reasoning
 
 Code: https://github.com/qwenlm/qwen-live-delivery-plugin</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Weight-Space Programming Doesn't Need Transformers</title>
-      <link>https://arxiv.org/abs/2611.22055</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22055</guid>
-      <description>Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights.
-
-Authors: Hyunjong Ok, Jaeho Lee
-
-Tasks: Question Answering, Text classification
-
-Code: https://github.com/effl-lab/Weight-Space-Programming</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Sage S2.1 Flash Technical Report</title>
-      <link>https://arxiv.org/abs/2611.21072</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21072</guid>
-      <description>We introduce Sage S1.5 Flash, a 320-billion-parameter general-purpose mixture-of-experts model designed to reason over scientific evidence and act in interactive environments. Sage Sci-Perception uses dedicated encoders for molecular graphs and biological sequences and represents spectra as ordered patches of measurements. Modality-specific projectors map these representations into the input space of a shared backbone, which processes them alongside text and images. To develop the model's agent capabilities, we construct verifiable environments for tool use, search, and coding, as well as specialized workflows involving machine learning experiments and scientific software. Task completion is checked against execution results, changes in environment state, or submitted artifacts. We evaluate Sage S1.5 Flash on 33 benchmarks across seven domains. In the primary comparison against five baselines, it ranks first on OfficeQA Pro (72.2), MLE-bench Lite (90.3 HumanRank), Harvey LAB, and SpreadsheetBench~2, and second on OSWorld-Verified (85.2), WebArena-Verified (67.6), and DeepResearch Bench~II (54.2). These results show particular strengths in using documentary evidence, producing verifiable workbooks, and carrying out machine learning tasks, alongside competitive performance in desktop and browser workflows that require the model to act on visual feedback.
-
-Authors: Kun Cai, Haodong Chen, Guangran Cheng, Qingxiu Cheng, Xu Dai, Guanting Dong, Qiming Ge, Lixin Gu, Tao Gui, Honglin Guo, Yuyang Hu, Zixian Huang, Jiajie Jin, Alexander Lam, Jiaqiang Li, Yining Li, Jiahang Lin, Yanjiang Liu, Xinyu Lu, Haijun Lv, Ningsheng Ma, Zerun Ma, Minlong Peng, Jianmin Qian, Huayu Sha, Junlin Shang, Shuo Shen, Qisheng Su, Jiajun Sun, Yanan Sun, Zhichao Sun, Ran Tao, Zhongbo Tian, Guoqiang Wang, Hui Wang, Rui Wang, Yiding Wang, Zhecan Wang, Hao Xiang, Xinchen Xie, Shuhao Xing, Xiaoyu Xing, Wanghan Xu, Xinyu Yang, Yajie Yang, Dingbo Yuan, Yuhang Zang, Hongjie Zhang, Chengfeng Zhao, Haoran Zhao, Penghao Zhao, Ruojun Zhou, Dongsheng Zhu, Yicheng Zou, Qiye Cai, Yifei Cao, Xinmeng Che, Hongji Chen, Jiabei Chen, Jiadong Chen, Jiahao Chen, Jiayi Chen, Xinjie Chen, Yujia Chen, Xin Deng, Yi Dong, Yichen Dong, Wenjie Fu, Jianing Geng, Chenyang Gu, Ding Han, Han Han, Feiyang Hao, Haotan He, Qiushi He, Xufeng He, Xin Hong, Jie Hou, Binze Hu, Yongkang Hu, Zijian Hu, Enfu Huang, Junhao Huang, Changhao Jiang, Huicheng Jiang, Jiazhen Jiang, Shufan Jiang, Wenqing Jing, Jiahao Kuang, Bowen Lai, Bo Li, Qi Li, Qilong Li, Zhuoqun Li, Tianhao Liang, Jiaxiang Liu, Junzhang Liu, Shaofan Liu, Shuainan Liu, Tong Liu, Yi Liu, Ziyu Liu, Zhonghang Lu, Jianwen Luo, Xuan Luo, Yanyi Luo, Huijie Lv, Mingyu Ma, Houcheng Min, Hongjun Mo, Songhao Ni, Chengjun Pan, Qiyuan Peng, Xiaoxuan Peng, Wanying Ren, Runhui Ruan, Jifei Shan, Zixin Shang, Bing Shao, Zhuohui Sheng, Jiayang Shi, Qingyun Shi, Yang Shu, Aierpanjiang Simayi, Sirui Song, Yuxiao Song, Jiahao Sun, Zhe Sun, Wenzhe Tan, Guoxiang Wang, Hanchen Wang, Jie Wang, Pengbo Wang, Qing Wang, Weihang Wang, Xiaotao Wang, Yuhui Wang, Zhekai Wang, Zihan Wang, Zile Wang, Jinke Wu, Liwei Wu, Xuansheng Wu, Yida Wu, Yihao Wu, Yinqi Wu, Yue Wu, Yuhan Wu, Yuwa Wu, Zhiheng Xi, Ying Xiao, Zhide Xie, Caijun Xu, Xingle Xu, Yichen Xu, Yongfeng Xu, Xiaolei Yang, Zhixiong Yang, Jiacheng Yao, Dingcheng Yi, Shihong Yi, Jinhui Yin, Peizhou Yu, Shan Yu, Hao Yuan, Junjie Yuan, Xiongyao Zha, Bo Zhang, Caixian Zhang, Kaicheng Zhang, Pengxiang Zhang, Qiuyinzhe Zhang, Wei ZHANG, Xiaoqian Zhang, Xinsen Zhang, Jiyuan Zhao, Shuyu Zhao, Pujun Zheng, Zheyu Zheng, Xiaoxue Zhong, Peiheng Zhou, Xiaohao Zhou, Xinyu Zhou, Fangyi Zhu, Guanru Zhu, Yulun Zhu, Jiabao Zhuang, Pengfei Cao, Zhicheng Dou, Xianpei Han, Ben He, Guoxiu He, Xuanjing Huang, Tao Ji, Yu-Gang Jiang, Dahua Lin, Hongyu Lin, Kang Liu, Yaojie Lu, Le Sun, Ji-Rong Wen, Jun Zhao, Yutao Zhu, Qi Zhang, Bowen Zhou
-
-Tasks: Auto-Research, Coding Agents, Computer Use Agents, Deep Research Agents, Molecular Property Prediction, Scientific Reasoning
-
-Code: https://github.com/InternLM/Sage-S2.1-Flash</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
