@@ -4,18 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 20 Nov 2026 16:00:00 GMT</lastBuildDate>
-    <item>
-      <title>AutoMaster: Autonomous Post-Training by Making the Same Model a Better Teacher</title>
-      <link>https://arxiv.org/abs/2611.26510</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26510</guid>
-      <description>Task success alone does not specify which behaviors post-training should reinforce. Even successful teacher trajectories can contain unsupported assumptions, unproductive repetition, or superficial verification. We propose Skill-FT (Skill-Guided Fine-Tuning), which uses natural-language skills to suppress undesirable habits and elicit underrepresented effective behaviors during teacher rollouts, then fine-tunes a target model on the resulting trajectories. We introduce AutoMaster, an autonomous post-training system in which an LLM agent develops these interventions through trajectory analysis, skill design, data selection, and feedback from rollouts and target-model evaluation. Across Terminal, Search, and software engineering tasks with 4B and 9B target models, AutoMaster improves mean performance over Vanilla SFT on successful unguided teacher trajectories by 1.42-8.99 percentage points, with the teacher, task pool, training set size, and SFT recipe held fixed. Together with the ablations and trajectory analyses, these results suggest that behavioral shaping can make a fixed model a more effective teacher. We further find that retaining skill instructions during SFT yields higher mean performance than removing them across all six settings, despite their absence at evaluation and identical supervised outputs. These findings suggest that preserving skill context as part of a training demonstration can support better behavioral internalization.
-
-Authors: Guoxin Chen, Shuang Sun, Fanzhe Meng, Xinyu Tang, Ruihua Song, Wayne Xin Zhao
-
-Code: https://github.com/RUCAIBox/AutoMaster</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Fri, 20 Nov 2026 17:00:00 GMT</lastBuildDate>
     <item>
       <title>Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth</title>
       <link>https://arxiv.org/abs/2611.26603</link>
@@ -30,6 +19,69 @@ Code: https://github.com/apple-aiml-research/ml-depth-pro-2</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos</title>
+      <link>https://arxiv.org/abs/2611.21339</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.21339</guid>
+      <description>Streaming video generation must sustain quality beyond the training horizon while handling self-generated history and growing cache costs. To address these challenges, we present MovieRoll, a base-to-distilled framework that connects streaming fine-tuning, long-rollout distillation, and long-horizon inference. We first establish a robust multi-step base through Window-wise Teacher Forcing (WinTF), which jointly denoises chunks at progressive noise levels with bidirectional attention within each window and causal access to preceding history. To retain historical context efficiently, hierarchical KV-cache compression (HieraKV) exploits layer-wise attention patterns, retaining full history in shallow layers and sink--recent history in deeper layers. This reduces cache memory by up to 78% while improving generation quality. Building on this base, cumulative long tuning with distribution matching distillation (CuLT-DMD) holds parameters fixed throughout each long self-rollout and averages local gradients before updating. Each update therefore combines supervision across temporal positions while retaining only one local computation graph, enabling efficient long-rollout training of a few-step generator. To extend generation beyond the training horizon, KV recomputation bounds context for both models, while guidance annealing (AnnealCFG) reduces guidance toward the clean endpoint to stabilize MovieRoll-Base. Complementing these modeling advances, FBCA attention and PS-VAE decoding support efficient training and streaming output. On HeliosBench, MovieRoll-Base remains competitive at 30s after training on videos of up to 15s, and MovieRoll-Distilled achieves the highest total scores among the compared methods across single- and multi-event evaluations up to 60s, combining sustained naturalness with active motion.
+
+Authors: Yunyang Ge, Weijie Kong, Ryan Xu, Yue Wu, Qi Tian, Jiangfeng Xiong, Bin Lin, Mingzhe Zheng, Shenghai Yuan, Zheyuan Liu, jianwei zhang, Li Yuan
+
+Tasks: Streaming Video Understanding, Video generation
+
+Code: https://github.com/Tencent-Hunyuan/MovieRoll</description>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AURA: AUdio-dRiven streaming Avatar</title>
+      <link>https://arxiv.org/abs/2611.26540</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26540</guid>
+      <description>Current audio-driven video diffusion models can synthesize realistic talking-head videos but generally require dozens of diffusion denoising steps over multi-second video chunks, making them unsuitable for streaming applications such as voice assistants and virtual avatars, where low-latency and online causal generation are required properties. AURA generates video chunk by chunk with a rolling KV cache, requiring only the audio of the current chunk to start generating, rather than a multi-second audio look-ahead like bidirectional models. It comes in two sizes: AURA 1.3B streams 576p video in real time on a single GPU (20.7 fps for a 16 Hz playback rate), making it suited to interactive avatar applications, and AURA 5B streams 720p video at 9.7 fps. Our two-stage distillation pipeline first aligns the causal student with the teacher, by training it to match the teacher's trajectories with fewer diffusion steps and a chunk-wise sliding window causal attention mask, then applies Distribution Matching Distillation (DMD) with backward simulation to close the remaining quality gap. On standard talking-head benchmarks, AURA 1.3B runs 23x faster than its own bidirectional teacher and reaches a quality comparable to TalkVerse at a lower resolution, and AURA 5B matches its TalkVerse teacher at 720p while running 17x faster. To support reproducibility and further research on streaming avatar generation, we release the weights of both models along with a dataset of 30K synthetic videos and their precomputed teacher trajectories.
+
+Authors: Nathaniel Cohen, Nicolas Dufour, Amélie Royer, Alasdair Newson, Patrick Pérez
+
+Code: https://github.com/kyutai-labs/aura</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Unified Law for Visual Tasks (The Four Laws of Computer Vision)</title>
+      <link>https://arxiv.org/abs/2611.24917</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24917</guid>
+      <description>In this paper, we propose a Unified Law for Visual Tasks, which could be further divided into Four Laws of Computer Vision, with the goal of enabling a single framework or method to uniformly train on and perform nearly all visual tasks. Our starting point is an inspiration and hypothesis: if the world information is encoded into image, which we call World Snapshots, then image processing is world processing, and image generation is World Snapshot generation. Furthermore, if all visual and visualization tasks can be reformulated as generation tasks, then a unified method, World Snapshot Models (WSMs), can perform the vast majority of visual tasks, much as large language models have largely unified natural language processing. This paper validates these laws across more than 1,000 trained and evaluated visual tasks (defined by distinct input-output mappings) and presents a unified training framework for future visual-task research and applications.
+
+Authors: Sen Fang, Yalin Feng, Yancheng Zhang, Yanxin Zhang, Zonglin Lyu, Hongbin Zhong, Liwei Che, Rui Wu, Chen Chen, Dimitris N. Metaxas
+
+Tasks: Depth estimation, Image generation, World Models
+
+Code: https://github.com/World-Snapshot/WSMs</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AllocFlow: End-to-End Portfolio Trading Action Generation from Raw Market Data</title>
+      <link>https://arxiv.org/abs/2611.19937</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.19937</guid>
+      <description>Real-world portfolio management requires converting noisy market observations into coordinated, simultaneous allocations across multiple assets under shared capital constraints. Advances in forecasting models and alpha discovery help identify opportunities. However, traditional pipelines often decouple signal forecasting from portfolio construction, potentially misaligning learning with allocation and execution objectives. We present AllocFlow, an end-to-end flow-matching framework that directly generates joint portfolio allocations from raw multi-asset market histories. To capture dependencies among portfolio positions, AllocFlow employs a cross-asset flow Transformer conditioned on temporal market representations to generate continuous, signed position weights across all instruments jointly. To address the sample inefficiency and instability of learning continuous allocation policies from scratch, we establish a two-stage training scheme: strategy-supervised imitation shapes a structured distribution of candidate portfolios, followed by group-relative reinforcement learning (RL) that refines joint decisions using portfolio-level financial rewards and a frozen policy reference. On hourly cryptocurrency perpetual futures, RL refinement raises the annualized net return of the imitation policy from 27.79% to 51.38% and its Calmar ratio from 0.955 to 4.043, surpassing the teacher strategy on every metric, and AllocFlow reaches a Calmar ratio of 4.90 on six further months of unseen 2026 data without retraining.
+
+Authors: Annan Wang, Yuchen Xie, Yu Cen, Leon Liangyu Chen, Qianyu Julie Zhu, Xin Li, Tianyi Wei, Weisi Lin
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/allocflow/AllocFlow</description>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AutoMaster: Autonomous Post-Training by Making the Same Model a Better Teacher</title>
+      <link>https://arxiv.org/abs/2611.26510</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26510</guid>
+      <description>Task success alone does not specify which behaviors post-training should reinforce. Even successful teacher trajectories can contain unsupported assumptions, unproductive repetition, or superficial verification. We propose Skill-FT (Skill-Guided Fine-Tuning), which uses natural-language skills to suppress undesirable habits and elicit underrepresented effective behaviors during teacher rollouts, then fine-tunes a target model on the resulting trajectories. We introduce AutoMaster, an autonomous post-training system in which an LLM agent develops these interventions through trajectory analysis, skill design, data selection, and feedback from rollouts and target-model evaluation. Across Terminal, Search, and software engineering tasks with 4B and 9B target models, AutoMaster improves mean performance over Vanilla SFT on successful unguided teacher trajectories by 1.42-8.99 percentage points, with the teacher, task pool, training set size, and SFT recipe held fixed. Together with the ablations and trajectory analyses, these results suggest that behavioral shaping can make a fixed model a more effective teacher. We further find that retaining skill instructions during SFT yields higher mean performance than removing them across all six settings, despite their absence at evaluation and identical supervised outputs. These findings suggest that preserving skill context as part of a training demonstration can support better behavioral internalization.
+
+Authors: Guoxin Chen, Shuang Sun, Fanzhe Meng, Xinyu Tang, Ruihua Song, Wayne Xin Zhao
+
+Tasks: Coding Agents, Deep Research Agents
+
+Code: https://github.com/RUCAIBox/AutoMaster</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>VoxMel TTS Technical Report</title>
       <link>https://arxiv.org/abs/2611.20254</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.20254</guid>
@@ -41,6 +93,69 @@ Tasks: Reinforcement Learning, Text-to-speech, Voice cloning
 
 Code: https://github.com/VoxDance-Lab/VoxMel</description>
       <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Posterior Matching Distillation</title>
+      <link>https://arxiv.org/abs/2611.26629</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26629</guid>
+      <description>Diffusion distillation accelerates image and video generation by compressing a pretrained teacher's iterative sampling process into a few network evaluations. Distribution-based methods achieve this by matching the student's output distribution to the teacher's. This matching is often driven by reverse-KL objectives, whose mode-seeking bias favors dominant teacher modes at the expense of diversity across samples. We introduce Posterior Matching Distillation (PMD), a new member of the distribution-based distillation family that combines mode-covering posterior sampling with any-step generation. At zero population loss, PMD recovers the teacher's full posterior of clean images at each trained noise level. Its stochastic student supports any-step sampling budgets within the trained timestep grid without further training. To learn these posteriors, PMD matches exponentially reweighted averages of student samples conditioned on a fixed noisy state to corresponding teacher posterior means. Under Gaussian corruption, exponentially tilted posterior mean is a single teacher evaluation at a shifted input. We prove that, matching tilted means over an open neighborhood uniquely identifies the full posterior. PMD thus supervises the entire conditional distribution through a family of mean constraints, without any auxiliary student-score network. Experiments on SDXL and FLUX.2 [klein] 4B demonstrate that PMD achieves the best FID among 4-step methods on both models, while maintaining competitive or leading performance across prompt-alignment and perceptual-quality metrics.
+
+Authors: Hidir Yesiltepe, Julius Berner, Arash Vahdat, Pinar Yanardag
+
+Tasks: Image generation, Text-to-Image Generation, Video generation
+
+Code: https://github.com/yesiltepe-hidir/PMD</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Direct3D-V3: Latent-Free Diffusion Transformers in the Native Voxel Domain</title>
+      <link>https://arxiv.org/abs/2611.26511</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26511</guid>
+      <description>Native 3D generation has largely been built around latent diffusion, with recent advances concentrating on stronger variational autoencoders (VAE) and increasingly elaborate latent representations, from vecset and triplanes to structured sparse voxels. Despite their architectural differences, these methods all share the same premise: geometry is first compressed into a latent space and only then modeled by the generator. We take a different route and propose Direct3D-V3, a latent-free diffusion transformer (DiT) framework that discards the VAE altogether and operates in the native voxel domain, directly modeling raw SDF voxel grids during both training and sampling. To make this direct voxel formulation geometrically reliable, we introduce an implicit manifold regularization over neighboring voxels to suppress non-watertight surfaces, and convert predicted SDF grids into meshes via Marching Cubes so that rendered normal losses can supervise the model directly from its predicted SDF. To improve alignment between the conditioning image and generated geometry, Direct3D-V3 also predicts the camera parameters of the conditioning image as an auxiliary task, encouraging the DiT to learn the mapping from image observations to 3D shape. This latent-free design removes the reconstruction bottleneck, brings training under an objective in the native voxel domain, and yields meshes with substantially richer local detail. The predicted camera and native SDF voxel output further make Direct3D-V3 extensible to generative reconstruction, where diffusion is interleaved with normal-guided refinement to improve alignment with the observed view while the generative prior completes unseen regions. Project page: https://dreamtechai.github.io/Direct3D-V3.
+
+Authors: Shuang Wu, Jiachen Qian, Youtian Lin, Feihu Zhang, Philip Torr, Yao Yao, Xun Cao
+
+Tasks: 3D generation, 3D Reconstruction
+
+Code: https://github.com/DreamTechAI/Direct3D-V3</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>BiCAT: Bimanual Coordination Action Tokenization</title>
+      <link>https://arxiv.org/abs/2611.23499</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23499</guid>
+      <description>Autoregressive vision-language-action (VLA) models predict discrete action tokens with the next-token objective of their vision-language backbone, so the action tokenizer defines the interface between the policy and the robot. In bimanual manipulation, the two arms share a repertoire of movements yet coordinate through complementary roles, and an action representation should capture both. However, most existing tokenizers encode both arms as a single concatenated action vector, in which motion patterns common to the two arms are not shared and cross-arm dependencies remain entangled within each token. The policy must therefore learn both aspects implicitly. We propose Bimanual Coordination Action Tokenization (BiCAT), which shares one motion representation across arms while conditioning each arm's tokens on its partner through symmetric cross-arm attention and a joint decoder. The policy then predicts all tokens of each arm in parallel, generating the left arm first and the right arm conditioned on it. Across ten RoboTwin 2.0 tasks and six real-world tasks on three embodiments, BiCAT achieves the highest success among the compared tokenizers. In simulation, it improves mean success by 17.6 percentage points over the strongest of eight baselines, with the largest gains on tasks that require close coordination between the arms, while requiring only 40.5 ms per action chunk. These results suggest that the action tokenizer is a natural place to model bimanual coordination.
+
+Authors: Xuanwei Liu, Guipu Cao, Zhongyi Luo, Jiafei Duan
+
+Tasks: Robotics
+
+Code: https://github.com/MAGICLAB-NUS/BiCAT</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Game2Player: Scaling Gameplay Experience for Visual Agents through Environment-Player Co-Development</title>
+      <link>https://arxiv.org/abs/2611.24154</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24154</guid>
+      <description>Games are a rich testbed for visual agents, demanding perception, long-horizon planning, and precise control. However, collecting human gameplay is costly, and learning from gameplay videos requires inferring missing actions. Existing datasets also cover a limited range of games, often without explicit tasks or verifiable outcomes. To address these gaps, we introduce Game2Player, a framework that co-develops game environments and players to collect diverse and verifiable gameplay experience at scale. In the Game2Player loop, a Builder agent adapts existing web games, exposes their internal state, and defines tasks with state-based progress measures and success checks. A Coding Player and a VLM Player then attempt the tasks and report problems to the Builder for repair, so that play serves as both environment validation and training data collection. With Game2Player, we build 568 verified web games with 3,436 tasks, collect 15.7K trajectories (307 hours of gameplay), and hold out 50 games as the benchmark PlayerBench. To evaluate the collected experience as training data, we train VLM agents with progress-weighted SFT, assigning greater weight to steps that advance task progress. Game2Player-9B improves progress from 14.3% to 31.2% on PlayerBench and from 30.0% to 53.1% on the external GameWorld benchmark. More broadly, our work suggests a path for visual agents to scale their gameplay experience by building, verifying, and learning from existing game worlds.
+
+Authors: Xirui Jiang, Yuxi Chen, Rui Yang, Feng Luo, Pengcheng Wang, Bingxuan Li, Zihao Zhao, Yushan Li, Han Wang, Manling Li, Yang Zhang, Shiyu Chang, Tong Zhang, Huan Zhang
+
+Code: https://github.com/game2player/Game2Player</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Do Diffusion Models Learn to Generalize Basic Visual Skills?</title>
+      <link>https://arxiv.org/abs/2611.22427</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22427</guid>
+      <description>Diffusion models generate high-quality images, but how well they generalize is hard to measure. Current evaluations rely on human preference and prompt-following benchmarks for text-to-image models and on distribution-level metrics such as Fréchet Inception Distance (FID) and Inception Score (IS) for class-conditional models, but these cannot tell whether models learn basic visual skills or largely match training patterns. To address this gap, we introduce the Visual Generative Lab (VGL), a controlled experimental framework for studying how diffusion models learn and generalize basic visual skills, including size, position, rotation, count, color, shape, and their compositions. By generating synthetic training data for each skill from explicit rules, VGL allows precise measurement of generalization with task-specific, rule-based metrics. Training models from scratch on these data reveals three patterns in this controlled setting: (1) with our default design, extrapolation is limited: size and position degrade within a few pixels of the training range, count reaches only about 50% accuracy on out-of-range counts, and rotation extrapolation accuracy varies widely across seeds; (2) for compositional generalization, the number of distinct basic visual skill combinations matters more than dataset size; (3) skills mostly fail independently, except position. Code and data-generation scripts: https://github.com/AmishSethi/visual-generative-lab.
+
+Authors: Amish Sethi, Boya Zeng, Wenhao Chai, Zhuang Liu
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/amishsethi/visual-generative-lab</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>π^4: A Foundation Model for 4D Scene Geometry and Motion</title>
@@ -63,23 +178,10 @@ Code: https://github.com/yyfz/Pi4</description>
 
 Authors: Changli Tang, Jie Yang, Tianyi Wang, Lei Li, Daoze Zhang, Zijie Xin, Zhan Liu, Li Li, Jinchang Xu, Fengyun Rao, Chao Zhang, Jing Lyu
 
-Tasks: Omni models, Reinforcement Learning, Video Understanding
+Tasks: Audio understanding, Omni models, Reinforcement Learning, Video Understanding
 
 Code: https://github.com/Tencent/WeMM-Video</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MovieRoll: A Systematic Framework for Rolling Out Long-Form Videos</title>
-      <link>https://arxiv.org/abs/2611.21339</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21339</guid>
-      <description>Streaming video generation must sustain quality beyond the training horizon while handling self-generated history and growing cache costs. To address these challenges, we present MovieRoll, a base-to-distilled framework that connects streaming fine-tuning, long-rollout distillation, and long-horizon inference. We first establish a robust multi-step base through Window-wise Teacher Forcing (WinTF), which jointly denoises chunks at progressive noise levels with bidirectional attention within each window and causal access to preceding history. To retain historical context efficiently, hierarchical KV-cache compression (HieraKV) exploits layer-wise attention patterns, retaining full history in shallow layers and sink--recent history in deeper layers. This reduces cache memory by up to 78% while improving generation quality. Building on this base, cumulative long tuning with distribution matching distillation (CuLT-DMD) holds parameters fixed throughout each long self-rollout and averages local gradients before updating. Each update therefore combines supervision across temporal positions while retaining only one local computation graph, enabling efficient long-rollout training of a few-step generator. To extend generation beyond the training horizon, KV recomputation bounds context for both models, while guidance annealing (AnnealCFG) reduces guidance toward the clean endpoint to stabilize MovieRoll-Base. Complementing these modeling advances, FBCA attention and PS-VAE decoding support efficient training and streaming output. On HeliosBench, MovieRoll-Base remains competitive at 30s after training on videos of up to 15s, and MovieRoll-Distilled achieves the highest total scores among the compared methods across single- and multi-event evaluations up to 60s, combining sustained naturalness with active motion.
-
-Authors: Yunyang Ge, Weijie Kong, Ryan Xu, Yue Wu, Qi Tian, Jiangfeng Xiong, Bin Lin, Mingzhe Zheng, Shenghai Yuan, Zheyuan Liu, jianwei zhang, Li Yuan
-
-Tasks: Streaming Video Understanding, Video generation
-
-Code: https://github.com/Tencent-Hunyuan/MovieRoll</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>LongCat-Video-Avatar 1.6 Technical Report</title>
@@ -113,47 +215,10 @@ Code: https://github.com/apple-aiml-research/ml-fastframes</description>
 
 Authors: Jeonghwan Cho, Jeonghwan Cho, Minsu Kim, Junyoung Hong, Seon Joo Kim
 
+Tasks: 3D instance segmentation
+
 Code: https://github.com/jhxcho/voda</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Direct3D-V3: Latent-Free Diffusion Transformers in the Native Voxel Domain</title>
-      <link>https://arxiv.org/abs/2611.26511</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26511</guid>
-      <description>Native 3D generation has largely been built around latent diffusion, with recent advances concentrating on stronger variational autoencoders (VAE) and increasingly elaborate latent representations, from vecset and triplanes to structured sparse voxels. Despite their architectural differences, these methods all share the same premise: geometry is first compressed into a latent space and only then modeled by the generator. We take a different route and propose Direct3D-V3, a latent-free diffusion transformer (DiT) framework that discards the VAE altogether and operates in the native voxel domain, directly modeling raw SDF voxel grids during both training and sampling. To make this direct voxel formulation geometrically reliable, we introduce an implicit manifold regularization over neighboring voxels to suppress non-watertight surfaces, and convert predicted SDF grids into meshes via Marching Cubes so that rendered normal losses can supervise the model directly from its predicted SDF. To improve alignment between the conditioning image and generated geometry, Direct3D-V3 also predicts the camera parameters of the conditioning image as an auxiliary task, encouraging the DiT to learn the mapping from image observations to 3D shape. This latent-free design removes the reconstruction bottleneck, brings training under an objective in the native voxel domain, and yields meshes with substantially richer local detail. The predicted camera and native SDF voxel output further make Direct3D-V3 extensible to generative reconstruction, where diffusion is interleaved with normal-guided refinement to improve alignment with the observed view while the generative prior completes unseen regions. Project page: https://dreamtechai.github.io/Direct3D-V3.
-
-Authors: Shuang Wu, Jiachen Qian, Youtian Lin, Feihu Zhang, Philip Torr, Yao Yao, Xun Cao
-
-Tasks: 3D generation
-
-Code: https://github.com/DreamTechAI/Direct3D-V3</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Unified Law for Visual Tasks (The Four Laws of Computer Vision)</title>
-      <link>https://arxiv.org/abs/2611.24917</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.24917</guid>
-      <description>In this paper, we propose a Unified Law for Visual Tasks, which could be further divided into Four Laws of Computer Vision, with the goal of enabling a single framework or method to uniformly train on and perform nearly all visual tasks. Our starting point is an inspiration and hypothesis: if the world information is encoded into image, which we call World Snapshots, then image processing is world processing, and image generation is World Snapshot generation. Furthermore, if all visual and visualization tasks can be reformulated as generation tasks, then a unified method, World Snapshot Models (WSMs), can perform the vast majority of visual tasks, much as large language models have largely unified natural language processing. This paper validates these laws across more than 1,000 trained and evaluated visual tasks (defined by distinct input-output mappings) and presents a unified training framework for future visual-task research and applications.
-
-Authors: Sen Fang, Yalin Feng, Yancheng Zhang, Yanxin Zhang, Zonglin Lyu, Hongbin Zhong, Liwei Che, Rui Wu, Chen Chen, Dimitris N. Metaxas
-
-Tasks: Depth estimation, Image generation, World Models
-
-Code: https://github.com/World-Snapshot/WSMs</description>
-      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Do Diffusion Models Learn to Generalize Basic Visual Skills?</title>
-      <link>https://arxiv.org/abs/2611.22427</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22427</guid>
-      <description>Diffusion models generate high-quality images, but how well they generalize is hard to measure. Current evaluations rely on human preference and prompt-following benchmarks for text-to-image models and on distribution-level metrics such as Fréchet Inception Distance (FID) and Inception Score (IS) for class-conditional models, but these cannot tell whether models learn basic visual skills or largely match training patterns. To address this gap, we introduce the Visual Generative Lab (VGL), a controlled experimental framework for studying how diffusion models learn and generalize basic visual skills, including size, position, rotation, count, color, shape, and their compositions. By generating synthetic training data for each skill from explicit rules, VGL allows precise measurement of generalization with task-specific, rule-based metrics. Training models from scratch on these data reveals three patterns in this controlled setting: (1) with our default design, extrapolation is limited: size and position degrade within a few pixels of the training range, count reaches only about 50% accuracy on out-of-range counts, and rotation extrapolation accuracy varies widely across seeds; (2) for compositional generalization, the number of distinct basic visual skill combinations matters more than dataset size; (3) skills mostly fail independently, except position. Code and data-generation scripts: https://github.com/AmishSethi/visual-generative-lab.
-
-Authors: Amish Sethi, Boya Zeng, Wenhao Chai, Zhuang Liu
-
-Tasks: Image generation, Text-to-Image Generation
-
-Code: https://github.com/amishsethi/visual-generative-lab</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>WM^MLLM: Turning MLLMs into World Models</title>
@@ -163,7 +228,7 @@ Code: https://github.com/amishsethi/visual-generative-lab</description>
 
 Authors: Baiang Li, Enze Xie, Jincheng Yu, Jin Wang, Haozhe Liu, Yitong Li, Juanxi Tian, Felix Heide
 
-Tasks: World Models
+Tasks: Image editing, World Models
 
 Code: https://github.com/ztMotaLee/WM_mllm</description>
       <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
@@ -176,7 +241,7 @@ Code: https://github.com/ztMotaLee/WM_mllm</description>
 
 Authors: Yipeng Du, Yuxi Li, Ying Zhang, Chong Sun, Chen Li, Jing Lyu, Ying Tai
 
-Tasks: Reinforcement Learning, Video generation
+Tasks: Deepfake Detection, Multi-Agent Reinforcement Learning, Reinforcement Learning, Video generation
 
 Code: https://github.com/Tencent/WeVisForensics</description>
       <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
@@ -193,71 +258,6 @@ Tasks: Agents, Long-Horizon Agents
 
 Code: https://github.com/middle-chunjie/anys1</description>
       <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>LynnReal-Hand: Unlocking World Interaction with Hand Control</title>
-      <link>https://arxiv.org/abs/2611.21479</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.21479</guid>
-      <description>Interactive video world models enable exploration through text and camera controls, yet direct object interaction requires finer control. Hands provide a natural interface, but translating continuous hand movements into coherent visual responses remains challenging because of complex hand-object dynamics and demanding real-time computation. To address these challenges, we introduce LynnReal-Hand, a hand-controlled video world model that unifies precise interaction modeling with efficient streaming generation. We curate 100K interaction clips spanning diverse real and synthetic environments and develop hand-aware supervision to improve fine-grained hand motions and object interactions. Building on this foundation, we learn a causal flow map for few-step generation and introduce region-aware score distillation that combines complementary video and image priors to refine interaction dynamics and visual appearance. To further reduce inference latency, we propose Ultra-Fast-VAE, a compact video decoder that preserves high reconstruction fidelity with substantially lower computational cost. Extensive evaluations on HandBench demonstrate superior hand-following accuracy and visual quality compared with existing approaches. Our full-sequence model achieves an FVD of 181.67 and a MANO Dice score of 93.02, while the three-step causal model maintains a MANO Dice score of 92.49. For real-time interaction, 540p streaming on a single H200 reaches 18.03 FPS with 741ms latency and an optimized peak GPU memory footprint of only 34.89GB. We will release the datasets, model weights, and the full training and inference code to support research on hand-controlled video world models.
-
-Authors: Shaohao Rui, Chaoyang Zhang, Xiaofeng Mao, Weijie Ma
-
-Tasks: Video generation, World Models
-
-Code: https://github.com/LynnReal-AI/LynnReal</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>PlayCraft: Designing Engaging Games from Agent Play Experience</title>
-      <link>https://arxiv.org/abs/2611.26624</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26624</guid>
-      <description>Recent AI agents can generate playable games, but these games are not necessarily engaging. Mastery is a key source of engagement, yet designing for it requires extensive human play and tuning. We propose PlayCraft, an automated framework that uses a vision-based agent to play games and draws on its detailed play experience to revise them for mastery. Starting from an initial game, PlayCraft alternates between playing and crafting. In the playing stage, a player agent watches the game screen, uses the controls, and pursues the game objective over repeated episodes while retaining memory. After each episode, it reports its progress, outcomes, decisions, and reflections. In the crafting stage, a crafter agent uses these reports to revise the game. It estimates player abilities, predicts performance at different proficiency levels, and compares those predictions with a target learning progression. It diagnoses the game and addresses the gaps by giving players meaningful opportunities to improve through better decisions and execution. We evaluate games in fresh runs with player agents across three intelligence settings, measuring learning gain and learning slope. Compared with the initial games, PlayCraft yields larger learning gains and steeper learning slopes in most games. It also outperforms the baselines on the macro-average of each metric at every intelligence setting.
-
-Authors: Weihao Cheng
-
-Tasks: Agents
-
-Code: https://github.com/xt4d/PlayCraft</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining</title>
-      <link>https://arxiv.org/abs/2611.26268</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26268</guid>
-      <description>Mixture of Block Attention (MoBA) reduces long-context computation by selecting key-value (KV) blocks for each query. FlashMoBA implements MoBA efficiently but retains a fixed Top-k budget and query-centric schedule. Fixed Top-k applies one budget across different score distributions and couples routing to task granularity; query-range ownership fragments K/V reuse when several ranges select the same column. We present LightningMoBA, which co-designs selection and execution through dynamic routing, KV-centric ownership, and runtime pipelining. Dynamic routing thresholds MoBA's per-query block scores and directly emits variable-cardinality sparse metadata. KV-centric ownership groups selected rows by (query head, KV block) column, splits high-fanout columns into bounded tasks, and reuses each task's loaded KV tile. On Hopper, pipelining overlaps regular K/V transfers and irregular query gathers with Tensor Core computation. Together, these mechanisms decouple retention from GPU scheduling granularity. At matched Top-16 retention across five checkpoints, LightningMoBA accelerates end-to-end generation by 1.20 to 1.60x while raising mean RULER score from 74.42 to 75.28.
-
-Authors: Yingqi Shi, Junru Lu, Yun Liu, Di Yin, Xing Sun
-
-Tasks: Continuous Control, Long Context
-
-Code: https://github.com/Tencent/LightningMoBA</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>MedJev: A System One Vision-Language Decision Model for Fast and Effective Medical Image Understanding</title>
-      <link>https://arxiv.org/abs/2611.20992</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.20992</guid>
-      <description>Medical image understanding with vision-language models (VLMs) typically relies on autoregressively generating reasoning and answer tokens. These unnecessary tokens make the inference cost scale with the response length and force the answer to be parsed from free-form text, incurring avoidable latency and decision errors. To this end, we introduce MedJev, a system one vision-language decision model that maps medical images, questions, and candidate answers directly to decisions in a single multimodal forward pass, without any autoregressive generation process. For fast inference, MedJev removes the upper language layers and the generative output pathway, while keeping the full vision pathway and all visual tokens. On this shortened backbone, a decision head scores each candidate by pretrained query--key matching and refines the scores with a lightweight multilayer perceptron (MLP) residual, coupling the pretrained matching structure with task-specific nonlinear discrimination. Built on Qwen3.5-4B, MedJev-4B improves both accuracy and speed over the original model on each of four medical image classification and visual question answering benchmarks, with an absolute accuracy gain of 7.93\% and a 6.04times end-to-end speedup. Further comparison with 20 cutting-edge models shows that MedJev-4B achieves state-of-the-art performance and inference speed among 4B--9B general and medical VLMs, indicating that direct multimodal decision making is an effective route to fast and effective medical image understanding.
-
-Authors: Fan zhang, Hao Wu, Jinyang Wu, Hongyu Qu, Zheng Lian, Dongfu Yin, Qingsong Wen, Pheng-Ann Heng
-
-Tasks: Decision Making, Image Classification, Image Understanding, Medical Image Classification, Medical Visual Question Answering, Question Answering
-
-Code: https://github.com/zfkarl/MedJev</description>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>BiCAT: Bimanual Coordination Action Tokenization</title>
-      <link>https://arxiv.org/abs/2611.23499</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23499</guid>
-      <description>Autoregressive vision-language-action (VLA) models predict discrete action tokens with the next-token objective of their vision-language backbone, so the action tokenizer defines the interface between the policy and the robot. In bimanual manipulation, the two arms share a repertoire of movements yet coordinate through complementary roles, and an action representation should capture both. However, most existing tokenizers encode both arms as a single concatenated action vector, in which motion patterns common to the two arms are not shared and cross-arm dependencies remain entangled within each token. The policy must therefore learn both aspects implicitly. We propose Bimanual Coordination Action Tokenization (BiCAT), which shares one motion representation across arms while conditioning each arm's tokens on its partner through symmetric cross-arm attention and a joint decoder. The policy then predicts all tokens of each arm in parallel, generating the left arm first and the right arm conditioned on it. Across ten RoboTwin 2.0 tasks and six real-world tasks on three embodiments, BiCAT achieves the highest success among the compared tokenizers. In simulation, it improves mean success by 17.6 percentage points over the strongest of eight baselines, with the largest gains on tasks that require close coordination between the arms, while requiring only 40.5 ms per action chunk. These results suggest that the action tokenizer is a natural place to model bimanual coordination.
-
-Authors: Xuanwei Liu, Guipu Cao, Zhongyi Luo, Jiafei Duan
-
-Tasks: Robotics
-
-Code: https://github.com/MAGICLAB-NUS/BiCAT</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
