@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Mon, 23 Nov 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 10:00:00 GMT</lastBuildDate>
     <item>
       <title>Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth</title>
       <link>https://arxiv.org/abs/2611.26603</link>
@@ -16,58 +16,6 @@ Authors: Peiyun Hu, Marko Mihajlovic, Lyndon Duong, Lahav Lipson, Wei Dong, Ama�
 Tasks: Depth estimation
 
 Code: https://github.com/apple-aiml-research/ml-depth-pro-2</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>π^4: A Foundation Model for 4D Scene Geometry and Motion</title>
-      <link>https://arxiv.org/abs/2611.23144</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23144</guid>
-      <description>π^4 is a unified foundation model for 4D scene perception. From diverse, uncalibrated RGB observations in the wild---a single image, an unordered collection, or a video sequence---it recovers dense geometry, camera poses, and metric scale, together with 2D/3D point tracks and moving-object masks for multi-image inputs. It couples a geometry branch with a geometry-conditioned motion branch, which predicts image-space correspondences that are lifted into 3D using reconstructed target-view geometry. Across diverse benchmarks, π^4 achieves the best overall average rank in geometry evaluation, alongside competitive performance in single- and multiview 2D/3D point tracking and moving-object segmentation. With a shared backbone, the full geometry-and-motion system contains approximately 0.5B parameters---less than half the size of most baselines. It produces joint reconstructions and tracks in one forward pass, including large-scale scenes with thousands of input images despite training with contexts of at most 64 views. We further present the data and training recipe underlying these capabilities, together with empirical studies of key design choices. Code and models are available at https://github.com/yyfz/Pi4.
-
-Authors: Yifan WANG, Weiguang Zhao, Ni Yang, Haoyu Guo, Junting Dong, Weinan Zhang, Chunhua Shen
-
-Tasks: 2D Point Tracking, 3D Reconstruction, 3D Tracking, Camera Pose Estimation, Depth estimation, Video segmentation
-
-Code: https://github.com/yyfz/Pi4</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>FastFrames: Video Generation at Interactive Latency</title>
-      <link>https://arxiv.org/abs/2611.23226</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
-      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
-
-Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
-
-Tasks: Video generation
-
-Code: https://github.com/apple-aiml-research/ml-fastframes</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Jeveration: System One Models Now Generate</title>
-      <link>https://arxiv.org/abs/2611.24738</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.24738</guid>
-      <description>System One models such as Jev return decisions through fast, parallel prediction. In this paper, we introduce Jeveration, showing that the same decision paradigm can also generate high-quality images in a single forward pass. Jeveration builds on a frozen vision-language model, repurposing its visual-semantic knowledge for holistic image generation. The key challenge is to maintain global consistency. A single prompt admits many valid images, yet parallel predictions must converge on a coherent whole. We therefore condition all positions on a shared random state to coordinate parallel predictions, so that each draw yields a different but coherent image. Since the model tends to ignore this state under direct image supervision, we first learn a distribution over discrete image codes to guide single-pass generation. Beyond text-to-image generation, we further unify image-to-image generation and dense prediction within the same architecture, so that one checkpoint supports all three tasks, each in one forward pass. Experiments show that Jeveration generates a 512x512 image in 78 ms, up to 122x faster than existing unified models, while maintaining competitive image quality and dense prediction performance.
-
-Authors: Yuhe Liu, Qi Li, Shihua Zhang, Xinchao Wang
-
-Tasks: Decision Making, Depth estimation, Image Colorization, Image generation, Image-to-Image Translation, No-Reference Image Quality Assessment, Style Transfer, Text-to-Image Generation
-
-Code: https://github.com/carol-lyh/jeveration</description>
-      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Coda-DaVinci: Reimagining Video Generation with Code2Video</title>
-      <link>https://arxiv.org/abs/2611.26595</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26595</guid>
-      <description>Code2Video uses agent-authored 3D proxies to guide video generation, enabling explicit control over structure and dynamics. However, how to construct proxies and prompts for optimal downstream quality remains underexplored, as do the capabilities and limitations of this paradigm. Through controlled experiments and blinded human evaluation, we study proxy granularity, physics simulation, and prompting. The results reveal task-dependent trade-offs: coarse proxies favor natural motion, while medium-grained proxies favor consistency. Physics simulation and proxy-aligned prompting further improve average quality. Guided by these findings, we introduce Coda-DaVinci, a task-adaptive agentic framework for Code2Video generation that selects between proxy-guided and direct generation, adapts modeling granularity to each entity, and coordinates simulation with proxy-grounded prompting. Its multi-agent harness preserves scene assets and guides repairs through visual inspection and independent review. Experiments demonstrate leading instruction following on VTR and scene consistency on R2M, improved physical plausibility over direct generation, and higher visual realism than the compared Code2Video baselines. Long-video evaluations further show gains in event structure and consistency across successive interactions, while revealing limitations in transition stability and adherence to scene settings.
-
-Authors: Yiyan Ji, Qixun Wang, Yang Shi, Zhuoran Zhang, Yifan Xu, Tengfei Liu, Yuqi Tang, Xiaohan Zhang, Shujie Li, Jiafu Tang, Xuanyu Zhu, Xinyu Liu, Yan He, Yushuo Guan, Zihao WANG, Xianghua Ying, Shixuan Liu, Haotian Wang, Wenjing Yang, Zhaoxiang Zhang, Yuanxing Zhang, Pengfei Wan, Jiaheng Liu
-
-Tasks: Harness Engineering, Instruction Following, Video generation
-
-Code: https://github.com/FrankYang-17/Coda</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -84,6 +32,19 @@ Code: https://github.com/RUCAIBox/AutoMaster</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>WeMM-Video: Pushing the Frontiers of Open-Source Omni-Modal Video Understanding</title>
+      <link>https://arxiv.org/abs/2611.26409</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26409</guid>
+      <description>Video understanding, particularly with accompanying audio, remains a central challenge in multimodal intelligence. In this report, we introduce WeMM-Video, a family of Chinese-English bilingual omni-modal foundation models spanning 2B, 4B, 9B, and 35B-A3B variants. Centering on joint audio-visual perception and reasoning, WeMM-Video unifies text, image, audio, and video processing within a hybrid-thinking paradigm, seamlessly supporting both a non-thinking instruct mode for fast, direct responses and a thinking mode for explicit step-by-step reasoning. The models are trained on a large-scale multimodal corpus of approximately 1.2 trillion tokens through progressive pre-training and a multi-stage post-training pipeline incorporating multi-teacher OPD, anti-repetition MrDPO, and specialist RL. Evaluated across more than 120 benchmarks, WeMM-Video demonstrates superior performance in omni-modal video understanding and reasoning, while maintaining highly competitive capabilities across general audio, silent video, image, and text tasks. Specifically, in omni-modal video evaluations, our flagship WeMM-Video-35B-A3B establishes a new open-source state of the art, substantially outperforming proprietary models such as Qwen3.5-Omni-Flash and Seed2.0-Mini-0428 while narrowing the gap with the strong Gemini-3.0-Flash, and our compact WeMM-Video-9B surpasses the larger open-source Qwen3-Omni-30B-A3B-Instruct. We publicly release the WeMM-Video family along with our evaluation and reproduction pipeline to foster further research and development in the open-source community.
+
+Authors: Changli Tang, Jie Yang, Tianyi Wang, Lei Li, Daoze Zhang, Zijie Xin, Zhan Liu, Li Li, Jinchang Xu, Fengyun Rao, Chao Zhang, Jing Lyu
+
+Tasks: Audio understanding, Image Understanding, Omni models, Reinforcement Learning, Video Understanding
+
+Code: https://github.com/Tencent/WeMM-Video</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Decoding Without a Decoder: Direct Pixel Prediction from Diffusion Transformers</title>
       <link>https://arxiv.org/abs/2611.22287</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.22287</guid>
@@ -97,29 +58,68 @@ Code: https://github.com/Lakonik/LakonLab</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Hierarchical Diffusion Transformer for End-to-End Image Generation</title>
-      <link>https://arxiv.org/abs/2611.22962</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.22962</guid>
-      <description>Pixel-space diffusion learns visual representations and image generation jointly in a single end-to-end training stage, without a separately pretrained visual encoder. However, plain pixel-space Transformers still trail leading two-stage latent diffusion models in generation quality and training efficiency. We hypothesize that part of this gap arises from retaining one token per patch throughout the backbone, which does not explicitly encourage a visual hierarchy that summarizes related content at progressively coarser levels. To address this, we introduce Hierarchical Diffusion Transformers (HiT), which progressively group related tokens and represent each group with a single token. The main Transformer bottleneck processes these compact group tokens, and ungrouping restores features to their original image positions. A compression budget regulates the average compression ratio across the batch, allowing group memberships and counts to vary across images and diffusion timesteps during both training and generation. The model exhibits emergent semantic structure, learning to group coherent objects and object parts without segmentation labels. In text-to-image generation, HiT further learns to group caption words with image patches depicting the same concepts, without region annotations. HiT achieves 1.48 FID on ImageNet $256\times256$ and reaches comparable generation quality to JiT using approximately 40\% of its cumulative training FLOPs. For text-to-image generation, HiT exceeds UniLiP's average score across five benchmarks with roughly $6\times$ fewer denoiser parameters and $3\times$ fewer forward FLOPs. These results suggest that learning a visual hierarchy within the generator breaks down the barrier to stronger image generation without external visual pretraining.
+      <title>π^4: A Foundation Model for 4D Scene Geometry and Motion</title>
+      <link>https://arxiv.org/abs/2611.23144</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23144</guid>
+      <description>π^4 is a unified foundation model for 4D scene perception. From diverse, uncalibrated RGB observations in the wild---a single image, an unordered collection, or a video sequence---it recovers dense geometry, camera poses, and metric scale, together with 2D/3D point tracks and moving-object masks for multi-image inputs. It couples a geometry branch with a geometry-conditioned motion branch, which predicts image-space correspondences that are lifted into 3D using reconstructed target-view geometry. Across diverse benchmarks, π^4 achieves the best overall average rank in geometry evaluation, alongside competitive performance in single- and multiview 2D/3D point tracking and moving-object segmentation. With a shared backbone, the full geometry-and-motion system contains approximately 0.5B parameters---less than half the size of most baselines. It produces joint reconstructions and tracks in one forward pass, including large-scale scenes with thousands of input images despite training with contexts of at most 64 views. We further present the data and training recipe underlying these capabilities, together with empirical studies of key design choices. Code and models are available at https://github.com/yyfz/Pi4.
 
-Authors: Xiaoyu Wu, Yifei Wang, Weihang Guo, Chen Wei, Lydia E Kavraki, Niloofar Mireshghallah, Steven Wu
+Authors: Yifan WANG, Weiguang Zhao, Ni Yang, Haoyu Guo, Junting Dong, Weinan Zhang, Chunhua Shen
 
-Tasks: Image generation, Text-to-Image Generation
+Tasks: 2D Point Tracking, 3D Reconstruction, 3D Tracking, Camera Pose Estimation, Depth estimation, Video segmentation
 
-Code: https://github.com/nicholas0228/hit-released</description>
+Code: https://github.com/yyfz/Pi4</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>WeMM-Video: Pushing the Frontiers of Open-Source Omni-Modal Video Understanding</title>
-      <link>https://arxiv.org/abs/2611.26409</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26409</guid>
-      <description>Video understanding, particularly with accompanying audio, remains a central challenge in multimodal intelligence. In this report, we introduce WeMM-Video, a family of Chinese-English bilingual omni-modal foundation models spanning 2B, 4B, 9B, and 35B-A3B variants. Centering on joint audio-visual perception and reasoning, WeMM-Video unifies text, image, audio, and video processing within a hybrid-thinking paradigm, seamlessly supporting both a non-thinking instruct mode for fast, direct responses and a thinking mode for explicit step-by-step reasoning. The models are trained on a large-scale multimodal corpus of approximately 1.2 trillion tokens through progressive pre-training and a multi-stage post-training pipeline incorporating multi-teacher OPD, anti-repetition MrDPO, and specialist RL. Evaluated across more than 120 benchmarks, WeMM-Video demonstrates superior performance in omni-modal video understanding and reasoning, while maintaining highly competitive capabilities across general audio, silent video, image, and text tasks. Specifically, in omni-modal video evaluations, our flagship WeMM-Video-35B-A3B establishes a new open-source state of the art, substantially outperforming proprietary models such as Qwen3.5-Omni-Flash and Seed2.0-Mini-0428 while narrowing the gap with the strong Gemini-3.0-Flash, and our compact WeMM-Video-9B surpasses the larger open-source Qwen3-Omni-30B-A3B-Instruct. We publicly release the WeMM-Video family along with our evaluation and reproduction pipeline to foster further research and development in the open-source community.
+      <title>Jeveration: System One Models Now Generate</title>
+      <link>https://arxiv.org/abs/2611.24738</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24738</guid>
+      <description>System One models such as Jev return decisions through fast, parallel prediction. In this paper, we introduce Jeveration, showing that the same decision paradigm can also generate high-quality images in a single forward pass. Jeveration builds on a frozen vision-language model, repurposing its visual-semantic knowledge for holistic image generation. The key challenge is to maintain global consistency. A single prompt admits many valid images, yet parallel predictions must converge on a coherent whole. We therefore condition all positions on a shared random state to coordinate parallel predictions, so that each draw yields a different but coherent image. Since the model tends to ignore this state under direct image supervision, we first learn a distribution over discrete image codes to guide single-pass generation. Beyond text-to-image generation, we further unify image-to-image generation and dense prediction within the same architecture, so that one checkpoint supports all three tasks, each in one forward pass. Experiments show that Jeveration generates a 512x512 image in 78 ms, up to 122x faster than existing unified models, while maintaining competitive image quality and dense prediction performance.
 
-Authors: Changli Tang, Jie Yang, Tianyi Wang, Lei Li, Daoze Zhang, Zijie Xin, Zhan Liu, Li Li, Jinchang Xu, Fengyun Rao, Chao Zhang, Jing Lyu
+Authors: Yuhe Liu, Qi Li, Shihua Zhang, Xinchao Wang
 
-Tasks: Audio understanding, Image Understanding, Omni models, Reinforcement Learning, Video Understanding
+Tasks: Decision Making, Depth estimation, Image Colorization, Image generation, Image-to-Image Translation, No-Reference Image Quality Assessment, Style Transfer, Text-to-Image Generation
 
-Code: https://github.com/Tencent/WeMM-Video</description>
+Code: https://github.com/carol-lyh/jeveration</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Non-penetrating World Models</title>
+      <link>https://arxiv.org/abs/2611.27963</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.27963</guid>
+      <description>We study a new problem of preventing object penetration in interactive video world models. To understand how existing models handle this, we introduce NoPeBench, a benchmark that evaluates how world models respond to physical obstacles. Our evaluation reveals that none of the open-source models can reliably prevent such failures. Surprisingly, however, these models already encode the information needed to predict such violations. We find that the hidden states of diffusion transformers (DiTs) can predict whether a candidate action will penetrate an obstacle. Building on this, we introduce NoPeWorld, a lightweight framework that detects and prevents penetration. Specifically, we train a small prediction head on top of a frozen DiT's hidden states to read out if a candidate action is safe or not. Unsafe actions are then replaced with safe ones that best preserve the original intent. Despite its simplicity, NoPeWorld substantially reduces the physical violation rate, averaged over six video world models, from 74% to 16%. Remarkably, our method shows zero-shot generalization to open-domain imagery, third-person viewpoints, and moving obstacles. We publicly release our code, the NoPeBench benchmark, and model weights. Project Page: https://nopeworld.github.io .
+
+Authors: Yuhang Dai, Yinwei Wu, Ziyue Lin, Han Ji, Xingyi Yang
+
+Tasks: World Models
+
+Code: https://github.com/yuhangdai427/NoPeWorld</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>One Prior, Two Dynamics: Repurposing Video Diffusion Transformers for Self-Supervised Latent Action Learning</title>
+      <link>https://arxiv.org/abs/2611.26617</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26617</guid>
+      <description>Videos reveal how the world changes, but rarely the actions that cause those changes. Latent action learning recovers such supervision from visual transitions, yet often learns the underlying dynamics largely from scratch. We ask whether a pretrained video generator can instead provide the prior for both inverse and forward dynamics. We introduce O^{2}LaF, built on a simple principle: one prior, two dynamics. We initialize both models from the same pretrained video DiT and adapt them to their distinct roles: a feed-forward transition encoder with learnable action queries for inverse dynamics, and a causal, action-conditioned video generator for forward dynamics. By controlling information access and optimizing both dynamics end-to-end through a compact bottleneck, O^{2}LaF learns transferable actions from unlabeled videos. Across navigation and robotic manipulation, O^{2}LaF sets a new state of the art in few-shot action probing and enables stronger zero-shot action transfer across visual contexts and embodiments. Beyond generative video priors, we further extend our framework to predictive representation priors such as V-JEPA2, achieving competitive performance. Our findings suggest a broader paradigm for latent-action learning: repurposing pretrained video models to discover transferable actions and predict their consequences.
+
+Authors: Yuxin Jiang, Wenqiang Sun, Jiaqi Li, Yuchao Gu, Lvmin Zhang, Ivor Tsang, Mike Zheng Shou
+
+Tasks: Robotics, Video Understanding, World Models
+
+Code: https://github.com/showlab/O2LaF</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Coda-DaVinci: Reimagining Video Generation with Code2Video</title>
+      <link>https://arxiv.org/abs/2611.26595</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26595</guid>
+      <description>Code2Video uses agent-authored 3D proxies to guide video generation, enabling explicit control over structure and dynamics. However, how to construct proxies and prompts for optimal downstream quality remains underexplored, as do the capabilities and limitations of this paradigm. Through controlled experiments and blinded human evaluation, we study proxy granularity, physics simulation, and prompting. The results reveal task-dependent trade-offs: coarse proxies favor natural motion, while medium-grained proxies favor consistency. Physics simulation and proxy-aligned prompting further improve average quality. Guided by these findings, we introduce Coda-DaVinci, a task-adaptive agentic framework for Code2Video generation that selects between proxy-guided and direct generation, adapts modeling granularity to each entity, and coordinates simulation with proxy-grounded prompting. Its multi-agent harness preserves scene assets and guides repairs through visual inspection and independent review. Experiments demonstrate leading instruction following on VTR and scene consistency on R2M, improved physical plausibility over direct generation, and higher visual realism than the compared Code2Video baselines. Long-video evaluations further show gains in event structure and consistency across successive interactions, while revealing limitations in transition stability and adherence to scene settings.
+
+Authors: Yiyan Ji, Qixun Wang, Yang Shi, Zhuoran Zhang, Yifan Xu, Tengfei Liu, Yuqi Tang, Xiaohan Zhang, Shujie Li, Jiafu Tang, Xuanyu Zhu, Xinyu Liu, Yan He, Yushuo Guan, Zihao WANG, Xianghua Ying, Shixuan Liu, Haotian Wang, Wenjing Yang, Zhaoxiang Zhang, Yuanxing Zhang, Pengfei Wan, Jiaheng Liu
+
+Tasks: Harness Engineering, Instruction Following, Video generation
+
+Code: https://github.com/FrankYang-17/Coda</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -136,19 +136,6 @@ Code: https://github.com/DreamTechAI/Direct3D-V3</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>One Prior, Two Dynamics: Repurposing Video Diffusion Transformers for Self-Supervised Latent Action Learning</title>
-      <link>https://arxiv.org/abs/2611.26617</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26617</guid>
-      <description>Videos reveal how the world changes, but rarely the actions that cause those changes. Latent action learning recovers such supervision from visual transitions, yet often learns the underlying dynamics largely from scratch. We ask whether a pretrained video generator can instead provide the prior for both inverse and forward dynamics. We introduce O^{2}LaF, built on a simple principle: one prior, two dynamics. We initialize both models from the same pretrained video DiT and adapt them to their distinct roles: a feed-forward transition encoder with learnable action queries for inverse dynamics, and a causal, action-conditioned video generator for forward dynamics. By controlling information access and optimizing both dynamics end-to-end through a compact bottleneck, O^{2}LaF learns transferable actions from unlabeled videos. Across navigation and robotic manipulation, O^{2}LaF sets a new state of the art in few-shot action probing and enables stronger zero-shot action transfer across visual contexts and embodiments. Beyond generative video priors, we further extend our framework to predictive representation priors such as V-JEPA2, achieving competitive performance. Our findings suggest a broader paradigm for latent-action learning: repurposing pretrained video models to discover transferable actions and predict their consequences.
-
-Authors: Yuxin Jiang, Wenqiang Sun, Jiaqi Li, Yuchao Gu, Lvmin Zhang, Ivor Tsang, Mike Zheng Shou
-
-Tasks: Robotics, Video Understanding, World Models
-
-Code: https://github.com/showlab/O2LaF</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain</title>
       <link>https://arxiv.org/abs/2611.26414</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.26414</guid>
@@ -160,58 +147,6 @@ Tasks: Reinforcement Learning
 
 Code: https://github.com/hzx122/ZeroVLN</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WAM-Policy: World Action Models with On-Policy Distillation for Quadrupedal Loco-Manipulation</title>
-      <link>https://arxiv.org/abs/2611.24011</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.24011</guid>
-      <description>Arm-free quadrupeds can perform loco-manipulation, walking on three legs while manipulating with a front leg, yet no existing policy for it follows language instructions. World action models (WAMs) have emerged as effective language-conditioned manipulation policies, but are pretrained for robot arms and sample slowly. WAM-Policy turns one WAM into a quadrupedal loco-manipulation policy via two stages. The first, Cross-Morphology Policy Adaptation and Acceleration, adapts the arm-centric WAM to quadrupeds and distills the transferred policy into a student with one video and two action steps by on-policy self-distillation (OPSD). This student, however, is bounded by its teacher, which only imitates demonstrations. The second stage, Task-Specific Improvement and Merging, therefore tunes the teacher by reinforcement learning (RL) and merges the slow specialists into one few-step student by multi-teacher on-policy distillation (M-OPD). On QLM-Bench, ten simulated tasks with 1,000 demonstrations synthesized without teleoperation, the transferred policy reaches 77.0%, and the OPSD student keeps 76.7% while sampling 14 times faster. Task-specific RL and M-OPD lift it to 85.0%. We also deploy the OPSD student on a real Unitree Go2 Air. WAM-Policy thus achieves a stronger quadrupedal policy at a fraction of the inference cost.
-
-Authors: Junlin Long, Xu Deng, Yiran Wang, Yue Yang, yang zhao, Zeyu Zhang
-
-Tasks: Reinforcement Learning, Robotics, World Models
-
-Code: https://github.com/AIGeeksGroup/WAM-Policy</description>
-      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Posterior Matching Distillation</title>
-      <link>https://arxiv.org/abs/2611.26629</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26629</guid>
-      <description>Diffusion distillation accelerates image and video generation by compressing a pretrained teacher's iterative sampling process into a few network evaluations. Distribution-based methods achieve this by matching the student's output distribution to the teacher's. This matching is often driven by reverse-KL objectives, whose mode-seeking bias favors dominant teacher modes at the expense of diversity across samples. We introduce Posterior Matching Distillation (PMD), a new member of the distribution-based distillation family that combines mode-covering posterior sampling with any-step generation. At zero population loss, PMD recovers the teacher's full posterior of clean images at each trained noise level. Its stochastic student supports any-step sampling budgets within the trained timestep grid without further training. To learn these posteriors, PMD matches exponentially reweighted averages of student samples conditioned on a fixed noisy state to corresponding teacher posterior means. Under Gaussian corruption, exponentially tilted posterior mean is a single teacher evaluation at a shifted input. We prove that, matching tilted means over an open neighborhood uniquely identifies the full posterior. PMD thus supervises the entire conditional distribution through a family of mean constraints, without any auxiliary student-score network. Experiments on SDXL and FLUX.2 [klein] 4B demonstrate that PMD achieves the best FID among 4-step methods on both models, while maintaining competitive or leading performance across prompt-alignment and perceptual-quality metrics.
-
-Authors: Hidir Yesiltepe, Julius Berner, Arash Vahdat, Pinar Yanardag
-
-Tasks: Image generation, Text-to-Image Generation, Video generation
-
-Code: https://github.com/yesiltepe-hidir/PMD</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>AURA: AUdio-dRiven streaming Avatar</title>
-      <link>https://arxiv.org/abs/2611.26540</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26540</guid>
-      <description>Current audio-driven video diffusion models can synthesize realistic talking-head videos but generally require dozens of diffusion denoising steps over multi-second video chunks, making them unsuitable for streaming applications such as voice assistants and virtual avatars, where low-latency and online causal generation are required properties. AURA generates video chunk by chunk with a rolling KV cache, requiring only the audio of the current chunk to start generating, rather than a multi-second audio look-ahead like bidirectional models. It comes in two sizes: AURA 1.3B streams 576p video in real time on a single GPU (20.7 fps for a 16 Hz playback rate), making it suited to interactive avatar applications, and AURA 5B streams 720p video at 9.7 fps. Our two-stage distillation pipeline first aligns the causal student with the teacher, by training it to match the teacher's trajectories with fewer diffusion steps and a chunk-wise sliding window causal attention mask, then applies Distribution Matching Distillation (DMD) with backward simulation to close the remaining quality gap. On standard talking-head benchmarks, AURA 1.3B runs 23x faster than its own bidirectional teacher and reaches a quality comparable to TalkVerse at a lower resolution, and AURA 5B matches its TalkVerse teacher at 720p while running 17x faster. To support reproducibility and further research on streaming avatar generation, we release the weights of both models along with a dataset of 30K synthetic videos and their precomputed teacher trajectories.
-
-Authors: Nathaniel Cohen, Nicolas Dufour, Amelie Royer, Alasdair Newson, Patrick Pérez
-
-Tasks: Talking Head Generation, Video generation
-
-Code: https://github.com/kyutai-labs/aura</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>NVIDIA Kumo Tabular: Pushing the Accuracy-Efficiency Frontier for Tabular Prediction</title>
-      <link>https://arxiv.org/abs/2611.23001</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23001</guid>
-      <description>We introduce Kumo Tabular, a family of open tabular foundation models for classification and regression, in three sizes: Kumo Tabular-S (27M parameters), Kumo Tabular-M (61M), and Kumo Tabular-L (214M). Pretrained only on artificial tables from the Kumo prior, they can make predictions on new tables without any training. In our approach, a table encoder compresses each row into an embedding, and an in-context learning transformer predicts the unlabeled rows from the labeled ones. Kumo Tabular introduces architectural innovations that improve both training stability and predictive performance, enabling the model to scale up to 150M cells on modern GPUs. Kumo Tabular-L ranks first on eight benchmarks: TabArena, TALENT, BeyondArena, ScoringBench, STRABLE, MulTaBench, RamanBench, and TabBench-Bio. These cover probabilistic regression, tables with over 1M rows or 100K columns, and tables with strings, text, or images. Accuracy improves with model size in all tested comparisons. All three sizes lie on the accuracy-speed frontiers of TabArena and BeyondArena. Kumo Tabular-L predicts faster than the runners-up, LimiX-2 on TabArena (36 times) and TabPFN-3.5 on BeyondArena (1.7 times). Weights and pretraining code are released under OpenMDW-1.1 and Apache 2.0, respectively.
-
-Authors: Jingang Qu, Valter Hudovernik, Martin Jurkovič, Cedric Lorenz, David Holzmüller, Federico Lopez, Dmitry Gordeev, Akihiro Nitta, Ramona Bendias, Ardrian Wong, Vedaant Jain, Vignesh Kothapalli, Gilberto Titericz Junior, Jure Leskovec, Matthias Fey
-
-Tasks: Tabular Learning
-
-Code: https://github.com/nvidia/structured-data-models</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Accord: Universal Online Metric Localization and Dense Mapping from one Camera and an IMU</title>
@@ -227,30 +162,56 @@ Code: https://github.com/be2rlab/ACCORD</description>
       <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>MemOnce: A Scalable Memory Architecture for Large Language Models</title>
-      <link>https://arxiv.org/abs/2611.27973</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.27973</guid>
-      <description>Deploying large language models (LLMs) in long-horizon and continual interactions requires maintaining reusable memory states for future inference, posing challenges for existing architectures. Standard Transformers accumulate layer-wise, token-level KV caches, incurring linear GPU memory growth and quadratic computational complexity as the context expands. In contrast, linear-time architectures compress history into fixed-size states, but struggle to retain fine-grained details. We introduce MemOnce, a foundation architecture that learns scalable memory states for language models. MemOnce is based on two core designs: (a) Memory encoder-decoder: it caches only a small subset of final-layer hidden states as compact memory representations and dynamically decodes them back into KV caches for attention layers; (b) Memory sparse attention: for each continual input, MemOnce adaptively retrieves relevant memory representations, with the sparse indices computed only once across layers. Coupling these two designs enables efficient on-the-fly memory loading and KV cache decoding, drastically reducing the GPU memory footprint and achieving linear-time complexity. We conduct extensive experiments to show that MemOnce outperforms Transformers and other architectures across varying model sizes, context lengths, and training paradigms (pretraining and post-training adaptation). In particular, adapting Qwen3.5-4B with MemOnce reduces memory state cache by 1313times and prefill latency by 6.9times at 1M context, and improves throughput by 3.5times and overall memory performance by +5.77%. Finally, MemOnce generalizes zero-shot to downstream representation tasks, achieving competitive results against specialized models.
+      <title>AeroRSI: Recursive Self-Improvement for Aerial Vision-Language Navigation</title>
+      <link>https://arxiv.org/abs/2611.24077</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24077</guid>
+      <description>Vision-language-action (VLA) models enable unmanned aerial vehicles (UAVs) to follow natural-language instructions, yet still fail frequently in closed-loop flight. Correcting these failures requires repairs, i.e., actions that avoid them at the states the policy itself reaches, which human pilots cannot label at scale and rule-based planners cannot supply reliably. In this paper, we present AeroRSI, a recursive self-improvement framework in which an aerial navigation policy iteratively learns from its own failures. Our key insight is that a failing policy should judge its own repairs by flying on from them. Judged in this way, its sampled actions and even rule-based proposals that hurt it when imitated directly become reliable supervision. Moreover, an episode terminates at its first failure, concealing subsequent failures until the earlier ones are repaired. AeroRSI thus renews its supervision in every round, anchoring the failures of the current policy, verifying repairs by its continuation, and distilling them while keeping its behavior elsewhere. On TravelUAV, three rounds raise the success rate of a supervised 2B-parameter policy from 46.4% to 67.5% and reduce collisions by half, surpassing the previous state of the art by 10.6 points from the same initialization without extra human labels or inference cost. Code and models are available at https://github.com/starsholic/AeroRSI.
 
-Authors: Chang Nie, Chaoyou Fu, Songlin Liu, Yiqing Hu, Caifeng Shan
+Authors: Shiwei Wu, Yuwen Pan, Zhi Li, Yaowen Li, Yan Zhou, Xuemiao Xu, Yu Liu
 
-Tasks: Language Modeling, Long Context
+Tasks: Robotics
 
-Code: https://github.com/Clare-Nie/MemOnce</description>
-      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/starsholic/AeroRSI</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>QDA: Closed-Loop LLM Quantization Design with Agents</title>
-      <link>https://arxiv.org/abs/2611.23388</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23388</guid>
-      <description>Post-training quantization is the standard way to serve large language models at low cost. However, the best quantization recipe differs across models and precisions. As a result, experts must redesign it for every new model, which is time-consuming and often sub-optimal. Fortunately, an LLM agent can take over this design by refining the recipe over rounds of building and evaluating candidates, so that more rounds lead to better recipes. However, evaluating one quantized reasoning model takes tens of GPU-hours, and combining methods from different codebases means porting each to the new architecture by hand. We present QDA, a system in which an agent designs the recipe for each model and precision. To make evaluation fast, QDA scores each candidate in minutes by its output KL divergence from the original model on reasoning traces that the agent never sees, and checks promising ones with long generations to catch failures such as repetition loops. To make building fast, QDA provides a library of public PTQ methods that are compatible with one another and with new model architectures. Across four reasoning models, QDA improves accuracy over the strongest public recipe by 0.9, 1.4 and 2.2 percentage points on average at W4A16, W4A8 and W3A16, using 64 GPU-hours per search. On the 320B-parameter MoE model GLM-5.3-Flash at NVFP4 W4A4, it recovers 98.3% of the FP8 model's accuracy, against 96.9% for the best vendor checkpoint. Every QDA checkpoint also runs on existing serving kernels with no inference overhead. We will release the library, the evaluator and the harness.
+      <title>Clover-35B-A3B-Preview Technical Report</title>
+      <link>https://arxiv.org/abs/2611.24636</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24636</guid>
+      <description>We introduce Clover-35B-A3B-Preview (Clover), a mixture-of-experts diffusion language model with 35 billion total parameters and 3 billion activated parameters, supporting thinking-mode generation. Clover adapts Gated Delta Networks to block diffusion by combining recurrent memory of previously generated context with bidirectional softmax attention inside the current block. Historical memory readout competes with current-block tokens in a shared softmax, with learnable block-size calibration and a separate, zero-initialized right-context convolution branch. Clover leads the seven evaluated agent metrics, including 73.6 on SWE-bench Verified and 51.7 on Terminal-Bench 2.1. On internal agent workloads, it reaches a reported generation speed of 680 tokens/s using one NVIDIA GB300 GPU at BF16 precision and batch size one. We organize the evaluation around model quality, drafting and verification costs, and deployment under constrained memory. We also describe a decision-model variant that generates answers to related questions in one denoising pass. On an internal set of 500 groups, joint prediction raises question accuracy from 90.37% to 93.88% and all-correct group accuracy from 65.4% to 77.0%.
 
-Authors: Xingyang Li, Tianlang Zhao, Song Han, Ligeng Zhu
+Authors: DiffuSpace Technical Team
 
-Tasks: Reasoning
+Tasks: Language Modeling
 
-Code: https://github.com/humanfia/qda</description>
+Code: https://github.com/DiffuSpace/Clover-35B-A3B-Preview</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CADMAGEDDON: High-Fidelity CAD Reconstruction with Local Inference</title>
+      <link>https://arxiv.org/abs/2611.22563</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22563</guid>
+      <description>CAD practitioners often work with proprietary parts that they are unwilling to share with external services. For individuals and small companies, bringing this work in-house also requires computational resources they can afford. We introduce CADMAGEDDON, an open-source agent that reconstructs editable CAD from meshes and can run locally on single-GPU systems and current-generation laptops. The method decomposes this complex task into a chain of simple visual decisions about what to construct and what to correct. Geometric tools support precise construction, allowing the agent to focus on visual reasoning. Using the mid-sized Qwen3.8-27B model, CADMAGEDDON outperforms prior approaches, including systems based on frontier models, in reconstruction quality on all the main benchmarks. CADMAGEDDON integrates with FreeCAD, bringing its reconstructions into practitioners' existing CAD workflows. Code: https://github.com/kulibinai/cadmageddon
+
+Authors: Oleg Pavlov, Nikita Gavrilov, Soslan Kabisov, Gennadii Savrasov, Andrey Kuznetsov, Anton Konushin, Dmitrii Zhemchuzhnikov
+
+Tasks: 3D Reconstruction, Image Understanding
+
+Code: https://github.com/kulibinai/cadmageddon</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Duopra: From Full-Duplex Conversation to Full-Duplex Agency</title>
+      <link>https://arxiv.org/abs/2611.25773</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.25773</guid>
+      <description>Full-duplex interaction models exhibit strong conversational agency, enabling natural, low-latency turn-taking, backchannels, and interruptions. However, completing tasks further requires task agency: timely tool invocation and argument revision following user corrections. Frontend-backend agents separate initiation from execution: the frontend decides whether and what to request, while the backend determines how. Execution can be offloaded, but unsent requests cannot be executed, and incomplete ones can misdirect the backend. On Full-Duplex-Bench v3 (FDB v3), most failures of Realtime-Venus-Audio + Harness in our streaming pipeline occur before a domain tool executes. We introduce Duopra, a full-duplex interaction model that learns task execution alongside conversational control. Duopra treats the backend as a tool, accepting a self-contained natural-language request. Direct calls and backend delegation share an action interface and requirements for faithful initiation and correct execution. Its three-stage training combines protocol SFT, full-duplex RL rewarding timely and complete execution, and projector-only repair of talker conditioning after thinker updates. With the same backend, Pass@1 rises from 4.7% to 44.7%; Duopra achieves 47.7% calling tools directly (26.0% after SFT) and 49.3% with a DeepSeek backend. It improves three FDB v1.0 takeover rates over the base model. These results show that task agency can coexist with key conversational agency.
+
+Authors: Chiyu Chen, Pengzhou Cheng, Yuezhao Ma, Xiaocheng Li, Can Liu, Haonan Hu, Yao Yao, Yifei Yang, Yijie Lu, Taolei Wang, Yansi Li, Muhuan Wu, Chenglu Sun, Gongshen Liu, Zhuosheng Zhang
+
+Tasks: Full-Duplex Spoken Dialogue, Reinforcement Learning
+
+Code: https://github.com/cyChen2003/duopra</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>M3OPD-Reasoner: An Open Recipe for Post-Training Multimodal Reasoning with Multi-Teacher On-Policy Distillation</title>
@@ -263,6 +224,45 @@ Authors: Nguyen Quang Trung, Hoang Phan, Shuo Sun, Longyin Zhang, AiTi Aw
 Tasks: Reinforcement Learning, Video Question Answering, Video Understanding
 
 Code: https://github.com/ngquangtrung57/M3OPD-Reasoner</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>FastFrames: Video Generation at Interactive Latency</title>
+      <link>https://arxiv.org/abs/2611.23226</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
+      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
+
+Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
+
+Tasks: Video generation
+
+Code: https://github.com/apple-aiml-research/ml-fastframes</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hierarchical Diffusion Transformer for End-to-End Image Generation</title>
+      <link>https://arxiv.org/abs/2611.22962</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.22962</guid>
+      <description>Pixel-space diffusion learns visual representations and image generation jointly in a single end-to-end training stage, without a separately pretrained visual encoder. However, plain pixel-space Transformers still trail leading two-stage latent diffusion models in generation quality and training efficiency. We hypothesize that part of this gap arises from retaining one token per patch throughout the backbone, which does not explicitly encourage a visual hierarchy that summarizes related content at progressively coarser levels. To address this, we introduce Hierarchical Diffusion Transformers (HiT), which progressively group related tokens and represent each group with a single token. The main Transformer bottleneck processes these compact group tokens, and ungrouping restores features to their original image positions. A compression budget regulates the average compression ratio across the batch, allowing group memberships and counts to vary across images and diffusion timesteps during both training and generation. The model exhibits emergent semantic structure, learning to group coherent objects and object parts without segmentation labels. In text-to-image generation, HiT further learns to group caption words with image patches depicting the same concepts, without region annotations. HiT achieves 1.48 FID on ImageNet $256\times256$ and reaches comparable generation quality to JiT using approximately 40\% of its cumulative training FLOPs. For text-to-image generation, HiT exceeds UniLiP's average score across five benchmarks with roughly $6\times$ fewer denoiser parameters and $3\times$ fewer forward FLOPs. These results suggest that learning a visual hierarchy within the generator breaks down the barrier to stronger image generation without external visual pretraining.
+
+Authors: Xiaoyu Wu, Yifei Wang, Weihang Guo, Chen Wei, Lydia E Kavraki, Niloofar Mireshghallah, Steven Wu
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/nicholas0228/hit-released</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>NVIDIA Kumo Tabular: Pushing the Accuracy-Efficiency Frontier for Tabular Prediction</title>
+      <link>https://arxiv.org/abs/2611.23001</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23001</guid>
+      <description>We introduce Kumo Tabular, a family of open tabular foundation models for classification and regression, in three sizes: Kumo Tabular-S (27M parameters), Kumo Tabular-M (61M), and Kumo Tabular-L (214M). Pretrained only on artificial tables from the Kumo prior, they can make predictions on new tables without any training. In our approach, a table encoder compresses each row into an embedding, and an in-context learning transformer predicts the unlabeled rows from the labeled ones. Kumo Tabular introduces architectural innovations that improve both training stability and predictive performance, enabling the model to scale up to 150M cells on modern GPUs. Kumo Tabular-L ranks first on eight benchmarks: TabArena, TALENT, BeyondArena, ScoringBench, STRABLE, MulTaBench, RamanBench, and TabBench-Bio. These cover probabilistic regression, tables with over 1M rows or 100K columns, and tables with strings, text, or images. Accuracy improves with model size in all tested comparisons. All three sizes lie on the accuracy-speed frontiers of TabArena and BeyondArena. Kumo Tabular-L predicts faster than the runners-up, LimiX-2 on TabArena (36 times) and TabPFN-3.5 on BeyondArena (1.7 times). Weights and pretraining code are released under OpenMDW-1.1 and Apache 2.0, respectively.
+
+Authors: Jingang Qu, Valter Hudovernik, Martin Jurkovič, Cedric Lorenz, David Holzmüller, Federico Lopez, Dmitry Gordeev, Akihiro Nitta, Ramona Bendias, Ardrian Wong, Vedaant Jain, Vignesh Kothapalli, Gilberto Titericz Junior, Jure Leskovec, Matthias Fey
+
+Tasks: Tabular Learning
+
+Code: https://github.com/nvidia/structured-data-models</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
