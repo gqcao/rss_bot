@@ -4,7 +4,20 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Mon, 23 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 01:00:00 GMT</lastBuildDate>
+    <item>
+      <title>FastFrames: Video Generation at Interactive Latency</title>
+      <link>https://arxiv.org/abs/2611.23226</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
+      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
+
+Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
+
+Tasks: Video generation
+
+Code: https://github.com/apple-aiml-research/ml-fastframes</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>WeMM-Video: Pushing the Frontiers of Open-Source Omni-Modal Video Understanding</title>
       <link>https://arxiv.org/abs/2611.26409</link>
@@ -32,19 +45,6 @@ Code: https://github.com/apple-aiml-research/ml-depth-pro-2</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>AURA: AUdio-dRiven streaming Avatar</title>
-      <link>https://arxiv.org/abs/2611.26540</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26540</guid>
-      <description>Current audio-driven video diffusion models can synthesize realistic talking-head videos but generally require dozens of diffusion denoising steps over multi-second video chunks, making them unsuitable for streaming applications such as voice assistants and virtual avatars, where low-latency and online causal generation are required properties. AURA generates video chunk by chunk with a rolling KV cache, requiring only the audio of the current chunk to start generating, rather than a multi-second audio look-ahead like bidirectional models. It comes in two sizes: AURA 1.3B streams 576p video in real time on a single GPU (20.7 fps for a 16 Hz playback rate), making it suited to interactive avatar applications, and AURA 5B streams 720p video at 9.7 fps. Our two-stage distillation pipeline first aligns the causal student with the teacher, by training it to match the teacher's trajectories with fewer diffusion steps and a chunk-wise sliding window causal attention mask, then applies Distribution Matching Distillation (DMD) with backward simulation to close the remaining quality gap. On standard talking-head benchmarks, AURA 1.3B runs 23x faster than its own bidirectional teacher and reaches a quality comparable to TalkVerse at a lower resolution, and AURA 5B matches its TalkVerse teacher at 720p while running 17x faster. To support reproducibility and further research on streaming avatar generation, we release the weights of both models along with a dataset of 30K synthetic videos and their precomputed teacher trajectories.
-
-Authors: Nathaniel Cohen, Nicolas Dufour, Amelie Royer, Alasdair Newson, Patrick Pérez
-
-Tasks: Talking Head Generation, Video generation
-
-Code: https://github.com/kyutai-labs/aura</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain</title>
       <link>https://arxiv.org/abs/2611.26414</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.26414</guid>
@@ -58,6 +58,45 @@ Code: https://github.com/hzx122/ZeroVLN</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Direct3D-V3: Latent-Free Diffusion Transformers in the Native Voxel Domain</title>
+      <link>https://arxiv.org/abs/2611.26511</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26511</guid>
+      <description>Native 3D generation has largely been built around latent diffusion, with recent advances concentrating on stronger variational autoencoders (VAE) and increasingly elaborate latent representations, from vecset and triplanes to structured sparse voxels. Despite their architectural differences, these methods all share the same premise: geometry is first compressed into a latent space and only then modeled by the generator. We take a different route and propose Direct3D-V3, a latent-free diffusion transformer (DiT) framework that discards the VAE altogether and operates in the native voxel domain, directly modeling raw SDF voxel grids during both training and sampling. To make this direct voxel formulation geometrically reliable, we introduce an implicit manifold regularization over neighboring voxels to suppress non-watertight surfaces, and convert predicted SDF grids into meshes via Marching Cubes so that rendered normal losses can supervise the model directly from its predicted SDF. To improve alignment between the conditioning image and generated geometry, Direct3D-V3 also predicts the camera parameters of the conditioning image as an auxiliary task, encouraging the DiT to learn the mapping from image observations to 3D shape. This latent-free design removes the reconstruction bottleneck, brings training under an objective in the native voxel domain, and yields meshes with substantially richer local detail. The predicted camera and native SDF voxel output further make Direct3D-V3 extensible to generative reconstruction, where diffusion is interleaved with normal-guided refinement to improve alignment with the observed view while the generative prior completes unseen regions. Project page: https://dreamtechai.github.io/Direct3D-V3.
+
+Authors: Shuang Wu, Jiachen Qian, Youtian Lin, Feihu Zhang, Philip Torr, Yao Yao, Xun Cao
+
+Tasks: 3D generation, 3D Reconstruction
+
+Code: https://github.com/DreamTechAI/Direct3D-V3</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WAM-Policy: World Action Models with On-Policy Distillation for Quadrupedal Loco-Manipulation</title>
+      <link>https://arxiv.org/abs/2611.24011</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.24011</guid>
+      <description>Arm-free quadrupeds can perform loco-manipulation, walking on three legs while manipulating with a front leg, yet no existing policy for it follows language instructions. World action models (WAMs) have emerged as effective language-conditioned manipulation policies, but are pretrained for robot arms and sample slowly. WAM-Policy turns one WAM into a quadrupedal loco-manipulation policy via two stages. The first, Cross-Morphology Policy Adaptation and Acceleration, adapts the arm-centric WAM to quadrupeds and distills the transferred policy into a student with one video and two action steps by on-policy self-distillation (OPSD). This student, however, is bounded by its teacher, which only imitates demonstrations. The second stage, Task-Specific Improvement and Merging, therefore tunes the teacher by reinforcement learning (RL) and merges the slow specialists into one few-step student by multi-teacher on-policy distillation (M-OPD). On QLM-Bench, ten simulated tasks with 1,000 demonstrations synthesized without teleoperation, the transferred policy reaches 77.0%, and the OPSD student keeps 76.7% while sampling 14 times faster. Task-specific RL and M-OPD lift it to 85.0%. We also deploy the OPSD student on a real Unitree Go2 Air. WAM-Policy thus achieves a stronger quadrupedal policy at a fraction of the inference cost.
+
+Authors: Junlin Long, Xu Deng, Yiran Wang, Yue Yang, yang zhao, Zeyu Zhang
+
+Tasks: Reinforcement Learning, Robotics, World Models
+
+Code: https://github.com/AIGeeksGroup/WAM-Policy</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AURA: AUdio-dRiven streaming Avatar</title>
+      <link>https://arxiv.org/abs/2611.26540</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26540</guid>
+      <description>Current audio-driven video diffusion models can synthesize realistic talking-head videos but generally require dozens of diffusion denoising steps over multi-second video chunks, making them unsuitable for streaming applications such as voice assistants and virtual avatars, where low-latency and online causal generation are required properties. AURA generates video chunk by chunk with a rolling KV cache, requiring only the audio of the current chunk to start generating, rather than a multi-second audio look-ahead like bidirectional models. It comes in two sizes: AURA 1.3B streams 576p video in real time on a single GPU (20.7 fps for a 16 Hz playback rate), making it suited to interactive avatar applications, and AURA 5B streams 720p video at 9.7 fps. Our two-stage distillation pipeline first aligns the causal student with the teacher, by training it to match the teacher's trajectories with fewer diffusion steps and a chunk-wise sliding window causal attention mask, then applies Distribution Matching Distillation (DMD) with backward simulation to close the remaining quality gap. On standard talking-head benchmarks, AURA 1.3B runs 23x faster than its own bidirectional teacher and reaches a quality comparable to TalkVerse at a lower resolution, and AURA 5B matches its TalkVerse teacher at 720p while running 17x faster. To support reproducibility and further research on streaming avatar generation, we release the weights of both models along with a dataset of 30K synthetic videos and their precomputed teacher trajectories.
+
+Authors: Nathaniel Cohen, Nicolas Dufour, Amelie Royer, Alasdair Newson, Patrick Pérez
+
+Tasks: Talking Head Generation, Video generation
+
+Code: https://github.com/kyutai-labs/aura</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Decoding Without a Decoder: Direct Pixel Prediction from Diffusion Transformers</title>
       <link>https://arxiv.org/abs/2611.22287</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.22287</guid>
@@ -68,19 +107,6 @@ Authors: Hansheng Chen, Shengqu Cai, Jan Ackermann, Rayhan Zirvi, Gordon Wetzste
 Tasks: Image generation, Text-to-Image Generation, Video generation
 
 Code: https://github.com/Lakonik/LakonLab</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>FastFrames: Video Generation at Interactive Latency</title>
-      <link>https://arxiv.org/abs/2611.23226</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23226</guid>
-      <description>Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.
-
-Authors: Gene Chou, Guandao Yang, Fujun Luan, Lars Mescheder, Wei Dong, Stephan Richter, Vladlen Koltun
-
-Tasks: Video generation
-
-Code: https://github.com/apple-aiml-research/ml-fastframes</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -108,19 +134,6 @@ Tasks: 2D Point Tracking, 3D Reconstruction, 3D Tracking, Camera Pose Estimation
 
 Code: https://github.com/yyfz/Pi4</description>
       <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Thinking Fast, Anywhere: One System-1 for the Decision Points of Any Agent Workflow</title>
-      <link>https://arxiv.org/abs/2611.23751</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.23751</guid>
-      <description>Autonomous LLM agents incur substantial cost and latency by invoking a large model (System-2) at every step, even when many intermediate actions choose among a small set of known candidates. Existing dual-system agents offload such decisions to a lightweight System-1 model, but rely on workflow-specific hooks authored per environment. We present AnyS1, a framework that turns human-authored procedural skills, whose instructions naturally specify where choices arise and which options apply, into a shared, domain-general source of decision points. Offline, AnyS1 mines grounded enumerable decisions across over 1,000 public skills, gathers execution-grounded trajectory states inside isolated containers to construct Any-DP, and trains a single calibrated 4B pointer System-1 with label smoothing. At run time, compiled workflows resolve routine decisions in one forward pass and fall back to System-2 when confidence falls below a calibrated threshold. Across three unseen benchmarks and distinct System-2 model families, AnyS1 preserves task reliability while cutting episode cost by 75-91% and model-call time by 63-92% relative to an uncompiled System-2 agent, and maintains performance under zero-shot threshold transfer.
-
-Authors: Rui Li, Liyang He, Zheng Zhang, Zhenya Huang, Qi Liu
-
-Tasks: Agents, Long-Horizon Agents
-
-Code: https://github.com/middle-chunjie/anys1</description>
-      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>NVIDIA Kumo Tabular: Pushing the Accuracy-Efficiency Frontier for Tabular Prediction</title>
@@ -173,19 +186,6 @@ Tasks: Decision Making
 
 Code: https://github.com/agentscope-ai/Piccolo</description>
       <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Direct3D-V3: Latent-Free Diffusion Transformers in the Native Voxel Domain</title>
-      <link>https://arxiv.org/abs/2611.26511</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26511</guid>
-      <description>Native 3D generation has largely been built around latent diffusion, with recent advances concentrating on stronger variational autoencoders (VAE) and increasingly elaborate latent representations, from vecset and triplanes to structured sparse voxels. Despite their architectural differences, these methods all share the same premise: geometry is first compressed into a latent space and only then modeled by the generator. We take a different route and propose Direct3D-V3, a latent-free diffusion transformer (DiT) framework that discards the VAE altogether and operates in the native voxel domain, directly modeling raw SDF voxel grids during both training and sampling. To make this direct voxel formulation geometrically reliable, we introduce an implicit manifold regularization over neighboring voxels to suppress non-watertight surfaces, and convert predicted SDF grids into meshes via Marching Cubes so that rendered normal losses can supervise the model directly from its predicted SDF. To improve alignment between the conditioning image and generated geometry, Direct3D-V3 also predicts the camera parameters of the conditioning image as an auxiliary task, encouraging the DiT to learn the mapping from image observations to 3D shape. This latent-free design removes the reconstruction bottleneck, brings training under an objective in the native voxel domain, and yields meshes with substantially richer local detail. The predicted camera and native SDF voxel output further make Direct3D-V3 extensible to generative reconstruction, where diffusion is interleaved with normal-guided refinement to improve alignment with the observed view while the generative prior completes unseen regions. Project page: https://dreamtechai.github.io/Direct3D-V3.
-
-Authors: Shuang Wu, Jiachen Qian, Youtian Lin, Feihu Zhang, Philip Torr, Yao Yao, Xun Cao
-
-Tasks: 3D generation, 3D Reconstruction
-
-Code: https://github.com/DreamTechAI/Direct3D-V3</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Weight-Space Programming Doesn't Need Transformers</title>
