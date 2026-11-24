@@ -4,20 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Tue, 24 Nov 2026 00:00:00 GMT</lastBuildDate>
-    <item>
-      <title>Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth</title>
-      <link>https://arxiv.org/abs/2611.26603</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26603</guid>
-      <description>We present Depth Pro 2, an approach to estimating dense metric depth for images and video at full resolution. By analyzing prior methods for monocular depth estimation, we find that they commonly trade off temporal consistency and boundary sharpness: multi-frame methods favor consistency, single-frame methods favor sharpness. To overcome this trade-off, we train a single, scalable network that processes both images and video and predicts depth maps at native resolution. Depth Pro 2 produces depth maps that are metrically accurate, sharp, and temporally consistent all at once, outperforming prior work in all of these dimensions. We release a family of models that define a new Pareto frontier in terms of metric accuracy, sharpness, temporal consistency, and runtime. We release code and weights at https://apple-aiml-research.github.io/ml-depth-pro-2/
-
-Authors: Peiyun Hu, Marko Mihajlovic, Lyndon Duong, Lahav Lipson, Wei Dong, Amaël Delaunoy, Stephan R. Richter, Vladlen Koltun
-
-Tasks: Depth estimation
-
-Code: https://github.com/apple-aiml-research/ml-depth-pro-2</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Tue, 24 Nov 2026 01:00:00 GMT</lastBuildDate>
     <item>
       <title>Non-penetrating World Models</title>
       <link>https://arxiv.org/abs/2611.27963</link>
@@ -32,16 +19,81 @@ Code: https://github.com/yuhangdai427/NoPeWorld</description>
       <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>LingSante MedGuard Technical Report</title>
-      <link>https://arxiv.org/abs/2611.25509</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.25509</guid>
-      <description>As medical AI is increasingly used for patient consultation and clinical decision support, identifying harmful, non-compliant, or ethically problematic responses is essential for responsible deployment. Assessing these risks requires checking clinical claims against relevant evidence, verifying calculations, and applying medical requirements under their intended conditions. We introduce LingSante MedGuard, a capability-enhanced guardrail that integrates supervision from a medical guardrail teacher model and six specialized medical capability experts into a unified model. The guardrail teacher supervises risk decisions and explanations across medical safety, compliance, and ethics, while the capability experts support medical rule understanding, numerical reasoning, multimodal hallucination detection, agentic safety verification, risk localization, and multimodal entity understanding. We consolidate these sources of supervision through offline supervised fine-tuning on teacher-generated demonstrations, followed by multi-teacher on-policy distillation using feedback on student-generated responses. We further introduce LingSante MedGuardBench, a benchmark comprising 11 risk-detection subsets spanning medical safety, compliance, and ethics. At 4B, 9B, and 27B scales, LingSante MedGuard achieves mean benchmark F1 scores of 82.3%, 82.4%, and 87.4%, respectively. The 4B model also achieves 73.9% mean accuracy across MedHallu and MedHALT-NOTA under retrieval-enabled evaluation. Additional evaluations of the verification components show improvements in evidence-supported consistency, source traceability, and rule-guided rationale quality across model scales. These results support the integration of specialized medical capabilities into a unified guardrail for medical risk assessment and evidence-based medical safety verification.
+      <title>MemOnce: A Scalable Memory Architecture for Large Language Models</title>
+      <link>https://arxiv.org/abs/2611.27973</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.27973</guid>
+      <description>Deploying large language models (LLMs) in long-horizon and continual interactions requires maintaining reusable memory states for future inference, posing challenges for existing architectures. Standard Transformers accumulate layer-wise, token-level KV caches, incurring linear GPU memory growth and quadratic computational complexity as the context expands. In contrast, linear-time architectures compress history into fixed-size states, but struggle to retain fine-grained details. We introduce MemOnce, a foundation architecture that learns scalable memory states for language models. MemOnce is based on two core designs: (a) Memory encoder-decoder: it caches only a small subset of final-layer hidden states as compact memory representations and dynamically decodes them back into KV caches for attention layers; (b) Memory sparse attention: for each continual input, MemOnce adaptively retrieves relevant memory representations, with the sparse indices computed only once across layers. Coupling these two designs enables efficient on-the-fly memory loading and KV cache decoding, drastically reducing the GPU memory footprint and achieving linear-time complexity. We conduct extensive experiments to show that MemOnce outperforms Transformers and other architectures across varying model sizes, context lengths, and training paradigms (pretraining and post-training adaptation). In particular, adapting Qwen3.5-4B with MemOnce reduces memory state cache by 1313times and prefill latency by 6.9times at 1M context, and improves throughput by 3.5times and overall memory performance by +5.77%. Finally, MemOnce generalizes zero-shot to downstream representation tasks, achieving competitive results against specialized models.
 
-Authors: LingSante MedGuard Team
+Authors: Chang Nie, Chaoyou Fu, Songlin Liu, Yiqing Hu, Caifeng Shan
 
-Tasks: Agents, Coding Agents, Deep Research Agents, Healthcare &amp; Medical AI, Medical Question Answering, Text classification
+Tasks: Language Modeling, Long Context
 
-Code: https://github.com/inclusionai/lingsante-medguard</description>
+Code: https://github.com/Clare-Nie/MemOnce</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AutoMaster: Autonomous Post-Training by Making the Same Model a Better Teacher</title>
+      <link>https://arxiv.org/abs/2611.26510</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26510</guid>
+      <description>Task success alone does not specify which behaviors post-training should reinforce. Even successful teacher trajectories can contain unsupported assumptions, unproductive repetition, or superficial verification. We propose Skill-FT (Skill-Guided Fine-Tuning), which uses natural-language skills to suppress undesirable habits and elicit underrepresented effective behaviors during teacher rollouts, then fine-tunes a target model on the resulting trajectories. We introduce AutoMaster, an autonomous post-training system in which an LLM agent develops these interventions through trajectory analysis, skill design, data selection, and feedback from rollouts and target-model evaluation. Across Terminal, Search, and software engineering tasks with 4B and 9B target models, AutoMaster improves mean performance over Vanilla SFT on successful unguided teacher trajectories by 1.42-8.99 percentage points, with the teacher, task pool, training set size, and SFT recipe held fixed. Together with the ablations and trajectory analyses, these results suggest that behavioral shaping can make a fixed model a more effective teacher. We further find that retaining skill instructions during SFT yields higher mean performance than removing them across all six settings, despite their absence at evaluation and identical supervised outputs. These findings suggest that preserving skill context as part of a training demonstration can support better behavioral internalization.
+
+Authors: Guoxin Chen, Shuang Sun, Fanzhe Meng, Xinyu Tang, Ruihua Song, Wayne Xin Zhao
+
+Tasks: Coding Agents, Deep Research Agents
+
+Code: https://github.com/RUCAIBox/AutoMaster</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain</title>
+      <link>https://arxiv.org/abs/2611.26414</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26414</guid>
+      <description>Representative vision-language navigation (VLN) methods typically couple a vision-language model (VLM) brain with a learnable action head and fine-tune the VLM brain on navigation-domain data to predict geometric goals. However, such adaptation can substantially alter base VLM weights and degrade general visual capabilities. We introduce ZeroVLN, a slow-fast navigation framework that achieves effective navigation with zero navigation-domain SFT of the VLM brain. Rather than teaching the brain to predict geometric goals, we equip it with a semantic tool-calling interface for conveying movement decisions to an action expert in natural language. We first adapt the action expert to carry out these movement requests, then jointly improve the brain's movement decisions and the action expert's continuous execution through closed-loop reinforcement learning (RL). Trained on the same navigation episodes, ZeroVLN substantially outperforms representative SFT-based hierarchical VLN methods on standard VLN-CE (continuous environments) benchmarks, while inducing only minor changes to the brain's weights and largely preserving its general capabilities. To our knowledge, ZeroVLN is the first slow-fast VLN framework with zero navigation-domain SFT of the VLM brain, and the first to jointly optimize its slow and fast policies through closed-loop agentic RL in VLN-CE.
+
+Authors: Zixuan Huang, Yang Zhou, Guli Zhang, Sunzhu Li, Hongyan Xie, Zehao Chen, Fuzhen Zhuang, Kaixuan Wang, Xiaozhi Chen, Yikun Ban, Deqing Wang
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/hzx122/ZeroVLN</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Introducing the OpenResearch Intelligence Index</title>
+      <link>https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</link>
+      <guid isPermaLink="true">https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</guid>
+      <description>The OpenResearch Intelligence Index is an open source composite index that tracks end-to-end autoresearch capabilities. Every model runs inside the full OpenResearch environment with its provider's own coding harness (Claude Code for Anthropic models, Codex for OpenAI models, and OpenCode for all others) and is scored on three areas: scientific knowledge (20 experimentation-heavy Terminal-Bench-Science tasks), post-training ability (6 PostTrainBench-based tasks that fine-tune Qwen3-0.6B, Qwen3-1.7B and SmolLM2-360M on GSM8K, HumanEval, IFEval and BFCL), and literature relevancy and taste (45 PaperFindingBench queries grouped into 3 tasks). Each model makes 3 attempts per task, and the index is 0.4 Science + 0.4 PostTraining + 0.2 LiteratureRelevancy. DeepSeek V4.1 Flash, GPT-6.1 Sol and Opus 5.5 sit on the cost-performance Pareto frontier.
+
+Authors: Myles Anderson, Daniel Kim
+
+Tasks: Auto-Research
+
+Code: https://github.com/alphaxiv/openresearch</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Duopra: From Full-Duplex Conversation to Full-Duplex Agency</title>
+      <link>https://arxiv.org/abs/2611.25773</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.25773</guid>
+      <description>Full-duplex interaction models exhibit strong conversational agency, enabling natural, low-latency turn-taking, backchannels, and interruptions. However, completing tasks further requires task agency: timely tool invocation and argument revision following user corrections. Frontend-backend agents separate initiation from execution: the frontend decides whether and what to request, while the backend determines how. Execution can be offloaded, but unsent requests cannot be executed, and incomplete ones can misdirect the backend. On Full-Duplex-Bench v3 (FDB v3), most failures of Realtime-Venus-Audio + Harness in our streaming pipeline occur before a domain tool executes. We introduce Duopra, a full-duplex interaction model that learns task execution alongside conversational control. Duopra treats the backend as a tool, accepting a self-contained natural-language request. Direct calls and backend delegation share an action interface and requirements for faithful initiation and correct execution. Its three-stage training combines protocol SFT, full-duplex RL rewarding timely and complete execution, and projector-only repair of talker conditioning after thinker updates. With the same backend, Pass@1 rises from 4.7% to 44.7%; Duopra achieves 47.7% calling tools directly (26.0% after SFT) and 49.3% with a DeepSeek backend. It improves three FDB v1.0 takeover rates over the base model. These results show that task agency can coexist with key conversational agency.
+
+Authors: Chiyu Chen, Pengzhou Cheng, Yuezhao Ma, Xiaocheng Li, Can Liu, Haonan Hu, Yao Yao, Yifei Yang, Yijie Lu, Taolei Wang, Yansi Li, Muhuan Wu, Chenglu Sun, Gongshen Liu, Zhuosheng Zhang
+
+Tasks: Full-Duplex Spoken Dialogue, Reinforcement Learning
+
+Code: https://github.com/cyChen2003/duopra</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth</title>
+      <link>https://arxiv.org/abs/2611.26603</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26603</guid>
+      <description>We present Depth Pro 2, an approach to estimating dense metric depth for images and video at full resolution. By analyzing prior methods for monocular depth estimation, we find that they commonly trade off temporal consistency and boundary sharpness: multi-frame methods favor consistency, single-frame methods favor sharpness. To overcome this trade-off, we train a single, scalable network that processes both images and video and predicts depth maps at native resolution. Depth Pro 2 produces depth maps that are metrically accurate, sharp, and temporally consistent all at once, outperforming prior work in all of these dimensions. We release a family of models that define a new Pareto frontier in terms of metric accuracy, sharpness, temporal consistency, and runtime. We release code and weights at https://apple-aiml-research.github.io/ml-depth-pro-2/
+
+Authors: Peiyun Hu, Marko Mihajlovic, Lyndon Duong, Lahav Lipson, Wei Dong, Amaël Delaunoy, Stephan R. Richter, Vladlen Koltun
+
+Tasks: Depth estimation
+
+Code: https://github.com/apple-aiml-research/ml-depth-pro-2</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -58,6 +110,19 @@ Code: https://github.com/Tencent/WeMM-Video</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>LingSante MedGuard Technical Report</title>
+      <link>https://arxiv.org/abs/2611.25509</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.25509</guid>
+      <description>As medical AI is increasingly used for patient consultation and clinical decision support, identifying harmful, non-compliant, or ethically problematic responses is essential for responsible deployment. Assessing these risks requires checking clinical claims against relevant evidence, verifying calculations, and applying medical requirements under their intended conditions. We introduce LingSante MedGuard, a capability-enhanced guardrail that integrates supervision from a medical guardrail teacher model and six specialized medical capability experts into a unified model. The guardrail teacher supervises risk decisions and explanations across medical safety, compliance, and ethics, while the capability experts support medical rule understanding, numerical reasoning, multimodal hallucination detection, agentic safety verification, risk localization, and multimodal entity understanding. We consolidate these sources of supervision through offline supervised fine-tuning on teacher-generated demonstrations, followed by multi-teacher on-policy distillation using feedback on student-generated responses. We further introduce LingSante MedGuardBench, a benchmark comprising 11 risk-detection subsets spanning medical safety, compliance, and ethics. At 4B, 9B, and 27B scales, LingSante MedGuard achieves mean benchmark F1 scores of 82.3%, 82.4%, and 87.4%, respectively. The 4B model also achieves 73.9% mean accuracy across MedHallu and MedHALT-NOTA under retrieval-enabled evaluation. Additional evaluations of the verification components show improvements in evidence-supported consistency, source traceability, and rule-guided rationale quality across model scales. These results support the integration of specialized medical capabilities into a unified guardrail for medical risk assessment and evidence-based medical safety verification.
+
+Authors: LingSante MedGuard Team
+
+Tasks: Agents, Coding Agents, Deep Research Agents, Healthcare &amp; Medical AI, Medical Question Answering, Text classification
+
+Code: https://github.com/inclusionai/lingsante-medguard</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>EgoCaptioner: Towards Comprehensive and Fine-Grained Egocentric Video Captioning</title>
       <link>https://arxiv.org/abs/2611.26380</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.26380</guid>
@@ -68,19 +133,6 @@ Authors: Yuqi Tang, Yang Shi, Yuran Wang, Tengfei Liu, Rundong Wang, Zongyang Qi
 Tasks: Egocentric Vision, Question Answering, Reinforcement Learning, Video Captioning, Video Understanding
 
 Code: https://github.com/cactusqq/EgoCaptioner</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>AutoMaster: Autonomous Post-Training by Making the Same Model a Better Teacher</title>
-      <link>https://arxiv.org/abs/2611.26510</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26510</guid>
-      <description>Task success alone does not specify which behaviors post-training should reinforce. Even successful teacher trajectories can contain unsupported assumptions, unproductive repetition, or superficial verification. We propose Skill-FT (Skill-Guided Fine-Tuning), which uses natural-language skills to suppress undesirable habits and elicit underrepresented effective behaviors during teacher rollouts, then fine-tunes a target model on the resulting trajectories. We introduce AutoMaster, an autonomous post-training system in which an LLM agent develops these interventions through trajectory analysis, skill design, data selection, and feedback from rollouts and target-model evaluation. Across Terminal, Search, and software engineering tasks with 4B and 9B target models, AutoMaster improves mean performance over Vanilla SFT on successful unguided teacher trajectories by 1.42-8.99 percentage points, with the teacher, task pool, training set size, and SFT recipe held fixed. Together with the ablations and trajectory analyses, these results suggest that behavioral shaping can make a fixed model a more effective teacher. We further find that retaining skill instructions during SFT yields higher mean performance than removing them across all six settings, despite their absence at evaluation and identical supervised outputs. These findings suggest that preserving skill context as part of a training demonstration can support better behavioral internalization.
-
-Authors: Guoxin Chen, Shuang Sun, Fanzhe Meng, Xinyu Tang, Ruihua Song, Wayne Xin Zhao
-
-Tasks: Coding Agents, Deep Research Agents
-
-Code: https://github.com/RUCAIBox/AutoMaster</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -123,19 +175,6 @@ Code: https://github.com/kyutai-labs/aura</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain</title>
-      <link>https://arxiv.org/abs/2611.26414</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26414</guid>
-      <description>Representative vision-language navigation (VLN) methods typically couple a vision-language model (VLM) brain with a learnable action head and fine-tune the VLM brain on navigation-domain data to predict geometric goals. However, such adaptation can substantially alter base VLM weights and degrade general visual capabilities. We introduce ZeroVLN, a slow-fast navigation framework that achieves effective navigation with zero navigation-domain SFT of the VLM brain. Rather than teaching the brain to predict geometric goals, we equip it with a semantic tool-calling interface for conveying movement decisions to an action expert in natural language. We first adapt the action expert to carry out these movement requests, then jointly improve the brain's movement decisions and the action expert's continuous execution through closed-loop reinforcement learning (RL). Trained on the same navigation episodes, ZeroVLN substantially outperforms representative SFT-based hierarchical VLN methods on standard VLN-CE (continuous environments) benchmarks, while inducing only minor changes to the brain's weights and largely preserving its general capabilities. To our knowledge, ZeroVLN is the first slow-fast VLN framework with zero navigation-domain SFT of the VLM brain, and the first to jointly optimize its slow and fast policies through closed-loop agentic RL in VLN-CE.
-
-Authors: Zixuan Huang, Yang Zhou, Guli Zhang, Sunzhu Li, Hongyan Xie, Zehao Chen, Fuzhen Zhuang, Kaixuan Wang, Xiaozhi Chen, Yikun Ban, Deqing Wang
-
-Tasks: Reinforcement Learning
-
-Code: https://github.com/hzx122/ZeroVLN</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Learning Video Foresight Reasoning from Unlabeled Videos via On-Policy Self-Distillation</title>
       <link>https://arxiv.org/abs/2611.26954</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.26954</guid>
@@ -147,43 +186,6 @@ Tasks: Video Understanding
 
 Code: https://github.com/Jingchensun/future-opsd</description>
       <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>FrontierRSI: A Recursive Self-Improvement Benchmark</title>
-      <link>https://frontier-rsi.org/</link>
-      <guid isPermaLink="true">https://frontier-rsi.org/</guid>
-      <description>FrontierRSI is a recursive self-improvement benchmark by Abundant: can an AI agent do the research and engineering needed to improve itself? It contains 27 open-ended tasks across four areas (pre-training; post-training and harness; inference and serving; GPU kernels), each running on real GPUs and stated as an optimization goal, such as minimizing held-out loss or latency or maximizing throughput or a held-out success rate, with no prescribed approach and no target to reach. Each trial's reward is calibrated against the best valid model trial on that task: a trial within 10% of it earns partial credit, and anything further away, or any trial that fails a correctness, accuracy or resource check, scores 0. Each model ran four independent trials per task with its own agent harness; a model's task score is avg@4 and its overall score is the mean over all tasks. The initial release evaluates 13 frontier models over 1,404 graded agent trials and 3,753 hours of agent research time.
-
-Tasks: Agents, Auto-Research, Coding Agents
-
-Code: https://github.com/abundant-ai/frontier-rsi</description>
-      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Introducing the OpenResearch Intelligence Index</title>
-      <link>https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</link>
-      <guid isPermaLink="true">https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</guid>
-      <description>The OpenResearch Intelligence Index is an open source composite index that tracks end-to-end autoresearch capabilities. Every model runs inside the full OpenResearch environment with its provider's own coding harness (Claude Code for Anthropic models, Codex for OpenAI models, and OpenCode for all others) and is scored on three areas: scientific knowledge (20 experimentation-heavy Terminal-Bench-Science tasks), post-training ability (6 PostTrainBench-based tasks that fine-tune Qwen3-0.6B, Qwen3-1.7B and SmolLM2-360M on GSM8K, HumanEval, IFEval and BFCL), and literature relevancy and taste (45 PaperFindingBench queries grouped into 3 tasks). Each model makes 3 attempts per task, and the index is 0.4 Science + 0.4 PostTraining + 0.2 LiteratureRelevancy. DeepSeek V4.1 Flash, GPT-6.1 Sol and Opus 5.5 sit on the cost-performance Pareto frontier.
-
-Authors: Myles Anderson, Daniel Kim
-
-Tasks: Auto-Research
-
-Code: https://github.com/alphaxiv/openresearch</description>
-      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Duopra: From Full-Duplex Conversation to Full-Duplex Agency</title>
-      <link>https://arxiv.org/abs/2611.25773</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.25773</guid>
-      <description>Full-duplex interaction models exhibit strong conversational agency, enabling natural, low-latency turn-taking, backchannels, and interruptions. However, completing tasks further requires task agency: timely tool invocation and argument revision following user corrections. Frontend-backend agents separate initiation from execution: the frontend decides whether and what to request, while the backend determines how. Execution can be offloaded, but unsent requests cannot be executed, and incomplete ones can misdirect the backend. On Full-Duplex-Bench v3 (FDB v3), most failures of Realtime-Venus-Audio + Harness in our streaming pipeline occur before a domain tool executes. We introduce Duopra, a full-duplex interaction model that learns task execution alongside conversational control. Duopra treats the backend as a tool, accepting a self-contained natural-language request. Direct calls and backend delegation share an action interface and requirements for faithful initiation and correct execution. Its three-stage training combines protocol SFT, full-duplex RL rewarding timely and complete execution, and projector-only repair of talker conditioning after thinker updates. With the same backend, Pass@1 rises from 4.7% to 44.7%; Duopra achieves 47.7% calling tools directly (26.0% after SFT) and 49.3% with a DeepSeek backend. It improves three FDB v1.0 takeover rates over the base model. These results show that task agency can coexist with key conversational agency.
-
-Authors: Chiyu Chen, Pengzhou Cheng, Yuezhao Ma, Xiaocheng Li, Can Liu, Haonan Hu, Yao Yao, Yifei Yang, Yijie Lu, Taolei Wang, Yansi Li, Muhuan Wu, Chenglu Sun, Gongshen Liu, Zhuosheng Zhang
-
-Tasks: Full-Duplex Spoken Dialogue, Reinforcement Learning
-
-Code: https://github.com/cyChen2003/duopra</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Clover-35B-A3B-Preview Technical Report</title>
