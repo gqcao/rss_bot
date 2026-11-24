@@ -12,7 +12,7 @@
 	<atom:link href="https://cacm.acm.org/feed/" rel="self" type="application/rss+xml" />
 	<link>https://cacm.acm.org</link>
 	<description></description>
-	<lastBuildDate>Tue, 24 Nov 2026 17:08:14 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 24 Nov 2026 18:08:15 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -28,6 +28,254 @@
 	<height>32</height>
 </image> 
 <site xmlns="com-wordpress:feed-additions:1">212686646</site>	<item>
+		<title>Toward Self-Healing Engineering Systems</title>
+		<link>https://cacm.acm.org/blogcacm/toward-self-healing-engineering-systems/</link>
+					<comments>https://cacm.acm.org/blogcacm/toward-self-healing-engineering-systems/#respond</comments>
+		
+		<dc:creator><![CDATA[Mohammed Bari Syed]]></dc:creator>
+		<pubDate>Tue, 24 Nov 2026 18:08:15 +0000</pubDate>
+				<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
+		<category><![CDATA[Computing Applications]]></category>
+		<category><![CDATA[Computing Profession]]></category>
+		<guid isPermaLink="false">https://cacm.acm.org/?p=815029</guid>
+
+					<description><![CDATA[<p>Applied carefully, agentic AI makes automation adaptive&#8212;not simply faster.</p>]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">In more than 20 years of QA automation and network security engineering across financial services, healthcare, pharmaceuticals, semiconductor design, and next-generation firewall testing, automation has meant teaching machines to follow instructions we already understand.</p>
+
+
+
+<p class="wp-block-paragraph">That model speeds delivery, but struggles with situations its designers did not anticipate.</p>
+
+
+
+<p class="wp-block-paragraph">Tests fail when APIs change, interface elements move, or environments behave unexpectedly. Some failures are intermittent, caused by asynchronous waits, concurrency, or test-order dependencies. The framework reports the failure; a human still diagnoses it.</p>
+
+
+
+<p class="wp-block-paragraph">Agentic AI introduces a different approach. An agent observes a system, reasons about what it sees, plans an action, checks the result, and continues until the task succeeds or human help is needed. Applied carefully, this makes automation adaptive—not simply faster.</p>
+
+
+
+<h3 class="wp-block-heading">From Automated Execution to Autonomous Reasoning</h3>
+
+
+
+<p class="wp-block-paragraph">Traditional automation follows a fixed sequence: Trigger → Execute → Verify → Report. Agentic automation adds a reasoning loop: Observe → Reason → Plan → Act → Verify → Learn or Escalate. That change may look small, but it alters the engineering problem.</p>
+
+
+
+<p class="wp-block-paragraph">If a test cannot find a button, a conventional framework reports “Element not found.” An agent could compare page versions, identify a changed identifier, verify that the business function still works, then propose an updated locator and rerun the test.</p>
+
+
+
+<p class="wp-block-paragraph">This is self-healing test automation, but the term needs care. A system that edits its own tests and declares success is not necessarily intelligent or safe. The objective is not simply to make a test pass. It is to identify why it failed, make the smallest justified correction, and provide evidence that the correction is valid.</p>
+
+
+
+<h3 class="wp-block-heading">A Failing Test Is Not Necessarily a Defect</h3>
+
+
+
+<p class="wp-block-paragraph">A red test does not automatically mean the application is broken. In network security testing, failure may originate in the device, traffic generator, lab topology, test, or an external dependency.</p>
+
+
+
+<p class="wp-block-paragraph">After an overnight deployment, a customer-order suite fails. The cause might be a changed API, obsolete locator, consumed test data, unavailable dependency, expired token, partial deployment, or genuine defect. A traditional framework may report them all alike.</p>
+
+
+
+<p class="wp-block-paragraph">An agent can correlate logs, traces, deployment records, code changes, test history, and environment health. It might report that the customer-status endpoint changed its response structure, moving an expected field, and that three other tests failed after the same deployment.</p>
+
+
+
+<p class="wp-block-paragraph">That is a meaningful shift—from detecting failure to diagnosing it.</p>
+
+
+
+<h3 class="wp-block-heading">The Self-Healing Loop</h3>
+
+
+
+<p class="wp-block-paragraph">Self-healing should operate as a controlled feedback loop:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Observe: Gather test results, logs, traces, and environment signals.</li>
+
+
+
+<li>Diagnose: Separate application defects from test or environment problems.</li>
+
+
+
+<li>Plan: Choose the smallest, lowest-risk correction.</li>
+
+
+
+<li>Act: Make only an authorized change.</li>
+
+
+
+<li>Validate: Rerun the test and related checks.</li>
+
+
+
+<li>Accept or escalate: Record evidence or send the issue to an engineer.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Every repair should pass a confidence and policy gate. A failed gate should lead to escalation, not another unreviewed attempt.</p>
+
+
+
+<h3 class="wp-block-heading">Evidence Before Action</h3>
+
+
+
+<p class="wp-block-paragraph">There is a temptation to describe agentic AI as fully autonomous software engineering. I am more cautious. If loosening a payment validation rule makes a failing test pass, the green result may conceal a serious defect. Before accepting an automated repair, I would require evidence that:</p>
+
+
+
+<ul class="wp-block-list">
+<li>The failure is reproducible and the change addresses its cause.</li>
+
+
+
+<li>The repaired test passes repeatedly, as do related tests.</li>
+
+
+
+<li>Business behavior, security, and compliance requirements remain intact.</li>
+
+
+
+<li>The change is within the agent’s authorized scope.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">The agent should not be rewarded simply for producing a green pipeline. It should be evaluated on whether the pipeline is trustworthy.</p>
+
+
+
+<h3 class="wp-block-heading">What Agents Should Automate First</h3>
+
+
+
+<p class="wp-block-paragraph">Four areas offer value while preserving engineering control.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Test maintenance</strong>: Identify obsolete locators, changed API contracts, unstable tests, and broken test data; recommend or make low-risk updates.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Test generation</strong>: Draft tests from requirements, APIs, and past defects. Engineers must check that they cover meaningful behavior, not just mirror implementation.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Regression optimization</strong>: Use change information and test history to select relevant tests without sacrificing critical coverage.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Failure</strong> <strong>triage</strong>: Classify failures as new, known, environmental, intermittent, or likely regressions. This may deliver the greatest early value by separating infrastructure noise from product defects.</p>
+
+
+
+<p class="wp-block-paragraph">The shift is from asking, “Which test should I execute?” to asking, “What evidence do I need to decide whether this change is safe?”</p>
+
+
+
+<h3 class="wp-block-heading">Self-Healing Does Not Mean Human-Free</h3>
+
+
+
+<p class="wp-block-paragraph">The future does not remove engineers from the process; it changes where they spend their time. No engineer should have to fix the same broken locator repeatedly. Engineers should, however, define what an agent is allowed to change.</p>
+
+
+
+<p class="wp-block-paragraph">I see three practical levels of autonomy:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Low risk: The agent can act automatically on reversible, well-understood changes.</li>
+
+
+
+<li>Medium risk: The agent proposes a change and an engineer approves it.</li>
+
+
+
+<li>High risk: Changes involving security, financial transactions, customer data, production infrastructure, or business-critical behavior require explicit human authorization.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Test engineers increasingly become designers of quality systems. Their expertise moves toward risk modeling, observability, reliability, security, and defining what evidence is sufficient to establish confidence.</p>
+
+
+
+<h3 class="wp-block-heading">From Self-Healing Tests to Self-Healing Systems</h3>
+
+
+
+<p class="wp-block-paragraph">The same principles can extend beyond testing. One agent might connect rising latency to a recent deployment and recommend a rollback. Another might generate tests when an API contract change affects downstream consumers. A security agent might investigate unusual access patterns and recommend containment.</p>
+
+
+
+<p class="wp-block-paragraph">I think of these as intelligent engineering loops: systems that continuously observe software, reason about its behavior, take controlled actions, and verify the consequences. The goal is not software that blindly repairs itself. It is software that can correct problems within defined boundaries and produce evidence people can trust. </p>
+
+
+
+<h3 class="wp-block-heading">The Engineering Challenge Ahead</h3>
+
+
+
+<p class="wp-block-paragraph">Writing another test script is no longer the hardest part. The challenge is the control system: observability, authorization boundaries, auditability, secure tool access, rollback, repeatable validation, and confidence measures.</p>
+
+
+
+<p class="wp-block-paragraph">Organizations must avoid excessive agency: granting more permissions or autonomy than a task requires. Fewer human interventions are not automatically better; success means reducing unnecessary intervention while preserving quality, safety, security, and accountability.</p>
+
+
+
+<h3 class="wp-block-heading">A New Role for Software Engineers</h3>
+
+
+
+<p class="wp-block-paragraph">Software engineering has moved from manual testing to scripted automation, from scripted deployments to continuous delivery, and from hand-managed servers to infrastructure as code. The next transition may be from deterministic automation to adaptive engineering systems.</p>
+
+
+
+<p class="wp-block-paragraph">That makes experience more important, not obsolete. An agent can generate thousands of actions, but it still needs engineering judgment to decide which actions are safe. Engineers who understand failure modes, distributed systems, security, and business risk are well positioned to build and govern these systems.</p>
+
+
+
+<p class="wp-block-paragraph">The future I see is not AI replacing engineers. It is engineers building systems in which agents help us test, repair, and improve software. The real measure of success will not be how autonomous these systems become, but how much more reliable software engineering becomes because we learned to make autonomy trustworthy.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Disclosure</strong>: Generative AI tools, including Anthropic’s Claude, were used to help condense an earlier draft, identify and check supporting references, and edit for clarity. The ideas, examples, technical arguments, and conclusions are the author’s own, drawn from his professional experience. The author reviewed the final text and takes full responsibility for its content and references.</p>
+
+
+
+<figure class="wp-block-image"><img fetchpriority="high" decoding="async" width="351" height="350" src="https://cacm.acm.org/wp-content/uploads/2026/11/Mohammed-Bari-Syed.112426.BLOG-350.jpg" alt="Mohammed Bari Syed" class="wp-image-815828" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/Mohammed-Bari-Syed.112426.BLOG-350.jpg 351w, https://cacm.acm.org/wp-content/uploads/2026/11/Mohammed-Bari-Syed.112426.BLOG-350.jpg?resize=150,150 150w, https://cacm.acm.org/wp-content/uploads/2026/11/Mohammed-Bari-Syed.112426.BLOG-350.jpg?resize=300,300 300w" sizes="(max-width: 351px) 100vw, 351px" /></figure>
+
+
+
+<p class="wp-block-paragraph"><br><em><strong>Mohammed</strong> <strong>Bari</strong> <strong>Syed</strong> is a Principal Network QA Engineer at Palo Alto Networks, with more than 20 years of experience in QA automation and network security engineering. The views expressed here are his own and do not represent those of his employer.</em></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://cacm.acm.org/blogcacm/toward-self-healing-engineering-systems/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">815029</post-id>	</item>
+		<item>
 		<title>Beyond Model Alignment: The Case for Bounded Autonomy in AI Systems</title>
 		<link>https://cacm.acm.org/opinion/beyond-model-alignment-the-case-for-bounded-autonomy-in-ai-systems/</link>
 					<comments>https://cacm.acm.org/opinion/beyond-model-alignment-the-case-for-bounded-autonomy-in-ai-systems/#respond</comments>
@@ -537,7 +785,7 @@
 
 
 
-<figure class="wp-block-image size-full is-resized"><img fetchpriority="high" decoding="async" width="922" height="370" src="https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png" alt="" class="wp-image-814981" style="aspect-ratio:2.4887640449438204;width:764px;height:auto" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png 922w, https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png?resize=300,120 300w, https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png?resize=768,308 768w, https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png?resize=620,249 620w" sizes="(max-width: 922px) 100vw, 922px" /><figcaption class="wp-element-caption"><em>Figure 1. A guided learning loop: Students build, verify, choose one unfamiliar term, study it, and apply the idea in the next development step. Image original generated with AI assistance of ChatGPT.</em></figcaption></figure>
+<figure class="wp-block-image size-full is-resized"><img decoding="async" width="922" height="370" src="https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png" alt="" class="wp-image-814981" style="aspect-ratio:2.4887640449438204;width:764px;height:auto" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png 922w, https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png?resize=300,120 300w, https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png?resize=768,308 768w, https://cacm.acm.org/wp-content/uploads/2026/11/image_89a055.png?resize=620,249 620w" sizes="(max-width: 922px) 100vw, 922px" /><figcaption class="wp-element-caption"><em>Figure 1. A guided learning loop: Students build, verify, choose one unfamiliar term, study it, and apply the idea in the next development step. Image original generated with AI assistance of ChatGPT.</em></figcaption></figure>
 
 
 
@@ -688,7 +936,7 @@
 <section id="sec1" class="sec">
 <p id="p-1">A distributed ledger technology (DLT) is a decentralized database system, managed by multiple participants across different locations, to enable secure, synchronized, and immutable recording of data without the need for a central administrator. The most well-known DLT is blockchain.<a class="reference-link xref xref-bibr" href="#B11" data-jats-ref-type="bibr" data-jats-rid="B11"><sup>11</sup></a></p>
 <p id="p-2">Distributed ledger technology systems have been optimizing for throughput, latency, and token incentives during the last decade. Yet as global climate commitments tighten and computing footprints grow, the field still lacks a verifiable, cross-platform standard for evaluating the environmental impact of consensus mechanisms. The debate has largely centered on proof-of-work (PoW) versus proof-of-stake (PoS), but neither provides a comprehensive sustainability benchmark. What is missing is a unifying approach that treats ecological responsibility as a first-class property of consensus itself. This Opinion column proposes Sustainability-First Consensus (SFC): a measurable, auditable framework for evaluating against transparent sustainability criteria (see the accompanying figure). SFC establishes thresholds and requirements that any consensus architecture must meet to be considered environmentally responsible, from a “sustainability by design” perspective.</p>
-<p><img decoding="async" class="alignnone size-full wp-image-815714" src="https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg" alt="Sustainability-First, Figure 1" width="1680" height="988" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg 1680w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=300,176 300w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=768,452 768w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=1024,602 1024w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=1536,903 1536w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=1600,941 1600w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=620,365 620w" sizes="(max-width: 1680px) 100vw, 1680px" /></p>
+<p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-815714" src="https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg" alt="Sustainability-First, Figure 1" width="1680" height="988" srcset="https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg 1680w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=300,176 300w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=768,452 768w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=1024,602 1024w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=1536,903 1536w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=1600,941 1600w, https://cacm.acm.org/wp-content/uploads/2026/11/Sustainability-First-Fig.1.jpg?resize=620,365 620w" sizes="auto, (max-width: 1680px) 100vw, 1680px" /></p>
 <figure id="F1" class="fig"><figcaption><span class="caption-label">Figure 1. </span> <span class="p">The Sustainability-First Consensus (SFC) Framework. A conceptual map showing the transition from high-energy blockchain systems to a normative standard that integrates methodologies and planetary boundary constraints into the core of DLT architecture.</span></p>
 <div class="figcaption-footer"> </div>
 </figcaption></figure>
@@ -1023,127 +1271,5 @@
 		
 		
 		<post-id xmlns="com-wordpress:feed-additions:1">814542</post-id>	</item>
-		<item>
-		<title>The Next Frontier in AI-Enabled Coding: Scaling Development</title>
-		<link>https://cacm.acm.org/news/the-next-frontier-in-ai-enabled-coding-scaling-development/</link>
-					<comments>https://cacm.acm.org/news/the-next-frontier-in-ai-enabled-coding-scaling-development/#respond</comments>
-		
-		<dc:creator><![CDATA[Amy Buttell]]></dc:creator>
-		<pubDate>Fri, 20 Nov 2026 18:52:46 +0000</pubDate>
-				<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
-		<category><![CDATA[Computing Profession]]></category>
-		<category><![CDATA[Software Engineering and Programming Languages]]></category>
-		<guid isPermaLink="false">https://cacm.acm.org/?p=814841</guid>
-
-					<description><![CDATA[<p>Developers, teams, and organizations are identifying solutions to streamline the AI-enabled coding process and accelerate development and product shipment.</p>]]></description>
-										<content:encoded><![CDATA[
-<p class="wp-block-paragraph">There’s little doubt AI-enabled coding tools can expedite the first part of the coding process: writing code. However, bottlenecks appear once the code is written, which call into question whether AI-enabled coding genuinely improves the speed at which development takes place and products ship.</p>
-
-
-
-<p class="wp-block-paragraph">CircleCI’s <em>2026 State of Software Delivery</em> documents the costs: while more code is being written, the rate at which development is finished and released fell at the same time during their study, which occurred between Sept. 1 to Sept. 28, 2025.<sup><a href="#one">1</a></sup> AI-enabled code tends to fail at higher rates and takes longer to fix, which leads to more developer time lost, fewer products shipping, and questionable AI investment ROI.<sup><a href="#one">1</a></sup></p>
-
-
-
-<p class="wp-block-paragraph">The next frontier in AI-enabled development seeks to harness the power of LLM-based AI coding platforms to scale coding and development to speed products (codes and programs) to market. Because LLM platforms develop and release new versions rapidly, defining the challenges involved in AI-enabled coding is a moving target.</p>
-
-
-
-<p class="wp-block-paragraph">“The bottleneck is both a process problem and an understanding problem,” said Margaret-Anne Storey, professor of computer science at Canada’s University of Victoria. “Understanding now needs to be a deliverable. We always thought of code as the deliverable when humans were writing code because you would write the code, your program would execute, and your understanding was recoverable from the code. Now, AI writes the code, so what we need to do is think about the architecture, which influences product security, performance, integration, and evolution.”</p>
-
-
-
-<p class="wp-block-paragraph">As understanding evolves, developers, teams, and organizations are identifying solutions to streamline the AI-enabled coding process and accelerate development and product shipment.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Challenges to Scaling AI-Enabled Coding</strong></p>
-
-
-
-<p class="wp-block-paragraph">AI-enabled coding, whether directly through AI coding assistants or through AI agents, creates three specific types of debt that then cascade into a variety of concrete challenges that developers, teams, and organizations encounter as they seek to accelerate development and product shipment.</p>
-
-
-
-<p class="wp-block-paragraph">Storey originated the triple-debt concept around software health, which she explained in a paper published in <em>ACM Queue</em>: “Technical debt refers to problems in the code layer, cognitive debt refers to erosion of the shared understanding across a team over time, and intent debt refers to a lack of externalized goals, constraints, and rationale that both humans and AI systems need to work safely and efficiently within a codebase.”<sup><a href="#two">2</a></sup></p>
-
-
-
-<p class="wp-block-paragraph">“Technical debt makes systems harder to change,” she continued in the paper. “Cognitive debt makes systems harder to understand. Intent debt makes it difficult to know what the system is actually for.”<sup><a href="#two">2</a></sup></p>
-
-
-
-<p class="wp-block-paragraph">For Nik Kale, principal engineer at networking company and contributor to the Coalition for Secure AI, AI coding must reduce the total effort required to deliver a dependable change to create value. “More AI in the building still means more change failures and more recovery work even after raw speed recovers,” he said.</p>
-
-
-
-<p class="wp-block-paragraph">“DORA’s 2026 report names the mechanism and calls it the verification tax, the added effort of checking whether generated code is correct, secure, and architecturally coherent,” Kale added. “Writing code was never really the bottleneck and rather was just the only part of the lifecycle anyone had bothered to instrument.”</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Solutions to Scaling AI-Enabled Coding</strong></p>
-
-
-
-<p class="wp-block-paragraph">Because LLM models are evolving rapidly, the solutions to scaling AI-enabled coding are in flux. At the same time, developers, teams, and organizations are starting to figure out the investment, processes, and procedures to implement to streamline AI coding, avoid or overcome bottlenecks, and expedite the entire process to accelerate product development. Several solutions are available.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Treating AI as an internal product or service:</strong> “With the tools and investment, what’s going to be really potent in the next two to three years is the fact of treating how you are implementing AI as an internal product or service,” said David Longnecker, an AI and technology consultant. “Just like building up a team wiki in Sharepoint, an organizational AI tool is something that will have to be owned and maintained with observability and explainability behind it.”</p>
-
-
-
-<p class="wp-block-paragraph">Longnecker described AI as “an internal service we provide,” explaining, “Here is the team that are the service providers in charge of rolling out standard operating procedures, teaching people who are using the tool independently to use it in the same direction. It’s going to require investment not just in technology, but in people. You can’t fire all the people because AI is going to do all the things; you’re going to have to hire them back to keep the AI in line.”</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Employing context engineering:</strong> Context engineering relates to managing the context developers give AI agents, according to Storey. “Context engineering involves thinking about the kind of information that we should give to our AI coding agents,” she said. “Sometimes it’s called a constitution; like a constitution for the agents, the advice that they need to do a task correctly.”</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Creating or using an agentic AI development platform</strong>: IBM launched an agentic AI development platform called Bob in April 2026 to automate the software development lifecycle. Instead of responding to isolated prompts, Bob coordinates specialized AI agents across roles and lifecycle stages.<sup><a href="#three">3</a></sup> IBM uses Bob internally and makes Bob available to clients as an SaaS offering.</p>
-
-
-
-<p class="wp-block-paragraph">“Bob supports models that mimic different roles, rules that help create standardized templates, skills that help author playbooks, and tools that enable automation and gates for checkpointing,” said Neel Sundaresan, general manager of automation and AI at IBM. “These capabilities help create artifacts specific to individual states of the software development lifecycle, where Bob can assist, augment, or automate the work of a human in that role.”</p>
-
-
-
-<p class="wp-block-paragraph">Sundaresan noted that beyond efficiency, Bob streamlines the team dynamic, which allows development teams to align faster, iterate with confidence, and bring higher quality products to market.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Building automation to support and distribute code review:</strong> “We use LLMs to review code at four levels—commit, pull request, feature, and release—classifying findings according to internal definitions between must-fix and nice-to-fix,” said Breno Oliveira, chief technology officer at Strider, a platform for hiring and retaining remote developers. “We’ve also built automations that distribute code reviews more effectively, ensuring a balanced workload but also driving improved accuracy by ensuring, for example, that the reviewer is familiar with a feature or the code involved.”</p>
-
-
-
-<p class="wp-block-paragraph"><strong>References</strong></p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<p class="wp-block-paragraph"><a id="one"></a>1. Powell, R., and Schmitt, J. The New Reality of Software Delivery. <em>CircleCI</em>; <a href="https://circleci.com/resources/2026-state-of-software-delivery/">https://circleci.com/resources/2026-state-of-software-delivery/</a></p>
-
-
-
-<p class="wp-block-paragraph"><a id="two"></a>2. Storey, M-A. From Technical Debt to Cognitive and Intent Debt: Rethinking Software Health in the Age of AI. <em>ACM</em> <em>Queue</em>; <a href="https://queue.acm.org/doi/10.1145/3807966">https://queue.acm.org/doi/10.1145/3807966</a></p>
-
-
-
-<p class="wp-block-paragraph"><a id="three"></a>3. Introducing IBM Bob: AI Development Partner that Takes Enterprises from AI-Assisted Coding to Production-Ready Software. IBM; <a href="https://bit.ly/48j2ZfB">https://bit.ly/48j2ZfB</a></p>
-
-
-
-<p class="wp-block-paragraph"><em><strong>Amy Buttell</strong> is a Silver Spring, MD-based technology, legal, and business journalist, content creator, writer, and ghostwriter.</em></p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://cacm.acm.org/news/the-next-frontier-in-ai-enabled-coding-scaling-development/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-		<post-id xmlns="com-wordpress:feed-additions:1">814841</post-id>	</item>
 	</channel>
 </rss>
