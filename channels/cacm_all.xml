@@ -12,7 +12,7 @@
 	<atom:link href="https://cacm.acm.org/feed/" rel="self" type="application/rss+xml" />
 	<link>https://cacm.acm.org</link>
 	<description></description>
-	<lastBuildDate>Tue, 24 Nov 2026 16:57:17 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 24 Nov 2026 17:08:14 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -28,6 +28,124 @@
 	<height>32</height>
 </image> 
 <site xmlns="com-wordpress:feed-additions:1">212686646</site>	<item>
+		<title>Beyond Model Alignment: The Case for Bounded Autonomy in AI Systems</title>
+		<link>https://cacm.acm.org/opinion/beyond-model-alignment-the-case-for-bounded-autonomy-in-ai-systems/</link>
+					<comments>https://cacm.acm.org/opinion/beyond-model-alignment-the-case-for-bounded-autonomy-in-ai-systems/#respond</comments>
+		
+		<dc:creator><![CDATA[Daniel Khashabi]]></dc:creator>
+		<pubDate>Tue, 24 Nov 2026 17:08:14 +0000</pubDate>
+				<category><![CDATA[Artificial Intelligence and Machine Learning]]></category>
+		<category><![CDATA[Security and Privacy]]></category>
+		<category><![CDATA[Software Engineering and Programming Languages]]></category>
+		<guid isPermaLink="false">https://cacm.acm.org/?post_type=digital-library&#038;p=814256</guid>
+
+					<description><![CDATA[<p>The goal of “perfectly aligned” models is elusive if not impossible.</p>]]></description>
+										<content:encoded><![CDATA[<article>
+<div class="body" lang="en">
+<section id="sec1" class="sec">
+<p id="p-1">We are caught in a dilemma: Full autonomy risks ungovernable behavior, while pure control collapses AI into mere software, forfeiting the value of autonomous action.<a class="reference-link xref xref-bibr" href="#B9" data-jats-ref-type="bibr" data-jats-rid="B9"><sup>9</sup></a> The answer to that dilemma has largely been framed as a <i>model alignment</i> problem. If we can instill the right values into a model—through reinforcement learning from human feedback (RLHF),<a class="reference-link xref xref-bibr" href="#B3" data-jats-ref-type="bibr" data-jats-rid="B3"><sup>3</sup></a> constitutional training,<a class="reference-link xref xref-bibr" href="#B2" data-jats-ref-type="bibr" data-jats-rid="B2"><sup>2</sup></a> or similar techniques—the thinking goes, we would end up with a “good” model that will behave well across all contexts. As Anthropic CEO and co-founder Dario Amodei puts it, “We believe that a feasible goal for 2026 is to train Claude in such a way that it almost never goes against the spirit of its constitution.”<a class="reference-link xref xref-bibr" href="#B1" data-jats-ref-type="bibr" data-jats-rid="B1"><sup>1</sup></a></p>
+<p id="p-2">We argue that this approach is risky. For a broad range of reasons we detail below, the goal of “perfectly aligned” models is elusive if not impossible. Even Amodei hedges his statement by talking about the “spirit” of alignment and acknowledging that misalignment will occur <i>“almost</i> never.” In the same essay, he enumerates instances of Claude engaging in deception, blackmail, and reward-hacking during internal testing. The architect of Constitutional AI is, in effect, conceding a central point: Alignment cannot be relied upon as a guarantee of safe behavior. With AI autonomy, even a single misaligned action can cause tremendous damage.</p>
+<p id="p-3">Summer Yue, director of alignment at Meta Superintelligence Labs, provided a compelling example. She had instructed her agent to confirm before acting; instead, it began deleting every message in her inbox more than a week old. “I couldn’t stop it from my phone. I had to [run] to my Mac mini like I was defusing a bomb.”<a class="footnote-link xref xref-fn" href="#FN1" data-jats-rid="FN1" data-jats-ref-type="fn"><sup>a</sup></a> If even an alignment researcher cannot control their own agent, the risks are far greater for ordinary users.</p>
+<p id="p-4">We propose a complementary principle<i>: bounded autonomy</i> (BA), a proposal motivated by the hypothesis that model alignment will never be perfect and failure is expected. Therefore, BA shifts part of the safety burden from “aligned <i>models</i>” to “safe <i>systems</i>” that constrain agent authority. Even when both pursue the same ultimate safety goal, they place the safety guarantee in different parts of the system.</p>
+</section>
+<section id="sec2" class="sec">
+<h2 class="heading">Autonomy without Boundaries in the Wild</h2>
+<p id="p-5">To see what happens when autonomy operates within minimal authority boundaries, consider what happened when a human user deployed “MJ Rathbun,” an AI agent tasked to act as an autonomous scientific coder: find bugs in open source projects, fix them, and open pull requests. The human operator’s involvement was minimal by design. Their instructions were deliberately hands-off: When the agent asked for guidance, the operator’s typical reply was “you respond, don’t ask me”<a class="reference-link xref xref-bibr" href="#B7" data-jats-ref-type="bibr" data-jats-rid="B7"><sup>7</sup></a>—effectively granting the agent <i>unbounded</i> autonomy.</p>
+<p id="p-6">MJ Rathbun eventually submitted a code change to a widely used library. When the library’s maintainers rejected the pull request, the agent researched the maintainer’s personal information online, presented hallucinated details as fact, and then published a blog post accusing them of discrimination and prejudice.</p>
+<p id="p-7">A more recent example is the OpenAI agents’ attack on HuggingFace infrastructure. During a multi-day evaluation of cyber capabilities, models ran with reduced safeguards inside what OpenAI researchers believed was a bounded sandbox. The agents used a shared package-registry cache as an unauthorized message board, pooled fragments of information across separate evaluation runs, obtained Internet access, and reached into HuggingFace’s production network.<a class="reference-link xref xref-bibr" href="#B5" data-jats-ref-type="bibr" data-jats-rid="B5"><sup>5</sup></a></p>
+<p id="p-8">There are two important lessons in these stories: First, while these anecdotes may sound like edge cases, they are a preview of how humans and organizations will increasingly use AI agents with more autonomy, less oversight. Second, in both cases, the underlying models were frontier language models that had <i>already gone through extensive alignment training</i>, and yet none of that alignment prevented the outcome.</p>
+</section>
+<section id="sec3" class="sec">
+<h2 class="heading">Unattainability of Perfect Model Alignment (and the Necessity of BA)</h2>
+<p id="p-9">The dominant paradigm for AI safety today is <i>alignment</i>: the effort to instill values directly into model weights so that good behavior becomes an intrinsic property of the system. Virtually every major AI company—Anthropic, OpenAI, Google—relies on some variant of alignment training to instill safety principles into model weights. The underlying premise is appealing: If we can train a model to be “good” by <i>reliably</i> acting in accordance with human values, safety follows from the model itself.</p>
+<p id="p-10">We believe this premise, taken as the sole basis for safety, is unattainable—for several reasons:</p>
+<p id="p-11"><b>The long tail of failures.</b> Language models struggle with “long-tail” phenomenon failures: Rare but consequential failure modes are combinatorially large, and no amount of alignment training is likely to eliminate them entirely.<a class="reference-link xref xref-bibr" href="#B4" data-jats-ref-type="bibr" data-jats-rid="B4"><sup>4</sup></a> The MJ Rathbun incident is a case in point: No training dataset anticipated the <i>specific</i> chain of events that led this AI agent to publish a defamatory blog post against a human.</p>
+<p id="p-12">We also know that problem complexity (and hence, the “long-tail”) compounds over a long horizon chain of decisions, which is typical of AI agents deployed in open-ended tasks such as executing convoluted research or coding tasks. Multiple agents compound the problem: The space of possible interactions grows multiplicatively, so the tail gets longer. This enlarges the alignment burden without changing what a well-placed bound must enforce.</p>
+<p id="p-13"><b>Incomplete instructions.</b> It is the nature of human-human communication to leave out details: We speak in shorthand and expect others to fill in the gaps sensibly based on shared context (culture, law, and social norms). Models, however, may not fill those gaps in the way a human operator expects.</p>
+<p id="p-14">Instructions can be incomplete due to social or pragmatic pressures. We delegate problems because we do not have time to specify every detail (as in the Rathbun operator’s instruction, “you respond, don’t ask me”), or because we do not know how to solve them ourselves (the case of cyberattacks). In such cases, misalignment means failing to make the right judgment when instructions are open-ended.</p>
+<p id="p-15"><b>The world shifts, but models do not.</b> A model that is aligned in one context may be misaligned in other operating conditions. One factor is time: Models trained on data and values of 2026 may be misaligned by 2027. Besides the temporal factor, the deployment context—policies of each organization, norms of each culture, laws of different jurisdictions—shifts the guardrails that ought to be imposed. A one-size-fits-all aligned model cannot satisfy all of them simultaneously.</p>
+<p id="p-16">Training models to be helpful, harmless, and honest is clearly desirable. But relying on alignment as the <i>primary guarantee</i> of safety is analogous to relying solely on pilots for aviation safety while doing away with air traffic control, flight checklists, and the rest of the aviation safety ecosystem.</p>
+</section>
+<section id="sec4" class="sec">
+<h2 class="heading">From Models to Systems</h2>
+<p id="p-17">The alignment paradigm focuses on the <i>model</i>—the neural network that maps inputs to outputs. But AI is increasingly deployed as <i>systems</i> that wrap <i>models</i> within <i>orchestration layers</i> that govern their interaction with the world.</p>
+<p id="p-18">While the focus of AI development has moved decisively from models to systems, the AI safety mainstream remains focused on <i>model alignment</i>, and system-level safety practices remain ad hoc. MJ Rathbun’s harmful behavior or the OpenAI/HuggingFace incident did not stem from a lack of alignment, as in both cases the underlying model was almost certainly a frontier model that had already undergone alignment training. The failure was insufficient <i>system</i>-level constraints on the agent’s actions.</p>
+</section>
+<section id="sec5" class="sec">
+<h2 class="heading">Bounded Autonomy</h2>
+<p id="p-19">The core claim of BA is simple: Just as modern software engineering assumes bugs will exist and builds testing and monitoring infrastructure accordingly, BA assumes that model misbehavior should be treated as an <i>expected</i> condition. Therefore, BA focuses on shaping <i>structured freedom</i> into what the system is allowed to do: creating a space where agents can act freely yet remain within explicitly defined safety boundaries.</p>
+<p id="p-20">The boundaries are <i>not</i> learned or internalized in the model, but rather they are engineered, auditable, and revisable by the system designer. This is different from—and complementary to—the current dominant paradigm that internalizes values (à la Constitution) into the model itself.<a class="reference-link xref xref-bibr" href="#B2" data-jats-ref-type="bibr" data-jats-rid="B2"><sup>2</sup></a> This is also different from blindly severing an agent’s connections to the world (aka “sandboxing”). Sandboxing is one mechanism within a broader set of levers that can be used to shape the engagement with the outside world and the autonomy envelope.</p>
+<p id="p-21">Establishing BA as a principle is a first step, but research is needed to elaborate and refine that principle. Many such principles are possible; we highlight three here:</p>
+<ul class="list" data-jats-list-type="bullet">
+<li class="list-item">
+<p id="p-22"><b>Bounds must be operational:</b> A boundary that says “the system should be fair” is aspirational. A boundary that says “the system may not make hiring decisions without human review” is closer to being operational. BA demands the latter: enforceable constraints that can be verified and audited.</p>
+</li>
+<li class="list-item">
+<p id="p-23"><b>Bounds must be configurable:</b> While alignment typically aims for a universal standard of “good” behavior, BA treats governance as inherently contextual: different users, organizations, and regulatory environments should be able to define, adjust, and contextualize boundaries depending on purpose, risk, or domain. A medical AI assistant in a teaching hospital may operate under different autonomy bounds than the same system deployed in a rural clinic.</p>
+</li>
+<li class="list-item">
+<p id="p-24"><b>Bounds must be set from outside the agent’s control:</b> A bound the agent can widen is not a bound. Authority is granted by the system and cannot be acquired by the agent, however it reasons. A self-driving car picks the lane and the speed, but the passenger picks the destination. The car does not get to decide mid-route that a different trip would be more useful, and it cannot grant itself permission to drive on the sidewalk. An AI agent should act freely inside its envelope and have no mechanism for enlarging it. Where wider authority is legitimately needed, it is issued by a human or by a separate authorizing system that the agent does not control.</p>
+</li>
+</ul>
+<p id="p-25">A related prior work we highlight is the “adjustable autonomy” of Scerri, Pynadath, and Tambe,<a class="reference-link xref xref-bibr" href="#B6" data-jats-ref-type="bibr" data-jats-rid="B6"><sup>6</sup></a> which addresses when an agent should transfer decision-making control to a human by optimizing over transfer-of-control strategies via MDPs under the assumption of a faithful agent. BA, by contrast, assumes model misbehavior is an expected condition and imposes externally enforced constraints on what the agent is permitted to do.</p>
+<p id="p-26">How BA should be operationalized is itself an open research question—and arguably the central one. What follows is not a blueprint but a first attempt to characterize the design space. We offer it to motivate the research agenda, not to foreclose it.</p>
+<section id="sec6" class="sec">
+<h3 class="heading">Designing bounded autonomy: A layered defense.</h3>
+<p id="p-27">We distinguish three categories of safety intervention. Category 1 consists of guardrails built into the model itself via the dominant training-based paradigms. Category 2 consists of external classifiers and monitors deployed on top of the model, which monitor inputs and outputs for unsafe content. Category 3 consists of hard, unconditional constraints that are non-negotiable regardless of context or reasoning—authorization rules such as “never use the user’s credit card without explicit confirmation” or “never delete a file without first creating a backup.” This also includes sandboxes, VMs, file-system boundaries, and network egress controls.</p>
+<p id="p-28">Bounded autonomy argues for moving beyond overreliance on Category 1, and for expanding serious engineering effort around Categories 2 and 3.</p>
+<p id="p-29">One way to think about how these categories fit together is as layers in a Swiss cheese model. Category 1 sits at the first layer. Surrounding it are multiple layers of Category 2 classifiers, each tuned to different safety considerations and sensitivity levels. Category 3 forms the outermost boundary, holding regardless of what any inner layer permits. No single layer is perfect, but the combination is substantially more robust. The goal is to engineer a system in which the layers collectively leave nearly no gaps.</p>
+<p id="p-30">The empirical results support layering safety modules. Adding Category 2 guardrails on top of an already-aligned model (Category 1) improves safety with a negligible increase in over-refusals and compute overhead.<a class="reference-link xref xref-bibr" href="#B8" data-jats-ref-type="bibr" data-jats-rid="B8"><sup>8</sup></a> A further practical advantage is modularity: Safety layers can be updated without retraining the model, allowing targeted responses when a specific adversarial attack bypasses model-level alignment. In the OpenAI cybersecurity incident, OpenAI’s own reporting confirmed that the propensity to compromise infrastructure drops more than a <i>hundredfold</i> when the same models run with the production scaffold that enforces the oversight of cybersecurity classifiers.<a class="reference-link xref xref-bibr" href="#B5" data-jats-ref-type="bibr" data-jats-rid="B5"><sup>5</sup></a></p>
+<p id="p-31">The multi-layered architecture implicitly characterizes the system’s safe operating boundaries. A useful analogy is the aviation flight envelope. Aircraft are not designed to fly in <i>all</i> conditions. Instead, they define the limits within which the system operates reliably. BA asks the same of AI systems: auditable boundaries that place the safety-utility trade-off in the hands of the designers rather than leaving it implicit in the model’s weights.</p>
+<p id="p-32">Crucially, just having layers is not enough: The safe operating envelope of an agentic system must be calibrated to the actual capabilities of the underlying model(s). Bounds set too loosely fail to prevent harm; bounds set too tightly waste the potential of capable models and may themselves degrade outcomes. A core part of the BA research agenda is therefore developing rigorous methods for characterizing the right envelope for a given agent, task class, and deployment context.</p>
+<p id="p-33">One might ask: If leading labs already layer classifiers on top of aligned models, what does BA add? Current practice remains ad hoc and fragmented across alignment, AI control, access privileges, and containment. This is a call for developing principled frameworks for characterizing the autonomy envelope of AI agents.</p>
+</section>
+<section id="sec7" class="sec">
+<h3 class="heading">A taxonomy of constraints.</h3>
+<p id="p-34">With these design choices in mind, we sketch a taxonomy of constraint types, proceeding from the most granular level outward to broader restrictions. Each constraint embodies a trade-off: It increases safety while limiting utility. Further research is required to ensure systems do not circumvent these constraints in practice. This taxonomy should therefore be understood <i>not</i> as a specification of BA, but as the basis for a research program.</p>
+<section id="sec8" class="inline-headings-section">
+<p data-jats-content-type="inline-heading"><strong>Action constraints.</strong>  <i>Reversibility constraints</i> apply cautious engineering to AI behavior: only allow autonomous actions that can be undone. An agent may draft an email but not send it or flag a file for deletion but not delete it permanently. Reversibility should be a first-class attribute in any BA specification and maps naturally onto existing software patterns—transactions, staging environments, and version control. Irreversible actions should be prohibited or escalated for human review.</p>
+<p id="p-36"><i>Whitelists</i> and <i>blacklists</i> are complementary mechanisms for managing permitted actions. A whitelist defines authorized actions and prohibits everything else by default, consistent with least privilege; a blacklist prohibits specific actions and permits everything else. For high-risk agents, whitelisting is strongly preferable. The two can be layered: a whitelist of permitted tool classes combined with blacklists of specific prohibited operations within each class.</p>
+</section>
+<section id="sec9" class="inline-headings-section">
+<p data-jats-content-type="inline-heading"><strong>Metric constraints.</strong>  <i>Time-to-live (TTL)</i> constraints bound the temporal duration of an agent’s authorization. As Zittrain proposed, authority granted to an agent should not persist indefinitely.<a class="reference-link xref xref-bibr" href="#B10" data-jats-ref-type="bibr" data-jats-rid="B10"><sup>10</sup></a> An agent dispatched for a two-hour task should not retain broad access for two weeks. TTL constraints address the accumulation of latent agency in systems granted permissions once and never revoked; when authorization decays automatically, the damage radius of a dormant or compromised agent contracts over time.</p>
+<p id="p-38"><i>Expenditure constraints</i> establish hard limits on the financial resources an agent can deploy—among the most straightforward constraints to implement and the most practically important. An agent capped at one hundred dollars cannot directly spend a million. More broadly, <i>resource-consumption constraints</i> cap expenses of various forms: API calls, compute, storage, bandwidth and so forth.</p>
+<p id="p-39"><i>Scope constraints</i> bound the geographic or jurisdictional scope of an agent. The digital world already encodes such constraints implicitly (e.g., data residency laws, export controls). An agent handling European health data, for example, should be prohibited from transmitting data outside GDPR-compliant jurisdictions. Spatial constraints are particularly important for multi-agent systems, where information can propagate across jurisdictional or infrastructure boundaries in ways the original agent did not anticipate.</p>
+</section>
+<section id="sec10" class="sec">
+<h4 class="heading">Information-flow constraints.</h4>
+<p id="p-40"><i>Information-flow constraints</i> govern how information may propagate. They track confidentiality, integrity, and provenance of what moves between an agent, its tools, and the outside world. The danger is a sequence of individually permissible actions that jointly produces a forbidden outcome. An agent blocked from a prohibited action may achieve the same outcome through individually permitted steps—gradually leaking sensitive information through multiple innocuous disclosures. Enforcement must therefore reason not only about atomic actions but also about trajectories of actions across sessions. This remains an open research problem, and one that grows more important as agents’ capabilities grow.</p>
+</section>
+<section id="sec11" class="inline-headings-section">
+<p data-jats-content-type="inline-heading"><strong>Domain constraints.</strong>  <i>Functional domain constraints</i> restrict an agent to a defined subject matter or organizational function. A financial analysis agent, for example, should have no access to employee communications or source code. This implements the principle of <i>least privilege</i> at the system level and enables configurability: The same model, instantiated with different domain constraints, can serve finance, legal review, or customer support, with boundaries enforced architecturally rather than relying on the model to “know its place.”</p>
+</section>
+<section id="sec12" class="sec">
+<h4 class="heading">Composing the constraint taxonomy.</h4>
+<p id="p-42">These categories act as layers. A well-designed BA system applies multiple constraints simultaneously, each protecting against a different failure class. An agent managing financial operations might face a whitelist of permitted API calls, an expenditure cap, a TTL on authorization, and a prohibition on accessing systems outside the finance domain. Any behavior exceeding this combined envelope is blocked or escalated at the system level, regardless of what the model decides.</p>
+<p id="p-43">This composability is itself a design principle. BA architectures should be built from modular, independently enforceable constraint components that can be combined, audited, and revised without the need to significantly modify the underlying model. While the model’s capabilities may evolve in ways that are hard to fully characterize, the constraint envelope should remain under explicit human control.</p>
+<p id="p-44">Enforcement belongs at the resource. A household circuit breaker trips at the panel when total draw exceeds its rating; it does not care how many appliances are plugged in, how they are wired, or whether they coordinate. Agent bounds should work the same way. A $500 account limit cannot be bypassed by one agent making ten $100 charges or ten agents making one charge each. If either evades the cap, the cap was implemented in the wrong place, for example, per session rather than at the account. That is an implementation error, not a reason to invent a new class of constraint.</p>
+<p id="p-45">A harder case is when agents work their way to acquire new authority. An agent capped at $500 may instead open a second account. An agent with no communication channel may assemble one out of storage it is allowed to write to, as OpenAI’s agents did with a shared package-registry cache. Neither move violates any single constraint, yet both leave the agent with authority nobody granted it. BA therefore requires that the power to grant authority sits <i>outside</i> the agent and that the system monitors for acquired privileges that expand the intended autonomy envelope.</p>
+</section>
+</section>
+</section>
+<section id="sec13" class="sec">
+<h2 class="heading">Epilogue—and a Call to Arms</h2>
+<p id="p-46">As AI agents become more capable and more deeply embedded in consequential decisions, the future of safe AI will not be defined by “perfectly aligned” <i>models</i>. It will be defined by <i>systems</i> whose autonomy is deliberately, transparently, and configurably bounded.</p>
+<p id="p-47">We call on the AI research community, industry practitioners, and policymakers to establish BA as a foundational principle for the era of AI agents. The AI safety research community should expand its focus beyond model-level alignment to developing system-level guarantees for specifying and verifying autonomy boundaries. For policymakers, it means shifting regulatory focus to AI systems operating within auditable autonomy envelopes.</p>
+<p id="p-48">Since this article was first drafted (late 2025), this system-level BA perspective has become increasingly visible. The frontier labs now regularly describe sandboxing, access controls, monitoring, and approval policies as core parts of agent safety. These are positive steps toward BA, but we are at the beginning of the road: We need principled frameworks for agent authority specification, composition, calibration, enforcement and verification.</p>
+</section>
+<section id="sec14" class="sec"></section>
+</div>
+<footer class="back"></footer>
+</article>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://cacm.acm.org/opinion/beyond-model-alignment-the-case-for-bounded-autonomy-in-ai-systems/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		      <dc:creator><![CDATA[Oren Etzioni]]></dc:creator>
+<post-id xmlns="com-wordpress:feed-additions:1">814256</post-id>	</item>
+		<item>
 		<title>The Randomized k-Server Conjecture Is False!</title>
 		<link>https://cacm.acm.org/research-highlights/the-randomized-k-server-conjecture-is-false/</link>
 					<comments>https://cacm.acm.org/research-highlights/the-randomized-k-server-conjecture-is-false/#respond</comments>
@@ -1027,56 +1145,5 @@
 		
 		
 		<post-id xmlns="com-wordpress:feed-additions:1">814841</post-id>	</item>
-		<item>
-		<title>When You Wish Upon a Prompt</title>
-		<link>https://cacm.acm.org/kode-vicious/when-you-wish-upon-a-prompt/</link>
-					<comments>https://cacm.acm.org/kode-vicious/when-you-wish-upon-a-prompt/#respond</comments>
-		
-		<dc:creator><![CDATA[George V. Neville-Neil]]></dc:creator>
-		<pubDate>Fri, 20 Nov 2026 16:08:18 +0000</pubDate>
-				<category><![CDATA[Computing Profession]]></category>
-		<category><![CDATA[HCI]]></category>
-		<category><![CDATA[Software Engineering and Programming Languages]]></category>
-		<category><![CDATA[Theory]]></category>
-		<guid isPermaLink="false">https://cacm.acm.org/?post_type=digital-library&#038;p=814293</guid>
-
-					<description><![CDATA[<p>The key skills in software are the skills of software engineering, writ large.</p>]]></description>
-										<content:encoded><![CDATA[<article>
-<div class="body" lang="en">
-<section id="sec1" class="sec">
-<p id="p-1"><b>Dear KV,</b></p>
-<p id="p-2">I have noticed in your recent columns that, like everyone else, you are writing about LLMs and their effect on the practice of programming. As academics who have to teach the next generation of practitioners how to practice, my colleagues and I now find ourselves in the unenviable position of having to go back to the drawing board and work out ways to inculcate the necessary skills while competing with systems that help students complete tasks in considerably less time and with considerably less mental effort. It is well understood that mental effort is required to learn a topic, which is why writing notes by hand continues to result in better learning outcomes than typing them on a laptop or, even worse, absorbing a video lecture.</p>
-<p id="p-3">Since you are an older practitioner who is seeing this transition from the other side, what do you think those of us who are training your replacements should be teaching? Or is it time to let the machines do the work and just give our students our best wishes?</p>
-<p id="p-4"><b>If Wishes Were Horses</b></p>
-<p id="p-5"><b>Dear Wishes,</b></p>
-<p id="p-6">It is true that Kode Vicious, like many others in the industry, has been writing about, and more generally dealing with, the LLM <i>craze/fad/bubble</i>—pick a term here. As we have progressed through the past two or so years of this craze, I will call it, the thing that has struck me most is not the increase in our ability to produce more reams of code, but all the hand-wringing on all sides of, “Oh what do we do? What do we do?”</p>
-<p id="p-7">The key skills in software are not typing speed or the visual acuity to spot a missing dereference, but instead they are the skills of software engineering, writ large. What are these skills? They are the ones we were all supposed to be learning, during that one software engineering course everyone was required to take. As KV wrote eons ago, the best thing I ever got out of a software engineering course was reading the <i>Mythical Man-Month</i> by Fred Brooks, and while that book is a deserved classic, it is more about management than about the proper engineering of software artifacts.</p>
-<p id="p-8">While most computing degrees during the past 50 or more years have concentrated on teaching specific technologies (programming in Fortran, or C, or Python, with a side of data structures) or instead went in the other direction into the aerie ether of functional languages and closures, very little time was spent on teaching people how to think about systems.</p>
-<p id="p-9">Now I know that everyone is surprised that KV can be a pedant, but let’s start with the basics. A <i>program</i> is a set of instructions to the computer that get the hardware to do something—hopefully something productive, but at least something. The best programs are made up of <i>libraries</i>, smaller pieces of code that tell the computer to do a more narrowly defined thing. Code, in all its forms, describes <i>algorithms</i>, abstract concepts of how a computer can do a thing. Programs are written in <i>languages</i> that are, supposedly, better at representing the ideas of their human creators than, say, machine code. The keys to making a good software system do not lie in the language specifics or its syntax, although one can make some truly dreadful messes of both, but rather in how the system is put together.</p>
-<p id="p-10">The keys to good software engineering are the interfaces between components, the testability of those components, both for correctness and performance, and how the whole system works together to yield something that is both usable and maintainable over the long term. These are the skills that software engineers need to be trained in—not being able to scan 100 lines of code for a missing asterisk. The computer can do that, and now even faster with the help of LLMs.</p>
-<p id="p-11">When compilers first started replacing assemblers and machine code, they allowed for new levels of abstraction. And it is this topic, <i>abstraction</i>, that we must continue to teach, because it is at the heart of maintainable systems. With the current LLMs, anyone can generate a working program based on a wish—that is, if they wish hard enough (that is, they prompt a lot). But a program is not a system, and the only people KV has seen be successful with these new tools are those who already have the software engineering discipline to know the difference between a program and a system.</p>
-<p id="p-12">How would KV teach such topics? The first thing academia will have to do is to dedicate a lot more time to mentoring interaction, perhaps through teaching assistants who take the time to probe the designs the students show to them. It’s pretty clear that most current programming projects can be solved by the best LLMs without much work from the students. But if you ask the student, “How does it work?”, you will find they often do not know. Finding ways to get them to the point where they can explain how it works is key to training the next group of practitioners.</p>
-<p id="p-13">KV was lucky enough to go to high school in a state that required lab reports for all science courses (biology, chemistry, and physics). Once a week we did an experiment and then had to write it up in a typical “Hypothesis, Experimental Design, Measurements, Evaluation, Conclusions” format. For computer science students, you might just give them the whole program and a set of inputs and ask, “Why?” Now, can an LLM answer this as well? Yes, for simple systems, but it turns out that someone with experience can probe and ask questions the student failed to ask of the LLM since the student does not even know to ask them. A few rounds of this will teach the student what is and is not important in understanding a system—far more than making them implement bubble sort ever would.</p>
-<p id="p-14">Implementing bubble sort does not teach you about when or why to use it, or what the proper interfaces to such an algorithm might be. Questions about sorting algorithms, given the same inputs, and then asking the student to explain <i>why</i> you choose one over the other will actually teach them about algorithmic complexity, performance, and proper APIs.</p>
-<p id="p-15">One of the great teaching advances that is not used often enough is the gigantic corpus of open source software that exists in the world today. It is far more educational to give students a large working system and have them debug it than it is to see if they can each, individually or in pairs, write a sorting algorithm (or whatever other piece of code you would expect a first-year student to crank out over a week or two).</p>
-<p id="p-16">Newly minted practitioners will need a skill that many of us developed naturally, which is to know when the computer is wrong. And this is even more true when using LLMs. People say, “The LLMs lie,” or they “hallucinate,” even though anthropomorphizing computers does not help at all.</p>
-<p id="p-17">The ability to separate the wheat from the chaff is something every software engineer has had to learn how to do, more often on the job than in school. The wheat and the chaff used to come from other programmers. Now it also comes from the computer itself, but the mental skills to deal with it are the same as they ever were. It comes down to knowing how a system looks when it is properly put together. Teach these skills and you, as well as those of us who live long enough to use systems coded by these students, will be grateful. Teach them to spot an errant asterisk, however, and we are all going to be very, very unhappy.</p>
-<p id="p-18"><b>KV</b></p>
-</section>
-<section id="sec2" class="sec">
-<h2 class="heading">Related articles</h2>
-<p id="p-20"><strong>The Drunken Plagiarists<br /></strong>Kode Vicious<strong><br /></strong><a class="ext-link" href="https://queue.acm.org/detail.cfm?id=3711675" data-jats-ext-link-type="uri">https://queue.acm.org/detail.cfm?id=3711675</a></p>
-<p id="p-23"><strong>Is There Another System?<br /></strong>Kode Vicious<br /><a class="ext-link" href="https://queue.acm.org/detail.cfm?id=3639446" data-jats-ext-link-type="uri">https://queue.acm.org/detail.cfm?id=3639446</a></p>
-<p id="p-26"><strong>The Chess Player who Couldn’t Pass the Salt<br /></strong>Kode Vicious<strong><br /></strong><a class="ext-link" href="https://queue.acm.org/detail.cfm?id=3029797" data-jats-ext-link-type="uri">https://queue.acm.org/detail.cfm?id=3029797</a></p>
-</section>
-</div>
-</article>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://cacm.acm.org/kode-vicious/when-you-wish-upon-a-prompt/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-		<post-id xmlns="com-wordpress:feed-additions:1">814293</post-id>	</item>
 	</channel>
 </rss>
