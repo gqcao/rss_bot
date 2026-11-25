@@ -4,19 +4,19 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Wed, 25 Nov 2026 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 19:00:00 GMT</lastBuildDate>
     <item>
-      <title>Unlocking the Power of Loops in Pretrained LLMs with Loop Residuals</title>
-      <link>https://arxiv.org/abs/2611.31094</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31094</guid>
-      <description>Looped Transformers iterate a shared block of layers to increase computation without adding parameters, offering stronger performance and test-time scaling. However, this power has so far required training from scratch and yielded only modest gains for LLMs. Finetuning existing models into loops is far cheaper, yet also brings only marginal gains over SFT. We propose LoopRes, an effective, scalable, and simple approach that turns loops into significant and consistent gains for pretrained LLMs. Building on Attention Residuals, LoopRes lets each looped layer attend directly to the outputs of earlier loops. Since these outputs are iterates of the same layers and become harder to tell apart, we give each a trainable loop-aware key that encodes its structural identity. Attending to all earlier loops also lets layers skip intermediate ones, so we restrict each layer to a residual window of the latest W loops, forcing every loop to build incrementally on recent ones. Across 6 pretrained LLMs from 3 model families and 9 benchmarks, LoopRes delivers significant and consistent gains: at 2x compute, it improves Qwen3-1.7B-Base by 29.1% over SFT, more than doubling the gain of the state-of-the-art baseline. The gains hold on larger models up to 30B and across all three families. More importantly, from 1.7B to 8B, LoopRes scales more steeply than SFT as compute grows, reaching a higher ceiling while needing less compute on long outputs. These results establish LoopRes as an effective looping approach, delivering both better performance and better test-time scaling.
+      <title>Duopra: From Full-Duplex Conversation to Full-Duplex Agency</title>
+      <link>https://arxiv.org/abs/2611.25773</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.25773</guid>
+      <description>Full-duplex interaction models exhibit strong conversational agency, enabling natural, low-latency turn-taking, backchannels, and interruptions. However, completing tasks further requires task agency: timely tool invocation and argument revision following user corrections. Frontend-backend agents separate initiation from execution: the frontend decides whether and what to request, while the backend determines how. Execution can be offloaded, but unsent requests cannot be executed, and incomplete ones can misdirect the backend. On Full-Duplex-Bench v3 (FDB v3), most failures of Realtime-Venus-Audio + Harness in our streaming pipeline occur before a domain tool executes. We introduce Duopra, a full-duplex interaction model that learns task execution alongside conversational control. Duopra treats the backend as a tool, accepting a self-contained natural-language request. Direct calls and backend delegation share an action interface and requirements for faithful initiation and correct execution. Its three-stage training combines protocol SFT, full-duplex RL rewarding timely and complete execution, and projector-only repair of talker conditioning after thinker updates. With the same backend, Pass@1 rises from 4.7% to 44.7%; Duopra achieves 47.7% calling tools directly (26.0% after SFT) and 49.3% with a DeepSeek backend. It improves three FDB v1.0 takeover rates over the base model. These results show that task agency can coexist with key conversational agency.
 
-Authors: Xuanlei Zhao, Hailun Xu, Kai Wang, Yang Luo, Yingxuan Ren, Zirui Zhu, Yuxuan Lou, Kun Xu, Yan Wang, Kanchan Sarkar, Yang You
+Authors: Chiyu Chen, Pengzhou Cheng, Yuezhao Ma, Xiaocheng Li, Can Liu, Haonan Hu, Yao Yao, Yifei Yang, Yijie Lu, Taolei Wang, Yansi Li, Muhuan Wu, Chenglu Sun, Gongshen Liu, Zhuosheng Zhang
 
-Tasks: Language Modeling, Reasoning
+Tasks: Full-Duplex Spoken Dialogue, Reinforcement Learning
 
-Code: https://github.com/NUS-HPC-AI-Lab/LoopRes</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/cyChen2003/duopra</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Introducing the OpenResearch Intelligence Index</title>
@@ -30,6 +30,58 @@ Tasks: Auto-Research
 
 Code: https://github.com/alphaxiv/openresearch</description>
       <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe</title>
+      <link>https://arxiv.org/abs/2611.32884</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32884</guid>
+      <description>AI agents working on long tasks often commit to an answer before they have enough evidence, a behavior called laziness. In our evaluations, they frequently commit even while their stated belief still names several possible answers. An outcome reward at the end of the episode scores only the final answer, so it cannot teach the agent when to commit, because a lucky guess receives the same reward as an answer backed by evidence. During training, however, the simulator can compute the exact posterior over the answer at every step and tell whether the evidence is already enough. We propose Reinforcement Learning with Verifiable Beliefs (RLVB), which rewards the agent for taking further steps while this posterior still allows several answers and for committing once the evidence is sufficient. The reward needs no judge, critic or reward model, and it never reads the belief line the agent writes before each action. We also introduce Pro Worlds, a benchmark of visual puzzles where the agent views a large world through a small window. We evaluate three vision-language models on three benchmarks, two of which are never seen in training. RLVB improves the base model in all nine settings, by 17.1% on average. Under the outcome reward, GRPO and PPO fall below the base model on average. RLVB also outperforms PPO with a process reward from an LLM judge by 9.3% on average while using 1.6 times fewer GPU-hours. The trained agent answers with sufficient evidence in 51%, 12% and 74% of the episodes on the three benchmarks, against 8%, 0.4% and 36% for the base model. Its accuracy gain therefore comes from answering more often at high levels of evidence. The belief line shows how the agent reaches this evidence: it acts on its own belief. It commits at only 0.1 to 2.2% of the turns at which the evidence is insufficient and its line still names several answers, against 3 to 68% for the base model.
+
+Authors: Richmond Sin Jing Xuan, Peilin Feng, Wenbin Wang, Soujanya Poria
+
+Tasks: Agents, Long-Horizon Agents, Reinforcement Learning, Reward model evaluation
+
+Code: https://github.com/declare-lab/RLVB</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SpatialArena: Where Do Geometric Foundation Models Stand?</title>
+      <link>https://arxiv.org/abs/2611.32816</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32816</guid>
+      <description>3D perception is shifting from task-specific pipelines to geometric foundation models: monocular depth networks, feed-forward 3D/4D reconstruction models, and vision--language models that predict geometry. However, their progress cannot be measured reliably. Published numbers are not comparable, because every paper samples frames, sets resolutions, and selects test splits differently. They are not robust because the alignment required for every up-to-scale prediction can outweigh the gap between models: fitting depth in the wrong space nearly triples its error, and standard trajectory alignment understates the error of failing methods by up to 2.6times. And they rarely cover long recordings, dynamic scenes, or aerial views. We present SpatialArena, an open arena that scores geometric models with the same metrics and rules, with robust and deterministic alignment. SpatialArena spans five tasks, from monocular depth to SLAM. It covers 23 public datasets with 418,929 images across indoor, outdoor, aerial, object-centric, and dynamic scenes, together with Spatial Arena, our own captures with accurate poses and depth. Evaluating 52 models, we find that single-image depth is close to saturation on public benchmarks but not on large, uncontrolled scenes, and that progress now comes from consistency across frames and views, where feed-forward 3D/4D models match or surpass monocular specialists and overtake video depth models. The benchmark, toolbox, and leaderboard will be publicly released.
+
+Authors: Yu Chen, Haosen Yang, Su Ee Tan, Zhensong Zhang, Jifei Song, Jiankang Deng
+
+Tasks: 3D Reconstruction, Camera Pose Estimation, Depth estimation, Visual SLAM
+
+Code: https://github.com/mvp-ai-lab/SpatialArena</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ViDecide: Teaching Video Diffusion Models to Reason and Plan Step by Step</title>
+      <link>https://arxiv.org/abs/2611.26389</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26389</guid>
+      <description>Current leading video generation models can synthesize highly realistic videos, while still frequently violating physical and logical constraints in multi-step reasoning and planning, even after training with large-scale reasoning data or existing diffusion RL methods. We attribute these failures to the conventional video training paradigm, which treats a solution as a fixed-length clip rather than a chain of decisions. We present ViDecide, a decision-centric framework that trains video diffusion models to predict state transitions causally and decide when to stop, with a decision-focused training schedule. We further propose Corrective Fine-tuning (CFT), which corrects failed decisions by mapping their noise to the model's own successful continuations, achieving stable improvement without policy-gradient optimization. Across abstract games, planning tasks, and a new benchmark of multi-step robot planning, ViDecide achieves an average strict success rate of 83.8%, far above 23.3% for standard fine-tuning and 67.8% for the strongest prior method, and generalizes to larger puzzles and unseen layouts. Our framework therefore unlocks greater potential for video generation models as reliable reasoners and planners in the visual world. Project page: https://kevin-thu.github.io/ViDecide.
+
+Authors: Kaiwen Zhang, Yiming Gao, Zeqi Xiao, Xintao Wang, Pengfei Wan, Kun Gai, Xingang Pan
+
+Tasks: Reinforcement Learning, Robotics, Video generation
+
+Code: https://github.com/Kevin-thu/ViDecide</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Unlocking the Power of Loops in Pretrained LLMs with Loop Residuals</title>
+      <link>https://arxiv.org/abs/2611.31094</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31094</guid>
+      <description>Looped Transformers iterate a shared block of layers to increase computation without adding parameters, offering stronger performance and test-time scaling. However, this power has so far required training from scratch and yielded only modest gains for LLMs. Finetuning existing models into loops is far cheaper, yet also brings only marginal gains over SFT. We propose LoopRes, an effective, scalable, and simple approach that turns loops into significant and consistent gains for pretrained LLMs. Building on Attention Residuals, LoopRes lets each looped layer attend directly to the outputs of earlier loops. Since these outputs are iterates of the same layers and become harder to tell apart, we give each a trainable loop-aware key that encodes its structural identity. Attending to all earlier loops also lets layers skip intermediate ones, so we restrict each layer to a residual window of the latest W loops, forcing every loop to build incrementally on recent ones. Across 6 pretrained LLMs from 3 model families and 9 benchmarks, LoopRes delivers significant and consistent gains: at 2x compute, it improves Qwen3-1.7B-Base by 29.1% over SFT, more than doubling the gain of the state-of-the-art baseline. The gains hold on larger models up to 30B and across all three families. More importantly, from 1.7B to 8B, LoopRes scales more steeply than SFT as compute grows, reaching a higher ceiling while needing less compute on long outputs. These results establish LoopRes as an effective looping approach, delivering both better performance and better test-time scaling.
+
+Authors: Xuanlei Zhao, Hailun Xu, Kai Wang, Yang Luo, Yingxuan Ren, Zirui Zhu, Yuxuan Lou, Kun Xu, Yan Wang, Kanchan Sarkar, Yang You
+
+Tasks: Language Modeling, Reasoning
+
+Code: https://github.com/NUS-HPC-AI-Lab/LoopRes</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
@@ -58,19 +110,6 @@ Code: https://github.com/tencent-hunyuan/hy-mt3</description>
       <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Duopra: From Full-Duplex Conversation to Full-Duplex Agency</title>
-      <link>https://arxiv.org/abs/2611.25773</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.25773</guid>
-      <description>Full-duplex interaction models exhibit strong conversational agency, enabling natural, low-latency turn-taking, backchannels, and interruptions. However, completing tasks further requires task agency: timely tool invocation and argument revision following user corrections. Frontend-backend agents separate initiation from execution: the frontend decides whether and what to request, while the backend determines how. Execution can be offloaded, but unsent requests cannot be executed, and incomplete ones can misdirect the backend. On Full-Duplex-Bench v3 (FDB v3), most failures of Realtime-Venus-Audio + Harness in our streaming pipeline occur before a domain tool executes. We introduce Duopra, a full-duplex interaction model that learns task execution alongside conversational control. Duopra treats the backend as a tool, accepting a self-contained natural-language request. Direct calls and backend delegation share an action interface and requirements for faithful initiation and correct execution. Its three-stage training combines protocol SFT, full-duplex RL rewarding timely and complete execution, and projector-only repair of talker conditioning after thinker updates. With the same backend, Pass@1 rises from 4.7% to 44.7%; Duopra achieves 47.7% calling tools directly (26.0% after SFT) and 49.3% with a DeepSeek backend. It improves three FDB v1.0 takeover rates over the base model. These results show that task agency can coexist with key conversational agency.
-
-Authors: Chiyu Chen, Pengzhou Cheng, Yuezhao Ma, Xiaocheng Li, Can Liu, Haonan Hu, Yao Yao, Yifei Yang, Yijie Lu, Taolei Wang, Yansi Li, Muhuan Wu, Chenglu Sun, Gongshen Liu, Zhuosheng Zhang
-
-Tasks: Full-Duplex Spoken Dialogue, Reinforcement Learning
-
-Code: https://github.com/cyChen2003/duopra</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>AURA: AUdio-dRiven streaming Avatar</title>
       <link>https://arxiv.org/abs/2611.26540</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.26540</guid>
@@ -95,6 +134,17 @@ Tasks: Coding Agents
 
 Code: https://github.com/AetherLabsAI/GameAnything</description>
       <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval</title>
+      <link>https://github.com/Tencent/OmniEVIE/blob/main/OmniEVIE_Technical_Report.pdf</link>
+      <guid isPermaLink="true">https://github.com/Tencent/OmniEVIE/blob/main/OmniEVIE_Technical_Report.pdf</guid>
+      <description>Multimodal retrieval now has to match dense pages, fine-grained entities, ordered video, and the tools and memory an agent looks up. A single vector drops the local evidence that decides these matches. A cross-encoder can recover it, but only by rereading every recalled page or clip. Late interaction keeps the evidence in the index; storing every token vector is too large to serve. OmniEVIE is a 4.5B multi-vector embedding model that covers text, images, visual documents, video, and tools with one compressed index and a three-stage retriever. Each record holds at most 128 int8 vectors of dimension 64: 9,472 bytes per record, or 8.82 GiB per million records. Retrieval runs on that compressed index, and a returned hit names the page region or the video interval. Training, merging, indexing, and retrieval are designed together. Every task is written as one retrieval sample. A three-grade evidence check removes false negatives, and the sampling rate follows the gap between the baseline and the teachers. Candidates are compressed with ST-HAC during training, in the form stored in the index, so the training score and the serving score use the same vectors. Stage-wise runs and specialist branches are merged by parameter block. A saliency gate and a noise floor rewrite the query score. One compressed record supplies a mean vector, 1-bit signs, and int8 multi-vectors, used for the coarse, middle, and final stages. Trained on public datasets, the full sequence at d=2048 scores 60.68 on MMEB-V3 (190 tasks), and the K128 x d64 int8 index scores 60.06. The same compressed index scores 77.96 on MMEB-V2 (78 tasks) and 62.96 on ViDoRe V3 (48 tasks). On corpora of 1 million and 5 million records, one single-thread query takes 54.2 ms and 120.2 ms, 11.1 x and 25.3 x faster than exact search over 4096-dimensional single vectors, and 236 x and 532 x faster than full int8 MaxSim. Video is encoded directly from frames and a hit is read back to its start and end in seconds, so neither indexing nor localization uses a video parsing model. On the 1,083 queries of the QVHighlights validation set, the heat peak falls inside the labeled segment for 78.0% of them and the returned span intersects it for 94.3%, against 44.9% for a random span of the same length; the span covers 18% of the video on average. Weights and code are at https://huggingface.co/tencent/OmniEVIE-4B and https://github.com/Tencent/OmniEVIE.
+
+Tasks: Document Retrieval, Image Retrieval, Image-Text Retrieval, Retrieval, Video Temporal Grounding, Video-Text Retrieval
+
+Code: https://github.com/tencent/omnievie</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth</title>
@@ -149,19 +199,6 @@ Code: https://github.com/Tencent/WeMM-Video</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe</title>
-      <link>https://arxiv.org/abs/2611.32884</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32884</guid>
-      <description>AI agents working on long tasks often commit to an answer before they have enough evidence, a behavior called laziness. In our evaluations, they frequently commit even while their stated belief still names several possible answers. An outcome reward at the end of the episode scores only the final answer, so it cannot teach the agent when to commit, because a lucky guess receives the same reward as an answer backed by evidence. During training, however, the simulator can compute the exact posterior over the answer at every step and tell whether the evidence is already enough. We propose Reinforcement Learning with Verifiable Beliefs (RLVB), which rewards the agent for taking further steps while this posterior still allows several answers and for committing once the evidence is sufficient. The reward needs no judge, critic or reward model, and it never reads the belief line the agent writes before each action. We also introduce Pro Worlds, a benchmark of visual puzzles where the agent views a large world through a small window. We evaluate three vision-language models on three benchmarks, two of which are never seen in training. RLVB improves the base model in all nine settings, by 17.1% on average. Under the outcome reward, GRPO and PPO fall below the base model on average. RLVB also outperforms PPO with a process reward from an LLM judge by 9.3% on average while using 1.6 times fewer GPU-hours. The trained agent answers with sufficient evidence in 51%, 12% and 74% of the episodes on the three benchmarks, against 8%, 0.4% and 36% for the base model. Its accuracy gain therefore comes from answering more often at high levels of evidence. The belief line shows how the agent reaches this evidence: it acts on its own belief. It commits at only 0.1 to 2.2% of the turns at which the evidence is insufficient and its line still names several answers, against 3 to 68% for the base model.
-
-Authors: Richmond Sin Jing Xuan, Peilin Feng, Wenbin Wang, Soujanya Poria
-
-Tasks: Agents, Long-Horizon Agents, Reinforcement Learning, Reward model evaluation
-
-Code: https://github.com/declare-lab/RLVB</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets</title>
       <link>https://arxiv.org/abs/2611.30013</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.30013</guid>
@@ -185,19 +222,6 @@ Authors: Yuxi Wang, Yufei Liu, Chengkai Jin, Qingyue Chen, Wenqi Ouyang, Tianyi 
 Tasks: 3D Pose Estimation, Depth estimation, Robotics
 
 Code: https://github.com/NTUYWANG103/ViDiHand</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Rewirable Circuits in Transformers with Loom Attention</title>
-      <link>https://arxiv.org/abs/2611.30634</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30634</guid>
-      <description>We propose loom attention, which allows a Transformer to dynamically rewire its circuits at every token by interweaving a head's vertical attention over the outputs of earlier heads (to obtain its query, key and value) with its horizontal attention over tokens. We instantiate vertical attention efficiently with normalized and gated linear attention over a per-token matrix memory, which stores the compressed head outputs and serves as a second residual stream. This yields LoomFormer, a dual-stream architecture that splits control and content between the vector and matrix streams. Across model sizes and training token budgets in language modeling and downstream tasks, LoomFormer matches Transformers trained with over 3x compute and recent residual-stream baselines (HC/mHC, MUDDFormer, AttnRes) trained with ~1.7-2.8x. For example, trained on the same 300B tokens with only 2% extra FLOPs, LoomPythia-2.8B achieves ~1.6x the average downstream gain of mHC-Pythia-2.8B over Pythia-2.8B, and matches (0-shot) or surpasses (5-shot) Pythia-12B. Code is available at https://github.com/Caiyun-AI/LoomFormer
-
-Authors: Da Xiao, Qingye Meng, Shengping Li, Xingyuan Yuan
-
-Tasks: Language Modeling
-
-Code: https://github.com/Caiyun-AI/LoomFormer</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -227,17 +251,6 @@ Code: https://github.com/flow3rdown/VenusOCR</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval</title>
-      <link>https://github.com/Tencent/OmniEVIE/blob/main/OmniEVIE_Technical_Report.pdf</link>
-      <guid isPermaLink="true">https://github.com/Tencent/OmniEVIE/blob/main/OmniEVIE_Technical_Report.pdf</guid>
-      <description>Multimodal retrieval now has to match dense pages, fine-grained entities, ordered video, and the tools and memory an agent looks up. A single vector drops the local evidence that decides these matches. A cross-encoder can recover it, but only by rereading every recalled page or clip. Late interaction keeps the evidence in the index; storing every token vector is too large to serve. OmniEVIE is a 4.5B multi-vector embedding model that covers text, images, visual documents, video, and tools with one compressed index and a three-stage retriever. Each record holds at most 128 int8 vectors of dimension 64: 9,472 bytes per record, or 8.82 GiB per million records. Retrieval runs on that compressed index, and a returned hit names the page region or the video interval. Training, merging, indexing, and retrieval are designed together. Every task is written as one retrieval sample. A three-grade evidence check removes false negatives, and the sampling rate follows the gap between the baseline and the teachers. Candidates are compressed with ST-HAC during training, in the form stored in the index, so the training score and the serving score use the same vectors. Stage-wise runs and specialist branches are merged by parameter block. A saliency gate and a noise floor rewrite the query score. One compressed record supplies a mean vector, 1-bit signs, and int8 multi-vectors, used for the coarse, middle, and final stages. Trained on public datasets, the full sequence at d=2048 scores 60.68 on MMEB-V3 (190 tasks), and the K128 x d64 int8 index scores 60.06. The same compressed index scores 77.96 on MMEB-V2 (78 tasks) and 62.96 on ViDoRe V3 (48 tasks). On corpora of 1 million and 5 million records, one single-thread query takes 54.2 ms and 120.2 ms, 11.1 x and 25.3 x faster than exact search over 4096-dimensional single vectors, and 236 x and 532 x faster than full int8 MaxSim. Video is encoded directly from frames and a hit is read back to its start and end in seconds, so neither indexing nor localization uses a video parsing model. On the 1,083 queries of the QVHighlights validation set, the heat peak falls inside the labeled segment for 78.0% of them and the returned span intersects it for 94.3%, against 44.9% for a random span of the same length; the span covers 18% of the video on average. Weights and code are at https://huggingface.co/tencent/OmniEVIE-4B and https://github.com/Tencent/OmniEVIE.
-
-Tasks: Document Retrieval, Image Retrieval, Image-Text Retrieval, Retrieval, Video Temporal Grounding, Video-Text Retrieval
-
-Code: https://github.com/tencent/omnievie</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Coding4Games: Can Modern Coding Agents Play Modern Video Games?</title>
       <link>https://arxiv.org/abs/2611.31974</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.31974</guid>
@@ -249,19 +262,6 @@ Tasks: Coding Agents, Computer Use Agents
 
 Code: https://github.com/GVCLab/Coding4Games</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>On-Policy Codec Distillation for Efficient All-in-One Video Generation</title>
-      <link>https://arxiv.org/abs/2611.31184</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31184</guid>
-      <description>Modern visual generative models operate on tokens, and every visual asset they receive, whether an identity, a scribble, a depth map, or a motion video, is tokenized and appended to the input token sequence. Consequently, conditioning quickly dominates the computation cost. Yet most of these tokens carry redundant spatiotemporal information. Our key insight is that identifying what is genuinely new is exactly the problem that classical video codecs have long solved. Thus, we first introduce a codec-based token pruning method that discards redundant tokens. Then, we propose an on-policy self-distillation (OPSD) strategy to train a DiT adapter capable of learning the codec pruning pattern well without quality degradation. Together, they form On-Policy Codec Distillation (CodecOPSD). We scale CodecOPSD to 16 condition modalities on our own video diffusion model, where it prunes 66% of the condition tokens on average with almost no quality drop. Therefore, denoising becomes 2x faster, and the cache memory shrinks by up to 73% in KV cache mode. CodecOPSD also extends to other state-of-the-art pretrained image and video generative models, where its benefit grows further with more conditions, longer frames, and higher resolution.
-
-Authors: Boyang Wang, Kevin Blackburn-Matzen, Oindrila Saha, Matheus Gadelha, Zezhou Cheng
-
-Tasks: Video Compression, Video generation
-
-Code: https://github.com/Kiteretsu77/CodecOPSD</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
