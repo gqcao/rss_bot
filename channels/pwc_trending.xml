@@ -4,7 +4,85 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Wed, 25 Nov 2026 21:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 22:00:00 GMT</lastBuildDate>
+    <item>
+      <title>AURA: AUdio-dRiven streaming Avatar</title>
+      <link>https://arxiv.org/abs/2611.26540</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26540</guid>
+      <description>Current audio-driven video diffusion models can synthesize realistic talking-head videos but generally require dozens of diffusion denoising steps over multi-second video chunks, making them unsuitable for streaming applications such as voice assistants and virtual avatars, where low-latency and online causal generation are required properties. AURA generates video chunk by chunk with a rolling KV cache, requiring only the audio of the current chunk to start generating, rather than a multi-second audio look-ahead like bidirectional models. It comes in two sizes: AURA 1.3B streams 576p video in real time on a single GPU (20.7 fps for a 16 Hz playback rate), making it suited to interactive avatar applications, and AURA 5B streams 720p video at 9.7 fps. Our two-stage distillation pipeline first aligns the causal student with the teacher, by training it to match the teacher's trajectories with fewer diffusion steps and a chunk-wise sliding window causal attention mask, then applies Distribution Matching Distillation (DMD) with backward simulation to close the remaining quality gap. On standard talking-head benchmarks, AURA 1.3B runs 23x faster than its own bidirectional teacher and reaches a quality comparable to TalkVerse at a lower resolution, and AURA 5B matches its TalkVerse teacher at 720p while running 17x faster. To support reproducibility and further research on streaming avatar generation, we release the weights of both models along with a dataset of 30K synthetic videos and their precomputed teacher trajectories.
+
+Authors: Nathaniel Cohen, Nicolas Dufour, Amelie Royer, Alasdair Newson, Patrick Pérez
+
+Tasks: Talking Head Generation, Video generation
+
+Code: https://github.com/kyutai-labs/aura</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AdProducer: Towards Agentic Advertising Video Generation</title>
+      <link>https://arxiv.org/abs/2611.31466</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31466</guid>
+      <description>Recent advances in video generation have made automated advertising production increasingly feasible. However, an effective advertisement must faithfully represent the product and communicate its selling points through compelling visual storytelling, which requires more than visual synthesis: it calls for deeper product understanding and strategic decisions about how to present product value. Crucially, product research and creative design are closely intertwined, as the information gathered about a product determines which features can be faithfully demonstrated and how they should be presented. In this paper, we introduce AdProducer, the first end-to-end agentic framework for advertising video creation, transforming concise creative briefs into finished advertisements. Our multimodal agent autonomously researches products through web and image search and translates its findings into selling-point-driven storyboards that guide a frozen video generator. To achieve this, we develop a dedicated data construction pipeline that yields two training datasets, AdProducer-SFT and AdProducer-RL, and train the agent through supervised fine-tuning followed by reinforcement learning with joint optimization of storyboard- and video-level rewards. We further introduce AdCreation-Bench, comprising 305 advertising briefs across eight domains, with two complementary metrics: PG-Score for product correctness and creative execution, and Ad-Score for overall advertising effectiveness assessed by an independent judge. Experiments demonstrate that AdProducer improves the PG-Score of MiniMax H3 from 17.3 to 51.3 and generalizes to Veo 3.1 without additional training, improving its score from 28.0 to 35.9, with consistent gains in Ad-Score, VideoScore2, and human evaluations. Code, models, and data are released.
+
+Authors: Kunyang Li, Chaoyang Wang, Mubarak Shah, Yuzhang Shang
+
+Tasks: Image Retrieval, Reinforcement Learning, Video generation
+
+Code: https://github.com/lky-ang/AdProducer</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>VenusOCR2.0: Towards Efficient and Effective Document Parsing</title>
+      <link>https://arxiv.org/abs/2611.32617</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32617</guid>
+      <description>We present VenusOCR2.0, a compact 1B-parameter vision-language recognizer designed for both high-accuracy and high-throughput document parsing across text, tables, and formulas. To continuously improve recognition quality without self-training collapse, we build a bounded recursive self-improvement (RSI) data engine where the model acts strictly as a weakness probe, while external multi-expert medoid consensus, VLM visual verification, and factorized synthesis supply reliable supervision across pretraining, curated SFT, and RLVR. VenusOCR2.0 couples a dynamic-resolution SigLIP2 encoder and 2x2 spatial token merging with a Qwen3-0.6B decoder, adopting compact atomic OTSL tokens to shorten table sequences and reduce structural errors. To further eliminate the autoregressive decoding bottleneck, we introduce PTPv2, a lightweight (sim67M) decoupled parallel draft module that combines frozen multi-layer verifier conditioning, a standalone learned mask, and block-causal all-position next-token prediction. On OmniDocBenchv1.6, VenusOCR2.0 achieves an overall score of 96.45 and a state-of-the-art 98.57 formula CDM, substantially outperforming massive general-purpose VLMs such as Gemini-3-Pro (92.91) and Qwen3-VL-235B (89.78). Deployed in vLLM on a single H20 GPU, PTPv2 delivers a 2.96x single-request speedup and up to 2.36x higher batched throughput while guaranteeing lossless, token-for-token equivalence with standard autoregressive decoding.
+
+Authors: Lei Li, Zheng Wei, Yi Yuan, Qingbin Liu, Jiang Bian, Zang Li
+
+Tasks: Document Layout Analysis, Document Understanding, Language Modeling, Pseudo Labelling, Reasoning, Reinforcement Learning
+
+Code: https://github.com/flow3rdown/VenusOCR</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Duopra: From Full-Duplex Conversation to Full-Duplex Agency</title>
+      <link>https://arxiv.org/abs/2611.25773</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.25773</guid>
+      <description>Full-duplex interaction models exhibit strong conversational agency, enabling natural, low-latency turn-taking, backchannels, and interruptions. However, completing tasks further requires task agency: timely tool invocation and argument revision following user corrections. Frontend-backend agents separate initiation from execution: the frontend decides whether and what to request, while the backend determines how. Execution can be offloaded, but unsent requests cannot be executed, and incomplete ones can misdirect the backend. On Full-Duplex-Bench v3 (FDB v3), most failures of Realtime-Venus-Audio + Harness in our streaming pipeline occur before a domain tool executes. We introduce Duopra, a full-duplex interaction model that learns task execution alongside conversational control. Duopra treats the backend as a tool, accepting a self-contained natural-language request. Direct calls and backend delegation share an action interface and requirements for faithful initiation and correct execution. Its three-stage training combines protocol SFT, full-duplex RL rewarding timely and complete execution, and projector-only repair of talker conditioning after thinker updates. With the same backend, Pass@1 rises from 4.7% to 44.7%; Duopra achieves 47.7% calling tools directly (26.0% after SFT) and 49.3% with a DeepSeek backend. It improves three FDB v1.0 takeover rates over the base model. These results show that task agency can coexist with key conversational agency.
+
+Authors: Chiyu Chen, Pengzhou Cheng, Yuezhao Ma, Xiaocheng Li, Can Liu, Haonan Hu, Yao Yao, Yifei Yang, Yijie Lu, Taolei Wang, Yansi Li, Muhuan Wu, Chenglu Sun, Gongshen Liu, Zhuosheng Zhang
+
+Tasks: Full-Duplex Spoken Dialogue, Reinforcement Learning
+
+Code: https://github.com/cyChen2003/duopra</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LingSante MedGuard Technical Report</title>
+      <link>https://arxiv.org/abs/2611.25509</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.25509</guid>
+      <description>As medical AI is increasingly used for patient consultation and clinical decision support, identifying harmful, non-compliant, or ethically problematic responses is essential for responsible deployment. Assessing these risks requires checking clinical claims against relevant evidence, verifying calculations, and applying medical requirements under their intended conditions. We introduce LingSante MedGuard, a capability-enhanced guardrail that integrates supervision from a medical guardrail teacher model and six specialized medical capability experts into a unified model. The guardrail teacher supervises risk decisions and explanations across medical safety, compliance, and ethics, while the capability experts support medical rule understanding, numerical reasoning, multimodal hallucination detection, agentic safety verification, risk localization, and multimodal entity understanding. We consolidate these sources of supervision through offline supervised fine-tuning on teacher-generated demonstrations, followed by multi-teacher on-policy distillation using feedback on student-generated responses. We further introduce LingSante MedGuardBench, a benchmark comprising 11 risk-detection subsets spanning medical safety, compliance, and ethics. At 4B, 9B, and 27B scales, LingSante MedGuard achieves mean benchmark F1 scores of 82.3%, 82.4%, and 87.4%, respectively. The 4B model also achieves 73.9% mean accuracy across MedHallu and MedHALT-NOTA under retrieval-enabled evaluation. Additional evaluations of the verification components show improvements in evidence-supported consistency, source traceability, and rule-guided rationale quality across model scales. These results support the integration of specialized medical capabilities into a unified guardrail for medical risk assessment and evidence-based medical safety verification.
+
+Authors: LingSante MedGuard Team
+
+Tasks: Agents, Coding Agents, Deep Research Agents, Healthcare &amp; Medical AI, Medical Question Answering, Text classification
+
+Code: https://github.com/inclusionai/lingsante-medguard</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Coding4Games: Can Modern Coding Agents Play Modern Video Games?</title>
+      <link>https://arxiv.org/abs/2611.31974</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31974</guid>
+      <description>Games, especially modern AAA games, challenge language models to perceive complex scenes, control actions, and make decisions over long horizons. Existing game benchmarks primarily test language models as computer-use agents that query a language model throughout play, incurring repeated inference cost and, in real-time games, acting while the environment continues to evolve. We ask whether coding agents can learn from game interaction to develop standalone game-playing programs that run without language model inference. We thus introduce Coding4Games, a benchmark for evaluating whether coding agents can develop standalone programs that play modern games through visual observations and standard game inputs. Coding4Games has three defining features: 1) Diverse Modern Games, covering 15 games with diverse visual, strategic, and control demands; 2) Development-Test Separation, in which a coding agent uses a sandbox and the standard player interface to iteratively develop a program, after which the selected program is frozen and independently tested without language-model inference; and 3) Outcome and Process Evaluation, which measures not only game performance and reliability but also how agents use feedback, revise programs, and resolve problems during development. Across 15 games, the best program per game outscores the strongest GUI baseline on 13 and ties it on one. The human player outscores all agents on 10 games. We additionally examine the effects of development budgets. Coding4Games evaluates whether coding agents can turn their understanding of complex interactive environments into programs that work reliably on their own.
+
+Authors: Shifang Zhao, Haoyu Wang, Yuyang Yin, Dong Chen, Xingyilang Yin, Yunkang Tao, Honghao Chen, Guangzhi Wang, Yiran Wang, Junfu Pu, Cheng Cheng, Xiaodong Cun, Ying Shan
+
+Tasks: Coding Agents, Computer Use Agents
+
+Code: https://github.com/GVCLab/Coding4Games</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth</title>
       <link>https://arxiv.org/abs/2611.26603</link>
@@ -43,17 +121,17 @@ Code: https://github.com/hugo-agi/nanoastra</description>
       <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets</title>
-      <link>https://arxiv.org/abs/2611.30013</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30013</guid>
-      <description>Animating arbitrary 3D assets from instructions requires both structural inference and motion control, yet existing motion benchmarks mostly cover conventional human or animal skeletons with simple instructions. We introduce DivDynBench, which evaluates rigging and motion generation across six morphology categories, with instructions requiring multi-phase part coordination and explicit timing, angle, repetition, and trajectory constraints. With large language models, we systematically compare three common paradigms: specialized motion generation, video generation followed by motion recovery, and direct agent-driven generation. We analyze their control capabilities, cross-morphology adaptability, and generation costs. Guided by this comparison, we propose an Agentic Motion Framework in which an agent writes compact parametric skeleton and motion programs, and a deterministic executor performs rigging, kinematic solving, and geometric correction. Compact parameter control reduces generation overhead and improves rigging reliability and motion-control accuracy, providing practical guidance for deploying complex 3D motion generation.
+      <title>Introducing the OpenResearch Intelligence Index</title>
+      <link>https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</link>
+      <guid isPermaLink="true">https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</guid>
+      <description>The OpenResearch Intelligence Index is an open source composite index that tracks end-to-end autoresearch capabilities. Every model runs inside the full OpenResearch environment with its provider's own coding harness (Claude Code for Anthropic models, Codex for OpenAI models, and OpenCode for all others) and is scored on three areas: scientific knowledge (20 experimentation-heavy Terminal-Bench-Science tasks), post-training ability (6 PostTrainBench-based tasks that fine-tune Qwen3-0.6B, Qwen3-1.7B and SmolLM2-360M on GSM8K, HumanEval, IFEval and BFCL), and literature relevancy and taste (45 PaperFindingBench queries grouped into 3 tasks). Each model makes 3 attempts per task, and the index is 0.4 Science + 0.4 PostTraining + 0.2 LiteratureRelevancy. DeepSeek V4.1 Flash, GPT-6.1 Sol and Opus 5.5 sit on the cost-performance Pareto frontier.
 
-Authors: Bohan Zeng, Kaixin Zhu, Yifan Yang, Dongge Yu, Zihao Wu, Yifan Dai, Zhou Liu, Junbo Niu, Xiaochen Ma, Shiran Ge, Zimo Meng, Junzhu Liang, Huanyao Zhang, JinHang Liu, Tianqi Xiao, Jinhao Zhang, Tianyi Bai, Zhixiong Zeng, Penghao Zhao, Yuanbo Peng, Key Zhang, Wentao Zhang
+Authors: Myles Anderson, Daniel Kim
 
-Tasks: Motion Generation, Video generation
+Tasks: Auto-Research
 
-Code: https://github.com/OpenDCAI/GameFactory-3A</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/alphaxiv/openresearch</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Non-penetrating World Models</title>
@@ -66,19 +144,6 @@ Authors: Yuhang Dai, Yinwei Wu, Ziyue Lin, Han Ji, Xingyi Yang
 Tasks: World Models
 
 Code: https://github.com/yuhangdai427/NoPeWorld</description>
-      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Introducing the OpenResearch Intelligence Index</title>
-      <link>https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</link>
-      <guid isPermaLink="true">https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</guid>
-      <description>The OpenResearch Intelligence Index is an open source composite index that tracks end-to-end autoresearch capabilities. Every model runs inside the full OpenResearch environment with its provider's own coding harness (Claude Code for Anthropic models, Codex for OpenAI models, and OpenCode for all others) and is scored on three areas: scientific knowledge (20 experimentation-heavy Terminal-Bench-Science tasks), post-training ability (6 PostTrainBench-based tasks that fine-tune Qwen3-0.6B, Qwen3-1.7B and SmolLM2-360M on GSM8K, HumanEval, IFEval and BFCL), and literature relevancy and taste (45 PaperFindingBench queries grouped into 3 tasks). Each model makes 3 attempts per task, and the index is 0.4 Science + 0.4 PostTraining + 0.2 LiteratureRelevancy. DeepSeek V4.1 Flash, GPT-6.1 Sol and Opus 5.5 sit on the cost-performance Pareto frontier.
-
-Authors: Myles Anderson, Daniel Kim
-
-Tasks: Auto-Research
-
-Code: https://github.com/alphaxiv/openresearch</description>
       <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -119,45 +184,6 @@ Code: https://github.com/X-Square-Robot/wall-x</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Context-Grounded Skill Internalization for Vision-Language Agents</title>
-      <link>https://arxiv.org/abs/2611.30075</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30075</guid>
-      <description>Skill internalization offers a way for agents to learn useful behaviors from skills and use them without explicit guidance in context at inference time. A common approach is to generate demonstration trajectories with the skill in context and then fine-tune the same model on its own trajectories with the skill removed. However, this leads to the problem that the model may learn to reference the removed skill, which we named as context misalignment (CoMi). In this work, we first analyze agent behaviors related to CoMi under this common pipeline. Across ALFWorld, WebShop, and ARC-AGI-1, skill-removed fine-tuning consistently results in CoMi: 12.2-46.0% of test trajectories reference the removed skill. To address this problem, we develop Context-Grounded Skill Internalization (CGSI). CGSI uses a sentence detector to identify unsupported references and then masks or rewrites the selected sentences before fine-tuning. Experimental results demonstrate the effectiveness of CGSI and reveal two key findings. (i) Compared with directly fine-tuning with the skill removed, CGSI reduces CoMi at test time by 72.5-94.6% while preserving task success. (ii) Compared with existing reinforcement learning-based skill-internalization baselines, CGSI achieves comparable performance with substantially less training time. CGSI also significantly reduces processing costs compared with large-scale trajectory auditing and correction.
-
-Authors: Jinlin Liu, Yumeng He, Qihan Huang, Kevin Qinghong Lin, Han Peng
-
-Tasks: Reinforcement Learning
-
-Code: https://github.com/jinlinll/cgsi</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Duopra: From Full-Duplex Conversation to Full-Duplex Agency</title>
-      <link>https://arxiv.org/abs/2611.25773</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.25773</guid>
-      <description>Full-duplex interaction models exhibit strong conversational agency, enabling natural, low-latency turn-taking, backchannels, and interruptions. However, completing tasks further requires task agency: timely tool invocation and argument revision following user corrections. Frontend-backend agents separate initiation from execution: the frontend decides whether and what to request, while the backend determines how. Execution can be offloaded, but unsent requests cannot be executed, and incomplete ones can misdirect the backend. On Full-Duplex-Bench v3 (FDB v3), most failures of Realtime-Venus-Audio + Harness in our streaming pipeline occur before a domain tool executes. We introduce Duopra, a full-duplex interaction model that learns task execution alongside conversational control. Duopra treats the backend as a tool, accepting a self-contained natural-language request. Direct calls and backend delegation share an action interface and requirements for faithful initiation and correct execution. Its three-stage training combines protocol SFT, full-duplex RL rewarding timely and complete execution, and projector-only repair of talker conditioning after thinker updates. With the same backend, Pass@1 rises from 4.7% to 44.7%; Duopra achieves 47.7% calling tools directly (26.0% after SFT) and 49.3% with a DeepSeek backend. It improves three FDB v1.0 takeover rates over the base model. These results show that task agency can coexist with key conversational agency.
-
-Authors: Chiyu Chen, Pengzhou Cheng, Yuezhao Ma, Xiaocheng Li, Can Liu, Haonan Hu, Yao Yao, Yifei Yang, Yijie Lu, Taolei Wang, Yansi Li, Muhuan Wu, Chenglu Sun, Gongshen Liu, Zhuosheng Zhang
-
-Tasks: Full-Duplex Spoken Dialogue, Reinforcement Learning
-
-Code: https://github.com/cyChen2003/duopra</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
-      <link>https://arxiv.org/abs/2611.31198</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31198</guid>
-      <description>Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.
-
-Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
-
-Tasks: Deep Research Agents
-
-Code: https://github.com/uclanlp/OpenVLHarness</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Rewirable Circuits in Transformers with Loom Attention</title>
       <link>https://arxiv.org/abs/2611.30634</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.30634</guid>
@@ -184,19 +210,6 @@ Code: https://github.com/declare-lab/RLVB</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ViDecide: Teaching Video Diffusion Models to Reason and Plan Step by Step</title>
-      <link>https://arxiv.org/abs/2611.26389</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26389</guid>
-      <description>Current leading video generation models can synthesize highly realistic videos, while still frequently violating physical and logical constraints in multi-step reasoning and planning, even after training with large-scale reasoning data or existing diffusion RL methods. We attribute these failures to the conventional video training paradigm, which treats a solution as a fixed-length clip rather than a chain of decisions. We present ViDecide, a decision-centric framework that trains video diffusion models to predict state transitions causally and decide when to stop, with a decision-focused training schedule. We further propose Corrective Fine-tuning (CFT), which corrects failed decisions by mapping their noise to the model's own successful continuations, achieving stable improvement without policy-gradient optimization. Across abstract games, planning tasks, and a new benchmark of multi-step robot planning, ViDecide achieves an average strict success rate of 83.8%, far above 23.3% for standard fine-tuning and 67.8% for the strongest prior method, and generalizes to larger puzzles and unseen layouts. Our framework therefore unlocks greater potential for video generation models as reliable reasoners and planners in the visual world. Project page: https://kevin-thu.github.io/ViDecide.
-
-Authors: Kaiwen Zhang, Yiming Gao, Zeqi Xiao, Xintao Wang, Pengfei Wan, Kun Gai, Xingang Pan
-
-Tasks: Reinforcement Learning, Robotics, Video generation
-
-Code: https://github.com/Kevin-thu/ViDecide</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>SpatialArena: Where Do Geometric Foundation Models Stand?</title>
       <link>https://arxiv.org/abs/2611.32816</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.32816</guid>
@@ -208,6 +221,19 @@ Tasks: 3D Reconstruction, Camera Pose Estimation, Depth estimation, Visual SLAM
 
 Code: https://github.com/mvp-ai-lab/SpatialArena</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Context-Grounded Skill Internalization for Vision-Language Agents</title>
+      <link>https://arxiv.org/abs/2611.30075</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30075</guid>
+      <description>Skill internalization offers a way for agents to learn useful behaviors from skills and use them without explicit guidance in context at inference time. A common approach is to generate demonstration trajectories with the skill in context and then fine-tune the same model on its own trajectories with the skill removed. However, this leads to the problem that the model may learn to reference the removed skill, which we named as context misalignment (CoMi). In this work, we first analyze agent behaviors related to CoMi under this common pipeline. Across ALFWorld, WebShop, and ARC-AGI-1, skill-removed fine-tuning consistently results in CoMi: 12.2-46.0% of test trajectories reference the removed skill. To address this problem, we develop Context-Grounded Skill Internalization (CGSI). CGSI uses a sentence detector to identify unsupported references and then masks or rewrites the selected sentences before fine-tuning. Experimental results demonstrate the effectiveness of CGSI and reveal two key findings. (i) Compared with directly fine-tuning with the skill removed, CGSI reduces CoMi at test time by 72.5-94.6% while preserving task success. (ii) Compared with existing reinforcement learning-based skill-internalization baselines, CGSI achieves comparable performance with substantially less training time. CGSI also significantly reduces processing costs compared with large-scale trajectory auditing and correction.
+
+Authors: Jinlin Liu, Yumeng He, Qihan Huang, Kevin Qinghong Lin, Han Peng
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/jinlinll/cgsi</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>WorldLeague: Benchmarking Physical Agency</title>
@@ -223,43 +249,17 @@ Code: https://github.com/xyangzhou/WorldLeague</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>AURA: AUdio-dRiven streaming Avatar</title>
-      <link>https://arxiv.org/abs/2611.26540</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26540</guid>
-      <description>Current audio-driven video diffusion models can synthesize realistic talking-head videos but generally require dozens of diffusion denoising steps over multi-second video chunks, making them unsuitable for streaming applications such as voice assistants and virtual avatars, where low-latency and online causal generation are required properties. AURA generates video chunk by chunk with a rolling KV cache, requiring only the audio of the current chunk to start generating, rather than a multi-second audio look-ahead like bidirectional models. It comes in two sizes: AURA 1.3B streams 576p video in real time on a single GPU (20.7 fps for a 16 Hz playback rate), making it suited to interactive avatar applications, and AURA 5B streams 720p video at 9.7 fps. Our two-stage distillation pipeline first aligns the causal student with the teacher, by training it to match the teacher's trajectories with fewer diffusion steps and a chunk-wise sliding window causal attention mask, then applies Distribution Matching Distillation (DMD) with backward simulation to close the remaining quality gap. On standard talking-head benchmarks, AURA 1.3B runs 23x faster than its own bidirectional teacher and reaches a quality comparable to TalkVerse at a lower resolution, and AURA 5B matches its TalkVerse teacher at 720p while running 17x faster. To support reproducibility and further research on streaming avatar generation, we release the weights of both models along with a dataset of 30K synthetic videos and their precomputed teacher trajectories.
+      <title>ViDecide: Teaching Video Diffusion Models to Reason and Plan Step by Step</title>
+      <link>https://arxiv.org/abs/2611.26389</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26389</guid>
+      <description>Current leading video generation models can synthesize highly realistic videos, while still frequently violating physical and logical constraints in multi-step reasoning and planning, even after training with large-scale reasoning data or existing diffusion RL methods. We attribute these failures to the conventional video training paradigm, which treats a solution as a fixed-length clip rather than a chain of decisions. We present ViDecide, a decision-centric framework that trains video diffusion models to predict state transitions causally and decide when to stop, with a decision-focused training schedule. We further propose Corrective Fine-tuning (CFT), which corrects failed decisions by mapping their noise to the model's own successful continuations, achieving stable improvement without policy-gradient optimization. Across abstract games, planning tasks, and a new benchmark of multi-step robot planning, ViDecide achieves an average strict success rate of 83.8%, far above 23.3% for standard fine-tuning and 67.8% for the strongest prior method, and generalizes to larger puzzles and unseen layouts. Our framework therefore unlocks greater potential for video generation models as reliable reasoners and planners in the visual world. Project page: https://kevin-thu.github.io/ViDecide.
 
-Authors: Nathaniel Cohen, Nicolas Dufour, Amelie Royer, Alasdair Newson, Patrick Pérez
+Authors: Kaiwen Zhang, Yiming Gao, Zeqi Xiao, Xintao Wang, Pengfei Wan, Kun Gai, Xingang Pan
 
-Tasks: Talking Head Generation, Video generation
+Tasks: Reinforcement Learning, Robotics, Video generation
 
-Code: https://github.com/kyutai-labs/aura</description>
+Code: https://github.com/Kevin-thu/ViDecide</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>GameAnything: From Any Inspirations to Playable Game Worlds</title>
-      <link>https://arxiv.org/abs/2611.29238</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.29238</guid>
-      <description>AI-driven game development holds the potential to transform diverse human inspirations into interactive experiences. However, existing systems and benchmarks primarily focus on explicit development specifications, with limited support for adapting multimodal references and evaluating actual gameplay experiences. We introduce GameAnything, an open-source agentic platform that transforms multimodal inspirations into playable extensions of existing games through iterative development. GameAnything integrates coding agents with an independent playtesting critic, persistent development state, and reusable experience memory to support continuous refinement. We further present GameAnything-Bench, a benchmark spanning diverse reference modalities, game creation objectives, and gaming environments, with exploratory gameplay testing to assess both functional correctness and gameplay quality. Evaluations of nine coding agent configurations reveal that current agents can adapt reference content but still struggle with playable interactions and precise modifications. Moreover, multimodal references improve content fidelity, while iterative refinement yields substantial but varying improvements across agents. These findings highlight both the potential and remaining challenges of inspiration-driven game development.
-
-Authors: Wenyi Wu, Siqi Liu, Yuru Feng, Zixuan Song, Aayush Salvi, Sibo Zhu, Kun Zhou, Biwei Huang
-
-Tasks: Coding Agents
-
-Code: https://github.com/AetherLabsAI/GameAnything</description>
-      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Hy-MT3: More Accurate, Robust and Practical Multilingual Translation Models in the Wild</title>
-      <link>https://arxiv.org/abs/2611.27673</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.27673</guid>
-      <description>Hy-MT3 is the third generation of the Hunyuan multilingual translation model family, including \textbf{Hy-MT3-1.8B}, \textbf{Hy-MT3-7B} and \textbf{Hy-MT3-30B-A3B (MoE)}. Compared with Hy-MT2, Hy-MT3 translates \textbf{more accurately, more completely and more faithfully to user constraints}: on real-world scenario data, the share of samples with mistranslations is reduced by \textbf{43\%}, omissions or additions by \textbf{74\%}, and instruction-following errors by \textbf{40\%}, while language coverage is expanded from \textbf{38 to 102} languages. With only 3B activated parameters, \textbf{Hy-MT3-30B-A3B achieves the best overall performance among all evaluated models in non-thinking mode}, including flagship models such as Qwen3.8-Max, Kimi-K3.1-Pro and DeepSeek-V4.1-Flash, and approaches the strongest closed-source thinking models such as GPT-6.1-Sol and Gemini-4-Argon, while surpassing models that consume \textbf{more than 30$\times$} its inference compute. Beyond general translation, Hy-MT3 is optimized for two industrial scenarios. For \textbf{game localization}, built with high-quality game-domain data and a professional evaluation system from the Honor of Kings team, Hy-MT3-30B-A3B matches or outperforms strong closed-source models such as Gemini 3.1 Pro on all core metrics, and can be plugged into game development pipelines through an open-source toolchain. For \textbf{image translation}, Hy-MT3 improves context understanding and error correction to better tolerate OCR errors, achieving the best result among models of comparable size. Finally, we open-source \textbf{TransRubric}, a rubric-based automatic evaluation suite for translation, which outperforms other evaluation schemes on the WMT26 metrics shared task test set and is more stable with respect to human evaluation.
-
-Authors: Mao Zheng, Zheng Li, Fangxu Liu, Tao Chen, Bingxin Qu, Bo Lv, Mingrui Sun, Hongyu Li, Hong Huang, Jinlong Song, Decheng Wu, Guanghua Yu
-
-Tasks: Machine Translation
-
-Code: https://github.com/tencent-hunyuan/hy-mt3</description>
-      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
