@@ -4,33 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Wed, 25 Nov 2026 14:00:00 GMT</lastBuildDate>
-    <item>
-      <title>WeMM-Video: Pushing the Frontiers of Open-Source Omni-Modal Video Understanding</title>
-      <link>https://arxiv.org/abs/2611.26409</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.26409</guid>
-      <description>Video understanding, particularly with accompanying audio, remains a central challenge in multimodal intelligence. In this report, we introduce WeMM-Video, a family of Chinese-English bilingual omni-modal foundation models spanning 2B, 4B, 9B, and 35B-A3B variants. Centering on joint audio-visual perception and reasoning, WeMM-Video unifies text, image, audio, and video processing within a hybrid-thinking paradigm, seamlessly supporting both a non-thinking instruct mode for fast, direct responses and a thinking mode for explicit step-by-step reasoning. The models are trained on a large-scale multimodal corpus of approximately 1.2 trillion tokens through progressive pre-training and a multi-stage post-training pipeline incorporating multi-teacher OPD, anti-repetition MrDPO, and specialist RL. Evaluated across more than 120 benchmarks, WeMM-Video demonstrates superior performance in omni-modal video understanding and reasoning, while maintaining highly competitive capabilities across general audio, silent video, image, and text tasks. Specifically, in omni-modal video evaluations, our flagship WeMM-Video-35B-A3B establishes a new open-source state of the art, substantially outperforming proprietary models such as Qwen3.5-Omni-Flash and Seed2.0-Mini-0428 while narrowing the gap with the strong Gemini-3.0-Flash, and our compact WeMM-Video-9B surpasses the larger open-source Qwen3-Omni-30B-A3B-Instruct. We publicly release the WeMM-Video family along with our evaluation and reproduction pipeline to foster further research and development in the open-source community.
-
-Authors: Changli Tang, Jie Yang, Tianyi Wang, Lei Li, Daoze Zhang, Zijie Xin, Zhan Liu, Li Li, Jinchang Xu, Fengyun Rao, Chao Zhang, Jing Lyu
-
-Tasks: Audio understanding, Image Understanding, Omni models, Reinforcement Learning, Video Understanding
-
-Code: https://github.com/Tencent/WeMM-Video</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Unlocking the Power of Loops in Pretrained LLMs with Loop Residuals</title>
-      <link>https://arxiv.org/abs/2611.31094</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31094</guid>
-      <description>Looped Transformers iterate a shared block of layers to increase computation without adding parameters, offering stronger performance and test-time scaling. However, this power has so far required training from scratch and yielded only modest gains for LLMs. Finetuning existing models into loops is far cheaper, yet also brings only marginal gains over SFT. We propose LoopRes, an effective, scalable, and simple approach that turns loops into significant and consistent gains for pretrained LLMs. Building on Attention Residuals, LoopRes lets each looped layer attend directly to the outputs of earlier loops. Since these outputs are iterates of the same layers and become harder to tell apart, we give each a trainable loop-aware key that encodes its structural identity. Attending to all earlier loops also lets layers skip intermediate ones, so we restrict each layer to a residual window of the latest W loops, forcing every loop to build incrementally on recent ones. Across 6 pretrained LLMs from 3 model families and 9 benchmarks, LoopRes delivers significant and consistent gains: at 2x compute, it improves Qwen3-1.7B-Base by 29.1% over SFT, more than doubling the gain of the state-of-the-art baseline. The gains hold on larger models up to 30B and across all three families. More importantly, from 1.7B to 8B, LoopRes scales more steeply than SFT as compute grows, reaching a higher ceiling while needing less compute on long outputs. These results establish LoopRes as an effective looping approach, delivering both better performance and better test-time scaling.
-
-Authors: Xuanlei Zhao, Hailun Xu, Kai Wang, Yang Luo, Yingxuan Ren, Zirui Zhu, Yuxuan Lou, Kun Xu, Yan Wang, Kanchan Sarkar, Yang You
-
-Tasks: Language Modeling, Reasoning
-
-Code: https://github.com/NUS-HPC-AI-Lab/LoopRes</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Wed, 25 Nov 2026 15:00:00 GMT</lastBuildDate>
     <item>
       <title>Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth</title>
       <link>https://arxiv.org/abs/2611.26603</link>
@@ -45,40 +19,16 @@ Code: https://github.com/apple-aiml-research/ml-depth-pro-2</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval</title>
-      <link>https://github.com/Tencent/OmniEVIE/blob/main/OmniEVIE_Technical_Report.pdf</link>
-      <guid isPermaLink="true">https://github.com/Tencent/OmniEVIE/blob/main/OmniEVIE_Technical_Report.pdf</guid>
-      <description>Multimodal retrieval now has to match dense pages, fine-grained entities, ordered video, and the tools and memory an agent looks up. A single vector drops the local evidence that decides these matches. A cross-encoder can recover it, but only by rereading every recalled page or clip. Late interaction keeps the evidence in the index; storing every token vector is too large to serve. OmniEVIE is a 4.5B multi-vector embedding model that covers text, images, visual documents, video, and tools with one compressed index and a three-stage retriever. Each record holds at most 128 int8 vectors of dimension 64: 9,472 bytes per record, or 8.82 GiB per million records. Retrieval runs on that compressed index, and a returned hit names the page region or the video interval. Training, merging, indexing, and retrieval are designed together. Every task is written as one retrieval sample. A three-grade evidence check removes false negatives, and the sampling rate follows the gap between the baseline and the teachers. Candidates are compressed with ST-HAC during training, in the form stored in the index, so the training score and the serving score use the same vectors. Stage-wise runs and specialist branches are merged by parameter block. A saliency gate and a noise floor rewrite the query score. One compressed record supplies a mean vector, 1-bit signs, and int8 multi-vectors, used for the coarse, middle, and final stages. Trained on public datasets, the full sequence at d=2048 scores 60.68 on MMEB-V3 (190 tasks), and the K128 x d64 int8 index scores 60.06. The same compressed index scores 77.96 on MMEB-V2 (78 tasks) and 62.96 on ViDoRe V3 (48 tasks). On corpora of 1 million and 5 million records, one single-thread query takes 54.2 ms and 120.2 ms, 11.1 x and 25.3 x faster than exact search over 4096-dimensional single vectors, and 236 x and 532 x faster than full int8 MaxSim. Video is encoded directly from frames and a hit is read back to its start and end in seconds, so neither indexing nor localization uses a video parsing model. On the 1,083 queries of the QVHighlights validation set, the heat peak falls inside the labeled segment for 78.0% of them and the returned span intersects it for 94.3%, against 44.9% for a random span of the same length; the span covers 18% of the video on average. Weights and code are at https://huggingface.co/tencent/OmniEVIE-4B and https://github.com/Tencent/OmniEVIE.
+      <title>Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies</title>
+      <link>https://arxiv.org/abs/2611.33010</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.33010</guid>
+      <description>Can a simple mirror expose the limitations of today's robotic manipulation policies? Inspired by the mirror self-recognition test in animal cognition, we investigate whether robot policies can reliably manipulate physical objects in scenes containing their reflections. We introduce RoboDojo-Mirror, a benchmark built on RoboDojo that preserves task objectives, success criteria, and policy checkpoints while comparing a mirror-free baseline with single-mirror, dual-mirror, and mirrored-tabletop conditions. Across five policies spanning Vision-Language-Action models, World Action Models, and agentic policies, every mirror condition reduces aggregate success rates: averaged over the three conditions, the drop ranges from 10.8 to 56.7 percentage points across policies, and it reaches 62.5 points on the mirrored tabletop. Because a mirror is also a physical obstacle, we compare it against geometrically matched non-reflective panels; 50--88\% of mirror-specific failures occur without recorded robot--panel contact, so direct collisions alone do not explain the degradation. Trajectory and contact analyses instead reveal recurring behaviors consistent with phantom targeting of reflected objects and spatial mislocalization of real ones. Targeted diagnostics further characterize grasping near reflections, policy-dependent pushing progress, and physical-target interaction under main-camera occlusion. Real-robot experiments with π_{0.5} and FastWAM also show lower overall success rates under the upright-mirror and mirrored-tabletop conditions. These findings reveal a shared vulnerability to reflective environments across diverse robot policies and motivate reflection-aware evaluation of embodied intelligence. Code is available at https://github.com/iPPLab/robodojo-mirror.
 
-Tasks: Document Retrieval, Image Retrieval, Image-Text Retrieval, Retrieval, Video Temporal Grounding, Video-Text Retrieval
+Authors: Xuanchen Liu, Hejun Zhang, Boxuan Dong, Ying Wu, Heshuai Li, Wen Gao, Yonghong Tian, Weihao Yu
 
-Code: https://github.com/tencent/omnievie</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness</title>
-      <link>https://arxiv.org/abs/2611.31201</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31201</guid>
-      <description>Frontier multimodal models exhibit extraordinary generalization in generating robot actions from observations and instructions, enabling a new paradigm in which they serve directly as policies within closed-loop robotic harnesses. However, the design principles of such harnesses, and the capabilities underlying their strong performance, remain unclear. We present Embo-Harness, a framework for systematically studying frontier-model-as-policy harnesses. We investigate four components of the robotic agentic loop, namely, prompting, planning, action execution, and tool use, and distill six empirical findings into a practical recipe. This recipe prioritizes interfaces that exploit the model's native visual reasoning and tool-use capabilities over handcrafted plans, skills, or action priors, and identifies effective choices for action representation, chunking, reasoning effort, visual observations, short multi-action sequences, and policy refinement. On RoboLab-120, Embo-Harness achieves an 83.3\% success rate, outperforming the strongest reported baseline by 26.2 percentage points. It also succeeds in 15 of 20 zero-shot trials across four real-world manipulation tasks. Beyond performance, controlled interventions indicate that the studied model depends more strongly on accurate spatial target estimation than on explicit low-level joint or trajectory generation. These results provide both a practical recipe for building strong frontier-model-as-policy harnesses and a clearer account of the capabilities that drive their performance.
+Tasks: Robotics, World Models
 
-Authors: Xiao-Ming Wu, Kang Liao, Yuexiao Ma, Taolin Zhang, Mingqian Zhou, Nuo Chen, Ziming Li, Yihang Luo, Rui Li, Zhonghua Wu, Tianyu Xie, Xiawu Zheng, Zhongang Cai, Zhi Hou, Chen Change Loy
-
-Tasks: Image Understanding, Robotics
-
-Code: https://github.com/DravenALG/Embo-Harness</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Coding4Games: Can Modern Coding Agents Play Modern Video Games?</title>
-      <link>https://arxiv.org/abs/2611.31974</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31974</guid>
-      <description>Games, especially modern AAA games, challenge language models to perceive complex scenes, control actions, and make decisions over long horizons. Existing game benchmarks primarily test language models as computer-use agents that query a language model throughout play, incurring repeated inference cost and, in real-time games, acting while the environment continues to evolve. We ask whether coding agents can learn from game interaction to develop standalone game-playing programs that run without language model inference. We thus introduce Coding4Games, a benchmark for evaluating whether coding agents can develop standalone programs that play modern games through visual observations and standard game inputs. Coding4Games has three defining features: 1) Diverse Modern Games, covering 15 games with diverse visual, strategic, and control demands; 2) Development-Test Separation, in which a coding agent uses a sandbox and the standard player interface to iteratively develop a program, after which the selected program is frozen and independently tested without language-model inference; and 3) Outcome and Process Evaluation, which measures not only game performance and reliability but also how agents use feedback, revise programs, and resolve problems during development. Across 15 games, the best program per game outscores the strongest GUI baseline on 13 and ties it on one. The human player outscores all agents on 10 games. We additionally examine the effects of development budgets. Coding4Games evaluates whether coding agents can turn their understanding of complex interactive environments into programs that work reliably on their own.
-
-Authors: Shifang Zhao, Haoyu Wang, Yuyang Yin, Dong Chen, Xingyilang Yin, Yunkang Tao, Honghao Chen, Guangzhi Wang, Yiran Wang, Junfu Pu, Cheng Cheng, Xiaodong Cun, Ying Shan
-
-Tasks: Coding Agents, Computer Use Agents
-
-Code: https://github.com/GVCLab/Coding4Games</description>
+Code: https://github.com/iPPLab/robodojo-mirror</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -95,6 +45,58 @@ Code: https://github.com/Kiteretsu77/CodecOPSD</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Typhoon OCR 2: From Thai Document Transcription to Multilingual, Multi-Task OCR</title>
+      <link>https://arxiv.org/abs/2611.27494</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.27494</guid>
+      <description>Typhoon OCR 1.5 focused on reading Thai documents. However, in real-world workflows, users often need to extract specific information or preserve the structure of an entire page for further processing. Typhoon OCR 2 handles both tasks in a single model, with prompt-driven extraction and structured full-page parsing. Full-page parsing covers Thai, English, and Chinese. We release compact 2B and 0.8B models adapted from open document parsers through supervised fine-tuning on curated Thai and public multilingual data, followed by Group Relative Policy Optimization (GRPO) with task rewards and a rule penalizing unfinished responses. Among evaluated open models, Typhoon OCR 2 2B scores highest on Thai MDPBench (80.7 versus 68.9 for Typhoon OCR 1.5) and on ThaiOCRBench (59.91 versus 40.45), which covers recognition, extraction, and document understanding. The 2B model remains close to its base on English olmOCR-bench (84.7 versus 84.4) and on OmniDocBench, which evaluates English and Chinese together (90.97 versus 91.03). On MDPBench, GRPO reduces the mean share of pages with repetition loops for the 2B model from 3.2% to 0.7%, with a smaller and statistically uncertain score gain for the 0.8B model. We release the model weights, Python package, and evaluation suite.
+
+Authors: Surapon Nonesung, Natapong Nitarach, Sittipong Sripaisarnmongkol, Kunat Pipatanakul, Warit Sirichotedumrong
+
+Tasks: Document Understanding, OCR, Reinforcement Learning
+
+Code: https://github.com/srn-source/evaluation_thai_ocr</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
+      <link>https://arxiv.org/abs/2611.31198</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31198</guid>
+      <description>Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.
+
+Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
+
+Tasks: Deep Research Agents
+
+Code: https://github.com/uclanlp/OpenVLHarness</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PAD: Policy-Aware Data Valuation for Autonomous Driving</title>
+      <link>https://arxiv.org/abs/2611.25604</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.25604</guid>
+      <description>End-to-end autonomous driving increasingly depends on scaling training demonstrations, yet data growth does not guarantee proportional gains. However, additional data do not guarantee better policies: a demonstration that benefits one planner may be redundant or harmful to another. Existing curation methods typically infer data value from intrinsic sample properties or training-dependent proxies that do not measure downstream policy utility. To address this, we introduce Policy-Aware Data Valuation (PAD), a framework that assigns each candidate demonstration a utility specific to the target driving policy. PAD combines scene-level calibration feedback with projected policy gradients and a regularized approximation of local training geometry, producing scalable influence-based values for the policy. A controlled group-removal study establishes the directional fidelity of these values, while cross-planner analysis shows that the same candidate pool induces markedly different rankings across planner families. On DiffusionDrive, PAD improves EPDMS over real-only training by 3.5 points on NavTest and 5.0 points on NavHard. Policy-specific curation consistently outperforms real-only and full-pool training across diffusion-, regression-, and flow-matching-based planners while substantially reducing scene-level regressions. These results establish policy-aware data valuation as a basis for replacing indiscriminate data accumulation with targeted policy improvement, enabling more efficient and reliable scaling of autonomous-driving systems.
+
+Authors: Chengkai Xu, Yicheng Guo, Jiaqi Liu, Yiming Cui, Shiyu Fang, Peng Hang, Hao Zhang, Jian Sun
+
+Tasks: Autonomous Driving, Classic Reinforcement Learning, End-to-End Autonomous Driving
+
+Code: https://github.com/PerfectXu88/PAD</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Duopra: From Full-Duplex Conversation to Full-Duplex Agency</title>
+      <link>https://arxiv.org/abs/2611.25773</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.25773</guid>
+      <description>Full-duplex interaction models exhibit strong conversational agency, enabling natural, low-latency turn-taking, backchannels, and interruptions. However, completing tasks further requires task agency: timely tool invocation and argument revision following user corrections. Frontend-backend agents separate initiation from execution: the frontend decides whether and what to request, while the backend determines how. Execution can be offloaded, but unsent requests cannot be executed, and incomplete ones can misdirect the backend. On Full-Duplex-Bench v3 (FDB v3), most failures of Realtime-Venus-Audio + Harness in our streaming pipeline occur before a domain tool executes. We introduce Duopra, a full-duplex interaction model that learns task execution alongside conversational control. Duopra treats the backend as a tool, accepting a self-contained natural-language request. Direct calls and backend delegation share an action interface and requirements for faithful initiation and correct execution. Its three-stage training combines protocol SFT, full-duplex RL rewarding timely and complete execution, and projector-only repair of talker conditioning after thinker updates. With the same backend, Pass@1 rises from 4.7% to 44.7%; Duopra achieves 47.7% calling tools directly (26.0% after SFT) and 49.3% with a DeepSeek backend. It improves three FDB v1.0 takeover rates over the base model. These results show that task agency can coexist with key conversational agency.
+
+Authors: Chiyu Chen, Pengzhou Cheng, Yuezhao Ma, Xiaocheng Li, Can Liu, Haonan Hu, Yao Yao, Yifei Yang, Yijie Lu, Taolei Wang, Yansi Li, Muhuan Wu, Chenglu Sun, Gongshen Liu, Zhuosheng Zhang
+
+Tasks: Full-Duplex Spoken Dialogue, Reinforcement Learning
+
+Code: https://github.com/cyChen2003/duopra</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>ICLWorld: Benchmarking In-Context Learning of Agents from Digital to Physical Worlds</title>
       <link>https://arxiv.org/abs/2611.32649</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.32649</guid>
@@ -108,17 +110,30 @@ Code: https://github.com/ICLWorld/ICLWorld</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>WeMM-Ecom: Advancing Multimodal Content Understanding for WeChat E-Commerce</title>
-      <link>https://arxiv.org/abs/2611.30662</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30662</guid>
-      <description>We present WeMM-Ecom, a family of multimodal large language models that deliver frontier e-commerce capabilities while achieving state-of-the-art general-purpose performance at their respective scales. The family spans five sizes, from a 0.8B dense model to a 35B mixture-of-experts model with 3B active parameters. Our training pipeline begins with two-stage continued pre-training that progressively raises the proportion of e-commerce data within a diverse multimodal data mixture, followed by hybrid-thinking post-training that combines on-policy distillation and reinforcement learning to support both non-thinking and thinking modes. For evaluation, we construct a comprehensive suite of 28 e-commerce benchmarks (23 in-house and five open-source) covering eight business scenarios and complement it with 64 public general-purpose benchmarks. On the e-commerce suite, WeMM-Ecom-35B-A3B surpasses substantially larger open-source flagship models, including Qwen3.8-Flash-Next, HY4, and DeepSeek-V4.1-Flash. On the general-purpose suite, every WeMM-Ecom model surpasses its similarly sized Qwen3.5 counterpart, with the lightweight variants (e.g., WeMM-Ecom-2B) showing clear advantages over leading lightweight models such as Qwen3.5-2B, MiniCPM-V-4.7-1B, and LFM3-VL-2B. Beyond benchmarks, WeMM-Ecom now powers hundreds of production use cases in WeChat, including catalog management, multimodal product search, and livestream commerce, serving billion-scale requests per day. We publicly release all model weights and detail our data curation, training recipe, and benchmark construction to facilitate future work on domain-specialized multimodal models. We have released the model weights and code to facilitate future research at https://github.com/Tencent/WeMM-Ecom.
+      <title>GameDojo: Benchmarking Real-Time Interactive Agents in Video Games</title>
+      <link>https://arxiv.org/abs/2611.30771</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30771</guid>
+      <description>Interactive intelligence requires agents to act on observations and adapt to the consequences of actions. Studying these abilities calls for diverse, challenging tasks under controlled conditions. We introduce GameDojo, a controllable interactive gameplay benchmark of 120 boss encounters across 20 games for evaluating model capabilities, learning algorithms, and agent harnesses. Coding agents reconstruct the environments and write gameplay scripts, producing GameDojo-Data with 600 hours of gameplay trajectories. Experiments reveal substantial challenges for frontier models, especially in real-time interaction. Training on GameDojo-Data brings GameDojo-4B to frontier performance, with the strongest real-time performance. We also find joint training improves individual tasks, and learned policies transfer across bosses. Together, these findings establish GameDojo as a challenging and valuable interactive gameplay benchmark for the community. Our project page is at https://gamedojo-benchmark.github.io/ , and our code is at https://github.com/THUSI-Lab/GameDojo .
 
-Authors: Binhui Xie, Jinmin Li, Haomiao Tang, Guangting Wang, Song Jin, Jianwei Zhu, Fengyun Rao, Jing Lyu
+Authors: Kuan Zhang, Zhihao Yang, Yukun Chen, Xingyilang Yin, Mingyu Ouyang, Yue Su, Xiangnan Wu, Jiaming Li, Longze Chen, Run Luo, Zirong Chen, Lu Wang, Yiming Li
 
-Tasks: Document Understanding, Image Understanding, Reinforcement Learning
+Tasks: Coding Agents, Computer Use Agents
 
-Code: https://github.com/tencent/wemm-ecom</description>
+Code: https://github.com/THUSI-Lab/GameDojo</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain</title>
+      <link>https://arxiv.org/abs/2611.26414</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26414</guid>
+      <description>Representative vision-language navigation (VLN) methods typically couple a vision-language model (VLM) brain with a learnable action head and fine-tune the VLM brain on navigation-domain data to predict geometric goals. However, such adaptation can substantially alter base VLM weights and degrade general visual capabilities. We introduce ZeroVLN, a slow-fast navigation framework that achieves effective navigation with zero navigation-domain SFT of the VLM brain. Rather than teaching the brain to predict geometric goals, we equip it with a semantic tool-calling interface for conveying movement decisions to an action expert in natural language. We first adapt the action expert to carry out these movement requests, then jointly improve the brain's movement decisions and the action expert's continuous execution through closed-loop reinforcement learning (RL). Trained on the same navigation episodes, ZeroVLN substantially outperforms representative SFT-based hierarchical VLN methods on standard VLN-CE (continuous environments) benchmarks, while inducing only minor changes to the brain's weights and largely preserving its general capabilities. To our knowledge, ZeroVLN is the first slow-fast VLN framework with zero navigation-domain SFT of the VLM brain, and the first to jointly optimize its slow and fast policies through closed-loop agentic RL in VLN-CE.
+
+Authors: Zixuan Huang, Yang Zhou, Guli Zhang, Sunzhu Li, Hongyan Xie, Zehao Chen, Fuzhen Zhuang, Kaixuan Wang, Xiaozhi Chen, Yikun Ban, Deqing Wang
+
+Tasks: Reinforcement Learning
+
+Code: https://github.com/hzx122/ZeroVLN</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Hy-MT3: More Accurate, Robust and Practical Multilingual Translation Models in the Wild</title>
@@ -134,6 +149,69 @@ Code: https://github.com/tencent-hunyuan/hy-mt3</description>
       <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>EEGJev: A System One Decision Model and Benchmark for Multi-Task EEG Question Answering</title>
+      <link>https://arxiv.org/abs/2611.32100</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32100</guid>
+      <description>A single electroencephalographic (EEG) recording can support multiple decoding tasks. Fixed-label tests cannot show how EEG foundation models handle changing questions or options. We introduce EEGJev, a fast decision model that scores candidate answers in one pass. Our benchmark, EEGJev-Bench, covers six question types across 19 public EEG sources. We held the recording and options fixed while switching between questions about attributes paired during training, such as facial expression and the hand participants were asked to use. Across 13 test sources, EEGJev selected a label for the requested attribute with 99.70% accuracy (49.20% under uniform choice). Balanced accuracy for the specific answer was 62.04%. Its 95th-percentile response time was shorter than NeuroLM's on matched validation questions answered individually. EEGJev lets users switch decoding targets by changing the question. With EEGJev-Bench, researchers can test whether new decoders follow the question more reliably, identify the correct answer more often, or both.
+
+Authors: Dengzhe Hou, Kazunori D. Yamada
+
+Tasks: Brain-Computer Interface, Decision Making, Question Answering
+
+Code: https://github.com/dengzhe-hou/EEGJev</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WeMM-Video: Pushing the Frontiers of Open-Source Omni-Modal Video Understanding</title>
+      <link>https://arxiv.org/abs/2611.26409</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.26409</guid>
+      <description>Video understanding, particularly with accompanying audio, remains a central challenge in multimodal intelligence. In this report, we introduce WeMM-Video, a family of Chinese-English bilingual omni-modal foundation models spanning 2B, 4B, 9B, and 35B-A3B variants. Centering on joint audio-visual perception and reasoning, WeMM-Video unifies text, image, audio, and video processing within a hybrid-thinking paradigm, seamlessly supporting both a non-thinking instruct mode for fast, direct responses and a thinking mode for explicit step-by-step reasoning. The models are trained on a large-scale multimodal corpus of approximately 1.2 trillion tokens through progressive pre-training and a multi-stage post-training pipeline incorporating multi-teacher OPD, anti-repetition MrDPO, and specialist RL. Evaluated across more than 120 benchmarks, WeMM-Video demonstrates superior performance in omni-modal video understanding and reasoning, while maintaining highly competitive capabilities across general audio, silent video, image, and text tasks. Specifically, in omni-modal video evaluations, our flagship WeMM-Video-35B-A3B establishes a new open-source state of the art, substantially outperforming proprietary models such as Qwen3.5-Omni-Flash and Seed2.0-Mini-0428 while narrowing the gap with the strong Gemini-3.0-Flash, and our compact WeMM-Video-9B surpasses the larger open-source Qwen3-Omni-30B-A3B-Instruct. We publicly release the WeMM-Video family along with our evaluation and reproduction pipeline to foster further research and development in the open-source community.
+
+Authors: Changli Tang, Jie Yang, Tianyi Wang, Lei Li, Daoze Zhang, Zijie Xin, Zhan Liu, Li Li, Jinchang Xu, Fengyun Rao, Chao Zhang, Jing Lyu
+
+Tasks: Audio understanding, Image Understanding, Omni models, Reinforcement Learning, Video Understanding
+
+Code: https://github.com/Tencent/WeMM-Video</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness</title>
+      <link>https://arxiv.org/abs/2611.31201</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31201</guid>
+      <description>Frontier multimodal models exhibit extraordinary generalization in generating robot actions from observations and instructions, enabling a new paradigm in which they serve directly as policies within closed-loop robotic harnesses. However, the design principles of such harnesses, and the capabilities underlying their strong performance, remain unclear. We present Embo-Harness, a framework for systematically studying frontier-model-as-policy harnesses. We investigate four components of the robotic agentic loop, namely, prompting, planning, action execution, and tool use, and distill six empirical findings into a practical recipe. This recipe prioritizes interfaces that exploit the model's native visual reasoning and tool-use capabilities over handcrafted plans, skills, or action priors, and identifies effective choices for action representation, chunking, reasoning effort, visual observations, short multi-action sequences, and policy refinement. On RoboLab-120, Embo-Harness achieves an 83.3\% success rate, outperforming the strongest reported baseline by 26.2 percentage points. It also succeeds in 15 of 20 zero-shot trials across four real-world manipulation tasks. Beyond performance, controlled interventions indicate that the studied model depends more strongly on accurate spatial target estimation than on explicit low-level joint or trajectory generation. These results provide both a practical recipe for building strong frontier-model-as-policy harnesses and a clearer account of the capabilities that drive their performance.
+
+Authors: Xiao-Ming Wu, Kang Liao, Yuexiao Ma, Taolin Zhang, Mingqian Zhou, Nuo Chen, Ziming Li, Yihang Luo, Rui Li, Zhonghua Wu, Tianyu Xie, Xiawu Zheng, Zhongang Cai, Zhi Hou, Chen Change Loy
+
+Tasks: Image Understanding, Robotics
+
+Code: https://github.com/DravenALG/Embo-Harness</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval</title>
+      <link>https://github.com/Tencent/OmniEVIE/blob/main/OmniEVIE_Technical_Report.pdf</link>
+      <guid isPermaLink="true">https://github.com/Tencent/OmniEVIE/blob/main/OmniEVIE_Technical_Report.pdf</guid>
+      <description>Multimodal retrieval now has to match dense pages, fine-grained entities, ordered video, and the tools and memory an agent looks up. A single vector drops the local evidence that decides these matches. A cross-encoder can recover it, but only by rereading every recalled page or clip. Late interaction keeps the evidence in the index; storing every token vector is too large to serve. OmniEVIE is a 4.5B multi-vector embedding model that covers text, images, visual documents, video, and tools with one compressed index and a three-stage retriever. Each record holds at most 128 int8 vectors of dimension 64: 9,472 bytes per record, or 8.82 GiB per million records. Retrieval runs on that compressed index, and a returned hit names the page region or the video interval. Training, merging, indexing, and retrieval are designed together. Every task is written as one retrieval sample. A three-grade evidence check removes false negatives, and the sampling rate follows the gap between the baseline and the teachers. Candidates are compressed with ST-HAC during training, in the form stored in the index, so the training score and the serving score use the same vectors. Stage-wise runs and specialist branches are merged by parameter block. A saliency gate and a noise floor rewrite the query score. One compressed record supplies a mean vector, 1-bit signs, and int8 multi-vectors, used for the coarse, middle, and final stages. Trained on public datasets, the full sequence at d=2048 scores 60.68 on MMEB-V3 (190 tasks), and the K128 x d64 int8 index scores 60.06. The same compressed index scores 77.96 on MMEB-V2 (78 tasks) and 62.96 on ViDoRe V3 (48 tasks). On corpora of 1 million and 5 million records, one single-thread query takes 54.2 ms and 120.2 ms, 11.1 x and 25.3 x faster than exact search over 4096-dimensional single vectors, and 236 x and 532 x faster than full int8 MaxSim. Video is encoded directly from frames and a hit is read back to its start and end in seconds, so neither indexing nor localization uses a video parsing model. On the 1,083 queries of the QVHighlights validation set, the heat peak falls inside the labeled segment for 78.0% of them and the returned span intersects it for 94.3%, against 44.9% for a random span of the same length; the span covers 18% of the video on average. Weights and code are at https://huggingface.co/tencent/OmniEVIE-4B and https://github.com/Tencent/OmniEVIE.
+
+Tasks: Document Retrieval, Image Retrieval, Image-Text Retrieval, Retrieval, Video Temporal Grounding, Video-Text Retrieval
+
+Code: https://github.com/tencent/omnievie</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Coding4Games: Can Modern Coding Agents Play Modern Video Games?</title>
+      <link>https://arxiv.org/abs/2611.31974</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31974</guid>
+      <description>Games, especially modern AAA games, challenge language models to perceive complex scenes, control actions, and make decisions over long horizons. Existing game benchmarks primarily test language models as computer-use agents that query a language model throughout play, incurring repeated inference cost and, in real-time games, acting while the environment continues to evolve. We ask whether coding agents can learn from game interaction to develop standalone game-playing programs that run without language model inference. We thus introduce Coding4Games, a benchmark for evaluating whether coding agents can develop standalone programs that play modern games through visual observations and standard game inputs. Coding4Games has three defining features: 1) Diverse Modern Games, covering 15 games with diverse visual, strategic, and control demands; 2) Development-Test Separation, in which a coding agent uses a sandbox and the standard player interface to iteratively develop a program, after which the selected program is frozen and independently tested without language-model inference; and 3) Outcome and Process Evaluation, which measures not only game performance and reliability but also how agents use feedback, revise programs, and resolve problems during development. Across 15 games, the best program per game outscores the strongest GUI baseline on 13 and ties it on one. The human player outscores all agents on 10 games. We additionally examine the effects of development budgets. Coding4Games evaluates whether coding agents can turn their understanding of complex interactive environments into programs that work reliably on their own.
+
+Authors: Shifang Zhao, Haoyu Wang, Yuyang Yin, Dong Chen, Xingyilang Yin, Yunkang Tao, Honghao Chen, Guangzhi Wang, Yiran Wang, Junfu Pu, Cheng Cheng, Xiaodong Cun, Ying Shan
+
+Tasks: Coding Agents, Computer Use Agents
+
+Code: https://github.com/GVCLab/Coding4Games</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Direct3D-V3: Latent-Free Diffusion Transformers in the Native Voxel Domain</title>
       <link>https://arxiv.org/abs/2611.26511</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.26511</guid>
@@ -147,17 +225,17 @@ Code: https://github.com/DreamTechAI/Direct3D-V3</description>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies</title>
-      <link>https://arxiv.org/abs/2611.33010</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.33010</guid>
-      <description>Can a simple mirror expose the limitations of today's robotic manipulation policies? Inspired by the mirror self-recognition test in animal cognition, we investigate whether robot policies can reliably manipulate physical objects in scenes containing their reflections. We introduce RoboDojo-Mirror, a benchmark built on RoboDojo that preserves task objectives, success criteria, and policy checkpoints while comparing a mirror-free baseline with single-mirror, dual-mirror, and mirrored-tabletop conditions. Across five policies spanning Vision-Language-Action models, World Action Models, and agentic policies, every mirror condition reduces aggregate success rates: averaged over the three conditions, the drop ranges from 10.8 to 56.7 percentage points across policies, and it reaches 62.5 points on the mirrored tabletop. Because a mirror is also a physical obstacle, we compare it against geometrically matched non-reflective panels; 50--88\% of mirror-specific failures occur without recorded robot--panel contact, so direct collisions alone do not explain the degradation. Trajectory and contact analyses instead reveal recurring behaviors consistent with phantom targeting of reflected objects and spatial mislocalization of real ones. Targeted diagnostics further characterize grasping near reflections, policy-dependent pushing progress, and physical-target interaction under main-camera occlusion. Real-robot experiments with π_{0.5} and FastWAM also show lower overall success rates under the upright-mirror and mirrored-tabletop conditions. These findings reveal a shared vulnerability to reflective environments across diverse robot policies and motivate reflection-aware evaluation of embodied intelligence. Code is available at https://github.com/iPPLab/robodojo-mirror.
+      <title>Introducing the OpenResearch Intelligence Index</title>
+      <link>https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</link>
+      <guid isPermaLink="true">https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</guid>
+      <description>The OpenResearch Intelligence Index is an open source composite index that tracks end-to-end autoresearch capabilities. Every model runs inside the full OpenResearch environment with its provider's own coding harness (Claude Code for Anthropic models, Codex for OpenAI models, and OpenCode for all others) and is scored on three areas: scientific knowledge (20 experimentation-heavy Terminal-Bench-Science tasks), post-training ability (6 PostTrainBench-based tasks that fine-tune Qwen3-0.6B, Qwen3-1.7B and SmolLM2-360M on GSM8K, HumanEval, IFEval and BFCL), and literature relevancy and taste (45 PaperFindingBench queries grouped into 3 tasks). Each model makes 3 attempts per task, and the index is 0.4 Science + 0.4 PostTraining + 0.2 LiteratureRelevancy. DeepSeek V4.1 Flash, GPT-6.1 Sol and Opus 5.5 sit on the cost-performance Pareto frontier.
 
-Authors: Xuanchen Liu, Hejun Zhang, Boxuan Dong, Ying Wu, Heshuai Li, Wen Gao, Yonghong Tian, Weihao Yu
+Authors: Myles Anderson, Daniel Kim
 
-Tasks: Robotics, World Models
+Tasks: Auto-Research
 
-Code: https://github.com/iPPLab/robodojo-mirror</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/alphaxiv/openresearch</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>PosteriorBench: Evaluating Behavior Posterior Sampling in Language Models</title>
@@ -184,84 +262,6 @@ Tasks: Agents, Long-Horizon Agents
 
 Code: https://github.com/ia03/memphis-task</description>
       <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SWEEP-Bench: Do Embodied Policies Act on the Speed They See?</title>
-      <link>https://arxiv.org/abs/2611.30637</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30637</guid>
-      <description>Robot policies must adapt to the speed of moving objects, yet existing benchmarks rarely measure this ability across diverse tasks and speeds. We introduce SWEEP-Bench, a simulation benchmark with 80 conveyor-belt manipulation tasks spanning 16 skill categories, each evaluated at 13 belt speeds (0.10-0.40 m/s). Objects are transported through physical contact with a visibly moving belt. Each task has a static counterpart, and each evaluation episode uses the same randomized scene at all 13 speeds. We fine-tune eight vision-language-action and world-action models on demonstrations spanning the full speed range, comparing observations from the current frame alone with those including two past frames. For six models, the success rate peaks at intermediate speeds, and their failures indicate that they tend to produce actions suited to the average demonstration speed rather than to the actual one. Past frames raise the success rate by 10-40 percentage points for three models, and linear probes show that the belt speed is also most linearly decodable from these three. Adding ground-truth speed input to four of the models improves all of them, and a speed estimated from the images keeps most of this gain. These results show that SWEEP-Bench exposes speed-dependent failures and suggest that past frames help only policies from which the speed is most decodable, such as those pretrained on multiple frames. Project page: https://damin3927.github.io/SWEEP-Bench
-
-Authors: Hiroaki Honda, Koya Sakamoto, Shu Morikuni, Yusuke Iwasawa, Taiki Miyanishi
-
-Tasks: Robotics
-
-Code: https://github.com/Damin3927/SWEEP-Bench</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Introducing the OpenResearch Intelligence Index</title>
-      <link>https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</link>
-      <guid isPermaLink="true">https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</guid>
-      <description>The OpenResearch Intelligence Index is an open source composite index that tracks end-to-end autoresearch capabilities. Every model runs inside the full OpenResearch environment with its provider's own coding harness (Claude Code for Anthropic models, Codex for OpenAI models, and OpenCode for all others) and is scored on three areas: scientific knowledge (20 experimentation-heavy Terminal-Bench-Science tasks), post-training ability (6 PostTrainBench-based tasks that fine-tune Qwen3-0.6B, Qwen3-1.7B and SmolLM2-360M on GSM8K, HumanEval, IFEval and BFCL), and literature relevancy and taste (45 PaperFindingBench queries grouped into 3 tasks). Each model makes 3 attempts per task, and the index is 0.4 Science + 0.4 PostTraining + 0.2 LiteratureRelevancy. DeepSeek V4.1 Flash, GPT-6.1 Sol and Opus 5.5 sit on the cost-performance Pareto frontier.
-
-Authors: Myles Anderson, Daniel Kim
-
-Tasks: Auto-Research
-
-Code: https://github.com/alphaxiv/openresearch</description>
-      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Residual Guidance for Real-Time Interactive Video Generation</title>
-      <link>https://arxiv.org/abs/2611.32820</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32820</guid>
-      <description>Real-time interactive video generation allows users to change the prompt during generation to steer the evolving video. However, existing streaming models, which generate videos chunk by chunk, often keep following the previous prompt after a switch. We trace this failure to context inertia, where the previous chunk acts as a strong prior that suppresses the new prompt. Furthermore, we find that this inertia persists even when the cache retains only the previous chunk, yet discarding the context breaks visual continuity, which limits approaches that edit the cache. Rather than editing the cache, we propose Residual Guidance (RG), a simple, training-free method that counteracts context inertia with a correction measured outside the cache. Specifically, RG denoises the re-noised previous chunk once under the new prompt without the cache and adds the resulting residual to the early denoising steps of the next chunk, where its content is largely decided and the new prompt is most suppressed. Across settings ranging from a single switch to long multi-switch generation, RG substantially improves prompt switching capability on existing streaming models, including those with dedicated switching mechanisms, while largely retaining visual quality. As it requires no training or per-model tuning and adds only one forward pass per chunk, RG can be easily integrated into existing real-time video generation pipelines.
-
-Authors: NaHyeon Park, Kyeong-Hwan Moon, Youjin Jeon, Hyunjung Shim
-
-Tasks: Video generation
-
-Code: https://github.com/nahyeonkaty/residual-guidance</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WeightCode: Installing New Capabilities into Neural Networks via Weight-Space Programming</title>
-      <link>https://arxiv.org/abs/2611.25476</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.25476</guid>
-      <description>Neural networks encode learned capabilities in their weights, yet extending those capabilities with explicit task knowledge remains a fundamental challenge. Here we show that Weight-Space Programming (WSP), in which executable programs read, construct or modify a network's weights directly, can install new capabilities within trained neural networks. WeightCode, a WSP framework, uses a frozen language model to write executable weight programs that install new computations into trained neural networks using task knowledge and their existing weights, without gradient-based training. Once installed, the new capabilities run independently of the language model. Given a grammar or eight demonstrations, weight programs enable previously unseen command compositions (0% to 99.8% exact match) and a new pickup action (0% to 98.4% success), while preserving the original command and navigation capabilities. On ImageNet, four weight programs achieve net gains of 8.84-17.62 points while preserving clean accuracy, outperforming the best of eight fine-tuning methods under matched examples, checks, and retention constraints. In a Vision Transformer, causal interventions show that installed noise-correction gates drive robustness gains, while their selective activation preserves clean accuracy. Rerun on five independently trained Vision Transformers without further language model calls, ten weight programs retain 83-110% of their source-network gains on average, whereas copying their fixed weight edits yields negligible gains. Six programs written for an already edited network add 5.23-14.50 points of contrast robustness while retaining the previously installed noise gain. Together, these results establish WSP as a new route to acquiring and accumulating capabilities in trained neural networks through reusable weight programs.
-
-Authors: Bo Li, Taoyong Cui, Bob Zhang, Mengran Li, Chengyang Zhang, Yang Zhang, Pheng Ann Heng, Wanli Ouyang, Zhenfei Yin, Yingcheng Wu, Ling Yang
-
-Tasks: Image Classification
-
-Code: https://github.com/Gen-Verse/WeightCode</description>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>LoopDVR: Looped Transformer for Efficient Dense Visual Recognition</title>
-      <link>https://arxiv.org/abs/2611.32067</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32067</guid>
-      <description>We propose LoopDVR, a framework for converting pretrained Transformer-based dense visual recognition models into parameter-efficient looped networks. Rather than reducing the network width or depth directly, LoopDVR reuses Transformer blocks across layers in both the ViT backbone and Transformer decoder, reducing the number of parameters while retaining the original computational structure. However, naively sharing parameters can disrupt the distinct transformations learned at different depths. To address this challenge, we identify suitable sharing groups based on inter-layer representation dissimilarity and keep the final backbone block independent for multi-scale feature construction. We then initialize each shared backbone block with the pretrained weights of its group's terminal layer to better preserve the learned representations. An independent Loop Adapter at each layer further helps retain depth-specific transformations within shared blocks. Subsequently, we distill visual representations into the looped backbone and integrate it with a looped decoder for task-specific training. Experiments demonstrate that LoopDVR achieves the best accuracy--parameter trade-offs across dense recognition tasks. Compared with the reference models, it reduces parameters by approximately 28% while maintaining competitive accuracy. Notably, LoopDet-S achieves 50.9 box AP with only 7.0M parameters, highlighting its effectiveness in compact models.
-
-Authors: Sirui Liang, Xuanlong Yu, Longfei Liu, Xiaodong Cun, Xi Shen
-
-Tasks: Instance Segmentation, Object Detection, Pose Estimation
-
-Code: https://github.com/Intellindust-AI-Lab/LoopDVR</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Foresight Forcing: Learning Spatial Foresight for Robotic Manipulation</title>
-      <link>https://arxiv.org/abs/2611.30963</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30963</guid>
-      <description>Robotic manipulation policies can improve action prediction by anticipating how objects move and how their spatial relationships change. World Action Models (WAMs) learn to predict future visual observations, but their training objectives typically leave the underlying 3D geometric transitions implicit. To alleviate this problem, we introduce Foresight Forcing ($\mathcal{F}^{2}$), a WAM that learns a spatial transition representation from changes in a pretrained 3D feature space. During training, a frozen 3D foundation model extracts patch-wise feature differences from aligned current and future observations that provide dense supervision for geometry-aware feature transitions. We distill these targets into spatial transition queries, which are progressively refined from the current observation, language instruction, and proprioceptive state, and use them alongside current visual features to generate actions. At deployment, the policy predicts the queries without future observations or the 3D teacher. Experiments on LIBERO, LIBERO-Plus, and RoboTwin2.0 demonstrate strong manipulation performance and improved robustness, including 95.01% average success on RoboTwin2.0 Full. On six real-world manipulation tasks, $\mathcal{F}^{2}$ achieves a mean task score of 85.8%.
-
-Authors: Mishuo Han, Zhixuan Liang, Zhaoyuan Wan, Wendi Chen, Jiarui Chen, Xinkai Wang, Yue Ma, Yu Zhou, Junting Chen, Yao Mu, Jun Lv, Chuan Wen, Cewu Lu
-
-Tasks: Robotics
-
-Code: https://github.com/anson2333/foresightforcing</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
