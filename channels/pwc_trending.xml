@@ -4,18 +4,70 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Thu, 26 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 01:00:00 GMT</lastBuildDate>
     <item>
-      <title>Unlocking the Power of Loops in Pretrained LLMs with Loop Residuals</title>
-      <link>https://arxiv.org/abs/2611.31094</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31094</guid>
-      <description>Looped Transformers iterate a shared block of layers to increase computation without adding parameters, offering stronger performance and test-time scaling. However, this power has so far required training from scratch and yielded only modest gains for LLMs. Finetuning existing models into loops is far cheaper, yet also brings only marginal gains over SFT. We propose LoopRes, an effective, scalable, and simple approach that turns loops into significant and consistent gains for pretrained LLMs. Building on Attention Residuals, LoopRes lets each looped layer attend directly to the outputs of earlier loops. Since these outputs are iterates of the same layers and become harder to tell apart, we give each a trainable loop-aware key that encodes its structural identity. Attending to all earlier loops also lets layers skip intermediate ones, so we restrict each layer to a residual window of the latest W loops, forcing every loop to build incrementally on recent ones. Across 6 pretrained LLMs from 3 model families and 9 benchmarks, LoopRes delivers significant and consistent gains: at 2x compute, it improves Qwen3-1.7B-Base by 29.1% over SFT, more than doubling the gain of the state-of-the-art baseline. The gains hold on larger models up to 30B and across all three families. More importantly, from 1.7B to 8B, LoopRes scales more steeply than SFT as compute grows, reaching a higher ceiling while needing less compute on long outputs. These results establish LoopRes as an effective looping approach, delivering both better performance and better test-time scaling.
+      <title>A Glimpse of Training VLMs as Foundation Models for Robotic Manipulation</title>
+      <link>https://arxiv.org/abs/2611.29338</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.29338</guid>
+      <description>Recently, GPT-6 Astra demonstrates strong generalization in robot control, yet limited disclosure of its training leaves open how such capabilities can be reproduced. We introduce nanoAstra, an approach to training vision-language models (VLMs) for generalizable manipulation that combines semantic action modeling with capability-preserving supervised fine-tuning (CP-SFT). nanoAstra represents robot behavior as semantic steps composed of reusable, parameterized action primitives, guided by explicit progress descriptions. Meanwhile, CP-SFT uses an explicit robot-specific system prompt to constrain manipulation outputs to a structured action space, aiming to focus adaptation on robot-specific contexts and promote specialization while minimizing interference with broader pretrained capabilities. With this formulation, we train nanoAstra on more than 5,000 hours of robot data together with general VQA data. On RoboTwin 2.0's randomized benchmark, nanoAstra-9B achieves a 17.8% zero-shot success rate, substantially outperforming advanced VLA and WAM baselines as well as similarly sized VLMs. With inference faster than the corresponding motion execution on a single H20 GPU, our model supports action-chunk-like streaming execution that overlaps inference with motion, reducing the robot's idle time from 35.0% to 6.9%.
 
-Authors: Xuanlei Zhao, Hailun Xu, Kai Wang, Yang Luo, Yingxuan Ren, Zirui Zhu, Yuxuan Lou, Kun Xu, Yan Wang, Kanchan Sarkar, Yang You
+Authors: Meng-Hao Guo, Yi Zhang, Zhe-Han Mo, Han-Zheng Wang, Jia-Jun Wang, Xin-Sheng Chen, Jiaxi Song, Yi-Xuan Deng, Jia-Ning Li, Xuanyu Chu, Hengrui Zhang, Huan-ang Gao, Yongming Rao, Shi-Min Hu
 
-Tasks: Language Modeling, Reasoning
+Tasks: Image Understanding, Robotics
 
-Code: https://github.com/NUS-HPC-AI-Lab/LoopRes</description>
+Code: https://github.com/hugo-agi/nanoastra</description>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Rewirable Circuits in Transformers with Loom Attention</title>
+      <link>https://arxiv.org/abs/2611.30634</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30634</guid>
+      <description>We propose loom attention, which allows a Transformer to dynamically rewire its circuits at every token by interweaving a head's vertical attention over the outputs of earlier heads (to obtain its query, key and value) with its horizontal attention over tokens. We instantiate vertical attention efficiently with normalized and gated linear attention over a per-token matrix memory, which stores the compressed head outputs and serves as a second residual stream. This yields LoomFormer, a dual-stream architecture that splits control and content between the vector and matrix streams. Across model sizes and training token budgets in language modeling and downstream tasks, LoomFormer matches Transformers trained with over 3x compute and recent residual-stream baselines (HC/mHC, MUDDFormer, AttnRes) trained with ~1.7-2.8x. For example, trained on the same 300B tokens with only 2% extra FLOPs, LoomPythia-2.8B achieves ~1.6x the average downstream gain of mHC-Pythia-2.8B over Pythia-2.8B, and matches (0-shot) or surpasses (5-shot) Pythia-12B. Code is available at https://github.com/Caiyun-AI/LoomFormer
+
+Authors: Da Xiao, Qingye Meng, Shengping Li, Xingyuan Yuan
+
+Tasks: Language Modeling
+
+Code: https://github.com/Caiyun-AI/LoomFormer</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Introducing the OpenResearch Intelligence Index</title>
+      <link>https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</link>
+      <guid isPermaLink="true">https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</guid>
+      <description>The OpenResearch Intelligence Index is an open source composite index that tracks end-to-end autoresearch capabilities. Every model runs inside the full OpenResearch environment with its provider's own coding harness (Claude Code for Anthropic models, Codex for OpenAI models, and OpenCode for all others) and is scored on three areas: scientific knowledge (20 experimentation-heavy Terminal-Bench-Science tasks), post-training ability (6 PostTrainBench-based tasks that fine-tune Qwen3-0.6B, Qwen3-1.7B and SmolLM2-360M on GSM8K, HumanEval, IFEval and BFCL), and literature relevancy and taste (45 PaperFindingBench queries grouped into 3 tasks). Each model makes 3 attempts per task, and the index is 0.4 Science + 0.4 PostTraining + 0.2 LiteratureRelevancy. DeepSeek V4.1 Flash, GPT-6.1 Sol and Opus 5.5 sit on the cost-performance Pareto frontier.
+
+Authors: Myles Anderson, Daniel Kim
+
+Tasks: Auto-Research
+
+Code: https://github.com/alphaxiv/openresearch</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Memphis: A Case Study in Seeding an Agent Task from a Model's Real-World Attempt</title>
+      <link>https://arxiv.org/abs/2611.29824</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.29824</guid>
+      <description>Agent benchmarks are usually made harder by scaling up the data their tasks are built from, yet models that do well on them still fail at real work. We propose building simulated tasks from a model's own attempt at an open-ended task in the real world, so that the model's failures in the simulation resemble its failures in reality. As a case study, we had GPT-6.1 Sol manage two human workers in Cairo over chat for five shifts, with a budget of 7,000 Egyptian pounds, to build as many USB desk lamps as it could. It built two. From the real-world attempt's transcript, we build Memphis, an evaluation in a model-simulated world. Memphis is hard: GPT-6.1 Sol delivers 1.0 lamp per trial on average and repeats its real-world mistakes, buying too few stands and giving up the search for them. With a one-page hint on where to buy parts and who can wire them, it delivers 9.2. Claude Opus 5.5 delivers 2.2 without the hint and 4.6 with it. We release the task, the trials, the audits, and a redacted record of the real-world evaluation.
+
+Authors: Ibrahim A. Ahmed, Ahmed Sameh Khalil
+
+Tasks: Agents, Long-Horizon Agents
+
+Code: https://github.com/ia03/memphis-task</description>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
+      <link>https://arxiv.org/abs/2611.31198</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31198</guid>
+      <description>Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.
+
+Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
+
+Tasks: Deep Research Agents
+
+Code: https://github.com/uclanlp/OpenVLHarness</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -32,17 +84,17 @@ Code: https://github.com/AetherLabsAI/GameAnything</description>
       <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>A Glimpse of Training VLMs as Foundation Models for Robotic Manipulation</title>
-      <link>https://arxiv.org/abs/2611.29338</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.29338</guid>
-      <description>Recently, GPT-6 Astra demonstrates strong generalization in robot control, yet limited disclosure of its training leaves open how such capabilities can be reproduced. We introduce nanoAstra, an approach to training vision-language models (VLMs) for generalizable manipulation that combines semantic action modeling with capability-preserving supervised fine-tuning (CP-SFT). nanoAstra represents robot behavior as semantic steps composed of reusable, parameterized action primitives, guided by explicit progress descriptions. Meanwhile, CP-SFT uses an explicit robot-specific system prompt to constrain manipulation outputs to a structured action space, aiming to focus adaptation on robot-specific contexts and promote specialization while minimizing interference with broader pretrained capabilities. With this formulation, we train nanoAstra on more than 5,000 hours of robot data together with general VQA data. On RoboTwin 2.0's randomized benchmark, nanoAstra-9B achieves a 17.8% zero-shot success rate, substantially outperforming advanced VLA and WAM baselines as well as similarly sized VLMs. With inference faster than the corresponding motion execution on a single H20 GPU, our model supports action-chunk-like streaming execution that overlaps inference with motion, reducing the robot's idle time from 35.0% to 6.9%.
+      <title>3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets</title>
+      <link>https://arxiv.org/abs/2611.30013</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30013</guid>
+      <description>Animating arbitrary 3D assets from instructions requires both structural inference and motion control, yet existing motion benchmarks mostly cover conventional human or animal skeletons with simple instructions. We introduce DivDynBench, which evaluates rigging and motion generation across six morphology categories, with instructions requiring multi-phase part coordination and explicit timing, angle, repetition, and trajectory constraints. With large language models, we systematically compare three common paradigms: specialized motion generation, video generation followed by motion recovery, and direct agent-driven generation. We analyze their control capabilities, cross-morphology adaptability, and generation costs. Guided by this comparison, we propose an Agentic Motion Framework in which an agent writes compact parametric skeleton and motion programs, and a deterministic executor performs rigging, kinematic solving, and geometric correction. Compact parameter control reduces generation overhead and improves rigging reliability and motion-control accuracy, providing practical guidance for deploying complex 3D motion generation.
 
-Authors: Meng-Hao Guo, Yi Zhang, Zhe-Han Mo, Han-Zheng Wang, Jia-Jun Wang, Xin-Sheng Chen, Jiaxi Song, Yi-Xuan Deng, Jia-Ning Li, Xuanyu Chu, Hengrui Zhang, Huan-ang Gao, Yongming Rao, Shi-Min Hu
+Authors: Bohan Zeng, Kaixin Zhu, Yifan Yang, Dongge Yu, Zihao Wu, Yifan Dai, Zhou Liu, Junbo Niu, Xiaochen Ma, Shiran Ge, Zimo Meng, Junzhu Liang, Huanyao Zhang, JinHang Liu, Tianqi Xiao, Jinhao Zhang, Tianyi Bai, Zhixiong Zeng, Penghao Zhao, Yuanbo Peng, Key Zhang, Wentao Zhang
 
-Tasks: Image Understanding, Robotics
+Tasks: Motion Generation, Video generation
 
-Code: https://github.com/hugo-agi/nanoastra</description>
-      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/OpenDCAI/GameFactory-3A</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Non-penetrating World Models</title>
@@ -58,19 +110,6 @@ Code: https://github.com/yuhangdai427/NoPeWorld</description>
       <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets</title>
-      <link>https://arxiv.org/abs/2611.30013</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30013</guid>
-      <description>Animating arbitrary 3D assets from instructions requires both structural inference and motion control, yet existing motion benchmarks mostly cover conventional human or animal skeletons with simple instructions. We introduce DivDynBench, which evaluates rigging and motion generation across six morphology categories, with instructions requiring multi-phase part coordination and explicit timing, angle, repetition, and trajectory constraints. With large language models, we systematically compare three common paradigms: specialized motion generation, video generation followed by motion recovery, and direct agent-driven generation. We analyze their control capabilities, cross-morphology adaptability, and generation costs. Guided by this comparison, we propose an Agentic Motion Framework in which an agent writes compact parametric skeleton and motion programs, and a deterministic executor performs rigging, kinematic solving, and geometric correction. Compact parameter control reduces generation overhead and improves rigging reliability and motion-control accuracy, providing practical guidance for deploying complex 3D motion generation.
-
-Authors: Bohan Zeng, Kaixin Zhu, Yifan Yang, Dongge Yu, Zihao Wu, Yifan Dai, Zhou Liu, Junbo Niu, Xiaochen Ma, Shiran Ge, Zimo Meng, Junzhu Liang, Huanyao Zhang, JinHang Liu, Tianqi Xiao, Jinhao Zhang, Tianyi Bai, Zhixiong Zeng, Penghao Zhao, Yuanbo Peng, Key Zhang, Wentao Zhang
-
-Tasks: Motion Generation, Video generation
-
-Code: https://github.com/OpenDCAI/GameFactory-3A</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>GRAPE-Bench: When Vision Degrades, Does Video Reasoning Hold?</title>
       <link>https://arxiv.org/abs/2611.33020</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.33020</guid>
@@ -84,16 +123,16 @@ Code: https://github.com/zhangce01/GRAPE-Bench</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Rewirable Circuits in Transformers with Loom Attention</title>
-      <link>https://arxiv.org/abs/2611.30634</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30634</guid>
-      <description>We propose loom attention, which allows a Transformer to dynamically rewire its circuits at every token by interweaving a head's vertical attention over the outputs of earlier heads (to obtain its query, key and value) with its horizontal attention over tokens. We instantiate vertical attention efficiently with normalized and gated linear attention over a per-token matrix memory, which stores the compressed head outputs and serves as a second residual stream. This yields LoomFormer, a dual-stream architecture that splits control and content between the vector and matrix streams. Across model sizes and training token budgets in language modeling and downstream tasks, LoomFormer matches Transformers trained with over 3x compute and recent residual-stream baselines (HC/mHC, MUDDFormer, AttnRes) trained with ~1.7-2.8x. For example, trained on the same 300B tokens with only 2% extra FLOPs, LoomPythia-2.8B achieves ~1.6x the average downstream gain of mHC-Pythia-2.8B over Pythia-2.8B, and matches (0-shot) or surpasses (5-shot) Pythia-12B. Code is available at https://github.com/Caiyun-AI/LoomFormer
+      <title>Unlocking the Power of Loops in Pretrained LLMs with Loop Residuals</title>
+      <link>https://arxiv.org/abs/2611.31094</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31094</guid>
+      <description>Looped Transformers iterate a shared block of layers to increase computation without adding parameters, offering stronger performance and test-time scaling. However, this power has so far required training from scratch and yielded only modest gains for LLMs. Finetuning existing models into loops is far cheaper, yet also brings only marginal gains over SFT. We propose LoopRes, an effective, scalable, and simple approach that turns loops into significant and consistent gains for pretrained LLMs. Building on Attention Residuals, LoopRes lets each looped layer attend directly to the outputs of earlier loops. Since these outputs are iterates of the same layers and become harder to tell apart, we give each a trainable loop-aware key that encodes its structural identity. Attending to all earlier loops also lets layers skip intermediate ones, so we restrict each layer to a residual window of the latest W loops, forcing every loop to build incrementally on recent ones. Across 6 pretrained LLMs from 3 model families and 9 benchmarks, LoopRes delivers significant and consistent gains: at 2x compute, it improves Qwen3-1.7B-Base by 29.1% over SFT, more than doubling the gain of the state-of-the-art baseline. The gains hold on larger models up to 30B and across all three families. More importantly, from 1.7B to 8B, LoopRes scales more steeply than SFT as compute grows, reaching a higher ceiling while needing less compute on long outputs. These results establish LoopRes as an effective looping approach, delivering both better performance and better test-time scaling.
 
-Authors: Da Xiao, Qingye Meng, Shengping Li, Xingyuan Yuan
+Authors: Xuanlei Zhao, Hailun Xu, Kai Wang, Yang Luo, Yingxuan Ren, Zirui Zhu, Yuxuan Lou, Kun Xu, Yan Wang, Kanchan Sarkar, Yang You
 
-Tasks: Language Modeling
+Tasks: Language Modeling, Reasoning
 
-Code: https://github.com/Caiyun-AI/LoomFormer</description>
+Code: https://github.com/NUS-HPC-AI-Lab/LoopRes</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -108,32 +147,6 @@ Tasks: Handwritten Text Recognition, OCR
 
 Code: https://github.com/tardellirs/escriba-ocr</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
-      <link>https://arxiv.org/abs/2611.31198</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31198</guid>
-      <description>Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.
-
-Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
-
-Tasks: Deep Research Agents
-
-Code: https://github.com/uclanlp/OpenVLHarness</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VenusOCR2.0: Towards Efficient and Effective Document Parsing</title>
-      <link>https://arxiv.org/abs/2611.32617</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32617</guid>
-      <description>We present VenusOCR2.0, a compact 1B-parameter vision-language recognizer designed for both high-accuracy and high-throughput document parsing across text, tables, and formulas. To continuously improve recognition quality without self-training collapse, we build a bounded recursive self-improvement (RSI) data engine where the model acts strictly as a weakness probe, while external multi-expert medoid consensus, VLM visual verification, and factorized synthesis supply reliable supervision across pretraining, curated SFT, and RLVR. VenusOCR2.0 couples a dynamic-resolution SigLIP2 encoder and 2x2 spatial token merging with a Qwen3-0.6B decoder, adopting compact atomic OTSL tokens to shorten table sequences and reduce structural errors. To further eliminate the autoregressive decoding bottleneck, we introduce PTPv2, a lightweight (sim67M) decoupled parallel draft module that combines frozen multi-layer verifier conditioning, a standalone learned mask, and block-causal all-position next-token prediction. On OmniDocBenchv1.6, VenusOCR2.0 achieves an overall score of 96.45 and a state-of-the-art 98.57 formula CDM, substantially outperforming massive general-purpose VLMs such as Gemini-3-Pro (92.91) and Qwen3-VL-235B (89.78). Deployed in vLLM on a single H20 GPU, PTPv2 delivers a 2.96x single-request speedup and up to 2.36x higher batched throughput while guaranteeing lossless, token-for-token equivalence with standard autoregressive decoding.
-
-Authors: Lei Li, Zheng Wei, Yi Yuan, Qingbin Liu, Jiang Bian, Zang Li
-
-Tasks: Document Layout Analysis, Document Understanding, Language Modeling, Pseudo Labelling, Reasoning, Reinforcement Learning
-
-Code: https://github.com/flow3rdown/VenusOCR</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>AdProducer: Towards Agentic Advertising Video Generation</title>
@@ -162,30 +175,17 @@ Code: https://github.com/GVCLab/Coding4Games</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>WeMM-Ecom: Advancing Multimodal Content Understanding for WeChat E-Commerce</title>
-      <link>https://arxiv.org/abs/2611.30662</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30662</guid>
-      <description>We present WeMM-Ecom, a family of multimodal large language models that deliver frontier e-commerce capabilities while achieving state-of-the-art general-purpose performance at their respective scales. The family spans five sizes, from a 0.8B dense model to a 35B mixture-of-experts model with 3B active parameters. Our training pipeline begins with two-stage continued pre-training that progressively raises the proportion of e-commerce data within a diverse multimodal data mixture, followed by hybrid-thinking post-training that combines on-policy distillation and reinforcement learning to support both non-thinking and thinking modes. For evaluation, we construct a comprehensive suite of 28 e-commerce benchmarks (23 in-house and five open-source) covering eight business scenarios and complement it with 64 public general-purpose benchmarks. On the e-commerce suite, WeMM-Ecom-35B-A3B surpasses substantially larger open-source flagship models, including Qwen3.8-Flash-Next, HY4, and DeepSeek-V4.1-Flash. On the general-purpose suite, every WeMM-Ecom model surpasses its similarly sized Qwen3.5 counterpart, with the lightweight variants (e.g., WeMM-Ecom-2B) showing clear advantages over leading lightweight models such as Qwen3.5-2B, MiniCPM-V-4.7-1B, and LFM3-VL-2B. Beyond benchmarks, WeMM-Ecom now powers hundreds of production use cases in WeChat, including catalog management, multimodal product search, and livestream commerce, serving billion-scale requests per day. We publicly release all model weights and detail our data curation, training recipe, and benchmark construction to facilitate future work on domain-specialized multimodal models. We have released the model weights and code to facilitate future research at https://github.com/Tencent/WeMM-Ecom.
+      <title>VenusOCR2.0: Towards Efficient and Effective Document Parsing</title>
+      <link>https://arxiv.org/abs/2611.32617</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32617</guid>
+      <description>We present VenusOCR2.0, a compact 1B-parameter vision-language recognizer designed for both high-accuracy and high-throughput document parsing across text, tables, and formulas. To continuously improve recognition quality without self-training collapse, we build a bounded recursive self-improvement (RSI) data engine where the model acts strictly as a weakness probe, while external multi-expert medoid consensus, VLM visual verification, and factorized synthesis supply reliable supervision across pretraining, curated SFT, and RLVR. VenusOCR2.0 couples a dynamic-resolution SigLIP2 encoder and 2x2 spatial token merging with a Qwen3-0.6B decoder, adopting compact atomic OTSL tokens to shorten table sequences and reduce structural errors. To further eliminate the autoregressive decoding bottleneck, we introduce PTPv2, a lightweight (sim67M) decoupled parallel draft module that combines frozen multi-layer verifier conditioning, a standalone learned mask, and block-causal all-position next-token prediction. On OmniDocBenchv1.6, VenusOCR2.0 achieves an overall score of 96.45 and a state-of-the-art 98.57 formula CDM, substantially outperforming massive general-purpose VLMs such as Gemini-3-Pro (92.91) and Qwen3-VL-235B (89.78). Deployed in vLLM on a single H20 GPU, PTPv2 delivers a 2.96x single-request speedup and up to 2.36x higher batched throughput while guaranteeing lossless, token-for-token equivalence with standard autoregressive decoding.
 
-Authors: Binhui Xie, Jinmin Li, Haomiao Tang, Guangting Wang, Song Jin, Jianwei Zhu, Fengyun Rao, Jing Lyu
+Authors: Lei Li, Zheng Wei, Yi Yuan, Qingbin Liu, Jiang Bian, Zang Li
 
-Tasks: Document Understanding, Image Understanding, Reinforcement Learning
+Tasks: Document Layout Analysis, Document Understanding, Language Modeling, Pseudo Labelling, Reasoning, Reinforcement Learning
 
-Code: https://github.com/tencent/wemm-ecom</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Introducing the OpenResearch Intelligence Index</title>
-      <link>https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</link>
-      <guid isPermaLink="true">https://www.alphaxiv.org/blog/introducing-openresearch-intelligence-index</guid>
-      <description>The OpenResearch Intelligence Index is an open source composite index that tracks end-to-end autoresearch capabilities. Every model runs inside the full OpenResearch environment with its provider's own coding harness (Claude Code for Anthropic models, Codex for OpenAI models, and OpenCode for all others) and is scored on three areas: scientific knowledge (20 experimentation-heavy Terminal-Bench-Science tasks), post-training ability (6 PostTrainBench-based tasks that fine-tune Qwen3-0.6B, Qwen3-1.7B and SmolLM2-360M on GSM8K, HumanEval, IFEval and BFCL), and literature relevancy and taste (45 PaperFindingBench queries grouped into 3 tasks). Each model makes 3 attempts per task, and the index is 0.4 Science + 0.4 PostTraining + 0.2 LiteratureRelevancy. DeepSeek V4.1 Flash, GPT-6.1 Sol and Opus 5.5 sit on the cost-performance Pareto frontier.
-
-Authors: Myles Anderson, Daniel Kim
-
-Tasks: Auto-Research
-
-Code: https://github.com/alphaxiv/openresearch</description>
-      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/flow3rdown/VenusOCR</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Building General-Purpose Robots Based on Embodied Foundation Model</title>
@@ -238,6 +238,19 @@ Code: https://github.com/DravenALG/Embo-Harness</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>WeMM-Ecom: Advancing Multimodal Content Understanding for WeChat E-Commerce</title>
+      <link>https://arxiv.org/abs/2611.30662</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30662</guid>
+      <description>We present WeMM-Ecom, a family of multimodal large language models that deliver frontier e-commerce capabilities while achieving state-of-the-art general-purpose performance at their respective scales. The family spans five sizes, from a 0.8B dense model to a 35B mixture-of-experts model with 3B active parameters. Our training pipeline begins with two-stage continued pre-training that progressively raises the proportion of e-commerce data within a diverse multimodal data mixture, followed by hybrid-thinking post-training that combines on-policy distillation and reinforcement learning to support both non-thinking and thinking modes. For evaluation, we construct a comprehensive suite of 28 e-commerce benchmarks (23 in-house and five open-source) covering eight business scenarios and complement it with 64 public general-purpose benchmarks. On the e-commerce suite, WeMM-Ecom-35B-A3B surpasses substantially larger open-source flagship models, including Qwen3.8-Flash-Next, HY4, and DeepSeek-V4.1-Flash. On the general-purpose suite, every WeMM-Ecom model surpasses its similarly sized Qwen3.5 counterpart, with the lightweight variants (e.g., WeMM-Ecom-2B) showing clear advantages over leading lightweight models such as Qwen3.5-2B, MiniCPM-V-4.7-1B, and LFM3-VL-2B. Beyond benchmarks, WeMM-Ecom now powers hundreds of production use cases in WeChat, including catalog management, multimodal product search, and livestream commerce, serving billion-scale requests per day. We publicly release all model weights and detail our data curation, training recipe, and benchmark construction to facilitate future work on domain-specialized multimodal models. We have released the model weights and code to facilitate future research at https://github.com/Tencent/WeMM-Ecom.
+
+Authors: Binhui Xie, Jinmin Li, Haomiao Tang, Guangting Wang, Song Jin, Jianwei Zhu, Fengyun Rao, Jing Lyu
+
+Tasks: Document Understanding, Image Understanding, Reinforcement Learning
+
+Code: https://github.com/tencent/wemm-ecom</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Motion Mamba 2.0: Autoregressive Diffusion Mamba for Long-Horizon Humanoid Control</title>
       <link>https://arxiv.org/abs/2611.29897</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.29897</guid>
@@ -249,19 +262,6 @@ Tasks: Continuous Control, Humanoid Robotics, Motion Generation
 
 Code: https://github.com/AIGeeksGroup/MotionMamba2.0</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>PartAgent: Agentic 3D Part Segmentation via Expert Integration and Closed-Loop Refinement</title>
-      <link>https://arxiv.org/abs/2611.32554</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32554</guid>
-      <description>Segmenting a 3D object into semantically meaningful parts requires joint reasoning about geometric structure and semantic context. Pretrained 3D experts provide spatially grounded region proposals, while 2D experts provide semantic cues for identifying object parts. The challenge is to integrate these complementary capabilities into a framework that can both produce meaningful part segmentations and progressively refine them. We present PartAgent, a training-free agentic framework for 3D part segmentation built upon two complementary modules: (i) Structural-Semantic Expert Integration combines regions predicted by the 3D expert with multiview semantic evidence from the 2D expert through image-to-surface correspondences, constructing compositional part partitions at multiple granularities. (ii) Observation-Driven Closed-Loop Partition Refinement observes the current partition and its supporting evidence to select targeted inspection, evidence repair, composition, or reselection actions. It verifies proposed changes and uses the updated state and action outcomes to guide subsequent decisions. On PartObjaverse-Tiny-WT, PartAgent achieves 68.41 mIoU, outperforming the strongest competing method by 8.53 points. Across 3DCoMPaT200, PartNeXt, PartNetE, and PartObjaverse-Tiny, PartAgent achieves the highest mIoU on each dataset, averaging 69.36 across the four datasets, 7.28 points above the highest mean among competing methods.
-
-Authors: Yang Cao, Zhe Zhu, Yiheng Zhang, Zhengqiang Zhang, Haoyuan Li, Le Wan, Dan Xu
-
-Tasks: 3D semantic segmentation
-
-Code: https://github.com/yangcaoai/PartAgent_Agent_for_3D_Part_Seg</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
