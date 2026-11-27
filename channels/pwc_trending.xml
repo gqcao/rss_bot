@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 27 Nov 2026 16:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 17:00:00 GMT</lastBuildDate>
     <item>
       <title>OCRia-nano-1: Fast, Accurate CPU Parsing with 8.1M Parameters</title>
       <link>https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</link>
@@ -19,52 +19,173 @@ Code: https://github.com/run-llama/liteparse</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>SenseTime Open-Sources SenseNova U1.6 with Enhanced Aesthetics and Native Image Self-Correction New model delivers improved text accuracy, with ComfyUI support for streamlined creative workflows</title>
-      <link>https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</link>
-      <guid isPermaLink="true">https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</guid>
-      <description>SenseTime (00200.HK) announced the release and open-sourcing of SenseNova U1.6, its latest unified multimodal model that enhances creative visual expression, aesthetic quality, and text accuracy in image creation. Building on the U series' unified approach to image understanding and generation, SenseNova U1.6 brings native image self-correction to the series' 8B open-source model for the first time. The new model supports a wide range of creative applications, from portraits and illustrations to posters and infographics. SenseNova U1.6 is now supported by ComfyUI, an open-source AI visual creation platform, enabling creators to generate images with self-correction through node-based workflows. Its API-based version, SenseNova U1.6 Lite, has also been integrated into several SenseTime applications, including the AI productivity assistant Raccoon Work, the video creation agent Seko, and the mobile photography app Kapi Camera.
+      <title>TimeTravelContainer: A Live Forking Sandbox for Stateful Agent Exploration</title>
+      <link>https://arxiv.org/abs/2611.32255</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32255</guid>
+      <description>LLM agents that drive stateful tools (e.g., interactive shells, design environments, simulation engines) frequently need to clone, backtrack, and parallelize live sessions to support exploration. However, cloning a live session today requires serializing the tool's in-memory state to disk or relaunching from scratch, both prohibitively slow for interactive exploration. Existing agent sandboxes based on microVMs or kernel patches either serialize full guest memory to storage or require privileged deployment, limiting use on shared compute farms, personal computers, and other restricted environments. We present TimeTravelContainer (TTC), a rootless container runtime that live-forks an entire running container, including processes, memory, filesystem, and network, with copy-on-write (CoW) semantics. Because the bulk of a tool session's memory is typically read-only after the fork point, clones share it automatically and only diverged pages consume additional memory. TTC requires no kernel modifications, hardware virtualization, or root privileges, and runs on all major platforms including Linux, macOS (Apple Silicon), and Windows (WSL 2), making it deployable as a portable foundation for agent harnesses. We evaluate TTC on two agentic electronic design automation (EDA) flows as representative stateful-tool workloads: MAGE (Innovus) and EvoDRC (KLayout). TTC achieves 84.1$\times$ environment cloning speedup, 31--72% memory reduction, and 1.7--9.4$\times$ end-to-end speedup, demonstrating that live forking removes a scaling barrier for agent-driven exploration of stateful tool environments.
 
-Tasks: Image generation, Text-to-Image Generation
+Authors: Zizheng Guo, Yanqing Zhang, Nathaniel Pinckney, Cunxi Yu, Brucek Khailany
 
-Code: https://github.com/OpenSenseNova/SenseNova-U1</description>
+Tasks: Agents
+
+Code: https://github.com/nvlabs/timetravelcontainer</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Ternary Bonsai 2.5 27B</title>
-      <link>https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</link>
-      <guid isPermaLink="true">https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</guid>
-      <description>Ternary Bonsai 2.5 27B is the agentic release of the Ternary Bonsai 27B line. It keeps the Qwen3.8-27B hybrid-attention architecture and the ternary weight format of Bonsai 2, so it is still 1.76 bits per weight and 5.93 GB, against 53.8 GB for the FP16 model. This release targets long-horizon, tool-driven work.
+      <title>Mixture-of-Loops Transformer</title>
+      <link>https://arxiv.org/abs/2611.34923</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34923</guid>
+      <description>Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1.4x mean token efficiency. At inference, U-MoLT with MoL-Hybrid-2 matches non-looped OLMo3 latency at 996.6 vs. 1,000.6 ms on S-size (~113M) models. Code is available at https://github.com/hustvl/MoLT
 
-Tasks: Agents, Coding Agents, Long-Horizon Agents
+Authors: Lianghui Zhu, Shijie Wang, Xinggang Wang, Jinze Bai, BO WANG, Xiang Bai
 
-Code: https://github.com/prismml-eng/bonsai-demo</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SEEK: Self-Evolution through Execution Knowledge for Agentic Robot Manipulation</title>
-      <link>https://arxiv.org/abs/2611.33915</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.33915</guid>
-      <description>General-purpose multimodal foundation models enable robots to adapt during deployment from observations and execution feedback, without task-specific demonstrations or training. However, the robot retains what it learns only in the model's working context. Once the task ends, it loses this execution knowledge, such as how to carry a bowl between two grippers. On the next attempt at the task, the robot may take just as long and repeat the same mistakes. To avoid this repetition, robots must retain execution knowledge across attempts. Yet replaying past actions is insufficient, because their effects depend on the current conditions. Procedures that determine actions from the current scene address this, but when they meet conditions that earlier attempts did not cover, revising them requires the measured effects of earlier actions. We therefore propose SEEK, an agentic framework that retains both, enabling robots to improve across attempts while keeping the underlying model fixed. To adapt retained knowledge to the current scene, SEEK adopts a Self-Evolving Programmatic Policy (SEPP) that encodes manipulation as executable procedures and determines each action from current observations. As the robot executes these procedures, SEEK records the measured effects of its actions, including those from failed attempts, in a Persistent Action-Effect Bank (PAEB). Where a retained procedure applies, it acts without a model request; where it meets a condition it does not cover, this evidence guides its revision. On RoboDojo, knowledge retained over ten attempts raises SEEK's average task score from 27.0 to 54.4 and its success rate from 19.7% to 48.0% across all 42 tasks. On 34 of these tasks with GPT-6.2 Astra, SEEK reaches 80.1 after five attempts, against 49.6 for the same model acting directly, and uses 77.6% fewer model requests. https://zeyangguan.github.io/SEEK-Agentic-Robot-Manipulation/
+Tasks: Language Modeling
 
-Authors: Zeyang Guan, QiHao Zhao, Rui Gong, Zhang Haitian, Yalun Dai, Yangyu Huang, Lingao Xiao, Haozhe Du, Xuehui Yu, Ye Lu, Jianjun Gao, Ruoyu Wang, Haowen Bai, Hao Li, Scarlett Li, Kim-Hui Yap
-
-Tasks: Continual Learning, Robotics
-
-Code: https://github.com/ZeyangGuan/SEEK-Agentic-Robot-Manipulation</description>
+Code: https://github.com/hustvl/MoLT</description>
       <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ViDiHand2: Unifying Video Diffusion Priors and Hand Geometry for 3D Hand Motion Reconstruction in the Wild</title>
-      <link>https://arxiv.org/abs/2611.30597</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30597</guid>
-      <description>Learning robot manipulation from egocentric human videos requires accurate metric 3D hand motion. Recent methods leverage pretrained video diffusion model (VDM) priors to recover occluded hands directly from full-frame videos, but their appearance-based depth regression generalizes poorly to unseen cameras. In this work, we propose ViDiHand2, a geometry-driven framework that reformulates VDM-based hand depth estimation from direct regression into fine-grained geometric constraint solving. Specifically, we introduce Fine-Grained Geometric Lifting and Clip-Level Ray Fitting, which recover metric depth by enforcing geometric consistency between pixel-aligned 2D joints and the metric structure of MANO hands, while leveraging temporal observations across the clip. Since the lifting relies on these 2D joints, to improve robustness under occlusion and image truncation, we further develop Confidence-Gated Fusion to adaptively combine geometrically lifted joints with MANO predictions according to localization confidence. Finally, we enhance the VDM backbone to better capture spatial-temporal representations and produce the per-frame 2D joint and MANO predictions that both steps rely on. Extensive experiments on seven public datasets demonstrate that ViDiHand2 consistently outperforms 18 baselines, reducing in-the-wild absolute joint error by 42% and detection failures by 8.82x compared with the best baseline on each metric, while running at 57 FPS. The code is available at https://github.com/NTUYWANG103/ViDiHand.
+      <title>Real2SimLab: A Unified Platform for Real-to-Simulation Transfer</title>
+      <link>https://arxiv.org/abs/2611.34849</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34849</guid>
+      <description>Real-to-simulation transfer, which builds simulations from real-world observations, has long been studied in research and industry. Recently, coding agents have become capable of generating simulation programs from video recordings, and several benchmarks have been proposed to evaluate them. However, each individual benchmark defines its own inputs, deliverables, and scoring pipeline. This leads to N times M integrations when evaluating N methods on M benchmarks. To this end, we present Real2SimLab, a unified platform for real-to-simulation transfer. It evaluates a method by running its written program and scoring the output simulation with the original scorer of each benchmark. Moreover, Real2SimLab provides a pipeline to create training data and reward annotations for real-to-simulation methods. Our pipeline carefully avoids data contamination by filtering out the video recordings that exist in benchmarks. For each video recording, a program is first produced, and then our pipeline computes its reward with the same code that Real2SimLab uses for evaluation. So far, it supports 47 coding agents and 5 non-agent methods on 6 benchmarks. Both the platform and Awesome-Real2Sim, our research map of nearly 300 real-to-simulation papers, are open source, and we invite the Real2SimHub community to build them together.
 
-Authors: Yuxi Wang, Yufei Liu, Chengkai Jin, Qingyue Chen, Wenqi Ouyang, Tianyi Wei, Kerui Ren, Siyuan Huang, Zhiqi Shen, Hongsheng Li, Xingang Pan
+Authors: Yongchang Zhang, Jie Huang, Yunhe Ni, Ningyu Zhou, Guangyu Zhao, Ruixun Liu, Rui Huang, Yidi Wu, Tianze Zhang, Zixiang Jiang, Xiang Li, Kevin Shen, Yiwu Zhong
 
-Tasks: 3D Pose Estimation, Depth estimation, Robotics
+Tasks: Coding Agents
 
-Code: https://github.com/NTUYWANG103/ViDiHand</description>
+Code: https://github.com/Real2SimHub/Real2SimLab</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
+      <link>https://arxiv.org/abs/2611.31198</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31198</guid>
+      <description>Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.
+
+Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
+
+Tasks: Deep Research Agents
+
+Code: https://github.com/uclanlp/OpenVLHarness</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What a Forecasting Leaderboard Can Establish: Resolution Reporting for Zero-Shot Time-Series Models</title>
+      <link>https://arxiv.org/abs/2611.31619</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31619</guid>
+      <description>A foundation model for time series is pretrained once and then asked to forecast series it has never seen, so the evidence for it is its score on held-out datasets. Such datasets are scarce, and a few public leaderboards carry most comparisons, yet none of them states how small a difference its datasets can detect. We call that quantity the resolution of a board and introduce Vernier, a tool that computes it from the files a board already publishes. Vernier also reports which entries a board cannot separate from its leader and whether its order changes when unrelated parties submit. GIFT-Eval resolves 6.8 rank places, and its displayed neighbours sit 0.91 apart. The ten places of its top ten hold fewer than two resolvable steps. fev-bench, Chronos Benchmark II and TIME show the same pattern: their resolution is 3.6 to 19 times the gap between neighbours. With each of its 2,554 series as an independent source, BOOM is the one board that resolves its top ten. Below the resolution the order depends on who else submitted: across four boards, rules that rank against the pool reversed 43 top-ten pairs with neither entry rerun, in one update in seven. Boards also do not record how much history a model receives. On 70 configurations, shortening it raised the error of three of four open models, two of them by 15%. We release Vernier, which runs this report with one command on any leaderboard that publishes per-dataset scores: https://github.com/therealram18/vernier
+
+Authors: Arya Sikder, Sriram Pillutla
+
+Tasks: Time-series forecasting
+
+Code: https://github.com/therealram18/vernier</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>GameAnything: From Any Inspirations to Playable Game Worlds</title>
+      <link>https://arxiv.org/abs/2611.29238</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.29238</guid>
+      <description>AI-driven game development holds the potential to transform diverse human inspirations into interactive experiences. However, existing systems and benchmarks primarily focus on explicit development specifications, with limited support for adapting multimodal references and evaluating actual gameplay experiences. We introduce GameAnything, an open-source agentic platform that transforms multimodal inspirations into playable extensions of existing games through iterative development. GameAnything integrates coding agents with an independent playtesting critic, persistent development state, and reusable experience memory to support continuous refinement. We further present GameAnything-Bench, a benchmark spanning diverse reference modalities, game creation objectives, and gaming environments, with exploratory gameplay testing to assess both functional correctness and gameplay quality. Evaluations of nine coding agent configurations reveal that current agents can adapt reference content but still struggle with playable interactions and precise modifications. Moreover, multimodal references improve content fidelity, while iterative refinement yields substantial but varying improvements across agents. These findings highlight both the potential and remaining challenges of inspiration-driven game development.
+
+Authors: Wenyi Wu, Siqi Liu, Yuru Feng, Zixuan Song, Aayush Salvi, Sibo Zhu, Kun Zhou, Biwei Huang
+
+Tasks: Coding Agents
+
+Code: https://github.com/AetherLabsAI/GameAnything</description>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SpatialArena: Where Do Geometric Foundation Models Stand?</title>
+      <link>https://arxiv.org/abs/2611.32816</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32816</guid>
+      <description>3D perception is shifting from task-specific pipelines to geometric foundation models: monocular depth networks, feed-forward 3D/4D reconstruction models, and vision--language models that predict geometry. However, their progress cannot be measured reliably. Published numbers are not comparable, because every paper samples frames, sets resolutions, and selects test splits differently. They are not robust because the alignment required for every up-to-scale prediction can outweigh the gap between models: fitting depth in the wrong space nearly triples its error, and standard trajectory alignment understates the error of failing methods by up to 2.6times. And they rarely cover long recordings, dynamic scenes, or aerial views. We present SpatialArena, an open arena that scores geometric models with the same metrics and rules, with robust and deterministic alignment. SpatialArena spans five tasks, from monocular depth to SLAM. It covers 23 public datasets with 418,929 images across indoor, outdoor, aerial, object-centric, and dynamic scenes, together with Spatial Arena, our own captures with accurate poses and depth. Evaluating 52 models, we find that single-image depth is close to saturation on public benchmarks but not on large, uncontrolled scenes, and that progress now comes from consistency across frames and views, where feed-forward 3D/4D models match or surpass monocular specialists and overtake video depth models. The benchmark, toolbox, and leaderboard will be publicly released.
+
+Authors: Yu Chen, Haosen Yang, Su Ee Tan, Zhensong Zhang, Jifei Song, Jiankang Deng
+
+Tasks: 3D Reconstruction, Camera Pose Estimation, Depth estimation, Visual SLAM
+
+Code: https://github.com/mvp-ai-lab/SpatialArena</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Rewirable Circuits in Transformers with Loom Attention</title>
+      <link>https://arxiv.org/abs/2611.30634</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30634</guid>
+      <description>We propose loom attention, which allows a Transformer to dynamically rewire its circuits at every token by interweaving a head's vertical attention over the outputs of earlier heads (to obtain its query, key and value) with its horizontal attention over tokens. We instantiate vertical attention efficiently with normalized and gated linear attention over a per-token matrix memory, which stores the compressed head outputs and serves as a second residual stream. This yields LoomFormer, a dual-stream architecture that splits control and content between the vector and matrix streams. Across model sizes and training token budgets in language modeling and downstream tasks, LoomFormer matches Transformers trained with over 3x compute and recent residual-stream baselines (HC/mHC, MUDDFormer, AttnRes) trained with ~1.7-2.8x. For example, trained on the same 300B tokens with only 2% extra FLOPs, LoomPythia-2.8B achieves ~1.6x the average downstream gain of mHC-Pythia-2.8B over Pythia-2.8B, and matches (0-shot) or surpasses (5-shot) Pythia-12B. Code is available at https://github.com/Caiyun-AI/LoomFormer
+
+Authors: Da Xiao, Qingye Meng, Shengping Li, Xingyuan Yuan
+
+Tasks: Language Modeling
+
+Code: https://github.com/Caiyun-AI/LoomFormer</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ShowNow: Fine-Grained Speculative Streaming for Responsive World Models</title>
+      <link>https://arxiv.org/abs/2611.34693</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34693</guid>
+      <description>Interactive world models must generate video continuously while responding promptly to user actions. Real-time throughput alone leaves input latency unresolved: coarse generation blocks delay action updates, and generation after input adds work to the response path. We introduce ShowNow, a fine-grained speculative streaming framework that uses computation available during playback to prepare action-conditioned futures before input arrives. Single-latent commitment enables frequent decisions, while configurable preparation covers one to eight actions. We construct a matched multi-future dataset to train alternative continuations from a common state; shared-history tree execution and fused commitment make their preparation efficient. On a single H100, our 5B model sustains 480p generation at 16 fps with eight prepared futures. In ViZDoom, the complete ShowNow deployment reduces median input-to-display latency from 620 to 208 ms relative to the native-block SolarWM-FT deployment. Matched-policy experiments reduce restart empty ticks from 1.56% to 0.09% (94%) and improve on-time responses to action changes. These results establish complementary roles for fine-grained commitment and advance preparation, with measured trade-offs in visual fidelity and long-horizon consistency. ShowNow turns playback-time computation into responsive visual interaction. Project: https://github.com/showlab/ShowNow.
+
+Authors: Yiren Song, Guian Fang, Mike Zheng Shou
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/showlab/ShowNow</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation</title>
+      <link>https://arxiv.org/abs/2611.34290</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34290</guid>
+      <description>Modern video foundation models generate high-quality short clips, but preserving long-video consistency and correctly depicting event-driven state changes remain challenging. Existing agentic workflows face these challenges because continual planning and repair accumulate context, while reference updates remain limited. We introduce StateWeaver, which combines Active States and Hierarchical Collaboration to connect review-driven visual reference updates with cross-shot state inheritance. Active States translate state discrepancies identified during review into concrete visual asset requirements that guide reference construction, validation, and regeneration, preserving identity and already-correct content while repairing target attributes. Confirmed generation results are linked to the corresponding asset states, story time, and reference versions for verification and reuse by subsequent shots. Hierarchical Collaboration isolates execution contexts by task, clip, and repair round, and uses hierarchical memory to organize this process across multiple sets. Across multiple benchmarks, StateWeaver outperforms existing methods and produces long videos with sustained cross-shot consistency under predefined and autonomously planned storyboards.
+
+Authors: Modi Jin, Xuying Zhang, Yijing Guo, Haoran Li, Yanwen Ma, Jing Wang, Chenyu Ge, Ming-Ming Cheng, Haoyang Huang
+
+Tasks: Video generation
+
+Code: https://github.com/ghost233lism/StateWeaver</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation</title>
+      <link>https://arxiv.org/abs/2611.34907</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34907</guid>
+      <description>Real-time autoregressive video generators stream minutes of video and accept new prompts on the fly, but struggle to keep people, objects, and places consistent over a long interactive story. Agent systems provide such memory for offline multi-shot generation, yet they read the whole script in advance, plan each shot before generating it, and regenerate failed shots, which a live stream does not allow. We present Agentic LongLive, an asynchronous agentic memory for long video generation. A memory agent on separate GPUs reads only the prompts revealed so far, never the generated video, and keeps a text state and evolving images for every person, object, and scene. From this entity memory it composes a global image and a per-shot memory image, which an auxiliary GPU prefills into the generator's attention sink before the next shot starts, and writes entity cards for the prompts that name them, so the video never waits for memory and video errors are not written back. A small language model, trained with reinforcement learning and an image reward calibrated using downstream video outcomes, decides what to remember before the next prompt is known. On LongStory-Online, a new benchmark of 25 stories (857 shots) revealed one shot at a time, Agentic LongLive improves persistent-state accuracy of LongLive-2.0, its base generator, by 26.3 points, protagonist identity by 44.9, and revisited-place consistency by 40.4, at about 1% extra generation time on H100. The full system streams faster than real time on one 8xB200 node with the generator in BF16 (34.3 FPS), keeps image quality stable over 14-minute stories, and improves identity on two MiniMax-H3 generators, one of which, LongLive-H3, also runs in real time with it. To our knowledge, it is the first real-time video generator with text and image memory kept by an LLM agent.
+
+Authors: Shaoteng Liu, Shuai Yang, Wei Huang, Luozhou Wang, Song Han, Yukang Chen
+
+Tasks: No-Reference Image Quality Assessment, Reinforcement Learning, Video generation
+
+Code: https://github.com/NVlabs/LongLive</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DyLoMo-DiT: Dynamic Looped Mixture-of-Experts Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2611.30844</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30844</guid>
+      <description>Diffusion Transformers (DiTs) scale model capacity by increasing both parameter count and computation. Mixture-of-Experts (MoE) variants expand parameter capacity while keeping per-token computation roughly fixed, but still require substantial parameter storage. In this paper, we propose Dynamic Looped MoE DiT (DyLoMo-DiT), which reuses parameters rather than adding them: a weight-shared loop repeatedly applies the middle layers, while sparse experts allocate parameter capacity across tokens. This design deepens the network without adding parameters, freeing the parameter budget for other uses, such as more experts or more distinct layers. It also allocates compute dynamically, varying the number of passes across noise levels. Experiments show that DyLoMo-DiT makes more effective use of parameter and compute budgets, with further gains from assigning more passes to low-noise steps. On ImageNet 256times256, DyLoMo-DiT reduces FID by 11-24% relative to DiT and 36-56% relative to DiT-MoE at matched parameter and compute budgets. For text-to-image generation, a scaled DyLoMo-DiT achieves a higher GenEval score than FLUX.1 (0.714 vs. 0.673), with less than one tenth of its active parameters (1.05B vs. 12B).
+
+Authors: Lernie Li, Yuanliu Liu, Pengfei Xiong, Wei ZHANG
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/OneBoxCream/DyLoMo-DiT</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DocSEAM: Bidirectional Cross-Page Encoding for Multi-Page Document Understanding</title>
+      <link>https://arxiv.org/abs/2611.34420</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34420</guid>
+      <description>Multi-page document vision-language models encode each page independently, creating a feature-level discontinuity at page boundaries: visual tokens are formed without access to content on adjacent pages, and the language model must reason over these page representations formed in isolation. We introduce DocSEAM (Document Selective Enrichment via Anchored Masking), a lightweight module inserted between a pretrained vision encoder and the language model that injects the inductive bias of local cross-page context into visual representations. For each page, DocSEAM forms a local triplet with its two neighbors, applies center-anchored masked self-attention with directional salience gates to fuse information from neighbor pages, and returns only the enriched center-page tokens, leaving the visual token count unchanged. After a supervised cross-page warm-up and multi-page fine-tuning with DocSEAM frozen, our 9B-parameter model achieves state-of-the-art results among the evaluated open-weight models of up to 10B parameters on five multi-page document VQA benchmarks. We further show that under controlled re-pagination, DocSEAM reduces sensitivity to boundary placement and improves cross-page span localization
+
+Authors: Hoang-Nhat Nguyen, Chen Change Loy
+
+Tasks: Document Understanding, Image Understanding, Question Answering
+
+Code: https://github.com/mossbee/DocSEAM</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ReFocus: Progress-Guided Adaptive Practice for Long-Horizon Robotic Manipulation Reinforcement Learning</title>
@@ -80,45 +201,6 @@ Code: https://github.com/ReFocus-Robotics/ReFocus</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>A Glimpse of Training VLMs as Foundation Models for Robotic Manipulation</title>
-      <link>https://arxiv.org/abs/2611.29338</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.29338</guid>
-      <description>Recently, GPT-6 Astra demonstrates strong generalization in robot control, yet limited disclosure of its training leaves open how such capabilities can be reproduced. We introduce nanoAstra, an approach to training vision-language models (VLMs) for generalizable manipulation that combines semantic action modeling with capability-preserving supervised fine-tuning (CP-SFT). nanoAstra represents robot behavior as semantic steps composed of reusable, parameterized action primitives, guided by explicit progress descriptions. Meanwhile, CP-SFT uses an explicit robot-specific system prompt to constrain manipulation outputs to a structured action space, aiming to focus adaptation on robot-specific contexts and promote specialization while minimizing interference with broader pretrained capabilities. With this formulation, we train nanoAstra on more than 5,000 hours of robot data together with general VQA data. On RoboTwin 2.0's randomized benchmark, nanoAstra-9B achieves a 17.8% zero-shot success rate, substantially outperforming advanced VLA and WAM baselines as well as similarly sized VLMs. With inference faster than the corresponding motion execution on a single H20 GPU, our model supports action-chunk-like streaming execution that overlaps inference with motion, reducing the robot's idle time from 35.0% to 6.9%.
-
-Authors: Meng-Hao Guo, Yi Zhang, Zhe-Han Mo, Han-Zheng Wang, Jia-Jun Wang, Xin-Sheng Chen, Jiaxi Song, Yi-Xuan Deng, Jia-Ning Li, Xuanyu Chu, Hengrui Zhang, Huan-ang Gao, Yongming Rao, Shi-Min Hu
-
-Tasks: Image Understanding, Robotics
-
-Code: https://github.com/hugo-agi/nanoastra</description>
-      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Do learned image captioning metrics generalize? Auditing duplicated samples in human-judgment benchmarks</title>
-      <link>https://arxiv.org/abs/2611.30488</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30488</guid>
-      <description>Learned image captioning metrics are trained and tested on human judgments, so their reported correlation is a claim about generalization. We audit this claim for the three most recent collections of such judgments, Polaris, Nebula, and Spica, matching images at the pixel level. First, test samples reappear in training sets: the Spica training set contains about two-thirds of the Polaris test set, with identical human ratings. Second, controlled retraining shows that duplicates can inflate a metric: for Pearl, the gain is confined to the duplicated samples and grows with every epoch; for DENEB, it stays below one point. The gain depends on the learner and on how often a training set repeats a sample. Third, Kendall's τ over all samples is the sum of two terms, detecting captions with the lowest human score and ranking the others; the first supplies most of the reported correlation and is nearly saturated. The recent test sets cannot order Polos, DENEB and Pearl consistently, and a ridge regression on frozen features matches or exceeds all three. Fourth, we propose a protocol that ranks a learned metric only with a model trained without test samples, reports both terms, and compares metrics by paired tests. Under it, zero-shot vision--language judges rank first on the three recent test sets, and a fine-tuned judge ranks first on the three earlier benchmarks. The same analysis applies to any evaluator learned from human judgments; filter lists and code are released at https://github.com/morninghut/ic-dataset-audit .
-
-Authors: Xiaochen Zhang, Jin Li, Chunlong Xia, Longjiang Guo
-
-Tasks: Image Captioning
-
-Code: https://github.com/morninghut/ic-dataset-audit</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Write, Evolve, Read: Streaming Cameras into a Persistent World State for 4D Occupancy Forecasting</title>
-      <link>https://arxiv.org/abs/2611.30573</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30573</guid>
-      <description>4D occupancy forecasting predicts the 3D semantic occupancy of a driving scene seconds ahead. Over a few seconds, the scene changes little while the vehicle moves, so most of the space ahead has already been seen. Sorting the future into unchanged, changed, and unseen space, we find that current camera-based world models fall short on the unchanged part: they fail to hold on to what they have already seen, rather than to forecast what will change. We therefore make what the model has seen its state. PersistWorld streams camera frames into a persistent 3D world state anchored in the scene, writing each frame once instead of rebuilding the state from past frames. The state is learned end to end with the forecast, and an evolver predicts it at any queried time along the ego trajectory. On Occ3D-nuScenes, PersistWorld raises the IoU of the best camera-based world model by 19 points at 1-3 s and by 18 to 24 points up to 8 s, while running more than twice as fast. Code and models: https://github.com/wangzian828/PersistWorld. Project page: https://wangzian828.github.io/PersistWorld
-
-Authors: Zian Wang, Tianyi Wang, Zhihao Chen, Manni Cui, Junkai Chen, ZhiJin Chen, Ruiqi Liu, Junfei Wu, Huanyu Zhang, Shu Wu
-
-Tasks: 3D Occupancy Prediction, Autonomous Driving, World Models
-
-Code: https://github.com/wangzian828/persistworld</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>HARI4D: Hand-Articulation Aware 4D Reconstruction of Human-Object Interaction</title>
       <link>https://arxiv.org/abs/2611.32932</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.32932</guid>
@@ -130,19 +212,6 @@ Tasks: 3D Pose Estimation, 3D Reconstruction
 
 Code: https://github.com/xiexh20/hari4d</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
-      <link>https://arxiv.org/abs/2611.31198</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31198</guid>
-      <description>Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.
-
-Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
-
-Tasks: Deep Research Agents
-
-Code: https://github.com/uclanlp/OpenVLHarness</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Attention Latent Feedback</title>
@@ -171,95 +240,26 @@ Code: https://github.com/DravenALG/Embo-Harness</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Mixture-of-Loops Transformer</title>
-      <link>https://arxiv.org/abs/2611.34923</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34923</guid>
-      <description>Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1.4x mean token efficiency. At inference, U-MoLT with MoL-Hybrid-2 matches non-looped OLMo3 latency at 996.6 vs. 1,000.6 ms on S-size (~113M) models. Code is available at https://github.com/hustvl/MoLT
+      <title>SenseTime Open-Sources SenseNova U1.6 with Enhanced Aesthetics and Native Image Self-Correction New model delivers improved text accuracy, with ComfyUI support for streamlined creative workflows</title>
+      <link>https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</link>
+      <guid isPermaLink="true">https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</guid>
+      <description>SenseTime (00200.HK) announced the release and open-sourcing of SenseNova U1.6, its latest unified multimodal model that enhances creative visual expression, aesthetic quality, and text accuracy in image creation. Building on the U series' unified approach to image understanding and generation, SenseNova U1.6 brings native image self-correction to the series' 8B open-source model for the first time. The new model supports a wide range of creative applications, from portraits and illustrations to posters and infographics. SenseNova U1.6 is now supported by ComfyUI, an open-source AI visual creation platform, enabling creators to generate images with self-correction through node-based workflows. Its API-based version, SenseNova U1.6 Lite, has also been integrated into several SenseTime applications, including the AI productivity assistant Raccoon Work, the video creation agent Seko, and the mobile photography app Kapi Camera.
 
-Authors: Lianghui Zhu, Shijie Wang, Xinggang Wang, Jinze Bai, BO WANG, Xiang Bai
+Tasks: Image generation, Text-to-Image Generation
 
-Tasks: Language Modeling
-
-Code: https://github.com/hustvl/MoLT</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/OpenSenseNova/SenseNova-U1</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets</title>
-      <link>https://arxiv.org/abs/2611.30013</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30013</guid>
-      <description>Animating arbitrary 3D assets from instructions requires both structural inference and motion control, yet existing motion benchmarks mostly cover conventional human or animal skeletons with simple instructions. We introduce DivDynBench, which evaluates rigging and motion generation across six morphology categories, with instructions requiring multi-phase part coordination and explicit timing, angle, repetition, and trajectory constraints. With large language models, we systematically compare three common paradigms: specialized motion generation, video generation followed by motion recovery, and direct agent-driven generation. We analyze their control capabilities, cross-morphology adaptability, and generation costs. Guided by this comparison, we propose an Agentic Motion Framework in which an agent writes compact parametric skeleton and motion programs, and a deterministic executor performs rigging, kinematic solving, and geometric correction. Compact parameter control reduces generation overhead and improves rigging reliability and motion-control accuracy, providing practical guidance for deploying complex 3D motion generation.
+      <title>Ternary Bonsai 2.5 27B</title>
+      <link>https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</link>
+      <guid isPermaLink="true">https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</guid>
+      <description>Ternary Bonsai 2.5 27B is the agentic release of the Ternary Bonsai 27B line. It keeps the Qwen3.8-27B hybrid-attention architecture and the ternary weight format of Bonsai 2, so it is still 1.76 bits per weight and 5.93 GB, against 53.8 GB for the FP16 model. This release targets long-horizon, tool-driven work.
 
-Authors: Bohan Zeng, Kaixin Zhu, Yifan Yang, Dongge Yu, Zihao Wu, Yifan Dai, Zhou Liu, Junbo Niu, Xiaochen Ma, Shiran Ge, Zimo Meng, Junzhu Liang, Huanyao Zhang, JinHang Liu, Tianqi Xiao, Jinhao Zhang, Tianyi Bai, Zhixiong Zeng, Penghao Zhao, Yuanbo Peng, Key Zhang, Wentao Zhang
+Tasks: Agents, Coding Agents, Long-Horizon Agents
 
-Tasks: Motion Generation, Video generation
-
-Code: https://github.com/OpenDCAI/GameFactory-3A</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms</title>
-      <link>https://arxiv.org/abs/2611.34232</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34232</guid>
-      <description>Computer-using agents are increasingly expected to complete realistic user goals rather than isolated GUI actions. However, existing benchmarks typically isolate web, mobile, or desktop environments, leaving it unclear whether a single generalist agent can execute long-horizon workflows that span multiple operating systems and persistent application states. We introduce OS-Omni, a live cross-platform benchmark and execution environment for evaluating computer-using agents across Windows, Ubuntu, macOS, iOS, Android, and Web environments. OS-Omni is released in versioned waves of 300 tasks each; this paper focuses on the first release, v1, which contains 48 tasks per platform and 12 cross-platform workflows that pair a desktop with an Android phone. OS-Omni provides reproducible initialization, platform-specific adapters, trajectory logging, and executable final-state evaluators, and includes controlled service-backed applications for workflows involving account, cart, budget, calendar, message, and other persistent state. Human studies show that OS-Omni tasks require 67.54 interaction steps, substantially exceeding OSWorld references of 15.0 steps. On v1, the strongest evaluated agent, Claude Opus 5.5, reaches 68.5% average success, trailing the 77.3% human reference by 8.8 points; the gap is uneven across platforms, with frontier models exceeding humans on Linux but trailing them by more than 25 points on iOS and macOS. These results indicate that current agents remain far from platform-robust, long-horizon computer use, especially when success requires sustained state tracking and durable final-state changes.
-
-Authors: Hui Shen, Yunta Hsieh, Jianing Ma, Zhuoran Yin, Zhuhan Bao, Ziyuan Liu, Qi Han, Xiuqi Xu, Xianbang Wang, Wenhao Chai, Sihan Xu, Chenyang Zhao, Yanheng Shang, Dongfu Jiang, Rui Sun, Xingzhi Li, Chenqi Yin, Zesen Zhao, Boyuan Zheng, Jisen Li, Xiaoxia Wu, Ruoyan Zhang, Ruiyao Liu, Jing Xiong, He Xiao, Nan Zheng, Hangxiang Chen, Shengyang Tao, Deyang Luorong, Yifeng Liu, Jingxuan Zhang, Chaofan Tao, Yuren Wang, Jiaqi Mo, Rui Hu, Xing Wei, Xiaofeng Liu, Xin Xu, Han Wu, Mengyao Wen, Guobin Zhang, Shatong Zhu, Hei Ting Una Chan, Sicheng Chen, Kai Zhang, Mengkang Hu, Zhongwei Wan, Xin Wang, Chuanyang Zheng, Ziheng Zhang, Hengyuan Zhang, Zunhai Su, Kanzhi Cheng, Dehan Kong, Yian Wang, Hanrong Zhang, Jiawei Lu, Yifan Zhang, Junnan Li, Changyi Yang, Jintao Qu, Wenyao Gao, Jiaxuan Luo, Jiaxin Deng, Yuhao Chen, Xuesong Ye, Jingwen Gu, Yichi Zhang, Qun Lou, Shen Yan, Ben Athiwaratkun, Qiushi Sun, Mi Zhang, Ping Luo, Wenhu Chen, Ngai Wong
-
-Tasks: Computer Use Agents
-
-Code: https://github.com/OS-Copilot/OS-Omni</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Motion Mamba 2.0: Autoregressive Diffusion Mamba for Long-Horizon Humanoid Control</title>
-      <link>https://arxiv.org/abs/2611.29897</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.29897</guid>
-      <description>Long-horizon, real-time controllable motion generation is essential for interactive animation and humanoid robotics, where an agent must respond to changing instructions and spatial goals while moving. Existing autoregressive diffusion methods generate motion incrementally, but bounded attention caches limit access to distant history, while repeated denoising introduces substantial inference overhead. We present Motion Mamba 2.0, a Mamba-based root-body diffusion architecture that integrates local attention, resumable recurrent states, and persistent content memory (PCM) for long-horizon controllable motion generation. PCM transforms compressed motion history from Mamba recurrent states, together with state changes and text-conditioned features, into dynamically updated content slots accessible to local attention. To enable efficient inference, we further develop an execution scheme tailored to this architecture, combining CUDA Graph replay, fused kernels, and execution-flow simplification while preserving the canonical history update. Evaluations on retargeted HiPHI demonstrate accurate terminal control over rollouts of up to 39.52 s, while short-horizon comparisons on BONES Seed and retargeted HumanML3D show that the model also retains strong spatial control and text-motion matching. On an RTX 4090, the optimized execution reduces median complete-window latency from 1685.35 to 276.14 ms, achieving a median paired speedup of 6.138times while preserving identical outputs and committed states in the tested rollouts. Moreover, we conduct extensive real-world evaluation on the Unitree G1, demonstrating sequential text-guided action composition, expressive motion, and interactive locomotion through keyboard and mouse control.
-
-Authors: Yue Huang, Tianshan Zhang, Zeyu Zhang, Jayeon Kang, Akide Liu, Sungjoon Choi, Dacheng Tao, Hao Tang
-
-Tasks: Continuous Control, Humanoid Robotics, Motion Generation
-
-Code: https://github.com/AIGeeksGroup/MotionMamba2.0</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation</title>
-      <link>https://arxiv.org/abs/2611.34907</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34907</guid>
-      <description>Real-time autoregressive video generators stream minutes of video and accept new prompts on the fly, but struggle to keep people, objects, and places consistent over a long interactive story. Agent systems provide such memory for offline multi-shot generation, yet they read the whole script in advance, plan each shot before generating it, and regenerate failed shots, which a live stream does not allow. We present Agentic LongLive, an asynchronous agentic memory for long video generation. A memory agent on separate GPUs reads only the prompts revealed so far, never the generated video, and keeps a text state and evolving images for every person, object, and scene. From this entity memory it composes a global image and a per-shot memory image, which an auxiliary GPU prefills into the generator's attention sink before the next shot starts, and writes entity cards for the prompts that name them, so the video never waits for memory and video errors are not written back. A small language model, trained with reinforcement learning and an image reward calibrated using downstream video outcomes, decides what to remember before the next prompt is known. On LongStory-Online, a new benchmark of 25 stories (857 shots) revealed one shot at a time, Agentic LongLive improves persistent-state accuracy of LongLive-2.0, its base generator, by 26.3 points, protagonist identity by 44.9, and revisited-place consistency by 40.4, at about 1% extra generation time on H100. The full system streams faster than real time on one 8xB200 node with the generator in BF16 (34.3 FPS), keeps image quality stable over 14-minute stories, and improves identity on two MiniMax-H3 generators, one of which, LongLive-H3, also runs in real time with it. To our knowledge, it is the first real-time video generator with text and image memory kept by an LLM agent.
-
-Authors: Shaoteng Liu, Shuai Yang, Wei Huang, Luozhou Wang, Song Han, Yukang Chen
-
-Tasks: No-Reference Image Quality Assessment, Reinforcement Learning, Video generation
-
-Code: https://github.com/NVlabs/LongLive</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>World Models as Native Latent Action Models</title>
-      <link>https://arxiv.org/abs/2611.30898</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30898</guid>
-      <description>Large and diverse video sources, such as egocentric human video and heterogeneous robot recordings, carry rich dynamics but come either without actions or without a shared action space. Latent action models (LAMs) can recover these dynamics, but they train their inverse- and forward-dynamics models (IDM, FDM) from scratch, trading off pixel reconstruction against latent capacity and accuracy. Pretrained video world models natively generate high-fidelity dynamics, yet represent them densely, entangled across all layers. Viewing the world model as a LAM, we show that these dynamics can be extracted with minimal changes to the model. Native LAM operates one pretrained video diffusion transformer as both IDM and FDM, with learnable dynamics registers as the only causal bridge between the two, and trains on counterfactual temporal pairs that differ in motion alone, so that the registers distill a video's dynamics into a compact native latent action. We further propose a pretraining paradigm for vision-language-action (VLA) policies, Pretraining Actions from World models (PAWlicy), in which Native LAM serves as a dynamics teacher on large-scale video; unlike world action models, it never generates video. Native latent actions outperform existing LAMs on the LARY benchmark in both action classification and control regression, and replay the same motion on new robots, in new scenes, and from human hands to robots, although no transfer objective is used in training. With a 3.8B model, PAWlicy reaches a 93.6% average success rate on RoboTwin 2.0 trained with domain-randomized demonstrations, the highest among VLAs. On RoboDojo, it is competitive on every dimension we evaluate, and its Precision, evaluated by us, is on par with the leading leaderboard entries. On real robots, it improves over the pi_0.5 baseline on both tasks. Both stages use only public data and a publicly released world model.
-
-Authors: Qinyue Li, Weijie Qiao, Qingyi Tao, Zerui Gong, Zhe Yang, Quanzhou Li, Taolin Zhang, Jinglin He, Zhonghua Wu, Chen Change Loy
-
-Tasks: Robotics, World Models
-
-Code: https://github.com/pawteam-eai/native-lam</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>On-Policy Codec Distillation for Efficient All-in-One Video Generation</title>
-      <link>https://arxiv.org/abs/2611.31184</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31184</guid>
-      <description>Modern visual generative models operate on tokens, and every visual asset they receive, whether an identity, a scribble, a depth map, or a motion video, is tokenized and appended to the input token sequence. Consequently, conditioning quickly dominates the computation cost. Yet most of these tokens carry redundant spatiotemporal information. Our key insight is that identifying what is genuinely new is exactly the problem that classical video codecs have long solved. Thus, we first introduce a codec-based token pruning method that discards redundant tokens. Then, we propose an on-policy self-distillation (OPSD) strategy to train a DiT adapter capable of learning the codec pruning pattern well without quality degradation. Together, they form On-Policy Codec Distillation (CodecOPSD). We scale CodecOPSD to 16 condition modalities on our own video diffusion model, where it prunes 66% of the condition tokens on average with almost no quality drop. Therefore, denoising becomes 2x faster, and the cache memory shrinks by up to 73% in KV cache mode. CodecOPSD also extends to other state-of-the-art pretrained image and video generative models, where its benefit grows further with more conditions, longer frames, and higher resolution.
-
-Authors: Boyang Wang, Kevin Blackburn-Matzen, Oindrila Saha, Matheus Gadelha, Zezhou Cheng
-
-Tasks: Video Compression, Video generation
-
-Code: https://github.com/Kiteretsu77/CodecOPSD</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+Code: https://github.com/prismml-eng/bonsai-demo</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
