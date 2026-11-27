@@ -4,7 +4,7 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 27 Nov 2026 05:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 06:00:00 GMT</lastBuildDate>
     <item>
       <title>OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms</title>
       <link>https://arxiv.org/abs/2611.34232</link>
@@ -32,16 +32,107 @@ Code: https://github.com/uclanlp/OpenVLHarness</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>ShowNow: Fine-Grained Speculative Streaming for Responsive World Models</title>
-      <link>https://arxiv.org/abs/2611.34693</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34693</guid>
-      <description>Interactive world models must generate video continuously while responding promptly to user actions. Real-time throughput alone leaves input latency unresolved: coarse generation blocks delay action updates, and generation after input adds work to the response path. We introduce ShowNow, a fine-grained speculative streaming framework that uses computation available during playback to prepare action-conditioned futures before input arrives. Single-latent commitment enables frequent decisions, while configurable preparation covers one to eight actions. We construct a matched multi-future dataset to train alternative continuations from a common state; shared-history tree execution and fused commitment make their preparation efficient. On a single H100, our 5B model sustains 480p generation at 16 fps with eight prepared futures. In ViZDoom, the complete ShowNow deployment reduces median input-to-display latency from 620 to 208 ms relative to the native-block SolarWM-FT deployment. Matched-policy experiments reduce restart empty ticks from 1.56% to 0.09% (94%) and improve on-time responses to action changes. These results establish complementary roles for fine-grained commitment and advance preparation, with measured trade-offs in visual fidelity and long-horizon consistency. ShowNow turns playback-time computation into responsive visual interaction. Project: https://github.com/showlab/ShowNow.
+      <title>Real2SimLab: A Unified Platform for Real-to-Simulation Transfer</title>
+      <link>https://arxiv.org/abs/2611.34849</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34849</guid>
+      <description>Real-to-simulation transfer, which builds simulations from real-world observations, has long been studied in research and industry. Recently, coding agents have become capable of generating simulation programs from video recordings, and several benchmarks have been proposed to evaluate them. However, each individual benchmark defines its own inputs, deliverables, and scoring pipeline. This leads to N times M integrations when evaluating N methods on M benchmarks. To this end, we present Real2SimLab, a unified platform for real-to-simulation transfer. It evaluates a method by running its written program and scoring the output simulation with the original scorer of each benchmark. Moreover, Real2SimLab provides a pipeline to create training data and reward annotations for real-to-simulation methods. Our pipeline carefully avoids data contamination by filtering out the video recordings that exist in benchmarks. For each video recording, a program is first produced, and then our pipeline computes its reward with the same code that Real2SimLab uses for evaluation. So far, it supports 47 coding agents and 5 non-agent methods on 6 benchmarks. Both the platform and Awesome-Real2Sim, our research map of nearly 300 real-to-simulation papers, are open source, and we invite the Real2SimHub community to build them together.
 
-Authors: Yiren Song, Guian Fang, Mike Zheng Shou
+Authors: Yongchang Zhang, Jie Huang, Yunhe Ni, Ningyu Zhou, Guangyu Zhao, Ruixun Liu, Rui Huang, Yidi Wu, Tianze Zhang, Zixiang Jiang, Xiang Li, Kevin Shen, Yiwu Zhong
+
+Tasks: Coding Agents
+
+Code: https://github.com/Real2SimHub/Real2SimLab</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation</title>
+      <link>https://arxiv.org/abs/2611.34290</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34290</guid>
+      <description>Modern video foundation models generate high-quality short clips, but preserving long-video consistency and correctly depicting event-driven state changes remain challenging. Existing agentic workflows face these challenges because continual planning and repair accumulate context, while reference updates remain limited. We introduce StateWeaver, which combines Active States and Hierarchical Collaboration to connect review-driven visual reference updates with cross-shot state inheritance. Active States translate state discrepancies identified during review into concrete visual asset requirements that guide reference construction, validation, and regeneration, preserving identity and already-correct content while repairing target attributes. Confirmed generation results are linked to the corresponding asset states, story time, and reference versions for verification and reuse by subsequent shots. Hierarchical Collaboration isolates execution contexts by task, clip, and repair round, and uses hierarchical memory to organize this process across multiple sets. Across multiple benchmarks, StateWeaver outperforms existing methods and produces long videos with sustained cross-shot consistency under predefined and autonomously planned storyboards.
+
+Authors: Modi Jin, Xuying Zhang, Yijing Guo, Haoran Li, Yanwen Ma, Jing Wang, Chenyu Ge, Ming-Ming Cheng, Haoyang Huang
+
+Tasks: Video generation
+
+Code: https://github.com/ghost233lism/StateWeaver</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Sage-Med: Scaling Medical Multimodal Intelligence</title>
+      <link>https://arxiv.org/abs/2611.34575</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34575</guid>
+      <description>Establishing effective scaling laws for medical multimodal large language models (MLLMs) remains a persistent and fundamental challenge. Our systematic evaluation shows that existing medical MLLMs tend to underperform frontier general-purpose MLLMs across a range of medical tasks, while scaling model size primarily improves text capabilities rather than multimodal perception, and enabling reasoning modes fails to close this visual gap. To investigate how medical multimodal intelligence scales in practice, we introduce Sage-Med-Preview, a 35B-parameter medical multimodal model with 3B activated parameters, built by combining stage-specific curation over 322.7 million candidate records with a progressive training curriculum spanning medical pretraining, staged supervised fine-tuning, and adaptive reinforcement learning. Across this curriculum, progressive supervised refinement and adaptive reinforcement learning yield consistent stage-wise gains, substantially advancing both specialized visual understanding and medical language capabilities. Evaluated against 77 competing models across 238 clinical tasks spanning 61 public and 13 private multi-center benchmarks in more than 40 modalities, Sage-Med-Preview achieves an average score of 58.26% on the 31 public multimodal benchmarks. It outperforms the state-of-the-art open-source medical model Hulu-Med-235B-A22B at 50.99% and the general scientific model Intern-S2-Preview at 52.24%, and approaches the advanced proprietary model GPT-6.2-Sol across multiple tasks such as comprehensive multimodal understanding, report generation, and visual grounding. Although substantial challenges remain in complex medical reasoning and multi-step clinical workflows, this report provides empirical evidence, actionable data and training recipes, and a rigorous benchmark toward scalable clinical multimodal intelligence.
+
+Authors: Med Team, Ming Hu, Cheng Tang, Wei Li, Rongbin Li, Feilong Tang, Junru Hu, Hongze Zhu, Qiujuan Yan, Huanze Tang, Shaocong Wei, Siyuan Yan, Min Cen, Zhongxing Xu, Zhonghua Wang, Lie Ju, Zhen Yu, Wenjie Li, Shiyan Su, Jing Hao, Jingyong Liang, Diping Song, Fang Yan, Chenglong Ma, Junzhi Ning, Haochen Xue, Zanting Ye, Chenrun Wang, Jinjie Wei, Yi Xin, Jianghan Shen, Siqi Luo, Jiyao Liu, Huidong Xie, Jun Zhao, Rulin Zhou, Longquan Jiang, Ziyan Huang, Ying Chen, Hanxiao Zhang, Junyang Wu, Mouxiao Bian, Jiashi Lin, Chenyu Wang, Qi Qin, Jie Huang, Yiling Zhou, Jiawei Chen, Kefan Wang, Jingjing Hua, Yaoyu Liu, Huihui Xu, Tianbin Li, Jin Ye, Ziyang Chen, Shujian Gao, Zilin Lu, Jiangtao Yan, Changkai Ji, Wenhao Tang, Xinyi Zeng, Yuxing Chen, Hongwei Yang, Rongzhao Zhang, Jinru Ding, Yingcheng Wu, Zhenfei Yin, Jinzhe Li, Lu Lu, Yun Zhong, Zhishan Lin, Bingli Wang, Xiaohan Ren, Jianmin Qian, Penghao Zhao, Zhongbo Tian, Zhenbang Zhou, Peiling Dai, Mengjing Zhao, Jingyu Zheng, Pinan Liu, Shiwei Li, Victoria Mar, Cristina Vico-Alonso, Qiang Wu, Xianming Liu, Lingtong Huang, Dili Song, Minghui Zhang, Wenlong Zhang, Qipeng Guo, Yuqiang Li, Nanqing Dong, Yun Gu, Qi Duan, Hongliang Ren, Hongming Shan, Yin Xie, Xiang An, Benyou Wang, Yueming Su, Yefeng Zheng, Zongyuan Ge, Chun-Mei Feng, Jie Xu, Yu Qiao, Junjun He, YiRong Chen
+
+Tasks: Healthcare &amp; Medical AI, Image Captioning, Image Understanding, Medical Image Segmentation, Medical Question Answering, Medical Visual Question Answering, Reinforcement Learning, Visual Grounding
+
+Code: https://github.com/Sage-Med/Sage-Med-Preview</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>FoundSurface: Feedforward Ray-Based 3D Scene Surface Reconstruction from Unposed Images</title>
+      <link>https://arxiv.org/abs/2611.34128</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34128</guid>
+      <description>Accurate 3D surface reconstruction from unposed images remains a fundamental challenge in computer vision. Recent feed-forward pointmap methods eliminate the need for camera poses but inherently produce discrete, sparse representations. In this paper, we present a generalizable pipeline that directly recovers continuous, high-fidelity 3D surfaces from unposed images by seamlessly integrating pointmap- and ray-based representations. Our approach first extracts explicit geometric priors using a pre-trained pointmap model. A query-view-centric selection module then identifies geometrically relevant reference views via a robust surfel voting mechanism. Next, a cross-attention regressor bridges target query rays with reference features to estimate a continuous coarse surface. Lastly, a raylet-based module aggregates local 3D features to carve out high-frequency details and analytical normals. Trained as a single foundation model on 9 diverse datasets, our method demonstrates exceptional zero-shot generalization on 6 unseen datasets, clearly surpassing state-of-the-art baselines in geometric accuracy and detail preservation.
+
+Authors: Shenxing Wei, Jinxi Li, Zihui Zhang, Ajay Kumar, Wei Wang, Bo Yang, Bo Yang
+
+Tasks: 3D Reconstruction
+
+Code: https://github.com/vLAR-group/FoundSurface</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>High-Fidelity Image Matting with Pixel-Space Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2611.34929</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34929</guid>
+      <description>Diffusion models have shown strong potential for image matting by transferring generative priors learned from large-scale pretraining. However, existing approaches largely rely on latent diffusion models, whose compressed representations and VAE-based reconstruction introduce a mismatch with the high-frequency precision required for matting. We present PixelMatte, a framework that adapts pretrained pixel-space diffusion transformers for high-fidelity image matting. We show that strong image-conditioned matting capabilities can be acquired even from a pure text-to-image model without paired image-to-image pretraining. Our approach reuses the backbone's native patch embedding to jointly process the input image, trimap, and noisy alpha matte as spatially aligned tokens, enabling direct pixel-space prediction without additional condition encoders or adapters. With pixel-accurate synthetic supervision and real-image fine-tuning, PixelMatte predicts alpha mattes in a single forward pass. Two lightweight calibration modules, LayerShift and High-Pass Refiner, further improve regional opacity accuracy and boundary fidelity. Experiments across four benchmarks and two distinct pixel diffusion backbones demonstrate substantial improvements over existing methods, reducing SAD and gradient errors by 24-44% relative to RenderMatte on P3M-500-NP and AM-2K, while achieving competitive performance on AIM-500 and RenderMatte-2K. These results demonstrate the effectiveness of pixel-space generative priors for precision-sensitive image matting. Project page: https://white-yc.github.io/pixelmatte/.
+
+Authors: Baihan Yang, Xin Lin, Yufan Wei, Baiang Li, Yuheng Liu, Juanxi Tian, Xiaohui Xie, Truong Nguyen
+
+Tasks: Image generation, Image Matting, Text-to-Image Generation
+
+Code: https://github.com/White-YC/pixelmatte</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>OmniPersist: Persistent Dynamic World Modeling via Coupled Panoramic Evolution</title>
+      <link>https://arxiv.org/abs/2611.32473</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32473</guid>
+      <description>Action-conditioned world models play a vital role in robotics and autonomous driving, yet existing video diffusion models struggle to maintain dynamic object persistence. When the camera turns away and returns, out-of-view moving entities fail to evolve plausibly in latent space, often mutating or vanishing entirely due to bounded perspective views. To resolve this issue, we propose OmniPersist, a unified framework that couples perspective video generation with panoramic evolution within a single-stage diffusion model, without relying on auxiliary models or initial panoramic inputs. To maintain efficiency, we model the panoramic stream at a lower frame rate, bridging both views across space and time via Geometric Anchoring (GeoAnch) for spatial correspondence and Temporal Compensation (TemComp) for temporal aggregation. OmniPersist is agnostic to camera-control architectures, supporting both latent-level and attention-level conditioning. Extensive experiments on a newly constructed dynamic benchmark across image-to-video and video continuation tasks demonstrate consistent gains in visual quality, camera controllability, revisit consistency, and dynamic persistence.
+
+Authors: Zhilu Zhang, Xiaoyu Liu, Wenxi Liu, Shengfeng He
 
 Tasks: Video generation, World Models
 
-Code: https://github.com/showlab/ShowNow</description>
+Code: https://github.com/cszhilu1998/OmniPersist</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SpatialArena: Where Do Geometric Foundation Models Stand?</title>
+      <link>https://arxiv.org/abs/2611.32816</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32816</guid>
+      <description>3D perception is shifting from task-specific pipelines to geometric foundation models: monocular depth networks, feed-forward 3D/4D reconstruction models, and vision--language models that predict geometry. However, their progress cannot be measured reliably. Published numbers are not comparable, because every paper samples frames, sets resolutions, and selects test splits differently. They are not robust because the alignment required for every up-to-scale prediction can outweigh the gap between models: fitting depth in the wrong space nearly triples its error, and standard trajectory alignment understates the error of failing methods by up to 2.6times. And they rarely cover long recordings, dynamic scenes, or aerial views. We present SpatialArena, an open arena that scores geometric models with the same metrics and rules, with robust and deterministic alignment. SpatialArena spans five tasks, from monocular depth to SLAM. It covers 23 public datasets with 418,929 images across indoor, outdoor, aerial, object-centric, and dynamic scenes, together with Spatial Arena, our own captures with accurate poses and depth. Evaluating 52 models, we find that single-image depth is close to saturation on public benchmarks but not on large, uncontrolled scenes, and that progress now comes from consistency across frames and views, where feed-forward 3D/4D models match or surpass monocular specialists and overtake video depth models. The benchmark, toolbox, and leaderboard will be publicly released.
+
+Authors: Yu Chen, Haosen Yang, Su Ee Tan, Zhensong Zhang, Jifei Song, Jiankang Deng
+
+Tasks: 3D Reconstruction, Camera Pose Estimation, Depth estimation, Visual SLAM
+
+Code: https://github.com/mvp-ai-lab/SpatialArena</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DexEngine: Scaling Human Demonstrations into Physically Executable Whole-Robot Data</title>
+      <link>https://arxiv.org/abs/2611.33579</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.33579</guid>
+      <description>A growing body of recent work addresses the retargeting of human hand-object demonstrations to robotic hands. To train whole-robot policies, however, the retargeted motions must be kinematically feasible and physically executable, and be produced efficiently at scale. We present DexEngine, a simulation pipeline that turns human manipulation data into train-ready, physically executable arm-hand trajectories. DexEngine first places each clip's hand-object motion where the arms can reach it, finds an arm motion that follows the human hands, and then corrects the motion in physics simulation with residual reinforcement learning. From nine human hand-object datasets, we generate about 5,200 clips for each of four dexterous hands, augmented into 65,000 trajectories (116 h) and 325,000 episodes (578 h) in total. Even with arms attached, DexEngine tracks objects more accurately than prior floating-hand methods and runs over 10x faster than RL-based ones. Policies trained on our data far outperform those trained on the same clips without physics correction or with the arms attached after a floating-hand correction, showing that fine-tuning data need physics correction. Mid-training on our data further improves them at equal fine-tuning budget, in simulation and on a real robot.
+
+Authors: Wongyun Yu, Honggeun Kim, Donguk Lee, Minchan Kim, Kyoung Whan Choe, Minsu Cho
+
+Tasks: Reinforcement Learning, Robotics
+
+Code: https://github.com/wongyun-yu/DexEngine</description>
       <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -55,6 +146,43 @@ Authors: Ji Xie, Yanhao Jia, Xiangpeng Yang, Martin Q. Ma, Sihan Xu, Erik Cambri
 Tasks: Inverse Rendering, Video Editing, Video generation
 
 Code: https://github.com/HorizonWind2004/i2v-transfer</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SenseTime Open-Sources SenseNova U1.6 with Enhanced Aesthetics and Native Image Self-Correction New model delivers improved text accuracy, with ComfyUI support for streamlined creative workflows</title>
+      <link>https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</link>
+      <guid isPermaLink="true">https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</guid>
+      <description>SenseTime (00200.HK) announced the release and open-sourcing of SenseNova U1.6, its latest unified multimodal model that enhances creative visual expression, aesthetic quality, and text accuracy in image creation. Building on the U series' unified approach to image understanding and generation, SenseNova U1.6 brings native image self-correction to the series' 8B open-source model for the first time. The new model supports a wide range of creative applications, from portraits and illustrations to posters and infographics. SenseNova U1.6 is now supported by ComfyUI, an open-source AI visual creation platform, enabling creators to generate images with self-correction through node-based workflows. Its API-based version, SenseNova U1.6 Lite, has also been integrated into several SenseTime applications, including the AI productivity assistant Raccoon Work, the video creation agent Seko, and the mobile photography app Kapi Camera.
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/OpenSenseNova/SenseNova-U1</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ReWeave: Emergent Physical Task Topologies for Embodied Harness Optimization and Cross-Task Meta-Distillation</title>
+      <link>https://arxiv.org/abs/2611.31053</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31053</guid>
+      <description>Long-horizon embodied tasks involve physical dependencies that may only become clear through interaction. As task understanding deepens, past trials can reveal new information for adaptation and transfer. However, coarse progress feedback cannot identify which physical preconditions held, leaving search unguided, while task-specific optimization easily overfits to individual scenes, making cross-task transfer brittle. We introduce ReWeave, a framework that jointly optimizes an embodied agent harness and an emergent physical task topology from interaction without updating policy weights. Keeping execution policies and perception frozen, ReWeave co-optimizes coupled context, workflows, and control loops. As new evidence revises the topology, ReWeave reprojects past trials onto the updated task understanding, exposing retained progress, regressions, and bottlenecks that guide parent selection and search width. Across tasks, matching verified local mechanisms to unmet preconditions consolidates 72 specialist units into 44 reusable groups (0.34times full concatenation) within a compact shared harness capable of continual learning. ReWeave improves held-out success from 89.00% to 98.75% on LIBERO-PRO and from 25.50% to 58.25% on RoboDojo, while uncovering retained progress in 89% of 159 failed RoboDojo development trials and translating stronger offline reasoning into higher online performance. On eight unseen LIBERO-PRO tasks, the shared harness reaches 51.3% success versus 41.3% for direct distillation, rising to 75.0% after continual learning.
+
+Authors: Yicheng Xu, Wencan Jiang, Zihao Zhu, Keru Zhou, Chang Zhou, Li Liu, Maoqing Yao, Yong Liu, Jiangning Zhang
+
+Tasks: Continual Learning, Harness Engineering, Robotics
+
+Code: https://github.com/xuyicheng-zju/ReWeave</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ShowNow: Fine-Grained Speculative Streaming for Responsive World Models</title>
+      <link>https://arxiv.org/abs/2611.34693</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34693</guid>
+      <description>Interactive world models must generate video continuously while responding promptly to user actions. Real-time throughput alone leaves input latency unresolved: coarse generation blocks delay action updates, and generation after input adds work to the response path. We introduce ShowNow, a fine-grained speculative streaming framework that uses computation available during playback to prepare action-conditioned futures before input arrives. Single-latent commitment enables frequent decisions, while configurable preparation covers one to eight actions. We construct a matched multi-future dataset to train alternative continuations from a common state; shared-history tree execution and fused commitment make their preparation efficient. On a single H100, our 5B model sustains 480p generation at 16 fps with eight prepared futures. In ViZDoom, the complete ShowNow deployment reduces median input-to-display latency from 620 to 208 ms relative to the native-block SolarWM-FT deployment. Matched-policy experiments reduce restart empty ticks from 1.56% to 0.09% (94%) and improve on-time responses to action changes. These results establish complementary roles for fine-grained commitment and advance preparation, with measured trade-offs in visual fidelity and long-horizon consistency. ShowNow turns playback-time computation into responsive visual interaction. Project: https://github.com/showlab/ShowNow.
+
+Authors: Yiren Song, Guian Fang, Mike Zheng Shou
+
+Tasks: Video generation, World Models
+
+Code: https://github.com/showlab/ShowNow</description>
       <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -133,134 +261,6 @@ Authors: Yurun Chen, Biao Yi, Qihang Yu, Keting Yin, Shengyu Zhang
 Tasks: Computer Use Agents
 
 Code: https://github.com/YurunChen/EgoUseBench</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Letting Models Manage Their Own Context: Where We Stand</title>
-      <link>https://arxiv.org/abs/2611.34147</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34147</guid>
-      <description>Agent harnesses today manage context on the model's behalf: when the window fills, the harness triggers a compaction that summarizes the history. We study the alternative, model-driven context management, in which the model itself decides when and what to compact through a context API. We gave models control over their own context in \nooa, NVIDIA's open source agent harness, and compared the two strategies on document research and machine learning engineering across context budgets from 8K to 512K tokens. Models that use the context API effectively reach higher accuracy, often with fewer input tokens, especially at tight budgets: GPT 6.1 nearly triples its score at a 32K budget on OfficeQA Pro v2 (21\%~rightarrow~56\%), and Kimi gains with up to 41\% fewer input tokens. Models differ widely, however, in how often they use the API, how aggressively they compact, and when they start compacting, and prompt changes shift that timing. Finally, we show that inference engines can make model-driven edits cheaper: by reusing the KV cache of the unchanged suffix after an edit, we cut prefill compute by up to 15\% per request with no measurable change in accuracy. Together, these results point to a new co-design frontier: models trained to manage their own context, served by inference engines that support KV cache editing.
-
-Authors: Alessio Devoto, Avinash Vem, Tara Safavi, Sanjay Kariyappa, Yu-Hsuan Tseng, Paul Furgale, Ricardo Silveira Cabral
-
-Tasks: Harness Engineering, Long Context
-
-Code: https://github.com/nvidia-nemo/labs-OO-Agents</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Look Back: Reinforcement Learning with Counterfactual World Models</title>
-      <link>https://arxiv.org/abs/2611.29259</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.29259</guid>
-      <description>Agents in complex, stochastic environments must contend with dynamics that can exceed their world models' predictive capacity and randomness that obscure the consequences of their actions. We hypothesize that, compared to imagining entirely new trajectories in such complex environments, it can be easier to transform observed trajectories with alternative actions. Counterfactual world models condition on observations to predict alternative outcomes under the same underlying environmental randomness, using experience as a reference for predicting action-dependent changes. We present a policy gradient estimator, REINFORCE Look Back (RLB), that uses counterfactual returns as baselines to distinguish action effects from environmental luck, and prove conditions for unbiasedness and variance reduction. In settings where environmental evolution is harder to predict than action-induced changes, we show that counterfactual world models are easier to learn and support better policy learning than ordinary world models. Our findings suggest that counterfactual thinking can help agents learn effective behavior without independently reproducing the full complexity of their worlds.
-
-Authors: Jinwoo Kim, Toghrul Abbasov, Lucius E. J. Bynum, Aahlad Puli, Stephanie Milani, Hyunwoo Ryu, Seunghoon Hong, Kyunghyun Cho, Rajesh Ranganath
-
-Tasks: Classic Reinforcement Learning, Multi-Agent Reinforcement Learning, World Models
-
-Code: https://github.com/ToghrulAbbasov19/look-back</description>
-      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Single-Transformer Latent Diffusion</title>
-      <link>https://arxiv.org/abs/2611.29064</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.29064</guid>
-      <description>Latent generative models typically rely on three separate networks: an encoder that tokenizes pixels, a generator that models the latent distribution, and a decoder that maps latents back to pixels. UNITE recently merged the first two into a single generative encoder trained in one stage, but its decoder remains a separate network. We ask whether this last network can be folded in too, so that one diffusion transformer encodes, generates, and decodes. Simply letting the shared backbone decode does not help. What makes it work is to cast all three modes as position-aligned sequence maps over one fully shared backbone, distinguished only by a mode token and the timestep. The resulting model, UNIFIED, is simple: one network trained from scratch in a single stage with only reconstruction and flow-matching losses, without adversarial losses or pretrained encoders (e.g., DINO). On ImageNet-1K 256x256 at matched parameters, UNIFIED improves gFID over UNITE at three sizes (~60M, ~115M, and ~215M) and reaches 2.08 with 215M parameters, the lowest among compared models under 250M parameters. On text-to-image generation, UNIFIED-B (218M) reaches a GenEval score of 0.87 at 512x512, exceeding single-stage pixel diffusion models with around one billion parameters. Full unification of latent diffusion is thus not merely feasible but beneficial.
-
-Authors: Hao-Yu Hsu, Shenlong Wang, Alexander G. Schwing
-
-Tasks: Image generation, Text-to-Image Generation
-
-Code: https://github.com/haoyuhsu/Unified-LDM</description>
-      <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets</title>
-      <link>https://arxiv.org/abs/2611.30013</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30013</guid>
-      <description>Animating arbitrary 3D assets from instructions requires both structural inference and motion control, yet existing motion benchmarks mostly cover conventional human or animal skeletons with simple instructions. We introduce DivDynBench, which evaluates rigging and motion generation across six morphology categories, with instructions requiring multi-phase part coordination and explicit timing, angle, repetition, and trajectory constraints. With large language models, we systematically compare three common paradigms: specialized motion generation, video generation followed by motion recovery, and direct agent-driven generation. We analyze their control capabilities, cross-morphology adaptability, and generation costs. Guided by this comparison, we propose an Agentic Motion Framework in which an agent writes compact parametric skeleton and motion programs, and a deterministic executor performs rigging, kinematic solving, and geometric correction. Compact parameter control reduces generation overhead and improves rigging reliability and motion-control accuracy, providing practical guidance for deploying complex 3D motion generation.
-
-Authors: Bohan Zeng, Kaixin Zhu, Yifan Yang, Dongge Yu, Zihao Wu, Yifan Dai, Zhou Liu, Junbo Niu, Xiaochen Ma, Shiran Ge, Zimo Meng, Junzhu Liang, Huanyao Zhang, JinHang Liu, Tianqi Xiao, Jinhao Zhang, Tianyi Bai, Zhixiong Zeng, Penghao Zhao, Yuanbo Peng, Key Zhang, Wentao Zhang
-
-Tasks: Motion Generation, Video generation
-
-Code: https://github.com/OpenDCAI/GameFactory-3A</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>FoundSurface: Feedforward Ray-Based 3D Scene Surface Reconstruction from Unposed Images</title>
-      <link>https://arxiv.org/abs/2611.34128</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34128</guid>
-      <description>Accurate 3D surface reconstruction from unposed images remains a fundamental challenge in computer vision. Recent feed-forward pointmap methods eliminate the need for camera poses but inherently produce discrete, sparse representations. In this paper, we present a generalizable pipeline that directly recovers continuous, high-fidelity 3D surfaces from unposed images by seamlessly integrating pointmap- and ray-based representations. Our approach first extracts explicit geometric priors using a pre-trained pointmap model. A query-view-centric selection module then identifies geometrically relevant reference views via a robust surfel voting mechanism. Next, a cross-attention regressor bridges target query rays with reference features to estimate a continuous coarse surface. Lastly, a raylet-based module aggregates local 3D features to carve out high-frequency details and analytical normals. Trained as a single foundation model on 9 diverse datasets, our method demonstrates exceptional zero-shot generalization on 6 unseen datasets, clearly surpassing state-of-the-art baselines in geometric accuracy and detail preservation.
-
-Authors: Shenxing Wei, Jinxi Li, Zihui Zhang, Ajay Kumar, Wei Wang, Bo Yang, Bo Yang
-
-Tasks: 3D Reconstruction
-
-Code: https://github.com/vLAR-group/FoundSurface</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation</title>
-      <link>https://arxiv.org/abs/2611.34290</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34290</guid>
-      <description>Modern video foundation models generate high-quality short clips, but preserving long-video consistency and correctly depicting event-driven state changes remain challenging. Existing agentic workflows face these challenges because continual planning and repair accumulate context, while reference updates remain limited. We introduce StateWeaver, which combines Active States and Hierarchical Collaboration to connect review-driven visual reference updates with cross-shot state inheritance. Active States translate state discrepancies identified during review into concrete visual asset requirements that guide reference construction, validation, and regeneration, preserving identity and already-correct content while repairing target attributes. Confirmed generation results are linked to the corresponding asset states, story time, and reference versions for verification and reuse by subsequent shots. Hierarchical Collaboration isolates execution contexts by task, clip, and repair round, and uses hierarchical memory to organize this process across multiple sets. Across multiple benchmarks, StateWeaver outperforms existing methods and produces long videos with sustained cross-shot consistency under predefined and autonomously planned storyboards.
-
-Authors: Modi Jin, Xuying Zhang, Yijing Guo, Haoran Li, Yanwen Ma, Jing Wang, Chenyu Ge, Ming-Ming Cheng, Haoyang Huang
-
-Tasks: Video generation
-
-Code: https://github.com/ghost233lism/StateWeaver</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SenseTime Open-Sources SenseNova U1.6 with Enhanced Aesthetics and Native Image Self-Correction New model delivers improved text accuracy, with ComfyUI support for streamlined creative workflows</title>
-      <link>https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</link>
-      <guid isPermaLink="true">https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</guid>
-      <description>SenseTime (00200.HK) announced the release and open-sourcing of SenseNova U1.6, its latest unified multimodal model that enhances creative visual expression, aesthetic quality, and text accuracy in image creation. Building on the U series' unified approach to image understanding and generation, SenseNova U1.6 brings native image self-correction to the series' 8B open-source model for the first time. The new model supports a wide range of creative applications, from portraits and illustrations to posters and infographics. SenseNova U1.6 is now supported by ComfyUI, an open-source AI visual creation platform, enabling creators to generate images with self-correction through node-based workflows. Its API-based version, SenseNova U1.6 Lite, has also been integrated into several SenseTime applications, including the AI productivity assistant Raccoon Work, the video creation agent Seko, and the mobile photography app Kapi Camera.
-
-Tasks: Image generation, Text-to-Image Generation
-
-Code: https://github.com/OpenSenseNova/SenseNova-U1</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ReWeave: Emergent Physical Task Topologies for Embodied Harness Optimization and Cross-Task Meta-Distillation</title>
-      <link>https://arxiv.org/abs/2611.31053</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31053</guid>
-      <description>Long-horizon embodied tasks involve physical dependencies that may only become clear through interaction. As task understanding deepens, past trials can reveal new information for adaptation and transfer. However, coarse progress feedback cannot identify which physical preconditions held, leaving search unguided, while task-specific optimization easily overfits to individual scenes, making cross-task transfer brittle. We introduce ReWeave, a framework that jointly optimizes an embodied agent harness and an emergent physical task topology from interaction without updating policy weights. Keeping execution policies and perception frozen, ReWeave co-optimizes coupled context, workflows, and control loops. As new evidence revises the topology, ReWeave reprojects past trials onto the updated task understanding, exposing retained progress, regressions, and bottlenecks that guide parent selection and search width. Across tasks, matching verified local mechanisms to unmet preconditions consolidates 72 specialist units into 44 reusable groups (0.34times full concatenation) within a compact shared harness capable of continual learning. ReWeave improves held-out success from 89.00% to 98.75% on LIBERO-PRO and from 25.50% to 58.25% on RoboDojo, while uncovering retained progress in 89% of 159 failed RoboDojo development trials and translating stronger offline reasoning into higher online performance. On eight unseen LIBERO-PRO tasks, the shared harness reaches 51.3% success versus 41.3% for direct distillation, rising to 75.0% after continual learning.
-
-Authors: Yicheng Xu, Wencan Jiang, Zihao Zhu, Keru Zhou, Chang Zhou, Li Liu, Maoqing Yao, Yong Liu, Jiangning Zhang
-
-Tasks: Continual Learning, Harness Engineering, Robotics
-
-Code: https://github.com/xuyicheng-zju/ReWeave</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>High-Fidelity Image Matting with Pixel-Space Diffusion Transformers</title>
-      <link>https://arxiv.org/abs/2611.34929</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34929</guid>
-      <description>Diffusion models have shown strong potential for image matting by transferring generative priors learned from large-scale pretraining. However, existing approaches largely rely on latent diffusion models, whose compressed representations and VAE-based reconstruction introduce a mismatch with the high-frequency precision required for matting. We present PixelMatte, a framework that adapts pretrained pixel-space diffusion transformers for high-fidelity image matting. We show that strong image-conditioned matting capabilities can be acquired even from a pure text-to-image model without paired image-to-image pretraining. Our approach reuses the backbone's native patch embedding to jointly process the input image, trimap, and noisy alpha matte as spatially aligned tokens, enabling direct pixel-space prediction without additional condition encoders or adapters. With pixel-accurate synthetic supervision and real-image fine-tuning, PixelMatte predicts alpha mattes in a single forward pass. Two lightweight calibration modules, LayerShift and High-Pass Refiner, further improve regional opacity accuracy and boundary fidelity. Experiments across four benchmarks and two distinct pixel diffusion backbones demonstrate substantial improvements over existing methods, reducing SAD and gradient errors by 24-44% relative to RenderMatte on P3M-500-NP and AM-2K, while achieving competitive performance on AIM-500 and RenderMatte-2K. These results demonstrate the effectiveness of pixel-space generative priors for precision-sensitive image matting. Project page: https://white-yc.github.io/pixelmatte/.
-
-Authors: Baihan Yang, Xin Lin, Yufan Wei, Baiang Li, Yuheng Liu, Juanxi Tian, Xiaohui Xie, Truong Nguyen
-
-Tasks: Image generation, Image Matting, Text-to-Image Generation
-
-Code: https://github.com/White-YC/pixelmatte</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation</title>
-      <link>https://arxiv.org/abs/2611.34907</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34907</guid>
-      <description>Real-time autoregressive video generators stream minutes of video and accept new prompts on the fly, but struggle to keep people, objects, and places consistent over a long interactive story. Agent systems provide such memory for offline multi-shot generation, yet they read the whole script in advance, plan each shot before generating it, and regenerate failed shots, which a live stream does not allow. We present Agentic LongLive, an asynchronous agentic memory for long video generation. A memory agent on separate GPUs reads only the prompts revealed so far, never the generated video, and keeps a text state and evolving images for every person, object, and scene. From this entity memory it composes a global image and a per-shot memory image, which an auxiliary GPU prefills into the generator's attention sink before the next shot starts, and writes entity cards for the prompts that name them, so the video never waits for memory and video errors are not written back. A small language model, trained with reinforcement learning and an image reward calibrated using downstream video outcomes, decides what to remember before the next prompt is known. On LongStory-Online, a new benchmark of 25 stories (857 shots) revealed one shot at a time, Agentic LongLive improves persistent-state accuracy of LongLive-2.0, its base generator, by 26.3 points, protagonist identity by 44.9, and revisited-place consistency by 40.4, at about 1% extra generation time on H100. The full system streams faster than real time on one 8xB200 node with the generator in BF16 (34.3 FPS), keeps image quality stable over 14-minute stories, and improves identity on two MiniMax-H3 generators, one of which, LongLive-H3, also runs in real time with it. To our knowledge, it is the first real-time video generator with text and image memory kept by an LLM agent.
-
-Authors: Shaoteng Liu, Shuai Yang, Wei Huang, Luozhou Wang, Song Han, Yukang Chen
-
-Tasks: No-Reference Image Quality Assessment, Reinforcement Learning, Video generation
-
-Code: https://github.com/NVlabs/LongLive</description>
       <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
