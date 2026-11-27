@@ -4,44 +4,31 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Fri, 27 Nov 2026 13:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 14:00:00 GMT</lastBuildDate>
     <item>
-      <title>SPARC: Geometry-Guided Attention Pruning for Long-Horizon Camera-Controlled Video Generation</title>
-      <link>https://arxiv.org/abs/2611.34064</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34064</guid>
-      <description>We present SPARC, a geometry-guided attention pruning framework that turns the native self-attention of pretrained video diffusion transformers into a unified mechanism for camera control and persistent scene memory. Our key insight is that attention connectivity can simultaneously serve as geometric conditioning for camera control and spatial addressing for historical memory retrieval. Motivated by the asymmetric contextual requirements of reconstructing observed content and synthesizing novel regions, SPARC restricts observed tokens to geometrically corresponding historical tokens and local spatiotemporal context, while preserving dense attention for unobserved regions. Correspondence-aware attention biasing and order-invariant historical positioning further enable stable retrieval across long temporal gaps. Without introducing additional learnable control or memory modules, SPARC achieves precise camera adherence and faithful scene revisitation while substantially reducing attention computation. Extensive experiments demonstrate the effectiveness of aggressive attention pruning in improving camera adherence, revisit consistency, and visual fidelity, with an inference speedup of over 50x when combined with four-step distillation. Project page is available at https://zju3dv.github.io/SPARC.
+      <title>Letting Models Manage Their Own Context: Where We Stand</title>
+      <link>https://arxiv.org/abs/2611.34147</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34147</guid>
+      <description>Agent harnesses today manage context on the model's behalf: when the window fills, the harness triggers a compaction that summarizes the history. We study the alternative, model-driven context management, in which the model itself decides when and what to compact through a context API. We gave models control over their own context in \nooa, NVIDIA's open source agent harness, and compared the two strategies on document research and machine learning engineering across context budgets from 8K to 512K tokens. Models that use the context API effectively reach higher accuracy, often with fewer input tokens, especially at tight budgets: GPT 6.1 nearly triples its score at a 32K budget on OfficeQA Pro v2 (21\%~rightarrow~56\%), and Kimi gains with up to 41\% fewer input tokens. Models differ widely, however, in how often they use the API, how aggressively they compact, and when they start compacting, and prompt changes shift that timing. Finally, we show that inference engines can make model-driven edits cheaper: by reusing the KV cache of the unchanged suffix after an edit, we cut prefill compute by up to 15\% per request with no measurable change in accuracy. Together, these results point to a new co-design frontier: models trained to manage their own context, served by inference engines that support KV cache editing.
 
-Authors: Zesong Yang, Weikai Chen, Liyuan Cui, Yuan Li, Jiaxin Huang, Lutao Jiang, Runze Zhang, Yingda Yin, Xiaoyang Huang, Kai Yan, Keyang Luo, Xin Wang, Hujun Bao, Zhaopeng Cui
+Authors: Alessio Devoto, Avinash Vem, Tara Safavi, Sanjay Kariyappa, Yu-Hsuan Tseng, Paul Furgale, Ricardo Silveira Cabral
 
-Tasks: Video generation
+Tasks: Harness Engineering, Long Context
 
-Code: https://github.com/zju3dv/SPARC</description>
+Code: https://github.com/nvidia-nemo/labs-OO-Agents</description>
       <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Mixture-of-Loops Transformer</title>
-      <link>https://arxiv.org/abs/2611.34923</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34923</guid>
-      <description>Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1.4x mean token efficiency. At inference, U-MoLT with MoL-Hybrid-2 matches non-looped OLMo3 latency at 996.6 vs. 1,000.6 ms on S-size (~113M) models. Code is available at https://github.com/hustvl/MoLT
+      <title>OCRia-nano-1: Fast, Accurate CPU Parsing with 8.1M Parameters</title>
+      <link>https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</link>
+      <guid isPermaLink="true">https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</guid>
+      <description>Recent vision-language models achieve strong document parsing accuracy but are optimized for server-grade GPUs. Existing CPU parsers still lag in accuracy, particularly in reconstructing tables and layout. We present OCRia-nano-1, an 8.1M-parameter document parsing pipeline optimized for CPU inference. The pipeline combines native PDF extraction with small models for OCR and document structure. LiteParse extracts available text and geometry, invokes OCR where needed, and supplies spatial features to LayoutNet, a joint table and layout reconstruction model. OCRia-nano-1 outperforms Indra and Marker on four of five benchmarks at comparable CPU throughput. On ParseBench-2, it scores 59.2, compared with 55.1 for Indra and 52.5 for Marker. It processes 27.8 pages per second on 16 vCPUs, twice the throughput of LiteParse’s default Tesseract configuration. Ablations show that joint table and layout reconstruction accounts for much of the accuracy gain, while larger OCR models provide only modest additional improvements. We release the model weights on Hugging Face under a modified OpenRAIL license, with LiteParse integration as an opt-in OCR backend.
 
-Authors: Lianghui Zhu, Shijie Wang, Xinggang Wang, Jinze Bai, BO WANG, Xiang Bai
+Authors: Logan Markewich, Simon Suo
 
-Tasks: Language Modeling
+Tasks: Document Layout Analysis, OCR, Table Structure Recognition
 
-Code: https://github.com/hustvl/MoLT</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
-      <link>https://arxiv.org/abs/2611.31198</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31198</guid>
-      <description>Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.
-
-Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
-
-Tasks: Deep Research Agents
-
-Code: https://github.com/uclanlp/OpenVLHarness</description>
+Code: https://github.com/run-llama/liteparse</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -71,15 +58,106 @@ Code: https://github.com/OS-Copilot/OS-Omni</description>
       <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Ternary Bonsai 2.5 27B</title>
-      <link>https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</link>
-      <guid isPermaLink="true">https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</guid>
-      <description>Ternary Bonsai 2.5 27B is the agentic release of the Ternary Bonsai 27B line. It keeps the Qwen3.8-27B hybrid-attention architecture and the ternary weight format of Bonsai 2, so it is still 1.76 bits per weight and 5.93 GB, against 53.8 GB for the FP16 model. This release targets long-horizon, tool-driven work.
+      <title>WeMM-Ecom: Advancing Multimodal Content Understanding for WeChat E-Commerce</title>
+      <link>https://arxiv.org/abs/2611.30662</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30662</guid>
+      <description>We present WeMM-Ecom, a family of multimodal large language models that deliver frontier e-commerce capabilities while achieving state-of-the-art general-purpose performance at their respective scales. The family spans five sizes, from a 0.8B dense model to a 35B mixture-of-experts model with 3B active parameters. Our training pipeline begins with two-stage continued pre-training that progressively raises the proportion of e-commerce data within a diverse multimodal data mixture, followed by hybrid-thinking post-training that combines on-policy distillation and reinforcement learning to support both non-thinking and thinking modes. For evaluation, we construct a comprehensive suite of 28 e-commerce benchmarks (23 in-house and five open-source) covering eight business scenarios and complement it with 64 public general-purpose benchmarks. On the e-commerce suite, WeMM-Ecom-35B-A3B surpasses substantially larger open-source flagship models, including Qwen3.8-Flash-Next, HY4, and DeepSeek-V4.1-Flash. On the general-purpose suite, every WeMM-Ecom model surpasses its similarly sized Qwen3.5 counterpart, with the lightweight variants (e.g., WeMM-Ecom-2B) showing clear advantages over leading lightweight models such as Qwen3.5-2B, MiniCPM-V-4.7-1B, and LFM3-VL-2B. Beyond benchmarks, WeMM-Ecom now powers hundreds of production use cases in WeChat, including catalog management, multimodal product search, and livestream commerce, serving billion-scale requests per day. We publicly release all model weights and detail our data curation, training recipe, and benchmark construction to facilitate future work on domain-specialized multimodal models. We have released the model weights and code to facilitate future research at https://github.com/Tencent/WeMM-Ecom.
 
-Tasks: Agents, Coding Agents, Long-Horizon Agents
+Authors: Binhui Xie, Jinmin Li, Haomiao Tang, Guangting Wang, Song Jin, Jianwei Zhu, Fengyun Rao, Jing Lyu
 
-Code: https://github.com/prismml-eng/bonsai-demo</description>
+Tasks: Document Understanding, Image Understanding, Reinforcement Learning
+
+Code: https://github.com/tencent/wemm-ecom</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents</title>
+      <link>https://arxiv.org/abs/2611.33144</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.33144</guid>
+      <description>Learning for dexterous manipulation is limited by the scarcity of high-quality demonstrations: retargeting from human video is imprecise, teleoperation gives no force feedback to the operator, and exoskeleton-based collection is hard to scale up. We present PyRUA-Dex, a framework that enables coding agents to develop dexterous manipulation through programmatic policy, without the need of demonstrations. The programmatic policy is developed in two stages: during exploration, multiple agents explore in parallel for task skills and ways to compose them, and a distilling agent condenses the successful attempts into a task library and one program. During refinement, this program is improved through randomized layouts for enhanced robustness and execution efficiency. In simulated environments, PyRUA-Dex achieves SOTA on Bench2Dex with a score of 72.9 and reaches 81.0% success on DexJoCo under full randomization, ahead of every trained policy on both benchmarks. In real world experiments on a bimanual platform with two 22-DoF hands, PyRUA-Dex learns to play piano, write calligraphy, and other tasks efficiently: learning a new piece from sheet music takes as little as 30 minutes. These results suggest that PyRUA-Dex is an effective framework for developing dexterous manipulation policies with coding agents in the absence of high quality dexterous manipulation demonstrations.
+
+Authors: Feixiang Ruan, Guodong Lv, Kewei Zhang, Wenbo Huang, Yintianrun Zhang, Qiang Wang, Ruiyang Si, Shunyu Yang, Shulong Jiang, Weicheng Duan, Rui Ni, Jianxin Bi, Lekai Wang, Yuze Fan, Haobo Li, Zeliang Fu, Jiankun Zhang, Duomin Wang, Enze Xie, Daquan Zhou
+
+Tasks: Coding Agents, Robotics
+
+Code: https://github.com/DAGroup-PKU/PyRUA-Lean</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SenseTime Open-Sources SenseNova U1.6 with Enhanced Aesthetics and Native Image Self-Correction New model delivers improved text accuracy, with ComfyUI support for streamlined creative workflows</title>
+      <link>https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</link>
+      <guid isPermaLink="true">https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</guid>
+      <description>SenseTime (00200.HK) announced the release and open-sourcing of SenseNova U1.6, its latest unified multimodal model that enhances creative visual expression, aesthetic quality, and text accuracy in image creation. Building on the U series' unified approach to image understanding and generation, SenseNova U1.6 brings native image self-correction to the series' 8B open-source model for the first time. The new model supports a wide range of creative applications, from portraits and illustrations to posters and infographics. SenseNova U1.6 is now supported by ComfyUI, an open-source AI visual creation platform, enabling creators to generate images with self-correction through node-based workflows. Its API-based version, SenseNova U1.6 Lite, has also been integrated into several SenseTime applications, including the AI productivity assistant Raccoon Work, the video creation agent Seko, and the mobile photography app Kapi Camera.
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/OpenSenseNova/SenseNova-U1</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Mixture-of-Loops Transformer</title>
+      <link>https://arxiv.org/abs/2611.34923</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34923</guid>
+      <description>Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1.4x mean token efficiency. At inference, U-MoLT with MoL-Hybrid-2 matches non-looped OLMo3 latency at 996.6 vs. 1,000.6 ms on S-size (~113M) models. Code is available at https://github.com/hustvl/MoLT
+
+Authors: Lianghui Zhu, Shijie Wang, Xinggang Wang, Jinze Bai, BO WANG, Xiang Bai
+
+Tasks: Language Modeling
+
+Code: https://github.com/hustvl/MoLT</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DyLoMo-DiT: Dynamic Looped Mixture-of-Experts Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2611.30844</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30844</guid>
+      <description>Diffusion Transformers (DiTs) scale model capacity by increasing both parameter count and computation. Mixture-of-Experts (MoE) variants expand parameter capacity while keeping per-token computation roughly fixed, but still require substantial parameter storage. In this paper, we propose Dynamic Looped MoE DiT (DyLoMo-DiT), which reuses parameters rather than adding them: a weight-shared loop repeatedly applies the middle layers, while sparse experts allocate parameter capacity across tokens. This design deepens the network without adding parameters, freeing the parameter budget for other uses, such as more experts or more distinct layers. It also allocates compute dynamically, varying the number of passes across noise levels. Experiments show that DyLoMo-DiT makes more effective use of parameter and compute budgets, with further gains from assigning more passes to low-noise steps. On ImageNet 256times256, DyLoMo-DiT reduces FID by 11-24% relative to DiT and 36-56% relative to DiT-MoE at matched parameter and compute budgets. For text-to-image generation, a scaled DyLoMo-DiT achieves a higher GenEval score than FLUX.1 (0.714 vs. 0.673), with less than one tenth of its active parameters (1.05B vs. 12B).
+
+Authors: Lernie Li, Yuanliu Liu, Pengfei Xiong, Wei ZHANG
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/OneBoxCream/DyLoMo-DiT</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SEEK: Self-Evolution through Execution Knowledge for Agentic Robot Manipulation</title>
+      <link>https://arxiv.org/abs/2611.33915</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.33915</guid>
+      <description>General-purpose multimodal foundation models enable robots to adapt during deployment from observations and execution feedback, without task-specific demonstrations or training. However, the robot retains what it learns only in the model's working context. Once the task ends, it loses this execution knowledge, such as how to carry a bowl between two grippers. On the next attempt at the task, the robot may take just as long and repeat the same mistakes. To avoid this repetition, robots must retain execution knowledge across attempts. Yet replaying past actions is insufficient, because their effects depend on the current conditions. Procedures that determine actions from the current scene address this, but when they meet conditions that earlier attempts did not cover, revising them requires the measured effects of earlier actions. We therefore propose SEEK, an agentic framework that retains both, enabling robots to improve across attempts while keeping the underlying model fixed. To adapt retained knowledge to the current scene, SEEK adopts a Self-Evolving Programmatic Policy (SEPP) that encodes manipulation as executable procedures and determines each action from current observations. As the robot executes these procedures, SEEK records the measured effects of its actions, including those from failed attempts, in a Persistent Action-Effect Bank (PAEB). Where a retained procedure applies, it acts without a model request; where it meets a condition it does not cover, this evidence guides its revision. On RoboDojo, knowledge retained over ten attempts raises SEEK's average task score from 27.0 to 54.4 and its success rate from 19.7% to 48.0% across all 42 tasks. On 34 of these tasks with GPT-6.2 Astra, SEEK reaches 80.1 after five attempts, against 49.6 for the same model acting directly, and uses 77.6% fewer model requests. https://zeyangguan.github.io/SEEK-Agentic-Robot-Manipulation/
+
+Authors: Zeyang Guan, QiHao Zhao, Rui Gong, Zhang Haitian, Yalun Dai, Yangyu Huang, Lingao Xiao, Haozhe Du, Xuehui Yu, Ye Lu, Jianjun Gao, Ruoyu Wang, Haowen Bai, Hao Li, Scarlett Li, Kim-Hui Yap
+
+Tasks: Continual Learning, Robotics
+
+Code: https://github.com/ZeyangGuan/SEEK-Agentic-Robot-Manipulation</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>High-Fidelity Image Matting with Pixel-Space Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2611.34929</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34929</guid>
+      <description>Diffusion models have shown strong potential for image matting by transferring generative priors learned from large-scale pretraining. However, existing approaches largely rely on latent diffusion models, whose compressed representations and VAE-based reconstruction introduce a mismatch with the high-frequency precision required for matting. We present PixelMatte, a framework that adapts pretrained pixel-space diffusion transformers for high-fidelity image matting. We show that strong image-conditioned matting capabilities can be acquired even from a pure text-to-image model without paired image-to-image pretraining. Our approach reuses the backbone's native patch embedding to jointly process the input image, trimap, and noisy alpha matte as spatially aligned tokens, enabling direct pixel-space prediction without additional condition encoders or adapters. With pixel-accurate synthetic supervision and real-image fine-tuning, PixelMatte predicts alpha mattes in a single forward pass. Two lightweight calibration modules, LayerShift and High-Pass Refiner, further improve regional opacity accuracy and boundary fidelity. Experiments across four benchmarks and two distinct pixel diffusion backbones demonstrate substantial improvements over existing methods, reducing SAD and gradient errors by 24-44% relative to RenderMatte on P3M-500-NP and AM-2K, while achieving competitive performance on AIM-500 and RenderMatte-2K. These results demonstrate the effectiveness of pixel-space generative priors for precision-sensitive image matting. Project page: https://white-yc.github.io/pixelmatte/.
+
+Authors: Baihan Yang, Xin Lin, Yufan Wei, Baiang Li, Yuheng Liu, Juanxi Tian, Xiaohui Xie, Truong Nguyen
+
+Tasks: Image generation, Image Matting, Text-to-Image Generation
+
+Code: https://github.com/White-YC/pixelmatte</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Improving and Expanding Video Editing Capabilities Without Videos</title>
+      <link>https://arxiv.org/abs/2611.34941</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34941</guid>
+      <description>Image editing models can follow a wide range of instructions, but video editing models still lag behind, limited in part by the difficulty of collecting paired source and edited videos. Is it possible to transfer advanced image editing capabilities to video editors without new paired videos? We introduce Image-to-Video Transfer (I2VT), which improves pretrained video editors and expands them to new editing tasks using an image editor. It enables efficient post-training with no architectural changes and no new videos, using only individual images. Our key idea is to let the video editor role-play as an image editor: it edits an image as a one-frame video, with the image editor guiding the video editor's predictions at each denoising step. Although the video editor sees only single images during training, at test time it applies the improved and expanded capabilities to whole video clips while preserving temporal consistency. To push the boundaries of video editing, we introduce OpenVE++, an extension of OpenVE-Bench that adds four new editing tasks useful for video production, including action changes, expression changes, body movements, and scene relighting. Our experiments across three different video editors show that I2VT improves existing editing capabilities and expands them to new tasks, and our models achieve state-of-the-art (SOTA) performance on both OpenVE-Bench and OpenVE++.
+
+Authors: Ji Xie, Yanhao Jia, Xiangpeng Yang, Martin Q. Ma, Sihan Xu, Erik Cambria, Louis-Philippe Morency
+
+Tasks: Inverse Rendering, Video Editing, Video generation
+
+Code: https://github.com/HorizonWind2004/i2v-transfer</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Motion Mamba 2.0: Autoregressive Diffusion Mamba for Long-Horizon Humanoid Control</title>
@@ -93,6 +171,43 @@ Tasks: Continuous Control, Humanoid Robotics, Motion Generation
 
 Code: https://github.com/AIGeeksGroup/MotionMamba2.0</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SPARC: Geometry-Guided Attention Pruning for Long-Horizon Camera-Controlled Video Generation</title>
+      <link>https://arxiv.org/abs/2611.34064</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34064</guid>
+      <description>We present SPARC, a geometry-guided attention pruning framework that turns the native self-attention of pretrained video diffusion transformers into a unified mechanism for camera control and persistent scene memory. Our key insight is that attention connectivity can simultaneously serve as geometric conditioning for camera control and spatial addressing for historical memory retrieval. Motivated by the asymmetric contextual requirements of reconstructing observed content and synthesizing novel regions, SPARC restricts observed tokens to geometrically corresponding historical tokens and local spatiotemporal context, while preserving dense attention for unobserved regions. Correspondence-aware attention biasing and order-invariant historical positioning further enable stable retrieval across long temporal gaps. Without introducing additional learnable control or memory modules, SPARC achieves precise camera adherence and faithful scene revisitation while substantially reducing attention computation. Extensive experiments demonstrate the effectiveness of aggressive attention pruning in improving camera adherence, revisit consistency, and visual fidelity, with an inference speedup of over 50x when combined with four-step distillation. Project page is available at https://zju3dv.github.io/SPARC.
+
+Authors: Zesong Yang, Weikai Chen, Liyuan Cui, Yuan Li, Jiaxin Huang, Lutao Jiang, Runze Zhang, Yingda Yin, Xiaoyang Huang, Kai Yan, Keyang Luo, Xin Wang, Hujun Bao, Zhaopeng Cui
+
+Tasks: Video generation
+
+Code: https://github.com/zju3dv/SPARC</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
+      <link>https://arxiv.org/abs/2611.31198</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.31198</guid>
+      <description>Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is laborious to create and maintain, and frozen when new query types, evidence formats, and failure modes are encountered in the wild. Human practitioners, by contrast, cope with insufficient tools by fashioning new ones from familiar parts and reusing them across tasks. Inspired by this, we propose ToolSmith, an automatic tool-generation framework that grows and reuses modules on top of a lean base tool library. We evaluate ToolSmith on three in-domain multimodal search benchmarks and ten out-of-domain benchmarks under a VLM-as-a-Judge protocol. ToolSmith consistently improves over the base library across deployed agents of varying scales, with larger backbones reaping greater gains, demonstrating the scalability of the approach. Our code and data are available at https://threesr.github.io/toolsmith/.
+
+Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
+
+Tasks: Deep Research Agents
+
+Code: https://github.com/uclanlp/OpenVLHarness</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ternary Bonsai 2.5 27B</title>
+      <link>https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</link>
+      <guid isPermaLink="true">https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</guid>
+      <description>Ternary Bonsai 2.5 27B is the agentic release of the Ternary Bonsai 27B line. It keeps the Qwen3.8-27B hybrid-attention architecture and the ternary weight format of Bonsai 2, so it is still 1.76 bits per weight and 5.93 GB, against 53.8 GB for the FP16 model. This release targets long-horizon, tool-driven work.
+
+Tasks: Agents, Coding Agents, Long-Horizon Agents
+
+Code: https://github.com/prismml-eng/bonsai-demo</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation</title>
@@ -134,19 +249,6 @@ Code: https://github.com/hugo-agi/nanoastra</description>
       <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>WeMM-Ecom: Advancing Multimodal Content Understanding for WeChat E-Commerce</title>
-      <link>https://arxiv.org/abs/2611.30662</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30662</guid>
-      <description>We present WeMM-Ecom, a family of multimodal large language models that deliver frontier e-commerce capabilities while achieving state-of-the-art general-purpose performance at their respective scales. The family spans five sizes, from a 0.8B dense model to a 35B mixture-of-experts model with 3B active parameters. Our training pipeline begins with two-stage continued pre-training that progressively raises the proportion of e-commerce data within a diverse multimodal data mixture, followed by hybrid-thinking post-training that combines on-policy distillation and reinforcement learning to support both non-thinking and thinking modes. For evaluation, we construct a comprehensive suite of 28 e-commerce benchmarks (23 in-house and five open-source) covering eight business scenarios and complement it with 64 public general-purpose benchmarks. On the e-commerce suite, WeMM-Ecom-35B-A3B surpasses substantially larger open-source flagship models, including Qwen3.8-Flash-Next, HY4, and DeepSeek-V4.1-Flash. On the general-purpose suite, every WeMM-Ecom model surpasses its similarly sized Qwen3.5 counterpart, with the lightweight variants (e.g., WeMM-Ecom-2B) showing clear advantages over leading lightweight models such as Qwen3.5-2B, MiniCPM-V-4.7-1B, and LFM3-VL-2B. Beyond benchmarks, WeMM-Ecom now powers hundreds of production use cases in WeChat, including catalog management, multimodal product search, and livestream commerce, serving billion-scale requests per day. We publicly release all model weights and detail our data curation, training recipe, and benchmark construction to facilitate future work on domain-specialized multimodal models. We have released the model weights and code to facilitate future research at https://github.com/Tencent/WeMM-Ecom.
-
-Authors: Binhui Xie, Jinmin Li, Haomiao Tang, Guangting Wang, Song Jin, Jianwei Zhu, Fengyun Rao, Jing Lyu
-
-Tasks: Document Understanding, Image Understanding, Reinforcement Learning
-
-Code: https://github.com/tencent/wemm-ecom</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Coding4Games: Can Modern Coding Agents Play Modern Video Games?</title>
       <link>https://arxiv.org/abs/2611.31974</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.31974</guid>
@@ -158,110 +260,6 @@ Tasks: Coding Agents, Computer Use Agents
 
 Code: https://github.com/GVCLab/Coding4Games</description>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>OCRia-nano-1: Fast, Accurate CPU Parsing with 8.1M Parameters</title>
-      <link>https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</link>
-      <guid isPermaLink="true">https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</guid>
-      <description>Recent vision-language models achieve strong document parsing accuracy but are optimized for server-grade GPUs. Existing CPU parsers still lag in accuracy, particularly in reconstructing tables and layout. We present OCRia-nano-1, an 8.1M-parameter document parsing pipeline optimized for CPU inference. The pipeline combines native PDF extraction with small models for OCR and document structure. LiteParse extracts available text and geometry, invokes OCR where needed, and supplies spatial features to LayoutNet, a joint table and layout reconstruction model. OCRia-nano-1 outperforms Indra and Marker on four of five benchmarks at comparable CPU throughput. On ParseBench-2, it scores 59.2, compared with 55.1 for Indra and 52.5 for Marker. It processes 27.8 pages per second on 16 vCPUs, twice the throughput of LiteParse’s default Tesseract configuration. Ablations show that joint table and layout reconstruction accounts for much of the accuracy gain, while larger OCR models provide only modest additional improvements. We release the model weights on Hugging Face under a modified OpenRAIL license, with LiteParse integration as an opt-in OCR backend.
-
-Authors: Logan Markewich, Simon Suo
-
-Tasks: Document Layout Analysis, OCR, Table Structure Recognition
-
-Code: https://github.com/run-llama/liteparse</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>GameAnything: From Any Inspirations to Playable Game Worlds</title>
-      <link>https://arxiv.org/abs/2611.29238</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.29238</guid>
-      <description>AI-driven game development holds the potential to transform diverse human inspirations into interactive experiences. However, existing systems and benchmarks primarily focus on explicit development specifications, with limited support for adapting multimodal references and evaluating actual gameplay experiences. We introduce GameAnything, an open-source agentic platform that transforms multimodal inspirations into playable extensions of existing games through iterative development. GameAnything integrates coding agents with an independent playtesting critic, persistent development state, and reusable experience memory to support continuous refinement. We further present GameAnything-Bench, a benchmark spanning diverse reference modalities, game creation objectives, and gaming environments, with exploratory gameplay testing to assess both functional correctness and gameplay quality. Evaluations of nine coding agent configurations reveal that current agents can adapt reference content but still struggle with playable interactions and precise modifications. Moreover, multimodal references improve content fidelity, while iterative refinement yields substantial but varying improvements across agents. These findings highlight both the potential and remaining challenges of inspiration-driven game development.
-
-Authors: Wenyi Wu, Siqi Liu, Yuru Feng, Zixuan Song, Aayush Salvi, Sibo Zhu, Kun Zhou, Biwei Huang
-
-Tasks: Coding Agents
-
-Code: https://github.com/AetherLabsAI/GameAnything</description>
-      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Attention Latent Feedback</title>
-      <link>https://arxiv.org/abs/2611.31154</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.31154</guid>
-      <description>During autoregressive decoding, the deeper representations of the previous token have already been computed, yet shallow layers at the current token cannot read them directly because standard self-attention connects positions only at the same depth. We introduce Attention Latent Feedback (ALF), an architecture that allows every sublayer to attend to the outputs of the deeper layers at the previous position. Training unrolls this cross-position recurrence into two parallel passes, whereas decoding remains single-pass using cached previous-token states. Across mixture-of-experts models with up to 4.0B parameters, ALF lowers held-out loss by 0.022-0.024 nats over the standard residual with about 1.1% decoding FLOP overhead, and consistently outperforms prior final-state feedback across all three scales on both standard and attention residual backbones. On MoE-1.6B, ALF matches a $1.38\times$ larger baseline token budget, and on MoE-4.0B it lifts average accuracy across seventeen downstream benchmarks from 45.1% to 47.0%. Analysis further reveals that intermediate and nearby deeper layers drive most of this benefit, allowing a fixed nearest-window variant to retain 89%-94% of the gain at linear read cost while learned attention widens its margin with scale.
-
-Authors: Xuyuan Xiong, Siyu Chen, Mengzhao Chen, Yue Su, Zhuoran Yang, Ping Luo, Xihui Liu
-
-Tasks: Language Modeling
-
-Code: https://github.com/xjxyys/alf</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>TimeTravelContainer: A Live Forking Sandbox for Stateful Agent Exploration</title>
-      <link>https://arxiv.org/abs/2611.32255</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32255</guid>
-      <description>LLM agents that drive stateful tools (e.g., interactive shells, design environments, simulation engines) frequently need to clone, backtrack, and parallelize live sessions to support exploration. However, cloning a live session today requires serializing the tool's in-memory state to disk or relaunching from scratch, both prohibitively slow for interactive exploration. Existing agent sandboxes based on microVMs or kernel patches either serialize full guest memory to storage or require privileged deployment, limiting use on shared compute farms, personal computers, and other restricted environments. We present TimeTravelContainer (TTC), a rootless container runtime that live-forks an entire running container, including processes, memory, filesystem, and network, with copy-on-write (CoW) semantics. Because the bulk of a tool session's memory is typically read-only after the fork point, clones share it automatically and only diverged pages consume additional memory. TTC requires no kernel modifications, hardware virtualization, or root privileges, and runs on all major platforms including Linux, macOS (Apple Silicon), and Windows (WSL 2), making it deployable as a portable foundation for agent harnesses. We evaluate TTC on two agentic electronic design automation (EDA) flows as representative stateful-tool workloads: MAGE (Innovus) and EvoDRC (KLayout). TTC achieves 84.1$\times$ environment cloning speedup, 31--72% memory reduction, and 1.7--9.4$\times$ end-to-end speedup, demonstrating that live forking removes a scaling barrier for agent-driven exploration of stateful tool environments.
-
-Authors: Zizheng Guo, Yanqing Zhang, Nathaniel Pinckney, Cunxi Yu, Brucek Khailany
-
-Tasks: Agents
-
-Code: https://github.com/nvlabs/timetravelcontainer</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Letting Models Manage Their Own Context: Where We Stand</title>
-      <link>https://arxiv.org/abs/2611.34147</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34147</guid>
-      <description>Agent harnesses today manage context on the model's behalf: when the window fills, the harness triggers a compaction that summarizes the history. We study the alternative, model-driven context management, in which the model itself decides when and what to compact through a context API. We gave models control over their own context in \nooa, NVIDIA's open source agent harness, and compared the two strategies on document research and machine learning engineering across context budgets from 8K to 512K tokens. Models that use the context API effectively reach higher accuracy, often with fewer input tokens, especially at tight budgets: GPT 6.1 nearly triples its score at a 32K budget on OfficeQA Pro v2 (21\%~rightarrow~56\%), and Kimi gains with up to 41\% fewer input tokens. Models differ widely, however, in how often they use the API, how aggressively they compact, and when they start compacting, and prompt changes shift that timing. Finally, we show that inference engines can make model-driven edits cheaper: by reusing the KV cache of the unchanged suffix after an edit, we cut prefill compute by up to 15\% per request with no measurable change in accuracy. Together, these results point to a new co-design frontier: models trained to manage their own context, served by inference engines that support KV cache editing.
-
-Authors: Alessio Devoto, Avinash Vem, Tara Safavi, Sanjay Kariyappa, Yu-Hsuan Tseng, Paul Furgale, Ricardo Silveira Cabral
-
-Tasks: Harness Engineering, Long Context
-
-Code: https://github.com/nvidia-nemo/labs-OO-Agents</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents</title>
-      <link>https://arxiv.org/abs/2611.34852</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34852</guid>
-      <description>Deep research agents gather information from multiple sources and synthesize it into reports on complex, open-ended questions. Existing benchmarks assess report quality along several dimensions, but lack a dedicated knowledge-centric evaluation of which research directions a report covers and how deeply it explores them. We introduce DRBench Pro, a benchmark that makes structured knowledge coverage the primary evaluation target. Our automated pipeline builds local knowledge trees from Wikipedia and uses sampled subgraphs to generate research queries and evidence-grounded rubrics. Each rubric corresponds to a relation in the tree, preserving the structure of the knowledge being evaluated. Agents receive only the research query. This structure allows us to measure breadth across major research directions and depth along related knowledge chains, with their geometric mean giving overall coverage. The benchmark includes 144 cases across 24 domains and 44,102 rubrics. Evaluating 16 deep research agents reveals different strengths in breadth and depth, with the best-performing agent reaching 57.04% overall coverage. Rubric judgments agree closely with human annotations, and agent rankings remain stable across the tested metric configurations.
-
-Authors: Han Huang, Yuchen Yan, Xingyu Wu, Yijun Li, Chao Deng, Jie Liu, Jin Ma, Yongliang Shen
-
-Tasks: Deep Research Agents
-
-Code: https://github.com/ZJU-REAL/DRBenchPro</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>VenusOCR2.0: Towards Efficient and Effective Document Parsing</title>
-      <link>https://arxiv.org/abs/2611.32617</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32617</guid>
-      <description>We present VenusOCR2.0, a compact 1B-parameter vision-language recognizer designed for both high-accuracy and high-throughput document parsing across text, tables, and formulas. To continuously improve recognition quality without self-training collapse, we build a bounded recursive self-improvement (RSI) data engine where the model acts strictly as a weakness probe, while external multi-expert medoid consensus, VLM visual verification, and factorized synthesis supply reliable supervision across pretraining, curated SFT, and RLVR. VenusOCR2.0 couples a dynamic-resolution SigLIP2 encoder and 2x2 spatial token merging with a Qwen3-0.6B decoder, adopting compact atomic OTSL tokens to shorten table sequences and reduce structural errors. To further eliminate the autoregressive decoding bottleneck, we introduce PTPv2, a lightweight (sim67M) decoupled parallel draft module that combines frozen multi-layer verifier conditioning, a standalone learned mask, and block-causal all-position next-token prediction. On OmniDocBenchv1.6, VenusOCR2.0 achieves an overall score of 96.45 and a state-of-the-art 98.57 formula CDM, substantially outperforming massive general-purpose VLMs such as Gemini-3-Pro (92.91) and Qwen3-VL-235B (89.78). Deployed in vLLM on a single H20 GPU, PTPv2 delivers a 2.96x single-request speedup and up to 2.36x higher batched throughput while guaranteeing lossless, token-for-token equivalence with standard autoregressive decoding.
-
-Authors: Lei Li, Zheng Wei, Yi Yuan, Qingbin Liu, Jiang Bian, Zang Li
-
-Tasks: Document Layout Analysis, Document Understanding, Language Modeling, Pseudo Labelling, Reasoning, Reinforcement Learning
-
-Code: https://github.com/flow3rdown/VenusOCR</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>DyLoMo-DiT: Dynamic Looped Mixture-of-Experts Diffusion Transformers</title>
-      <link>https://arxiv.org/abs/2611.30844</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30844</guid>
-      <description>Diffusion Transformers (DiTs) scale model capacity by increasing both parameter count and computation. Mixture-of-Experts (MoE) variants expand parameter capacity while keeping per-token computation roughly fixed, but still require substantial parameter storage. In this paper, we propose Dynamic Looped MoE DiT (DyLoMo-DiT), which reuses parameters rather than adding them: a weight-shared loop repeatedly applies the middle layers, while sparse experts allocate parameter capacity across tokens. This design deepens the network without adding parameters, freeing the parameter budget for other uses, such as more experts or more distinct layers. It also allocates compute dynamically, varying the number of passes across noise levels. Experiments show that DyLoMo-DiT makes more effective use of parameter and compute budgets, with further gains from assigning more passes to low-noise steps. On ImageNet 256times256, DyLoMo-DiT reduces FID by 11-24% relative to DiT and 36-56% relative to DiT-MoE at matched parameter and compute budgets. For text-to-image generation, a scaled DyLoMo-DiT achieves a higher GenEval score than FLUX.1 (0.714 vs. 0.673), with less than one tenth of its active parameters (1.05B vs. 12B).
-
-Authors: Lernie Li, Yuanliu Liu, Pengfei Xiong, Wei ZHANG
-
-Tasks: Image generation, Text-to-Image Generation
-
-Code: https://github.com/OneBoxCream/DyLoMo-DiT</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
