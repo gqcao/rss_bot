@@ -4,19 +4,71 @@
     <title>Papers with Code Trending Papers</title>
     <link>https://paperswithcode.com/</link>
     <description>Trending papers from Papers with Code</description>
-    <lastBuildDate>Sat, 28 Nov 2026 02:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 03:00:00 GMT</lastBuildDate>
     <item>
-      <title>OCRia-nano-1: Fast, Accurate CPU Parsing with 8.1M Parameters</title>
-      <link>https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</link>
-      <guid isPermaLink="true">https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</guid>
-      <description>Recent vision-language models achieve strong document parsing accuracy but are optimized for server-grade GPUs. Existing CPU parsers still lag in accuracy, particularly in reconstructing tables and layout. We present OCRia-nano-1, an 8.1M-parameter document parsing pipeline optimized for CPU inference. The pipeline combines native PDF extraction with small models for OCR and document structure. LiteParse extracts available text and geometry, invokes OCR where needed, and supplies spatial features to LayoutNet, a joint table and layout reconstruction model. OCRia-nano-1 outperforms Indra and Marker on four of five benchmarks at comparable CPU throughput. On ParseBench-2, it scores 59.2, compared with 55.1 for Indra and 52.5 for Marker. It processes 27.8 pages per second on 16 vCPUs, twice the throughput of LiteParse’s default Tesseract configuration. Ablations show that joint table and layout reconstruction accounts for much of the accuracy gain, while larger OCR models provide only modest additional improvements. We release the model weights on Hugging Face under a modified OpenRAIL license, with LiteParse integration as an opt-in OCR backend.
+      <title>Letting Models Manage Their Own Context: Where We Stand</title>
+      <link>https://arxiv.org/abs/2611.34147</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34147</guid>
+      <description>Agent harnesses today manage context on the model's behalf: when the window fills, the harness triggers a compaction that summarizes the history. We study the alternative, model-driven context management, in which the model itself decides when and what to compact through a context API. We gave models control over their own context in \nooa, NVIDIA's open source agent harness, and compared the two strategies on document research and machine learning engineering across context budgets from 8K to 512K tokens. Models that use the context API effectively reach higher accuracy, often with fewer input tokens, especially at tight budgets: GPT 6.1 nearly triples its score at a 32K budget on OfficeQA Pro v2 (21\%~rightarrow~56\%), and Kimi gains with up to 41\% fewer input tokens. Models differ widely, however, in how often they use the API, how aggressively they compact, and when they start compacting, and prompt changes shift that timing. Finally, we show that inference engines can make model-driven edits cheaper: by reusing the KV cache of the unchanged suffix after an edit, we cut prefill compute by up to 15\% per request with no measurable change in accuracy. Together, these results point to a new co-design frontier: models trained to manage their own context, served by inference engines that support KV cache editing.
 
-Authors: Logan Markewich, Simon Suo
+Authors: Alessio Devoto, Avinash Vem, Tara Safavi, Sanjay Kariyappa, Yu-Hsuan Tseng, Paul Furgale, Ricardo Silveira Cabral
 
-Tasks: Document Layout Analysis, Document Understanding, OCR, Table Structure Recognition
+Tasks: Harness Engineering, Long Context
 
-Code: https://github.com/run-llama/liteparse</description>
+Code: https://github.com/nvidia-nemo/labs-OO-Agents</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>HARI4D: Hand-Articulation Aware 4D Reconstruction of Human-Object Interaction</title>
+      <link>https://arxiv.org/abs/2611.32932</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32932</guid>
+      <description>Reasoning about human-object interaction from RGB cameras is important for gaming, VR environments, and robot learning. Yet 4D reconstruction from a monocular RGB camera is challenging, especially when articulated hands are involved. Prior full-body works neglect hands during reconstruction, causing them to penetrate into, or float from the object. We present HARI4D, a hand-articulation-aware method for reconstructing spatially and temporally consistent 4D human-object interaction from monocular RGB video. We introduce a history-aware object tracker that provides robust and stable tracking. Based on these tracks, we improve the interaction configuration through coarse-to-fine reasoning that follows the order of object manipulation: ReachNet first brings the full body and arms to the object during contact, and TouchNet then finalizes hand articulation according to temporal context and local object geometry. On ARCTIC, unseen in training, our method reduces the object error by 56% and improves hand contact F1 from 0.866 to 0.921 over prior art. Our method recovers accurate full body-object interaction with coherent hand articulations and applies to online videos. Our code and pretrained models will be released.
+
+Authors: Semin Kim, Xianghui Xie, Chuqiao Li, Jongyoo Kim, Gerard Pons-Moll
+
+Tasks: 3D Pose Estimation, 3D Reconstruction
+
+Code: https://github.com/xiexh20/hari4d</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DyLoMo-DiT: Dynamic Looped Mixture-of-Experts Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2611.30844</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30844</guid>
+      <description>Diffusion Transformers (DiTs) scale model capacity by increasing both parameter count and computation. Mixture-of-Experts (MoE) variants expand parameter capacity while keeping per-token computation roughly fixed, but still require substantial parameter storage. In this paper, we propose Dynamic Looped MoE DiT (DyLoMo-DiT), which reuses parameters rather than adding them: a weight-shared loop repeatedly applies the middle layers, while sparse experts allocate parameter capacity across tokens. This design deepens the network without adding parameters, freeing the parameter budget for other uses, such as more experts or more distinct layers. It also allocates compute dynamically, varying the number of passes across noise levels. Experiments show that DyLoMo-DiT makes more effective use of parameter and compute budgets, with further gains from assigning more passes to low-noise steps. On ImageNet 256times256, DyLoMo-DiT reduces FID by 11-24% relative to DiT and 36-56% relative to DiT-MoE at matched parameter and compute budgets. For text-to-image generation, a scaled DyLoMo-DiT achieves a higher GenEval score than FLUX.1 (0.714 vs. 0.673), with less than one tenth of its active parameters (1.05B vs. 12B).
+
+Authors: Lernie Li, Yuanliu Liu, Pengfei Xiong, Wei ZHANG
+
+Tasks: Image generation, Text-to-Image Generation
+
+Code: https://github.com/OneBoxCream/DyLoMo-DiT</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Mixture-of-Loops Transformer</title>
+      <link>https://arxiv.org/abs/2611.34923</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34923</guid>
+      <description>Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1.4x mean token efficiency. At inference, U-MoLT with MoL-Hybrid-2 matches non-looped OLMo3 latency at 996.6 vs. 1,000.6 ms on S-size (~113M) models. Code is available at https://github.com/hustvl/MoLT
+
+Authors: Lianghui Zhu, Shijie Wang, Xinggang Wang, Jinze Bai, BO WANG, Xiang Bai
+
+Tasks: Language Modeling
+
+Code: https://github.com/hustvl/MoLT</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>LiveVAE: Causal Window Attention Makes Efficient Streaming Video VAE</title>
+      <link>https://arxiv.org/abs/2611.34912</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34912</guid>
+      <description>While video diffusion models have grown faster and increasingly streamable, the video VAE remains a primary latency bottleneck across interactive generation and editing pipelines. Existing VAEs and their acceleration methods rely mainly on heavy convolutions or full frame attention, and most focus only on decoding, leaving encoding costly for streaming conditional generation and editing. This raises a natural question: Do video VAE encoding and decoding actually require such global spatiotemporal modeling? By analyzing the effective receptive fields of pretrained video VAEs, we find that both encoding and decoding a patch rely almost entirely on its spatial and temporal neighbors. To exploit this strong locality, we introduce LiveVAE, a streaming encoder and decoder built on causal window attention, which cuts per frame compute while keeping the temporal KV cache bounded for streaming. Decoupled encoder/decoder distillation followed by joint finetuning preserves the pretrained latent space, making LiveVAE a drop-in replacement for the original VAE. On MiniMax-H3, LiveVAE achieves 5.2-6.2x faster encoding and 3.0-3.3x faster decoding than the official VAE with higher PSNR. Paired with our dedicated inference infrastructure, LiveVAE pushes the speedup to 13.4x with almost no quality loss. Code and models will be released.
+
+Authors: Jiachen An, Sijie Zhao, Le Li, Hongyu Liu, Zhiyuan Li, Tianyu Yang, Xiaoyu Kong, Xunliang Cai, Yong Zhang, Chi-Man Pun, Xiaoming Wei, Xiaodong Cun
+
+Tasks: Streaming Video Understanding, Video Compression, Video generation
+
+Code: https://github.com/MeiGen-AI/LiveVAE</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents</title>
@@ -29,6 +81,134 @@ Authors: Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang
 Tasks: Deep Research Agents
 
 Code: https://github.com/uclanlp/OpenVLHarness</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Improving and Expanding Video Editing Capabilities Without Videos</title>
+      <link>https://arxiv.org/abs/2611.34941</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34941</guid>
+      <description>Image editing models can follow a wide range of instructions, but video editing models still lag behind, limited in part by the difficulty of collecting paired source and edited videos. Is it possible to transfer advanced image editing capabilities to video editors without new paired videos? We introduce Image-to-Video Transfer (I2VT), which improves pretrained video editors and expands them to new editing tasks using an image editor. It enables efficient post-training with no architectural changes and no new videos, using only individual images. Our key idea is to let the video editor role-play as an image editor: it edits an image as a one-frame video, with the image editor guiding the video editor's predictions at each denoising step. Although the video editor sees only single images during training, at test time it applies the improved and expanded capabilities to whole video clips while preserving temporal consistency. To push the boundaries of video editing, we introduce OpenVE++, an extension of OpenVE-Bench that adds four new editing tasks useful for video production, including action changes, expression changes, body movements, and scene relighting. Our experiments across three different video editors show that I2VT improves existing editing capabilities and expands them to new tasks, and our models achieve state-of-the-art (SOTA) performance on both OpenVE-Bench and OpenVE++.
+
+Authors: Ji Xie, Yanhao Jia, Xiangpeng Yang, Martin Q. Ma, Sihan Xu, Erik Cambria, Louis-Philippe Morency
+
+Tasks: Inverse Rendering, Video Editing, Video generation
+
+Code: https://github.com/HorizonWind2004/i2v-transfer</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>High-Fidelity Image Matting with Pixel-Space Diffusion Transformers</title>
+      <link>https://arxiv.org/abs/2611.34929</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34929</guid>
+      <description>Diffusion models have shown strong potential for image matting by transferring generative priors learned from large-scale pretraining. However, existing approaches largely rely on latent diffusion models, whose compressed representations and VAE-based reconstruction introduce a mismatch with the high-frequency precision required for matting. We present PixelMatte, a framework that adapts pretrained pixel-space diffusion transformers for high-fidelity image matting. We show that strong image-conditioned matting capabilities can be acquired even from a pure text-to-image model without paired image-to-image pretraining. Our approach reuses the backbone's native patch embedding to jointly process the input image, trimap, and noisy alpha matte as spatially aligned tokens, enabling direct pixel-space prediction without additional condition encoders or adapters. With pixel-accurate synthetic supervision and real-image fine-tuning, PixelMatte predicts alpha mattes in a single forward pass. Two lightweight calibration modules, LayerShift and High-Pass Refiner, further improve regional opacity accuracy and boundary fidelity. Experiments across four benchmarks and two distinct pixel diffusion backbones demonstrate substantial improvements over existing methods, reducing SAD and gradient errors by 24-44% relative to RenderMatte on P3M-500-NP and AM-2K, while achieving competitive performance on AIM-500 and RenderMatte-2K. These results demonstrate the effectiveness of pixel-space generative priors for precision-sensitive image matting. Project page: https://white-yc.github.io/pixelmatte/.
+
+Authors: Baihan Yang, Xin Lin, Yufan Wei, Baiang Li, Yuheng Liu, Juanxi Tian, Xiaohui Xie, Truong Nguyen
+
+Tasks: Image generation, Image Matting, Text-to-Image Generation
+
+Code: https://github.com/White-YC/pixelmatte</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fractal Neural Synthesis: Constant-Storage Procedural Weight Derivation via Complex Quadratic Boundary Dynamics</title>
+      <link>https://arxiv.org/abs/2611.32393</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32393</guid>
+      <description>Conventional neural networks store synaptic parameters as explicit tensors whose persistent Flash footprint scales linearly (O(W)) with parameter count, constraining resource-limited edge microcontrollers. We formulate and systematically evaluate Fractal Neural Synthesis (FNS), a procedural weight derivation architecture that replaces hidden-layer matrices with a constant 24-byte coordinate seed Theta = (c_x, c_y, ell) in F_64^3 anchored near the complex quadratic bifurcation boundary dM of f_c(z) = z^2 + c. We introduce a large-bailout (R = 256) smooth escape kernel, four zero-overhead geometric sampling apertures--Cartesian Grid, coprime 3x3 Rule-of-Thirds (Z/9Z), phi-Vogel spiral, and multi-scale Harmonic Tripod--and prove conditional Kolmogorov (K_Kolm &lt;= 192 + c_0 bits) and Shannon entropy bounds. Across magnifications zeta in [10^0, 10^8], C^1 Fourier and lattice-noise bases collapse to post-standardization rank ~2.25 and SHA-256 PRNG exhibits avalanche discontinuity (rho ~ 0.019, 50.6% micro-step retention), whereas dM uniquely sustains both rank (~10.0) and local continuity (rho in [0.81, 0.97], 89.2% retention). Under leak-free 10-fold CV across four zero-scaler-byte non-linear benchmarks, FNS with an INT8 readout surpasses 0-hidden Linear-INT8 by +3.6 to +10.8 pp while delivering 10.7x-129x total Flash reduction (725x-2,773x hidden reduction) relative to converged Float32 MLPs (90.30% Ionosphere in 285 B; 97.22% Optical Digits in 2,598 B; 97.90% PenDigits in 2,598 B; 87.00% Satimage in 1,570 B).
+
+Authors: Volkan Dagli, Zerrin Dagli, Daghan Dagli
+
+Tasks: Tabular Learning
+
+Code: https://github.com/pCwOrM/fractal-neural-synthesis</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Sage-Med: Scaling Medical Multimodal Intelligence</title>
+      <link>https://arxiv.org/abs/2611.34575</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34575</guid>
+      <description>Establishing effective scaling laws for medical multimodal large language models (MLLMs) remains a persistent and fundamental challenge. Our systematic evaluation shows that existing medical MLLMs tend to underperform frontier general-purpose MLLMs across a range of medical tasks, while scaling model size primarily improves text capabilities rather than multimodal perception, and enabling reasoning modes fails to close this visual gap. To investigate how medical multimodal intelligence scales in practice, we introduce Sage-Med-Preview, a 35B-parameter medical multimodal model with 3B activated parameters, built by combining stage-specific curation over 322.7 million candidate records with a progressive training curriculum spanning medical pretraining, staged supervised fine-tuning, and adaptive reinforcement learning. Across this curriculum, progressive supervised refinement and adaptive reinforcement learning yield consistent stage-wise gains, substantially advancing both specialized visual understanding and medical language capabilities. Evaluated against 77 competing models across 238 clinical tasks spanning 61 public and 13 private multi-center benchmarks in more than 40 modalities, Sage-Med-Preview achieves an average score of 58.26% on the 31 public multimodal benchmarks. It outperforms the state-of-the-art open-source medical model Hulu-Med-235B-A22B at 50.99% and the general scientific model Intern-S2-Preview at 52.24%, and approaches the advanced proprietary model GPT-6.2-Sol across multiple tasks such as comprehensive multimodal understanding, report generation, and visual grounding. Although substantial challenges remain in complex medical reasoning and multi-step clinical workflows, this report provides empirical evidence, actionable data and training recipes, and a rigorous benchmark toward scalable clinical multimodal intelligence.
+
+Authors: Med Team, Ming Hu, Cheng Tang, Wei Li, Rongbin Li, Feilong Tang, Junru Hu, Hongze Zhu, Qiujuan Yan, Huanze Tang, Shaocong Wei, Siyuan Yan, Min Cen, Zhongxing Xu, Zhonghua Wang, Lie Ju, Zhen Yu, Wenjie Li, Shiyan Su, Jing Hao, Jingyong Liang, Diping Song, Fang Yan, Chenglong Ma, Junzhi Ning, Haochen Xue, Zanting Ye, Chenrun Wang, Jinjie Wei, Yi Xin, Jianghan Shen, Siqi Luo, Jiyao Liu, Huidong Xie, Jun Zhao, Rulin Zhou, Longquan Jiang, Ziyan Huang, Ying Chen, Hanxiao Zhang, Junyang Wu, Mouxiao Bian, Jiashi Lin, Chenyu Wang, Qi Qin, Jie Huang, Yiling Zhou, Jiawei Chen, Kefan Wang, Jingjing Hua, Yaoyu Liu, Huihui Xu, Tianbin Li, Jin Ye, Ziyang Chen, Shujian Gao, Zilin Lu, Jiangtao Yan, Changkai Ji, Wenhao Tang, Xinyi Zeng, Yuxing Chen, Hongwei Yang, Rongzhao Zhang, Jinru Ding, Yingcheng Wu, Zhenfei Yin, Jinzhe Li, Lu Lu, Yun Zhong, Zhishan Lin, Bingli Wang, Xiaohan Ren, Jianmin Qian, Penghao Zhao, Zhongbo Tian, Zhenbang Zhou, Peiling Dai, Mengjing Zhao, Jingyu Zheng, Pinan Liu, Shiwei Li, Victoria Mar, Cristina Vico-Alonso, Qiang Wu, Xianming Liu, Lingtong Huang, Dili Song, Minghui Zhang, Wenlong Zhang, Qipeng Guo, Yuqiang Li, Nanqing Dong, Yun Gu, Qi Duan, Hongliang Ren, Hongming Shan, Yin Xie, Xiang An, Benyou Wang, Yueming Su, Yefeng Zheng, Zongyuan Ge, Chun-Mei Feng, Jie Xu, Yu Qiao, Junjun He, YiRong Chen
+
+Tasks: Healthcare &amp; Medical AI, Image Captioning, Image Understanding, Medical Image Segmentation, Medical Question Answering, Medical Visual Question Answering, Reinforcement Learning, Visual Grounding
+
+Code: https://github.com/Sage-Med/Sage-Med-Preview</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Embodied AI Fails the Mirror Test: How a Simple Mirror Breaks Robot Policies</title>
+      <link>https://arxiv.org/abs/2611.33010</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.33010</guid>
+      <description>Can a simple mirror expose the limitations of today's robotic manipulation policies? Inspired by the mirror self-recognition test in animal cognition, we investigate whether robot policies can reliably manipulate physical objects in scenes containing their reflections. We introduce RoboDojo-Mirror, a benchmark built on RoboDojo that preserves task objectives, success criteria, and policy checkpoints while comparing a mirror-free baseline with single-mirror, dual-mirror, and mirrored-tabletop conditions. Across five policies spanning Vision-Language-Action models, World Action Models, and agentic policies, every mirror condition reduces aggregate success rates: averaged over the three conditions, the drop ranges from 10.8 to 56.7 percentage points across policies, and it reaches 62.5 points on the mirrored tabletop. Because a mirror is also a physical obstacle, we compare it against geometrically matched non-reflective panels; 50--88\% of mirror-specific failures occur without recorded robot--panel contact, so direct collisions alone do not explain the degradation. Trajectory and contact analyses instead reveal recurring behaviors consistent with phantom targeting of reflected objects and spatial mislocalization of real ones. Targeted diagnostics further characterize grasping near reflections, policy-dependent pushing progress, and physical-target interaction under main-camera occlusion. Real-robot experiments with π_{0.5} and FastWAM also show lower overall success rates under the upright-mirror and mirrored-tabletop conditions. These findings reveal a shared vulnerability to reflective environments across diverse robot policies and motivate reflection-aware evaluation of embodied intelligence. Code is available at https://github.com/iPPLab/robodojo-mirror.
+
+Authors: Xuanchen Liu, Hejun Zhang, Boxuan Dong, Ying Wu, Heshuai Li, Wen Gao, Yonghong Tian, Weihao Yu
+
+Tasks: Robotics, World Models
+
+Code: https://github.com/iPPLab/robodojo-mirror</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Delegent: A Multi-Agent Harness That Reduces Cost without Sacrificing Performance</title>
+      <link>https://arxiv.org/abs/2611.33098</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.33098</guid>
+      <description>Agents built on frontier language models are expensive. At every step, the frontier model re-reads its entire context and executes every subtask regardless of its difficulty. This paper explores the simple thesis that much of this cost can be removed by delegating easy subtasks to a small language model, or SLM, that runs on hardware one already owns. To test it, we build Delegent, a simple and effective agent harness built on Claude Code, in which the frontier model stays in charge of every task but hands focused subtasks, such as investigating code, running tests, and searching a corpus, to SLM subagents. Existing approaches such as cascades and model routers usually choose which model executes the entire task, whereas in Delegent, the frontier model always leads the execution and delegates easy subtasks to the SLM. No router or model is trained, so either model can be swapped freely. With the help of a 27B FP8 SLM, Delegent reduces the frontier cost of long-horizon coding by 67% and of agentic search by 59%, with no loss in task performance, and even a 2B SLM that fits on a laptop reduces the coding cost by 66%. The savings grow with the legwork that the frontier model would otherwise do itself, and a short instruction, which leaves the main coding tasks to the frontier model, accounts for most of the saving and keeps the 2B SLM from losing tasks. Code: https://github.com/castorini/delegent
+
+Authors: Lingwei Gu, Jimmy Lin
+
+Tasks: Coding Agents, Long-Horizon Agents, Multi-Agent Systems
+
+Code: https://github.com/castorini/delegent</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ternary Bonsai 2.5 27B</title>
+      <link>https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</link>
+      <guid isPermaLink="true">https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</guid>
+      <description>Ternary Bonsai 2.5 27B is the agentic release of the Ternary Bonsai 27B line. It keeps the Qwen3.8-27B hybrid-attention architecture and the ternary weight format of Bonsai 2, so it is still 1.76 bits per weight and 5.93 GB, against 53.8 GB for the FP16 model. This release targets long-horizon, tool-driven work.
+
+Tasks: Agents, Coding Agents, Long-Horizon Agents
+
+Code: https://github.com/prismml-eng/bonsai-demo</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets</title>
+      <link>https://arxiv.org/abs/2611.30013</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.30013</guid>
+      <description>Animating arbitrary 3D assets from instructions requires both structural inference and motion control, yet existing motion benchmarks mostly cover conventional human or animal skeletons with simple instructions. We introduce DivDynBench, which evaluates rigging and motion generation across six morphology categories, with instructions requiring multi-phase part coordination and explicit timing, angle, repetition, and trajectory constraints. With large language models, we systematically compare three common paradigms: specialized motion generation, video generation followed by motion recovery, and direct agent-driven generation. We analyze their control capabilities, cross-morphology adaptability, and generation costs. Guided by this comparison, we propose an Agentic Motion Framework in which an agent writes compact parametric skeleton and motion programs, and a deterministic executor performs rigging, kinematic solving, and geometric correction. Compact parameter control reduces generation overhead and improves rigging reliability and motion-control accuracy, providing practical guidance for deploying complex 3D motion generation.
+
+Authors: Bohan Zeng, Kaixin Zhu, Yifan Yang, Dongge Yu, Zihao Wu, Yifan Dai, Zhou Liu, Junbo Niu, Xiaochen Ma, Shiran Ge, Zimo Meng, Junzhu Liang, Huanyao Zhang, JinHang Liu, Tianqi Xiao, Jinhao Zhang, Tianyi Bai, Zhixiong Zeng, Penghao Zhao, Yuanbo Peng, Key Zhang, Wentao Zhang
+
+Tasks: Motion Generation, Video generation
+
+Code: https://github.com/OpenDCAI/GameFactory-3A</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DocSEAM: Bidirectional Cross-Page Encoding for Multi-Page Document Understanding</title>
+      <link>https://arxiv.org/abs/2611.34420</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.34420</guid>
+      <description>Multi-page document vision-language models encode each page independently, creating a feature-level discontinuity at page boundaries: visual tokens are formed without access to content on adjacent pages, and the language model must reason over these page representations formed in isolation. We introduce DocSEAM (Document Selective Enrichment via Anchored Masking), a lightweight module inserted between a pretrained vision encoder and the language model that injects the inductive bias of local cross-page context into visual representations. For each page, DocSEAM forms a local triplet with its two neighbors, applies center-anchored masked self-attention with directional salience gates to fuse information from neighbor pages, and returns only the enriched center-page tokens, leaving the visual token count unchanged. After a supervised cross-page warm-up and multi-page fine-tuning with DocSEAM frozen, our 9B-parameter model achieves state-of-the-art results among the evaluated open-weight models of up to 10B parameters on five multi-page document VQA benchmarks. We further show that under controlled re-pagination, DocSEAM reduces sensitivity to boundary placement and improves cross-page span localization
+
+Authors: Hoang-Nhat Nguyen, Chen Change Loy
+
+Tasks: Document Understanding, Image Understanding, Question Answering
+
+Code: https://github.com/mossbee/DocSEAM</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>OCRia-nano-1: Fast, Accurate CPU Parsing with 8.1M Parameters</title>
+      <link>https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</link>
+      <guid isPermaLink="true">https://www.llamaindex.ai/ocria/ocria-nano-1-report.pdf</guid>
+      <description>Recent vision-language models achieve strong document parsing accuracy but are optimized for server-grade GPUs. Existing CPU parsers still lag in accuracy, particularly in reconstructing tables and layout. We present OCRia-nano-1, an 8.1M-parameter document parsing pipeline optimized for CPU inference. The pipeline combines native PDF extraction with small models for OCR and document structure. LiteParse extracts available text and geometry, invokes OCR where needed, and supplies spatial features to LayoutNet, a joint table and layout reconstruction model. OCRia-nano-1 outperforms Indra and Marker on four of five benchmarks at comparable CPU throughput. On ParseBench-2, it scores 59.2, compared with 55.1 for Indra and 52.5 for Marker. It processes 27.8 pages per second on 16 vCPUs, twice the throughput of LiteParse’s default Tesseract configuration. Ablations show that joint table and layout reconstruction accounts for much of the accuracy gain, while larger OCR models provide only modest additional improvements. We release the model weights on Hugging Face under a modified OpenRAIL license, with LiteParse integration as an opt-in OCR backend.
+
+Authors: Logan Markewich, Simon Suo
+
+Tasks: Document Layout Analysis, Document Understanding, OCR, Table Structure Recognition
+
+Code: https://github.com/run-llama/liteparse</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -45,19 +225,6 @@ Code: https://github.com/YurunChen/EgoUseBench</description>
       <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Mixture-of-Loops Transformer</title>
-      <link>https://arxiv.org/abs/2611.34923</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34923</guid>
-      <description>Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1.4x mean token efficiency. At inference, U-MoLT with MoL-Hybrid-2 matches non-looped OLMo3 latency at 996.6 vs. 1,000.6 ms on S-size (~113M) models. Code is available at https://github.com/hustvl/MoLT
-
-Authors: Lianghui Zhu, Shijie Wang, Xinggang Wang, Jinze Bai, BO WANG, Xiang Bai
-
-Tasks: Language Modeling
-
-Code: https://github.com/hustvl/MoLT</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Look Back: Reinforcement Learning with Counterfactual World Models</title>
       <link>https://arxiv.org/abs/2611.29259</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2611.29259</guid>
@@ -69,43 +236,6 @@ Tasks: Classic Reinforcement Learning, Multi-Agent Reinforcement Learning, World
 
 Code: https://github.com/ToghrulAbbasov19/look-back</description>
       <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Ternary Bonsai 2.5 27B</title>
-      <link>https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</link>
-      <guid isPermaLink="true">https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf</guid>
-      <description>Ternary Bonsai 2.5 27B is the agentic release of the Ternary Bonsai 27B line. It keeps the Qwen3.8-27B hybrid-attention architecture and the ternary weight format of Bonsai 2, so it is still 1.76 bits per weight and 5.93 GB, against 53.8 GB for the FP16 model. This release targets long-horizon, tool-driven work.
-
-Tasks: Agents, Coding Agents, Long-Horizon Agents
-
-Code: https://github.com/prismml-eng/bonsai-demo</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>DocSEAM: Bidirectional Cross-Page Encoding for Multi-Page Document Understanding</title>
-      <link>https://arxiv.org/abs/2611.34420</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34420</guid>
-      <description>Multi-page document vision-language models encode each page independently, creating a feature-level discontinuity at page boundaries: visual tokens are formed without access to content on adjacent pages, and the language model must reason over these page representations formed in isolation. We introduce DocSEAM (Document Selective Enrichment via Anchored Masking), a lightweight module inserted between a pretrained vision encoder and the language model that injects the inductive bias of local cross-page context into visual representations. For each page, DocSEAM forms a local triplet with its two neighbors, applies center-anchored masked self-attention with directional salience gates to fuse information from neighbor pages, and returns only the enriched center-page tokens, leaving the visual token count unchanged. After a supervised cross-page warm-up and multi-page fine-tuning with DocSEAM frozen, our 9B-parameter model achieves state-of-the-art results among the evaluated open-weight models of up to 10B parameters on five multi-page document VQA benchmarks. We further show that under controlled re-pagination, DocSEAM reduces sensitivity to boundary placement and improves cross-page span localization
-
-Authors: Hoang-Nhat Nguyen, Chen Change Loy
-
-Tasks: Document Understanding, Image Understanding, Question Answering
-
-Code: https://github.com/mossbee/DocSEAM</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets</title>
-      <link>https://arxiv.org/abs/2611.30013</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.30013</guid>
-      <description>Animating arbitrary 3D assets from instructions requires both structural inference and motion control, yet existing motion benchmarks mostly cover conventional human or animal skeletons with simple instructions. We introduce DivDynBench, which evaluates rigging and motion generation across six morphology categories, with instructions requiring multi-phase part coordination and explicit timing, angle, repetition, and trajectory constraints. With large language models, we systematically compare three common paradigms: specialized motion generation, video generation followed by motion recovery, and direct agent-driven generation. We analyze their control capabilities, cross-morphology adaptability, and generation costs. Guided by this comparison, we propose an Agentic Motion Framework in which an agent writes compact parametric skeleton and motion programs, and a deterministic executor performs rigging, kinematic solving, and geometric correction. Compact parameter control reduces generation overhead and improves rigging reliability and motion-control accuracy, providing practical guidance for deploying complex 3D motion generation.
-
-Authors: Bohan Zeng, Kaixin Zhu, Yifan Yang, Dongge Yu, Zihao Wu, Yifan Dai, Zhou Liu, Junbo Niu, Xiaochen Ma, Shiran Ge, Zimo Meng, Junzhu Liang, Huanyao Zhang, JinHang Liu, Tianqi Xiao, Jinhao Zhang, Tianyi Bai, Zhixiong Zeng, Penghao Zhao, Yuanbo Peng, Key Zhang, Wentao Zhang
-
-Tasks: Motion Generation, Video generation
-
-Code: https://github.com/OpenDCAI/GameFactory-3A</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>On-Policy Codec Distillation for Efficient All-in-One Video Generation</title>
@@ -132,132 +262,6 @@ Tasks: Continuous Control, Humanoid Robotics, Motion Generation
 
 Code: https://github.com/AIGeeksGroup/MotionMamba2.0</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe</title>
-      <link>https://arxiv.org/abs/2611.32884</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32884</guid>
-      <description>AI agents working on long tasks often commit to an answer before they have enough evidence, a behavior called laziness. In our evaluations, they frequently commit even while their stated belief still names several possible answers. An outcome reward at the end of the episode scores only the final answer, so it cannot teach the agent when to commit, because a lucky guess receives the same reward as an answer backed by evidence. During training, however, the simulator can compute the exact posterior over the answer at every step and tell whether the evidence is already enough. We propose Reinforcement Learning with Verifiable Beliefs (RLVB), which rewards the agent for taking further steps while this posterior still allows several answers and for committing once the evidence is sufficient. The reward needs no judge, critic or reward model, and it never reads the belief line the agent writes before each action. We also introduce Pro Worlds, a benchmark of visual puzzles where the agent views a large world through a small window. We evaluate three vision-language models on three benchmarks, two of which are never seen in training. RLVB improves the base model in all nine settings, by 17.1% on average. Under the outcome reward, GRPO and PPO fall below the base model on average. RLVB also outperforms PPO with a process reward from an LLM judge by 9.3% on average while using 1.6 times fewer GPU-hours. The trained agent answers with sufficient evidence in 51%, 12% and 74% of the episodes on the three benchmarks, against 8%, 0.4% and 36% for the base model. Its accuracy gain therefore comes from answering more often at high levels of evidence. The belief line shows how the agent reaches this evidence: it acts on its own belief. It commits at only 0.1 to 2.2% of the turns at which the evidence is insufficient and its line still names several answers, against 3 to 68% for the base model.
-
-Authors: Richmond Sin Jing Xuan, Peilin Feng, Wenbin Wang, Soujanya Poria
-
-Tasks: Agents, Long-Horizon Agents, Reinforcement Learning, Reward model evaluation
-
-Code: https://github.com/declare-lab/RLVB</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation</title>
-      <link>https://arxiv.org/abs/2611.34290</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34290</guid>
-      <description>Modern video foundation models generate high-quality short clips, but preserving long-video consistency and correctly depicting event-driven state changes remain challenging. Existing agentic workflows face these challenges because continual planning and repair accumulate context, while reference updates remain limited. We introduce StateWeaver, which combines Active States and Hierarchical Collaboration to connect review-driven visual reference updates with cross-shot state inheritance. Active States translate state discrepancies identified during review into concrete visual asset requirements that guide reference construction, validation, and regeneration, preserving identity and already-correct content while repairing target attributes. Confirmed generation results are linked to the corresponding asset states, story time, and reference versions for verification and reuse by subsequent shots. Hierarchical Collaboration isolates execution contexts by task, clip, and repair round, and uses hierarchical memory to organize this process across multiple sets. Across multiple benchmarks, StateWeaver outperforms existing methods and produces long videos with sustained cross-shot consistency under predefined and autonomously planned storyboards.
-
-Authors: Modi Jin, Xuying Zhang, Yijing Guo, Haoran Li, Yanwen Ma, Jing Wang, Chenyu Ge, Ming-Ming Cheng, Haoyang Huang
-
-Tasks: Video generation
-
-Code: https://github.com/ghost233lism/StateWeaver</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>A Mesh for Every Moment</title>
-      <link>https://arxiv.org/abs/2611.34939</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34939</guid>
-      <description>We present MEMO (a Mesh for Every MOment), a method that reconstructs the geometry of complete dynamic scenes, captured by multiple synchronized cameras, and extracts a mesh at every frame. Existing dynamic Gaussian splatting methods either model appearance alone or target isolated objects segmented by foreground masks, and all of them recover meshes by TSDF fusion or Poisson reconstruction, whose fixed grids limit the detail they can capture. At the core of MEMO is a per-Gaussian motion model inspired by Gaussian processes, which represents each Gaussian's position and rotation over time as a combination of temporal Gaussian kernels. The model keeps every Gaussian a valid surface element throughout the sequence and carries an implicit representation of the dynamic geometry, so a mesh can be derived at any time from a field defined by the Gaussians. Although common in real captures, large and fast motion poses a challenge that dynamic Gaussian splatting methods usually overlook. To account for it, we design a track-based initialization scheme that fits each Gaussian's initial trajectory to point tracks in closed form. We evaluate MEMO on Blender-Moments, a new benchmark of nine animated scenes with ground-truth meshes at every frame, and on two real-world datasets. MEMO reconstructs the most accurate geometry among state-of-the-art methods, and remains competitive in novel-view synthesis and training time. Project page: https://memo-4d.github.io
-
-Authors: Roy Or-El, Jeong Joon Park, Ira Kemelmacher-Shlizerman
-
-Tasks: 3D Reconstruction, Novel View Synthesis
-
-Code: https://github.com/royorel/MEMO</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>GOLD-SLAM: Gaussian-splatting Omnidirectional LiDAR-Depth SLAM</title>
-      <link>https://arxiv.org/abs/2611.32335</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32335</guid>
-      <description>Panoramic cameras capture nearly the entire spherical field of view in a single frame. However, the mismatch between this panoramic coverage and the field of view of LiDAR poses a substantial challenge for panoramic Gaussian splatting SLAM that relies on LiDAR depth priors. We introduce GOLD-SLAM, a Gaussian-splatting Omnidirectional LiDAR-Depth SLAM system that combines high-quality rendering with accurate geometric reconstruction. It performs tracking and mapping in the spherical domain and uses tracked visual features in regions without LiDAR coverage to improve pose estimation. To address insufficient coverage of newly observed surfaces and floating artifacts during incremental mapping, we introduce Depth-Aware Map Extension and Pruning (DAEP). To enable broader evaluation, we collect a new dataset, WHOLE, using a UAV platform across Weak-geometry, High-dynamic, Omnidirectional, Low-light, and Easy scenarios. Extensive experiments on public benchmarks and WHOLE demonstrate competitive rendering quality and improved geometric accuracy relative to perspective systems. Compared with existing panoramic baselines, GOLD-SLAM improves mean PSNR by 5.56-9.10 dB and reduces mean Depth-L1 by 71.9-83.9%. To assess deployment feasibility on resource-constrained platforms such as UAVs, we evaluate an embedded configuration of GOLD-SLAM on a Jetson Orin NX (16 GB), demonstrating online operation at the cost of reconstruction quality.
-
-Authors: Weicong Zhang, Yuan Huang, Yu Zheng, Lin Chenxiao, Yingying Li, Lilong Fan, Liangdong Zhuang, Yufan Chen, Ruiping Liu, Junwei Zheng, Jiaming Zhang
-
-Tasks: 3D Reconstruction, Pose Estimation, Visual SLAM
-
-Code: https://github.com/InSAI-Lab/GOLD-SLAM</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Change the Base, Change the Game: Rethinking Pan-sharpening</title>
-      <link>https://arxiv.org/abs/2611.32002</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.32002</guid>
-      <description>Many pan-sharpening (PS) networks reconstruct high-resolution multispectral (HRMS) images by adding learned residuals to 4times-interpolated low-resolution multispectral (LRMS) inputs, incorporating panchromatic (PAN) detail only through these residual corrections. This raises a simple question: Why start with a blurry base when sharp spatial detail is already available? We propose PanBase, a sharper multispectral starting point designed for more effective residual learning. Guided by physical sensor characteristics, PanBase combines PAN spatial detail with LRMS spectral information while enforcing consistency with the LRMS observations under sensor-specific blur. We construct this base without neural network training, estimating only nine coefficients per spectral band through closed-form calibration. Our PanBase can be easily integrated into existing backbones with a global residual skip through two simple changes: (i) replacing the skip base with PanBase and (ii) concatenating it as an additional input. Using each backbone's original training recipe and matched training budgets, PanBase improves most reduced- and full-resolution metrics on WorldView-3, QuickBird, and GaoFen-2, while achieving 4.4times faster training convergence on average. In zero-shot evaluation on WorldView-2, standalone PanBase achieves competitive reconstruction without target-sensor fitting or neural refinement.
-
-Authors: Jeonghyeok Do, Geunhyuk Youk, Munchurl Kim
-
-Tasks: Image Fusion
-
-Code: https://github.com/KAIST-VICLab/PanBase</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SenseTime Open-Sources SenseNova U1.6 with Enhanced Aesthetics and Native Image Self-Correction New model delivers improved text accuracy, with ComfyUI support for streamlined creative workflows</title>
-      <link>https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</link>
-      <guid isPermaLink="true">https://www.sensetime.com/en/news/sensenova-u1-6-open-source-20261126-1454</guid>
-      <description>SenseTime (00200.HK) announced the release and open-sourcing of SenseNova U1.6, its latest unified multimodal model that enhances creative visual expression, aesthetic quality, and text accuracy in image creation. Building on the U series' unified approach to image understanding and generation, SenseNova U1.6 brings native image self-correction to the series' 8B open-source model for the first time. The new model supports a wide range of creative applications, from portraits and illustrations to posters and infographics. SenseNova U1.6 is now supported by ComfyUI, an open-source AI visual creation platform, enabling creators to generate images with self-correction through node-based workflows. Its API-based version, SenseNova U1.6 Lite, has also been integrated into several SenseTime applications, including the AI productivity assistant Raccoon Work, the video creation agent Seko, and the mobile photography app Kapi Camera.
-
-Tasks: Image editing, Image generation, Text-to-Image Generation
-
-Code: https://github.com/OpenSenseNova/SenseNova-U1</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation</title>
-      <link>https://arxiv.org/abs/2611.34907</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34907</guid>
-      <description>Real-time autoregressive video generators stream minutes of video and accept new prompts on the fly, but struggle to keep people, objects, and places consistent over a long interactive story. Agent systems provide such memory for offline multi-shot generation, yet they read the whole script in advance, plan each shot before generating it, and regenerate failed shots, which a live stream does not allow. We present Agentic LongLive, an asynchronous agentic memory for long video generation. A memory agent on separate GPUs reads only the prompts revealed so far, never the generated video, and keeps a text state and evolving images for every person, object, and scene. From this entity memory it composes a global image and a per-shot memory image, which an auxiliary GPU prefills into the generator's attention sink before the next shot starts, and writes entity cards for the prompts that name them, so the video never waits for memory and video errors are not written back. A small language model, trained with reinforcement learning and an image reward calibrated using downstream video outcomes, decides what to remember before the next prompt is known. On LongStory-Online, a new benchmark of 25 stories (857 shots) revealed one shot at a time, Agentic LongLive improves persistent-state accuracy of LongLive-2.0, its base generator, by 26.3 points, protagonist identity by 44.9, and revisited-place consistency by 40.4, at about 1% extra generation time on H100. The full system streams faster than real time on one 8xB200 node with the generator in BF16 (34.3 FPS), keeps image quality stable over 14-minute stories, and improves identity on two MiniMax-H3 generators, one of which, LongLive-H3, also runs in real time with it. To our knowledge, it is the first real-time video generator with text and image memory kept by an LLM agent.
-
-Authors: Shaoteng Liu, Shuai Yang, Wei Huang, Luozhou Wang, Song Han, Yukang Chen
-
-Tasks: No-Reference Image Quality Assessment, Reinforcement Learning, Video generation
-
-Code: https://github.com/NVlabs/LongLive</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Letting Models Manage Their Own Context: Where We Stand</title>
-      <link>https://arxiv.org/abs/2611.34147</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.34147</guid>
-      <description>Agent harnesses today manage context on the model's behalf: when the window fills, the harness triggers a compaction that summarizes the history. We study the alternative, model-driven context management, in which the model itself decides when and what to compact through a context API. We gave models control over their own context in \nooa, NVIDIA's open source agent harness, and compared the two strategies on document research and machine learning engineering across context budgets from 8K to 512K tokens. Models that use the context API effectively reach higher accuracy, often with fewer input tokens, especially at tight budgets: GPT 6.1 nearly triples its score at a 32K budget on OfficeQA Pro v2 (21\%~rightarrow~56\%), and Kimi gains with up to 41\% fewer input tokens. Models differ widely, however, in how often they use the API, how aggressively they compact, and when they start compacting, and prompt changes shift that timing. Finally, we show that inference engines can make model-driven edits cheaper: by reusing the KV cache of the unchanged suffix after an edit, we cut prefill compute by up to 15\% per request with no measurable change in accuracy. Together, these results point to a new co-design frontier: models trained to manage their own context, served by inference engines that support KV cache editing.
-
-Authors: Alessio Devoto, Avinash Vem, Tara Safavi, Sanjay Kariyappa, Yu-Hsuan Tseng, Paul Furgale, Ricardo Silveira Cabral
-
-Tasks: Harness Engineering, Long Context
-
-Code: https://github.com/nvidia-nemo/labs-OO-Agents</description>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Building General-Purpose Robots Based on Embodied Foundation Model</title>
-      <link>https://github.com/X-Square-Robot/wall-x/blob/main/README.md</link>
-      <guid isPermaLink="true">https://github.com/X-Square-Robot/wall-x/blob/main/README.md</guid>
-      <description>We are building embodied foundation models to capture and compress the world's most valuable data: continuous, high-fidelity physical interaction. By creating a direct feedback loop between model decisions and the body's lived experience, we enable generalizable intelligence that understands not just how the world works, but how to act effectively within it.
-
-Tasks: Robotics
-
-Code: https://github.com/X-Square-Robot/wall-x</description>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents</title>
-      <link>https://arxiv.org/abs/2611.33144</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.33144</guid>
-      <description>Learning for dexterous manipulation is limited by the scarcity of high-quality demonstrations: retargeting from human video is imprecise, teleoperation gives no force feedback to the operator, and exoskeleton-based collection is hard to scale up. We present PyRUA-Dex, a framework that enables coding agents to develop dexterous manipulation through programmatic policy, without the need of demonstrations. The programmatic policy is developed in two stages: during exploration, multiple agents explore in parallel for task skills and ways to compose them, and a distilling agent condenses the successful attempts into a task library and one program. During refinement, this program is improved through randomized layouts for enhanced robustness and execution efficiency. In simulated environments, PyRUA-Dex achieves SOTA on Bench2Dex with a score of 72.9 and reaches 81.0% success on DexJoCo under full randomization, ahead of every trained policy on both benchmarks. In real world experiments on a bimanual platform with two 22-DoF hands, PyRUA-Dex learns to play piano, write calligraphy, and other tasks efficiently: learning a new piece from sheet music takes as little as 30 minutes. These results suggest that PyRUA-Dex is an effective framework for developing dexterous manipulation policies with coding agents in the absence of high quality dexterous manipulation demonstrations.
-
-Authors: Feixiang Ruan, Guodong Lv, Kewei Zhang, Wenbo Huang, Yintianrun Zhang, Qiang Wang, Ruiyang Si, Shunyu Yang, Shulong Jiang, Weicheng Duan, Rui Ni, Jianxin Bi, Lekai Wang, Yuze Fan, Haobo Li, Zeliang Fu, Jiankun Zhang, Duomin Wang, Enze Xie, Daquan Zhou
-
-Tasks: Coding Agents, Robotics
-
-Code: https://github.com/DAGroup-PKU/PyRUA-Lean</description>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
